@@ -1,0 +1,85 @@
+#work-box .panel-body {
+	padding: 15px 30px;
+}
+#work-box .panel-title {
+	display: block;
+}
+#work-box .panel-footer {
+	margin-top: 0;
+	padding: 8px 15px;
+}
+#work-box .panel-footer #clinic-total-hours {
+	padding: 0;
+}
+#work-box .panel-footer h3{
+	display: inline-block;
+    margin: 0;
+    color: $dentix-main;
+    font-size: 20px;
+}
+#work-box .list-group {
+	margin-bottom: 15px;
+}
+#work-box .list-group-item {
+	padding: 0;
+	border: 0;
+}
+#work-box .list-group-item .panel-collapse {
+}
+#work-box #accordion .panel-heading {
+	padding: 10px 0;
+    background: transparent;
+    color: $dentix-main;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px dotted $dentix-secondary;
+}
+#work-box #accordion .panel-heading.active h4 { 
+    font-weight: bolder;
+}
+#work-box #accordion .panel-heading .clinic-hours { 
+    padding: 0;
+    display: inline-block;
+    float: none;
+}
+#work-box #accordion .panel-body {
+	padding: 0;
+}
+#work-box #accordion .panel-title { 
+    display: inline-block;
+    width: 100%;
+}
+#work-box #accordion .panel-title a{ 
+    display: inline-block;
+    vertical-align: middle;
+}
+#work-box .badge {
+	float: right;
+	background-color: $dentix-white;
+	color: $dentix-main;
+}
+#work-box .panel-footer .badge {
+	float: right;
+	background-color: $dentix-main;
+	color: $dentix-white;
+	font-size: 16px;
+    font-weight: 100;
+    padding: 5px 15px;
+}
+/* Clinic Schedule Overrides */
+#work-box #accordion #schedule-header {
+	display: none;
+}
+#work-box #accordion #schedule-footer {
+	display: none;
+}
+#work-box #schedule-container {
+	padding: 0;
+}
+#work-box #schedule-inner-frame {
+	border: 0;
+	border-color: none;
+	margin-bottom: 0;
+	box-shadow: none;
+	padding-right: 5px;
+}

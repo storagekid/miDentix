@@ -1,0 +1,116 @@
+// Global textual link color.
+$link-color: $dentix-main;
+// Link hover color set via `darken()` function.
+$link-hover-color: $dentix-white;
+// Link hover decoration.
+$link-hover-decoration: underline !default;
+/* make sidebar nav vertical */ 
+.navbar-left-sidebar {
+  background-color: $dentix-main-10;
+}
+.sidebar-nav .navbar .navbar-collapse {
+  padding: 0;
+  max-height: none;
+}
+.sidebar-nav .navbar ul {
+  float: none;
+  display: block;
+}
+.sidebar-nav .navbar li {
+  float: none;
+  display: block;
+}
+.sidebar-nav .navbar li:nth-child(odd) {
+  background-color: $dentix-main-20;
+}
+.sidebar-nav .navbar li a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+/* Left-SideBar unique styles */
+.sidebar-nav > .navbar-default .navbar-nav > li > a {
+  color: $dentix-main;
+}
+.sidebar-nav > .navbar-default .navbar-nav > li > a:hover,
+  .sidebar-nav > .navbar-default .navbar-nav > li > a:focus,
+  .sidebar-nav > .navbar-default .navbar-nav > li > a:active {
+  color: $dentix-white;
+  background-color: $dentix-main-65;
+}
+.sidebar-nav > .navbar-default .navbar-nav > .active > a, 
+.sidebar-nav > .navbar-default .navbar-nav > .active > a:hover, 
+ .sidebar-nav > .navbar-default .navbar-nav > .active > a:focus {
+  background-color: $dentix-main;
+  color: $dentix-white;
+}
+
+@media (min-width: 768px) {
+  #left-sidebar {
+    height: 100vh;
+    padding: 0;
+    background: $dentix-main-10;
+    box-shadow: 3px 0 3px $dentix-main-20; 
+  }
+  #side-profile {
+    min-height: $jumbotron-height;
+    display: block;
+    box-sizing: border-box;
+    padding-top: 20px;
+    border-bottom: 2px solid $dentix-main;
+    background-color: $dentix-white;
+  }
+  #side-profile a.thumbnail {
+    margin-bottom: 12px;
+    max-width: 120px;
+  }
+  .profile-info {
+    line-height: 0.8;
+  }
+  #profile-name {
+    font-weight: bold;
+    color: $dentix-main;
+  }
+  .navbar-left-sidebar {
+  }
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .sidebar-nav .navbar li#surveys .badge {
+    float: right;
+    background-color: $dentix-main;
+  }
+}
+
+@media (max-width: 992px) {
+  #left-sidebar li a{
+    text-align: center;
+  }
+  #left-sidebar li .glyphicon{
+    font-size: 20px;
+    border: 2px solid $dentix-main;
+    border-radius: 100%;
+    padding: 10px;
+  }
+  #left-sidebar #side-profile {
+    padding-top: 10px;
+  }
+  #left-sidebar .profile-info {
+    line-height: 1.1;
+  }
+  #left-sidebar .profile-info p{
+    margin-bottom: 5px;
+  }
+}

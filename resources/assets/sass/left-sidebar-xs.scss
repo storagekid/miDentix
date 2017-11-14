@@ -1,0 +1,32 @@
+
+#left-nav-xs .navbar-nav li:nth-child(odd) {
+  background-color: $dentix-main-20;
+}
+#left-nav-xs .navbar-nav li a {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+/* Left-SideBar unique styles */
+#left-nav-xs > .navbar-nav > li > a {
+  color: $dentix-main;
+}
+#left-nav-xs > .navbar-nav > li > a:hover,
+  #left-nav-xs > .navbar-nav > li > a:focus,
+  #left-nav-xs > .navbar-nav > li > a:active {
+  color: $dentix-white;
+  background-color: $dentix-main-65;
+}
+#left-nav-xs > .navbar-nav > .active > a, 
+#left-nav-xs > .navbar-nav > .active > a:hover, 
+ #left-nav-xs > .navbar-nav > .active > a:focus {
+  background-color: $dentix-main;
+  color: $dentix-white;
+}
+@media (max-width: 768px) {
+  #profile-dropdown {
+    border-top: 1px solid $dentix-main;
+  }
+  .navbar-nav .open .dropdown-menu {
+    background-color: $dentix-white;
+  }
+}

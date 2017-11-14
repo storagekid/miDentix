@@ -1,0 +1,57 @@
+#login-container {
+    height: 100vh;
+    background: $dentix-main;
+    background-image: url("/img/login-bg-xs.jpg"); 
+    background-size: cover;
+    margin: 0;
+    width: 100%;
+    padding-top: 50px;
+}
+#login-container h1 {
+	font-weight: lighter;
+	margin: 60px auto 40px auto;
+	color: $dentix-white;
+	font-size: 40px;
+}
+
+#login-box {
+	background-color: rgba(255,255,255, .5);
+	border: 0;
+}
+#login-box form label {
+	color: $dentix-main;
+}
+#login-box .panel-heading{
+	background-color: $dentix-main-80;
+	font-size: 24px;
+	color: $dentix-white;
+	padding: 15px 10px;
+}
+#login-box .panel-body{
+	padding: 15px;
+}
+#login-box .panel-footer{
+	background-color: rgba(255,255,255,.75);
+}
+#login-box .panel-footer picture img{
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+#login-box .btn-link{
+	color: $dentix-secondary;
+}
+
+:-webkit-autofill,
+:-webkit-autofill:hover, 
+:-webkit-autofill:focus {
+	color: $dentix-main;
+	background-color: $dentix-main-10;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+	-webkit-text-fill-color: $dentix-main;
+	-webkit-box-shadow: 0 0 0px 1000px $dentix-main-10 inset;
+ 	transition: background-color 5000s ease-in-out 0s;
+}

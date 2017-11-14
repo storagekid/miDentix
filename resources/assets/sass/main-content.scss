@@ -1,0 +1,89 @@
+#main-content {
+	height: 100vh;
+	padding-top: 0;
+	padding-bottom: 40px;
+	overflow-y: auto;
+	background-image: url(/img/main-bg.jpg);
+	background-size: cover;
+}
+#main-content .panel-default {
+	margin-bottom: 30px;
+}
+#main-content .list-group-item {
+	padding: 5px 15px;
+}
+#main-content .list-group-item .list-badget {
+    vertical-align: middle;
+}
+#main-content .panel-default .panel-heading h3{
+	font-size: 20px;
+}
+#main-content .panel-footer > .progress {
+	margin-bottom: 0;
+}
+#main-content .panel-body > table {
+	margin: 0;
+/*	display: block;
+*/	overflow-x: auto;
+}
+#main-content .panel-body > table .buttons-text {
+	width: 100px;
+}
+
+#main-content .jumbotron {
+	min-height: $jumbotron-height;
+	background-color: $dentix-main-65;
+	padding-top: 20px;
+	padding-bottom: 0;
+	border-radius: 0; 
+	color: $dentix-white;
+	background-image: url("/img/jumbotron-bg.jpg");
+	background-position: center;
+}
+@media (max-width: 500px) {
+	#main-content .jumbotron {
+		min-height: auto;
+		padding-top: 10px;
+		color: $dentix-white;
+	}
+	#main-content .jumbotron h1 {
+		font-size: 24px;
+	}
+	#main-content .jumbotron p {
+		font-size: 16px;
+	}
+	#main-content .list-group-item .list-badget {
+    font-size: 11px;
+	}
+}
+@media (max-width: 768px) and (orientation: landscape)  {
+	#main-content .jumbotron {
+		min-height: auto;
+		padding-top: 10px;
+		color: $dentix-white;
+	}
+}
+/*#main-content form {
+	background-color: $dentix-main-10;
+}
+#main-content form label {
+	color: $dentix-main;
+}*/
+#main-content select.form-control  {
+	padding-left: 0;
+	padding-right: 0;
+}
+#main-content select.form-control option {
+	padding: 2px 10px;
+}
+#main-content select.form-control option:hover,
+ #main-content select.form-control option:active,
+ #main-content select.form-control option:focus {
+	background-color: $dentix-main-10;
+	color: $dentix-main;
+	font-weight: bolder;
+}
+#main-content select.form-control option:checked {
+	background-color: $dentix-main-10;
+	color: $dentix-main;
+}

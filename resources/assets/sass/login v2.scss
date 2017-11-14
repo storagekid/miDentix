@@ -1,0 +1,140 @@
+#login-container {
+    height: 100vh;
+    background: $dentix-main;
+    background-image: url("/img/login-bg-xs.jpg"); 
+    background-size: cover;
+    margin: 0;
+    width: 100%;
+    padding-top: 50px;
+}
+#login-container h1 {
+	font-weight: lighter;
+	margin: 0 auto 20px auto;
+	color: $dentix-white;
+	font-size: 40px;
+}
+
+#login-box {
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+}
+#login-box form label {
+	color: white;
+	font-size: 20px;
+	font-weight: lighter;
+	padding: 10px;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+}
+#login-box .form-control {
+    border: 0;
+    background: rgba(255,255,255,.1);
+    border-bottom: 1px dotted white;
+    box-shadow: none;
+    border-radius: 0;
+    color: white;
+    text-align: center;
+}
+#login-box .panel-heading{
+	background-color: transparent;
+    font-size: 30px;
+    border: 0;
+    font-weight: lighter;
+    border-bottom: 3px solid white;
+    padding: 15px 10px;
+}
+#login-box .panel-body{
+	padding: 15px 40px;
+}
+#login-box .checkbox label {
+    font-size: inherit;
+}
+#login-box button.btn.btn-primary.btn-block {
+    background: rgba(255,255,255,.2);
+    color: white;
+    border: 2px solid white;
+    font-size: 18px;
+    margin: 10px auto;
+    font-weight: bold;
+    border-radius: 0;
+}
+#login-box .panel-footer {
+    background-color: transparent;
+    border-top: 3px solid white;
+}
+#login-box .panel-footer picture img{
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+}
+#login-box .btn-link{
+	color: white;
+    padding: 2px 0;
+    margin: 5px auto;
+    border-bottom: 1px solid white;
+}
+
+:-webkit-autofill,
+:-webkit-autofill:hover, 
+:-webkit-autofill:focus {
+	color: $dentix-main;
+	background-color: $dentix-main-10;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+	background-color: $dentix-main-10;
+	-webkit-text-fill-color: $dentix-white;
+	-webkit-box-shadow: 0 0 0px 1000px $dentix-main-10 inset;
+ 	transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (min-width: 768px) {
+	#login-container h1 {
+		margin: 60px auto 40px auto;
+	}
+}
+@media (max-width: 450px) {
+	#login-container {
+	    padding-top: 30px;
+	}
+	#login-container h1 {
+		font-size: 24px;
+		margin-bottom: 30px;
+	}
+	#login-box .panel-heading{
+	    font-size: 20px;
+	    padding: 5px 10px;
+	    border-width: 2px;
+	}
+	#login-box .panel-body{
+		padding: 5px 25px;
+	}
+	#login-box .form-group {
+	    margin-bottom: 20px;
+	}
+	#login-box .form-control {
+	    height: auto;
+	    padding: 5px;
+	}
+	#login-box form label {
+		font-size: 14px;
+		padding: 0;
+		margin: 0 auto;
+	}
+	#login-box button.btn.btn-primary.btn-block {
+		font-size: 16px;
+	    margin: 0;
+	    padding: 2px;
+	}
+	#login-box .panel-footer {
+	    border-width: 2px;
+	}
+	#login-box .panel-footer picture img{
+		width: 65%;
+		margin: 0 auto;
+		display: block;
+	}
+}

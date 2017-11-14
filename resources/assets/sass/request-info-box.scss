@@ -1,0 +1,7 @@
+#requests-info-box .panel-body {
+	max-height: 40vh;
+	overflow-y: auto;
+}
+#requests-info-box .panel-body#admin-requests-table {
+	max-height: 60vh;
+}
