@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Keboola\Csv\CsvFile;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call([
+        	StatesSeeder::class,
+        	ClinicsSeeder::class,
+        	CountriesSeeder::class,
+        	EspecialtiesSeeder::class,
+        	MastersSeeder::class,
+        	ExperiencesSeeder::class,
+        	MunicipiosSeeder::class,
+        	ProvinciasSeeder::class,
+        	UniversitiesSeeder::class,
+        	UsersSeeder::class,
+        ]);
     }
 }

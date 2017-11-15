@@ -1,0 +1,3 @@
+"id","name","email","password","role","remember_token","created_at","updated_at"
+"1","Isabel Castaño","icastano@dentix.es","$2y$10$Aw8af.qyLq3zKPhFjgJ8sODyPecOFpGUC0NyaO9JNWYQOlzOqsbiu","admin","BlDp6bIW0oLf8hjia0ilIZbDPE7VUf5LPrd02SCQXa8b9P5Kdgvf4KUo6kVA","2017-10-25 09:27:12","2017-10-25 09:27:12"
+"2","Juan Gabriel","jgvillalba@dentix.es","$2y$10$kJRsqTLvyAl8jcNsoJ12LOtIY.EIAAhiA0zEw8/syvaewndF7PK.S","user","CzLzF4K62Qvypg233SDcG7o6xYikuolsAGnIoFfJPpRuqrIfsFCxaB2JxeZ1","2017-10-25 09:29:50","2017-11-15 11:05:55"
