@@ -8,6 +8,6 @@ use App\University;
 class Master extends Model
 {
     public function universities() {
-        return $this->belongsToMany(University::class);
+        return $this->belongsToMany(University::class)->withPivot('id');
     }
 }
