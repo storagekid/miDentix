@@ -21,11 +21,16 @@ class DatabaseSeeder extends Seeder
         	ExperiencesSeeder::class,
         	MunicipiosSeeder::class,
         	ProvinciasSeeder::class,
-        	UniversitiesSeeder::class,
+            UniversitiesSeeder::class,
+        	LaboratoriesSeeder::class,
         	UsersSeeder::class,
             Master_UniversitySeeder::class,
             ProfilesSeeder::class,
             Clinic_ProfileSeeder::class,
+            Especialty_ProfileSeeder::class,
+            Experience_ProfileSeeder::class,
+            Master_University_ProfileSeeder::class,
+            RequestsSeeder::class,
         ]);
     }
 }

@@ -24,7 +24,9 @@ class Profile extends Model
     		);
     }
     public function clinics() {
-        return $this
-            ->belongsToMany(Clinic::class);
+        return $this->belongsToMany(Clinic::class);
+    }
+    public function requests() {
+        return $this->hasMany(Request::class);
     }
 }

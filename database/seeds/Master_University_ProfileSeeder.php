@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Clinic_ProfileSeeder extends Seeder
+class Master_University_ProfileSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,15 +12,15 @@ class Clinic_ProfileSeeder extends Seeder
     public function run()
 	{
 		$profiles = \App\Profile::all();
-		$items = \App\Clinic::all();
+		$items = \App\Master_University::all();
 		$Selected = [];
 		foreach($profiles as $profile) {
-			$times = mt_rand(1,3);
+			$times = mt_rand(0,3);
 			while($times > 0) {
 				$item = $items[mt_rand(0,count($items)-1)];
 				if (!in_array($item, $Selected)) {
 					$Selected[] = $item;
-					$profile->clinics()->save($item);
+					$profile->masters()->save($item);
 					$times--;
 				}
 			}

@@ -21,6 +21,7 @@ class CreateRequestsTable extends Migration
             $table->string('type_detail1')->nullable();
             $table->text('description');
             $table->timestamps();
+            $table->dateTime('closed_at')->nullable()->default(null);
         });
     }
 
