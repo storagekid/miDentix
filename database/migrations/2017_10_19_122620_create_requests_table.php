@@ -15,6 +15,11 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('profile_id');
+            $table->unsignedInteger('clinic_id');
+            $table->string('type');
+            $table->string('type_detail1')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }

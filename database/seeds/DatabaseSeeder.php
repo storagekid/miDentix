@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
         	ProvinciasSeeder::class,
         	UniversitiesSeeder::class,
         	UsersSeeder::class,
+            Master_UniversitySeeder::class,
+            ProfilesSeeder::class,
+            Clinic_ProfileSeeder::class,
         ]);
     }
 }

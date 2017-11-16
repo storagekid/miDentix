@@ -12,4 +12,7 @@ class Clinic extends Model
     public function provincia() {
     	return $this->belongsTo(Provincia::class);
     }
+    public function profiles() {
+    	return $this->belongsToMany(Profile::class);
+    }
 }

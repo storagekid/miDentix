@@ -23,7 +23,7 @@ class CreateClinicsTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('phone_real')->nullable();
             $table->string('phone_adv')->nullable();
-            $table->string('email_ext')->unique()->nullable();
+            $table->string('email_ext')->nullable();
             $table->string('sanitary_code')->nullable();
             $table->string('provincia_id');
             $table->string('clinic-cloud_id')->nullable();

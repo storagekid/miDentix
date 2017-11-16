@@ -23,4 +23,8 @@ class Profile extends Model
     			'master_university_id'
     		);
     }
+    public function clinics() {
+        return $this
+            ->belongsToMany(Clinic::class);
+    }
 }
