@@ -10,7 +10,12 @@
             </div>
             <div class="row">
               <div class="col-xs-12">
-                @include('layouts.schedule.schedule-index-box')
+                <schedule
+                {{-- :profile-src="{{$profile}}"  --}}
+                :clinics-src="{{$clinics}}"
+                :provincias-src="{{$provincias}}"
+                :states-src="{{$states}}"
+                ></schedule>
               </div>
             </div>
         </div>

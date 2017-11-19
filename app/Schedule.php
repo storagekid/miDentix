@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Clinic_Profile extends Model
+class Schedule extends Model
 {
 	protected $fillable = [
-        'profile_id', 'clinic_id'
+        'clinic_id', 'profile_id', 'schedule',
     ];
-    protected $table = 'clinic_profile';
 
     public function profiles() {
     	return $this->belongsToMany(Profile::class);

@@ -9,6 +9,9 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+ mix.options({
+   extractVueStyles: false
+ });
 
 mix.js(['resources/assets/js/app.js', 'resources/assets/js/tools/functions.js'], 'public/js')
 	.js('resources/assets/js/charts.js', 'public/js')

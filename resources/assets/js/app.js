@@ -21,10 +21,12 @@ window.flash = function (message) {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component('schedule', require('./pages/schedule.vue'));
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
+Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
 
 const app = new Vue({
     el: '#app'

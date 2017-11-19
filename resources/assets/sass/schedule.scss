@@ -21,7 +21,7 @@
 .schedule-hour {
     width: 8.10%;
     font-size: 13px;
-    display: inline-block;
+    display: inline-table;
     padding: 0;
     margin: 0;
     float: left;
@@ -38,6 +38,32 @@
 	float: right;
 	height: 20px;
 	padding: 5px 5px;
+}
+.schedule-frames-row.legend {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    float: none;
+    height: auto;
+    padding: 5px 5px;
+}
+.rowBtn {
+    margin: 15px 0;
+}
+.legend > div{
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.legend > div .badge {
+    background: #888;
+    font-size: 13px; 
+}
+.legend > div > .schedule-frame, .legend > div > p {
+    height: inherit;
+}
+.legend > div > .schedule-frame {
+    margin-right: 10px; 
 }
 .schedule-day-name-box {
     display: inline-block;
@@ -61,13 +87,32 @@
     float: left;
     box-sizing: border-box;
 }
+.schedule-frame.empty {
+    /*border: 1px solid $gray;*/
+    background-color: $gray-lighter;
+}
+.schedule-frame.clinic1 {
+	background-color: $dentix-main-80;
+}
+.schedule-frame.clinic2 {
+    background-color: $gray-base;
+}
+.schedule-frame.clinic3 {
+    background-color: $dentix-main-50;
+}
+.schedule-frame.clinic4 {
+    background-color: $gray-light;
+}
 .schedule-frame:hover, .schedule-frame.active:hover {
     background: $dentix-main;
 }
-.schedule-frame.active {
-	background-color: $dentix-main-50;
+.delete-Schedule {
+    border-radius: 100%;
+    margin-left: 10px;
 }
-
+.delete-Schedule span {
+    padding: 0;
+}
 @media (max-width: 500px) {
 	.schedule-hour {
 	    width: 7.9%;

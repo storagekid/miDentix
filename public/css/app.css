@@ -1506,7 +1506,7 @@ hr {
   margin-top: 22px;
   margin-bottom: 22px;
   border: 0;
-  border-top: 1px solid white;
+  border-top: 1px solid #f2f2f2;
 }
 
 .sr-only {
@@ -1823,7 +1823,7 @@ a.bg-danger:focus {
 .page-header {
   padding-bottom: 10px;
   margin: 44px 0 22px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 ul,
@@ -1914,7 +1914,7 @@ blockquote {
   padding: 11px 22px;
   margin: 0 0 22px;
   font-size: 17.5px;
-  border-left: 5px solid white;
+  border-left: 5px solid #f2f2f2;
 }
 
 blockquote p:last-child,
@@ -1942,7 +1942,7 @@ blockquote .small:before {
 blockquote.pull-right {
   padding-right: 15px;
   padding-left: 0;
-  border-right: 5px solid white;
+  border-right: 5px solid #f2f2f2;
   border-left: 0;
   text-align: right;
 }
@@ -3426,7 +3426,7 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: white;
+  background-color: #f2f2f2;
   opacity: 1;
 }
 
@@ -5004,7 +5004,7 @@ tbody.collapse.in {
   line-height: 1;
   color: #585857;
   text-align: center;
-  background-color: white;
+  background-color: #f2f2f2;
   border: 1px solid #bebebd;
   border-radius: 10px;
 }
@@ -5121,7 +5121,7 @@ tbody.collapse.in {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: white;
+  background-color: #f2f2f2;
 }
 
 .nav > li.disabled > a {
@@ -5139,7 +5139,7 @@ tbody.collapse.in {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: white;
+  background-color: #f2f2f2;
   border-color: #fff;
 }
 
@@ -5171,7 +5171,7 @@ tbody.collapse.in {
 }
 
 .nav-tabs > li > a:hover {
-  border-color: white white #ddd;
+  border-color: #f2f2f2 #f2f2f2 #ddd;
 }
 
 .nav-tabs > li.active > a,
@@ -6029,7 +6029,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:focus {
   z-index: 2;
   color: #fff;
-  background-color: white;
+  background-color: #f2f2f2;
   border-color: #ddd;
 }
 
@@ -6129,7 +6129,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: white;
+  background-color: #f2f2f2;
 }
 
 .pager .next > a,
@@ -6295,7 +6295,7 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: white;
+  background-color: #f2f2f2;
 }
 
 .jumbotron h1,
@@ -6310,7 +6310,7 @@ a.badge:focus {
 }
 
 .jumbotron > hr {
-  border-top-color: #e6e5e5;
+  border-top-color: #d8d8d8;
 }
 
 .container .jumbotron,
@@ -6670,7 +6670,7 @@ button.list-group-item {
 .list-group-item.disabled,
 .list-group-item.disabled:hover,
 .list-group-item.disabled:focus {
-  background-color: white;
+  background-color: #f2f2f2;
   color: #cfcfce;
   cursor: not-allowed;
 }
@@ -9359,7 +9359,7 @@ form#profile-create-form {
 .schedule-hour {
   width: 8.10%;
   font-size: 13px;
-  display: inline-block;
+  display: inline-table;
   padding: 0;
   margin: 0;
   float: left;
@@ -9379,6 +9379,39 @@ form#profile-create-form {
   float: right;
   height: 20px;
   padding: 5px 5px;
+}
+
+.schedule-frames-row.legend {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  float: none;
+  height: auto;
+  padding: 5px 5px;
+}
+
+.rowBtn {
+  margin: 15px 0;
+}
+
+.legend > div {
+  height: 30px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.legend > div .badge {
+  background: #888;
+  font-size: 13px;
+}
+
+.legend > div > .schedule-frame,
+.legend > div > p {
+  height: inherit;
+}
+
+.legend > div > .schedule-frame {
+  margin-right: 10px;
 }
 
 .schedule-day-name-box {
@@ -9407,13 +9440,39 @@ form#profile-create-form {
           box-sizing: border-box;
 }
 
+.schedule-frame.empty {
+  /*border: 1px solid $gray;*/
+  background-color: #f2f2f2;
+}
+
+.schedule-frame.clinic1 {
+  background-color: #895287;
+}
+
+.schedule-frame.clinic2 {
+  background-color: #585857;
+}
+
+.schedule-frame.clinic3 {
+  background-color: #ae8eaf;
+}
+
+.schedule-frame.clinic4 {
+  background-color: #cfcfce;
+}
+
 .schedule-frame:hover,
 .schedule-frame.active:hover {
   background: #753470;
 }
 
-.schedule-frame.active {
-  background-color: #ae8eaf;
+.delete-Schedule {
+  border-radius: 100%;
+  margin-left: 10px;
+}
+
+.delete-Schedule span {
+  padding: 0;
 }
 
 @media (max-width: 500px) {
