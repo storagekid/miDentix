@@ -43197,7 +43197,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43243,6 +43243,22 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43505,6 +43521,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.doHours();
     },
     toggleAddClinic: function toggleAddClinic() {
+      if (this.updateSchedules.method) {
+        return flash({ message: 'Debes cancelar la modificación antes de poder añadir.', label: 'warning' });
+      }
       if (!this.addClinic.method) {
         if (this.profileSrc.clinics.length > 3) {
           flash({ message: 'Número máximo de clínicas alcanzado. Si necesitas añadir más ponte en contacto con el equipo médico.', label: 'warning' });
@@ -43525,6 +43544,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     toggleUpdate: function toggleUpdate() {
+      if (this.addClinic.method) {
+        return flash({ message: 'Debes cancelar el modo añadir antes de poder modificar.', label: 'warning' });
+      }
       if (!this.updateSchedules.method) {
         this.updateSchedules.method = 'update';
         this.updateSchedules.ButtonText = 'Cancelar';
@@ -43532,6 +43554,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-remove';
       } else {
         this.updateSchedules.method = false;
+        this.addClinic.selectedClinicId = false;
         this.updateSchedules.ButtonText = 'Modificar';
         this.updateSchedules.ButtonClasses = 'btn btn-primary';
         this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-pencil';
@@ -43564,6 +43587,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     selectClinic: function selectClinic(e) {
       this.addClinic.selectedClinicId = e.target.value;
+      if (e.target.value == "") {
+        this.addClinic.selectedClinicId = false;
+      }
     },
     fetch: function fetch() {
       var _this = this;
@@ -43586,6 +43612,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
       this.scheduleAdd(id);
       this.toggleAddClinic();
+    },
+    notifyUpdating: function notifyUpdating(id) {
+      flash({
+        message: 'Horario actualizado correctamente',
+        label: 'success'
+      });
+      this.toggleUpdate();
     },
     notifyRemoving: function notifyRemoving(data) {
       flash({
@@ -43651,6 +43684,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.decrementClinicHours(data.clinic);
       }
     },
+    rollback: function rollback(data) {
+      if (this.days[data.day][data.hour] == null || this.days[data.day][data.hour] == data.id) {
+        if (!data.value && this.days[data.day][data.hour]) {
+          this.decrementClinicHours(data.id);
+        } else if (!this.days[data.day][data.hour] && data.value) {
+          this.incrementClinicHours(data.id);
+        }
+        this.days[data.day][data.hour] = data.value;
+      }
+    },
     doHours: function doHours() {
       var total = 0;
       for (var clinic in this.clinicHours) {
@@ -43700,7 +43743,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43785,6 +43828,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             clinicHoursDef: this.clinicHours,
             scheduleToSave: {},
+            scheduleToRestore: {},
+            idToRestore: null,
             clinics: this.profileSrc.clinics,
             frameStyle: {},
             jarClasses: {},
@@ -43815,8 +43860,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-    watch: {},
+    watch: {
+        addingId: function addingId() {
+            if (this.updateMode) {
+                if (this.idToRestore) {
+                    this.rollBackUpdate(this.idToRestore);
+                }
+                if (this.addingId) {
+                    this.getScheduleToRestore(this.addingId);
+                    this.idToRestore = this.addingId;
+                } else {
+                    this.idToRestore = false;
+                    this.scheduleToRestore = {};
+                }
+            } else if (this.idToRestore) {
+                this.rollBackUpdate(this.idToRestore);
+                this.idToRestore = false;
+            }
+        }
+    },
     methods: {
+        rollBackUpdate: function rollBackUpdate(id) {
+            for (var day in this.scheduleToRestore) {
+                for (var hour in this.scheduleToRestore[day]) {
+                    var value = this.scheduleToRestore[day][hour];
+                    this.$emit('rollback', { day: day, id: id, hour: hour, value: value });
+                    this.schedules[id][day][hour] = this.scheduleToRestore[day][hour];
+                    if (this.daysDef[day][hour] == id || this.daysDef[day][hour] == null) {
+                        this.daysDef[day][hour] = this.scheduleToRestore[day][hour];
+                    }
+                }
+            }
+        },
         checkClass: function checkClass(day, hour, clinic) {
             if (this.daysDef[day][hour]) {
                 return this.getClass(clinic);
@@ -43841,9 +43916,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 for (var o = 0; o < this.dayHours.length; o++) {
                     day[this.dayHours[o]] = null;
                 }
-                // if (Object.keys(this.schedules).length == 0) {
-                //     this.days[name] = day;
-                // }
                 this.scheduleToSave[name] = day;
             }
         },
@@ -43863,6 +43935,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     this.$emit('toggleDay', { day: day, hour: hour, clinic: _clinic });
                 } else if (this.daysDef[day][hour] == this.addingId) {
                     this.daysDef[day][hour] = null;
+                    this.scheduleToSave[day][hour] = null;
                     this.$emit('toggleDay', { day: day, hour: hour, clinic: _clinic });
                 } else {
                     flash({ message: 'Ya has añadido esa hora a otra clínica', label: 'warning' });
@@ -43882,38 +43955,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         frameClasses: function frameClasses(clinic) {
             return this.getClass(clinic);
-            // let classes = ['schedule-frame'];
-            // let background = 'empty';
-            // for (var i = 1; i <= this.clinics.length; i++) {
-            //     if (this.clinics[i-1].id == clinic) {
-            //         background = 'clinic'+i;
-            //     }
-            // }
-            // classes.push(background);
-            // return classes;
-        },
-        toggleState: function toggleState() {
-            // console.log('ADDING!!!');
         },
         classes: function classes() {
             for (var i = 0; i < this.clinics.length; i++) {
                 this.jarClasses[this.clinics[i].id] = 'schedule-frame ' + 'clinic' + (i + 1);
             }
-        },
-        addClinic: function addClinic() {
-            var _this = this;
-
-            axios.post('/schedule', {
-                clinic_id: this.addingId,
-                profile_id: this.profileSrc.id,
-                schedule: JSON.stringify(this.scheduleToSave)
-            }).catch(function (error) {
-                flash(error.response.data, 'danger');
-            }).then(function (response) {
-                _this.body = '';
-                _this.$emit('added', _this.addingId);
-                _this.emptyScheduleMaker();
-            });
         },
         daysCleaner: function daysCleaner(id) {
             for (var day in this.daysDef) {
@@ -43924,8 +43970,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }
         },
-        deleteSchedule: function deleteSchedule(clinicId) {
-            var scheduleId = '';
+        getScheduleId: function getScheduleId(clinicId) {
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -43935,7 +43980,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     var schedule = _step.value;
 
                     if (schedule.clinic_id == clinicId) {
-                        scheduleId = schedule.id;
+                        return schedule.id;
                         break;
                     }
                 }
@@ -43953,11 +43998,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 }
             }
+        },
+        addClinic: function addClinic() {
+            var _this = this;
 
+            axios[this.callMethod](this.url, {
+                clinic_id: this.addingId,
+                profile_id: this.profileSrc.id,
+                schedule: JSON.stringify(this.scheduleToSave)
+            }).catch(function (error) {
+                flash(error.response.data, 'danger');
+            }).then(function (response) {
+                if (_this.updateMode) {
+                    _this.scheduleToRestore = {};
+                    _this.$emit('updated', _this.addingId);
+                } else {
+                    _this.$emit('added', _this.addingId);
+                    _this.emptyScheduleMaker();
+                }
+            });
+        },
+        deleteSchedule_Old: function deleteSchedule_Old(clinicId) {
+            var _this2 = this;
+
+            this.getScheduleId(clinicId);
             this.daysCleaner(clinicId);
             delete this.jarClasses[clinicId];
-            axios.delete('/schedule/' + scheduleId);
-            this.$emit('deleted', { scheduleId: scheduleId, clinicId: clinicId });
+            axios.delete('/schedule/' + scheduleId).catch(function (error) {
+                flash(error.response.data, 'danger');
+            }).then(function (response) {
+                _this2.$emit('deleted', { clinicId: clinicId });
+            });
+        },
+        deleteSchedule: function deleteSchedule(clinicId) {
+            var _this3 = this;
+
+            axios.delete('/clinic_profile/' + clinicId + '/' + this.profileSrc.id).catch(function (error) {
+                flash(error.response.data, 'danger');
+            }).then(function (response) {
+                if (response.status == 200) {
+                    _this3.$emit('deleted', { clinicId: clinicId });
+                    _this3.daysCleaner(clinicId);
+                    delete _this3.jarClasses[clinicId];
+                }
+            });
         },
         dayMaker: function dayMaker() {
             for (var day in this.days) {
@@ -43965,9 +44049,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     this.daysDef[day][hour] = this.days[day][hour];
                 }
             }
+        },
+        getScheduleToRestore: function getScheduleToRestore(id) {
+            for (var day in this.schedules[id]) {
+                this.scheduleToRestore[day] = {};
+                for (var hour in this.schedules[id][day]) {
+                    this.scheduleToRestore[day][hour] = this.schedules[id][day][hour];
+                }
+            }
+            this.scheduleToSave = this.schedules[id];
         }
     },
-    computed: {},
+    computed: {
+        buttonText: function buttonText() {
+            return this.updateMode == 'update' ? 'Modificar' : 'Añadir';
+        },
+        buttonClasses: function buttonClasses() {
+            return this.updateMode == 'update' ? 'btn btn-warning btn-block' : 'btn btn-primary btn-block';
+        },
+        url: function url() {
+            if (this.updateMode) {
+                var id = this.getScheduleId(this.addingId);
+                return '/schedule/' + id;
+            } else {
+                return '/schedule';
+            }
+        },
+        callMethod: function callMethod() {
+            if (this.updateMode) {
+                return 'patch';
+            } else {
+                return 'post';
+            }
+        }
+    },
     created: function created() {
         this.classes();
         this.frameStyleMaker();
@@ -44074,11 +44189,16 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-primary btn-block",
+                          class: _vm.buttonClasses,
                           attrs: { type: "submit" },
-                          on: { click: _vm.addClinic }
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.addClinic($event)
+                            }
+                          }
                         },
-                        [_c("h4", [_vm._v("Añadir")])]
+                        [_c("h4", [_vm._v(_vm._s(_vm.buttonText))])]
                       )
                     ]
                   )
@@ -44359,6 +44479,59 @@ var render = function() {
                       ]
                     )
                   ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.updateSchedules.method,
+                        expression: "updateSchedules.method"
+                      }
+                    ],
+                    attrs: { id: "edit-clinic-form" }
+                  },
+                  [
+                    _c("div", { staticClass: "form-group col-xs-12" }, [
+                      _c("label", { attrs: { for: "clinic_id" } }, [
+                        _vm._v("Clínica")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          staticClass: "form-control",
+                          attrs: { id: "clinic_id", name: "clinic_id" },
+                          on: { change: _vm.selectClinic }
+                        },
+                        [
+                          _c("option", { attrs: { value: "", selected: "" } }, [
+                            _vm._v("Selecciona una de tus clínicas")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.profileSrc.clinics, function(clinic) {
+                            return _c(
+                              "option",
+                              { domProps: { value: clinic["id"] } },
+                              [
+                                _vm._v(
+                                  "\n                            " +
+                                    _vm._s(clinic["city"]) +
+                                    " (" +
+                                    _vm._s(clinic["address_real_1"]) +
+                                    ")\n                        "
+                                )
+                              ]
+                            )
+                          })
+                        ],
+                        2
+                      )
+                    ])
+                  ]
                 )
               ]),
               _vm._v(" "),
@@ -44382,8 +44555,10 @@ var render = function() {
                         },
                         on: {
                           added: _vm.notifyAdding,
+                          updated: _vm.notifyUpdating,
                           deleted: _vm.notifyRemoving,
-                          toggleDay: _vm.checkDay
+                          toggleDay: _vm.checkDay,
+                          rollback: _vm.rollback
                         }
                       })
                     ],

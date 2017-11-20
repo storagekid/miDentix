@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/schedule', 'ScheduleController@indexApi');
 	Route::post('/schedule', 'ScheduleController@store');
 	Route::delete('/schedule/{schedule}', 'ScheduleController@destroy');
+	Route::patch('/schedule/{schedule}', 'ScheduleController@update');
 	Route::get('/schedule/{user}/create', 'ScheduleController@create');
 	Route::get('/schedule/{user}/extratime/create', 'ExtratimeController@create');
 
@@ -34,6 +35,8 @@ Route::middleware(['auth'])->group(function() {
 
 	Route::get('/clinics', 'ClinicController@index');
 	Route::patch('/clinics/{clinic}', 'ClinicController@update');
+
+	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
 });
 
 

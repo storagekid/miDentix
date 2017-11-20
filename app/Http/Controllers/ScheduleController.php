@@ -31,14 +31,24 @@ class ScheduleController extends Controller
             return response(['status'=>'Schedule created', 200]);
         }
     }
-    public function destroy(Schedule $schedule) {
-        $clinic_profile = \App\Clinic_Profile::where([
-            'clinic_id' => $schedule->clinic_id,
-            'profile_id' => $schedule->profile_id
+    public function update(Schedule $schedule) {
+        $schedule->update([
+            'schedule' => request('schedule'),
         ]);
+    }
+    public function destroy(Schedule $schedule) {
+        try {
+            $clinic_profile = \App\Clinic_Profile::where([
+                'clinic_id' => $schedule->clinic_id,
+                'profile_id' => $schedule->profile_id
+            ]);
+            // dd($clinic_profile->get());
+            $clinic_profile->delete();
+        } catch (\Exception $e) {
+            dd($e);
+            return response('Sorry, Validation failed', 422);
+        }
         // dd($schedule);
-        $clinic_profile->delete();
         $schedule->delete();
-
     }
 }

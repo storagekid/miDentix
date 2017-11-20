@@ -59,6 +59,20 @@
                         </select>
                     </div>
                 </form>
+                <form id="edit-clinic-form" v-show="updateSchedules.method">
+                    <div class="form-group col-xs-12">
+                        <label for="clinic_id">Clínica</label>
+                        <select class="form-control" id="clinic_id" name="clinic_id" @change="selectClinic">
+                          <option value="" selected>Selecciona una de tus clínicas</option>
+                            <option 
+                                v-for="clinic in profileSrc.clinics" 
+                                :value="clinic['id']"
+                                >
+                                {{clinic['city']}} ({{clinic['address_real_1']}})
+                            </option>
+                        </select>
+                    </div>
+                </form>
               </div>
               <ul class="list-group">
                 <div class="row">
@@ -74,8 +88,10 @@
                       :daysCount="daysCount"
                       :updateMode="updateSchedules.method"
                       @added="notifyAdding"
+                      @updated="notifyUpdating"
                       @deleted="notifyRemoving"
                       @toggleDay="checkDay"
+                      @rollback="rollback"
                       ></schedule-pickup>
                   </div>
                 </div>
@@ -260,6 +276,9 @@
               this.doHours();
             },
             toggleAddClinic() {
+              if (this.updateSchedules.method) {
+                return flash({message:'Debes cancelar la modificación antes de poder añadir.', label:'warning'});
+              }
                 if (!this.addClinic.method) {
                   if (this.profileSrc.clinics.length > 3) {
                     flash({message:'Número máximo de clínicas alcanzado. Si necesitas añadir más ponte en contacto con el equipo médico.', label:'warning'});
@@ -280,6 +299,9 @@
                 }
             },
             toggleUpdate() {
+              if (this.addClinic.method) {
+                return flash({message:'Debes cancelar el modo añadir antes de poder modificar.', label:'warning'});
+              }
                 if (!this.updateSchedules.method) {
                   this.updateSchedules.method = 'update';
                   this.updateSchedules.ButtonText = 'Cancelar';
@@ -287,6 +309,7 @@
                   this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-remove';
                 } else {
                   this.updateSchedules.method = false;
+                  this.addClinic.selectedClinicId = false;
                   this.updateSchedules.ButtonText = 'Modificar';
                   this.updateSchedules.ButtonClasses = 'btn btn-primary';
                   this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-pencil';
@@ -320,6 +343,9 @@
             },
             selectClinic(e) {
                 this.addClinic.selectedClinicId = e.target.value;
+                if (e.target.value == "") {
+                  this.addClinic.selectedClinicId = false;
+                }
             },
             fetch() {
               console.log('FETCHING');
@@ -341,6 +367,13 @@
               });
               this.scheduleAdd(id);
               this.toggleAddClinic();
+            },
+            notifyUpdating(id) {
+              flash({
+                  message: 'Horario actualizado correctamente', 
+                  label: 'success'
+              });
+              this.toggleUpdate();
             },
             notifyRemoving(data) {
               flash({
@@ -404,6 +437,16 @@
               } else if (this.days[data.day][data.hour] == data.clinic) {
                 this.days[data.day][data.hour] = null;
                 this.decrementClinicHours(data.clinic);
+              }
+            },
+            rollback(data) {
+              if (this.days[data.day][data.hour] == null || this.days[data.day][data.hour] == data.id) {
+                if (!data.value && this.days[data.day][data.hour]) {
+                  this.decrementClinicHours(data.id);
+                } else if (!this.days[data.day][data.hour] && data.value) {
+                  this.incrementClinicHours(data.id);
+                }
+                this.days[data.day][data.hour] = data.value;
               }
             },
             doHours() {

@@ -14,4 +14,11 @@ class Clinic_Profile extends Model
     public function profiles() {
     	return $this->belongsToMany(Profile::class);
     }
+
+    public function schedule() {
+    	return \App\Schedule::where([
+            'profile_id' => $this->profile_id,
+            'clinic_id' => $this->clinic_id
+        ])->get();
+    }
 }

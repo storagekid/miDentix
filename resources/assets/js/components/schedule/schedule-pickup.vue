@@ -31,7 +31,7 @@
                 </div>
                 <div class="row rowBtn">
                     <div class="col-xs-9 col-xs-offset-2" v-show="addingId">
-                        <button type="submit" class="btn btn-primary btn-block" @click="addClinic"><h4>Añadir</h4></button>
+                        <button type="submit" :class="buttonClasses" @click.prevent="addClinic"><h4>{{buttonText}}</h4></button>
                     </div>
                 </div>
                 <div class="schedule-day-row">
@@ -82,6 +82,8 @@
             return {
                 clinicHoursDef: this.clinicHours,
                 scheduleToSave: {},
+                scheduleToRestore: {},
+                idToRestore: null,
                 clinics: this.profileSrc.clinics,
                 frameStyle: {},
                 jarClasses: {},
@@ -112,8 +114,37 @@
             }
         },
         watch: {
+            addingId() {
+                if (this.updateMode) {
+                    if (this.idToRestore) {
+                        this.rollBackUpdate(this.idToRestore);
+                    }
+                    if (this.addingId) {
+                        this.getScheduleToRestore(this.addingId);
+                        this.idToRestore = this.addingId;
+                    } else {
+                        this.idToRestore = false;
+                        this.scheduleToRestore = {};
+                    }
+                } else if (this.idToRestore) {
+                    this.rollBackUpdate(this.idToRestore);
+                    this.idToRestore = false;
+                }
+            },
         },
         methods: {
+            rollBackUpdate(id) {
+                for (let day in this.scheduleToRestore) {
+                    for (let hour in this.scheduleToRestore[day]) {
+                        let value = this.scheduleToRestore[day][hour];
+                        this.$emit('rollback', {day,id,hour,value});
+                        this.schedules[id][day][hour] = this.scheduleToRestore[day][hour];
+                        if (this.daysDef[day][hour] == id || this.daysDef[day][hour] == null) {
+                            this.daysDef[day][hour] = this.scheduleToRestore[day][hour];
+                        }
+                    }
+                }
+            },
             checkClass(day,hour,clinic) {
                 if (this.daysDef[day][hour]) {
                     return this.getClass(clinic);
@@ -138,9 +169,6 @@
                    for (let o = 0; o < this.dayHours.length; o++) {
                         day[this.dayHours[o]] = null;
                     }
-                    // if (Object.keys(this.schedules).length == 0) {
-                    //     this.days[name] = day;
-                    // }
                     this.scheduleToSave[name] = day;
                }
             },
@@ -160,6 +188,7 @@
                         this.$emit('toggleDay',{day,hour,clinic});
                     } else if (this.daysDef[day][hour] == this.addingId) {
                         this.daysDef[day][hour] = null;
+                        this.scheduleToSave[day][hour] = null;
                         this.$emit('toggleDay',{day,hour,clinic});
                     } else {
                         flash({message:'Ya has añadido esa hora a otra clínica', label:'warning'});
@@ -179,37 +208,11 @@
             },
             frameClasses(clinic) {
                 return this.getClass(clinic);
-                // let classes = ['schedule-frame'];
-                // let background = 'empty';
-                // for (var i = 1; i <= this.clinics.length; i++) {
-                //     if (this.clinics[i-1].id == clinic) {
-                //         background = 'clinic'+i;
-                //     }
-                // }
-                // classes.push(background);
-                // return classes;
-            },
-            toggleState() {
-                // console.log('ADDING!!!');
             },
             classes() {
                 for (var i = 0; i < this.clinics.length; i++) {
                     this.jarClasses[this.clinics[i].id] = 'schedule-frame '+'clinic'+(i+1);
                 }
-            },
-            addClinic() {
-                axios.post('/schedule', 
-                    { 
-                        clinic_id: this.addingId, 
-                        profile_id: this.profileSrc.id,
-                        schedule: JSON.stringify(this.scheduleToSave),
-                    }).catch((error) => {
-                        flash(error.response.data, 'danger');
-                    }).then(response => {
-                        this.body = '';
-                        this.$emit('added', this.addingId);
-                        this.emptyScheduleMaker();
-                    });
             },
             daysCleaner(id) {
               for (let day in this.daysDef) {
@@ -220,18 +223,54 @@
                   }
               }
             },
-            deleteSchedule(clinicId) {
-                let scheduleId = '';
+            getScheduleId(clinicId) {
                 for (let schedule of this.profileSrc.schedules) {
                     if (schedule.clinic_id == clinicId) {
-                        scheduleId = schedule.id;
+                        return schedule.id;
                         break;
                     }
                 }
+            },
+            addClinic() {
+                axios[this.callMethod](this.url, 
+                    { 
+                        clinic_id: this.addingId, 
+                        profile_id: this.profileSrc.id,
+                        schedule: JSON.stringify(this.scheduleToSave),
+                    }).catch((error) => {
+                        flash(error.response.data, 'danger');
+                    }).then(response => {
+                        if (this.updateMode) {
+                            this.scheduleToRestore = {};
+                            this.$emit('updated', this.addingId);
+                        } else {
+                            this.$emit('added', this.addingId);
+                            this.emptyScheduleMaker();
+                        }
+                    });
+            },
+            deleteSchedule_Old(clinicId) {
+                this.getScheduleId(clinicId);
                 this.daysCleaner(clinicId);
                 delete(this.jarClasses[clinicId]);
-                axios.delete('/schedule/'+scheduleId);
-                this.$emit('deleted', {scheduleId,clinicId});
+                axios.delete('/schedule/'+scheduleId)
+                    .catch((error) => {
+                        flash(error.response.data, 'danger')})
+                    .then(response => {
+                        this.$emit('deleted', {clinicId});
+                    });
+            },
+            deleteSchedule(clinicId) {
+                axios.delete('/clinic_profile/'+clinicId+'/'+this.profileSrc.id)
+                    .catch((error) => {
+                        flash(error.response.data, 'danger')})
+                    .then(response => {
+                        if(response.status == 200) {
+                            this.$emit('deleted', {clinicId});
+                            this.daysCleaner(clinicId);
+                            delete(this.jarClasses[clinicId]);
+                        }
+                    });
             },
             dayMaker() {
                 for (let day in this.days) {
@@ -239,9 +278,39 @@
                         this.daysDef[day][hour] = this.days[day][hour];
                     }
                 }
+            },
+            getScheduleToRestore(id) {
+                for (let day in this.schedules[id]) {
+                    this.scheduleToRestore[day] = {};
+                    for (let hour in this.schedules[id][day]) {
+                        this.scheduleToRestore[day][hour] = this.schedules[id][day][hour];
+                    }
+                }
+                this.scheduleToSave = this.schedules[id];
             }
         },
         computed: {
+            buttonText() {
+                return this.updateMode == 'update' ? 'Modificar' : 'Añadir';
+            },
+            buttonClasses() {
+                return this.updateMode == 'update' ? 'btn btn-warning btn-block' : 'btn btn-primary btn-block';
+            },
+            url() {
+                if (this.updateMode) {
+                    let id = this.getScheduleId(this.addingId);
+                    return '/schedule/'+id;
+                } else {
+                    return '/schedule';
+                }
+            },
+            callMethod() {
+                if (this.updateMode) {
+                    return 'patch';
+                } else {
+                    return 'post';
+                }
+            }
         },
         created() {
             this.classes();
