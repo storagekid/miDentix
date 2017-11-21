@@ -18,11 +18,13 @@ class ManageScheduleTest extends TestCase
     public function an_authenticated_user_may_created_his_own_schedules()
     {
         $this->withOutExceptionHandling()->signIn();
-        $schedule = create('App\Schedule');
+        $schedule = make('App\Schedule');
+        $schedule->clinic_profile = false;
         // dd($schedule);
         // $this->expectException(\Exception::class);
         $response = $this->json('post','/schedule', $schedule->toArray());
         $response->assertStatus(200);
+        // dd($response->getContent());
     }
     /** @test */
     public function an_authenticated_user_can_delete_his_own_schedules()

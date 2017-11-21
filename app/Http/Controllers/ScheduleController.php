@@ -23,12 +23,17 @@ class ScheduleController extends Controller
             'clinic_id' => request('clinic_id'),
             'schedule' => request('schedule'),
        	]);
-        $clinic_profile = Clinic_Profile::create([
-            'profile_id' => request('profile_id'),
-            'clinic_id' => request('clinic_id'),
-        ]);
+        if (!request('clinic_profile')) {
+            $clinic_profile = Clinic_Profile::create([
+                'profile_id' => request('profile_id'),
+                'clinic_id' => request('clinic_id'),
+            ]);
+        }
        	if (request()->expectsJson()) {
-            return response(['status'=>'Schedule created', 200]);
+            return response([
+                'status'=>'Schedule created',
+                'schedule' => $schedule, 
+                200]);
         }
     }
     public function update(Schedule $schedule) {

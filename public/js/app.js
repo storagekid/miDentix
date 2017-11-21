@@ -43197,7 +43197,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43243,6 +43243,8 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_schedule_extra_time_vue__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_schedule_extra_time_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_schedule_extra_time_vue__);
 //
 //
 //
@@ -43398,42 +43400,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: { schedulePickup: __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue___default.a },
+  components: { schedulePickup: __WEBPACK_IMPORTED_MODULE_0__components_schedule_schedule_pickup_vue___default.a, extraTime: __WEBPACK_IMPORTED_MODULE_1__components_schedule_extra_time_vue___default.a },
   props: ['clinicsSrc', 'provinciasSrc', 'statesSrc'],
   data: function data() {
     return {
@@ -43443,6 +43414,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       days: {},
       daysCount: 7,
       totalHours: 0,
+      restoreMethod: null,
       dayLabels: {
         'es-ES': { '01': 'L', '02': 'M', '03': 'X', '04': 'J', '05': 'V', '06': 'S', '07': 'D' }
       },
@@ -43454,9 +43426,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         topButtonText: 'Añadir Clinica',
         topButtonClasses: 'btn btn-sm btn-info',
         topButtonIcon: 'glyphicon glyphicon-plus-sign',
-        selectedStateId: false,
-        selectedProvinciaId: false,
-        selectedClinicId: false
+        selectedStateId: '',
+        selectedProvinciaId: '',
+        selectedClinicId: ''
       },
       updateSchedules: {
         method: false,
@@ -43465,9 +43437,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         ButtonText: 'Modificar',
         ButtonClasses: 'btn btn-primary',
         ButtonIcon: 'glyphicon glyphicon-pencil',
-        selectedStateId: false,
-        selectedProvinciaId: false,
-        selectedClinicId: false
+        selectedStateId: '',
+        selectedProvinciaId: '',
+        selectedClinicId: ''
       }
     };
   },
@@ -43516,6 +43488,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     decrementClinicHours: function decrementClinicHours(id) {
       this.clinicHours[id]--;
       if (this.clinicHours[id] == 0) {
+        this.clinicHours[id] = '0';
+      }
+      if (this.clinicHours[id] == 0 && !this.restoreMethod) {
         this.removeProfileClinic(id);
       }
       this.doHours();
@@ -43533,14 +43508,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.addClinic.topButtonText = 'Cancelar';
         this.addClinic.topButtonClasses = 'btn btn-sm btn-danger';
         this.addClinic.topButtonIcon = 'glyphicon glyphicon-remove';
+        this.restoreMethod = null;
       } else {
         this.addClinic.method = false;
         this.addClinic.topButtonText = 'Añadir Clinica';
         this.addClinic.topButtonClasses = 'btn btn-sm btn-info';
         this.addClinic.topButtonIcon = 'glyphicon glyphicon-plus-sign';
-        this.addClinic.selectedProvinciaId = false;
-        this.addClinic.selectedStateId = false;
-        this.addClinic.selectedClinicId = false;
+        this.addClinic.selectedProvinciaId = '';
+        this.addClinic.selectedStateId = '';
+        this.addClinic.selectedClinicId = '';
       }
     },
     toggleUpdate: function toggleUpdate() {
@@ -43552,9 +43528,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.updateSchedules.ButtonText = 'Cancelar';
         this.updateSchedules.ButtonClasses = 'btn btn-sm btn-danger';
         this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-remove';
+        this.restoreMethod = 'update';
       } else {
         this.updateSchedules.method = false;
-        this.addClinic.selectedClinicId = false;
+        this.updateSchedules.selectedClinicId = '';
+        this.addClinic.selectedClinicId = '';
         this.updateSchedules.ButtonText = 'Modificar';
         this.updateSchedules.ButtonClasses = 'btn btn-primary';
         this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-pencil';
@@ -43564,7 +43542,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.addClinic.selectedStateId = e.target.value;
       this.addClinic.provinciaSelectDisabled = false;
       this.addClinic.clinicSelectDisabled = true;
-      this.addClinic.selectedClinicId = false;
+      this.addClinic.selectedClinicId = '';
+      this.addClinic.selectedProvinciaId = '';
     },
     checkState: function checkState(id) {
       return this.addClinic.selectedStateId == id;
@@ -43572,11 +43551,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     selectProvincia: function selectProvincia(e) {
       this.addClinic.selectedProvinciaId = e.target.value;
       this.addClinic.clinicSelectDisabled = false;
-      this.addClinic.selectedClinicId = false;
+      this.addClinic.selectedClinicId = '';
     },
     checkProvincia: function checkProvincia(id, clinicId) {
       for (var i = 0; i < this.profileSrc.clinics.length; i++) {
-        if (this.profileSrc.clinics[i].id == clinicId) {
+        if (this.profileSrc.clinics[i].id == clinicId && this.addClinic.selectedClinicId != clinicId) {
           return false;
         }
       }
@@ -43591,26 +43570,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.addClinic.selectedClinicId = false;
       }
     },
-    fetch: function fetch() {
-      var _this = this;
-
-      console.log('FETCHING');
-      axios.get('/api/schedule').then(function (data) {
-        _this.refresh(data.data);
-      });
-    },
-    refresh: function refresh(data) {
-      this.profileSrc = data;
-      this.scheduleParse();
-      this.emptyDaysMaker();
-      this.daysMaker();
-    },
-    notifyAdding: function notifyAdding(id) {
+    notifyAdding: function notifyAdding(data) {
       flash({
         message: 'Nueva Clínica añadida correctamente',
         label: 'success'
       });
-      this.scheduleAdd(id);
+      this.scheduleAdd(data.id);
+      // console.log(data.schedule);
+      this.insertSchedule(data.schedule);
       this.toggleAddClinic();
     },
     notifyUpdating: function notifyUpdating(id) {
@@ -43627,6 +43594,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
       this.removeProfileClinic(data.clinicId);
       this.doHours();
+      if (!this.profileSrc.clinics.length) {
+        this.toggleUpdate();
+      }
       // this.fetch();
     },
     daysCleaner: function daysCleaner(id) {
@@ -43652,6 +43622,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       this.schedules[id] = temp;
     },
+    insertSchedule: function insertSchedule(schedule) {
+      this.profileSrc.schedules.push(schedule);
+    },
     scheduleRemove: function scheduleRemove(id) {
       delete this.schedules[id];
       this.daysCleaner(id);
@@ -43663,7 +43636,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           break;
         }
       }
+      for (var _i = 0; _i < this.profileSrc.schedules.length; _i++) {
+        if (this.profileSrc.schedules[_i].clinic_id == id) {
+          this.profileSrc.schedules.splice(_i, 1);
+          break;
+        }
+      }
       delete this.clinicHours[id];
+      this.doHours();
       this.scheduleRemove(id);
     },
     checkDay: function checkDay(data) {
@@ -43685,6 +43665,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     rollback: function rollback(data) {
+      console.log(data);
+      if (!data.day) {
+        this.daysCleaner(data.id);
+        this.removeProfileClinic(data.id);
+        return;
+      }
       if (this.days[data.day][data.hour] == null || this.days[data.day][data.hour] == data.id) {
         if (!data.value && this.days[data.day][data.hour]) {
           this.decrementClinicHours(data.id);
@@ -43697,9 +43683,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     doHours: function doHours() {
       var total = 0;
       for (var clinic in this.clinicHours) {
-        total += this.clinicHours[clinic];
+        total += parseInt(this.clinicHours[clinic]);
       }
       this.totalHours = total;
+    },
+    checkProfileClinics: function checkProfileClinics() {
+      if (this.profileSrc.clinics.length > 0) {
+        for (var i = 0; i < this.profileSrc.clinics.length; i++) {
+          if (!this.clinicHours[this.profileSrc.clinics[i].id]) {
+            this.clinicHours[this.profileSrc.clinics[i].id] = '0';
+          }
+        }
+      }
+    },
+    fetch: function fetch() {
+      var _this = this;
+
+      console.log('FETCHING');
+      axios.get('/api/schedule').then(function (data) {
+        _this.refresh(data.data);
+      });
+    },
+    fetchSchedules: function fetchSchedules(id) {},
+    refresh: function refresh(data) {
+      this.profileSrc = data;
+      this.scheduleParse();
+      this.emptyDaysMaker();
+      this.daysMaker();
+      this.checkProfileClinics();
     }
   },
   computed: {},
@@ -43743,7 +43754,7 @@ exports = module.exports = __webpack_require__(8)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -43823,13 +43834,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['profileSrc', 'addingId', 'schedules', 'days', 'dayHours', 'dayLabels', 'clinicHours', 'daysCount', 'updateMode'],
+    props: ['profileSrc', 'addingId', 'schedules', 'days', 'dayHours', 'dayLabels', 'clinicHours', 'daysCount', 'updateMode', 'restoreMethod'],
     data: function data() {
         return {
             clinicHoursDef: this.clinicHours,
             scheduleToSave: {},
             scheduleToRestore: {},
             idToRestore: null,
+            updateEmpty: false,
             clinics: this.profileSrc.clinics,
             frameStyle: {},
             jarClasses: {},
@@ -43862,20 +43874,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     watch: {
         addingId: function addingId() {
-            if (this.updateMode) {
-                if (this.idToRestore) {
+            if (this.idToRestore) {
+                if (this.restoreMethod == 'update') {
                     this.rollBackUpdate(this.idToRestore);
-                }
-                if (this.addingId) {
-                    this.getScheduleToRestore(this.addingId);
-                    this.idToRestore = this.addingId;
-                } else {
-                    this.idToRestore = false;
                     this.scheduleToRestore = {};
+                    if (this.updateEmpty) {
+                        delete this.schedules[this.idToRestore];
+                        this.idToRestore = null;
+                        this.updateEmpty = false;
+                    }
+                } else {
+                    this.rollBackCreate(this.idToRestore);
                 }
-            } else if (this.idToRestore) {
-                this.rollBackUpdate(this.idToRestore);
                 this.idToRestore = false;
+            }
+            if (this.addingId) {
+                if (!this.schedules[this.addingId]) {
+                    if (this.updateMode) {
+                        this.updateEmpty = true;
+                    }
+                    this.schedules[this.addingId] = this.emptyScheduleMaker();
+                }
+                this.getScheduleToRestore(this.addingId);
+                this.idToRestore = this.addingId;
             }
         }
     },
@@ -43884,13 +43905,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var day in this.scheduleToRestore) {
                 for (var hour in this.scheduleToRestore[day]) {
                     var value = this.scheduleToRestore[day][hour];
-                    this.$emit('rollback', { day: day, id: id, hour: hour, value: value });
                     this.schedules[id][day][hour] = this.scheduleToRestore[day][hour];
                     if (this.daysDef[day][hour] == id || this.daysDef[day][hour] == null) {
                         this.daysDef[day][hour] = this.scheduleToRestore[day][hour];
                     }
+                    this.$emit('rollback', { day: day, id: id, hour: hour, value: value });
                 }
             }
+        },
+        rollBackCreate: function rollBackCreate(id) {
+            this.daysCleaner(id);
+            this.emptyScheduleMaker();
+            delete this.jarClasses[id];
+            this.$emit('rollback', { day: null, id: id, hour: null, value: null });
         },
         checkClass: function checkClass(day, hour, clinic) {
             if (this.daysDef[day][hour]) {
@@ -43901,7 +43928,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var index = 1;
             for (var key in this.jarClasses) {
                 if (key == id) {
-                    console.log('FOUIND');
+                    // console.log('FOUIND');
                     return 'schedule-frame clinic' + index;
                 } else {
                     index++;
@@ -43918,6 +43945,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
                 this.scheduleToSave[name] = day;
             }
+            return this.scheduleToSave;
         },
         frameStyleMaker: function frameStyleMaker() {
             this.frameStyle.width = 100 / this.dayHours.length + '%';
@@ -43934,6 +43962,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     this.scheduleToSave[day][hour] = this.addingId;
                     this.$emit('toggleDay', { day: day, hour: hour, clinic: _clinic });
                 } else if (this.daysDef[day][hour] == this.addingId) {
+                    if (this.clinicHoursDef[_clinic] == 1) {
+                        if (this.updateMode) {
+                            flash({ message: 'No pude haber menos de 1 hora por clínica. Si deseas eliminarla pulsa el boton en la parte inferior.', label: 'warning' });
+                        } else {
+                            flash({ message: 'No pude haber menos de 1 hora por clínica. Si no quieres añadirla pulsa cancelar.', label: 'warning' });
+                        }
+                        return;
+                    }
                     this.daysDef[day][hour] = null;
                     this.scheduleToSave[day][hour] = null;
                     this.$emit('toggleDay', { day: day, hour: hour, clinic: _clinic });
@@ -44002,46 +44038,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addClinic: function addClinic() {
             var _this = this;
 
+            if (!this.checkBeforeSending()) {
+                return false;
+            }
+            this.idToRestore = null;
             axios[this.callMethod](this.url, {
                 clinic_id: this.addingId,
                 profile_id: this.profileSrc.id,
-                schedule: JSON.stringify(this.scheduleToSave)
+                schedule: JSON.stringify(this.scheduleToSave),
+                clinic_profile: this.updateEmpty
             }).catch(function (error) {
-                flash(error.response.data, 'danger');
+                flash({
+                    message: error.response.data,
+                    label: 'danger'
+                });
             }).then(function (response) {
                 if (_this.updateMode) {
                     _this.scheduleToRestore = {};
                     _this.$emit('updated', _this.addingId);
                 } else {
-                    _this.$emit('added', _this.addingId);
+                    // console.log(response.data);
+                    _this.$emit('added', {
+                        clinic_id: _this.addingId,
+                        schedule: response.data.schedule
+                    });
                     _this.emptyScheduleMaker();
                 }
             });
         },
-        deleteSchedule_Old: function deleteSchedule_Old(clinicId) {
+        deleteSchedule: function deleteSchedule(clinicId) {
             var _this2 = this;
 
-            this.getScheduleId(clinicId);
-            this.daysCleaner(clinicId);
-            delete this.jarClasses[clinicId];
-            axios.delete('/schedule/' + scheduleId).catch(function (error) {
-                flash(error.response.data, 'danger');
-            }).then(function (response) {
-                _this2.$emit('deleted', { clinicId: clinicId });
-            });
-        },
-        deleteSchedule: function deleteSchedule(clinicId) {
-            var _this3 = this;
-
             axios.delete('/clinic_profile/' + clinicId + '/' + this.profileSrc.id).catch(function (error) {
-                flash(error.response.data, 'danger');
+                flash({
+                    message: error.response.data,
+                    label: 'danger'
+                });
             }).then(function (response) {
                 if (response.status == 200) {
-                    _this3.$emit('deleted', { clinicId: clinicId });
-                    _this3.daysCleaner(clinicId);
-                    delete _this3.jarClasses[clinicId];
+                    _this2.$emit('deleted', { clinicId: clinicId });
+                    _this2.daysCleaner(clinicId);
+                    delete _this2.jarClasses[clinicId];
                 }
             });
+        },
+        checkBeforeSending: function checkBeforeSending() {
+            if (!this.clinicHoursDef[this.addingId]) {
+                flash({
+                    message: 'Debes seleccionar al menos una hora.',
+                    label: 'warning'
+                });
+                return false;
+            }
+            if (JSON.stringify(this.scheduleToRestore) === JSON.stringify(this.scheduleToSave)) {
+                flash({
+                    message: 'No has hecho ningún cambio.',
+                    label: 'warning'
+                });
+                return false;
+            }
+            return true;
         },
         dayMaker: function dayMaker() {
             for (var day in this.days) {
@@ -44068,7 +44124,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.updateMode == 'update' ? 'btn btn-warning btn-block' : 'btn btn-primary btn-block';
         },
         url: function url() {
-            if (this.updateMode) {
+            if (this.updateMode && !this.updateEmpty) {
                 var id = this.getScheduleId(this.addingId);
                 return '/schedule/' + id;
             } else {
@@ -44076,7 +44132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
         },
         callMethod: function callMethod() {
-            if (this.updateMode) {
+            if (this.updateMode && !this.updateEmpty) {
                 return 'patch';
             } else {
                 return 'post';
@@ -44360,14 +44416,49 @@ var render = function() {
                         _c(
                           "select",
                           {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.addClinic.selectedStateId,
+                                expression: "addClinic.selectedStateId"
+                              }
+                            ],
                             staticClass: "form-control",
                             attrs: { id: "state_id", name: "state_id" },
-                            on: { change: _vm.selectState }
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.addClinic,
+                                    "selectedStateId",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                                _vm.selectState
+                              ]
+                            }
                           },
                           [
                             _c(
                               "option",
-                              { attrs: { disabled: "", selected: "" } },
+                              {
+                                attrs: { disabled: "", value: "" },
+                                domProps: {
+                                  selected: _vm.addClinic.selectedStateId
+                                }
+                              },
                               [_vm._v("Selecciona una CCAA")]
                             ),
                             _vm._v(" "),
@@ -44395,18 +44486,55 @@ var render = function() {
                         _c(
                           "select",
                           {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.addClinic.selectedProvinciaId,
+                                expression: "addClinic.selectedProvinciaId"
+                              }
+                            ],
                             staticClass: "form-control",
                             attrs: {
                               id: "provincia_id",
                               name: "provincia_id",
                               disabled: _vm.addClinic.provinciaSelectDisabled
                             },
-                            on: { change: _vm.selectProvincia }
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.addClinic,
+                                    "selectedProvinciaId",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                                _vm.selectProvincia
+                              ]
+                            }
                           },
                           [
-                            _c("option", { attrs: { selected: "" } }, [
-                              _vm._v("Selecciona una Provincia")
-                            ]),
+                            _c(
+                              "option",
+                              {
+                                attrs: { disabled: "", value: "" },
+                                domProps: {
+                                  selected: _vm.addClinic.selectedProvinciaId
+                                }
+                              },
+                              [_vm._v("Selecciona una Provincia")]
+                            ),
                             _vm._v(" "),
                             _vm._l(_vm.provinciasSrc, function(provincia) {
                               return _vm.checkState(provincia["state_id"])
@@ -44440,18 +44568,55 @@ var render = function() {
                         _c(
                           "select",
                           {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.addClinic.selectedClinicId,
+                                expression: "addClinic.selectedClinicId"
+                              }
+                            ],
                             staticClass: "form-control",
                             attrs: {
                               id: "clinic_id",
                               name: "clinic_id",
                               disabled: _vm.addClinic.clinicSelectDisabled
                             },
-                            on: { change: _vm.selectClinic }
+                            on: {
+                              change: [
+                                function($event) {
+                                  var $$selectedVal = Array.prototype.filter
+                                    .call($event.target.options, function(o) {
+                                      return o.selected
+                                    })
+                                    .map(function(o) {
+                                      var val =
+                                        "_value" in o ? o._value : o.value
+                                      return val
+                                    })
+                                  _vm.$set(
+                                    _vm.addClinic,
+                                    "selectedClinicId",
+                                    $event.target.multiple
+                                      ? $$selectedVal
+                                      : $$selectedVal[0]
+                                  )
+                                },
+                                _vm.selectClinic
+                              ]
+                            }
                           },
                           [
-                            _c("option", { attrs: { selected: "" } }, [
-                              _vm._v("Selecciona una clínica")
-                            ]),
+                            _c(
+                              "option",
+                              {
+                                attrs: { disabled: "", value: "" },
+                                domProps: {
+                                  selected: _vm.addClinic.selectedClinicId
+                                }
+                              },
+                              [_vm._v("Selecciona una clínica")]
+                            ),
                             _vm._v(" "),
                             _vm._l(_vm.clinicsSrc, function(clinic) {
                               return _vm.checkProvincia(
@@ -44503,14 +44668,50 @@ var render = function() {
                       _c(
                         "select",
                         {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.updateSchedules.selectedClinicId,
+                              expression: "updateSchedules.selectedClinicId"
+                            }
+                          ],
                           staticClass: "form-control",
                           attrs: { id: "clinic_id", name: "clinic_id" },
-                          on: { change: _vm.selectClinic }
+                          on: {
+                            change: [
+                              function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.updateSchedules,
+                                  "selectedClinicId",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                              _vm.selectClinic
+                            ]
+                          }
                         },
                         [
-                          _c("option", { attrs: { value: "", selected: "" } }, [
-                            _vm._v("Selecciona una de tus clínicas")
-                          ]),
+                          _c(
+                            "option",
+                            {
+                              attrs: { disabled: "", value: "" },
+                              domProps: {
+                                selected: _vm.updateSchedules.selectedClinicId
+                              }
+                            },
+                            [_vm._v("Selecciona una de tus clínicas")]
+                          ),
                           _vm._v(" "),
                           _vm._l(_vm.profileSrc.clinics, function(clinic) {
                             return _c(
@@ -44551,7 +44752,8 @@ var render = function() {
                           dayLabels: _vm.dayLabels,
                           clinicHours: _vm.clinicHours,
                           daysCount: _vm.daysCount,
-                          updateMode: _vm.updateSchedules.method
+                          updateMode: _vm.updateSchedules.method,
+                          restoreMethod: _vm.restoreMethod
                         },
                         on: {
                           added: _vm.notifyAdding,
@@ -44569,7 +44771,15 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "div",
+            {
+              staticClass: "tab-pane",
+              attrs: { role: "tabpanel", id: "schedule-extra-time" }
+            },
+            [_c("extra-time")],
+            1
+          )
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "panel-footer" }, [
@@ -44582,6 +44792,14 @@ var render = function() {
             _c(
               "button",
               {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.profileSrc.clinics.length,
+                    expression: "profileSrc.clinics.length"
+                  }
+                ],
                 class: _vm.updateSchedules.ButtonClasses,
                 attrs: { type: "button" },
                 on: { click: _vm.toggleUpdate }
@@ -44654,168 +44872,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "tab-pane",
-        attrs: { role: "tabpanel", id: "schedule-extra-time" }
-      },
-      [
-        _c("div", { staticClass: "schedule-table" }, [
-          _c(
-            "a",
-            {
-              staticClass: "text-center",
-              staticStyle: { display: "inherit" },
-              attrs: { href: "/schedule/id/extratime/create" }
-            },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-info",
-                  attrs: { type: "button" }
-                },
-                [
-                  _c("h3", [
-                    _c("span", {
-                      staticClass: "glyphicon glyphicon-plus-sign"
-                    }),
-                    _vm._v("Nueva solicitud")
-                  ])
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c("table", { staticClass: "table table-responsive" }, [
-            _c("thead", [
-              _c("tr", [
-                _c("th", [_vm._v("Provincia")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Clínica")]),
-                _vm._v(" "),
-                _c("th", { staticClass: "hidden-xs" }, [_vm._v("Fecha")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Detalles")]),
-                _vm._v(" "),
-                _c("th", [_vm._v("Estado")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("td", [_vm._v("Barcelona")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Castelldefels (Av. Santa Maria, 11)")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "hidden-xs" }, [_vm._v("25/11/2017")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v("\n                    M: 18:00 - 20:00 "),
-                  _c("br"),
-                  _vm._v("\n                    X: 18:00 - 20:00 "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    S: 9:00 - 15:00\n                  "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("div", { staticClass: "label label-danger list-badget" }, [
-                    _c("span", { staticClass: "hidden-xs" }, [
-                      _vm._v("Denegada")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      staticClass:
-                        "glyphicon glyphicon-remove-sign visible-xs-block"
-                    })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [
-                  _vm._v("\n                    Barcelona "),
-                  _c("br"),
-                  _vm._v("\n                    Tarragona "),
-                  _c("br"),
-                  _vm._v("\n                    Castellón\n                  ")
-                ]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Indiferente")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "hidden-xs" }, [_vm._v("12/09/2017")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v("\n                    L: 14:00 - 18:00 "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    X: 14:00 - 18:00\n                  "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "div",
-                    { staticClass: "label label-warning list-badget" },
-                    [
-                      _c("span", { staticClass: "hidden-xs" }, [
-                        _vm._v("Pendiente")
-                      ]),
-                      _vm._v(" "),
-                      _c("span", {
-                        staticClass:
-                          "glyphicon glyphicon-question-sign visible-xs-block"
-                      })
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("tr", [
-                _c("td", [_vm._v("Indiferente")]),
-                _vm._v(" "),
-                _c("td", [_vm._v("Indiferente")]),
-                _vm._v(" "),
-                _c("td", { staticClass: "hidden-xs" }, [_vm._v("27/08/2017")]),
-                _vm._v(" "),
-                _c("td", [
-                  _vm._v("\n                    L: 10:00 - 14:00 "),
-                  _c("br"),
-                  _vm._v(
-                    "\n                    X: 10:00 - 14:00\n                  "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("td", [
-                  _c(
-                    "div",
-                    { staticClass: "label label-success list-badget" },
-                    [
-                      _c("span", { staticClass: "hidden-xs" }, [
-                        _vm._v("Aceptada")
-                      ]),
-                      _vm._v(" "),
-                      _c("span", {
-                        staticClass:
-                          "glyphicon glyphicon-ok-sign visible-xs-block"
-                      })
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -46486,6 +46542,396 @@ function cleanUpSpecialChars(str) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(251)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(253)
+/* template */
+var __vue_template__ = __webpack_require__(254)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/schedule/extra-time.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-546b1e28", Component.options)
+  } else {
+    hotAPI.reload("data-v-546b1e28", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(252);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(9)("0727fa6a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-546b1e28\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./extra-time.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-546b1e28\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./extra-time.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(8)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 253 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: [],
+    data: function data() {
+        return {};
+    },
+
+    watch: {},
+    methods: {},
+    computed: {},
+    created: function created() {}
+});
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "schedule-table" }, [
+      _c(
+        "a",
+        {
+          staticClass: "text-center",
+          staticStyle: { display: "inherit" },
+          attrs: { href: "#" }
+        },
+        [
+          _c(
+            "button",
+            { staticClass: "btn btn-sm btn-info", attrs: { type: "button" } },
+            [
+              _c("h3", [
+                _c("span", { staticClass: "glyphicon glyphicon-plus-sign" }),
+                _vm._v("Nueva solicitud")
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("table", { staticClass: "table table-responsive" }, [
+        _c("thead", [
+          _c("tr", [
+            _c("th", [_vm._v("Provincia")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Clínica")]),
+            _vm._v(" "),
+            _c("th", { staticClass: "hidden-xs" }, [_vm._v("Fecha")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Detalles")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("Estado")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tbody", [
+          _c("tr", [
+            _c("td", [_vm._v("Barcelona")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Castelldefels (Av. Santa Maria, 11)")]),
+            _vm._v(" "),
+            _c("td", { staticClass: "hidden-xs" }, [_vm._v("25/11/2017")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v("\n          M: 18:00 - 20:00 "),
+              _c("br"),
+              _vm._v("\n          X: 18:00 - 20:00 "),
+              _c("br"),
+              _vm._v("\n          S: 9:00 - 15:00\n        ")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "label label-danger list-badget" }, [
+                _c("span", { staticClass: "hidden-xs" }, [_vm._v("Denegada")]),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass:
+                    "glyphicon glyphicon-remove-sign visible-xs-block"
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [
+              _vm._v("\n          Barcelona "),
+              _c("br"),
+              _vm._v("\n          Tarragona "),
+              _c("br"),
+              _vm._v("\n          Castellón\n        ")
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Indiferente")]),
+            _vm._v(" "),
+            _c("td", { staticClass: "hidden-xs" }, [_vm._v("12/09/2017")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v("\n          L: 14:00 - 18:00 "),
+              _c("br"),
+              _vm._v("\n          X: 14:00 - 18:00\n        ")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "label label-warning list-badget" }, [
+                _c("span", { staticClass: "hidden-xs" }, [_vm._v("Pendiente")]),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass:
+                    "glyphicon glyphicon-question-sign visible-xs-block"
+                })
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("td", [_vm._v("Indiferente")]),
+            _vm._v(" "),
+            _c("td", [_vm._v("Indiferente")]),
+            _vm._v(" "),
+            _c("td", { staticClass: "hidden-xs" }, [_vm._v("27/08/2017")]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v("\n          L: 10:00 - 14:00 "),
+              _c("br"),
+              _vm._v("\n          X: 10:00 - 14:00\n        ")
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c("div", { staticClass: "label label-success list-badget" }, [
+                _c("span", { staticClass: "hidden-xs" }, [_vm._v("Aceptada")]),
+                _vm._v(" "),
+                _c("span", {
+                  staticClass: "glyphicon glyphicon-ok-sign visible-xs-block"
+                })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-546b1e28", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

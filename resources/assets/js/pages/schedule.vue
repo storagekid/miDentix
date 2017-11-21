@@ -27,15 +27,30 @@
                 <form id="new-clinic-form" v-show="addClinic.method">
                     <div class="form-group col-xs-12 col-md-4">
                         <label for="clinic_id">CCAA</label>
-                        <select class="form-control" id="state_id" name="state_id" @change="selectState">
-                          <option disabled="" selected>Selecciona una CCAA</option>
+                        <select class="form-control" id="state_id" name="state_id" @change="selectState" v-model="addClinic.selectedStateId">
+                          <option 
+                            disabled="" 
+                            :selected="addClinic.selectedStateId"
+                            value=""
+                            >Selecciona una CCAA</option>
                             <option v-for="state in statesSrc" :value="state['id']">{{state['name']}}</option>
                         </select>
                     </div>
                     <div class="form-group col-xs-12 col-md-4">
                         <label for="clinic_id">Provincia</label>
-                        <select class="form-control" id="provincia_id" name="provincia_id" @change="selectProvincia" :disabled="addClinic.provinciaSelectDisabled">
-                          <option selected>Selecciona una Provincia</option>
+                        <select 
+                          class="form-control" 
+                          id="provincia_id" 
+                          name="provincia_id" 
+                          @change="selectProvincia" 
+                          :disabled="addClinic.provinciaSelectDisabled"
+                          v-model="addClinic.selectedProvinciaId"
+                          >
+                          <option 
+                            disabled="" 
+                            :selected="addClinic.selectedProvinciaId"
+                            value=""
+                          >Selecciona una Provincia</option>
                             <option 
                                 v-for="provincia in provinciasSrc" 
                                 :value="provincia['id']" 
@@ -47,8 +62,19 @@
                     </div>
                     <div class="form-group col-xs-12 col-md-4">
                         <label for="clinic_id">Clínica</label>
-                        <select class="form-control" id="clinic_id" name="clinic_id" @change="selectClinic" :disabled="addClinic.clinicSelectDisabled">
-                          <option selected>Selecciona una clínica</option>
+                        <select 
+                          class="form-control" 
+                          id="clinic_id" 
+                          name="clinic_id" 
+                          @change="selectClinic" 
+                          :disabled="addClinic.clinicSelectDisabled" 
+                          v-model="addClinic.selectedClinicId"
+                          >
+                          <option 
+                            disabled="" 
+                            :selected="addClinic.selectedClinicId"
+                            value=""
+                            >Selecciona una clínica</option>
                             <option 
                                 v-for="clinic in clinicsSrc" 
                                 :value="clinic['id']"
@@ -62,8 +88,18 @@
                 <form id="edit-clinic-form" v-show="updateSchedules.method">
                     <div class="form-group col-xs-12">
                         <label for="clinic_id">Clínica</label>
-                        <select class="form-control" id="clinic_id" name="clinic_id" @change="selectClinic">
-                          <option value="" selected>Selecciona una de tus clínicas</option>
+                        <select 
+                          class="form-control" 
+                          id="clinic_id" 
+                          name="clinic_id" 
+                          @change="selectClinic" 
+                          v-model="updateSchedules.selectedClinicId"
+                          >
+                          <option 
+                            disabled="" 
+                            value="" 
+                            :selected="updateSchedules.selectedClinicId"
+                            >Selecciona una de tus clínicas</option>
                             <option 
                                 v-for="clinic in profileSrc.clinics" 
                                 :value="clinic['id']"
@@ -87,6 +123,7 @@
                       :clinicHours="clinicHours"
                       :daysCount="daysCount"
                       :updateMode="updateSchedules.method"
+                      :restoreMethod="restoreMethod"
                       @added="notifyAdding"
                       @updated="notifyUpdating"
                       @deleted="notifyRemoving"
@@ -98,76 +135,7 @@
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="schedule-extra-time">
-              <div class="schedule-table">
-                <a href="/schedule/id/extratime/create" class="text-center" style="display: inherit;">
-                  <button type="button" class="btn btn-sm btn-info">
-                    <h3><span class="glyphicon glyphicon-plus-sign"></span>Nueva solicitud</h3>
-                  </button>
-                </a>
-                <table class="table table-responsive">
-                  <thead>
-                    <tr>
-                      <th>Provincia</th>
-                      <th>Clínica</th>
-                      <th class="hidden-xs">Fecha</th>
-                      <th>Detalles</th>
-                      <th>Estado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Barcelona</td>
-                      <td>Castelldefels (Av. Santa Maria, 11)</td>
-                      <td class="hidden-xs">25/11/2017</td>
-                      <td>
-                        M: 18:00 - 20:00 <br>
-                        X: 18:00 - 20:00 <br>
-                        S: 9:00 - 15:00
-                      </td>
-                      <td>
-                        <div class="label label-danger list-badget">
-                          <span class="hidden-xs">Denegada</span>
-                          <span class="glyphicon glyphicon-remove-sign visible-xs-block"></span>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        Barcelona <br>
-                        Tarragona <br>
-                        Castellón
-                      </td>
-                      <td>Indiferente</td>
-                      <td class="hidden-xs">12/09/2017</td>
-                      <td>
-                        L: 14:00 - 18:00 <br>
-                        X: 14:00 - 18:00
-                      </td>
-                      <td>
-                        <div class="label label-warning list-badget">
-                          <span class="hidden-xs">Pendiente</span>
-                          <span class="glyphicon glyphicon-question-sign visible-xs-block"></span>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Indiferente</td>
-                      <td>Indiferente</td>
-                      <td class="hidden-xs">27/08/2017</td>
-                      <td>
-                        L: 10:00 - 14:00 <br>
-                        X: 10:00 - 14:00
-                      </td>
-                      <td>
-                        <div class="label label-success list-badget">
-                          <span class="hidden-xs">Aceptada</span>
-                          <span class="glyphicon glyphicon-ok-sign visible-xs-block"></span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <extra-time></extra-time>
             </div>
           </div>
           <div class="panel-footer">
@@ -175,7 +143,7 @@
               <h3>
                 <span class="glyphicon glyphicon-time"></span>Total Horas: {{totalHours}}
               </h3>
-              <button type="button" :class="updateSchedules.ButtonClasses" @click="toggleUpdate">
+              <button type="button" :class="updateSchedules.ButtonClasses" @click="toggleUpdate" v-show="profileSrc.clinics.length">
                 <span :class="updateSchedules.ButtonIcon"></span>{{updateSchedules.ButtonText}}
               </button>
             </div>
@@ -187,8 +155,9 @@
 
 <script>
     import schedulePickup from '../components/schedule/schedule-pickup.vue';
+    import extraTime from '../components/schedule/extra-time.vue';
     export default {
-        components: {schedulePickup},
+        components: {schedulePickup,extraTime},
         props: ['clinicsSrc', 'provinciasSrc', 'statesSrc'],
         data() {
             return {
@@ -198,6 +167,7 @@
               days: {},
               daysCount: 7,
               totalHours: 0,
+              restoreMethod: null,
               dayLabels: {
                     'es-ES': {'01':'L','02':'M','03':'X','04':'J','05':'V','06':'S','07':'D'}
                 },
@@ -209,9 +179,9 @@
                   topButtonText: 'Añadir Clinica',
                   topButtonClasses: 'btn btn-sm btn-info',
                   topButtonIcon: 'glyphicon glyphicon-plus-sign',
-                  selectedStateId: false,
-                  selectedProvinciaId: false,
-                  selectedClinicId: false,
+                  selectedStateId: '',
+                  selectedProvinciaId: '',
+                  selectedClinicId: '',
               },
               updateSchedules: {
                   method: false,
@@ -220,9 +190,9 @@
                   ButtonText: 'Modificar',
                   ButtonClasses: 'btn btn-primary',
                   ButtonIcon: 'glyphicon glyphicon-pencil',
-                  selectedStateId: false,
-                  selectedProvinciaId: false,
-                  selectedClinicId: false,
+                  selectedStateId: '',
+                  selectedProvinciaId: '',
+                  selectedClinicId: '',
               }
             }
         },
@@ -271,6 +241,9 @@
             decrementClinicHours(id) {
               this.clinicHours[id]--;
               if (this.clinicHours[id] == 0) {
+                this.clinicHours[id] = '0';
+              }
+              if (this.clinicHours[id] == 0 && !this.restoreMethod) {
                 this.removeProfileClinic(id);
               }
               this.doHours();
@@ -288,14 +261,15 @@
                   this.addClinic.topButtonText = 'Cancelar';
                   this.addClinic.topButtonClasses = 'btn btn-sm btn-danger';
                   this.addClinic.topButtonIcon = 'glyphicon glyphicon-remove';
+                  this.restoreMethod = null;
                 } else {
                   this.addClinic.method = false;
                   this.addClinic.topButtonText = 'Añadir Clinica';
                   this.addClinic.topButtonClasses = 'btn btn-sm btn-info';
                   this.addClinic.topButtonIcon = 'glyphicon glyphicon-plus-sign';
-                  this.addClinic.selectedProvinciaId = false;
-                  this.addClinic.selectedStateId = false;
-                  this.addClinic.selectedClinicId = false;
+                  this.addClinic.selectedProvinciaId = '';
+                  this.addClinic.selectedStateId = '';
+                  this.addClinic.selectedClinicId = '';
                 }
             },
             toggleUpdate() {
@@ -307,9 +281,11 @@
                   this.updateSchedules.ButtonText = 'Cancelar';
                   this.updateSchedules.ButtonClasses = 'btn btn-sm btn-danger';
                   this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-remove';
+                  this.restoreMethod = 'update';
                 } else {
                   this.updateSchedules.method = false;
-                  this.addClinic.selectedClinicId = false;
+                  this.updateSchedules.selectedClinicId = '';
+                  this.addClinic.selectedClinicId = '';
                   this.updateSchedules.ButtonText = 'Modificar';
                   this.updateSchedules.ButtonClasses = 'btn btn-primary';
                   this.updateSchedules.ButtonIcon = 'glyphicon glyphicon-pencil';
@@ -319,7 +295,8 @@
                 this.addClinic.selectedStateId = e.target.value;
                 this.addClinic.provinciaSelectDisabled = false;
                 this.addClinic.clinicSelectDisabled = true;
-                this.addClinic.selectedClinicId = false;
+                this.addClinic.selectedClinicId = '';
+                this.addClinic.selectedProvinciaId = '';
 
             },
             checkState(id) {
@@ -328,11 +305,12 @@
             selectProvincia(e) {
                 this.addClinic.selectedProvinciaId = e.target.value;
                 this.addClinic.clinicSelectDisabled = false;
-                this.addClinic.selectedClinicId = false;
+                this.addClinic.selectedClinicId = '';
             },
             checkProvincia(id, clinicId) {
               for (let i = 0; i < this.profileSrc.clinics.length; i++) {
-                if (this.profileSrc.clinics[i].id == clinicId) {
+                if (this.profileSrc.clinics[i].id == clinicId
+                    && this.addClinic.selectedClinicId != clinicId) {
                   return false;
                 }
               }
@@ -347,25 +325,14 @@
                   this.addClinic.selectedClinicId = false;
                 }
             },
-            fetch() {
-              console.log('FETCHING');
-              axios.get('/api/schedule')
-                .then(data => {
-                  this.refresh(data.data);
-                });
-            },
-            refresh(data) {
-              this.profileSrc = data;
-              this.scheduleParse();
-              this.emptyDaysMaker();
-              this.daysMaker();
-            },
-            notifyAdding(id) {
+            notifyAdding(data) {
               flash({
                   message: 'Nueva Clínica añadida correctamente', 
                   label: 'success'
               });
-              this.scheduleAdd(id);
+              this.scheduleAdd(data.id);
+              // console.log(data.schedule);
+              this.insertSchedule(data.schedule);
               this.toggleAddClinic();
             },
             notifyUpdating(id) {
@@ -382,6 +349,9 @@
               });
               this.removeProfileClinic(data.clinicId);
               this.doHours();
+              if (!this.profileSrc.clinics.length) {
+                this.toggleUpdate();
+              }
               // this.fetch();
             },
             daysCleaner(id) {
@@ -407,6 +377,9 @@
               }
               this.schedules[id] = temp;
             },
+            insertSchedule(schedule) {
+              this.profileSrc.schedules.push(schedule);
+            },
             scheduleRemove(id) {
               delete(this.schedules[id]);
               this.daysCleaner(id);
@@ -418,7 +391,14 @@
                     break;
                   }
               }
+              for (let i = 0; i < this.profileSrc.schedules.length; i++) {
+                  if (this.profileSrc.schedules[i].clinic_id == id) {
+                    this.profileSrc.schedules.splice(i,1);
+                    break;
+                  }
+              }
               delete(this.clinicHours[id]);
+              this.doHours();
               this.scheduleRemove(id);
             },
             checkDay(data) {
@@ -440,6 +420,12 @@
               }
             },
             rollback(data) {
+              console.log(data);
+              if (!data.day) {
+                this.daysCleaner(data.id);
+                this.removeProfileClinic(data.id);
+                return;
+              }
               if (this.days[data.day][data.hour] == null || this.days[data.day][data.hour] == data.id) {
                 if (!data.value && this.days[data.day][data.hour]) {
                   this.decrementClinicHours(data.id);
@@ -452,9 +438,35 @@
             doHours() {
               let total = 0; 
               for (let clinic in this.clinicHours) {
-                total += this.clinicHours[clinic];
+                total += parseInt(this.clinicHours[clinic]);
               }
               this.totalHours = total; 
+            },
+            checkProfileClinics() {
+              if (this.profileSrc.clinics.length > 0) {
+                for (let i = 0; i < this.profileSrc.clinics.length; i++) {
+                  if (!this.clinicHours[this.profileSrc.clinics[i].id]) {
+                    this.clinicHours[this.profileSrc.clinics[i].id] = '0';
+                  }
+                }
+              }
+            },
+            fetch() {
+              console.log('FETCHING');
+              axios.get('/api/schedule')
+                .then(data => {
+                  this.refresh(data.data);
+                });
+            },
+            fetchSchedules(id) {
+
+            },
+            refresh(data) {
+              this.profileSrc = data;
+              this.scheduleParse();
+              this.emptyDaysMaker();
+              this.daysMaker();
+              this.checkProfileClinics();
             },
         },
         computed: {
