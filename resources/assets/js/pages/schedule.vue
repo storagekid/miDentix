@@ -3,15 +3,10 @@
       <div class="panel panel-default panel-tabbed">
         <div class="panel-heading text-center">
           <h3 class="panel-title">
-            <ul class="nav nav-tabs" role="tablist" id="profile-tabs">
-              <li role="presentation" class="active">
-                <a href="#profile-clinics" aria-controls="profile-clinics" role="tab" data-toggle="tab">
-                  <span class="glyphicon glyphicon-home"></span>Clínicas
-                </a>
-              </li>
-              <li role="presentation">
-                <a href="#schedule-extra-time" aria-controls="schedule-extra-time" role="tab" data-toggle="tab">
-                  <span class="glyphicon glyphicon-time"></span>Bolsa de Horas
+            <ul class="nav nav-tabs">
+              <li :class="{'active': tabSelected == key}" v-for="(tab, key) in tabs">
+                <a href="#" @click="toggleTab(key)">
+                  <span :class="tab['icon']"></span>{{tab['name']}}
                 </a>
               </li>
             </ul>
@@ -19,8 +14,14 @@
         </div>
         <div class="panel-body">
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="profile-clinics">
-              <div class="btn-new text-center">
+            <div 
+              role="tabpanel" 
+              class="tab-pane active" 
+              id="profile-clinics" 
+              >
+              <div class="btn-new text-center"
+                v-if="tabSelected == 'clinics'"
+              >
                 <button type="button" :class="addClinic.topButtonClasses" @click="toggleAddClinic">
                   <h3><span :class="addClinic.topButtonIcon"></span>{{addClinic.topButtonText}}</h3>
                 </button>
@@ -110,7 +111,19 @@
                     </div>
                 </form>
               </div>
-              <ul class="list-group">
+              <div class="btn-new text-center" v-if="tabSelected == 'extraTime'">
+                <a 
+                  href="#" 
+                  class="text-center" 
+                  style="display: inherit;"
+                  v-if="!newExtraTime"
+                  >
+                  <button type="button" class="btn btn-sm btn-info" @click="doExtraTime">
+                    <h3><span class="glyphicon glyphicon-plus-sign"></span>Nueva solicitud</h3>
+                  </button>
+                </a>
+              </div>
+              <ul class="list-group" v-if="picker">
                 <div class="row">
                   <div class="col-xs-12">
                     <schedule-pickup 
@@ -133,9 +146,11 @@
                   </div>
                 </div>
               </ul>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="schedule-extra-time">
-              <extra-time></extra-time>
+              <extra-time
+              v-if="tabSelected == 'extraTime' && !newExtraTime"
+              @newExtraTime="newExtraTime"
+              >
+              </extra-time>
             </div>
           </div>
           <div class="panel-footer">
@@ -143,7 +158,7 @@
               <h3>
                 <span class="glyphicon glyphicon-time"></span>Total Horas: {{totalHours}}
               </h3>
-              <button type="button" :class="updateSchedules.ButtonClasses" @click="toggleUpdate" v-show="profileSrc.clinics.length">
+              <button type="button" :class="updateSchedules.ButtonClasses" @click="toggleUpdate" v-show="profileSrc.clinics.length" v-if="tabSelected == 'clinics'">
                 <span :class="updateSchedules.ButtonIcon"></span>{{updateSchedules.ButtonText}}
               </button>
             </div>
@@ -193,12 +208,40 @@
                   selectedStateId: '',
                   selectedProvinciaId: '',
                   selectedClinicId: '',
-              }
+              },
+              tabs: {
+                clinics: {
+                  name: 'Clíncas',
+                  icon: 'glyphicon glyphicon-home',
+                },
+                extraTime: {
+                  name: 'Bolsa de Horas',
+                  icon: 'glyphicon glyphicon-time',
+                },
+              },
+              tabSelected: 'clinics',
+              picker: true,
+              newExtraTime: false,
             }
         },
         watch: {
         },
         methods: {
+          doExtraTime() {
+            // this.togglePicker();
+            this.newExtraTime = true;
+          },
+          toggleTab(tab) {
+            this.tabSelected = tab;
+            if (tab == 'extraTime') {
+              this.picker = false;
+            } else {
+              this.picker = true;
+            }
+          },
+          togglePicker() {
+            this.picker ? this.picker = false : this.picker = true;
+          },
             scheduleParse() {
                 for (let i = 0; i < this.profileSrc.schedules.length; i++) {
                     this.schedules[this.profileSrc.schedules[i].clinic_id] = JSON.parse(this.profileSrc.schedules[i].schedule);
@@ -326,11 +369,13 @@
                 }
             },
             notifyAdding(data) {
+              console.log('ADDING ID: '+data.clinic_id);
+              console.log('SCHEDULE: '+data.schedule);
               flash({
                   message: 'Nueva Clínica añadida correctamente', 
                   label: 'success'
               });
-              this.scheduleAdd(data.id);
+              this.scheduleAdd(data.clinic_id);
               // console.log(data.schedule);
               this.insertSchedule(data.schedule);
               this.toggleAddClinic();
