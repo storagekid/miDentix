@@ -12,7 +12,7 @@ class ScheduleController extends Controller
     	return view('layouts.schedule.schedule-index');
     }
     public function indexApi() {
-        return auth()->user()->profile->load(['schedules','clinics']);
+        return auth()->user()->profile->load(['schedules','clinics','extratimes']);
     }
     public function create() {
     	return view('layouts.schedule.schedule-create');
@@ -32,7 +32,7 @@ class ScheduleController extends Controller
        	if (request()->expectsJson()) {
             return response([
                 'status'=>'Schedule created',
-                'schedule' => $schedule, 
+                'schedule' => $schedule->fresh(), 
                 200]);
         }
     }

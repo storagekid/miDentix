@@ -28,6 +28,9 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/schedule/{user}/create', 'ScheduleController@create');
 	Route::get('/schedule/{user}/extratime/create', 'ExtratimeController@create');
 
+	Route::post('/extratime', 'ExtratimeController@store');
+	Route::delete('/extratime/{extratime}', 'ExtratimeController@destroy');
+
 	Route::get('/profile/{user}/create', 'ProfileController@create');
 
 	Route::get('/requests/create', 'RequestController@create');

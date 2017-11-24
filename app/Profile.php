@@ -32,4 +32,7 @@ class Profile extends Model
     public function requests() {
         return $this->hasMany(Request::class);
     }
+    public function extratimes() {
+        return $this->hasMany(Extratime::class);
+    }
 }

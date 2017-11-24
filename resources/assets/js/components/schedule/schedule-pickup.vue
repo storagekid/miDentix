@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row rowBtn">
-                    <div class="col-xs-9 col-xs-offset-2" v-show="addingId">
+                    <div class="col-xs-9 col-xs-offset-2" v-show="addingId || newExtraTime">
                         <button type="submit" :class="buttonClasses" @click.prevent="addClinic"><h4>{{buttonText}}</h4></button>
                     </div>
                 </div>
@@ -68,7 +68,9 @@
 <script>
     export default {
         props: [
-            'profileSrc', 
+            'profileSrc',
+            'addingCA', 
+            'addingPro', 
             'addingId', 
             'schedules', 
             'days', 
@@ -77,7 +79,8 @@
             'clinicHours', 
             'daysCount',
             'updateMode',
-            'restoreMethod'
+            'restoreMethod',
+            'newExtraTime'
         ],
         data() {
             return {
@@ -194,17 +197,17 @@
                 this.frameStyle.width = (100/this.dayHours.length)+'%';
             },
             toggleActive(day, hour, clinic) {
-                if (this.addingId) {
-                    let clinic = this.addingId;
-                    if (!this.jarClasses[this.addingId]) {
+                if (this.addingId || this.newExtraTime) {
+                    let clinic = this.newExtraTime ? 'extra' : this.addingId;
+                    if (!this.jarClasses[clinic]) {
                         let index = Object.keys(this.jarClasses).length+1;
-                        this.jarClasses[this.addingId] = 'schedule-frame '+'clinic'+(index);
+                        this.jarClasses[clinic] = 'schedule-frame '+'clinic'+(index);
                     } 
                     if (!this.daysDef[day][hour]) {
-                        this.daysDef[day][hour] = this.addingId;
-                        this.scheduleToSave[day][hour] = this.addingId;
+                        this.daysDef[day][hour] = clinic;
+                        this.scheduleToSave[day][hour] = clinic;
                         this.$emit('toggleDay',{day,hour,clinic});
-                    } else if (this.daysDef[day][hour] == this.addingId) {
+                    } else if (this.daysDef[day][hour] == clinic) {
                         if (this.clinicHoursDef[clinic] == 1) {
                             if (this.updateMode) {
                             flash({message:'No pude haber menos de 1 hora por clínica. Si deseas eliminarla pulsa el boton en la parte inferior.', label:'warning'});
@@ -257,35 +260,74 @@
                     }
                 }
             },
-            addClinic() {
-                if (!this.checkBeforeSending()) {
-                    return false;
-                }
-                this.idToRestore = null;
+            addExtraTime() {
+                console.log('Adding Extra Time Request');
                 axios[this.callMethod](this.url, 
                     { 
-                        clinic_id: this.addingId, 
                         profile_id: this.profileSrc.id,
+                        clinic_id: this.addingId, 
+                        provincia_id: this.addingPro,
+                        state_id: this.addingCA,
                         schedule: JSON.stringify(this.scheduleToSave),
-                        clinic_profile: this.updateEmpty,
                     }).catch((error) => {
                         flash({
                             message: error.response.data, 
                             label: 'danger'
                         });
                     }).then(response => {
-                        if (this.updateMode) {
-                            this.scheduleToRestore = {};
-                            this.$emit('updated', this.addingId);
-                        } else {
-                            // console.log(response.data);
-                            this.$emit('added', {
-                                clinic_id: this.addingId,
-                                schedule: response.data.schedule,
-                            });
-                            this.emptyScheduleMaker();
-                        }
+                        // console.log(response.data);
+                        this.$emit('addextra', {
+                            clinic_id: this.addingId,
+                            extratime: response.data.extratime,
+                        });
+                        this.emptyScheduleMaker();
                     });
+            },
+            addClinic() {
+                if (!this.newExtraTime) {
+                    if (!this.checkBeforeSending()) {
+                        return false;
+                    }
+                    this.idToRestore = null;
+                    axios[this.callMethod](this.url, 
+                        { 
+                            clinic_id: this.addingId, 
+                            profile_id: this.profileSrc.id,
+                            schedule: JSON.stringify(this.scheduleToSave),
+                            clinic_profile: this.updateEmpty,
+                        }).catch((error) => {
+                            flash({
+                                message: error.response.data, 
+                                label: 'danger'
+                            });
+                        }).then(response => {
+                            if (this.updateMode) {
+                                if (!this.updateEmpty) {
+                                    this.scheduleToRestore = {};
+                                    this.$emit('updated', this.addingId);
+                                } else {
+                                    this.scheduleToRestore = {};
+                                    this.$emit('updated', {
+                                    clinic_id: this.addingId,
+                                    schedule: response.data.schedule,
+                                    });
+                                }
+                                this.updateEmpty = false;
+                            } else {
+                                // console.log(response.data);
+                                this.$emit('added', {
+                                    clinic_id: this.addingId,
+                                    schedule: response.data.schedule,
+                                });
+                                this.emptyScheduleMaker();
+                            }
+                        });
+                } else {
+                    if (!this.checkBeforeSendingExtra()) {
+                        return false;
+                    }
+                    this.addExtraTime();
+                }
             },
             deleteSchedule(clinicId) {
                 axios.delete('/clinic_profile/'+clinicId+'/'+this.profileSrc.id)
@@ -304,6 +346,25 @@
             },
             checkBeforeSending() {
                 if (!this.clinicHoursDef[this.addingId]) {
+                    flash({
+                        message:'Debes seleccionar al menos una hora.', 
+                        label:'warning'
+                    });
+                    return false;
+                }
+                if (
+                    JSON.stringify(this.scheduleToRestore) === JSON.stringify(this.scheduleToSave)
+                    ) {
+                   flash({
+                       message:'No has hecho ningún cambio.', 
+                       label:'warning'
+                   });
+                   return false; 
+                }
+                return true;
+            },
+            checkBeforeSendingExtra() {
+                if (!this.clinicHoursDef['extra']) {
                     flash({
                         message:'Debes seleccionar al menos una hora.', 
                         label:'warning'
@@ -349,6 +410,8 @@
                 if (this.updateMode && !this.updateEmpty) {
                     let id = this.getScheduleId(this.addingId);
                     return '/schedule/'+id;
+                } else if (this.newExtraTime) {
+                    return '/extratime';
                 } else {
                     return '/schedule';
                 }
