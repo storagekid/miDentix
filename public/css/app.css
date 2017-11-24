@@ -9108,7 +9108,7 @@ li#alerts .dropdown-menu li a {
 }
 
 #work-box .panel-body {
-  padding: 15px 30px;
+  padding-top: 20px;
 }
 
 #work-box .panel-title {
@@ -9475,6 +9475,10 @@ form#profile-create-form {
   padding: 0;
 }
 
+.schedule-table tbody tr:nth-child(odd) {
+  background: #f2f2f2;
+}
+
 @media (max-width: 500px) {
   .schedule-hour {
     width: 7.9%;
@@ -9498,6 +9502,11 @@ body {
 
 hr {
   margin: 10px 0;
+}
+
+.empty {
+  color: #753470;
+  margin: 20px 0;
 }
 
 .navbar {

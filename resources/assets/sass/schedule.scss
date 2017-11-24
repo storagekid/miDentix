@@ -113,6 +113,9 @@
 .delete-Schedule span {
     padding: 0;
 }
+.schedule-table tbody tr:nth-child(odd) {
+    background: $gray-lighter;
+}
 @media (max-width: 500px) {
 	.schedule-hour {
 	    width: 7.9%;
