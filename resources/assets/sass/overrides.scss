@@ -56,8 +56,8 @@ hr {
 .panel-footer button {
 	float: right;
 	padding: 2px 15px;
-	width: 100px;
-}
+/*	width: 100px;
+*/}
 .panel-body table button {
 	padding: 1px 3px;
 }
@@ -95,7 +95,7 @@ hr {
 	padding: 15px 30px;
 }
 .panel-default.panel-tabbed table {
-	border-bottom: 2px solid $dentix-main-65
+	border-bottom: 0;
 }
 .panel-default.panel-tabbed table button {
     padding: 1px 3px;
@@ -183,6 +183,13 @@ hr {
     float: none;
     font-size: 12px;
     padding: 5px 10px;
+}
+.tab-content .table {
+    padding: 15px;
+    margin-bottom: 0;
+}
+.tab-content table tbody tr:nth-child(odd) {
+    background: $gray-lighter;
 }
 .radio label, .checkbox label {
     margin-right: 20px;

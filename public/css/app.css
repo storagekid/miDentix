@@ -9565,7 +9565,8 @@ hr {
 .panel-footer button {
   float: right;
   padding: 2px 15px;
-  width: 100px;
+  /*	width: 100px;
+*/
 }
 
 .panel-body table button {
@@ -9616,7 +9617,7 @@ hr {
 }
 
 .panel-default.panel-tabbed table {
-  border-bottom: 2px solid #9a6e99;
+  border-bottom: 0;
 }
 
 .panel-default.panel-tabbed table button {
@@ -9727,6 +9728,15 @@ hr {
   float: none;
   font-size: 12px;
   padding: 5px 10px;
+}
+
+.tab-content .table {
+  padding: 15px;
+  margin-bottom: 0;
+}
+
+.tab-content table tbody tr:nth-child(odd) {
+  background: #f2f2f2;
 }
 
 .radio label,

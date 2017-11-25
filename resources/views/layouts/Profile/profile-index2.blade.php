@@ -10,7 +10,7 @@
             </div>
             <div class="row">
               <div class="col-xs-12">
-                @include('layouts.profile.profile-index-box')
+                @include('layouts.profile.profile-vue-box')
               </div>
             </div>
         </div>

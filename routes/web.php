@@ -17,8 +17,6 @@ Route::middleware(['auth'])->group(function() {
 	    return redirect()->route('home');
 	});
 	Route::get('/home', 'HomeController@index')->name('home');
-	Route::get('/requests', 'RequestController@index');
-	Route::get('/profile', 'ProfileController@index');
 
 	Route::get('/schedule', 'ScheduleController@index');
 	Route::get('/api/schedule', 'ScheduleController@indexApi');
@@ -32,14 +30,25 @@ Route::middleware(['auth'])->group(function() {
 	Route::delete('/extratime/{extratime}', 'ExtratimeController@destroy');
 
 	Route::get('/profile/{user}/create', 'ProfileController@create');
+	Route::get('/profile', 'ProfileController@index');
+	Route::get('/api/profile', 'ProfileController@indexApi');
+	Route::patch('/profile/{profile}', 'ProfileController@update');
 
+	Route::get('/requests', 'RequestController@index');
 	Route::get('/requests/create', 'RequestController@create');
 	Route::get('/requests/{request}', 'RequestController@show');
+	Route::post('/masters/{profile}', 'MasterUniversityController@store');
+	Route::delete('/masters/{master_university}', 'MasterUniversityController@destroy');
 
 	Route::get('/clinics', 'ClinicController@index');
 	Route::patch('/clinics/{clinic}', 'ClinicController@update');
 
 	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
+
+	Route::get('/api/experience', 'ExperienceController@indexApi');
+	Route::get('/api/especialty', 'EspecialtyController@indexApi');
+	Route::get('/api/masters', 'MasterController@indexApi');
+	Route::get('/api/universities', 'UniversityController@indexApi');
 });
 
 

@@ -23,7 +23,7 @@ class CreateProfilesTable extends Migration
             $table->string('phone');
             $table->string('personal_id_number');
             $table->string('license_number');
-            $table->date('license_year');
+            $table->unsignedInteger('license_year');
             // $table->string('experience_type');
             // $table->unsignedInteger('experience_time');
             $table->timestamps();

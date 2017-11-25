@@ -15,15 +15,16 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Profile::class, function (Faker $faker) {
 	$faker = \Faker\Factory::create('es_ES');
+    $user = factory('App\User')->create();
     return [
-        'user_id' => factory('App\User')->create()->id,
+        'user_id' => $user->id,
         'name' => $faker->firstName,
         'lastname1' => $faker->lastName,
         'lastname2' => $faker->lastName,
-        'email' => $faker->unique()->safeEmail,
+        'email' => $user->email,
         'phone' => $faker->e164PhoneNumber,
         'personal_id_number' => $faker->swiftBicNumber,
         'license_number' => $faker->swiftBicNumber,
-        'license_year' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'license_year' => $faker->year($max = 'now'),
     ];
 });

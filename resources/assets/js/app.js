@@ -22,11 +22,13 @@ window.flash = function (message) {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 Vue.component('schedule', require('./pages/schedule.vue'));
+Vue.component('profile', require('./pages/profile.vue'));
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
 Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
+Vue.component('masters', require('./components/profile/masters.vue'));
 
 const app = new Vue({
     el: '#app'

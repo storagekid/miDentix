@@ -8,6 +8,7 @@ use App\Profile;
 class Master_University extends Model
 {
 	protected $table = 'master_university';
+    protected $with = ['master','university'];
     public function profiles() {
     	return $this->belongsToMany(Profile::class);
     }
