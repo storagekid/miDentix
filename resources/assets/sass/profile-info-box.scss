@@ -7,7 +7,7 @@
 #profile-info-box {
 
 }
-#profile-box-picture {
+.profile-box-picture {
 	width: 29%;
 	display: inline-block;
 	vertical-align: middle;
@@ -40,8 +40,8 @@
     max-width: 130px;
 }
 
-@media (max-width: 450px) {
-	#profile-box-picture {
+@media (max-width: 720px) {
+	.profile-box-picture {
 		width: 100%;
 	}
 	#profile-box-table {

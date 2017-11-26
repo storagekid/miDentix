@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/requests', 'RequestController@index');
 	Route::get('/requests/create', 'RequestController@create');
 	Route::get('/requests/{request}', 'RequestController@show');
+	Route::post('/requests/{profile}', 'RequestController@store');
 	Route::post('/masters/{profile}', 'MasterUniversityController@store');
 	Route::delete('/masters/{master_university}', 'MasterUniversityController@destroy');
 
@@ -49,6 +50,8 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/especialty', 'EspecialtyController@indexApi');
 	Route::get('/api/masters', 'MasterController@indexApi');
 	Route::get('/api/universities', 'UniversityController@indexApi');
+	Route::get('/api/requests', 'RequestController@indexApi');
+	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 });
 
 

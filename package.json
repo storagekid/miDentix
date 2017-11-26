@@ -20,6 +20,9 @@
     },
     "dependencies": {
         "chart.js": "^2.7.0",
-        "moment": "^2.19.2"
+        "moment": "^2.19.2",
+        "vue-password": "^1.1.0",
+        "vue-password-strength-meter": "^1.1.1",
+        "zxcvbn": "^4.4.2"
     }
 }

@@ -15,7 +15,7 @@
                 @if(auth()->user()->role === "admin")
                     @include('layouts.home.home-solicitudes-admin-box')
                 @else
-                    @include('layouts.requests.requests-info-box')
+                    <requests></requests>
                 @endif
                 </div>
             </div>

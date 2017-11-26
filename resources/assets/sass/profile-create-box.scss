@@ -3,8 +3,10 @@ form#profile-create-form {
 	padding: 15px;
 }
 #image-change-button {
+	display: block;
 	border: 0;
 	border-radius: none;
+	margin-bottom: 10px;
 }
 @media (max-width: 450px) {
 	

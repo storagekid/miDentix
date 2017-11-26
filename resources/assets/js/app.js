@@ -23,6 +23,7 @@ window.flash = function (message) {
  */
 Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
+Vue.component('requests', require('./pages/request.vue'));
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));

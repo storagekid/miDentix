@@ -1,4 +1,3 @@
-@if(auth()->check())
 <nav class="navbar navbar-default navbar-static-top" id="nav-main">
     <div class="container">
         <div class="navbar-header">
@@ -70,4 +69,3 @@
         </div>
     </div>
 </nav>
-@endif

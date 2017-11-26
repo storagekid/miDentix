@@ -15,10 +15,15 @@
 </head>
 <body>
     <div id="app">
+        @if(auth()->check())
         @include('nav.main')
+        @endif
 
         @yield('content')
         <flash message="{{ session('flash') }}"></flash>
+        @if (session('status'))
+        <flash message="{{ session('status') }}"></flash>
+        @endif
     </div>
 
     <!-- Scripts -->

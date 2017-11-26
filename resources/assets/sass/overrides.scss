@@ -194,8 +194,24 @@ hr {
 .radio label, .checkbox label {
     margin-right: 20px;
 }
+.btn-center-box {
+    display: block;
+    text-align: center;
+}
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #989897;
+    background: rgba(255,255,255,.9);
+    border-left: 4px solid red;
+}
 button h3,h4 {
 	margin: 2px;
+}
+.Password__badge.label{
+    bottom: 30px;
+    height: auto;
 }
 @media (max-width: 450px) {
 	.panel-footer h3 {

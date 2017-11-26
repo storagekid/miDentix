@@ -30,7 +30,7 @@
             if (this.message) {
                 let data = {};
                 data.message = this.message;
-                data.label = this.sessionLabel != '' ? this.sessionLabel : 'info';
+                data.label = this.label != '' ? this.label : 'info';
                 this.showFlash(data);
             }
             window.events.$on('flash', data => {

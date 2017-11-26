@@ -22,18 +22,7 @@ class ProfileController extends Controller
     }
     public function update(Profile $profile) {
     	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year'];
-        // $this->authorize('update',$reply);
-        // request()->validate(['body'=> 'required|spamfree']);
-        // if (request()->expectsJson()) {
-        //     return response([
-        //         'status'=>'Profile updated',
-        //         'profile' => request('profile'),
-        //         'especialtiesToRemove' => request('especialtiesToRemove'),
-        //         'especialtiesToSave' => request('especialtiesToSave'),
-        //         'experiencesToRemove' => request('experiencesToRemove'),
-        //         'experiencesToSave' => request('experiencesToSave'),
-        //         200]);
-        // }
+        
         if (request('profile')) {
         	$found = [];
         	$profileSent = request('profile');

@@ -9218,7 +9218,7 @@ li#alerts .dropdown-menu li a {
   padding: 0;
 }
 
-#profile-box-picture {
+.profile-box-picture {
   width: 29%;
   display: inline-block;
   vertical-align: middle;
@@ -9257,8 +9257,8 @@ li#alerts .dropdown-menu li a {
   max-width: 130px;
 }
 
-@media (max-width: 450px) {
-  #profile-box-picture {
+@media (max-width: 720px) {
+  .profile-box-picture {
     width: 100%;
   }
 
@@ -9277,12 +9277,14 @@ form#profile-create-form {
 }
 
 #image-change-button {
+  display: block;
   border: 0;
   border-radius: none;
+  margin-bottom: 10px;
 }
 
 #requests-info-box .panel-body {
-  max-height: 40vh;
+  max-height: 55vh;
   overflow-y: auto;
 }
 
@@ -9744,9 +9746,28 @@ hr {
   margin-right: 20px;
 }
 
+.btn-center-box {
+  display: block;
+  text-align: center;
+}
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #989897;
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 4px solid red;
+}
+
 button h3,
 h4 {
   margin: 2px;
+}
+
+.Password__badge.label {
+  bottom: 30px;
+  height: auto;
 }
 
 @media (max-width: 450px) {
