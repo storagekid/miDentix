@@ -9173,12 +9173,6 @@ li#alerts .dropdown-menu li a {
   vertical-align: middle;
 }
 
-#work-box .badge {
-  float: right;
-  background-color: #fff;
-  color: #753470;
-}
-
 #work-box .panel-footer .badge {
   float: right;
   background-color: #753470;
@@ -9292,6 +9286,10 @@ form#profile-create-form {
   max-height: 60vh;
 }
 
+#requests-info-box .request-state h3 {
+  margin-top: 5px;
+}
+
 #new-request-form {
   padding: 15px;
 }
@@ -9396,10 +9394,21 @@ form#profile-create-form {
   margin: 15px 0;
 }
 
-.legend > div {
+.legend > div > div {
   height: 30px;
   margin-bottom: 10px;
   font-size: 12px;
+  padding: 0;
+}
+
+.legend > div > div > div {
+  padding: 0;
+}
+
+.legend > div p,
+.legend > div strong {
+  padding: 0;
+  margin-bottom: 0;
 }
 
 .legend > div .badge {
@@ -9470,7 +9479,7 @@ form#profile-create-form {
 
 .delete-Schedule {
   border-radius: 100%;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .delete-Schedule span {
@@ -9485,6 +9494,12 @@ form#profile-create-form {
   .schedule-hour {
     width: 7.9%;
     font-size: 13px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .delete-Schedule {
+    padding: 3px 7px;
   }
 }
 
@@ -9571,12 +9586,21 @@ hr {
 */
 }
 
+.panel-body table .clinic {
+  min-width: 100px;
+}
+
+.panel-body table .icons {
+  width: 20px;
+}
+
 .panel-body table button {
-  padding: 1px 3px;
+  padding: 3px 10px;
 }
 
 .panel-body table button .glyphicon {
-  padding: 0;
+  padding: 3px;
+  top: 0;
 }
 
 /* TABBED TANELS*/
@@ -9730,6 +9754,11 @@ hr {
   float: none;
   font-size: 12px;
   padding: 5px 10px;
+}
+
+.list-badget .glyphicon {
+  padding: 3px;
+  top: 0;
 }
 
 .tab-content .table {

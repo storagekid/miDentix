@@ -50,10 +50,18 @@
 .rowBtn {
     margin: 15px 0;
 }
-.legend > div{
+.legend > div > div {
     height: 30px;
     margin-bottom: 10px;
     font-size: 12px;
+    padding: 0;
+}
+.legend > div > div > div {
+    padding: 0;
+}
+.legend > div p, .legend > div strong {
+    padding: 0;
+    margin-bottom: 0;
 }
 .legend > div .badge {
     background: #888;
@@ -108,7 +116,7 @@
 }
 .delete-Schedule {
     border-radius: 100%;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 .delete-Schedule span {
     padding: 0;
@@ -121,4 +129,9 @@
 	    width: 7.9%;
 	    font-size: 13px;
 	}
+}
+@media (max-width: 1024px) {
+    .delete-Schedule {
+    padding: 3px 7px;
+    }
 }

@@ -30,6 +30,7 @@ Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
 Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
 Vue.component('masters', require('./components/profile/masters.vue'));
+Vue.component('new-request', require('./components/requests/new-requests.vue'));
 
 const app = new Vue({
     el: '#app'

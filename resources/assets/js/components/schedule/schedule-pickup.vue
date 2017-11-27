@@ -37,25 +37,30 @@
                 <div class="schedule-day-row">
                     <div class="schedule-frames-row legend">
                         <legend></legend>
-                        <div class="col-xs-12 col-md-6" v-for="clinic in clinics">
-                            <div 
-                            :class="frameClasses(clinic['id'])"
-                            v-bind:style="frameStyle"  
-                            >
-                            <p></p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6" v-for="clinic in clinics">
+                                <div class="col-xs-1">
+                                <button 
+                                    class="btn btn-sm btn-danger delete-Schedule"
+                                    @click="deleteSchedule(clinic['id'])"
+                                    v-show="updateMode"
+                                    >
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                                </div>
+                                <div class=" col-xs-11">
+                                    <p :class="frameClasses(clinic['id'])"
+                                    v-bind:style="frameLegendStyle">
+                                    </p>
+                                    <div class="col-xs-11">
+                                        <p class="col-xs-7 col-sm-11 col-md-6">{{add = clinic['address_real_1']}}
+                                        </p> 
+                                        <strong class="col-xs-5 col-sm-12 col-md-6">{{clinic['city']}} - 
+                                            <span class="badge">{{clinicHours[clinic['id']]}} H</span>
+                                        </strong>
+                                    </div>
+                                </div>
                             </div>
-                                <p>{{add = clinic['address_real_1'].substring(0,12)+'...'}}. 
-                                    <strong>{{clinic['city']}} - 
-                                        <span class="badge">{{clinicHours[clinic['id']]}} Horas</span>
-                                    </strong>
-                                    <button 
-                                        class="btn btn-sm btn-danger delete-Schedule"
-                                        @click="deleteSchedule(clinic['id'])"
-                                        v-show="updateMode"
-                                        >
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </button>
-                                </p>
                         </div>
                     </div>
                 </div>
@@ -91,6 +96,7 @@
                 updateEmpty: false,
                 clinics: this.profileSrc.clinics,
                 frameStyle: {},
+                frameLegendStyle: {},
                 jarClasses: {},
                 patata: true,
                 daysDef: {
@@ -195,6 +201,10 @@
             },
             frameStyleMaker() {
                 this.frameStyle.width = (100/this.dayHours.length)+'%';
+            },
+            frameLegendStyleMaker() {
+                this.frameLegendStyle.width = (100/this.dayHours.length)+'%';
+                this.frameLegendStyle.height = '20px';
             },
             toggleActive(day, hour, clinic) {
                 if (this.addingId || this.newExtraTime) {
@@ -427,6 +437,7 @@
         created() {
             this.classes();
             this.frameStyleMaker();
+            this.frameLegendStyleMaker();
             // this.daysMaker();
             this.emptyScheduleMaker();
             this.dayMaker();

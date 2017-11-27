@@ -33,11 +33,7 @@
                     {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                 @else
                     <div class="visible-xs-block" id="left-nav-xs">
-                        @if(auth()->user()->role === "admin")
-                            @include('nav.left-nav-admin')
-                        @else
-                            @include('nav.left-nav-user')
-                        @endif
+                        <main-menu :menu="{{auth()->user()->getMenu(auth()->user()->role)}}" :user="{{auth()->user()}}"></main-menu>
                     </div>
                     <li class="dropdown" id="profile-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

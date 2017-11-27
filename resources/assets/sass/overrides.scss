@@ -58,11 +58,18 @@ hr {
 	padding: 2px 15px;
 /*	width: 100px;
 */}
+.panel-body table .clinic {
+    min-width: 100px;
+}
+.panel-body table .icons {
+    width: 20px;
+}
 .panel-body table button {
-	padding: 1px 3px;
+	padding: 3px 10px;
 }
 .panel-body table button .glyphicon {
-	padding: 0;
+	padding: 3px;
+    top: 0;
 }
 /* TABBED TANELS*/
 .panel-default.panel-tabbed {
@@ -183,6 +190,10 @@ hr {
     float: none;
     font-size: 12px;
     padding: 5px 10px;
+}
+.list-badget .glyphicon {
+    padding: 3px;
+    top: 0;
 }
 .tab-content .table {
     padding: 15px;

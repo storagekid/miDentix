@@ -18339,6 +18339,7 @@ Vue.component('main-menu', __webpack_require__(330));
 Vue.component('clinics-table', __webpack_require__(333));
 Vue.component('schedule-pickup', __webpack_require__(23));
 Vue.component('masters', __webpack_require__(141));
+Vue.component('new-request', __webpack_require__(398));
 
 var app = new Vue({
   el: '#app'
@@ -60646,7 +60647,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -60657,6 +60658,11 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -60736,6 +60742,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             updateEmpty: false,
             clinics: this.profileSrc.clinics,
             frameStyle: {},
+            frameLegendStyle: {},
             jarClasses: {},
             patata: true,
             daysDef: {
@@ -60841,6 +60848,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         frameStyleMaker: function frameStyleMaker() {
             this.frameStyle.width = 100 / this.dayHours.length + '%';
+        },
+        frameLegendStyleMaker: function frameLegendStyleMaker() {
+            this.frameLegendStyle.width = 100 / this.dayHours.length + '%';
+            this.frameLegendStyle.height = '20px';
         },
         toggleActive: function toggleActive(day, hour, clinic) {
             if (this.addingId || this.newExtraTime) {
@@ -61093,6 +61104,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         this.classes();
         this.frameStyleMaker();
+        this.frameLegendStyleMaker();
         // this.daysMaker();
         this.emptyScheduleMaker();
         this.dayMaker();
@@ -61212,47 +61224,18 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "schedule-day-row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "schedule-frames-row legend" },
-                    [
-                      _c("legend"),
-                      _vm._v(" "),
+                  _c("div", { staticClass: "schedule-frames-row legend" }, [
+                    _c("legend"),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row" },
                       _vm._l(_vm.clinics, function(clinic) {
                         return _c(
                           "div",
-                          { staticClass: "col-xs-12 col-md-6" },
+                          { staticClass: "col-xs-12 col-sm-6" },
                           [
-                            _c(
-                              "div",
-                              {
-                                class: _vm.frameClasses(clinic["id"]),
-                                style: _vm.frameStyle
-                              },
-                              [_c("p")]
-                            ),
-                            _vm._v(" "),
-                            _c("p", [
-                              _vm._v(
-                                _vm._s(
-                                  (_vm.add =
-                                    clinic["address_real_1"].substring(0, 12) +
-                                    "...")
-                                ) + ". \n                                "
-                              ),
-                              _c("strong", [
-                                _vm._v(
-                                  _vm._s(clinic["city"]) +
-                                    " - \n                                    "
-                                ),
-                                _c("span", { staticClass: "badge" }, [
-                                  _vm._v(
-                                    _vm._s(_vm.clinicHours[clinic["id"]]) +
-                                      " Horas"
-                                  )
-                                ])
-                              ]),
-                              _vm._v(" "),
+                            _c("div", { staticClass: "col-xs-1" }, [
                               _c(
                                 "button",
                                 {
@@ -61278,13 +61261,55 @@ var render = function() {
                                   })
                                 ]
                               )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: " col-xs-11" }, [
+                              _c("p", {
+                                class: _vm.frameClasses(clinic["id"]),
+                                style: _vm.frameLegendStyle
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-xs-11" }, [
+                                _c(
+                                  "p",
+                                  {
+                                    staticClass: "col-xs-7 col-sm-11 col-md-6"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        (_vm.add = clinic["address_real_1"])
+                                      ) +
+                                        "\n                                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "strong",
+                                  {
+                                    staticClass: "col-xs-5 col-sm-12 col-md-6"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(clinic["city"]) +
+                                        " - \n                                        "
+                                    ),
+                                    _c("span", { staticClass: "badge" }, [
+                                      _vm._v(
+                                        _vm._s(_vm.clinicHours[clinic["id"]]) +
+                                          " H"
+                                      )
+                                    ])
+                                  ]
+                                )
+                              ])
                             ])
                           ]
                         )
                       })
-                    ],
-                    2
-                  )
+                    )
+                  ])
                 ])
               ],
               2
@@ -65508,7 +65533,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -65614,51 +65639,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-// import schedulePickup from '../components/schedule/schedule-pickup.vue';
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -65666,6 +65647,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: [],
   data: function data() {
     return {
+      showRequest: {
+        method: false,
+        request: {}
+      },
       profileSrc: {},
       profileRequests: {
         resolved: 0,
@@ -65676,26 +65661,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       labs: [],
       types: [],
       details: [],
-      descriptionClasses: 'form-group col-xs-12',
       addRequest: {
         method: false,
         topButtonText: 'Nueva Solicitud',
         topButtonClasses: 'btn btn-sm btn-info',
-        topButtonIcon: 'glyphicon glyphicon-plus-sign',
-        selectedClinicId: '',
-        selectedClinicText: 'Selecciona una clínica',
-        selectedType: '',
-        selectedDetail: '',
-        selectedLabId: '',
-        selectedLabName: '',
-        selectedLabText: 'Selecciona un laboratorio',
-        description: ''
+        topButtonIcon: 'glyphicon glyphicon-plus-sign'
       }
     };
   },
 
   watch: {},
   methods: {
+    toggleShowRequest: function toggleShowRequest(request) {
+      if (this.showRequest.method) {
+        this.showRequest.method = false;
+        this.showRequest.request = {};
+      } else {
+        this.showRequest.request = request;
+        this.showRequest.method = true;
+      }
+    },
     toggleAddRequest: function toggleAddRequest() {
       if (!this.addRequest.method) {
         this.addRequest.method = true;
@@ -65707,11 +65692,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.addRequest.topButtonText = 'Nueva Solicitud';
         this.addRequest.topButtonClasses = 'btn btn-sm btn-info';
         this.addRequest.topButtonIcon = 'glyphicon glyphicon-plus-sign';
-        this.addRequest.selectedClinicId = '';
-        this.addRequest.selectedType = '';
-        this.addRequest.selectedDetail = '';
-        this.addRequest.selectedLabId = '';
-        this.addRequest.selectedLabName = '';
       }
     },
     requestDate: function requestDate(orgDate) {
@@ -65729,6 +65709,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return 'Pendiente';
       }
       return 'Resuelta';
+    },
+    requestIcon: function requestIcon(closeDate) {
+      if (!closeDate) {
+        return 'glyphicon glyphicon-question-sign visible-xs-block';
+      }
+      return 'glyphicon glyphicon-ok-sign visible-xs-block';
     },
     calculateRatio: function calculateRatio() {
       var _iteratorNormalCompletion = true;
@@ -65759,144 +65745,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
 
-      var ratio = this.profileRequests.resolved * 100 / this.profileRequests.total;
+      var ratio = Math.floor(this.profileRequests.resolved * 100 / this.profileRequests.total);
       this.profileRequests.barStyle = 'width: ' + ratio + '%';
       this.profileRequests.barText = ratio + '% Resueltas';
     },
-    selectClinic: function selectClinic(e) {
-      this.addRequest.selectedClinicId = e.target.value;
-    },
-    selectType: function selectType(e) {
-      this.addRequest.selectedType = e.target.value;
-      if (e.target.value != 'Gestión de Clínica') {
-        this.addRequest.selectedDetail = '';
-      }
-    },
-    selectDetail: function selectDetail(e) {
-      this.addRequest.selectedDetail = e.target.value;
-    },
-    selectLab: function selectLab(e) {
-      console.log(e);
-      this.addRequest.selectedLabId = e.target.value;
-      this.addRequest.selectedDetail = e.target.selectedOptions[0].text;
-    },
-    sendRequest: function sendRequest() {
-      var _this = this;
-
-      if (!this.validateForm()) {
-        return false;
-      }
-      axios.post('/requests/' + this.profileSrc.id, {
-        'profile_id': this.profileSrc.id,
-        'clinic_id': this.addRequest.selectedClinicId,
-        'type': this.addRequest.selectedType,
-        'type_detail1': this.addRequest.selectedDetail,
-        'description': this.addRequest.description
-      }).catch(function (error) {
-        if (error.response.data.errors) {
-          for (var item in error.response.data.errors) {
-            flash({
-              message: error.response.data.errors[item][0],
-              label: 'danger'
-            });
-          }
-        }
-        if (error.response.data.message && error.response.status == 400) {
-          return flash({
-            message: error.response.data.message,
-            label: 'danger'
-          });
-        }
-      }).then(function (response) {
-        if (response.status == 200) {
-          flash({
-            message: 'Solicitud enviada.',
-            label: 'success'
-          });
-          _this.toggleAddRequest();
-          _this.fetchProfile();
-          // this.profileSrc.requests.push(response.data.request);
-        }
+    notifyAdded: function notifyAdded() {
+      flash({
+        message: 'Solicitud enviada.',
+        label: 'success'
       });
-    },
-    validateForm: function validateForm() {
-      if (!this.addRequest.selectedClinicId) {
-        flash({
-          message: 'Debes seleccionar una clínica',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (!this.addRequest.selectedType) {
-        flash({
-          message: 'Debes seleccionar un tipo de solicitud',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (this.showDetails == 'Manage' && !this.addRequest.selectedDetail) {
-        flash({
-          message: 'Debes seleccionar un modelo de gestión',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (this.showDetails == 'Lab' && !this.addRequest.selectedLabId) {
-        flash({
-          message: 'Debes seleccionar un laboratorio',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (!this.addRequest.description) {
-        flash({
-          message: 'La explicación no puede estar vacia',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (this.addRequest.description.length < 5) {
-        flash({
-          message: 'La explicación debe ser de al menos 5 caracteres.',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (this.addRequest.description.length > 500) {
-        flash({
-          message: 'La explicación no puede superar los 500 caracteres.',
-          label: 'warning'
-        });
-        return false;
-      }
-      return true;
+      this.toggleAddRequest();
+      this.fetchProfile();
     },
     fetchProfile: function fetchProfile() {
-      var _this2 = this;
+      var _this = this;
 
       axios.get('/api/requests').then(function (data) {
         console.log(data.data);
-        _this2.profileSrc = data.data.profile;
-        _this2.types = data.data.types;
-        _this2.details = data.data.details;
-        _this2.labs = data.data.labs;
-        _this2.calculateRatio();
+        _this.profileSrc = data.data.profile;
+        _this.types = data.data.types;
+        _this.details = data.data.details;
+        _this.labs = data.data.labs;
+        _this.calculateRatio();
       });
     }
   },
-  computed: {
-    showDetails: function showDetails() {
-      if (this.addRequest.selectedType == 'Gestión de Clínica') {
-        this.descriptionClasses = 'form-group col-xs-12 col-sm-9';
-        return 'Manage';
-      } else if (this.addRequest.selectedType == 'Laboratorio') {
-        this.descriptionClasses = 'form-group col-xs-12 col-sm-9';
-        return 'Lab';
-      }
-      this.descriptionClasses = 'form-group col-xs-12';
-      return false;
-    }
-  },
+  computed: {},
   created: function created() {
     __WEBPACK_IMPORTED_MODULE_0_moment__["locale"]('es');
     this.fetchProfile();
@@ -65915,349 +65789,169 @@ var render = function() {
     _c("div", { staticClass: "panel panel-default" }, [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "a",
-          {
-            staticClass: "text-center",
-            staticStyle: { display: "inherit" },
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.toggleAddRequest($event)
-              }
-            }
-          },
-          [
-            _c(
-              "button",
-              {
-                class: _vm.addRequest.topButtonClasses,
-                attrs: { type: "button" }
-              },
-              [
-                _c("h3", [
-                  _c("span", { class: _vm.addRequest.topButtonIcon }),
-                  _vm._v(_vm._s(_vm.addRequest.topButtonText))
-                ])
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _vm.addRequest.method
-          ? _c("form", { attrs: { id: "new-request-form" } }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "clinic_id" } }, [
-                  _vm._v("Clínica")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.addRequest.selectedClinicId,
-                        expression: "addRequest.selectedClinicId"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { id: "clinic_id", name: "clinic_id" },
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.addRequest,
-                            "selectedClinicId",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        _vm.selectClinic
-                      ]
-                    }
-                  },
-                  [
-                    _c(
-                      "option",
-                      {
-                        attrs: { disabled: "", value: "" },
-                        domProps: { selected: _vm.addRequest.selectedClinicId }
-                      },
-                      [_vm._v("Selecciona una de tus clínicas\n            ")]
-                    ),
-                    _vm._v(" "),
-                    _vm._l(_vm.profileSrc.clinics, function(clinic) {
-                      return _c("option", { domProps: { value: clinic.id } }, [
-                        _vm._v(
-                          "\n              " +
-                            _vm._s(clinic.city) +
-                            " (" +
-                            _vm._s(clinic.address_real_1) +
-                            ")\n            "
-                        )
-                      ])
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "form-group col-xs-12" }, [
-                  _c("label", { attrs: { for: "name" } }, [
-                    _vm._v(
-                      "¿En qué te podemos ayudar: (selecciona todas las que procedan)"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "checkbox" },
-                    _vm._l(_vm.types, function(type) {
-                      return _c("label", [
-                        _c("input", {
-                          attrs: { type: "radio", name: "type" },
-                          domProps: { value: type },
-                          on: { click: _vm.selectType }
-                        }),
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(type) +
-                            "\n              "
-                        )
-                      ])
-                    })
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.showDetails == "Manage"
-                ? _c("div", { staticClass: "form-group col-xs-12 col-sm-3" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "checkbox" },
-                      _vm._l(_vm.details, function(detail) {
-                        return _c("label", [
-                          _c("input", {
-                            attrs: { type: "radio", name: "detail" },
-                            domProps: { value: detail },
-                            on: { click: _vm.selectDetail }
-                          }),
-                          _vm._v(
-                            "\n              " +
-                              _vm._s(detail) +
-                              "\n            "
-                          )
-                        ])
-                      })
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.showDetails == "Lab"
-                ? _c("div", { staticClass: "col-xs-12 col-sm-3" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "lab" } }, [
-                        _vm._v("Indícanos el laboratorio")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.addRequest.selectedLabId,
-                              expression: "addRequest.selectedLabId"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { id: "lab", name: "lab" },
-                          on: {
-                            change: [
-                              function($event) {
-                                var $$selectedVal = Array.prototype.filter
-                                  .call($event.target.options, function(o) {
-                                    return o.selected
-                                  })
-                                  .map(function(o) {
-                                    var val = "_value" in o ? o._value : o.value
-                                    return val
-                                  })
-                                _vm.$set(
-                                  _vm.addRequest,
-                                  "selectedLabId",
-                                  $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                )
-                              },
-                              _vm.selectLab
-                            ]
-                          }
-                        },
-                        [
-                          _c(
-                            "option",
-                            {
-                              attrs: { disabled: "", value: "" },
-                              domProps: {
-                                selected: _vm.addRequest.selectedLabId
-                              }
-                            },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.addRequest.selectedLabText) +
-                                  "\n              "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _vm._l(_vm.labs, function(lab) {
-                            return _c(
-                              "option",
-                              { domProps: { value: lab.id } },
-                              [
-                                _vm._v(
-                                  "\n                " +
-                                    _vm._s(lab.name) +
-                                    "\n              "
-                                )
-                              ]
-                            )
-                          })
-                        ],
-                        2
-                      )
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { class: _vm.descriptionClasses }, [
-                _c("label", { attrs: { for: "request_text" } }, [
-                  _vm._v("Explícanos en detalle (Máximo 500 caracteres)")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.addRequest.description,
-                      expression: "addRequest.description"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "request_text",
-                    rows: "3",
-                    maxlength: "500",
-                    placeholder: "",
-                    required: ""
-                  },
-                  domProps: { value: _vm.addRequest.description },
+      _c(
+        "div",
+        { staticClass: "panel-body" },
+        [
+          !_vm.showRequest.method
+            ? _c(
+                "a",
+                {
+                  staticClass: "text-center",
+                  staticStyle: { display: "inherit" },
+                  attrs: { href: "#" },
                   on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.addRequest,
-                        "description",
-                        $event.target.value
-                      )
+                    click: function($event) {
+                      $event.preventDefault()
+                      _vm.toggleAddRequest($event)
                     }
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c(
+                },
+                [
+                  _c(
+                    "button",
+                    {
+                      class: _vm.addRequest.topButtonClasses,
+                      attrs: { type: "button" }
+                    },
+                    [
+                      _c("h3", [
+                        _c("span", { class: _vm.addRequest.topButtonIcon }),
+                        _vm._v(_vm._s(_vm.addRequest.topButtonText))
+                      ])
+                    ]
+                  )
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.addRequest.method || _vm.showRequest.method
+            ? _c("new-request", {
+                attrs: {
+                  newRequest: _vm.addRequest.method,
+                  clinics: _vm.profileSrc.clinics,
+                  types: _vm.types,
+                  details: _vm.details,
+                  labs: _vm.labs,
+                  profileId: _vm.profileSrc.id,
+                  request: _vm.showRequest.request
+                },
+                on: { added: _vm.notifyAdded }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.addRequest.method && !_vm.showRequest.method
+            ? _c("table", { staticClass: "table table-responsive" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.profileSrc.requests, function(request) {
+                    return _c("tr", [
+                      _c("td", [
+                        _c("strong", [_vm._v(_vm._s(request.clinic.city))]),
+                        _c("br"),
+                        _vm._v(
+                          "(" + _vm._s(request.clinic.address_real_1) + ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(request.type))]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "hidden-xs" }, [
+                        _vm._v(
+                          _vm._s(
+                            request.type_detail1 ? request.type_detail1 : "-"
+                          )
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", {
+                        staticClass: "hidden-xs",
+                        domProps: {
+                          textContent: _vm._s(
+                            _vm.requestDate(request.created_at)
+                          )
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "hidden-xs" }, [
+                        _vm._v(
+                          _vm._s(request.description.substring(0, 50) + "...") +
+                            "\n            "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "div",
+                          { class: _vm.requestClasses(request.closed_at) },
+                          [
+                            _c("span", {
+                              staticClass: "hidden-xs",
+                              domProps: {
+                                textContent: _vm._s(
+                                  _vm.requestText(request.closed_at)
+                                )
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              class: _vm.requestIcon(request.closed_at)
+                            })
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.toggleShowRequest(request)
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { staticClass: "hidden-xs" }, [
+                              _vm._v("Detalles\n                ")
+                            ]),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass:
+                                "glyphicon glyphicon-arrow-right visible-xs-block"
+                            })
+                          ]
+                        )
+                      ])
+                    ])
+                  })
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.showRequest.method
+            ? _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary btn-block",
+                  staticClass: "btn btn-sm btn-info btn-block",
                   attrs: { type: "submit" },
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      _vm.sendRequest($event)
+                      _vm.toggleShowRequest($event)
                     }
                   }
                 },
-                [_c("h4", [_vm._v("Enviar")])]
+                [_c("h4", [_vm._v("Volver")])]
               )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.addRequest.method
-          ? _c("table", { staticClass: "table table-responsive" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.profileSrc.requests, function(request) {
-                  return _c("tr", [
-                    _c("td", [
-                      _c("strong", [_vm._v(_vm._s(request.clinic.city))]),
-                      _c("br"),
-                      _vm._v("(" + _vm._s(request.clinic.address_real_1) + ")")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "hidden-xs" }, [
-                      _vm._v(_vm._s(request.type))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "hidden-xs" }, [
-                      _vm._v(
-                        _vm._s(
-                          request.type_detail1 ? request.type_detail1 : "-"
-                        )
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", {
-                      domProps: {
-                        textContent: _vm._s(_vm.requestDate(request.created_at))
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "hidden-xs" }, [
-                      _vm._v(
-                        _vm._s(request.description.substring(0, 50) + "...") +
-                          "\n            "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "div",
-                        { class: _vm.requestClasses(request.closed_at) },
-                        [_vm._v(_vm._s(_vm.requestText(request.closed_at)))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(3, true)
-                  ])
-                })
-              )
-            ])
-          : _vm._e()
-      ]),
+            : _vm._e()
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "panel-footer" }, [
         _c("div", { staticClass: "progress" }, [
@@ -66291,44 +65985,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "name" } }, [
-      _vm._v("Indícanos el tipo de gestión: "),
-      _c("br"),
-      _vm._v("(selecciona todas las que procedan)")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Clínica")]),
+        _c("th", { staticClass: "clinic" }, [_vm._v("Clínica")]),
         _vm._v(" "),
         _c("th", { staticClass: "hidden-xs" }, [_vm._v("Tipo")]),
         _vm._v(" "),
-        _c("th", { staticClass: "hidden-xs" }, [_vm._v("Detalle")]),
+        _c("th", [_vm._v("Detalle")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Fecha")]),
+        _c("th", { staticClass: "hidden-xs" }, [_vm._v("Fecha")]),
         _vm._v(" "),
         _c("th", { staticClass: "hidden-xs" }, [_vm._v("Texto")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Estado")]),
+        _c("th", { staticClass: "icons" }, [_vm._v("Estado")]),
         _vm._v(" "),
-        _c("th", { staticClass: "buttons-text" })
+        _c("th", { staticClass: "buttons-text icons" })
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("\n                Detalles\n              ")]
-      )
     ])
   }
 ]
@@ -68174,6 +67846,745 @@ function scheduleToHumans(schedule) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(399)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(401)
+/* template */
+var __vue_template__ = __webpack_require__(402)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/requests/new-requests.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5684c846", Component.options)
+  } else {
+    hotAPI.reload("data-v-5684c846", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 399 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(400);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("f0c68edc", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5684c846\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./new-requests.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-5684c846\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./new-requests.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 400 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 401 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  props: ['newRequest', 'clinics', 'types', 'details', 'labs', 'profileId', 'request'],
+  data: function data() {
+    return {
+      addRequest: {
+        selectedClinicId: '',
+        selectedClinicText: 'Selecciona una clínica',
+        selectedType: '',
+        selectedDetail: '',
+        selectedLabId: '',
+        selectedLabName: '',
+        selectedLabText: 'Selecciona un laboratorio',
+        description: '',
+        descriptionClasses: 'form-group col-xs-12'
+      },
+      requestDate: ''
+    };
+  },
+
+  watch: {
+    newRequest: function newRequest() {
+      this.toggleAddRequest();
+    }
+  },
+  methods: {
+    toggleAddRequest: function toggleAddRequest() {
+      this.addRequest.selectedClinicId = '';
+      this.addRequest.selectedType = '';
+      this.addRequest.selectedDetail = '';
+      this.addRequest.selectedLabId = '';
+      this.addRequest.selectedLabName = '';
+    },
+    selectClinic: function selectClinic(e) {
+      this.addRequest.selectedClinicId = e.target.value;
+    },
+    selectType: function selectType(e) {
+      this.addRequest.selectedType = e.target.value;
+      if (e.target.value != 'Gestión de Clínica') {
+        this.addRequest.selectedDetail = '';
+      }
+    },
+    selectDetail: function selectDetail(e) {
+      this.addRequest.selectedDetail = e.target.value;
+    },
+    selectLab: function selectLab(e) {
+      console.log(e);
+      this.addRequest.selectedLabId = e.target.value;
+      this.addRequest.selectedDetail = e.target.selectedOptions[0].text;
+    },
+    sendRequest: function sendRequest() {
+      var _this = this;
+
+      if (!this.validateForm()) {
+        return false;
+      }
+      axios.post('/requests/' + this.profileId, {
+        'profile_id': this.profileId,
+        'clinic_id': this.addRequest.selectedClinicId,
+        'type': this.addRequest.selectedType,
+        'type_detail1': this.addRequest.selectedDetail,
+        'description': this.addRequest.description
+      }).catch(function (error) {
+        if (error.response.data.errors) {
+          for (var item in error.response.data.errors) {
+            flash({
+              message: error.response.data.errors[item][0],
+              label: 'danger'
+            });
+          }
+        }
+        if (error.response.data.message && error.response.status == 400) {
+          return flash({
+            message: error.response.data.message,
+            label: 'danger'
+          });
+        }
+      }).then(function (response) {
+        if (response.status == 200) {
+          _this.$emit('added');
+        }
+      });
+    },
+    validateForm: function validateForm() {
+      if (!this.addRequest.selectedClinicId) {
+        flash({
+          message: 'Debes seleccionar una clínica',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (!this.addRequest.selectedType) {
+        flash({
+          message: 'Debes seleccionar un tipo de solicitud',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (this.showDetails == 'Manage' && !this.addRequest.selectedDetail) {
+        flash({
+          message: 'Debes seleccionar un modelo de gestión',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (this.showDetails == 'Lab' && !this.addRequest.selectedLabId) {
+        flash({
+          message: 'Debes seleccionar un laboratorio',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (!this.addRequest.description) {
+        flash({
+          message: 'La explicación no puede estar vacia',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (this.addRequest.description.length < 5) {
+        flash({
+          message: 'La explicación debe ser de al menos 5 caracteres.',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (this.addRequest.description.length > 500) {
+        flash({
+          message: 'La explicación no puede superar los 500 caracteres.',
+          label: 'warning'
+        });
+        return false;
+      }
+      return true;
+    }
+  },
+  computed: {
+    showMode: function showMode() {
+      var keys = Object.keys(this.request).length;
+      if (!keys) {
+        return false;
+        console.log('request empty');
+      } else {
+        this.addRequest.selectedClinicId = this.request.clinic.id;
+        this.addRequest.selectedType = this.request.type;
+        this.addRequest.selectedDetail = this.request.type_detail1;
+        this.addRequest.selectedLabName = this.request.type_detail1;
+        this.addRequest.description = this.request.description;
+        this.requestDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.request.created_at).format('L');
+        return true;
+        console.log('request found!!!');
+      }
+    },
+    showDetails: function showDetails() {
+      if (this.addRequest.selectedType == 'Gestión de Clínica') {
+        this.descriptionClasses = 'form-group col-xs-12 col-sm-9';
+        return 'Manage';
+      } else if (this.addRequest.selectedType == 'Laboratorio') {
+        this.descriptionClasses = 'form-group col-xs-12 col-sm-9';
+        return 'Lab';
+      }
+      this.descriptionClasses = 'form-group col-xs-12';
+      return false;
+    },
+    requestClasses: function requestClasses() {
+      if (this.request.closed_at) {
+        return 'alert alert-success text-center request-state';
+      } else {
+        return 'alert alert-warning text-center request-state';
+      }
+    },
+    requestStateText: function requestStateText() {
+      if (this.request.closed_at) {
+        return 'Resuelta el ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.request.closed_at).format('L');
+      } else {
+        return 'Pendiente';
+      }
+    }
+  },
+  created: function created() {
+    __WEBPACK_IMPORTED_MODULE_0_moment__["locale"]('es');
+  }
+});
+
+/***/ }),
+/* 402 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", { attrs: { id: "new-request-form" } }, [
+    _vm.showMode
+      ? _c("div", { class: _vm.requestClasses }, [
+          _c("h3", [_vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate))]),
+          _vm._v(" "),
+          _c("h4", [
+            _vm._v("Estado: "),
+            _c("strong", [_vm._v(_vm._s(_vm.requestStateText))])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "clinic_id" } }, [_vm._v("Clínica")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.addRequest.selectedClinicId,
+              expression: "addRequest.selectedClinicId"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { id: "clinic_id", name: "clinic_id", disabled: _vm.showMode },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.addRequest,
+                  "selectedClinicId",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              },
+              _vm.selectClinic
+            ]
+          }
+        },
+        [
+          _c(
+            "option",
+            {
+              attrs: { disabled: "", value: "" },
+              domProps: { selected: _vm.addRequest.selectedClinicId }
+            },
+            [_vm._v("Selecciona una de tus clínicas\n      ")]
+          ),
+          _vm._v(" "),
+          _vm._l(_vm.clinics, function(clinic) {
+            return _c("option", { domProps: { value: clinic.id } }, [
+              _vm._v(
+                "\n        " +
+                  _vm._s(clinic.city) +
+                  " (" +
+                  _vm._s(clinic.address_real_1) +
+                  ")\n      "
+              )
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "form-group col-xs-12" }, [
+        _c("label", { attrs: { for: "name" } }, [
+          _vm._v(
+            "¿En qué te podemos ayudar: (selecciona todas las que procedan)"
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "checkbox" },
+          _vm._l(_vm.types, function(type) {
+            return _c("label", [
+              _c("input", {
+                attrs: { type: "radio", name: "type", disabled: _vm.showMode },
+                domProps: {
+                  value: type,
+                  checked: _vm.addRequest.selectedType == type ? true : false
+                },
+                on: { click: _vm.selectType }
+              }),
+              _vm._v("\n          " + _vm._s(type) + "\n        ")
+            ])
+          })
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm.showDetails == "Manage"
+      ? _c("div", { staticClass: "form-group col-xs-12 col-sm-3" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "checkbox" },
+            _vm._l(_vm.details, function(detail) {
+              return _c("label", [
+                _c("input", {
+                  attrs: {
+                    type: "radio",
+                    name: "detail",
+                    disabled: _vm.showMode
+                  },
+                  domProps: {
+                    value: detail,
+                    checked:
+                      _vm.addRequest.selectedDetail == detail ? true : false
+                  },
+                  on: { click: _vm.selectDetail }
+                }),
+                _vm._v("\n        " + _vm._s(detail) + "\n      ")
+              ])
+            })
+          )
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.showDetails == "Lab"
+      ? _c("div", { staticClass: "col-xs-12 col-sm-3" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "lab" } }, [
+              _vm._v("Indícanos el laboratorio")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.addRequest.selectedLabName,
+                    expression: "addRequest.selectedLabName"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "lab", name: "lab", disabled: _vm.showMode },
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.addRequest,
+                        "selectedLabName",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                    _vm.selectLab
+                  ]
+                }
+              },
+              [
+                _c(
+                  "option",
+                  {
+                    attrs: { disabled: "", value: "" },
+                    domProps: { selected: _vm.addRequest.selectedLabName }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(_vm.addRequest.selectedLabText) + "\n        "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.labs, function(lab) {
+                  return _c("option", { domProps: { value: lab.name } }, [
+                    _vm._v("\n          " + _vm._s(lab.name) + "\n        ")
+                  ])
+                })
+              ],
+              2
+            )
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { class: _vm.descriptionClasses }, [
+      _c("label", { attrs: { for: "request_text" } }, [
+        _vm._v("Explícanos en detalle (Máximo 500 caracteres)")
+      ]),
+      _vm._v(" "),
+      _c("textarea", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.addRequest.description,
+            expression: "addRequest.description"
+          }
+        ],
+        staticClass: "form-control",
+        attrs: {
+          name: "request_text",
+          rows: "3",
+          maxlength: "500",
+          placeholder: "",
+          required: "",
+          disabled: _vm.showMode
+        },
+        domProps: { value: _vm.addRequest.description },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.addRequest, "description", $event.target.value)
+          }
+        }
+      })
+    ]),
+    _vm._v(" "),
+    !_vm.showMode
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-block",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.sendRequest($event)
+              }
+            }
+          },
+          [_c("h4", [_vm._v("Enviar")])]
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "name" } }, [
+      _vm._v("Indícanos el tipo de gestión: "),
+      _c("br"),
+      _vm._v("(selecciona todas las que procedan)")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-5684c846", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
