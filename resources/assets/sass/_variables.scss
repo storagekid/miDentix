@@ -23,6 +23,9 @@ $gray:                   lighten($gray-base, 33.5%); // #555
 $gray-light:             lighten($gray-base, 46.7%); // #777
 $gray-lighter:           lighten($gray-base, 60.5%); // #eee
 
+$errorBase: 			rgb(255,0,0);
+$error: 				darken($errorBase, 15%);
+
 // Body
 /*$body-bg: #f5f8fa;*/
 $body-bg: $dentix-white;

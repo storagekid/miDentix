@@ -9,10 +9,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="visible-xs-inline" id="alerts-xs">
-                @include('nav.alerts')
-            </div>
-
+            @if(auth()->user()->profile->tutorial_completed)
+                <div class="visible-xs-inline" id="alerts-xs">
+                    @include('nav.alerts')
+                </div>
+            @endif
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 24px;">
                 <img src="/img/logo_mi_white.png" height="25px" style="    display: inline;
@@ -41,9 +42,11 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li>
-                               <a href="/profile"><span class="glyphicon glyphicon-list-alt"></span> Mi Perfil</a>
-                            </li>
+                            @if(!auth()->user()->profile->tutorial_completed)
+                                <li>
+                                   <a href="/profile"><span class="glyphicon glyphicon-list-alt"></span> Mi Perfil</a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -59,9 +62,11 @@
                     </li>
                 @endguest
             </ul>
-            <div class="hidden-xs" id="alerts-lg">
-                @include('nav.alerts')
-            </div>
+            @if(auth()->user()->profile->tutorial_completed)
+                <div class="hidden-xs" id="alerts-lg">
+                    @include('nav.alerts')
+                </div>
+            @endif
         </div>
     </div>
 </nav>

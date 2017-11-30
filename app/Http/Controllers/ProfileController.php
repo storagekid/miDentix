@@ -21,7 +21,7 @@ class ProfileController extends Controller
     	return view('layouts.profile.profile-create', compact('user'));
     }
     public function update(Profile $profile) {
-    	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year'];
+    	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed'];
         
         if (request('profile')) {
         	$found = [];

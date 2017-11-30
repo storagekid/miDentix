@@ -91,11 +91,13 @@
         props: ['updateMethod'],
         data() {
             return {
-              profileSrc: {},
+              profileSrc: {
+                masters: [],
+              },
               universities: {},
               masters: [],
               profileUniversities: {},
-              updateMasters: '',
+              updateMasters: this.updateMethod,
               addMaster: {
                 method:false,
                 masterSelectDisabled: true,
@@ -121,8 +123,10 @@
             if (this.profileUniversities[id]) {
               for (let university of this.universities) {
                 if (university.id == id) {
-                  if (university.masters.length == this.profileUniversities[id].length) {
+                  if (this.profileUniversities[id]) {
+                    if (university.masters.length == this.profileUniversities[id].length) {
                     return false;
+                    }
                   }
                 }
               }

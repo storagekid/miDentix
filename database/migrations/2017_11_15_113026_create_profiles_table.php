@@ -15,15 +15,16 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('name');
             $table->string('lastname1');
             $table->string('lastname2')->nullable();
-            $table->string('email')->unique();
-            $table->string('phone');
+            $table->string('email')->nullable()->unique();
+            $table->string('phone')->nullable();
             $table->string('personal_id_number');
-            $table->string('license_number');
-            $table->unsignedInteger('license_year');
+            $table->string('license_number')->nullable();
+            $table->unsignedInteger('tutorial_completed')->default(1);
+            $table->unsignedInteger('license_year')->nullable();
             // $table->string('experience_type');
             // $table->unsignedInteger('experience_time');
             $table->timestamps();

@@ -21,9 +21,9 @@ $factory->define(App\Profile::class, function (Faker $faker) {
         'name' => $faker->firstName,
         'lastname1' => $faker->lastName,
         'lastname2' => $faker->lastName,
-        'email' => $user->email,
+        'email' => $faker->unique()->safeEmail,
         'phone' => $faker->e164PhoneNumber,
-        'personal_id_number' => $faker->swiftBicNumber,
+        'personal_id_number' => $user->personal_id_number,
         'license_number' => $faker->swiftBicNumber,
         'license_year' => $faker->year($max = 'now'),
     ];

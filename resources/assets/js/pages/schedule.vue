@@ -1,10 +1,14 @@
 <template>
-    <div id="schedule-info-box" v-if="profileSrc.clinics">
+    <div id="schedule-info-box">
       <div class="panel panel-default panel-tabbed">
-        <div class="panel-heading text-center" v-if="!page">
+        <div class="panel-heading text-center" v-if="showTabs === true">
           <h3 class="panel-title">
             <ul class="nav nav-tabs">
-              <li :class="{'active': tabSelected == key}" v-for="(tab, key) in tabs">
+              <li 
+                :class="{'active': tabSelected == key}" 
+                v-for="(tab, key) in tabs"
+                v-if="showTab(key)"
+                >
                 <a href="#" @click="toggleTab(key)">
                   <span :class="tab['icon']"></span>{{tab['name']}}
                 </a>
@@ -19,7 +23,7 @@
               class="tab-pane active" 
               id="profile-clinics" 
               >
-              <div class="btn-new text-center" v-if="!page">
+              <div class="btn-new text-center"  v-if="showTabs === true">
                 <button type="button" :class="addClinic.topButtonClasses" @click="toggleAddClinic">
                   <h3><span :class="addClinic.topButtonIcon"></span>{{addClinic.topButtonText}}</h3>
                 </button>
@@ -157,13 +161,10 @@
                 type="button" 
                 :class="updateSchedules.ButtonClasses" 
                 @click="toggleUpdate" 
-                v-if="showEditButton && !page">
+                v-if="showEditButton && showTabs">
                 <span :class="updateSchedules.ButtonIcon"></span>{{updateSchedules.ButtonText}}
               </button>
             </div>
-            <!-- <div>
-              <h3><span class="glyphicon glyphicon-home"></span>{{clinicNumber}}</h3>
-            </div> -->
           </div>
         </div>
       </div>
@@ -175,10 +176,15 @@
     import extraTime from '../components/schedule/extra-time.vue';
     export default {
         components: {schedulePickup,extraTime},
-        props: ['clinicsSrc', 'provinciasSrc', 'statesSrc','page'],
+        props: ['page'],
         data() {
             return {
-              profileSrc: {},
+              profileSrc: {
+                clinics: [],
+              },
+              clinicsSrc: [],
+              provinciasSrc: [],
+              statesSrc: [],
               schedules: {},
               clinicHours: {},
               days: {},
@@ -228,11 +234,28 @@
               picker: true,
               newExtraTime: false,
               updateExtratimes: false,
+              showTabs: true,
             }
         },
         watch: {
+          page() {
+            if (this.page == 'home') {
+              this.showTabs = false;
+            }
+          }
         },
         methods: {
+          hideTabs() {
+            if (this.page == 'home') {
+              this.showTabs = false;
+            }
+          },
+          showTab(key) {
+            if (this.page == 'tutorial') {
+                return false;
+            }
+            return true;
+          },
           doExtraTime() {
             // this.togglePicker();
             this.newExtraTime = true;
@@ -448,6 +471,9 @@
                   label: 'success'
               });
               this.toggleAddClinic();
+              if (this.page == 'tutorial') {
+                this.$emit('completed');
+              }
             },
             notifyExtra(data) {
               flash({
@@ -612,6 +638,24 @@
               this.daysMaker();
               this.checkProfileClinics();
             },
+            fetchClinics() {
+              axios.get('/api/clinics')
+                .then(data => {
+                  this.clinicsSrc = data.data;
+                });
+            },
+            fetchProvincias() {
+              axios.get('/api/provincias')
+                .then(data => {
+                  this.provinciasSrc = data.data;
+                });
+            },
+            fetchStates() {
+              axios.get('/api/states')
+                .then(data => {
+                  this.statesSrc = data.data;
+                });
+            },
             rollbackExtra(id) {
               delete(this.schedules[id]);
               this.daysCleaner('extra');
@@ -643,6 +687,10 @@
         },
         created() {
           this.fetch();
+          this.fetchClinics();
+          this.fetchProvincias();
+          this.fetchStates();
+          this.hideTabs();
         }
     }
 </script>

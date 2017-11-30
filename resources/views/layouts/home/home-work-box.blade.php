@@ -6,9 +6,6 @@
       </a>
     </div>
     <schedule
-    :clinics-src="{{$clinics}}"
-    :provincias-src="{{$provincias}}"
-    :states-src="{{$states}}"
     :page="'home'"
     ></schedule>
   </div>

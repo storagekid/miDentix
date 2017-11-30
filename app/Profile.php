@@ -8,7 +8,7 @@ use App\Experience;
 
 class Profile extends Model
 {
-    protected $fillable = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year'];
+    protected $fillable = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed'];
     protected $hidden = ['user_id'];
 
     public function especialties() {

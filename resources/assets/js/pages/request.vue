@@ -1,14 +1,14 @@
 <template>
   <div id="requests-info-box">
     <div class="panel panel-default">
-      <div class="panel-heading text-center">
+      <div class="panel-heading text-center" v-if="showElement">
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>  Mis Solicitudes</h3>
       </div>
       <div class="panel-body">
         <a href="#" 
           class="text-center" 
           style="display: inherit;" 
-          v-if="!showRequest.method"
+          v-if="!showRequest.method && showElement"
           @click.prevent="toggleAddRequest">
           <button type="button" :class="addRequest.topButtonClasses">
             <h3><span :class="addRequest.topButtonIcon"></span>{{addRequest.topButtonText}}</h3>
@@ -34,20 +34,20 @@
             <tr>
               <th class="clinic">Clínica</th>
               <th class="hidden-xs">Tipo</th>
-              <th>Detalle</th>
+              <th v-if="showElement">Detalle</th>
               <th class="hidden-xs">Fecha</th>
-              <th class="hidden-xs">Texto</th>
+              <th v-if="showElement" class="hidden-xs">Texto</th>
               <th class="icons">Estado</th>
-              <th class="buttons-text icons"></th>
+              <th v-if="showElement" class="buttons-text icons"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="request in profileSrc.requests">
+          <tbody v-if="page == 'home'">
+            <tr v-for="request in profileSrc.requests.slice(0,5)">
               <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
               <td>{{request.type}}</td>
-              <td class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+              <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
               <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
-              <td class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+              <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
               </td>
               <td>
                 <div :class="requestClasses(request.closed_at)">
@@ -56,7 +56,35 @@
                   <span :class="requestIcon(request.closed_at)"></span>
                 </div>
               </td>
+              <td v-if="showElement">
+                <button 
+                  type="button" 
+                  class="btn btn-primary"
+                  @click="toggleShowRequest(request)"
+                  >
+                  <span class="hidden-xs">Detalles
+                  </span>
+                  <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr v-for="request in profileSrc.requests">
+              <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
+              <td>{{request.type}}</td>
+              <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+              <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
+              <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+              </td>
               <td>
+                <div :class="requestClasses(request.closed_at)">
+                  <span class="hidden-xs" v-text="requestText(request.closed_at)">
+                  </span>
+                  <span :class="requestIcon(request.closed_at)"></span>
+                </div>
+              </td>
+              <td v-if="showElement">
                 <button 
                   type="button" 
                   class="btn btn-primary"
@@ -94,14 +122,16 @@
     import 'moment/locale/es';
     export default {
         components: {},
-        props: [],
+        props: ['page'],
         data() {
             return {
               showRequest: {
                 method: false,
                 request: {},
               },
-              profileSrc: {},
+              profileSrc: {
+                requests: [],
+              },
               profileRequests: {
                 resolved: 0,
                 total: 0,
@@ -117,11 +147,17 @@
                   topButtonClasses: 'btn btn-sm btn-info',
                   topButtonIcon: 'glyphicon glyphicon-plus-sign',
               },
+              showElement: true,
             }
         },
         watch: {
         },
         methods: {
+          hideIfPage() {
+            if (this.page == 'home') {
+              this.showElement = false;
+            }
+          },
           toggleShowRequest(request) {
             if (this.showRequest.method) {
               this.showRequest.method = false;
@@ -202,6 +238,7 @@
         created() {
           moment.locale('es');
           this.fetchProfile();
+          this.hideIfPage();
         }
     }
 </script>

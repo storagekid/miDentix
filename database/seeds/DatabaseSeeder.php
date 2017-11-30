@@ -5,6 +5,7 @@ use Keboola\Csv\CsvFile;
 
 class DatabaseSeeder extends Seeder
 {
+    protected $profileCSV = true;
     /**
      * Run the database seeds.
      *
@@ -25,12 +26,25 @@ class DatabaseSeeder extends Seeder
         	LaboratoriesSeeder::class,
         	UsersSeeder::class,
             Master_UniversitySeeder::class,
-            ProfilesSeeder::class,
-            Clinic_ProfileSeeder::class,
-            Especialty_ProfileSeeder::class,
-            Experience_ProfileSeeder::class,
-            Master_University_ProfileSeeder::class,
-            RequestsSeeder::class,
         ]);
+        if (!$this->profileCSV) {
+            $this->call([
+                ProfilesSeeder::class,
+                Clinic_ProfileSeeder::class,
+                Especialty_ProfileSeeder::class,
+                Experience_ProfileSeeder::class,
+                Master_University_ProfileSeeder::class,
+                RequestsSeeder::class,
+            ]);
+        } else {
+            $this->call([
+                ProfileCSVSeeder::class,
+                // Clinic_ProfileSeeder::class,
+                // Especialty_ProfileSeeder::class,
+                // Experience_ProfileSeeder::class,
+                // Master_University_ProfileSeeder::class,
+                // RequestsSeeder::class,
+            ]);
+        }
     }
 }

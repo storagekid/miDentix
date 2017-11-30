@@ -13,19 +13,19 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="control-label">E-Mail Address</label>
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('personal_id_number') ? ' has-error' : '' }}">
+                            <label for="personal_id_number" class="control-label">DNI o equivalente</label>
+                                <input id="personal_id_number" type="text" class="form-control" name="personal_id_number" value="{{ old('personal_id_number') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                @if ($errors->has('personal_id_number'))
+                                    <span class="help-block-login">
+                                        <strong>{{ $errors->first('personal_id_number') }}</strong>
                                     </span>
                                 @endif
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label">Password</label>
+                            <label for="password" class="control-label">Contraseña</label>
                             <input id="password" type="password" class="form-control" name="password" required>
 
                             @if ($errors->has('password'))
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recuérdame
                                 </label>
                             </div>
                         </div>

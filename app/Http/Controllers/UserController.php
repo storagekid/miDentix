@@ -19,7 +19,7 @@ class UserController extends Controller
     	    'Nueva Contraseña' => ['required','min:8','confirmed',new StrongPassword,'different:Contraseña Actual'],
     	]);
         $user = auth()->user();
-        $user->password = Hash::make(request('Nueva Contraseñ'));
+        $user->password = Hash::make(request('Nueva Contraseña'));
         $user->save();
     	if (request()->expectsJson()) {
             return response(['Contraseña actualizada.'], 200);

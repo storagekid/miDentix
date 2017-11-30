@@ -151,6 +151,11 @@
                     this.idToRestore = this.addingId;
                 }
             },
+            profileSrc() {
+                this.clinics = this.profileSrc.clinics;
+                this.classes();
+                this.dayMaker();
+            }
         },
         methods: {
             rollBackUpdate(id) {

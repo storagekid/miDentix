@@ -52,6 +52,11 @@ class Menu {
 			'name' => 'Usuarios', 
 		 	'link' => '#',
 		 	'icon' => 'glyphicon glyphicon-user'
+		],
+		'Tools' => [
+			'name' => 'Tools', 
+		 	'link' => '/tools',
+		 	'icon' => 'glyphicon glyphicon-wrench'
 		]
 	];
 	public function get($list) {

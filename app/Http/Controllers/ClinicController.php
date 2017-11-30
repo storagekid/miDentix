@@ -13,6 +13,9 @@ class ClinicController extends Controller
     	$provincias = Provincia::all();
     	return view('layouts.clinics.index',compact('clinics','provincias'));
     }
+     public function indexApi() {
+        return Clinic::all();
+    }
     public function update(Clinic $clinic) {
 
         // $this->authorize('update',$reply);
