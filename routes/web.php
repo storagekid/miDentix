@@ -19,6 +19,8 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/tools', 'ToolController@index');
 	Route::post('/tools/meta4', 'ToolController@meta4Upload');
 
+	Route::patch('/requests/{request}', 'RequestController@update');
+
 	Route::get('/api/schedule', 'ScheduleController@indexApi');
 	Route::post('/schedule', 'ScheduleController@store');
 	Route::delete('/schedule/{schedule}', 'ScheduleController@destroy');
@@ -34,6 +36,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::post('/masters/{profile}', 'MasterUniversityController@store');
 	Route::delete('/masters/{master_university}', 'MasterUniversityController@destroy');
 
+	Route::get('/api/menu', 'MenuController@indexApi');
 	Route::get('/api/clinics', 'ClinicController@indexApi');
 	Route::get('/api/provincias', 'ProvinciaController@indexApi');
 	Route::get('/api/states', 'StateController@indexApi');

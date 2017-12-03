@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Request as RequestModel;
 use App\Laboratory;
 use App\Profile;
+use Carbon\Carbon;
 
 class RequestController extends Controller
 {
@@ -13,12 +14,19 @@ class RequestController extends Controller
     	return view('layouts.requests.requests-index');
     }
     public function indexApi() {
-    	$request = new RequestModel();
-    	$labs = Laboratory::all();
-    	$types = $request->types;
-    	$typesDetail1 = $request->type_details1[0];
-    	$profile = auth()->user()->profile->load(['requests','clinics']);
-    	return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs];
+        $request = new RequestModel();
+        $labs = Laboratory::all();
+        $types = $request->types;
+        $typesDetail1 = $request->type_details1[0];
+        if (auth()->user()->role == 'user') {
+            $profile = auth()->user()->profile->load(['requests','clinics']);
+            return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs];
+        } 
+        if (auth()->user()->role == 'admin') {
+            $profile = auth()->user()->profile->load(['requests','clinics']);
+            $requests = RequestModel::all()->load(['profile']);
+            return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs,'requests'=>$requests];
+        }
     }
     public function show(Request $request) {
     	return view('layouts.requests.requests-show');
@@ -46,6 +54,16 @@ class RequestController extends Controller
             return response([
                 'status'=>'Request created',
                 'request'=>$requestAdded,
+                200]);
+        }
+    }
+    public function update(RequestModel $request) {
+        $request->closed_at = Carbon::now();
+        $request->save();
+        if (request()->expectsJson()) {
+            return response([
+                'status'=>'Request closed',
+                'request'=>$request->fresh(),
                 200]);
         }
     }

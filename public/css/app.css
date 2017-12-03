@@ -9521,6 +9521,20 @@ hr {
   margin: 10px 0;
 }
 
+.badge-menu {
+  background: white;
+  color: #753470;
+  font-size: 16px;
+}
+
+.header {
+  margin-bottom: -15px;
+}
+
+.below-header {
+  margin-top: 15px;
+}
+
 .empty {
   color: #753470;
   margin: 20px 0;
@@ -9587,6 +9601,11 @@ hr {
   border: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.panel-body-admin {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .panel-body button {
@@ -9834,6 +9853,27 @@ h4 {
 .Password__badge.label {
   bottom: 30px;
   height: auto;
+}
+
+#filterColumn {
+  position: absolute;
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 10;
+  border: 1px solid #753470;
+}
+
+#filterColumn ul {
+  margin: 20px 0;
+  padding: 20px;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+#filterColumn ul li {
+  list-style: none;
+  font-weight: bolder;
 }
 
 @media (max-width: 450px) {

@@ -15,7 +15,7 @@ class CheckTutorialCompleted
      */
     public function handle($request, Closure $next)
     { 
-        if (auth()->user()->profile->tutorial_completed) {
+        if (auth()->user()->profile->tutorial_completed && auth()->user()->role == 'user') {
             return redirect()->route('tutorial');
         }
         return $next($request);

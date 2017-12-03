@@ -1,3 +1,3 @@
-id,personal_id_number,password,role,avatar_path,remember_token,created_at,updated_at
-1,50459500F,$2y$10$eFi4z48BLuEIrQKQGmrfI.WNaUm02eYivrpKP5/NKAJ/OvXOhnsUy,admin,NULL,BlDp6bIW0oLf8hjia0ilIZbDPE7VUf5LPrd02SCQXa8b9P5Kdgvf4KUo6kVA,2017-10-25 9:27:12,2017-10-25 9:27:12
-2,50459500B,$2y$10$4gKeIV5yfdb0ik4kvFK56uMXOOg0k3OF3duOOMiS3qjZqwKlfng..,user,NULL,CzLzF4K62Qvypg233SDcG7o6xYikuolsAGnIoFfJPpRuqrIfsFCxaB2JxeZ1,2017-10-25 9:29:50,2017-11-15 11:05:55
+id,email,personal_id_number,password,role,avatar_path,remember_token,created_at,updated_at
+1,jgvillalba@dentix.es,50459500F,$2y$10$eFi4z48BLuEIrQKQGmrfI.WNaUm02eYivrpKP5/NKAJ/OvXOhnsUy,admin,NULL,BlDp6bIW0oLf8hjia0ilIZbDPE7VUf5LPrd02SCQXa8b9P5Kdgvf4KUo6kVA,2017-10-25 9:27:12,2017-10-25 9:27:12
+2,icastano@dentix.es,50459500B,$2y$10$4gKeIV5yfdb0ik4kvFK56uMXOOg0k3OF3duOOMiS3qjZqwKlfng..,admin,NULL,CzLzF4K62Qvypg233SDcG7o6xYikuolsAGnIoFfJPpRuqrIfsFCxaB2JxeZ1,2017-10-25 9:29:50,2017-11-15 11:05:55

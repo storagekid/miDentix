@@ -25,6 +25,7 @@ class ProfileCSVSeeder extends CsvSeeder
 		// Uncomment the below to wipe the table clean before populating
 		DB::table($this->table)->truncate();
 		parent::run();
+
 		$profiles = \App\Profile::all();
 		foreach ($profiles as $profile) {
 			$profile->user_id = factory('App\User')->create([

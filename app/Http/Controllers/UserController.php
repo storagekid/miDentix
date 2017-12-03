@@ -9,6 +9,9 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function getRouteKeyName() {
+        return 'personal_id_number';
+    }
     public function resetPassApi() {
     	$pass = Hash::check(request('Contraseña Actual'), auth()->user()->password);
     	if (!$pass) {

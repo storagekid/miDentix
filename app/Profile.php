@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 use App\Especialty;
 use App\Experience;
 
@@ -11,6 +12,9 @@ class Profile extends Model
     protected $fillable = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed'];
     protected $hidden = ['user_id'];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
     public function especialties() {
         return $this->belongsToMany(Especialty::class);
     }

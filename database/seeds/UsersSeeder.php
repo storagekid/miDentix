@@ -25,5 +25,12 @@ class UsersSeeder extends CsvSeeder
 		DB::table($this->table)->truncate();
 
 		parent::run();
+		// $users = \App\User::all();
+		// foreach ($users as $user) {
+		// 	factory('App\Profile')->create([
+		// 		'user_id' => $user->id,
+		// 		'personal_id_number' => $user->personal_id_number,
+		// 	]);
+		// }
 	}
 }

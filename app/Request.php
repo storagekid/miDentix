@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Clinic;
+use App\Profile;
 
 class Request extends Model
 {
@@ -25,5 +26,8 @@ class Request extends Model
     ];
     public function clinic() {
         return $this->belongsTo(Clinic::class);
+    }
+    public function profile() {
+        return $this->belongsTo(Profile::class);
     }
 }
