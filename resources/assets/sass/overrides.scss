@@ -287,6 +287,9 @@ button h3,h4 {
     list-style: none;
     font-weight: bolder;
 }
+.glyphicon.glyphicon-filter.selected {
+    color: red;
+}
 @media (max-width: 450px) {
 	.panel-footer h3 {
 		font-size: 14px;

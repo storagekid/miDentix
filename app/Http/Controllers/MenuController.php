@@ -16,5 +16,9 @@ class MenuController extends Controller
             }]);
             return ['requests'=>$requests,'profiles'=>$profiles];
         }
+        if (auth()->user()->role == 'user') {
+        	$requests = auth()->user()->profile->requests;
+        	return ['requests'=>$requests];
+        }
     }
 }

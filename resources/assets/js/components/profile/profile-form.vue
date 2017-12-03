@@ -390,6 +390,9 @@
           for (let field in this.formErrors) {
             this.checkFormField(field);
           }
+          if (!this.errors) {
+            this.$emit('noErrors');
+          }
         }
     }
 </script>

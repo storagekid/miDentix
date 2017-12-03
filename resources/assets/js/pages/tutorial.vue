@@ -50,6 +50,7 @@
                     :profileSrc="profileSrc"
                     :profileOriginal="profileOriginal"
                     @updated="completePhase(2)"
+                    @noErrors="notifyNoErrors"
                     >
                   </profile-form>
                 </div>
@@ -160,6 +161,9 @@
             console.log('Completed!!!');
             this.tabs[this.tabSelected].completed = true;
             // this.tabSelected = number + 1;
+          },
+          notifyNoErrors() {
+            this.tabs[this.tabSelected].completed = true;
           },
           toggleTab(tab) {
             if (this.tabSelected == tab) {

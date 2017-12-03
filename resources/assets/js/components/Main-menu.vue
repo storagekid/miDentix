@@ -57,9 +57,11 @@
                 axios.get('/api/menu')
                     .then(data => {
                       this.admin.requests = data.data.requests;
-                      this.admin.profiles = data.data.profiles;
                       this.countUnsolved();
-                      this.countDeadUsers();
+                      if (this.user.role == 'admin') {
+                        this.admin.profiles = data.data.profiles;
+                        this.countDeadUsers();
+                      }
                     });
             }
         },

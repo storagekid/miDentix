@@ -27,16 +27,26 @@
                 <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
               </div>
               <div class="col-xs-12 form-group">
-                <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates">Aplicar</button>
+                <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
               </div>
             </form>
           </div>
-          <ul class="list-group" v-if="!filtering.date.state">
-              <li v-for="filter in filtering.keys" class="col-xs-6 list-item">
-                  <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
+          <ul class="list-group" v-if="!filtering.date.state && filtering.state">
+              <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
+                  <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
               </li>
           </ul>
           <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
+          <button 
+            class="btn btn-sm btn-info btn-block form-control" 
+            v-if="Object.keys(this.filtering.filters).length"
+            @click.prevent="clearAllFilters"
+            ><h4>Borrar Filtros</h4>
+          </button>
+        </div>
       </div>
       <div :class="panelClass">
         <a href="#" 
@@ -141,12 +151,12 @@
               <th class="clinic">
                 Usuario
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('lastname1',{object:'profile'})"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('lastname1',{object:'profile'})"></span>
+                    <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
+                    <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile'})"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'lastname1'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('lastname1')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -155,12 +165,12 @@
               <th class="clinic">
                 Clínica
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('city',{object:'clinic'})"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('city',{object:'clinic'})"></span>
+                    <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
+                    <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'city'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('city')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -169,12 +179,12 @@
               <th class="hidden-xs">
                 Tipo
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('type')"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('type')"></span>
+                    <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
+                    <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'type'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('type')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -183,12 +193,12 @@
               <th>
                 Detalle
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('type_detail1')"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('type_detail1')"></span>
+                    <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
+                    <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1')"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'type_detail1'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('type_detail1')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -197,12 +207,12 @@
               <th class="hidden-xs">
                 Fecha
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('created_at')"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('created_at',{date:true})"></span>
+                    <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
+                    <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'created_at'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('created_at')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -212,12 +222,12 @@
               <th class="icons">
                 Estado
                 <p>
-                    <span class="glyphicon glyphicon-triangle-bottom" @click="orderColumn('closed_at')"></span>
-                    <span class="glyphicon glyphicon-filter" @click="filterColumn('closed_at')"></span>
+                    <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
+                    <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at')"></span>
                     <button 
                         class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.name == 'closed_at'"
-                        @click="clearFilters()"
+                        v-if="filtering.filters['dontShow']"
+                        @click="clearFilters('closed_at')"
                         >
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -266,20 +276,22 @@
             <h3>Aún no se han mandado solicitudes.</h3>
           </div>
         </div>
-        <button 
-          type="submit" 
-          class="btn btn-sm btn-info btn-block" 
-          v-if="showRequest.method"
-          @click.prevent="toggleShowRequest"
-          ><h4>Volver</h4>
-        </button>
-        <button 
-          type="submit" 
-          class="btn btn-sm btn-primary btn-block" 
-          v-if="admin && showRequest.method && !showRequest.request.closed_at"
-          @click.prevent="closeRequest"
-          ><h4>Cerrar Solicitud</h4>
-        </button>
+        <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
+          <button 
+            type="submit" 
+            class="btn btn-sm btn-info btn-block form-control" 
+            v-if="showRequest.method"
+            @click.prevent="toggleShowRequest"
+            ><h4>Volver</h4>
+          </button>
+          <button 
+            type="submit" 
+            class="btn btn-sm btn-warning btn-block form-control" 
+            v-if="admin && showRequest.method && !showRequest.request.closed_at"
+            @click.prevent="closeRequest"
+            ><h4>Cerrar Solicitud</h4>
+          </button>
+        </div>
       </div>
       <div class="panel-footer">
         <div class="progress">
@@ -352,19 +364,61 @@
         watch: {
         },
         methods: {
+          filterClasses(object) {
+            if (this.filtering.filters[object]) {
+              return 'glyphicon glyphicon-filter selected';
+            }
+            return 'glyphicon glyphicon-filter';
+          },
+          orderClasses(object) {
+            if (this.lastOrder.name == object && this.lastOrder.type == 'asc') {
+              return 'glyphicon glyphicon-triangle-top';
+            }
+            return 'glyphicon glyphicon-triangle-bottom';
+          },
           toggleFiltering() {
             if (this.requests.length == this.filtering.selected.length) {
+              delete(this.filtering.filters[this.filtering.name]);
+              if (this.filtering.name == 'created_at') {
+                this.filtering.date = {};
+              }
               this.filtering.name = '';
               this.filtering.state = false;
             } else {
+              this.filtering.name = '';
               this.filtering.state = false;
             }
           },
-          clearFilters() {
-            this.filtering.name = '';
-            this.filtering.keys = [];
-            this.filtering.state = false;
+          clearAllFilters() {
+            if (this.filtering.state) {
+              flash({
+                  message: 'Cierra la ventana para activar el botón', 
+                  label: 'warning'
+              });
+              return false;
+            }
             this.selectAllItems();
+            this.filtering.filters = {};
+          },
+          clearFilters(filter) {
+            if (this.filtering.state) {
+              flash({
+                  message: 'Cierra la ventana para activar el botón', 
+                  label: 'warning'
+              });
+              return false;
+            }
+            for (let item of this.filtering.filters[filter].keys) {
+              for (let key of item.keys) {
+                if (this.filtering.selected.indexOf(key) == -1) {
+                  this.filtering.selected.push(key);
+                }
+              }
+            }
+            delete(this.filtering.filters[filter]);
+            if (filter == 'created_at') {
+              this.filtering.date = {};
+            }
           },
           selectAllItems() {
             for (var i = 0; i < this.requests.length; i++) {
@@ -372,15 +426,12 @@
                     this.filtering.selected.push(this.requests[i].id);
                 }
             }
-            for (var i = 0; i < this.filtering.keys.length; i++) {
-                this.filtering.keys[i].state = true;
-            }
           },
           selectAllFilters() {
               if (this.requests.length == this.filtering.selected.length) {
                   this.filtering.selected = [];
-                  for (var i = 0; i < this.filtering.keys.length; i++) {
-                      this.filtering.keys[i].state = false;
+                  for (var i = 0; i < this.filtering.filters[this.filtering.name].keys.length; i++) {
+                      this.filtering.filters[this.filtering.name].keys[i].state = false;
                   }
                   return;
               }
@@ -388,9 +439,6 @@
                   if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
                       this.filtering.selected.push(this.requests[i].id);
                   }
-              }
-              for (var i = 0; i < this.filtering.keys.length; i++) {
-                  this.filtering.keys[i].state = true;
               }
           },
           invertSelectionFilters() {
@@ -404,91 +452,115 @@
                       selected = false;
                   }
                   // var cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
-                  for (var o = 0; o < this.filtering.keys.length; o++) {
-                      if (this.filtering.keys[o].keys.indexOf(this.requests[i].id) != -1) {
-                          this.filtering.keys[o].state = selected;
+                  for (var o = 0; o < this.filtering.filters[this.filtering.name].keys.length; o++) {
+                      if (this.filtering.filters[this.filtering.name].keys[o].keys.indexOf(this.requests[i].id) != -1) {
+                          this.filtering.filters[this.filtering.name].keys[o].state = selected;
                       }
                   }
               }
           },
           filterColumn(name, options={object:null,date:false}) {
+            if (this.filtering.state) {
+              flash({
+                  message: 'Cierra la ventana para activar el botón', 
+                  label: 'warning'
+              });
+              return false;
+            }
             if (options.date) {
               this.filtering.date.state = true;
             } else {
               this.filtering.date.state = false;
             }
-            if (this.filtering.name != '' && this.filtering.name != name) {
-              flash({
-                  message: 'Elimina el filtro aplicado.', 
-                  label: 'danger'
-              });
-              return false;
-            }
-              if (this.filtering.name != name) {
-                  this.filtering.name = name;
-                  this.filtering.keys = [];
-                  this.filtering.state = true;
-                  var labels = [];
-                  var keys =[];
-                  let cleanName = '';
-                  let fullName = '';
-                  for (var i = 0; i < this.requests.length; i++) {
-                    if (!options.object) {
-                      if (this.requests[i][name] == null) {
-                        cleanName = '-';
-                        if (name == 'closed_at') {
-                          fullName = 'Pendiente';
-                        } else {
-                          fullName = 'N/A';
-                        }
-                      } else {
-                        if (name == 'closed_at') {
-                          cleanName = 'resuelta';
-                          fullName = 'Resuelta';
-                        } else {
-                          cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
-                          fullName = this.requests[i][name];
-                        }
-                      }
-                    } else {
-                      if (this.requests[i][options.object][name] == null) {
-                        cleanName = '-';
-                        fullName = 'N/A';
-                      } else {
-                        cleanName = cleanUpSpecialChars(this.requests[i][options.object][name].toLowerCase());
-                        fullName = this.requests[i][options.object][name];
-                      }
-                    }
-                      var id = this.requests[i].id;
-                      // var clinicObject = {keys: key};
-                      if (labels.indexOf(cleanName) == -1) {
-                          labels.push(cleanName);
-                          var key = {label: fullName, keys: [id], state: 'checked'};
-                          keys.push(key);
-                      } else {
-                          for (var o = 0; o < keys.length; o++) {
-                              if (keys[o].label == fullName) {
-                                  keys[o].keys.push(id);
-                              }
-                          }
-                      }
+            this.filtering.filters[name] = {};
+            this.filtering.filters[name].name = name;
+            this.filtering.filters[name].keys = [];
+            this.filtering.name = name;
+            this.filtering.state = true;
+            var labels = [];
+            var keys =[];
+            let cleanName = '';
+            let fullName = '';
+            for (var i = 0; i < this.requests.length; i++) {
+              if (!options.object) {
+                if (this.requests[i][name] == null) {
+                  cleanName = '-';
+                  if (name == 'closed_at') {
+                    fullName = 'Pendiente';
+                  } else {
+                    fullName = 'N/A';
                   }
-                  this.filtering.keys = keys;
-                  // this.filtering.keys.sort();
+                } else {
+                  if (name == 'closed_at') {
+                    cleanName = 'resuelta';
+                    fullName = 'Resuelta';
+                  } else {
+                    cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
+                    fullName = this.requests[i][name];
+                  }
+                }
               } else {
-                  this.filtering.state = true;
+                if (this.requests[i][options.object][name] == null) {
+                  cleanName = '-';
+                  fullName = 'N/A';
+                } else {
+                  cleanName = cleanUpSpecialChars(this.requests[i][options.object][name].toLowerCase());
+                  fullName = this.requests[i][options.object][name];
+                }
               }
+              var id = this.requests[i].id;
+              let state = false;
+              if (labels.indexOf(cleanName) == -1) {
+                  labels.push(cleanName);
+                  var key = {label: fullName, keys: [id], state: state};
+                  keys.push(key);
+              } else {
+                for (var o = 0; o < keys.length; o++) {
+                  if (keys[o].label == fullName) {
+                      keys[o].keys.push(id);
+                  }
+                }
+              }
+            }
+            this.filtering.filters[name].keys = keys;
+            this.filtering.filters[name].keys.forEach((item, index) => {
+              for (let id of item.keys) {
+                if (this.filtering.selected.indexOf(id) != -1) {
+                  this.filtering.filters[name].keys[index].state = 'checked';
+                  break;
+                }
+              }
+            });
+            this.filtering.state = true;
           },
           checkFilter(id) {
               return this.filtering.selected.indexOf(id) == -1 ? false : true;
           },
-          filterDates() {
+          doSelected() {
+            if (Object.keys(this.filtering.filters).length == 0) {
+              this.selectAllFilters();
+            } else {
+              this.filtering.selected = [];
+              for (let request of this.requests) {
+                let found = true;
+                for (let filter in this.filtering.filters) {
+                  if (this.filtering.filters[filter].selected.indexOf(request.id) == -1) {
+                    found = false;
+                    break;
+                  }
+                }
+                if (found) {
+                  this.filtering.selected.push(request.id);
+                }
+              }
+            }
+          },
+          filterDates(object) {
             console.log('Start Date: '+moment(this.filtering.date.start).format('x'));
             console.log('End Date: '+moment(this.filtering.date.end).format('x'));
             let startDate = moment(this.filtering.date.start).format('x');
             let endDate = moment(this.filtering.date.end).format('x');
-            for (let date of this.filtering.keys) {
-              // console.log('Item Date: '+moment(date.label).format('x'));
+            for (let date of this.filtering.filters[object].keys) {
               if (moment(date.label).format('x') > startDate && moment(date.label).format('x') < endDate) {
                 for (let key of date.keys) {
                   if (this.filtering.selected.indexOf(key) == -1) {
@@ -504,25 +576,24 @@
               }
             }
           },
-          toggleFilterItem(ids, name) {
+          toggleFilterItem(ids, state, name) {
               if (ids.length > 1) {
                   for (var i = 0; i < ids.length; i++) {
-                      if (this.filtering.selected.indexOf(ids[i]) == -1) {
+                      if (this.filtering.selected.indexOf(ids[i]) == -1 && !state) {
                           this.filtering.selected.push(ids[i]);
-                      } else {
+                      } else if (this.filtering.selected.indexOf(ids[i]) != -1 && state) {
                           this.filtering.selected.splice(this.filtering.selected.indexOf(ids[i]),1);
                       }
                   }
               } else {
-                  if (this.filtering.selected.indexOf(ids[0]) == -1) {
+                  if (this.filtering.selected.indexOf(ids[i]) == -1 && !state) {
                       this.filtering.selected.push(ids[0]);
-                  } else {
+                  } else if (this.filtering.selected.indexOf(ids[i]) != -1 && state) {
                       this.filtering.selected.splice(this.filtering.selected.indexOf(ids[0]),1);
                   }
               }
           },
           orderColumn(name, options={object:null,date:false}) {
-            console.log(name);
               if (this.lastOrder.name != name) {
                   this.lastOrder.name = name;
                   this.lastOrder.keys = [];
@@ -536,7 +607,6 @@
                       }
                     } else {
                       if (this.requests[i][name] == null) {
-                        console.log('NULL1');
                         this.lastOrder.keys.push('-');
                       } else {
                         this.lastOrder.keys.push(cleanUpSpecialChars(this.requests[i][name].toLowerCase()));
@@ -675,7 +745,6 @@
                   }
                 }).then(response => {
                     if (response.status == 200) {
-                      console.log(response.data.request);
                       flash({
                           message: 'Solicitud cerrada.', 
                           label: 'success'
@@ -683,6 +752,7 @@
                       this.notifyClosed(this.showRequest.request.id);
                       window.events.$emit('requestClosed');
                       this.toggleShowRequest();
+                      this.calculateRatio();
                     }
                 });
           },
@@ -697,14 +767,14 @@
           fetchProfile() {
             axios.get('/api/requests')
               .then(data => {
-                console.log(data.data);
                 this.profileSrc = data.data.profile;
                 this.types = data.data.types;
                 this.details = data.data.details;
                 this.labs = data.data.labs;
                 if (data.data.requests) {
                   this.requests = data.data.requests;
-                  this.selectAllFilters();
+                  this.doSelected();
+                  // this.selectAllFilters();
                 }
                 this.calculateRatio();
               });

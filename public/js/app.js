@@ -63773,7 +63773,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -63788,6 +63788,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -64142,204 +64154,80 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {},
   methods: {
+    filterClasses: function filterClasses(object) {
+      if (this.filtering.filters[object]) {
+        return 'glyphicon glyphicon-filter selected';
+      }
+      return 'glyphicon glyphicon-filter';
+    },
+    orderClasses: function orderClasses(object) {
+      if (this.lastOrder.name == object && this.lastOrder.type == 'asc') {
+        return 'glyphicon glyphicon-triangle-top';
+      }
+      return 'glyphicon glyphicon-triangle-bottom';
+    },
     toggleFiltering: function toggleFiltering() {
       if (this.requests.length == this.filtering.selected.length) {
+        delete this.filtering.filters[this.filtering.name];
+        if (this.filtering.name == 'created_at') {
+          this.filtering.date = {};
+        }
         this.filtering.name = '';
         this.filtering.state = false;
       } else {
+        this.filtering.name = '';
         this.filtering.state = false;
       }
     },
-    clearFilters: function clearFilters() {
-      this.filtering.name = '';
-      this.filtering.keys = [];
-      this.filtering.state = false;
-      this.selectAllItems();
-    },
-    selectAllItems: function selectAllItems() {
-      for (var i = 0; i < this.requests.length; i++) {
-        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
-          this.filtering.selected.push(this.requests[i].id);
-        }
-      }
-      for (var i = 0; i < this.filtering.keys.length; i++) {
-        this.filtering.keys[i].state = true;
-      }
-    },
-    selectAllFilters: function selectAllFilters() {
-      if (this.requests.length == this.filtering.selected.length) {
-        this.filtering.selected = [];
-        for (var i = 0; i < this.filtering.keys.length; i++) {
-          this.filtering.keys[i].state = false;
-        }
-        return;
-      }
-      for (var i = 0; i < this.requests.length; i++) {
-        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
-          this.filtering.selected.push(this.requests[i].id);
-        }
-      }
-      for (var i = 0; i < this.filtering.keys.length; i++) {
-        this.filtering.keys[i].state = true;
-      }
-    },
-    invertSelectionFilters: function invertSelectionFilters() {
-      var selected = '';
-      for (var i = 0; i < this.requests.length; i++) {
-        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
-          this.filtering.selected.push(this.requests[i].id);
-          selected = true;
-        } else {
-          this.filtering.selected.splice(this.filtering.selected.indexOf(this.requests[i].id), 1);
-          selected = false;
-        }
-        // var cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
-        for (var o = 0; o < this.filtering.keys.length; o++) {
-          if (this.filtering.keys[o].keys.indexOf(this.requests[i].id) != -1) {
-            this.filtering.keys[o].state = selected;
-          }
-        }
-      }
-    },
-    filterColumn: function filterColumn(name) {
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false };
-
-      if (options.date) {
-        this.filtering.date.state = true;
-      } else {
-        this.filtering.date.state = false;
-      }
-      if (this.filtering.name != '' && this.filtering.name != name) {
+    clearAllFilters: function clearAllFilters() {
+      if (this.filtering.state) {
         flash({
-          message: 'Elimina el filtro aplicado.',
-          label: 'danger'
+          message: 'Cierra la ventana para activar el botón',
+          label: 'warning'
         });
         return false;
       }
-      if (this.filtering.name != name) {
-        this.filtering.name = name;
-        this.filtering.keys = [];
-        this.filtering.state = true;
-        var labels = [];
-        var keys = [];
-        var cleanName = '';
-        var fullName = '';
-        for (var i = 0; i < this.requests.length; i++) {
-          if (!options.object) {
-            if (this.requests[i][name] == null) {
-              cleanName = '-';
-              if (name == 'closed_at') {
-                fullName = 'Pendiente';
-              } else {
-                fullName = 'N/A';
-              }
-            } else {
-              if (name == 'closed_at') {
-                cleanName = 'resuelta';
-                fullName = 'Resuelta';
-              } else {
-                cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
-                fullName = this.requests[i][name];
-              }
-            }
-          } else {
-            if (this.requests[i][options.object][name] == null) {
-              cleanName = '-';
-              fullName = 'N/A';
-            } else {
-              cleanName = cleanUpSpecialChars(this.requests[i][options.object][name].toLowerCase());
-              fullName = this.requests[i][options.object][name];
-            }
-          }
-          var id = this.requests[i].id;
-          // var clinicObject = {keys: key};
-          if (labels.indexOf(cleanName) == -1) {
-            labels.push(cleanName);
-            var key = { label: fullName, keys: [id], state: 'checked' };
-            keys.push(key);
-          } else {
-            for (var o = 0; o < keys.length; o++) {
-              if (keys[o].label == fullName) {
-                keys[o].keys.push(id);
-              }
-            }
-          }
-        }
-        this.filtering.keys = keys;
-        // this.filtering.keys.sort();
-      } else {
-        this.filtering.state = true;
+      this.selectAllItems();
+      this.filtering.filters = {};
+    },
+    clearFilters: function clearFilters(filter) {
+      if (this.filtering.state) {
+        flash({
+          message: 'Cierra la ventana para activar el botón',
+          label: 'warning'
+        });
+        return false;
       }
-    },
-    checkFilter: function checkFilter(id) {
-      return this.filtering.selected.indexOf(id) == -1 ? false : true;
-    },
-    filterDates: function filterDates() {
-      console.log('Start Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x'));
-      console.log('End Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x'));
-      var startDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x');
-      var endDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x');
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = this.filtering.keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var date = _step.value;
+        for (var _iterator = this.filtering.filters[filter].keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var item = _step.value;
+          var _iteratorNormalCompletion2 = true;
+          var _didIteratorError2 = false;
+          var _iteratorError2 = undefined;
 
-          // console.log('Item Date: '+moment(date.label).format('x'));
-          if (__WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') > startDate && __WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') < endDate) {
-            var _iteratorNormalCompletion2 = true;
-            var _didIteratorError2 = false;
-            var _iteratorError2 = undefined;
+          try {
+            for (var _iterator2 = item.keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              var key = _step2.value;
 
-            try {
-              for (var _iterator2 = date.keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                var key = _step2.value;
-
-                if (this.filtering.selected.indexOf(key) == -1) {
-                  this.filtering.selected.push(key);
-                }
-              }
-            } catch (err) {
-              _didIteratorError2 = true;
-              _iteratorError2 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                  _iterator2.return();
-                }
-              } finally {
-                if (_didIteratorError2) {
-                  throw _iteratorError2;
-                }
+              if (this.filtering.selected.indexOf(key) == -1) {
+                this.filtering.selected.push(key);
               }
             }
-          } else {
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
-
+          } catch (err) {
+            _didIteratorError2 = true;
+            _iteratorError2 = err;
+          } finally {
             try {
-              for (var _iterator3 = date.keys[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var _key = _step3.value;
-
-                if (this.filtering.selected.indexOf(_key) != -1) {
-                  this.filtering.selected.splice(this.filtering.selected.indexOf(_key), 1);
-                }
+              if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                _iterator2.return();
               }
-            } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
             } finally {
-              try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                  _iterator3.return();
-                }
-              } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
-                }
+              if (_didIteratorError2) {
+                throw _iteratorError2;
               }
             }
           }
@@ -64358,20 +64246,290 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       }
+
+      delete this.filtering.filters[filter];
+      if (filter == 'created_at') {
+        this.filtering.date = {};
+      }
     },
-    toggleFilterItem: function toggleFilterItem(ids, name) {
+    selectAllItems: function selectAllItems() {
+      for (var i = 0; i < this.requests.length; i++) {
+        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
+          this.filtering.selected.push(this.requests[i].id);
+        }
+      }
+    },
+    selectAllFilters: function selectAllFilters() {
+      if (this.requests.length == this.filtering.selected.length) {
+        this.filtering.selected = [];
+        for (var i = 0; i < this.filtering.filters[this.filtering.name].keys.length; i++) {
+          this.filtering.filters[this.filtering.name].keys[i].state = false;
+        }
+        return;
+      }
+      for (var i = 0; i < this.requests.length; i++) {
+        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
+          this.filtering.selected.push(this.requests[i].id);
+        }
+      }
+    },
+    invertSelectionFilters: function invertSelectionFilters() {
+      var selected = '';
+      for (var i = 0; i < this.requests.length; i++) {
+        if (this.filtering.selected.indexOf(this.requests[i].id) == -1) {
+          this.filtering.selected.push(this.requests[i].id);
+          selected = true;
+        } else {
+          this.filtering.selected.splice(this.filtering.selected.indexOf(this.requests[i].id), 1);
+          selected = false;
+        }
+        // var cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
+        for (var o = 0; o < this.filtering.filters[this.filtering.name].keys.length; o++) {
+          if (this.filtering.filters[this.filtering.name].keys[o].keys.indexOf(this.requests[i].id) != -1) {
+            this.filtering.filters[this.filtering.name].keys[o].state = selected;
+          }
+        }
+      }
+    },
+    filterColumn: function filterColumn(name) {
+      var _this = this;
+
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false };
+
+      if (this.filtering.state) {
+        flash({
+          message: 'Cierra la ventana para activar el botón',
+          label: 'warning'
+        });
+        return false;
+      }
+      if (options.date) {
+        this.filtering.date.state = true;
+      } else {
+        this.filtering.date.state = false;
+      }
+      this.filtering.filters[name] = {};
+      this.filtering.filters[name].name = name;
+      this.filtering.filters[name].keys = [];
+      this.filtering.name = name;
+      this.filtering.state = true;
+      var labels = [];
+      var keys = [];
+      var cleanName = '';
+      var fullName = '';
+      for (var i = 0; i < this.requests.length; i++) {
+        if (!options.object) {
+          if (this.requests[i][name] == null) {
+            cleanName = '-';
+            if (name == 'closed_at') {
+              fullName = 'Pendiente';
+            } else {
+              fullName = 'N/A';
+            }
+          } else {
+            if (name == 'closed_at') {
+              cleanName = 'resuelta';
+              fullName = 'Resuelta';
+            } else {
+              cleanName = cleanUpSpecialChars(this.requests[i][name].toLowerCase());
+              fullName = this.requests[i][name];
+            }
+          }
+        } else {
+          if (this.requests[i][options.object][name] == null) {
+            cleanName = '-';
+            fullName = 'N/A';
+          } else {
+            cleanName = cleanUpSpecialChars(this.requests[i][options.object][name].toLowerCase());
+            fullName = this.requests[i][options.object][name];
+          }
+        }
+        var id = this.requests[i].id;
+        var state = false;
+        if (labels.indexOf(cleanName) == -1) {
+          labels.push(cleanName);
+          var key = { label: fullName, keys: [id], state: state };
+          keys.push(key);
+        } else {
+          for (var o = 0; o < keys.length; o++) {
+            if (keys[o].label == fullName) {
+              keys[o].keys.push(id);
+            }
+          }
+        }
+      }
+      this.filtering.filters[name].keys = keys;
+      this.filtering.filters[name].keys.forEach(function (item, index) {
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
+
+        try {
+          for (var _iterator3 = item.keys[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var _id = _step3.value;
+
+            if (_this.filtering.selected.indexOf(_id) != -1) {
+              _this.filtering.filters[name].keys[index].state = 'checked';
+              break;
+            }
+          }
+        } catch (err) {
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+              _iterator3.return();
+            }
+          } finally {
+            if (_didIteratorError3) {
+              throw _iteratorError3;
+            }
+          }
+        }
+      });
+      this.filtering.state = true;
+    },
+    checkFilter: function checkFilter(id) {
+      return this.filtering.selected.indexOf(id) == -1 ? false : true;
+    },
+    doSelected: function doSelected() {
+      if (Object.keys(this.filtering.filters).length == 0) {
+        this.selectAllFilters();
+      } else {
+        this.filtering.selected = [];
+        var _iteratorNormalCompletion4 = true;
+        var _didIteratorError4 = false;
+        var _iteratorError4 = undefined;
+
+        try {
+          for (var _iterator4 = this.requests[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+            var request = _step4.value;
+
+            var found = true;
+            for (var filter in this.filtering.filters) {
+              if (this.filtering.filters[filter].selected.indexOf(request.id) == -1) {
+                found = false;
+                break;
+              }
+            }
+            if (found) {
+              this.filtering.selected.push(request.id);
+            }
+          }
+        } catch (err) {
+          _didIteratorError4 = true;
+          _iteratorError4 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+              _iterator4.return();
+            }
+          } finally {
+            if (_didIteratorError4) {
+              throw _iteratorError4;
+            }
+          }
+        }
+      }
+    },
+    filterDates: function filterDates(object) {
+      console.log('Start Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x'));
+      console.log('End Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x'));
+      var startDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x');
+      var endDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x');
+      var _iteratorNormalCompletion5 = true;
+      var _didIteratorError5 = false;
+      var _iteratorError5 = undefined;
+
+      try {
+        for (var _iterator5 = this.filtering.filters[object].keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          var date = _step5.value;
+
+          if (__WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') > startDate && __WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') < endDate) {
+            var _iteratorNormalCompletion6 = true;
+            var _didIteratorError6 = false;
+            var _iteratorError6 = undefined;
+
+            try {
+              for (var _iterator6 = date.keys[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                var key = _step6.value;
+
+                if (this.filtering.selected.indexOf(key) == -1) {
+                  this.filtering.selected.push(key);
+                }
+              }
+            } catch (err) {
+              _didIteratorError6 = true;
+              _iteratorError6 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                  _iterator6.return();
+                }
+              } finally {
+                if (_didIteratorError6) {
+                  throw _iteratorError6;
+                }
+              }
+            }
+          } else {
+            var _iteratorNormalCompletion7 = true;
+            var _didIteratorError7 = false;
+            var _iteratorError7 = undefined;
+
+            try {
+              for (var _iterator7 = date.keys[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                var _key = _step7.value;
+
+                if (this.filtering.selected.indexOf(_key) != -1) {
+                  this.filtering.selected.splice(this.filtering.selected.indexOf(_key), 1);
+                }
+              }
+            } catch (err) {
+              _didIteratorError7 = true;
+              _iteratorError7 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion7 && _iterator7.return) {
+                  _iterator7.return();
+                }
+              } finally {
+                if (_didIteratorError7) {
+                  throw _iteratorError7;
+                }
+              }
+            }
+          }
+        }
+      } catch (err) {
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion5 && _iterator5.return) {
+            _iterator5.return();
+          }
+        } finally {
+          if (_didIteratorError5) {
+            throw _iteratorError5;
+          }
+        }
+      }
+    },
+    toggleFilterItem: function toggleFilterItem(ids, state, name) {
       if (ids.length > 1) {
         for (var i = 0; i < ids.length; i++) {
-          if (this.filtering.selected.indexOf(ids[i]) == -1) {
+          if (this.filtering.selected.indexOf(ids[i]) == -1 && !state) {
             this.filtering.selected.push(ids[i]);
-          } else {
+          } else if (this.filtering.selected.indexOf(ids[i]) != -1 && state) {
             this.filtering.selected.splice(this.filtering.selected.indexOf(ids[i]), 1);
           }
         }
       } else {
-        if (this.filtering.selected.indexOf(ids[0]) == -1) {
+        if (this.filtering.selected.indexOf(ids[i]) == -1 && !state) {
           this.filtering.selected.push(ids[0]);
-        } else {
+        } else if (this.filtering.selected.indexOf(ids[i]) != -1 && state) {
           this.filtering.selected.splice(this.filtering.selected.indexOf(ids[0]), 1);
         }
       }
@@ -64379,7 +64537,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     orderColumn: function orderColumn(name) {
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false };
 
-      console.log(name);
       if (this.lastOrder.name != name) {
         this.lastOrder.name = name;
         this.lastOrder.keys = [];
@@ -64393,7 +64550,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           } else {
             if (this.requests[i][name] == null) {
-              console.log('NULL1');
               this.lastOrder.keys.push('-');
             } else {
               this.lastOrder.keys.push(cleanUpSpecialChars(this.requests[i][name].toLowerCase()));
@@ -64492,13 +64648,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.admin) {
         origin = this.requests;
       }
-      var _iteratorNormalCompletion4 = true;
-      var _didIteratorError4 = false;
-      var _iteratorError4 = undefined;
+      var _iteratorNormalCompletion8 = true;
+      var _didIteratorError8 = false;
+      var _iteratorError8 = undefined;
 
       try {
-        for (var _iterator4 = origin[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-          var request = _step4.value;
+        for (var _iterator8 = origin[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+          var request = _step8.value;
 
           this.profileRequests.total++;
           if (request.closed_at) {
@@ -64506,16 +64662,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError4 = true;
-        _iteratorError4 = err;
+        _didIteratorError8 = true;
+        _iteratorError8 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion4 && _iterator4.return) {
-            _iterator4.return();
+          if (!_iteratorNormalCompletion8 && _iterator8.return) {
+            _iterator8.return();
           }
         } finally {
-          if (_didIteratorError4) {
-            throw _iteratorError4;
+          if (_didIteratorError8) {
+            throw _iteratorError8;
           }
         }
       }
@@ -64535,7 +64691,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.fetchProfile();
     },
     closeRequest: function closeRequest() {
-      var _this = this;
+      var _this2 = this;
 
       axios.patch('/requests/' + this.showRequest.request.id, {
         'request': this.showRequest.request
@@ -64556,25 +64712,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }).then(function (response) {
         if (response.status == 200) {
-          console.log(response.data.request);
           flash({
             message: 'Solicitud cerrada.',
             label: 'success'
           });
-          _this.notifyClosed(_this.showRequest.request.id);
+          _this2.notifyClosed(_this2.showRequest.request.id);
           window.events.$emit('requestClosed');
-          _this.toggleShowRequest();
+          _this2.toggleShowRequest();
+          _this2.calculateRatio();
         }
       });
     },
     notifyClosed: function notifyClosed(id) {
-      var _iteratorNormalCompletion5 = true;
-      var _didIteratorError5 = false;
-      var _iteratorError5 = undefined;
+      var _iteratorNormalCompletion9 = true;
+      var _didIteratorError9 = false;
+      var _iteratorError9 = undefined;
 
       try {
-        for (var _iterator5 = this.requests[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-          var request = _step5.value;
+        for (var _iterator9 = this.requests[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+          var request = _step9.value;
 
           if (request.id == id) {
             request.closed_at = __WEBPACK_IMPORTED_MODULE_0_moment__().format();
@@ -64582,34 +64738,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError5 = true;
-        _iteratorError5 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion5 && _iterator5.return) {
-            _iterator5.return();
+          if (!_iteratorNormalCompletion9 && _iterator9.return) {
+            _iterator9.return();
           }
         } finally {
-          if (_didIteratorError5) {
-            throw _iteratorError5;
+          if (_didIteratorError9) {
+            throw _iteratorError9;
           }
         }
       }
     },
     fetchProfile: function fetchProfile() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/api/requests').then(function (data) {
-        console.log(data.data);
-        _this2.profileSrc = data.data.profile;
-        _this2.types = data.data.types;
-        _this2.details = data.data.details;
-        _this2.labs = data.data.labs;
+        _this3.profileSrc = data.data.profile;
+        _this3.types = data.data.types;
+        _this3.details = data.data.details;
+        _this3.labs = data.data.labs;
         if (data.data.requests) {
-          _this2.requests = data.data.requests;
-          _this2.selectAllFilters();
+          _this3.requests = data.data.requests;
+          _this3.doSelected();
+          // this.selectAllFilters();
         }
-        _this2.calculateRatio();
+        _this3.calculateRatio();
       });
     }
   },
@@ -64764,7 +64920,7 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            _vm.filterDates($event)
+                            _vm.filterDates(_vm.filtering.name)
                           }
                         }
                       },
@@ -64775,11 +64931,13 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          !_vm.filtering.date.state
+          !_vm.filtering.date.state && _vm.filtering.state
             ? _c(
                 "ul",
                 { staticClass: "list-group" },
-                _vm._l(_vm.filtering.keys, function(filter) {
+                _vm._l(_vm.filtering.filters[_vm.filtering.name].keys, function(
+                  filter
+                ) {
                   return _c("li", { staticClass: "col-xs-6 list-item" }, [
                     _c("input", {
                       directives: [
@@ -64798,7 +64956,11 @@ var render = function() {
                       },
                       on: {
                         click: function($event) {
-                          _vm.toggleFilterItem(filter.keys, _vm.filtering.name)
+                          _vm.toggleFilterItem(
+                            filter.keys,
+                            filter.state,
+                            _vm.filtering.name
+                          )
                         },
                         change: function($event) {
                           var $$a = filter.state,
@@ -64839,6 +65001,30 @@ var render = function() {
           )
         ]
       ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "form-group col-xs-12 col-sm-10 col-sm-offset-1" },
+          [
+            Object.keys(this.filtering.filters).length
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-info btn-block form-control",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.clearAllFilters($event)
+                      }
+                    }
+                  },
+                  [_c("h4", [_vm._v("Borrar Filtros")])]
+                )
+              : _vm._e()
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -65125,7 +65311,7 @@ var render = function() {
                       _vm._v("\n              Usuario\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("lastname1"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("lastname1", {
@@ -65136,7 +65322,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("lastname1"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("lastname1", {
@@ -65146,7 +65332,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "lastname1"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65154,7 +65340,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("lastname1")
                                   }
                                 }
                               },
@@ -65172,7 +65358,7 @@ var render = function() {
                       _vm._v("\n              Clínica\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("city"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("city", { object: "clinic" })
@@ -65181,7 +65367,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("city"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("city", { object: "clinic" })
@@ -65189,7 +65375,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "city"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65197,7 +65383,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("city")
                                   }
                                 }
                               },
@@ -65215,7 +65401,7 @@ var render = function() {
                       _vm._v("\n              Tipo\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("type"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("type")
@@ -65224,7 +65410,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("type"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("type")
@@ -65232,7 +65418,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "type"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65240,7 +65426,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("type")
                                   }
                                 }
                               },
@@ -65258,7 +65444,7 @@ var render = function() {
                       _vm._v("\n              Detalle\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("type_detail1"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("type_detail1")
@@ -65267,7 +65453,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("type_detail1"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("type_detail1")
@@ -65275,7 +65461,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "type_detail1"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65283,7 +65469,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("type_detail1")
                                   }
                                 }
                               },
@@ -65301,7 +65487,7 @@ var render = function() {
                       _vm._v("\n              Fecha\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("created_at"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("created_at")
@@ -65310,7 +65496,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("created_at"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("created_at", { date: true })
@@ -65318,7 +65504,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "created_at"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65326,7 +65512,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("created_at")
                                   }
                                 }
                               },
@@ -65346,7 +65532,7 @@ var render = function() {
                       _vm._v("\n              Estado\n              "),
                       _c("p", [
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-triangle-bottom",
+                          class: _vm.orderClasses("closed_at"),
                           on: {
                             click: function($event) {
                               _vm.orderColumn("closed_at")
@@ -65355,7 +65541,7 @@ var render = function() {
                         }),
                         _vm._v(" "),
                         _c("span", {
-                          staticClass: "glyphicon glyphicon-filter",
+                          class: _vm.filterClasses("closed_at"),
                           on: {
                             click: function($event) {
                               _vm.filterColumn("closed_at")
@@ -65363,7 +65549,7 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm.filtering.name == "closed_at"
+                        _vm.filtering.filters["dontShow"]
                           ? _c(
                               "button",
                               {
@@ -65371,7 +65557,7 @@ var render = function() {
                                   "btn btn-sm btn-danger delete-Schedule",
                                 on: {
                                   click: function($event) {
-                                    _vm.clearFilters()
+                                    _vm.clearFilters("closed_at")
                                   }
                                 }
                               },
@@ -65537,41 +65723,48 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          _vm.showRequest.method
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-info btn-block",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.toggleShowRequest($event)
-                    }
-                  }
-                },
-                [_c("h4", [_vm._v("Volver")])]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.admin &&
-          _vm.showRequest.method &&
-          !_vm.showRequest.request.closed_at
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn btn-sm btn-primary btn-block",
-                  attrs: { type: "submit" },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.closeRequest($event)
-                    }
-                  }
-                },
-                [_c("h4", [_vm._v("Cerrar Solicitud")])]
-              )
-            : _vm._e()
+          _c(
+            "div",
+            { staticClass: "form-group col-xs-12 col-sm-10 col-sm-offset-1" },
+            [
+              _vm.showRequest.method
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-info btn-block form-control",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.toggleShowRequest($event)
+                        }
+                      }
+                    },
+                    [_c("h4", [_vm._v("Volver")])]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.admin &&
+              _vm.showRequest.method &&
+              !_vm.showRequest.request.closed_at
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "btn btn-sm btn-warning btn-block form-control",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.closeRequest($event)
+                        }
+                      }
+                    },
+                    [_c("h4", [_vm._v("Cerrar Solicitud")])]
+                  )
+                : _vm._e()
+            ]
+          )
         ],
         1
       ),
@@ -65710,7 +65903,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -65721,6 +65914,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -65884,6 +66078,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log('Completed!!!');
       this.tabs[this.tabSelected].completed = true;
       // this.tabSelected = number + 1;
+    },
+    notifyNoErrors: function notifyNoErrors() {
+      this.tabs[this.tabSelected].completed = true;
     },
     toggleTab: function toggleTab(tab) {
       if (this.tabSelected == tab) {
@@ -66088,7 +66285,8 @@ var render = function() {
                           on: {
                             updated: function($event) {
                               _vm.completePhase(2)
-                            }
+                            },
+                            noErrors: _vm.notifyNoErrors
                           }
                         })
                       ],
@@ -66508,9 +66706,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('/api/menu').then(function (data) {
                 _this.admin.requests = data.data.requests;
-                _this.admin.profiles = data.data.profiles;
                 _this.countUnsolved();
-                _this.countDeadUsers();
+                if (_this.user.role == 'admin') {
+                    _this.admin.profiles = data.data.profiles;
+                    _this.countDeadUsers();
+                }
             });
         }
     },
@@ -69336,7 +69536,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -69786,6 +69986,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   beforeUpdate: function beforeUpdate() {
     for (var field in this.formErrors) {
       this.checkFormField(field);
+    }
+    if (!this.errors) {
+      this.$emit('noErrors');
     }
   }
 });
