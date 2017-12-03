@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        @if(auth()->check() && !auth()->user()->profile->tutorial_completed)
+        @if(auth()->check())
         @include('nav.main')
         @endif
 
