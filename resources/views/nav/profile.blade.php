@@ -7,9 +7,9 @@
   <div class="col-xs-10 col-xs-offset-1 profile-info text-center">
     <p id="profile-name">{{auth()->user()->profile->name}}</p>
     @if(auth()->user()->role == 'user')
-    	<p>Endodoncista</p>
+    	<p>Odontólog@</p>
     @else
-		<p>Directora Médica</p>
+		<p>Administrador</p>
     @endif
   </div>
 </div>

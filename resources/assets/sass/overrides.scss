@@ -73,11 +73,14 @@ hr {
 	box-shadow: none;
 }
 .panel-body-admin {
-    max-height: 80vh;
+    max-height: 75vh;
     overflow-y: auto;
 }
 .panel-body button {
 	border: none;
+}
+.panel-body a {
+    color: $dentix-main;
 }
 .panel-body button h3{
 	font-size: 20px;
@@ -251,9 +254,9 @@ hr {
     display: block;
     margin-top: 5px;
     margin-bottom: 10px;
-    color: #989897;
+    color: $error;
     background: rgba(255,255,255,.9);
-    border-left: 4px solid red;
+    border-left: 4px solid $error;
 }
 .help-block {
     display: block;
@@ -287,7 +290,13 @@ button h3,h4 {
     list-style: none;
     font-weight: bolder;
 }
-.glyphicon.glyphicon-filter.selected {
+#filterColumn input[type="checkbox"] {
+    margin: 5px;
+}
+.clear-filters {
+    margin-top: 15px;
+}
+.glyphicon.selected {
     color: red;
 }
 @media (max-width: 450px) {

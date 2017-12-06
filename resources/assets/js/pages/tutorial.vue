@@ -47,6 +47,7 @@
                 </div>
                 <div class="col-xs-12 col-md-9 vcenter" v-if="tabSelected == '2'">
                   <profile-form
+                    :tutorial="true"
                     :profileSrc="profileSrc"
                     :profileOriginal="profileOriginal"
                     @updated="completePhase(2)"
@@ -64,6 +65,7 @@
                 <div id="tutorial-schedule" class="col-xs-12 col-md-9 vcenter" v-if="tabSelected == '4'">
                     <schedule
                       :page="'tutorial'"
+                      :clickable="true"
                       @completed="completePhase(4)"
                       >
                     </schedule>

@@ -14,6 +14,7 @@
                 :clinics-src="{{$clinics}}"
                 :provincias-src="{{$provincias}}"
                 :states-src="{{$states}}"
+                :clickable="true"
                 ></schedule>
               </div>
             </div>

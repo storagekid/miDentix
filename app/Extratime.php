@@ -20,4 +20,7 @@ class Extratime extends Model
     public function states() {
     	return $this->belongsTo(State::class, 'state_id');
     }
+    public function profile() {
+        return $this->belongsTo(Profile::class);
+    }
 }

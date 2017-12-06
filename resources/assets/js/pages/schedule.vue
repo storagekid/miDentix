@@ -119,6 +119,7 @@
                 <div class="row">
                   <div class="col-xs-12">
                     <schedule-pickup 
+                      :clickable="clickable"
                       :profile-src="profileSrc" 
                       :addingCA="addClinic.selectedStateId"
                       :addingPro="addClinic.selectedProvinciaId"
@@ -144,7 +145,6 @@
               </ul>
               <extra-time
               v-if="tabSelected == 'extraTime' && !newExtraTime"
-              :profile-src="profileSrc"
               :updateExtratimes="updateExtratimes"
               @deleted="notifyExtraRemoved"
               >
@@ -173,10 +173,10 @@
 
 <script>
     import schedulePickup from '../components/schedule/schedule-pickup.vue';
-    import extraTime from '../components/schedule/extra-time.vue';
+    // import extraTime from '../components/schedule/extra-time.vue';
     export default {
-        components: {schedulePickup,extraTime},
-        props: ['page'],
+        components: {schedulePickup},
+        props: ['page','admin','profileSelected','clickable'],
         data() {
             return {
               profileSrc: {
@@ -242,16 +242,21 @@
             if (this.page == 'home') {
               this.showTabs = false;
             }
+          },
+          admin() {
+            if (this.admin) {
+              this.showTabs = false;
+            }
           }
         },
         methods: {
           hideTabs() {
-            if (this.page == 'home') {
+            if (this.page == 'home' || this.admin) {
               this.showTabs = false;
             }
           },
           showTab(key) {
-            if (this.page == 'tutorial') {
+            if (this.page == 'tutorial' || this.admin) {
                 return false;
             }
             return true;
@@ -549,14 +554,6 @@
             insertExtra(extratime) {
               this.profileSrc.extratimes.push(extratime);
             },
-            removeProfileExtratime(id) {
-              for (let i = 0; i < this.profileSrc.extratimes.length; i++) {
-                  if (this.profileSrc.extratimes[i].id == id) {
-                    this.profileSrc.extratimes.splice(i,1);
-                    break;
-                  }
-              }
-            },
             removeProfileClinic(id) {
               for (let i = 0; i < this.profileSrc.clinics.length; i++) {
                   if (this.profileSrc.clinics[i].id == id) {
@@ -686,7 +683,12 @@
           }
         },
         created() {
-          this.fetch();
+          if (!this.admin) {
+            this.fetch();
+          } else {
+            this.refresh(this.profileSelected);
+            // this.profileSrc = this.profileSelected;
+          }
           this.fetchClinics();
           this.fetchProvincias();
           this.fetchStates();

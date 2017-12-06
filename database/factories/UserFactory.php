@@ -16,8 +16,9 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
     static $password;
     return [
-        'personal_id_number' => $faker->unique()->swiftBicNumber,
+        // 'personal_id_number' => $faker->unique()->swiftBicNumber,
         // 'password' => $password ?: $password = bcrypt('secret'),
+        'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('Migabinete%01'),
         'role' => 'user',
         'remember_token' => str_random(10),

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Schedule;
 use App\Clinic_Profile;
+use App\Extratime;
+use App\Profile;
 
 class ScheduleController extends Controller
 {
@@ -12,7 +14,14 @@ class ScheduleController extends Controller
     	return view('layouts.schedule.schedule-index');
     }
     public function indexApi() {
+        if (auth()->user()->role == 'admin') {
+            $extratimes = Extratime::all()->load(['profile']);
+            return ['extratimes'=>$extratimes];
+        }
         return auth()->user()->profile->load(['schedules','clinics','extratimes']);
+    }
+    public function indexProfileApi(Profile $profile) {
+        return $profile->load(['schedules','clinics','extratimes']);
     }
     public function create() {
     	return view('layouts.schedule.schedule-create');

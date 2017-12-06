@@ -20,7 +20,16 @@ class ProfilesAdminSeeder extends Seeder
 		]);
 		$user = $profile->user;
 		$user->email = $profile->email;
-		$user->personal_id_number = $profile->personal_id_number;
+		$user->password = Hash::make('Migabinete%01');
+		$user->role = 'admin';
+		$user->save();
+		$profile = factory('App\Profile')->create([
+			'email' => 'ralvarado@dentix.es',
+			'name' => 'Rafael',
+			'lastname1' => 'Alvarado',
+		]);
+		$user = $profile->user;
+		$user->email = $profile->email;
 		$user->password = Hash::make('Migabinete%01');
 		$user->role = 'admin';
 		$user->save();

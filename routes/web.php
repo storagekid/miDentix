@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::patch('/requests/{request}', 'RequestController@update');
 
 	Route::get('/api/schedule', 'ScheduleController@indexApi');
+	Route::get('/api/schedule/{profile}', 'ScheduleController@indexProfileApi');
 	Route::post('/schedule', 'ScheduleController@store');
 	Route::delete('/schedule/{schedule}', 'ScheduleController@destroy');
 	Route::patch('/schedule/{schedule}', 'ScheduleController@update');
@@ -35,6 +36,8 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/masters', 'MasterController@indexApi');
 	Route::post('/masters/{profile}', 'MasterUniversityController@store');
 	Route::delete('/masters/{master_university}', 'MasterUniversityController@destroy');
+
+	Route::get('/extratime', 'ExtratimeController@index');
 
 	Route::get('/api/menu', 'MenuController@indexApi');
 	Route::get('/api/clinics', 'ClinicController@indexApi');
@@ -58,6 +61,7 @@ Route::middleware(['auth','tutorial'])->group(function() {
 	Route::get('/schedule/{user}/extratime/create', 'ExtratimeController@create');
 
 	Route::post('/extratime', 'ExtratimeController@store');
+	Route::patch('/extratime/{extratime}', 'ExtratimeController@update');
 	Route::delete('/extratime/{extratime}', 'ExtratimeController@destroy');
 
 	Route::get('/profile/{user}/create', 'ProfileController@create');

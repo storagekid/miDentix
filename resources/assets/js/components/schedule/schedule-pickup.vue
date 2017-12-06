@@ -73,6 +73,7 @@
 <script>
     export default {
         props: [
+            'clickable',
             'profileSrc',
             'addingCA', 
             'addingPro', 
@@ -212,6 +213,9 @@
                 this.frameLegendStyle.height = '20px';
             },
             toggleActive(day, hour, clinic) {
+                if (!this.clickable) {
+                    return;
+                }
                 if (this.addingId || this.newExtraTime) {
                     let clinic = this.newExtraTime ? 'extra' : this.addingId;
                     if (!this.jarClasses[clinic]) {
@@ -295,6 +299,7 @@
                             clinic_id: this.addingId,
                             extratime: response.data.extratime,
                         });
+                        window.events.$emit('extratimeAdded');
                         this.emptyScheduleMaker();
                     });
             },

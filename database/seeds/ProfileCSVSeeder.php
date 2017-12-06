@@ -28,8 +28,10 @@ class ProfileCSVSeeder extends CsvSeeder
 
 		$profiles = \App\Profile::all();
 		foreach ($profiles as $profile) {
+			$profile->email = $profile->personal_id_number . "@migabinete.com";
 			$profile->user_id = factory('App\User')->create([
-				'personal_id_number' => $profile->personal_id_number,
+				// 'personal_id_number' => $profile->personal_id_number,
+				'email' => $profile->email,
 			])->id;
 			$profile->created_at = Carbon::now();
 			$profile->save();

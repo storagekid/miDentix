@@ -25,6 +25,7 @@ Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
 Vue.component('requests', require('./pages/request.vue'));
 Vue.component('tutorial', require('./pages/tutorial.vue'));
+Vue.component('admin-control-panel', require('./pages/admin-control-panel.vue'));
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
@@ -34,6 +35,7 @@ Vue.component('masters', require('./components/profile/masters.vue'));
 Vue.component('pass-changer', require('./components/profile/pass-changer.vue'));
 Vue.component('profile-form', require('./components/profile/profile-form.vue'));
 Vue.component('new-request', require('./components/requests/new-requests.vue'));
+Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 
 const app = new Vue({
     el: '#app'

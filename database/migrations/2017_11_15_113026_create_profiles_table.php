@@ -21,7 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('lastname2')->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('phone')->nullable();
-            $table->string('personal_id_number');
+            $table->string('personal_id_number')->nullable();
             $table->string('license_number')->nullable();
             $table->unsignedInteger('tutorial_completed')->default(1);
             $table->unsignedInteger('license_year')->nullable();

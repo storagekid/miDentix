@@ -7,6 +7,9 @@ use App\Extratime;
 
 class ExtratimeController extends Controller
 {
+    public function index() {
+        return view('layouts.extratime.extratime-index');
+    }
     public function create() {
     	return view('layouts.schedule.schedule-extraTime-create');
     }
@@ -19,11 +22,20 @@ class ExtratimeController extends Controller
     	        'schedule' => request('schedule'),
     	   	]);
     	   	if (request()->expectsJson()) {
-            return response([
-                'status'=>'Extratime created',
-                'extratime' => $extratime->fresh(), 
-                200]);
-        }
+                return response([
+                    'status'=>'Extratime created',
+                    'extratime' => $extratime->fresh(), 
+                    200]);
+            }
+    }
+    public function update(Extratime $extratime) {
+        $extratime->state = request()->get('state');
+        $extratime->save();
+        if (request()->expectsJson()) {
+                return response([
+                    'status'=>'Extratime closed',
+                    200]);
+            }
     }
     public function destroy(Extratime $extratime) {
         $extratime->delete();

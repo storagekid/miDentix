@@ -2,11 +2,11 @@
   <div>
     <form id="pass-change-form">
       <div class="row"> 
-        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <label for="name">Contraseña actual:</label>
           <input id="oldPass" type="password" class="form-control" v-model="profilePass.old">
         </div>
-        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <label for="newPass">Nueva Contraseña:</label>
           <password
           v-model="profilePass.new"
@@ -21,7 +21,7 @@
           >
           </password>
         </div>
-        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2">
+        <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <label for="newPass2">Confirmar nueva Contraseña:</label>
           <input id="newPass2" type="password" class="form-control" v-model="profilePass.new2">
         </div>

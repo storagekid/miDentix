@@ -4,8 +4,9 @@
             <a :href="menu.link"> 
                 <span :class="menu.icon"></span> 
                 <span class="hidden-sm" v-text="menu.name"></span>
-                <span class="badge badge-menu" v-if="menu.name == 'Necesidades'">{{admin.unsolved}}</span>
-                <span class="badge badge-menu" v-if="menu.name == 'Usuarios'">{{admin.deadUsers}}</span>
+                <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
+                <span class="badge badge-menu" v-if="menu.name == 'Usuarios' && admin.deadUsers">{{admin.deadUsers}}</span>
+                <span class="badge badge-menu" v-if="menu.name == 'Bolsa de Horas' || menu.name == 'Jornada' && admin.extratimesUnsolved">{{admin.extratimesUnsolved}}</span>
             </a>
         </li>
     </ul>
@@ -22,7 +23,9 @@
                 admin: {
                     requests: [],
                     profiles: [],
-                    unsolved: 0,
+                    extratimes: [],
+                    requestsUnsolved: 0,
+                    extratimesUnsolved: 0,
                     deadUsers: 0,
                 }
             }
@@ -39,7 +42,12 @@
             countUnsolved() {
                 for (let request of this.admin.requests) {
                     if (!request.closed_at) {
-                        this.admin.unsolved++;
+                        this.admin.requestsUnsolved++;
+                    }
+                }
+                for (let extratime of this.admin.extratimes) {
+                    if (extratime.state == 1) {
+                        this.admin.extratimesUnsolved++;
                     }
                 }
             },
@@ -51,12 +59,19 @@
                 }
             },
             notifySolved() {
-                this.admin.unsolved--;
+                this.admin.requestsUnsolved--;
+            },
+            notifySExtratimeAdded() {
+                this.admin.extratimesUnsolved++;
+            },
+            notifySExtratimeRemoved() {
+                this.admin.extratimesUnsolved--;
             },
             fetchMenuData() {
                 axios.get('/api/menu')
                     .then(data => {
                       this.admin.requests = data.data.requests;
+                      this.admin.extratimes = data.data.extratimes;
                       this.countUnsolved();
                       if (this.user.role == 'admin') {
                         this.admin.profiles = data.data.profiles;
@@ -67,6 +82,9 @@
         },
         created() {
             window.events.$on('requestClosed', this.notifySolved);
+            window.events.$on('extratimeAdded', this.notifySExtratimeAdded);
+            window.events.$on('extratimeRemoved', this.notifySExtratimeRemoved);
+            window.events.$on('extratimeSolved', this.notifySExtratimeRemoved);
             this.getActive();
             this.fetchMenuData();
         },

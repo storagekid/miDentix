@@ -41,7 +41,7 @@
       <div class="row">
         <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
           <button 
-            class="btn btn-sm btn-info btn-block form-control" 
+            class="btn btn-sm btn-info btn-block clear-filters" 
             v-if="Object.keys(this.filtering.filters).length"
             @click.prevent="clearAllFilters"
             ><h4>Borrar Filtros</h4>
@@ -72,7 +72,7 @@
         </new-request>
         <table 
           class="table table-responsive" 
-          v-if="!addRequest.method && !showRequest.method && profileSrc.requests.length"
+          v-if="!addRequest.method && !showRequest.method && !admin && profileRequests.total"
           >
           <thead>
             <tr>
@@ -266,10 +266,10 @@
             </tr>
           </tbody>
         </table>
-        <div id="norequest" v-if="!profileRequests.total && !requests" class="alert alert-info text-center empty">
+        <div id="norequest" v-if="!profileRequests.total && !Object.keys(requests).length && !addRequest.method" class="alert alert-info text-center empty">
           <div v-if="!admin">
             <h3>No has realizado ninguna solicitud.</h3>
-              <p v-if="page == 'home'">Entra en la sección Necesidades y cuéntanos cómo podemos ayudarte.</p>
+              <p v-if="page == 'home'">Entra en la sección <a href="/requests"><strong>Necesidades</strong></a> y cuéntanos cómo podemos ayudarte.</p>
               <p v-else>Pulsa en Nueva Solicitud para empezar a crear tu primera petición.</p>
           </div>
           <div v-else> 
@@ -286,7 +286,7 @@
           </button>
           <button 
             type="submit" 
-            class="btn btn-sm btn-warning btn-block form-control" 
+            class="btn btn-sm btn-success btn-block form-control" 
             v-if="admin && showRequest.method && !showRequest.request.closed_at"
             @click.prevent="closeRequest"
             ><h4>Cerrar Solicitud</h4>
@@ -364,6 +364,7 @@
         watch: {
         },
         methods: {
+          // Filetring Methods
           filterClasses(object) {
             if (this.filtering.filters[object]) {
               return 'glyphicon glyphicon-filter selected';
@@ -372,7 +373,9 @@
           },
           orderClasses(object) {
             if (this.lastOrder.name == object && this.lastOrder.type == 'asc') {
-              return 'glyphicon glyphicon-triangle-top';
+              return 'glyphicon glyphicon-triangle-top selected';
+            } else if (this.lastOrder.name == object && this.lastOrder.type == 'desc') {
+              return 'glyphicon glyphicon-triangle-bottom selected';
             }
             return 'glyphicon glyphicon-triangle-bottom';
           },
@@ -459,6 +462,53 @@
                   }
               }
           },
+          startFilters() {
+            if (this.filtering.filters['closed_at']) {
+              delete(this.filtering.filters['closed_at']);
+            }
+            this.filterColumn('closed_at');
+            this.filtering.state = false;
+            let empty = true;
+            for (let item of this.filtering.filters['closed_at'].keys) {
+              if (item.label == 'Resuelta') {
+                console.log(item.keys);
+                empty = false;
+                this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
+              }
+            }
+            if (empty) {
+              delete(this.filtering.filters['closed_at']);
+            }
+            this.filtering.name = '';
+          },
+          applyUrlFilters() {
+            // Example with Array
+            // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
+            let search = getAllUrlParams();
+            for (let filter in search) {
+              search[filter] = search[filter].replace(/%20/g, " ");
+              if (filter == 'created_at') {
+                this.filterColumn('created_at',{date:true});
+                this.filtering.date.end = search['created_at'][0];
+                this.filtering.date.start = search['created_at'][1];
+                this.filtering.date.state = true;
+                this.filterDates('created_at');
+                this.filtering.state = false;
+              } else {
+                this.filterColumn(filter);
+                this.filtering.state = false;
+                let ids = [];
+                for (let item of this.filtering.filters[filter].keys) {
+                  let cleanName = cleanUpSpecialChars(item.label.toLowerCase());
+                  if (cleanName != search[filter]) {
+                    ids = item.keys;
+                    console.log('Search Filter: '+search[filter]);
+                    this.toggleFilterItem(ids, 'checked', filter);
+                  }
+                }
+              }
+            }
+          },
           filterColumn(name, options={object:null,date:false}) {
             if (this.filtering.state) {
               flash({
@@ -536,25 +586,6 @@
           checkFilter(id) {
               return this.filtering.selected.indexOf(id) == -1 ? false : true;
           },
-          doSelected() {
-            if (Object.keys(this.filtering.filters).length == 0) {
-              this.selectAllFilters();
-            } else {
-              this.filtering.selected = [];
-              for (let request of this.requests) {
-                let found = true;
-                for (let filter in this.filtering.filters) {
-                  if (this.filtering.filters[filter].selected.indexOf(request.id) == -1) {
-                    found = false;
-                    break;
-                  }
-                }
-                if (found) {
-                  this.filtering.selected.push(request.id);
-                }
-              }
-            }
-          },
           filterDates(object) {
             console.log('Start Date: '+moment(this.filtering.date.start).format('x'));
             console.log('End Date: '+moment(this.filtering.date.end).format('x'));
@@ -586,18 +617,17 @@
                       }
                   }
               } else {
-                  if (this.filtering.selected.indexOf(ids[i]) == -1 && !state) {
+                  if (this.filtering.selected.indexOf(ids[0]) == -1 && !state) {
                       this.filtering.selected.push(ids[0]);
-                  } else if (this.filtering.selected.indexOf(ids[i]) != -1 && state) {
+                  } else if (this.filtering.selected.indexOf(ids[0]) != -1 && state) {
                       this.filtering.selected.splice(this.filtering.selected.indexOf(ids[0]),1);
                   }
               }
           },
-          orderColumn(name, options={object:null,date:false}) {
+          orderColumn(name, options={object:null,date:false,order:false}) {
               if (this.lastOrder.name != name) {
                   this.lastOrder.name = name;
                   this.lastOrder.keys = [];
-                  this.lastOrder.type = 'desc';
                   for (var i = 0; i < this.requests.length; i++) {
                     if (options.object) {
                       if (this.requests[i][options.object][name] == null) {
@@ -613,14 +643,27 @@
                       }
                     }
                   }
-                  this.lastOrder.keys.sort();
+                  if (options.order) {
+                    if (options.order == 'asc') {
+                      this.lastOrder.type = 'asc'
+                      this.lastOrder.keys.sort();
+                    } else {
+                      this.lastOrder.keys.sort();
+                      this.lastOrder.keys.reverse();
+                      this.lastOrder.type = 'desc';
+                    }
+                  } else {
+                    this.lastOrder.keys.sort();
+                    this.lastOrder.type = 'asc';
+                  }
               } else {
                   if (this.lastOrder.type == 'desc') {
                       this.lastOrder.type = 'asc'
-                      this.lastOrder.keys.reverse();
+                      this.lastOrder.keys.sort();
                   } else {
                       this.lastOrder.type = 'desc';
                       this.lastOrder.keys.sort();
+                      this.lastOrder.keys.reverse();
                   }
               }
               var orderedRequests = [];
@@ -649,6 +692,7 @@
               }
               this.requests = orderedRequests;
           },
+          // END Filetring Methods
           hideIfPage() {
             if (this.page == 'home' || this.admin) {
               this.showElement = false;
@@ -701,6 +745,8 @@
             return 'glyphicon glyphicon-ok-sign visible-xs-block';
           },
           calculateRatio() {
+            this.profileRequests.total = 0;
+            this.profileRequests.resolved = 0;
             let origin = this.profileSrc.requests;
             if (this.admin) {
               origin = this.requests;
@@ -752,7 +798,6 @@
                       this.notifyClosed(this.showRequest.request.id);
                       window.events.$emit('requestClosed');
                       this.toggleShowRequest();
-                      this.calculateRatio();
                     }
                 });
           },
@@ -763,6 +808,8 @@
                 break;
               }
             }
+            this.startFilters();
+            this.calculateRatio();
           },
           fetchProfile() {
             axios.get('/api/requests')
@@ -773,8 +820,10 @@
                 this.labs = data.data.labs;
                 if (data.data.requests) {
                   this.requests = data.data.requests;
-                  this.doSelected();
-                  // this.selectAllFilters();
+                  this.selectAllFilters();
+                  this.startFilters();
+                  this.applyUrlFilters();
+                  this.orderColumn('created_at',{order:'desc'});
                 }
                 this.calculateRatio();
               });

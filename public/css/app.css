@@ -9604,12 +9604,16 @@ hr {
 }
 
 .panel-body-admin {
-  max-height: 80vh;
+  max-height: 75vh;
   overflow-y: auto;
 }
 
 .panel-body button {
   border: none;
+}
+
+.panel-body a {
+  color: #753470;
 }
 
 .panel-body button h3 {
@@ -9832,9 +9836,9 @@ hr {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #989897;
+  color: #b30000;
   background: rgba(255, 255, 255, 0.9);
-  border-left: 4px solid red;
+  border-left: 4px solid #b30000;
 }
 
 .help-block {
@@ -9876,7 +9880,15 @@ h4 {
   font-weight: bolder;
 }
 
-.glyphicon.glyphicon-filter.selected {
+#filterColumn input[type="checkbox"] {
+  margin: 5px;
+}
+
+.clear-filters {
+  margin-top: 15px;
+}
+
+.glyphicon.selected {
   color: red;
 }
 

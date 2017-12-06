@@ -18,6 +18,11 @@ class Menu {
 		 	'link' => '/requests',
 		 	'icon' => 'glyphicon glyphicon-bullhorn'
 		],
+		'ExtraTime' => [
+			'name' => 'Bolsa de Horas', 
+		 	'link' => '/extratime',
+		 	'icon' => 'glyphicon glyphicon-time'
+		],
 		'Schedule' => [
 			'name' => 'Jornada', 
 		 	'link' => '/schedule',

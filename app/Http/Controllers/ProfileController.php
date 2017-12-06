@@ -31,7 +31,10 @@ class ProfileController extends Controller
         			$profile[$key] = $value;
         		}
         	};
+            $user = $profile->user;
+            $user->email = $profile->email;
         	$profile->save();
+            $user->save();
         }
         if (request('especialtiesToRemove')) {
         	$found = [];

@@ -5,7 +5,7 @@ use Keboola\Csv\CsvFile;
 
 class DatabaseSeeder extends Seeder
 {
-    protected $profileCSV = false;
+    protected $profileCSV = true;
     /**
      * Run the database seeds.
      *

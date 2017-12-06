@@ -117,7 +117,7 @@
     import 'moment/locale/es';
     export default {
         components: {},
-        props: ['profileSrc','profileOriginal'],
+        props: ['profileSrc','profileOriginal','tutorial'],
         data() {
             return {
               profileToSave: {
@@ -130,7 +130,7 @@
               especialties: {},
               updateButton: {
                   method: false,
-                  ButtonText: 'Actualizar',
+                  ButtonText: this.tutorial ? 'Confirmar/Actualizar' : 'Actualizar',
                   ButtonClasses: 'btn btn-primary',
                   ButtonIcon: 'glyphicon glyphicon-pencil',
               },
@@ -172,6 +172,10 @@
               }
             }
             if (field == 'email') {
+              if (this.profileSrc[field] == (this.profileSrc.personal_id_number+'@migabinete.com')) {
+                this.profileSrc[field] = '';
+                return false;
+              }
               let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
               if (!this.profileSrc[field].match(mailformat)) {
                 this.formErrors[field] = 'Introduce un correo válido, por ejemplo: email@dominio.com';
@@ -301,7 +305,7 @@
           },
           updateProfile(id) {
             let keys = Object.keys(this.profileToSave).length;
-            if (!this.checkForUpdate(keys)) {
+            if (!this.checkForUpdate(keys) && !this.tutorial) {
               return flash({
                        message:'No has hecho ningún cambio.', 
                        label:'warning'
@@ -390,9 +394,9 @@
           for (let field in this.formErrors) {
             this.checkFormField(field);
           }
-          if (!this.errors) {
-            this.$emit('noErrors');
-          }
+          // if (!this.errors) {
+          //   this.$emit('noErrors');
+          // }
         }
     }
 </script>

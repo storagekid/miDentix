@@ -18,7 +18,9 @@
         @if(auth()->check())
         @include('nav.main')
         @endif
-
+{{--         @php
+        var_dump(session('flash'));
+        @endphp --}}
         @yield('content')
         <flash message="{{ session('flash') }}"></flash>
         @if (session('status'))
