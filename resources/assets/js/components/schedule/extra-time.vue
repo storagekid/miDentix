@@ -87,85 +87,94 @@
           <div class="text-center" v-if="!profileSrc.extratimes.length && !admin">
             <h3 class="empty">No has hecho ninguna solicitud</h3>
           </div>
-          <table class="table table-responsive" v-if="admin && !profileSelected">
-            <thead>
-              <tr>
-                <th class="clinic">
-                  Usuario
+          <div class="panel-body" v-if="admin && !profileSelected">
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th class="clinic">
+                    Usuario
+                    <p>
+                        <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
+                        <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile'})"></span>
+                    </p>
+                  </th>
+                  <th>
+                    CA
+                    <p>
+                        <span :class="orderClasses('name')" @click="orderColumn('name',{object:'states'})"></span>
+                        <span :class="filterClasses('name')" @click="filterColumn('name',{object:'states'})"></span>
+                    </p>
+                  </th>
+                  <th>
+                    Provincia
+                    <p>
+                        <span :class="orderClasses('nombre')" @click="orderColumn('nombre',{object:'provincia'})"></span>
+                        <span :class="filterClasses('nombre')" @click="filterColumn('nombre',{object:'provincia'})"></span>
+                    </p>
+                  </th>
+                  <th>
+                    Clínica
+                    <p>
+                        <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
+                        <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">
+                    Fecha
+                    <p>
+                        <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
+                        <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
+                    </p>
+                  </th>
+                  <th>Detalles</th>
+                  <th class="icons">
+                  Estado
                   <p>
-                      <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
-                      <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile'})"></span>
+                      <span :class="orderClasses('state')" @click="orderColumn('state',{number:['Denegada','Pendiente','Aceptada']})"></span>
+                      <span :class="filterClasses('state')" @click="filterColumn('state',{number:['Denegada','Pendiente','Aceptada']})"></span>
                   </p>
                 </th>
-                <th>
-                  CA
-                  <p>
-                      <span :class="orderClasses('name')" @click="orderColumn('name',{object:'states'})"></span>
-                      <span :class="filterClasses('name')" @click="filterColumn('name',{object:'states'})"></span>
-                  </p>
-                </th>
-                <th>
-                  Provincia
-                  <p>
-                      <span :class="orderClasses('nombre')" @click="orderColumn('nombre',{object:'provincia'})"></span>
-                      <span :class="filterClasses('nombre')" @click="filterColumn('nombre',{object:'provincia'})"></span>
-                  </p>
-                </th>
-                <th>
-                  Clínica
-                  <p>
-                      <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
-                      <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Fecha
-                  <p>
-                      <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
-                      <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
-                  </p>
-                </th>
-                <th>Detalles</th>
-                <th class="icons">
-                Estado
-                <p>
-                    <span :class="orderClasses('state')" @click="orderColumn('state',{number:['Denegada','Pendiente','Aceptada']})"></span>
-                    <span :class="filterClasses('state')" @click="filterColumn('state',{number:['Denegada','Pendiente','Aceptada']})"></span>
-                </p>
-              </th>
-                <th class="buttons-text icons"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="extraTime in extratimes" v-show="checkFilter(extraTime.id)">
-                <td><strong>{{extraTime.profile.lastname1}} {{extraTime.profile.lastname2}}, {{extraTime.profile.name}}</strong></td>
-                <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
-                <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
-                <td>{{extraTime.clinic_id ? 
-                  extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
-                  'Indiferente'}}</td>
-                <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
-                <td v-html="scheduleReader(extraTime.schedule)"></td>
-                <td>
-                  <div :class="doStateBadge(extraTime.state).classes">
-                    <span class="hidden-xs" v-text="doStateBadge(extraTime.state).text"></span>
-                    <span :class="doStateBadge(extraTime.state).icon"></span>
-                  </div>
-                </td>
-                <td>
-                  <button 
-                    type="button" 
-                    class="btn btn-primary btn-sm"
-                    @click="toggleShowDetails(extraTime.profile_id, extraTime)"
-                    >
-                    <span class="hidden-xs">Detalles
-                    </span>
-                    <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <th class="buttons-text icons"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="extraTime in extratimes" v-show="checkFilter(extraTime.id)">
+                  <td><strong>{{extraTime.profile.lastname1}} {{extraTime.profile.lastname2}}, {{extraTime.profile.name}}</strong></td>
+                  <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
+                  <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
+                  <td>{{extraTime.clinic_id ? 
+                    extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
+                    'Indiferente'}}</td>
+                  <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
+                  <td v-html="scheduleReader(extraTime.schedule)"></td>
+                  <td>
+                    <div :class="doStateBadge(extraTime.state).classes">
+                      <span class="hidden-xs" v-text="doStateBadge(extraTime.state).text"></span>
+                      <span :class="doStateBadge(extraTime.state).icon"></span>
+                    </div>
+                  </td>
+                  <td>
+                    <button 
+                      type="button" 
+                      class="btn btn-primary btn-sm"
+                      @click="toggleShowDetails(extraTime.profile_id, extraTime)"
+                      >
+                      <span class="hidden-xs">Detalles
+                      </span>
+                      <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="noextratime" v-if="!extratimes.length" class=" text-center empty">
+            <div  class="col-xs-10 col-xs-offset-1 alert alert-info">
+              <div>
+                <h3>Aún no se han mandado solicitudes.</h3>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row" v-if="this.admin && this.profileSelected">
           <div class="col-xs-12 col-md-10 col-md-offset-1">

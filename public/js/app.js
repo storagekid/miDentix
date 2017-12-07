@@ -93688,7 +93688,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -93703,6 +93703,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
+//
+//
 //
 //
 //
@@ -95292,392 +95296,396 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm.admin && !_vm.showRequest.method
-            ? _c("table", { staticClass: "table table-responsive" }, [
-                _c("thead", [
-                  _c("tr", [
-                    _c("th", { staticClass: "clinic" }, [
-                      _vm._v("\n              Usuario\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("lastname1"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("lastname1", {
-                                object: "profile"
-                              })
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("lastname1"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("lastname1", {
-                                object: "profile"
-                              })
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("lastname1")
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
+          _c("div", { staticClass: "panel-body" }, [
+            _vm.admin && !_vm.showRequest.method
+              ? _c("table", { staticClass: "table table-responsive" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { staticClass: "clinic" }, [
+                        _vm._v("\n                Usuario\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("lastname1"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("lastname1", {
+                                  object: "profile"
                                 })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "clinic" }, [
-                      _vm._v("\n              Clínica\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("city"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("city", { object: "clinic" })
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("city"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("city", { object: "clinic" })
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("city")
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("lastname1"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("lastname1", {
+                                  object: "profile"
                                 })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "hidden-xs" }, [
-                      _vm._v("\n              Tipo\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("type"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("type")
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("type"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("type")
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("type")
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("lastname1")
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
-                                })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", [
-                      _vm._v("\n              Detalle\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("type_detail1"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("type_detail1")
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "clinic" }, [
+                        _vm._v("\n                Clínica\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("city"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("city", { object: "clinic" })
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("type_detail1"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("type_detail1")
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("city"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("city", { object: "clinic" })
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("type_detail1")
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("city")
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
-                                })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "hidden-xs" }, [
-                      _vm._v("\n              Fecha\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("created_at"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("created_at")
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "hidden-xs" }, [
+                        _vm._v("\n                Tipo\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("type"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("type")
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("created_at"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("created_at", { date: true })
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("type"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("type")
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("created_at")
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("type")
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
-                                })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "hidden-xs" }, [_vm._v("Texto")]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "icons" }, [
-                      _vm._v("\n              Estado\n              "),
-                      _c("p", [
-                        _c("span", {
-                          class: _vm.orderClasses("closed_at"),
-                          on: {
-                            click: function($event) {
-                              _vm.orderColumn("closed_at")
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [
+                        _vm._v("\n                Detalle\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("type_detail1"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("type_detail1")
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", {
-                          class: _vm.filterClasses("closed_at"),
-                          on: {
-                            click: function($event) {
-                              _vm.filterColumn("closed_at")
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("type_detail1"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("type_detail1")
+                              }
                             }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.filtering.filters["dontShow"]
-                          ? _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-sm btn-danger delete-Schedule",
-                                on: {
-                                  click: function($event) {
-                                    _vm.clearFilters("closed_at")
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("type_detail1")
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _c("span", {
-                                  staticClass: "glyphicon glyphicon-remove"
-                                })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("th", { staticClass: "buttons-text icons" })
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.requests, function(request) {
-                    return _c(
-                      "tr",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.checkFilter(request.id),
-                            expression: "checkFilter(request.id)"
-                          }
-                        ]
-                      },
-                      [
-                        _c("td", [
-                          _c("strong", [
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "hidden-xs" }, [
+                        _vm._v("\n                Fecha\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("created_at"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("created_at")
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("created_at"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("created_at", { date: true })
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("created_at")
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "hidden-xs" }, [_vm._v("Texto")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "icons" }, [
+                        _vm._v("\n                Estado\n                "),
+                        _c("p", [
+                          _c("span", {
+                            class: _vm.orderClasses("closed_at"),
+                            on: {
+                              click: function($event) {
+                                _vm.orderColumn("closed_at")
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("span", {
+                            class: _vm.filterClasses("closed_at"),
+                            on: {
+                              click: function($event) {
+                                _vm.filterColumn("closed_at")
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.filtering.filters["dontShow"]
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-sm btn-danger delete-Schedule",
+                                  on: {
+                                    click: function($event) {
+                                      _vm.clearFilters("closed_at")
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "glyphicon glyphicon-remove"
+                                  })
+                                ]
+                              )
+                            : _vm._e()
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "buttons-text icons" })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.requests, function(request) {
+                      return _c(
+                        "tr",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.checkFilter(request.id),
+                              expression: "checkFilter(request.id)"
+                            }
+                          ]
+                        },
+                        [
+                          _c("td", [
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(request.profile.lastname1) +
+                                  " " +
+                                  _vm._s(request.profile.lastname2) +
+                                  ", " +
+                                  _vm._s(request.profile.name)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("strong", [_vm._v(_vm._s(request.clinic.city))]),
+                            _c("br"),
                             _vm._v(
-                              _vm._s(request.profile.lastname1) +
-                                " " +
-                                _vm._s(request.profile.lastname2) +
-                                ", " +
-                                _vm._s(request.profile.name)
+                              "(" + _vm._s(request.clinic.address_real_1) + ")"
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(request.type))]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "hidden-xs" }, [
+                            _vm._v(
+                              _vm._s(
+                                request.type_detail1
+                                  ? request.type_detail1
+                                  : "-"
+                              )
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", {
+                            staticClass: "hidden-xs",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.requestDate(request.created_at)
+                              )
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "hidden-xs" }, [
+                            _vm._v(
+                              _vm._s(
+                                request.description.substring(0, 50) + "..."
+                              ) + "\n              "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "div",
+                              { class: _vm.requestClasses(request.closed_at) },
+                              [
+                                _c("span", {
+                                  staticClass: "hidden-xs",
+                                  domProps: {
+                                    textContent: _vm._s(
+                                      _vm.requestText(request.closed_at)
+                                    )
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("span", {
+                                  class: _vm.requestIcon(request.closed_at)
+                                })
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    _vm.toggleShowRequest(request)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "hidden-xs" }, [
+                                  _vm._v("Detalles\n                  ")
+                                ]),
+                                _vm._v(" "),
+                                _c("span", {
+                                  staticClass:
+                                    "glyphicon glyphicon-arrow-right visible-xs-block"
+                                })
+                              ]
                             )
                           ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("strong", [_vm._v(_vm._s(request.clinic.city))]),
-                          _c("br"),
-                          _vm._v(
-                            "(" + _vm._s(request.clinic.address_real_1) + ")"
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(request.type))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "hidden-xs" }, [
-                          _vm._v(
-                            _vm._s(
-                              request.type_detail1 ? request.type_detail1 : "-"
-                            )
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", {
-                          staticClass: "hidden-xs",
-                          domProps: {
-                            textContent: _vm._s(
-                              _vm.requestDate(request.created_at)
-                            )
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "hidden-xs" }, [
-                          _vm._v(
-                            _vm._s(
-                              request.description.substring(0, 50) + "..."
-                            ) + "\n            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "div",
-                            { class: _vm.requestClasses(request.closed_at) },
-                            [
-                              _c("span", {
-                                staticClass: "hidden-xs",
-                                domProps: {
-                                  textContent: _vm._s(
-                                    _vm.requestText(request.closed_at)
-                                  )
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("span", {
-                                class: _vm.requestIcon(request.closed_at)
-                              })
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "button" },
-                              on: {
-                                click: function($event) {
-                                  _vm.toggleShowRequest(request)
-                                }
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "hidden-xs" }, [
-                                _vm._v("Detalles\n                ")
-                              ]),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass:
-                                  "glyphicon glyphicon-arrow-right visible-xs-block"
-                              })
-                            ]
-                          )
-                        ])
-                      ]
-                    )
-                  })
-                )
-              ])
-            : _vm._e(),
+                        ]
+                      )
+                    })
+                  )
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
           !_vm.profileRequests.total &&
           !Object.keys(_vm.requests).length &&
@@ -95685,31 +95693,41 @@ var render = function() {
             ? _c(
                 "div",
                 {
-                  staticClass: "alert alert-info text-center empty",
+                  staticClass: " text-center empty",
                   attrs: { id: "norequest" }
                 },
                 [
-                  !_vm.admin
-                    ? _c("div", [
-                        _c("h3", [
-                          _vm._v("No has realizado ninguna solicitud.")
-                        ]),
-                        _vm._v(" "),
-                        _vm.page == "home"
-                          ? _c("p", [
-                              _vm._v("Entra en la sección "),
-                              _vm._m(2),
-                              _vm._v(" y cuéntanos cómo podemos ayudarte.")
+                  _c(
+                    "div",
+                    {
+                      staticClass: "col-xs-10 col-xs-offset-1 alert alert-info"
+                    },
+                    [
+                      !_vm.admin
+                        ? _c("div", [
+                            _c("h3", [
+                              _vm._v("No has realizado ninguna solicitud.")
+                            ]),
+                            _vm._v(" "),
+                            _vm.page == "home"
+                              ? _c("p", [
+                                  _vm._v("Entra en la sección "),
+                                  _vm._m(2),
+                                  _vm._v(" y cuéntanos cómo podemos ayudarte.")
+                                ])
+                              : _c("p", [
+                                  _vm._v(
+                                    "Pulsa en Nueva Solicitud para empezar a crear tu primera petición."
+                                  )
+                                ])
+                          ])
+                        : _c("div", [
+                            _c("h3", [
+                              _vm._v("Aún no se han mandado solicitudes.")
                             ])
-                          : _c("p", [
-                              _vm._v(
-                                "Pulsa en Nueva Solicitud para empezar a crear tu primera petición."
-                              )
-                            ])
-                      ])
-                    : _c("div", [
-                        _c("h3", [_vm._v("Aún no se han mandado solicitudes.")])
-                      ])
+                          ])
+                    ]
+                  )
                 ]
               )
             : _vm._e(),
@@ -95902,7 +95920,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -95917,6 +95935,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -96088,10 +96116,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         filters: {},
         name: '',
         state: false,
+        showOptions: true,
         date: {
           state: false,
           start: null,
           end: null
+        },
+        search: {
+          state: false,
+          string: null,
+          target: []
         },
         keys: [],
         selected: [],
@@ -96358,10 +96392,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
     },
+    searchString: function searchString() {
+      console.log('searching');
+      this.filtering.selected = [];
+      var _iteratorNormalCompletion5 = true;
+      var _didIteratorError5 = false;
+      var _iteratorError5 = undefined;
+
+      try {
+        for (var _iterator5 = this.filtering.search.target[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          var string = _step5.value;
+
+          if (string[1].indexOf(this.filtering.search.string) != -1) {
+            this.filtering.selected.push(string[0]);
+          }
+        }
+      } catch (err) {
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion5 && _iterator5.return) {
+            _iterator5.return();
+          }
+        } finally {
+          if (_didIteratorError5) {
+            throw _iteratorError5;
+          }
+        }
+      }
+    },
     filterColumn: function filterColumn(name) {
       var _this = this;
 
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false, integer: false, boolean: false };
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false, integer: false, boolean: false, search: false, noOptions: false };
 
       if (this.filtering.state) {
         flash({
@@ -96369,6 +96433,67 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           label: 'warning'
         });
         return false;
+      }
+      if (options.noOptions) {
+        this.filtering.showOptions = false;
+      }
+      if (options.search) {
+        this.filtering.search.state = true;
+        var target = [];
+        var _iteratorNormalCompletion6 = true;
+        var _didIteratorError6 = false;
+        var _iteratorError6 = undefined;
+
+        try {
+          for (var _iterator6 = this.users[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+            var user = _step6.value;
+
+            if (this.filtering.selected.indexOf(user.id) != -1) {
+              var fullstring = '';
+              var _iteratorNormalCompletion7 = true;
+              var _didIteratorError7 = false;
+              var _iteratorError7 = undefined;
+
+              try {
+                for (var _iterator7 = options.search[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                  var field = _step7.value;
+
+                  fullstring += user[field] + ' ';
+                }
+              } catch (err) {
+                _didIteratorError7 = true;
+                _iteratorError7 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion7 && _iterator7.return) {
+                    _iterator7.return();
+                  }
+                } finally {
+                  if (_didIteratorError7) {
+                    throw _iteratorError7;
+                  }
+                }
+              }
+
+              target.push([user.id, fullstring]);
+            }
+          }
+        } catch (err) {
+          _didIteratorError6 = true;
+          _iteratorError6 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion6 && _iterator6.return) {
+              _iterator6.return();
+            }
+          } finally {
+            if (_didIteratorError6) {
+              throw _iteratorError6;
+            }
+          }
+        }
+
+        this.filtering.search.target = target;
       }
       if (options.date) {
         this.filtering.date.state = true;
@@ -96443,13 +96568,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       this.filtering.filters[name].keys = keys;
       this.filtering.filters[name].keys.forEach(function (item, index) {
-        var _iteratorNormalCompletion5 = true;
-        var _didIteratorError5 = false;
-        var _iteratorError5 = undefined;
+        var _iteratorNormalCompletion8 = true;
+        var _didIteratorError8 = false;
+        var _iteratorError8 = undefined;
 
         try {
-          for (var _iterator5 = item.keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-            var _id = _step5.value;
+          for (var _iterator8 = item.keys[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+            var _id = _step8.value;
 
             if (_this.filtering.selected.indexOf(_id) != -1) {
               _this.filtering.filters[name].keys[index].state = 'checked';
@@ -96457,16 +96582,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }
           }
         } catch (err) {
-          _didIteratorError5 = true;
-          _iteratorError5 = err;
+          _didIteratorError8 = true;
+          _iteratorError8 = err;
         } finally {
           try {
-            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-              _iterator5.return();
+            if (!_iteratorNormalCompletion8 && _iterator8.return) {
+              _iterator8.return();
             }
           } finally {
-            if (_didIteratorError5) {
-              throw _iteratorError5;
+            if (_didIteratorError8) {
+              throw _iteratorError8;
             }
           }
         }
@@ -96481,81 +96606,81 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log('End Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x'));
       var startDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x');
       var endDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x');
-      var _iteratorNormalCompletion6 = true;
-      var _didIteratorError6 = false;
-      var _iteratorError6 = undefined;
+      var _iteratorNormalCompletion9 = true;
+      var _didIteratorError9 = false;
+      var _iteratorError9 = undefined;
 
       try {
-        for (var _iterator6 = this.filtering.filters[object].keys[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-          var date = _step6.value;
+        for (var _iterator9 = this.filtering.filters[object].keys[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+          var date = _step9.value;
 
           if (__WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') > startDate && __WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') < endDate) {
-            var _iteratorNormalCompletion7 = true;
-            var _didIteratorError7 = false;
-            var _iteratorError7 = undefined;
+            var _iteratorNormalCompletion10 = true;
+            var _didIteratorError10 = false;
+            var _iteratorError10 = undefined;
 
             try {
-              for (var _iterator7 = date.keys[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-                var key = _step7.value;
+              for (var _iterator10 = date.keys[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+                var key = _step10.value;
 
                 if (this.filtering.selected.indexOf(key) == -1) {
                   this.filtering.selected.push(key);
                 }
               }
             } catch (err) {
-              _didIteratorError7 = true;
-              _iteratorError7 = err;
+              _didIteratorError10 = true;
+              _iteratorError10 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion7 && _iterator7.return) {
-                  _iterator7.return();
+                if (!_iteratorNormalCompletion10 && _iterator10.return) {
+                  _iterator10.return();
                 }
               } finally {
-                if (_didIteratorError7) {
-                  throw _iteratorError7;
+                if (_didIteratorError10) {
+                  throw _iteratorError10;
                 }
               }
             }
           } else {
-            var _iteratorNormalCompletion8 = true;
-            var _didIteratorError8 = false;
-            var _iteratorError8 = undefined;
+            var _iteratorNormalCompletion11 = true;
+            var _didIteratorError11 = false;
+            var _iteratorError11 = undefined;
 
             try {
-              for (var _iterator8 = date.keys[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-                var _key = _step8.value;
+              for (var _iterator11 = date.keys[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+                var _key = _step11.value;
 
                 if (this.filtering.selected.indexOf(_key) != -1) {
                   this.filtering.selected.splice(this.filtering.selected.indexOf(_key), 1);
                 }
               }
             } catch (err) {
-              _didIteratorError8 = true;
-              _iteratorError8 = err;
+              _didIteratorError11 = true;
+              _iteratorError11 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion8 && _iterator8.return) {
-                  _iterator8.return();
+                if (!_iteratorNormalCompletion11 && _iterator11.return) {
+                  _iterator11.return();
                 }
               } finally {
-                if (_didIteratorError8) {
-                  throw _iteratorError8;
+                if (_didIteratorError11) {
+                  throw _iteratorError11;
                 }
               }
             }
           }
         }
       } catch (err) {
-        _didIteratorError6 = true;
-        _iteratorError6 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion6 && _iterator6.return) {
-            _iterator6.return();
+          if (!_iteratorNormalCompletion9 && _iterator9.return) {
+            _iterator9.return();
           }
         } finally {
-          if (_didIteratorError6) {
-            throw _iteratorError6;
+          if (_didIteratorError9) {
+            throw _iteratorError9;
           }
         }
       }
@@ -96724,13 +96849,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.admin) {
         origin = this.users;
       }
-      var _iteratorNormalCompletion9 = true;
-      var _didIteratorError9 = false;
-      var _iteratorError9 = undefined;
+      var _iteratorNormalCompletion12 = true;
+      var _didIteratorError12 = false;
+      var _iteratorError12 = undefined;
 
       try {
-        for (var _iterator9 = origin[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-          var request = _step9.value;
+        for (var _iterator12 = origin[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+          var request = _step12.value;
 
           this.profileusers.total++;
           if (request.closed_at) {
@@ -96738,16 +96863,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError9 = true;
-        _iteratorError9 = err;
+        _didIteratorError12 = true;
+        _iteratorError12 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion9 && _iterator9.return) {
-            _iterator9.return();
+          if (!_iteratorNormalCompletion12 && _iterator12.return) {
+            _iterator12.return();
           }
         } finally {
-          if (_didIteratorError9) {
-            throw _iteratorError9;
+          if (_didIteratorError12) {
+            throw _iteratorError12;
           }
         }
       }
@@ -96799,13 +96924,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     notifyClosed: function notifyClosed(id) {
-      var _iteratorNormalCompletion10 = true;
-      var _didIteratorError10 = false;
-      var _iteratorError10 = undefined;
+      var _iteratorNormalCompletion13 = true;
+      var _didIteratorError13 = false;
+      var _iteratorError13 = undefined;
 
       try {
-        for (var _iterator10 = this.users[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-          var request = _step10.value;
+        for (var _iterator13 = this.users[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+          var request = _step13.value;
 
           if (request.id == id) {
             request.closed_at = __WEBPACK_IMPORTED_MODULE_0_moment__().format();
@@ -96813,16 +96938,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError10 = true;
-        _iteratorError10 = err;
+        _didIteratorError13 = true;
+        _iteratorError13 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion10 && _iterator10.return) {
-            _iterator10.return();
+          if (!_iteratorNormalCompletion13 && _iterator13.return) {
+            _iterator13.return();
           }
         } finally {
-          if (_didIteratorError10) {
-            throw _iteratorError10;
+          if (_didIteratorError13) {
+            throw _iteratorError13;
           }
         }
       }
@@ -96894,7 +97019,7 @@ var render = function() {
           attrs: { id: "filterColumn" }
         },
         [
-          !_vm.filtering.date.state
+          !_vm.filtering.date.state && _vm.filtering.showOptions
             ? _c("div", { staticClass: "row buttons" }, [
                 _c("div", { staticClass: "col-xs-6" }, [
                   _c(
@@ -97007,7 +97132,48 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          !_vm.filtering.date.state && _vm.filtering.state
+          _vm.filtering.search.state
+            ? _c("div", { staticClass: "row dates" }, [
+                _c("form", [
+                  _c("div", { staticClass: "col-xs-12 form-group" }, [
+                    _c("label", { attrs: { for: "search" } }, [
+                      _vm._v("Buscar:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.filtering.search.string,
+                          expression: "filtering.search.string"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", name: "search" },
+                      domProps: { value: _vm.filtering.search.string },
+                      on: {
+                        keyup: _vm.searchString,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.filtering.search,
+                            "string",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.filtering.date.state &&
+          _vm.filtering.state &&
+          _vm.filtering.showOptions
             ? _c(
                 "ul",
                 { staticClass: "list-group" },
@@ -97102,274 +97268,298 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { class: _vm.panelClass }, [
-        _vm.admin && !_vm.showRequest.method
-          ? _c("table", { staticClass: "table table-responsive" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", { staticClass: "clinic" }, [
-                    _vm._v("\n              Nombre\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("lastname1"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("lastname1")
+      _c("div", { staticClass: "panel-body" }, [
+        _c("div", { class: _vm.panelClass }, [
+          _vm.admin && !_vm.showRequest.method
+            ? _c("table", { staticClass: "table table-responsive" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { staticClass: "clinic" }, [
+                      _vm._v("\n                Nombre\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("lastname1"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("lastname1")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("lastname1"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("lastname1")
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("lastname1"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("lastname1", {
+                                search: ["name", "lastname1", "lastname2"],
+                                noOptions: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "clinic" }, [
-                    _vm._v("\n              Email\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("email"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("email")
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "clinic" }, [
+                      _vm._v("\n                Email\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("email"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("email")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("email"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("email")
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("email"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("email", {
+                                search: ["email"],
+                                noOptions: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "hidden-xs" }, [
-                    _vm._v("\n              Teléfono\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("phone"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("phone")
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "hidden-xs" }, [
+                      _vm._v("\n                Teléfono\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("phone"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("phone")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("phone"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("phone")
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("phone"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("phone", {
+                                search: ["phone"],
+                                noOptions: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", [
-                    _vm._v("\n              DNI\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("personal_id_number"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("personal_id_number")
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [
+                      _vm._v("\n                DNI\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("personal_id_number"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("personal_id_number")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("personal_id_number"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("personal_id_number")
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("personal_id_number"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("personal_id_number", {
+                                search: ["personal_id_number"],
+                                noOptions: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "hidden-xs" }, [
-                    _vm._v("\n              Nº de Licencia\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("license_number"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("license_number")
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "hidden-xs" }, [
+                      _vm._v(
+                        "\n                Nº de Licencia\n                "
+                      ),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("license_number"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("license_number")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("license_number"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("license_number")
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("license_number"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("license_number")
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "hidden-xs" }, [
-                    _vm._v("\n              Año de Licencia\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("license_year"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("license_year", { integer: true })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "hidden-xs" }, [
+                      _vm._v(
+                        "\n                Año de Licencia\n                "
+                      ),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("license_year"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("license_year", { integer: true })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("license_year"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("license_year", { integer: true })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("license_year"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("license_year", {
+                                integer: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "icons" }, [
-                    _vm._v("\n              Estado\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("last_access"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("last_access", { object: "user" })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "icons" }, [
+                      _vm._v("\n                Estado\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("last_access"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("last_access", { object: "user" })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("last_access"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("last_access", {
-                              object: "user",
-                              boolean: true
-                            })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("last_access"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("last_access", {
+                                object: "user",
+                                boolean: true
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "buttons-text icons" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.users, function(user) {
-                  return _c(
-                    "tr",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.checkFilter(user.id),
-                          expression: "checkFilter(user.id)"
-                        }
-                      ]
-                    },
-                    [
-                      _c("td", [
-                        _c("strong", [
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "buttons-text icons" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.users, function(user) {
+                    return _c(
+                      "tr",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkFilter(user.id),
+                            expression: "checkFilter(user.id)"
+                          }
+                        ]
+                      },
+                      [
+                        _c("td", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(user.lastname1) +
+                                " " +
+                                _vm._s(user.lastname2) +
+                                ", " +
+                                _vm._s(user.name)
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_c("strong", [_vm._v(_vm._s(user.email))])]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(user.phone))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "hidden-xs" }, [
+                          _vm._v(_vm._s(user.personal_id_number))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "hidden-xs" }, [
                           _vm._v(
-                            _vm._s(user.lastname1) +
-                              " " +
-                              _vm._s(user.lastname2) +
-                              ", " +
-                              _vm._s(user.name)
+                            _vm._s(user.license_number) + "\n                "
+                          )
+                        ]),
+                        _c("td", {
+                          staticClass: "hidden-xs",
+                          domProps: { textContent: _vm._s(user.license_year) }
+                        }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "div",
+                            {
+                              class: _vm.requestClasses(user.user.last_access)
+                            },
+                            [
+                              _c("span", {
+                                staticClass: "hidden-xs",
+                                domProps: {
+                                  textContent: _vm._s(
+                                    _vm.requestText(user.user.last_access)
+                                  )
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", {
+                                class: _vm.requestIcon(user.user.last_access)
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.toggleShowRequest(user)
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "hidden-xs" }, [
+                                _vm._v("Detalles\n                  ")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", {
+                                staticClass:
+                                  "glyphicon glyphicon-arrow-right visible-xs-block"
+                              })
+                            ]
                           )
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_c("strong", [_vm._v(_vm._s(user.email))])]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.phone))]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "hidden-xs" }, [
-                        _vm._v(_vm._s(user.personal_id_number))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "hidden-xs" }, [
-                        _vm._v(_vm._s(user.license_number) + "\n              ")
-                      ]),
-                      _c("td", {
-                        staticClass: "hidden-xs",
-                        domProps: { textContent: _vm._s(user.license_year) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          { class: _vm.requestClasses(user.user.last_access) },
-                          [
-                            _c("span", {
-                              staticClass: "hidden-xs",
-                              domProps: {
-                                textContent: _vm._s(
-                                  _vm.requestText(user.user.last_access)
-                                )
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              class: _vm.requestIcon(user.user.last_access)
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.toggleShowRequest(user)
-                              }
-                            }
-                          },
-                          [
-                            _c("span", { staticClass: "hidden-xs" }, [
-                              _vm._v("Detalles\n                ")
-                            ]),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass:
-                                "glyphicon glyphicon-arrow-right visible-xs-block"
-                            })
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                })
-              )
-            ])
-          : _vm._e()
+                      ]
+                    )
+                  })
+                )
+              ])
+            : _vm._e()
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "panel-footer" }, [
@@ -99321,8 +99511,8 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          menu.name == "Bolsa de Horas" ||
-          (menu.name == "Jornada" && _vm.admin.extratimesUnsolved)
+          (menu.name == "Bolsa de Horas" || menu.name == "Jornada") &&
+          _vm.admin.extratimesUnsolved > 0
             ? _c("span", { staticClass: "badge badge-menu" }, [
                 _vm._v(_vm._s(_vm.admin.extratimesUnsolved))
               ])
@@ -103766,7 +103956,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -103781,6 +103971,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -105079,288 +105278,309 @@ var render = function() {
           : _vm._e(),
         _vm._v(" "),
         _vm.admin && !_vm.profileSelected
-          ? _c("table", { staticClass: "table table-responsive" }, [
-              _c("thead", [
-                _c("tr", [
-                  _c("th", { staticClass: "clinic" }, [
-                    _vm._v("\n              Usuario\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("lastname1"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("lastname1", { object: "profile" })
+          ? _c("div", { staticClass: "panel-body" }, [
+              _c("table", { staticClass: "table table-responsive" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { staticClass: "clinic" }, [
+                      _vm._v("\n                Usuario\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("lastname1"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("lastname1", {
+                                object: "profile"
+                              })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("lastname1"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("lastname1", { object: "profile" })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("lastname1"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("lastname1", {
+                                object: "profile"
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", [
-                    _vm._v("\n              CA\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("name"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("name", { object: "states" })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [
+                      _vm._v("\n                CA\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("name"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("name", { object: "states" })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("name"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("name", { object: "states" })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("name"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("name", { object: "states" })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", [
-                    _vm._v("\n              Provincia\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("nombre"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("nombre", { object: "provincia" })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [
+                      _vm._v("\n                Provincia\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("nombre"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("nombre", { object: "provincia" })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("nombre"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("nombre", { object: "provincia" })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("nombre"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("nombre", {
+                                object: "provincia"
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", [
-                    _vm._v("\n              Clínica\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("city"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("city", { object: "clinic" })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [
+                      _vm._v("\n                Clínica\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("city"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("city", { object: "clinic" })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("city"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("city", { object: "clinic" })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("city"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("city", { object: "clinic" })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "hidden-xs" }, [
-                    _vm._v("\n              Fecha\n              "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("created_at"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("created_at")
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "hidden-xs" }, [
+                      _vm._v("\n                Fecha\n                "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("created_at"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("created_at")
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("created_at"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("created_at", { date: true })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("created_at"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("created_at", { date: true })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", [_vm._v("Detalles")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "icons" }, [
-                    _vm._v("\n            Estado\n            "),
-                    _c("p", [
-                      _c("span", {
-                        class: _vm.orderClasses("state"),
-                        on: {
-                          click: function($event) {
-                            _vm.orderColumn("state", {
-                              number: ["Denegada", "Pendiente", "Aceptada"]
-                            })
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", [_vm._v("Detalles")]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "icons" }, [
+                      _vm._v("\n              Estado\n              "),
+                      _c("p", [
+                        _c("span", {
+                          class: _vm.orderClasses("state"),
+                          on: {
+                            click: function($event) {
+                              _vm.orderColumn("state", {
+                                number: ["Denegada", "Pendiente", "Aceptada"]
+                              })
+                            }
                           }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", {
-                        class: _vm.filterClasses("state"),
-                        on: {
-                          click: function($event) {
-                            _vm.filterColumn("state", {
-                              number: ["Denegada", "Pendiente", "Aceptada"]
-                            })
+                        }),
+                        _vm._v(" "),
+                        _c("span", {
+                          class: _vm.filterClasses("state"),
+                          on: {
+                            click: function($event) {
+                              _vm.filterColumn("state", {
+                                number: ["Denegada", "Pendiente", "Aceptada"]
+                              })
+                            }
                           }
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "buttons-text icons" })
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.extratimes, function(extraTime) {
-                  return _c(
-                    "tr",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.checkFilter(extraTime.id),
-                          expression: "checkFilter(extraTime.id)"
-                        }
-                      ]
-                    },
-                    [
-                      _c("td", [
-                        _c("strong", [
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { staticClass: "buttons-text icons" })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.extratimes, function(extraTime) {
+                    return _c(
+                      "tr",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkFilter(extraTime.id),
+                            expression: "checkFilter(extraTime.id)"
+                          }
+                        ]
+                      },
+                      [
+                        _c("td", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(extraTime.profile.lastname1) +
+                                " " +
+                                _vm._s(extraTime.profile.lastname2) +
+                                ", " +
+                                _vm._s(extraTime.profile.name)
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
                           _vm._v(
-                            _vm._s(extraTime.profile.lastname1) +
-                              " " +
-                              _vm._s(extraTime.profile.lastname2) +
-                              ", " +
-                              _vm._s(extraTime.profile.name)
+                            _vm._s(
+                              extraTime.state_id
+                                ? extraTime.states.name
+                                : "Indiferente"
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              extraTime.provincia_id
+                                ? extraTime.provincia.nombre
+                                : "Indiferente"
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _vm._v(
+                            _vm._s(
+                              extraTime.clinic_id
+                                ? extraTime.clinic.city +
+                                  " (" +
+                                  extraTime.clinic.address_real_1 +
+                                  ")"
+                                : "Indiferente"
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", {
+                          staticClass: "hidden-xs",
+                          domProps: {
+                            textContent: _vm._s(
+                              _vm.extraDate(extraTime.created_at)
+                            )
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("td", {
+                          domProps: {
+                            innerHTML: _vm._s(
+                              _vm.scheduleReader(extraTime.schedule)
+                            )
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "div",
+                            {
+                              class: _vm.doStateBadge(extraTime.state).classes
+                            },
+                            [
+                              _c("span", {
+                                staticClass: "hidden-xs",
+                                domProps: {
+                                  textContent: _vm._s(
+                                    _vm.doStateBadge(extraTime.state).text
+                                  )
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", {
+                                class: _vm.doStateBadge(extraTime.state).icon
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary btn-sm",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  _vm.toggleShowDetails(
+                                    extraTime.profile_id,
+                                    extraTime
+                                  )
+                                }
+                              }
+                            },
+                            [
+                              _c("span", { staticClass: "hidden-xs" }, [
+                                _vm._v("Detalles\n                  ")
+                              ]),
+                              _vm._v(" "),
+                              _c("span", {
+                                staticClass:
+                                  "glyphicon glyphicon-arrow-right visible-xs-block"
+                              })
+                            ]
                           )
                         ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(
-                            extraTime.state_id
-                              ? extraTime.states.name
-                              : "Indiferente"
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(
-                            extraTime.provincia_id
-                              ? extraTime.provincia.nombre
-                              : "Indiferente"
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _vm._v(
-                          _vm._s(
-                            extraTime.clinic_id
-                              ? extraTime.clinic.city +
-                                " (" +
-                                extraTime.clinic.address_real_1 +
-                                ")"
-                              : "Indiferente"
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", {
-                        staticClass: "hidden-xs",
-                        domProps: {
-                          textContent: _vm._s(
-                            _vm.extraDate(extraTime.created_at)
-                          )
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: {
-                          innerHTML: _vm._s(
-                            _vm.scheduleReader(extraTime.schedule)
-                          )
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "div",
-                          { class: _vm.doStateBadge(extraTime.state).classes },
-                          [
-                            _c("span", {
-                              staticClass: "hidden-xs",
-                              domProps: {
-                                textContent: _vm._s(
-                                  _vm.doStateBadge(extraTime.state).text
-                                )
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("span", {
-                              class: _vm.doStateBadge(extraTime.state).icon
-                            })
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary btn-sm",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.toggleShowDetails(
-                                  extraTime.profile_id,
-                                  extraTime
-                                )
-                              }
-                            }
-                          },
-                          [
-                            _c("span", { staticClass: "hidden-xs" }, [
-                              _vm._v("Detalles\n                ")
-                            ]),
-                            _vm._v(" "),
-                            _c("span", {
-                              staticClass:
-                                "glyphicon glyphicon-arrow-right visible-xs-block"
-                            })
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                })
-              )
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.extratimes.length
+          ? _c(
+              "div",
+              {
+                staticClass: " text-center empty",
+                attrs: { id: "noextratime" }
+              },
+              [_vm._m(1)]
+            )
           : _vm._e()
       ]),
       _vm._v(" "),
@@ -105569,7 +105789,7 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.admin
-        ? _c("div", { staticClass: "panel-footer" }, [_vm._m(1)])
+        ? _c("div", { staticClass: "panel-footer" }, [_vm._m(2)])
         : _vm._e()
     ])
   ])
@@ -105583,6 +105803,16 @@ var staticRenderFns = [
       _c("span", { staticClass: "glyphicon glyphicon-hand-up" }),
       _vm._v("Bolsa de Horas")
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-xs-10 col-xs-offset-1 alert alert-info" },
+      [_c("div", [_c("h3", [_vm._v("Aún no se han mandado solicitudes.")])])]
+    )
   },
   function() {
     var _vm = this

@@ -8,7 +8,7 @@
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Solicitudes</h3>
       </div>
       <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
-          <div class="row buttons" v-if="!filtering.date.state">
+          <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
               <div class="col-xs-6">
                   <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
               </div>
@@ -31,7 +31,15 @@
               </div>
             </form>
           </div>
-          <ul class="list-group" v-if="!filtering.date.state && filtering.state">
+          <div class="row dates" v-if="filtering.search.state">
+            <form>
+              <div class="col-xs-12 form-group">
+                <label for="search">Buscar:</label>
+                <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
+              </div>
+            </form>
+          </div>
+          <ul class="list-group" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
               <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
                   <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
               </li>
@@ -48,95 +56,97 @@
           </button>
         </div>
       </div>
-      <div :class="panelClass">
-        <table 
-          class="table table-responsive" 
-          v-if="admin && !showRequest.method"
-          >
-          <thead>
-            <tr>
-              <th class="clinic">
-                Nombre
-                <p>
-                    <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1')"></span>
-                    <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1')"></span>
-                </p>
-              </th>
-              <th class="clinic">
-                Email
-                <p>
-                    <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
-                    <span :class="filterClasses('email')" @click="filterColumn('email')"></span>
-                </p>
-              </th>
-              <th class="hidden-xs">
-                Teléfono
-                <p>
-                    <span :class="orderClasses('phone')" @click="orderColumn('phone')"></span>
-                    <span :class="filterClasses('phone')" @click="filterColumn('phone')"></span>
-                </p>
-              </th>
-              <th>
-                DNI
-                <p>
-                    <span :class="orderClasses('personal_id_number')" @click="orderColumn('personal_id_number')"></span>
-                    <span :class="filterClasses('personal_id_number')" @click="filterColumn('personal_id_number')"></span>
-                </p>
-              </th>
-              <th class="hidden-xs">
-                Nº de Licencia
-                <p>
-                    <span :class="orderClasses('license_number')" @click="orderColumn('license_number')"></span>
-                    <span :class="filterClasses('license_number')" @click="filterColumn('license_number')"></span>
-                </p>
-              </th>
-              <th class="hidden-xs">
-                Año de Licencia
-                <p>
-                    <span :class="orderClasses('license_year')" @click="orderColumn('license_year',{integer:true})"></span>
-                    <span :class="filterClasses('license_year')" @click="filterColumn('license_year',{integer:true})"></span>
-                </p>
-              </th>
-              <th class="icons">
-                Estado
-                <p>
-                    <span :class="orderClasses('last_access')" @click="orderColumn('last_access',{object:'user'})"></span>
-                    <span :class="filterClasses('last_access')" @click="filterColumn('last_access',{object:'user',boolean:true})"></span>
-                </p>
-              </th>
-              <th class="buttons-text icons"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="user in users" v-show="checkFilter(user.id)">
-              <td><strong>{{user.lastname1}} {{user.lastname2}}, {{user.name}}</strong></td>
-              <td><strong>{{user.email}}</strong></td>
-              <td>{{user.phone}}</td>
-              <td class="hidden-xs">{{user.personal_id_number}}</td>
-              <td class="hidden-xs">{{user.license_number}}
-                <td class="hidden-xs" v-text="user.license_year"></td>
-              </td>
-              <td>
-                <div :class="requestClasses(user.user.last_access)">
-                  <span class="hidden-xs" v-text="requestText(user.user.last_access)">
-                  </span>
-                  <span :class="requestIcon(user.user.last_access)"></span>
-                </div>
-              </td>
-              <td>
-                <button 
-                  type="button" 
-                  class="btn btn-primary"
-                  @click="toggleShowRequest(user)"
-                  >
-                  <span class="hidden-xs">Detalles
-                  </span>
-                  <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="panel-body">
+        <div :class="panelClass">
+          <table 
+            class="table table-responsive" 
+            v-if="admin && !showRequest.method"
+            >
+            <thead>
+              <tr>
+                <th class="clinic">
+                  Nombre
+                  <p>
+                      <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1')"></span>
+                      <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{search:['name','lastname1','lastname2'],noOptions:true})"></span>
+                  </p>
+                </th>
+                <th class="clinic">
+                  Email
+                  <p>
+                      <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
+                      <span :class="filterClasses('email')" @click="filterColumn('email',{search:['email'],noOptions:true})"></span>
+                  </p>
+                </th>
+                <th class="hidden-xs">
+                  Teléfono
+                  <p>
+                      <span :class="orderClasses('phone')" @click="orderColumn('phone')"></span>
+                      <span :class="filterClasses('phone')" @click="filterColumn('phone',{search:['phone'],noOptions:true})"></span>
+                  </p>
+                </th>
+                <th>
+                  DNI
+                  <p>
+                      <span :class="orderClasses('personal_id_number')" @click="orderColumn('personal_id_number')"></span>
+                      <span :class="filterClasses('personal_id_number')" @click="filterColumn('personal_id_number',{search:['personal_id_number'],noOptions:true})"></span>
+                  </p>
+                </th>
+                <th class="hidden-xs">
+                  Nº de Licencia
+                  <p>
+                      <span :class="orderClasses('license_number')" @click="orderColumn('license_number')"></span>
+                      <span :class="filterClasses('license_number')" @click="filterColumn('license_number')"></span>
+                  </p>
+                </th>
+                <th class="hidden-xs">
+                  Año de Licencia
+                  <p>
+                      <span :class="orderClasses('license_year')" @click="orderColumn('license_year',{integer:true})"></span>
+                      <span :class="filterClasses('license_year')" @click="filterColumn('license_year',{integer:true})"></span>
+                  </p>
+                </th>
+                <th class="icons">
+                  Estado
+                  <p>
+                      <span :class="orderClasses('last_access')" @click="orderColumn('last_access',{object:'user'})"></span>
+                      <span :class="filterClasses('last_access')" @click="filterColumn('last_access',{object:'user',boolean:true})"></span>
+                  </p>
+                </th>
+                <th class="buttons-text icons"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="user in users" v-show="checkFilter(user.id)">
+                <td><strong>{{user.lastname1}} {{user.lastname2}}, {{user.name}}</strong></td>
+                <td><strong>{{user.email}}</strong></td>
+                <td>{{user.phone}}</td>
+                <td class="hidden-xs">{{user.personal_id_number}}</td>
+                <td class="hidden-xs">{{user.license_number}}
+                  <td class="hidden-xs" v-text="user.license_year"></td>
+                </td>
+                <td>
+                  <div :class="requestClasses(user.user.last_access)">
+                    <span class="hidden-xs" v-text="requestText(user.user.last_access)">
+                    </span>
+                    <span :class="requestIcon(user.user.last_access)"></span>
+                  </div>
+                </td>
+                <td>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary"
+                    @click="toggleShowRequest(user)"
+                    >
+                    <span class="hidden-xs">Detalles
+                    </span>
+                    <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="panel-footer">
         <div class="progress">
@@ -169,10 +179,16 @@
                 filters: {},
                 name: '',
                 state: false,
+                showOptions: true,
                 date: {
                   state: false,
                   start: null,
                   end: null,
+                },
+                search: {
+                  state: false,
+                  string: null,
+                  target: [],
                 },
                 keys: [],
                 selected: [],
@@ -354,13 +370,39 @@
               }
             }
           },
-          filterColumn(name, options={object:null,date:false,integer:false,boolean:false}) {
+          searchString() {
+            console.log('searching');
+            this.filtering.selected = [];
+            for (let string of this.filtering.search.target) {
+              if (string[1].indexOf(this.filtering.search.string) != -1) {
+                this.filtering.selected.push(string[0]);
+              }
+            }
+          },
+          filterColumn(name, options={object:null,date:false,integer:false,boolean:false,search:false,noOptions:false}) {
             if (this.filtering.state) {
               flash({
                   message: 'Cierra la ventana para activar el botón', 
                   label: 'warning'
               });
               return false;
+            }
+            if (options.noOptions) {
+              this.filtering.showOptions = false;
+            }
+            if (options.search) {
+              this.filtering.search.state = true;
+              let target = [];
+              for (let user of this.users) {
+                if (this.filtering.selected.indexOf(user.id) != -1) {
+                  let fullstring = '';
+                  for (let field of options.search) {
+                    fullstring += user[field]+' ';
+                  }
+                  target.push([user.id,fullstring])
+                }
+              }
+              this.filtering.search.target = target;
             }
             if (options.date) {
               this.filtering.date.state = true;

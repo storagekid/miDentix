@@ -6,7 +6,7 @@
                 <span class="hidden-sm" v-text="menu.name"></span>
                 <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
                 <span class="badge badge-menu" v-if="menu.name == 'Usuarios' && admin.deadUsers">{{admin.deadUsers}}</span>
-                <span class="badge badge-menu" v-if="menu.name == 'Bolsa de Horas' || menu.name == 'Jornada' && admin.extratimesUnsolved">{{admin.extratimesUnsolved}}</span>
+                <span class="badge badge-menu" v-if="(menu.name == 'Bolsa de Horas' || menu.name == 'Jornada') && admin.extratimesUnsolved > 0">{{admin.extratimesUnsolved}}</span>
             </a>
         </li>
     </ul>

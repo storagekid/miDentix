@@ -142,138 +142,142 @@
             </tr>
           </tbody>
         </table>
-        <table 
-          class="table table-responsive" 
-          v-if="admin && !showRequest.method"
-          >
-          <thead>
-            <tr>
-              <th class="clinic">
-                Usuario
-                <p>
-                    <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
-                    <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile'})"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('lastname1')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th class="clinic">
-                Clínica
-                <p>
-                    <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
-                    <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('city')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th class="hidden-xs">
-                Tipo
-                <p>
-                    <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
-                    <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('type')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th>
-                Detalle
-                <p>
-                    <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
-                    <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1')"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('type_detail1')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th class="hidden-xs">
-                Fecha
-                <p>
-                    <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
-                    <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('created_at')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th class="hidden-xs">Texto</th>
-              <th class="icons">
-                Estado
-                <p>
-                    <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
-                    <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at')"></span>
-                    <button 
-                        class="btn btn-sm btn-danger delete-Schedule"
-                        v-if="filtering.filters['dontShow']"
-                        @click="clearFilters('closed_at')"
-                        >
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </p>
-              </th>
-              <th class="buttons-text icons"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="request in requests" v-show="checkFilter(request.id)">
-              <td><strong>{{request.profile.lastname1}} {{request.profile.lastname2}}, {{request.profile.name}}</strong></td>
-              <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
-              <td>{{request.type}}</td>
-              <td class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
-              <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
-              <td class="hidden-xs">{{request.description.substring(0,50)+'...'}}
-              </td>
-              <td>
-                <div :class="requestClasses(request.closed_at)">
-                  <span class="hidden-xs" v-text="requestText(request.closed_at)">
-                  </span>
-                  <span :class="requestIcon(request.closed_at)"></span>
-                </div>
-              </td>
-              <td>
-                <button 
-                  type="button" 
-                  class="btn btn-primary"
-                  @click="toggleShowRequest(request)"
-                  >
-                  <span class="hidden-xs">Detalles
-                  </span>
-                  <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div id="norequest" v-if="!profileRequests.total && !Object.keys(requests).length && !addRequest.method" class="alert alert-info text-center empty">
-          <div v-if="!admin">
-            <h3>No has realizado ninguna solicitud.</h3>
-              <p v-if="page == 'home'">Entra en la sección <a href="/requests"><strong>Necesidades</strong></a> y cuéntanos cómo podemos ayudarte.</p>
-              <p v-else>Pulsa en Nueva Solicitud para empezar a crear tu primera petición.</p>
-          </div>
-          <div v-else> 
-            <h3>Aún no se han mandado solicitudes.</h3>
+        <div class="panel-body">
+          <table 
+            class="table table-responsive" 
+            v-if="admin && !showRequest.method"
+            >
+            <thead>
+              <tr>
+                <th class="clinic">
+                  Usuario
+                  <p>
+                      <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
+                      <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile'})"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('lastname1')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th class="clinic">
+                  Clínica
+                  <p>
+                      <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
+                      <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('city')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th class="hidden-xs">
+                  Tipo
+                  <p>
+                      <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
+                      <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('type')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th>
+                  Detalle
+                  <p>
+                      <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
+                      <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1')"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('type_detail1')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th class="hidden-xs">
+                  Fecha
+                  <p>
+                      <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
+                      <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('created_at')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th class="hidden-xs">Texto</th>
+                <th class="icons">
+                  Estado
+                  <p>
+                      <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
+                      <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at')"></span>
+                      <button 
+                          class="btn btn-sm btn-danger delete-Schedule"
+                          v-if="filtering.filters['dontShow']"
+                          @click="clearFilters('closed_at')"
+                          >
+                          <span class="glyphicon glyphicon-remove"></span>
+                      </button>
+                  </p>
+                </th>
+                <th class="buttons-text icons"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="request in requests" v-show="checkFilter(request.id)">
+                <td><strong>{{request.profile.lastname1}} {{request.profile.lastname2}}, {{request.profile.name}}</strong></td>
+                <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
+                <td>{{request.type}}</td>
+                <td class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+                <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
+                <td class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+                </td>
+                <td>
+                  <div :class="requestClasses(request.closed_at)">
+                    <span class="hidden-xs" v-text="requestText(request.closed_at)">
+                    </span>
+                    <span :class="requestIcon(request.closed_at)"></span>
+                  </div>
+                </td>
+                <td>
+                  <button 
+                    type="button" 
+                    class="btn btn-primary"
+                    @click="toggleShowRequest(request)"
+                    >
+                    <span class="hidden-xs">Detalles
+                    </span>
+                    <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="norequest" v-if="!profileRequests.total && !Object.keys(requests).length && !addRequest.method" class=" text-center empty">
+          <div  class="col-xs-10 col-xs-offset-1 alert alert-info">
+            <div v-if="!admin">
+              <h3>No has realizado ninguna solicitud.</h3>
+                <p v-if="page == 'home'">Entra en la sección <a href="/requests"><strong>Necesidades</strong></a> y cuéntanos cómo podemos ayudarte.</p>
+                <p v-else>Pulsa en Nueva Solicitud para empezar a crear tu primera petición.</p>
+            </div>
+            <div v-else> 
+              <h3>Aún no se han mandado solicitudes.</h3>
+            </div>
           </div>
         </div>
         <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
