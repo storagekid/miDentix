@@ -195,6 +195,7 @@
                 }).then(response => {
                     if (response.status == 200) {
                       this.$emit('added');
+                      window.events.$emit('requestAdded');
                     }
                 });
           },

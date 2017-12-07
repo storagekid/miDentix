@@ -311,7 +311,7 @@
                        label:'warning'
                    });
             } else {
-              let profile = keys ? this.profileToSave : null;
+              let profile = keys ? this.profileSrc : null;
               let especialtiesToSave = this.especialtiesToSave.length ? this.especialtiesToSave : null;
               let especialtiesToRemove = this.especialtiesToRemove.length ? this.especialtiesToRemove : null;
               let experiencesToSave = this.experiencesToSave.length ? this.experiencesToSave : null;
@@ -323,13 +323,23 @@
                 'experiencesToRemove': experiencesToRemove,
                 'experiencesToSave': experiencesToSave,
               }).catch((error) => {
-                flash({
-                    message: error.response.data, 
-                    label: 'danger'
-                });
+                if (error.response.data.errors) {
+                  for (let item in error.response.data.errors) {
+                      flash({
+                          message: error.response.data.errors[item][0], 
+                          label: 'danger'
+                      });
+                    }
+                }
+                // flash({
+                //     message: error.response.data, 
+                //     label: 'danger'
+                // });
               }).then(response => {
-                this.$emit('updated');
-                this.cleanUpdates();
+                if (response.status == 200) {
+                    this.$emit('updated');
+                    this.cleanUpdates();
+                }
               });
             }
           },

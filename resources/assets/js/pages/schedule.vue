@@ -425,7 +425,7 @@
                   this.restoreMethod = 'update';
                 } else {
                   this.updateSchedules.method = false;
-                  this.restoreMethod = false;
+                  // this.restoreMethod = false;
                   this.updateSchedules.selectedClinicId = '';
                   this.addClinic.selectedClinicId = '';
                   this.updateSchedules.ButtonText = 'Modificar';
@@ -475,6 +475,7 @@
                   message: 'Nueva Clínica añadida correctamente', 
                   label: 'success'
               });
+              this.insertSchedule(data.schedule);
               this.toggleAddClinic();
               if (this.page == 'tutorial') {
                 this.$emit('completed');

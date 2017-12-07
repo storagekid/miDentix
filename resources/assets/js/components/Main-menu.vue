@@ -61,10 +61,13 @@
             notifySolved() {
                 this.admin.requestsUnsolved--;
             },
-            notifySExtratimeAdded() {
+            notifyRequestAdded() {
+                this.admin.requestsUnsolved++;
+            },
+            notifyExtratimeAdded() {
                 this.admin.extratimesUnsolved++;
             },
-            notifySExtratimeRemoved() {
+            notifyExtratimeRemoved() {
                 this.admin.extratimesUnsolved--;
             },
             fetchMenuData() {
@@ -82,9 +85,10 @@
         },
         created() {
             window.events.$on('requestClosed', this.notifySolved);
-            window.events.$on('extratimeAdded', this.notifySExtratimeAdded);
-            window.events.$on('extratimeRemoved', this.notifySExtratimeRemoved);
-            window.events.$on('extratimeSolved', this.notifySExtratimeRemoved);
+            window.events.$on('requestAdded', this.notifyRequestAdded);
+            window.events.$on('extratimeAdded', this.notifyExtratimeAdded);
+            window.events.$on('extratimeRemoved', this.notifyExtratimeRemoved);
+            window.events.$on('extratimeSolved', this.notifyExtratimeRemoved);
             this.getActive();
             this.fetchMenuData();
         },

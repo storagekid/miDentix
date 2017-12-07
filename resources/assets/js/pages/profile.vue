@@ -60,6 +60,7 @@
                     :updateMethod="updateButton.method"
                     @added="notifyAdded"
                     @deleted="notifyDeleted"
+                    @courseDeleted="notifyCourseDeleted"
                     >
                   </masters>
                 </div>
@@ -179,7 +180,7 @@
                  message:'Master añadido.', 
                  label:'success'
              });
-            this.fetchProfile();
+            // this.fetchProfile();
           },
           notifyUpdated() {
             flash({
@@ -193,7 +194,14 @@
                  message:'Master elimindao.', 
                  label:'success'
              });
-            this.fetchProfile();
+            // this.fetchProfile();
+          },
+          notifyCourseDeleted() {
+            flash({
+                 message:'Curso elimindao.', 
+                 label:'success'
+             });
+            // this.fetchProfile();
           },
           copyProfile() {
             for (let prop in this.profileSrc) {

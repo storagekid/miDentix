@@ -10,17 +10,19 @@ use Carbon\Carbon;
 class MasterUniversityController extends Controller
 {
     public function store(Profile $profile) {
-    	$masterUniversity = Master_University::where([
-            'master_id' => request('master_id'),
-            'university_id' => request('university_id'),
-       	])->get();
-        // if (!request('clinic_profile')) {
-        //     $clinic_profile = Clinic_Profile::create([
-        //         'profile_id' => request('profile_id'),
-        //         'clinic_id' => request('clinic_id'),
-        //     ]);
-        // }
-        $profile->masters()->attach($masterUniversity);
+        if (request('master_id')) {
+            $masterUniversity = Master_University::where([
+                'master_id' => request('master_id'),
+                'university_id' => request('university_id'),
+            ])->get();
+
+            $profile->masters()->attach($masterUniversity);
+        } else if (request('school')) {
+            $profile->courses()->create([
+                'school'=>request('school'),
+                'course'=>request('course'),
+            ]);
+        }
         $profile->updated_at = Carbon::now();
         $profile->save();
        	if (request()->expectsJson()) {

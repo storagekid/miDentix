@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Course;
 use App\Especialty;
 use App\Experience;
+use App\User;
 
 class Profile extends Model
 {
@@ -29,6 +30,9 @@ class Profile extends Model
     			'profile_id',
     			'master_university_id'
     		);
+    }
+    public function courses() {
+        return $this->hasMany(Course::class);
     }
     public function clinics() {
         return $this->belongsToMany(Clinic::class);

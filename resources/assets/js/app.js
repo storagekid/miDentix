@@ -24,6 +24,7 @@ window.flash = function (message) {
 Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
 Vue.component('requests', require('./pages/request.vue'));
+Vue.component('users', require('./pages/users.vue'));
 Vue.component('tutorial', require('./pages/tutorial.vue'));
 Vue.component('admin-control-panel', require('./pages/admin-control-panel.vue'));
 

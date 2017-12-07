@@ -55,7 +55,7 @@ class Menu {
 		],
 		'Users' => [
 			'name' => 'Usuarios', 
-		 	'link' => '#',
+		 	'link' => '/users',
 		 	'icon' => 'glyphicon glyphicon-user'
 		],
 		'Tools' => [

@@ -93,7 +93,10 @@
         props: [],
         data() {
             return {
-              profileSrc: {},
+              profileSrc: {
+                masters: [],
+                courses: [],
+              },
               profileOriginal: {},
               tabs: {
                 '1': {
@@ -151,6 +154,7 @@
             }
             this.tabSelected++;
             this.updateProfileTutorial(this.tabSelected);
+            this.fetchProfile();
           },
           completePhase(number) {
             if (this.tabSelected == 2) {

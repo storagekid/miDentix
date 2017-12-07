@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMasterUniversityProfileTable extends Migration
+class CreateCoursesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateMasterUniversityProfileTable extends Migration
      */
     public function up()
     {
-        Schema::create('master_university_profile', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('master_university_id')->nullable();
             $table->unsignedInteger('profile_id');
+            $table->string('school');
+            $table->string('course');
             $table->timestamps();
 
-            $table->unique(['master_university_id','profile_id']);
+            $table->unique(['school','course','profile_id']);
         });
     }
 
@@ -30,6 +31,6 @@ class CreateMasterUniversityProfileTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('master_university_profile');
+        Schema::dropIfExists('courses');
     }
 }

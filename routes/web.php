@@ -36,6 +36,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/masters', 'MasterController@indexApi');
 	Route::post('/masters/{profile}', 'MasterUniversityController@store');
 	Route::delete('/masters/{master_university}', 'MasterUniversityController@destroy');
+	Route::delete('/courses/{course}', 'CourseController@destroy');
 
 	Route::get('/extratime', 'ExtratimeController@index');
 
@@ -45,7 +46,9 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/states', 'StateController@indexApi');
 	Route::get('/api/universities', 'UniversityController@indexApi');
 	Route::get('/api/requests', 'RequestController@indexApi');
+
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
+	Route::get('/api/users', 'UserController@indexApi');
 
 	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
 });
@@ -71,6 +74,8 @@ Route::middleware(['auth','tutorial'])->group(function() {
 	Route::get('/requests/create', 'RequestController@create');
 	Route::get('/requests/{request}', 'RequestController@show');
 	Route::post('/requests/{profile}', 'RequestController@store');
+
+	Route::get('/users', 'UserController@index');
 
 	Route::get('/clinics', 'ClinicController@index');
 	Route::patch('/clinics/{clinic}', 'ClinicController@update');

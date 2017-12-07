@@ -13,12 +13,18 @@
                   disabled="" 
                   :selected="addMaster.selectedStateId"
                   value=""
-                  >{{addMaster.selectedUniText}}</option>
-                  <option 
-                    v-for="university in universities" 
-                    :value="university['id']"
-                    v-if="checkUniversity(university['id'])"
-                    >{{university['name']}}</option>
+                  >{{addMaster.selectedUniText}}
+                </option>
+                <option 
+                  value="other"
+                  >Otro Centro de Formación
+                </option>
+                <option 
+                  v-for="university in universities" 
+                  :value="university['id']"
+                  v-if="checkUniversity(university['id'])"
+                  >{{university['name']}}
+                </option>
               </select>
           </div>
           <div class="form-group col-xs-12 col-md-6">
@@ -46,27 +52,53 @@
               </select>
           </div>
         </div>
+        <div class="row" v-if="addMaster.selectedUniId == 'other'">
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="school">Indícanos el centro</label>
+            <input 
+              type="text" 
+              name="school" 
+              class="form-control"
+              v-model="addMaster.selectedOtherSchool"
+            >
+          </div>
+          <div class="form-group col-xs-12 col-sm-6">
+            <label for="course">Nombre del curso</label>
+            <input 
+              type="text" 
+              name="course" 
+              class="form-control"
+              v-model="addMaster.selectedOtherCourse"
+            >
+          </div>
+        </div>
       </form>
-      <div class="row rowBtn" v-show="addMaster.selectedMasterId">
+      <div 
+        class="row rowBtn" 
+        v-show="addMaster.selectedMasterId || checkOther()"
+        >
           <div class="col-xs-10 col-xs-offset-1">
               <button type="submit" :class="buttonClasses" @click.prevent="recordMaster"><h4>{{buttonText}}</h4></button>
           </div>
       </div>
     </div>
     <div class="table">
+      <div class="alert alert-info text-center">
+        <h4>Masters Registrados</h4>
+      </div>
       <table class="table table-responsive" v-if="profileSrc.masters.length">
         <thead>
           <tr>
             <th>Universidad</th>
             <th>Master</th>
-            <th v-if="updateMasters"></th>
+            <th class="buttons-text icons"></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="master in profileSrc.masters">
             <td>{{master.university.name}}</td>
             <td>{{master.master.name}}</td>
-            <td v-if="updateMasters">
+            <td>
               <button 
                   class="btn btn-sm btn-danger delete-Schedule"
                   @click="deleteMaster(master.id)"
@@ -81,6 +113,37 @@
         <h3 class="empty">No has añadido ningún master</h3>
       </div>
     </div>
+    <div class="table">
+      <div class="alert alert-info text-center">
+        <h4>Otros Cursos</h4>
+      </div>
+      <table class="table table-responsive" v-if="profileSrc.courses.length">
+        <thead>
+          <tr>
+            <th>Centro</th>
+            <th>Curso</th>
+            <th class="buttons-text icons"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="course in profileSrc.courses">
+            <td>{{course.school}}</td>
+            <td>{{course.course}}</td>
+            <td>
+              <button 
+                  class="btn btn-sm btn-danger delete-Schedule"
+                  @click="deleteCourse(course.id)"
+                  >
+                  <span class="glyphicon glyphicon-remove"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center" v-else>
+        <h3 class="empty">No has añadido ningún curso</h3>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -93,6 +156,7 @@
             return {
               profileSrc: {
                 masters: [],
+                courses: [],
               },
               universities: {},
               masters: [],
@@ -108,6 +172,8 @@
                 selectedUniText: 'Selecciona una Universidad',
                 selectedMasterId: '',
                 selectedMasterText: 'Selecciona un Master',
+                selectedOtherSchool: '',
+                selectedOtherCourse: '',
               },
               buttonText: 'Añadir',
               buttonClasses: 'btn btn-primary btn-block',
@@ -119,6 +185,13 @@
           }
         },
         methods: {
+          checkOther() {
+            if (this.addMaster.selectedOtherSchool.length > 5 
+              && this.addMaster.selectedOtherCourse.length > 5) {
+              return true;
+            }
+            return false;
+          },
           checkUniversity(id) {
             if (this.profileUniversities[id]) {
               for (let university of this.universities) {
@@ -156,17 +229,27 @@
               this.addMaster.masterSelectDisabled = true;
               this.addMaster.selectedMasterId = '';
               this.masters = [];
+              this.addMaster.selectedOtherCourse = '';
+              this.addMaster.selectedOtherSchool = '';
             }
           },
           selectUniversity(e) {
             this.addMaster.selectedUniId = e.target.value;
-            this.addMaster.masterSelectDisabled = false;
-            this.addMaster.selectedMasterId = '';
-            for (let university of this.universities) {
-              if (university.id == this.addMaster.selectedUniId) {
-                this.masters = university.masters;
-                break;
+            if (this.addMaster.selectedUniId != 'other') {
+              this.addMaster.masterSelectDisabled = false;
+              this.addMaster.selectedOtherSchool = '';
+              this.addMaster.selectedOtherCourse = '';
+              this.addMaster.selectedMasterId = '';
+              for (let university of this.universities) {
+                if (university.id == this.addMaster.selectedUniId) {
+                  this.masters = university.masters;
+                  break;
+                }
               }
+            } else {
+              this.addMaster.masterSelectDisabled = true;
+              this.addMaster.selectedMasterId = '';
+              this.masters = [];
             }
           },
           selectMaster(e) {
@@ -183,6 +266,20 @@
                   if(response.status == 200) {
                     this.fetchProfile();
                     this.$emit('deleted', {id});
+                  }
+              });
+          },
+          deleteCourse(id) {
+            axios.delete('/courses/'+id)
+              .catch((error) => {
+                  flash({
+                      message: error.response.data, 
+                      label: 'danger'
+                  });
+              }).then(response => {
+                  if(response.status == 200) {
+                    this.fetchProfile();
+                    this.$emit('courseDeleted', {id});
                   }
               });
           },
@@ -210,9 +307,23 @@
             }
           },
           recordMaster() {
+            let master_id, university_id, school, course;
+            if (this.addMaster.selectedOtherCourse != '') {
+              master_id = null;
+              university_id = null;
+              school = this.addMaster.selectedOtherSchool;
+              course = this.addMaster.selectedOtherCourse;
+            } else {
+              master_id = this.addMaster.selectedMasterId;
+              university_id = this.addMaster.selectedUniId;
+              school = null;
+              course = null;
+            }
             axios.post('/masters/'+this.profileSrc.id, {
-              'master_id': this.addMaster.selectedMasterId,
-              'university_id': this.addMaster.selectedUniId,
+              'master_id': master_id,
+              'university_id': university_id,
+              'school': school,
+              'course': course,
             }).catch((error) => {
               flash({
                   message: error.response.data, 

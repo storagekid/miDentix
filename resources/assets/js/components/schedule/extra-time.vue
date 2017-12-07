@@ -650,7 +650,7 @@
                       label: 'danger'
                   });
               }).then(response => {
-                  if(response.status == 200) {
+                  if (response.status == 200) {
                       this.$emit('deleted', {id});
                       window.events.$emit('extratimeRemoved');
                       this.removeProfileExtratime(id);

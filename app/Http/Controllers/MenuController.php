@@ -14,7 +14,7 @@ class MenuController extends Controller
             $requests = RequestModel::all();
             $extratimes = Extratime::all();
             $profiles = Profile::all()->load(['user' => function($query) {
-            	$query->select('id','last_access');
+            	$query->select('id','last_access')->where('role','user');
             }]);
             return ['requests'=>$requests,'profiles'=>$profiles, 'extratimes'=>$extratimes];
         }

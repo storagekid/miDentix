@@ -14,7 +14,7 @@ class ProfileController extends Controller
     }
 
     public function indexApi() {
-        return auth()->user()->profile->load(['experiences','especialties','masters']);
+        return auth()->user()->profile->load(['experiences','especialties','masters','courses']);
     }
 
     public function create(User $user) {
@@ -22,8 +22,19 @@ class ProfileController extends Controller
     }
     public function update(Profile $profile) {
     	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed'];
+
+        // request()->validate([
+        //     'email' => 'required|unique:users',
+        // ]);
         
         if (request('profile')) {
+            $newProfile = new Request(request('profile'));
+            $newProfile->validate([
+                'email' => 'required|unique:users,email,'.auth()->id(),
+                'name' => 'required',
+                'personal_id_number' => 'required|unique:profiles,personal_id_number,'.auth()->id(),
+                'license_number' => 'required|unique:profiles,license_number,'.auth()->id(),
+            ]);
         	$found = [];
         	$profileSent = request('profile');
         	foreach ($profileSent as $key => $value) {
@@ -75,6 +86,11 @@ class ProfileController extends Controller
         	}
         	$profile->updated_at = Carbon::now();
         	$profile->save();
+        }
+        if (request()->expectsJson()) {
+            return response([
+                'status'=>'Profile updated',
+                200]);
         }
     }
 }
