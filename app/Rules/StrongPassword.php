@@ -25,7 +25,7 @@ class StrongPassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/', $value)) {
+        if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $value)) {
             return true;
         }
         return false;
@@ -38,6 +38,6 @@ class StrongPassword implements Rule
      */
     public function message()
     {
-        return 'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un símbolo.';
+        return 'La contraseña debe contener al menos una mayúscula, una minúscula y un número.';
     }
 }

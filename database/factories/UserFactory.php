@@ -19,7 +19,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         // 'personal_id_number' => $faker->unique()->swiftBicNumber,
         // 'password' => $password ?: $password = bcrypt('secret'),
         'email' => $faker->unique()->safeEmail,
-        'password' => bcrypt('Migabinete%01'),
+        'password' => bcrypt('Migabinete01'),
         'role' => 'user',
         'remember_token' => str_random(10),
     ];

@@ -20,7 +20,7 @@ class ProfilesAdminSeeder extends Seeder
 		]);
 		$user = $profile->user;
 		$user->email = $profile->email;
-		$user->password = Hash::make('Migabinete%01');
+		$user->password = Hash::make('Migabinete01');
 		$user->role = 'admin';
 		$user->save();
 		$profile = factory('App\Profile')->create([
@@ -30,7 +30,7 @@ class ProfilesAdminSeeder extends Seeder
 		]);
 		$user = $profile->user;
 		$user->email = $profile->email;
-		$user->password = Hash::make('Migabinete%01');
+		$user->password = Hash::make('Migabinete01');
 		$user->role = 'admin';
 		$user->save();
 	}

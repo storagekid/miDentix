@@ -29,6 +29,7 @@ Vue.component('tutorial', require('./pages/tutorial.vue'));
 Vue.component('admin-control-panel', require('./pages/admin-control-panel.vue'));
 
 Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('filters', require('./components/filters.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
 Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
