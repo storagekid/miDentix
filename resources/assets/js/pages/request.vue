@@ -50,7 +50,7 @@
             </ul>
             <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
         </div>
-        <div class="row">
+        <div class="row" v-if="!showRequest.method">
           <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
             <button 
               class="btn btn-sm btn-info btn-block clear-filters" 
@@ -387,8 +387,8 @@
             this.filtering.name = '';
           },
           applyUrlFilters() {
-            this.filtering.filters = {};
-            this.selectAllItems();
+            // this.filtering.filters = {};
+            // this.selectAllItems();
             // Example with Array
             // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
             let search = getAllUrlParams();

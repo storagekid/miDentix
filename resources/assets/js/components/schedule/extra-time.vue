@@ -80,7 +80,7 @@
                     'Indiferente'}}
                   </td>
                   <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
-                  <td><strong v-html="parseEspecialties(index)"></strong></td>
+                  <td><strong v-html="parseEspecialties(0,extraTime.especialties)"></strong></td>
                   <td v-html="scheduleReader(extraTime.schedule)"></td>
                   <td>
                     <div :class="doStateBadge(extraTime.state).classes">
@@ -168,7 +168,7 @@
                       extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
                       'Indiferente'}}</td>
                     <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
-                    <td><strong v-html="parseEspecialties(index)"></strong></td>
+                    <td><strong v-html="parseEspecialties(0,extraTime.especialties)"></strong></td>
                     <td v-html="scheduleReader(extraTime.schedule)"></td>
                     <td>
                       <div :class="doStateBadge(extraTime.state).classes">
@@ -303,7 +303,7 @@
             } else {
               source = 'profileSrc.extratimes';
             }
-            for (let especialty of this[source][index].especialties) {
+            for (let especialty of this[source].especialties) {
               if (especialties.indexOf(especialty.name) == -1) {
                 especialties.push(especialty.name);
               }

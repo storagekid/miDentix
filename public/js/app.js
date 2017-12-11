@@ -95458,8 +95458,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.filtering.name = '';
     },
     applyUrlFilters: function applyUrlFilters() {
-      this.filtering.filters = {};
-      this.selectAllItems();
+      // this.filtering.filters = {};
+      // this.selectAllItems();
       // Example with Array
       // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
       var search = getAllUrlParams();
@@ -96036,30 +96036,35 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "form-group col-xs-12 col-sm-10 col-sm-offset-1" },
-              [
-                Object.keys(this.filtering.filters).length
-                  ? _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-sm btn-info btn-block clear-filters",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clearAllFilters($event)
-                          }
-                        }
-                      },
-                      [_c("h4", [_vm._v("Borrar Filtros")])]
-                    )
-                  : _vm._e()
-              ]
-            )
-          ]),
+          !_vm.showRequest.method
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "form-group col-xs-12 col-sm-10 col-sm-offset-1"
+                  },
+                  [
+                    Object.keys(this.filtering.filters).length
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-sm btn-info btn-block clear-filters",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clearAllFilters($event)
+                              }
+                            }
+                          },
+                          [_c("h4", [_vm._v("Borrar Filtros")])]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
@@ -98089,30 +98094,35 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "form-group col-xs-12 col-sm-10 col-sm-offset-1" },
-              [
-                Object.keys(this.filtering.filters).length
-                  ? _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-sm btn-info btn-block clear-filters",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            _vm.clearAllFilters($event)
-                          }
-                        }
-                      },
-                      [_c("h4", [_vm._v("Borrar Filtros")])]
-                    )
-                  : _vm._e()
-              ]
-            )
-          ]),
+          !_vm.userSelected
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "form-group col-xs-12 col-sm-10 col-sm-offset-1"
+                  },
+                  [
+                    Object.keys(this.filtering.filters).length
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-sm btn-info btn-block clear-filters",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.clearAllFilters($event)
+                              }
+                            }
+                          },
+                          [_c("h4", [_vm._v("Borrar Filtros")])]
+                        )
+                      : _vm._e()
+                  ]
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { class: _vm.panelClass }, [
@@ -104669,7 +104679,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104684,6 +104694,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
 //
 //
 //
@@ -104934,6 +104945,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   computed: {
+    showHeader: function showHeader() {
+      if (App.role == 'user') {
+        return false;
+      }
+      return true;
+    },
     showMode: function showMode() {
       var keys = Object.keys(this.request).length;
       if (!keys) {
@@ -104990,9 +105007,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", { attrs: { id: "new-request-form" } }, [
-    _vm.showMode
+    _vm.showMode && _vm.showHeader
       ? _c("div", { class: _vm.requestClasses }, [
-          _c("h3", [_vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate))]),
+          _c("h4", [
+            _vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate) + " por:")
+          ]),
+          _vm._v(" "),
+          _c("h3", [
+            _vm._v(
+              _vm._s(_vm.request.profile.name) +
+                " " +
+                _vm._s(_vm.request.profile.lastname1)
+            )
+          ]),
           _vm._v(" "),
           _c("h4", [
             _vm._v("Estado: "),
@@ -105699,7 +105726,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _iteratorError2 = undefined;
 
       try {
-        for (var _iterator2 = this[source][index].especialties[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        for (var _iterator2 = this[source].especialties[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
           var _especialty = _step2.value;
 
           if (especialties.indexOf(_especialty.name) == -1) {
@@ -106365,7 +106392,9 @@ var render = function() {
                         _c("td", [
                           _c("strong", {
                             domProps: {
-                              innerHTML: _vm._s(_vm.parseEspecialties(index))
+                              innerHTML: _vm._s(
+                                _vm.parseEspecialties(0, extraTime.especialties)
+                              )
                             }
                           })
                         ]),
@@ -106731,7 +106760,10 @@ var render = function() {
                               _c("strong", {
                                 domProps: {
                                   innerHTML: _vm._s(
-                                    _vm.parseEspecialties(index)
+                                    _vm.parseEspecialties(
+                                      0,
+                                      extraTime.especialties
+                                    )
                                   )
                                 }
                               })

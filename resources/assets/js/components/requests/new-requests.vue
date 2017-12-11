@@ -1,7 +1,8 @@
 <template>
   <form id="new-request-form">
-    <div :class="requestClasses" v-if="showMode">
-      <h3>Solicitud enviada el {{requestDate}}</h3>
+    <div :class="requestClasses" v-if="showMode && showHeader">
+      <h4>Solicitud enviada el {{requestDate}} por:</h4>
+      <h3>{{request.profile.name}} {{request.profile.lastname1}}</h3>
       <h4>Estado: <strong>{{requestStateText}}</strong></h4>
     </div>
     <div class="form-group">
@@ -253,6 +254,12 @@
           },
         },
         computed: {
+          showHeader() {
+                if (App.role == 'user') {
+                    return false;
+                }
+                return true;
+            },
           showMode() {
             let keys = Object.keys(this.request).length;
             if (!keys) {
