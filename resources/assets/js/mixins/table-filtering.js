@@ -38,22 +38,23 @@ export default {
 				nullName: null,
 				date:false,
 				number:false,
+				numeric:false,
 				integer:false,
 				boolean:false,
 				search:false,
 				noOptions:false
 			}) {
-		  if (this.filtering.state) {
+		if (this.filtering.state) {
 		    flash({
 		        message: 'Cierra la ventana para activar el botón', 
 		        label: 'warning'
 		    });
 		    return false;
-		  }
-		  if (options.noOptions) {
+		}
+		if (options.noOptions) {
             this.filtering.showOptions = false;
-          }
-          if (options.search) {
+        }
+        if (options.search) {
             this.filtering.search.state = true;
             let target = [];
             if (options.object) {
@@ -71,7 +72,7 @@ export default {
 	            	    	  	fullstring += temp+' ';
 	            	    	}
 	            	    }
-            	    	target.push([id,fullstring]);
+            	    	target.push([id,cleanUpSpecialChars(fullstring.toLowerCase())]);
             	  	}
             	}
             } else {
@@ -81,87 +82,116 @@ export default {
             	    for (let field of options.search) {
             	      fullstring += item[field]+' ';
             	    }
-            	    target.push([item.id,fullstring]);
+            	    fullstring = fullstring;
+            	    target.push([item.id,cleanUpSpecialChars(fullstring.toLowerCase())]);
             	  }
             	}
             }
             this.filtering.search.target = target;
-          }
-		  if (options.date) {
+        }
+		if (options.date) {
 		    this.filtering.date.state = true;
-		  } else {
+		} else {
 		    this.filtering.date.state = false;
-		  }
-		  this.filtering.filters[name] = {};
-		  this.filtering.filters[name].name = name;
-		  this.filtering.filters[name].keys = [];
-		  this.filtering.name = name;
-		  this.filtering.state = true;
-		  var labels = [];
-		  var keys =[];
-		  let cleanName = '';
-		  let fullName = '';
-		  for (var i = 0; i < this[this.filtering.source].length; i++) {
+		}
+		this.filtering.filters[name] = {};
+		this.filtering.filters[name].name = name;
+		this.filtering.filters[name].keys = [];
+		this.filtering.name = name;
+		this.filtering.state = true;
+		var labels = [];
+		var keys =[];
+		let cleanName = '';
+		let fullName = '';
+		let source = this.filtering.source;
+		for (var i = 0; i < this[source].length; i++) {
+			let keysDone = false;
+		  	var id = this[this.filtering.source][i].id;
 		    if (!options.object) {
 		      if (options.number) {
-		        fullName = options.number[this[this.filtering.source][i][name]];
+		        fullName = options.number[this[source][i][name]];
 		        cleanName = cleanUpSpecialChars(fullName.toLowerCase());
+		      } else if (options.numeric) {
+		      	fullName = this[source][i][name];
+		      	cleanName = fullName;
 		      } else if (options.boolean) {
-		      	if (this[this.filtering.source][i][name] == null) {
+		      	if (this[source][i][name] == null) {
 		      		fullName = options.boolean[0];
 		      		cleanName = options.boolean[0].toLowerCase();
 		      	} else {
 		      		fullName = options.boolean[1];
 		      		cleanName = options.boolean[1].toLowerCase();
 		      	}
-		      } else if (this[this.filtering.source][i][name] == null) {
+		      } else if (this[source][i][name] == null) {
 		        cleanName = '-';
 		        fullName = options.nullName;
 		      } else {
-		        fullName = this[this.filtering.source][i][name];
+		        fullName = this[source][i][name];
                 if (options.integer) {
                   cleanName = fullName;
                 } else {
-                  cleanName = cleanUpSpecialChars(this[this.filtering.source][i][name].toLowerCase());
+                  cleanName = cleanUpSpecialChars(this[source][i][name].toLowerCase());
                 }
 		      }
 		    } else {
 		      	if (options.boolean) {
-			      	if (!this[this.filtering.source][i][options.object] || this[this.filtering.source][i][options.object][name] == null) {
+			      	if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
 			      		fullName = options.boolean[0];
 			      		cleanName = options.boolean[0].toLowerCase();
 			      	} else {
 			      		fullName = options.boolean[1];
 			      		cleanName = options.boolean[1].toLowerCase();
 			      	}
-                } else if (!this[this.filtering.source][i][options.object] || this[this.filtering.source][i][options.object][name] == null) {
+                } else if (Array.isArray(this[source][i][options.object])) {
+                	console.log('Array');
+                	keysDone = true;
+                	for (let item of this[source][i][options.object]) {
+                		fullName = item[name];
+                		cleanName = cleanUpSpecialChars(fullName.toLowerCase());
+                		let state = false;
+                		if (labels.indexOf(cleanName) == -1) {
+                		    labels.push(cleanName);
+                		    var key = {label: fullName, keys: [id], state: state};
+                		    keys.push(key);
+                		} else {
+                		  for (var o = 0; o < keys.length; o++) {
+                		    if (keys[o].label == fullName) {
+                		        keys[o].keys.push(id);
+                		    }
+                		  }
+                		}
+                	}
+                } else if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
+                  console.log('here');
+                  console.log(options.object);
                   cleanName = '-';
                   fullName = options.nullName;
                 } else {
-                  fullName = this[this.filtering.source][i][options.object][name];
-                  if (options.integer) {
-                    cleanName = fullName;
-                  } else {
-                    cleanName = cleanUpSpecialChars(this[this.filtering.source][i][options.object][name].toLowerCase());
-                  }
+	                fullName = this[source][i][options.object][name];
+	                if (options.integer) {
+	                    cleanName = fullName;
+	                } else {
+	                    cleanName = cleanUpSpecialChars(this[source][i][options.object][name].toLowerCase());
+	                }
                 }
-              }
-		    var id = this[this.filtering.source][i].id;
-		    let state = false;
-		    if (labels.indexOf(cleanName) == -1) {
-		        labels.push(cleanName);
-		        var key = {label: fullName, keys: [id], state: state};
-		        keys.push(key);
-		    } else {
-		      for (var o = 0; o < keys.length; o++) {
-		        if (keys[o].label == fullName) {
-		            keys[o].keys.push(id);
-		        }
-		      }
-		    }
-		  }
-		  this.filtering.filters[name].keys = keys;
-		  this.filtering.filters[name].keys.forEach((item, index) => {
+            }
+            if (!keysDone) {
+            	let state = false;
+            	if (labels.indexOf(cleanName) == -1) {
+            	    labels.push(cleanName);
+            	    var key = {label: fullName, keys: [id], state: state};
+            	    keys.push(key);
+            	} else {
+            	  for (var o = 0; o < keys.length; o++) {
+            	    if (keys[o].label == fullName) {
+            	        keys[o].keys.push(id);
+            	    }
+            	  }
+            	}
+            }
+		}
+		this.filtering.filters[name].keys = keys;
+		this.filtering.filters[name].keys.forEach((item, index) => {
 		    for (let id of item.keys) {
 		      if (this.filtering.selected.indexOf(id) != -1) {
 		        this.filtering.filters[name].keys[index].state = 'checked';
@@ -216,7 +246,7 @@ export default {
 		  console.log('searching');
 		  this.filtering.selected = [];
 		  for (let string of this.filtering.search.target) {
-		    if (string[1].indexOf(this.filtering.search.string) != -1) {
+		    if (string[1].indexOf(this.filtering.search.string.toLowerCase()) != -1) {
 		      this.filtering.selected.push(string[0]);
 		    }
 		  }

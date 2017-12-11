@@ -1,44 +1,81 @@
 <template>
-    <div class="col-xs-12 col-sm-12" id="schedule-container">
-      <div id="schedule-outer-frame">
-        <div id="schedule-inner-frame" class="panel panel-default">
-            <div id="schedule-body">     
-                <div class="schedule-time-row">
-                    <div class="schedule-hours-row">
-                        <div 
-                            class="schedule-hour text-center" 
-                            v-bind:style="frameStyle"
-                            v-for="hour in dayHours">
-                        <span>{{hour}} <span class="hidden-xs">h</span></span>
+    <div>
+        <div class="form-group col-xs-12 text-center" v-if="addingId">
+          <label for="name"><h3>Especialidades ejercidas en esta clínica:</h3>(selecciona todas las que procedan)</label>
+          <div class="checkbox">
+            <label v-for="especialty in especialties">
+              <input 
+                type="checkbox" 
+                :value="especialty.id" 
+                :checked="checkEspecialties(especialty.id)"
+                @click="checkFieldBox($event,'especialties',especialty.id)"
+                >
+              {{especialty.name}}
+            </label>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12" id="schedule-container">
+            <div id="schedule-outer-frame">
+                <div id="schedule-inner-frame" class="panel panel-default">
+                <div id="schedule-body">     
+                    <div class="schedule-time-row">
+                        <div class="schedule-hours-row">
+                            <div 
+                                class="schedule-hour text-center" 
+                                v-bind:style="frameStyle"
+                                v-for="hour in dayHours">
+                            <span>{{hour}} <span class="hidden-xs">h</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-day-row" v-for="(day, key) in days">
+                        <div class="schedule-day-name-box">
+                            <span class="schedule-day-name">{{dayLabels['es-ES'][key]}}</span>   
+                        </div>
+                        <div class="schedule-frames-row">
+                            <div 
+                                v-bind:style="frameStyle"  
+                                v-for="(clinic, hour) in day"
+                                class="schedule-frame"
+                                :class="checkClass(key,hour,clinic)"
+                                @click="toggleActive(key,hour,clinic)"
+                                >
+                              <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row rowBtn">
+                        <div class="col-xs-9 col-xs-offset-2" v-show="addingId || newExtraTime">
+                            <button type="submit" :class="buttonClasses" @click.prevent="addClinic"><h4>{{buttonText}}</h4></button>
                         </div>
                     </div>
                 </div>
-                <div class="schedule-day-row" v-for="(day, key) in days">
-                    <div class="schedule-day-name-box">
-                        <span class="schedule-day-name">{{dayLabels['es-ES'][key]}}</span>   
-                    </div>
-                    <div class="schedule-frames-row">
-                        <div 
-                            v-bind:style="frameStyle"  
-                            v-for="(clinic, hour) in day"
-                            class="schedule-frame"
-                            :class="checkClass(key,hour,clinic)"
-                            @click="toggleActive(key,hour,clinic)"
-                            >
-                          <p></p>
+                </div>
+            </div>
+            <div class="">
+                <div class="schedule-frames-row legend">
+                    <legend></legend>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table class="table">
+                                <tbody>
+                                    <tr v-for="clinic in clinics">
+                                        <td><p :class="frameClasses(clinic['id'],true)">
+                                            </p>
+                                        </td>
+                                        <td class="hidden-xs">{{clinic.city}}</td>
+                                        <td><strong>{{clinic.address_real_1}}</strong></td>
+                                        <td><strong v-html="getSpecialties(clinic.id)"></strong></td>
+                                        <td class="hidden-xs"><strong v-html="scheduleReader(getSchedule(clinic.id))"></strong></td>
+                                        <td><span class="badge">{{clinicHours[clinic['id']]}} H</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </div>
-                <div class="row rowBtn">
-                    <div class="col-xs-9 col-xs-offset-2" v-show="addingId || newExtraTime">
-                        <button type="submit" :class="buttonClasses" @click.prevent="addClinic"><h4>{{buttonText}}</h4></button>
-                    </div>
-                </div>
-                <div class="schedule-day-row">
-                    <div class="schedule-frames-row legend">
-                        <legend></legend>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6" v-for="clinic in clinics">
+<!--                             <div class="row">
+                        <div class="col-xs-12 col-sm-6" v-for="clinic in clinics">
+                            <div>
                                 <div class="col-xs-1">
                                 <button 
                                     class="btn btn-sm btn-danger delete-Schedule"
@@ -62,11 +99,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
-      </div>
     </div>
 </template>
 
@@ -91,8 +127,12 @@
         data() {
             return {
                 clinicHoursDef: this.clinicHours,
+                especialties: [],
+                especialtiesToSave: [],
+                especialtiesToRemove: [],
                 scheduleToSave: {},
                 scheduleToRestore: {},
+                selectedSchedule: {especialties:[]},
                 idToRestore: null,
                 updateEmpty: false,
                 clinics: this.profileSrc.clinics,
@@ -151,6 +191,19 @@
                     this.getScheduleToRestore(this.addingId);
                     this.idToRestore = this.addingId;
                 }
+                if (!this.addingId) {
+                    this.selectedSchedule = {especialties:[]};
+                    this.especialtiesToSave = [];
+                    this.especialtiesToRemove = [];
+                    return;
+                }
+                  for (let schedule of this.profileSrc.schedules) {
+                    if (schedule.clinic_id == this.addingId) {
+                      this.selectedSchedule = schedule;
+                      break;
+                    }
+                }
+                console.log(this.selectedScheduleId);
             },
             profileSrc() {
                 this.clinics = this.profileSrc.clinics;
@@ -182,12 +235,16 @@
                     return this.getClass(clinic);
                 } 
             },
-            getClass(id) {
+            getClass(id,legend) {
                 let index = 1;
                 for (let key in this.jarClasses) {
                     if (key == id) {
                         // console.log('FOUIND');
-                       return 'schedule-frame clinic'+index;
+                        if (!legend) {
+                            return 'schedule-frame clinic'+index;
+                        } else {
+                            return 'schedule-legend clinic'+index;
+                        }
                     } else {
                         index++;
                     }
@@ -254,8 +311,8 @@
                     }
                 }
             },
-            frameClasses(clinic) {
-                return this.getClass(clinic);
+            frameClasses(clinic,legend=null) {
+                return this.getClass(clinic,legend);
             },
             classes() {
                 for (var i = 0; i < this.clinics.length; i++) {
@@ -308,9 +365,21 @@
                     if (!this.checkBeforeSending()) {
                         return false;
                     }
+                    let especialtiesToSave = this.especialtiesToSave.length ? this.especialtiesToSave : null;
+                    let especialtiesToRemove = this.especialtiesToRemove.length ? this.especialtiesToRemove : null;
+                    let especialtiesToSaveObjects = [];
+                    if (especialtiesToSave) {
+                        for (let item of this.especialties) {
+                            if (especialtiesToSave.indexOf(item.id) != -1) {
+                                especialtiesToSaveObjects.push(item);
+                            }
+                        }
+                    }
                     this.idToRestore = null;
                     axios[this.callMethod](this.url, 
                         { 
+                            'especialtiesToRemove': especialtiesToRemove,
+                            'especialtiesToSave': especialtiesToSave,
                             clinic_id: this.addingId, 
                             profile_id: this.profileSrc.id,
                             schedule: JSON.stringify(this.scheduleToSave),
@@ -324,7 +393,12 @@
                             if (this.updateMode) {
                                 if (!this.updateEmpty) {
                                     this.scheduleToRestore = {};
-                                    this.$emit('updated', this.addingId);
+                                    this.$emit('updated', {
+                                        clinic_id: this.addingId,
+                                        especialtiesToSave: especialtiesToSave,
+                                        especialtiesToSaveObjects: especialtiesToSaveObjects,
+                                        especialtiesToRemove: especialtiesToRemove,
+                                    });
                                 } else {
                                     this.scheduleToRestore = {};
                                     this.$emit('updated', {
@@ -372,9 +446,25 @@
                     });
                     return false;
                 }
+                if (!this.updateMode && !this.especialtiesToSave.length ) {
+                    flash({
+                        message:'Debes seleccionar al menos una especialidad.', 
+                        label:'warning'
+                    });
+                    return false;
+                }
+                console.log(this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length));
+                if (this.updateMode && 
+                        (this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length)) <= 0) {
+                    flash({
+                        message:'Debes seleccionar al menos una especialidad.', 
+                        label:'warning'
+                    });
+                    return false;
+                }
                 if (
                     JSON.stringify(this.scheduleToRestore) === JSON.stringify(this.scheduleToSave)
-                    ) {
+                    && !this.especialtiesToRemove.length && !this.especialtiesToSave.length) {
                    flash({
                        message:'No has hecho ningún cambio.', 
                        label:'warning'
@@ -417,9 +507,107 @@
                     }
                 }
                 this.scheduleToSave = this.schedules[id];
+            },
+            checkFieldBox(e,field,id) {
+              let check = function(id) {
+                  if (field == "especialties") {
+                     return this.checkEspecialties(id);      
+                  } else {
+                    return this.checkExperiences(id); 
+                  }
+              }.bind(this);
+              let orgValue = check(id);
+              let objectToSave = field+'ToSave';
+              let objectToRemove = field+'ToRemove';
+              if (e.target.checked) {
+                if (orgValue) {
+                  let i = this[objectToRemove].indexOf(id);
+                  if (i != -1) {
+                    this[objectToRemove].splice(i,1);
+                  }
+                } else {
+                    if (this.userEspecialties.indexOf(id) == -1) {
+                        this[objectToSave].push(id);
+                    }
+                    let i = this[objectToRemove].indexOf(id);
+                    if (i != -1) {
+                      this[objectToRemove].splice(i,1);
+                    }
+                }
+              } else {
+                if (orgValue) {
+                    console.log('here');
+                    if (this.userEspecialties.indexOf(id) != -1) {
+                        this[objectToRemove].push(id);
+                    }
+                    let i = this[objectToSave].indexOf(id);
+                    if (i != -1) {
+                        this[objectToSave].splice(i,1);
+                    }
+                } else {
+                  let i = this[objectToSave].indexOf(id);
+                  if (i != -1) {
+                    this[objectToSave].splice(i,1);
+                  }
+                }
+              }
+            },
+            checkEspecialties(id) {
+              if (this.selectedSchedule.id) {
+                for (let especialty of this.selectedSchedule.especialties) {
+                  if (especialty.id == id && (this.especialtiesToRemove.indexOf(id) == -1)) {
+                    return true;
+                    break;
+                  }
+                  if (this.especialtiesToSave.indexOf(id) != -1) {
+                    return true;
+                    break;
+                  }
+                }
+                return false;
+              }
+            },
+            fetchEspecialties() {
+              axios.get('/api/especialty')
+                .then(data => {
+                  this.especialties = data.data;
+                });
+            },
+            getSpecialties(clinicId) {
+                let especialties = [];
+                for (let schedule of this.profileSrc.schedules) {
+                    if (schedule.clinic_id == clinicId) {
+                        for (let especialty of schedule.especialties) {
+                            if (especialties.indexOf(especialty.name) == -1) {
+                                especialties.push(especialty.name);
+                            }
+                        }
+                    }
+                }
+                return especialties.join('<br>');
+            },
+            getSchedule(clinicId) {
+                for (let schedule of this.profileSrc.schedules) {
+                    if (schedule.clinic_id == clinicId) {
+                        return schedule.schedule;
+                    }
+                }
+            },
+            scheduleReader(schedule, inline=false) {
+            if (inline) {
+              return scheduleToHumans(schedule).replace('<br>',' | ');
             }
+            return scheduleToHumans(schedule);
+          },
         },
         computed: {
+            userEspecialties() {
+              let response = []
+              for (let especialty of this.selectedSchedule.especialties) {
+                response.push(especialty.id);
+              }
+              return response;
+            },
             buttonText() {
                 return this.updateMode == 'update' ? 'Modificar' : 'Añadir';
             },
@@ -442,9 +630,10 @@
                 } else {
                     return 'post';
                 }
-            }
+            },
         },
         created() {
+            this.fetchEspecialties();
             this.classes();
             this.frameStyleMaker();
             this.frameLegendStyleMaker();

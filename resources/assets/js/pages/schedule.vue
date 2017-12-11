@@ -114,6 +114,20 @@
                         </select>
                     </div>
                 </form>
+                <!-- <div class="form-group col-xs-12" v-if="addClinic.selectedClinicId || updateSchedules.selectedClinicId">
+                  <label for="name">Especialidades: <br>(selecciona todas las que procedan)</label>
+                  <div class="checkbox">
+                    <label v-for="especialty in especialties">
+                      <input 
+                        type="checkbox" 
+                        :value="especialty.id" 
+                        :checked="checkEspecialties(especialty.id)"
+                        @click="checkFieldBox($event,'especialties',especialty.id)"
+                        >
+                      {{especialty.name}}
+                    </label>
+                  </div>
+                </div> -->
               </div>
               <ul class="list-group" v-if="picker">
                 <div class="row">
@@ -185,6 +199,7 @@
               clinicsSrc: [],
               provinciasSrc: [],
               statesSrc: [],
+              // especialties: [],
               schedules: {},
               clinicHours: {},
               days: {},
@@ -247,7 +262,7 @@
             if (this.admin) {
               this.showTabs = false;
             }
-          }
+          },
         },
         methods: {
           hideTabs() {
@@ -348,7 +363,7 @@
               this.doHours();
             },
             toggleAddClinic() {
-              if (this.profileSrc.clinics.length > 3 && !this.addClinic.method) {
+              if (this.profileSrc.clinics.length > 9 && !this.addClinic.method) {
                 flash({message:'Número máximo de clínicas alcanzado. Si necesitas añadir más ponte en contacto con el equipo médico.', label:'warning'});
                 return;
               }
@@ -469,8 +484,8 @@
                 }
             },
             notifyAdding(data) {
-              console.log('ADDING ID: '+data.clinic_id);
-              console.log('SCHEDULE: '+data.schedule);
+              // console.log('ADDING ID: '+data.clinic_id);
+              // console.log('SCHEDULE: '+data.schedule);
               flash({
                   message: 'Nueva Clínica añadida correctamente', 
                   label: 'success'
@@ -494,11 +509,35 @@
                   message: 'Horario actualizado correctamente', 
                   label: 'success'
               });
+              // console.log(data);
+              if (data.especialtiesToSave || data.especialtiesToRemove) {
+                this.updateEspecialties(data);
+              }
               if (data.schedule) {
                 this.scheduleAdd(data.clinic_id);
                 this.insertSchedule(data.schedule);
               }
               this.toggleUpdate();
+            },
+            updateEspecialties(data) {
+              for (let schedule of this.profileSrc.schedules) {
+                if (schedule.clinic_id == data.clinic_id) {
+                  if (data.especialtiesToSave) {
+                    console.log(data.especialtiesToSaveObjects);
+                    for (let especialty of data.especialtiesToSaveObjects) {
+                      schedule.especialties.push(especialty);
+                    }
+                  }
+                  if (data.especialtiesToRemove) {
+                    for (let id of data.especialtiesToRemove) {
+                      for (let i = 0; i < schedule.especialties.length; i++) {
+                        if (schedule.especialties[i].id == id)
+                        schedule.especialties.splice(i,1);
+                      }
+                    }
+                  }
+                }
+              }
             },
             notifyRemoving(data) {
               flash({
@@ -591,7 +630,7 @@
               }
             },
             rollback(data) {
-              console.log(data);
+              // console.log(data);
               if (!data.day) {
                 this.daysCleaner(data.id);
                 this.removeProfileClinic(data.id);
@@ -654,6 +693,54 @@
                   this.statesSrc = data.data;
                 });
             },
+            // fetchEspecialties() {
+            //   axios.get('/api/especialty')
+            //     .then(data => {
+            //       this.especialties = data.data;
+            //     });
+            // },
+            // checkFieldBox(e,field,id) {
+            //   let check = function(id) {
+            //       if (field == "especialties") {
+            //          return this.checkEspecialties(id);      
+            //       } else {
+            //         return this.checkExperiences(id); 
+            //       }
+            //   }.bind(this);
+            //   let orgValue = check(id);
+            //   let objectToSave = field+'ToSave';
+            //   let objectToRemove = field+'ToRemove';
+            //   if (e.target.checked) {
+            //     if (orgValue) {
+            //       let i = this[objectToRemove].indexOf(id);
+            //       if (i != -1) {
+            //         this[objectToRemove].splice(i,1);
+            //       }
+            //     } else {
+            //       this[objectToSave].push(id);
+            //     }
+            //   } else {
+            //     if (orgValue) {
+            //       this[objectToRemove].push(id);
+            //     } else {
+            //       let i = this[objectToSave].indexOf(id);
+            //       if (i != -1) {
+            //         this[objectToSave].splice(i,1);
+            //       }
+            //     }
+            //   }
+            // },
+            // checkEspecialties(id) {
+            //   if (this.updateSchedules.selectedSchedule.id) {
+            //     for (let especialty of this.updateSchedules.selectedSchedule.especialties) {
+            //       if (especialty.id == id) {
+            //         return true;
+            //         break;
+            //       }
+            //     }
+            //     return false;
+            //   }
+            // },
             rollbackExtra(id) {
               delete(this.schedules[id]);
               this.daysCleaner('extra');
@@ -662,6 +749,9 @@
             }
         },
         computed: {
+          // selectedScheduleId() {
+          //   return this.updateSchedules.selectedClinicId
+          // },
           clinicNumber() {
             let number = this.profileSrc.clinics.length;
             if (number == 1) {
@@ -686,6 +776,7 @@
         created() {
           if (!this.admin) {
             this.fetch();
+            // this.fetchEspecialties();
           } else {
             this.refresh(this.profileSelected);
             // this.profileSrc = this.profileSelected;

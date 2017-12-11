@@ -1,3 +1,6 @@
+// Font Awesome
+$fa-font-path: "/fonts";
+
 // Dentix Variables
 $jumbotron-height: 200px;
 $panel-heading-padding: 2px;
@@ -13,6 +16,22 @@ $dentix-main-20: #ddd2e0;
 $dentix-main-10: #f1eaf0;
 
 $dentix-secondary: #585857;
+
+$dentix-copper: #736420;
+$dentix-copper-80: lighten($dentix-copper, 5%);
+$dentix-copper-65: lighten($dentix-copper, 10%);
+$dentix-copper-50: lighten($dentix-copper, 15%);
+$dentix-copper-35: lighten($dentix-copper, 20%);
+$dentix-copper-20: lighten($dentix-copper, 25%);
+$dentix-copper-10: lighten($dentix-copper, 30%);
+
+$dentix-ocean: #385076;
+$dentix-ocean-80: lighten($dentix-ocean, 5%);
+$dentix-ocean-65: lighten($dentix-ocean, 10%);
+$dentix-ocean-50: lighten($dentix-ocean, 15%);
+$dentix-ocean-35: lighten($dentix-ocean, 20%);
+$dentix-ocean-20: lighten($dentix-ocean, 25%);
+$dentix-ocean-10: lighten($dentix-ocean, 30%);
 
 $dentix-white: #fff;
 

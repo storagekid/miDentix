@@ -299,6 +299,23 @@ button h3,h4 {
 .glyphicon.selected {
     color: red;
 }
+.loader-box {
+    position: absolute;
+    width: 98%;
+    height: 50vh;
+    text-align: center;
+    color: $dentix-main;
+    overflow: hidden;
+    z-index: 9999;
+}
+.fa.loading-box {
+    font-size: 3em;
+    top: 30px;
+    position: absolute;
+}
+label h3 {
+    margin: 0;
+}
 @media (max-width: 450px) {
 	.panel-footer h3 {
 		font-size: 14px;

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function indexApi() {
         $users = Profile::all()->load(['user' => function($query) {
             $query->select('id','last_access')->where('role','user');
-        }]);
+        },'schedules','masters','courses','clinics']);
         $filtered_collection = $users->filter(function ($item) {
             if ($item->user) {
                 return $item;

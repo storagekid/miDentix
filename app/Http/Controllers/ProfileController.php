@@ -14,7 +14,7 @@ class ProfileController extends Controller
     }
 
     public function indexApi() {
-        return auth()->user()->profile->load(['experiences','especialties','masters','courses']);
+        return auth()->user()->profile->load(['experiences','masters','courses']);
     }
 
     public function create(User $user) {
@@ -47,26 +47,26 @@ class ProfileController extends Controller
         	$profile->save();
             $user->save();
         }
-        if (request('especialtiesToRemove')) {
-        	$found = [];
-        	$items = request('especialtiesToRemove');
-        	foreach ($items as $item) {
-        		$found[] = $item;
-        		$profile->especialties()->detach($item);
-        	}
-        	$profile->updated_at = Carbon::now();
-        	$profile->save();
-        }
-        if (request('especialtiesToSave')) {
-        	$found = [];
-        	$items = request('especialtiesToSave');
-        	foreach ($items as $item) {
-        		$found[] = $item;
-        		$profile->especialties()->attach($item);
-        	}
-        	$profile->updated_at = Carbon::now();
-        	$profile->save();
-        }
+        // if (request('especialtiesToRemove')) {
+        // 	$found = [];
+        // 	$items = request('especialtiesToRemove');
+        // 	foreach ($items as $item) {
+        // 		$found[] = $item;
+        // 		$profile->especialties()->detach($item);
+        // 	}
+        // 	$profile->updated_at = Carbon::now();
+        // 	$profile->save();
+        // }
+        // if (request('especialtiesToSave')) {
+        // 	$found = [];
+        // 	$items = request('especialtiesToSave');
+        // 	foreach ($items as $item) {
+        // 		$found[] = $item;
+        // 		$profile->especialties()->attach($item);
+        // 	}
+        // 	$profile->updated_at = Carbon::now();
+        // 	$profile->save();
+        // }
         if (request('experiencesToRemove')) {
         	$found = [];
         	$items = request('experiencesToRemove');

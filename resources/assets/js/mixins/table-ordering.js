@@ -17,6 +17,10 @@ export default {
 		},
 		orderColumn(name, options={object:null,date:false,order:false,integer:false}) {
 			// console.log(source);
+			let orderingFunction = '';
+			if (options.integer) {
+				orderingFunction = function(a, b){return a-b};
+			} 
 		    if (this.lastOrder.name != name) {
 		        this.lastOrder.name = name;
 		        this.lastOrder.keys = [];
@@ -46,24 +50,24 @@ export default {
 		        if (options.order) {
 		          if (options.order == 'asc') {
 		            this.lastOrder.type = 'asc'
-		            this.lastOrder.keys.sort();
+		            this.lastOrder.keys.sort(orderingFunction);
 		          } else {
-		            this.lastOrder.keys.sort();
-		            this.lastOrder.keys.reverse();
+		            this.lastOrder.keys.sort(orderingFunction);
+		            this.lastOrder.keys.reverse(orderingFunction);
 		            this.lastOrder.type = 'desc';
 		          }
 		        } else {
-		          this.lastOrder.keys.sort();
+		          this.lastOrder.keys.sort(orderingFunction);
 		          this.lastOrder.type = 'asc';
 		        }
 		    } else {
 		        if (this.lastOrder.type == 'desc') {
 		            this.lastOrder.type = 'asc'
-		            this.lastOrder.keys.sort();
+		            this.lastOrder.keys.sort(orderingFunction);
 		        } else {
 		            this.lastOrder.type = 'desc';
-		            this.lastOrder.keys.sort();
-		            this.lastOrder.keys.reverse();
+		            this.lastOrder.keys.sort(orderingFunction);
+		            this.lastOrder.keys.reverse(orderingFunction);
 		        }
 		    }
 		    var orderedItems = [];

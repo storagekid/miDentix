@@ -7,252 +7,103 @@
       <div class="panel-heading text-center" v-if="admin">
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Solicitudes</h3>
       </div>
-      <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
-          <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
-              <div class="col-xs-6">
-                  <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
-              </div>
-              <div class="col-xs-6">
-                  <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
-              </div>
-          </div>
-          <div class="row dates" v-if="filtering.date.state">
-            <form>
-              <div class="col-xs-6 form-group">
-                <label for="start-date">Desde:</label>
-                <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
-              </div>
-              <div class="col-xs-6 form-group">
-                <label for="end-date">Hasta:</label>
-                <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
-              </div>
-              <div class="col-xs-12 form-group">
-                <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
-              </div>
-            </form>
-          </div>
-          <div class="row dates" v-if="filtering.search.state">
-            <form @submit.prevent="">
-              <div class="col-xs-12 form-group">
-                <label for="search">Buscar:</label>
-                <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
-              </div>
-            </form>
-          </div>
-          <ul class="list-group" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
-              <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
-                  <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
-              </li>
-          </ul>
-          <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
+      <div class="loader-box" v-if="loading">
+        <i class="fa fa-spinner fa-spin loading-box"></i>
       </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
-          <button 
-            class="btn btn-sm btn-info btn-block clear-filters" 
-            v-if="Object.keys(this.filtering.filters).length"
-            @click.prevent="clearAllFilters"
-            ><h4>Borrar Filtros</h4>
-          </button>
+      <div v-show="!loading">
+        <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
+            <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
+                <div class="col-xs-6">
+                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
+                </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
+                </div>
+            </div>
+            <div class="row dates" v-if="filtering.date.state">
+              <form>
+                <div class="col-xs-6 form-group">
+                  <label for="start-date">Desde:</label>
+                  <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
+                </div>
+                <div class="col-xs-6 form-group">
+                  <label for="end-date">Hasta:</label>
+                  <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
+                </div>
+                <div class="col-xs-12 form-group">
+                  <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
+                </div>
+              </form>
+            </div>
+            <div class="row dates" v-if="filtering.search.state">
+              <form @submit.prevent="">
+                <div class="col-xs-12 form-group">
+                  <label for="search">Buscar:</label>
+                  <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
+                </div>
+              </form>
+            </div>
+            <ul class="list-group" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
+                <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
+                    <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
+                </li>
+            </ul>
+            <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
         </div>
-      </div>
-      <div :class="panelClass">
-        <a href="#" 
-          class="text-center" 
-          style="display: inherit;" 
-          v-if="!showRequest.method && showElement"
-          @click.prevent="toggleAddRequest">
-          <button type="button" :class="addRequest.topButtonClasses">
-            <h3><span :class="addRequest.topButtonIcon"></span>{{addRequest.topButtonText}}</h3>
-          </button>
-        </a>
-        <new-request
-          :newRequest="addRequest.method"
-          :clinics="admin ? showRequest.requestClinic : profileSrc.clinics"
-          :types="types" 
-          :details="details"
-          :labs="labs"
-          :profileId="profileSrc.id"
-          :request="showRequest.request"
-          @added="notifyAdded"
-          v-if="addRequest.method || showRequest.method"
-          >
-        </new-request>
-        <table 
-          class="table table-responsive" 
-          v-if="!addRequest.method && !showRequest.method && !admin && profileRequests.total"
-          >
-          <thead>
-            <tr>
-              <th class="clinic">Clínica</th>
-              <th class="hidden-xs">Tipo</th>
-              <th v-if="showElement">Detalle</th>
-              <th class="hidden-xs">Fecha</th>
-              <th v-if="showElement" class="hidden-xs">Texto</th>
-              <th class="icons">Estado</th>
-              <th v-if="showElement" class="buttons-text icons"></th>
-            </tr>
-          </thead>
-          <tbody v-if="page == 'home'">
-            <tr v-for="request in profileSrc.requests.slice(0,5)">
-              <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
-              <td>{{request.type}}</td>
-              <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
-              <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
-              <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
-              </td>
-              <td>
-                <div :class="requestClasses(request.closed_at)">
-                  <span class="hidden-xs" v-text="requestText(request.closed_at)">
-                  </span>
-                  <span :class="requestIcon(request.closed_at)"></span>
-                </div>
-              </td>
-              <td v-if="showElement">
-                <button 
-                  type="button" 
-                  class="btn btn-primary"
-                  @click="toggleShowRequest(request)"
-                  >
-                  <span class="hidden-xs">Detalles
-                  </span>
-                  <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody v-else>
-            <tr v-for="request in profileSrc.requests">
-              <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
-              <td>{{request.type}}</td>
-              <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
-              <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
-              <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
-              </td>
-              <td>
-                <div :class="requestClasses(request.closed_at)">
-                  <span class="hidden-xs" v-text="requestText(request.closed_at)">
-                  </span>
-                  <span :class="requestIcon(request.closed_at)"></span>
-                </div>
-              </td>
-              <td v-if="showElement">
-                <button 
-                  type="button" 
-                  class="btn btn-primary"
-                  @click="toggleShowRequest(request)"
-                  >
-                  <span class="hidden-xs">Detalles
-                  </span>
-                  <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="panel-body-admin">
+        <div class="row">
+          <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
+            <button 
+              class="btn btn-sm btn-info btn-block clear-filters" 
+              v-if="Object.keys(this.filtering.filters).length"
+              @click.prevent="clearAllFilters"
+              ><h4>Borrar Filtros</h4>
+            </button>
+          </div>
+        </div>
+        <div :class="panelClass">
+          <a href="#" 
+            class="text-center" 
+            style="display: inherit;" 
+            v-if="!showRequest.method && showElement"
+            @click.prevent="toggleAddRequest">
+            <button type="button" :class="addRequest.topButtonClasses">
+              <h3><span :class="addRequest.topButtonIcon"></span>{{addRequest.topButtonText}}</h3>
+            </button>
+          </a>
+          <new-request
+            :newRequest="addRequest.method"
+            :clinics="admin ? showRequest.requestClinic : profileSrc.clinics"
+            :types="types" 
+            :details="details"
+            :labs="labs"
+            :profileId="profileSrc.id"
+            :request="showRequest.request"
+            @added="notifyAdded"
+            v-if="addRequest.method || showRequest.method"
+            >
+          </new-request>
           <table 
             class="table table-responsive" 
-            v-if="admin && !showRequest.method"
+            v-if="!addRequest.method && !showRequest.method && !admin && profileRequests.total"
             >
             <thead>
               <tr>
-                <th class="clinic">
-                  Usuario
-                  <p>
-                      <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
-                      <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true})"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('lastname1')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th class="clinic">
-                  Clínica
-                  <p>
-                      <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
-                      <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('city')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Tipo
-                  <p>
-                      <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
-                      <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('type')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th>
-                  Detalle
-                  <p>
-                      <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
-                      <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1',{nullName:'N/A'})"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('type_detail1')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Fecha
-                  <p>
-                      <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
-                      <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('created_at')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th class="hidden-xs">Texto</th>
-                <th class="icons">
-                  Estado
-                  <p>
-                      <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
-                      <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at',{nullName:'Pendiente',boolean:['Pendiente','Resuelta']})"></span>
-                      <button 
-                          class="btn btn-sm btn-danger delete-Schedule"
-                          v-if="filtering.filters['dontShow']"
-                          @click="clearFilters('closed_at')"
-                          >
-                          <span class="glyphicon glyphicon-remove"></span>
-                      </button>
-                  </p>
-                </th>
-                <th class="buttons-text icons"></th>
+                <th class="clinic">Clínica</th>
+                <th class="hidden-xs">Tipo</th>
+                <th v-if="showElement">Detalle</th>
+                <th class="hidden-xs">Fecha</th>
+                <th v-if="showElement" class="hidden-xs">Texto</th>
+                <th class="icons">Estado</th>
+                <th v-if="showElement" class="buttons-text icons"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr v-for="request in requests" v-show="checkFilter(request.id)">
-                <td><strong>{{request.profile.lastname1}} {{request.profile.lastname2}}, {{request.profile.name}}</strong></td>
+            <tbody v-if="page == 'home'">
+              <tr v-for="request in profileSrc.requests.slice(0,5)">
                 <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
                 <td>{{request.type}}</td>
-                <td class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+                <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
                 <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
-                <td class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+                <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
                 </td>
                 <td>
                   <div :class="requestClasses(request.closed_at)">
@@ -261,7 +112,35 @@
                     <span :class="requestIcon(request.closed_at)"></span>
                   </div>
                 </td>
+                <td v-if="showElement">
+                  <button 
+                    type="button" 
+                    class="btn btn-primary"
+                    @click="toggleShowRequest(request)"
+                    >
+                    <span class="hidden-xs">Detalles
+                    </span>
+                    <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+            <tbody v-else>
+              <tr v-for="request in profileSrc.requests">
+                <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
+                <td>{{request.type}}</td>
+                <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+                <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
+                <td v-if="showElement" class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+                </td>
                 <td>
+                  <div :class="requestClasses(request.closed_at)">
+                    <span class="hidden-xs" v-text="requestText(request.closed_at)">
+                    </span>
+                    <span :class="requestIcon(request.closed_at)"></span>
+                  </div>
+                </td>
+                <td v-if="showElement">
                   <button 
                     type="button" 
                     class="btn btn-primary"
@@ -275,43 +154,169 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <div id="norequest" v-if="!profileRequests.total && !Object.keys(requests).length && !addRequest.method" class=" text-center empty">
-          <div  class="col-xs-10 col-xs-offset-1 alert alert-info">
-            <div v-if="!admin">
-              <h3>No has realizado ninguna solicitud.</h3>
-                <p v-if="page == 'home'">Entra en la sección <a href="/requests"><strong>Necesidades</strong></a> y cuéntanos cómo podemos ayudarte.</p>
-                <p v-else>Pulsa en Nueva Solicitud para empezar a crear tu primera petición.</p>
-            </div>
-            <div v-else> 
-              <h3>Aún no se han mandado solicitudes.</h3>
+          <div class="panel-body-admin">
+            <table 
+              class="table table-responsive" 
+              v-if="admin && !showRequest.method"
+              >
+              <thead>
+                <tr>
+                  <th class="clinic">
+                    Usuario
+                    <p>
+                        <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
+                        <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true})"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('lastname1')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th class="clinic">
+                    Clínica
+                    <p>
+                        <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
+                        <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('city')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">
+                    Tipo
+                    <p>
+                        <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
+                        <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('type')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th>
+                    Detalle
+                    <p>
+                        <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
+                        <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1',{nullName:'N/A'})"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('type_detail1')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">
+                    Fecha
+                    <p>
+                        <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
+                        <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('created_at')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">Texto</th>
+                  <th class="icons">
+                    Estado
+                    <p>
+                        <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
+                        <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at',{nullName:'Pendiente',boolean:['Pendiente','Resuelta']})"></span>
+                        <button 
+                            class="btn btn-sm btn-danger delete-Schedule"
+                            v-if="filtering.filters['dontShow']"
+                            @click="clearFilters('closed_at')"
+                            >
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </p>
+                  </th>
+                  <th class="buttons-text icons"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="request in requests" v-show="checkFilter(request.id)">
+                  <td><strong>{{request.profile.lastname1}} {{request.profile.lastname2}}, {{request.profile.name}}</strong></td>
+                  <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
+                  <td>{{request.type}}</td>
+                  <td class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
+                  <td class="hidden-xs" v-text="requestDate(request.created_at)"></td>
+                  <td class="hidden-xs">{{request.description.substring(0,50)+'...'}}
+                  </td>
+                  <td>
+                    <div :class="requestClasses(request.closed_at)">
+                      <span class="hidden-xs" v-text="requestText(request.closed_at)">
+                      </span>
+                      <span :class="requestIcon(request.closed_at)"></span>
+                    </div>
+                  </td>
+                  <td>
+                    <button 
+                      type="button" 
+                      class="btn btn-primary"
+                      @click="toggleShowRequest(request)"
+                      >
+                      <span class="hidden-xs">Detalles
+                      </span>
+                      <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="norequest" v-if="!profileRequests.total && !Object.keys(requests).length && !addRequest.method" class=" text-center empty">
+            <div  class="col-xs-10 col-xs-offset-1 alert alert-info">
+              <div v-if="!admin">
+                <h3>No has realizado ninguna solicitud.</h3>
+                  <p v-if="page == 'home'">Entra en la sección <a href="/requests"><strong>Necesidades</strong></a> y cuéntanos cómo podemos ayudarte.</p>
+                  <p v-else>Pulsa en Nueva Solicitud para empezar a crear tu primera petición.</p>
+              </div>
+              <div v-else> 
+                <h3>Aún no se han mandado solicitudes.</h3>
+              </div>
             </div>
           </div>
+          <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
+            <button 
+              type="submit" 
+              class="btn btn-sm btn-info btn-block form-control" 
+              v-if="showRequest.method"
+              @click.prevent="toggleShowRequest"
+              ><h4>Volver</h4>
+            </button>
+            <button 
+              type="submit" 
+              class="btn btn-sm btn-success btn-block form-control" 
+              v-if="admin && showRequest.method && !showRequest.request.closed_at"
+              @click.prevent="closeRequest"
+              ><h4>Cerrar Solicitud</h4>
+            </button>
+          </div>
         </div>
-        <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
-          <button 
-            type="submit" 
-            class="btn btn-sm btn-info btn-block form-control" 
-            v-if="showRequest.method"
-            @click.prevent="toggleShowRequest"
-            ><h4>Volver</h4>
-          </button>
-          <button 
-            type="submit" 
-            class="btn btn-sm btn-success btn-block form-control" 
-            v-if="admin && showRequest.method && !showRequest.request.closed_at"
-            @click.prevent="closeRequest"
-            ><h4>Cerrar Solicitud</h4>
-          </button>
-        </div>
-      </div>
-      <div class="panel-footer">
-        <div class="progress">
-          <div 
-            class="progress-bar progress-bar-primary progress-bar-striped" :style="profileRequests.barStyle"
-            v-if="profileRequests.ratio > 10"
-            >
-            <span>{{profileRequests.barText}}</span>
+        <div class="panel-footer">
+          <div class="progress">
+            <div 
+              class="progress-bar progress-bar-primary progress-bar-striped" :style="profileRequests.barStyle"
+              v-if="profileRequests.ratio > 10"
+              >
+              <span>{{profileRequests.barText}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -330,6 +335,7 @@
         props: ['page','admin'],
         data() {
             return {
+              loading: true,
               showRequest: {
                 method: false,
                 request: {},
@@ -385,7 +391,13 @@
             // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
             let search = getAllUrlParams();
             for (let filter in search) {
-              search[filter] = search[filter].replace(/%20/g, " ");
+              if (Array.isArray(search[filter])) {
+                for (let sub of search[filter]) {
+                  sub = sub.replace(/%20/g, " ");
+                }
+              } else {
+                search[filter] = search[filter].replace(/%20/g, " ");
+              }
               if (filter == 'created_at') {
                 this.filterColumn('created_at',{date:true});
                 this.filtering.date.end = search['created_at'][0];
@@ -393,6 +405,12 @@
                 this.filtering.date.state = true;
                 this.filterDates('created_at');
                 this.filtering.state = false;
+              } else if (filter == 'user') {
+                let fullname = search['user'][1].replace(/%20/g, " ");
+                this.filterColumn('lastname1',{object:'profile',search:['lastname1','lastname2', 'name'],noOptions:true});
+                this.filtering.search.string = fullname;
+                this.filtering.state = false;
+                this.searchString();
               } else {
                 this.filterColumn(filter);
                 this.filtering.state = false;
@@ -407,6 +425,7 @@
                 }
               }
             }
+            this.resetFiltering();
           },
           hideIfPage() {
             if (this.page == 'home' || this.admin) {
@@ -543,6 +562,7 @@
                   this.orderColumn('created_at',{order:'desc'});
                 }
                 this.calculateRatio();
+                this.loading = false;
               });
           },
         },
@@ -555,9 +575,9 @@
             }
           }
         },
-        created() {
+        mounted() {
           moment.locale('es');
-          this.fetchProfile();
+          setTimeout(function(){this.fetchProfile()}.bind(this),1000);
           this.hideIfPage();
         }
     }

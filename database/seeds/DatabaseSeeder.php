@@ -32,10 +32,13 @@ class DatabaseSeeder extends Seeder
                 ProfilesSeeder::class,
                 ProfilesAdminSeeder::class,
                 Clinic_ProfileSeeder::class,
-                Especialty_ProfileSeeder::class,
+                SchedulesSeeder::class,
+                Especialty_ScheduleSeeder::class,
+                // Especialty_ProfileSeeder::class,
                 Experience_ProfileSeeder::class,
                 Master_University_ProfileSeeder::class,
                 RequestsSeeder::class,
+                ExtratimesSeeder::class,
             ]);
         } else {
             $this->call([

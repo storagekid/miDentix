@@ -15,4 +15,7 @@ class Clinic extends Model
     public function profiles() {
     	return $this->belongsToMany(Profile::class);
     }
+    public function schedules() {
+    	return $this->HasMany(Schedule::class);
+    }
 }

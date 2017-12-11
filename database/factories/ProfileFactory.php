@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 
 /*
@@ -15,7 +16,10 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Profile::class, function (Faker $faker) {
 	$faker = \Faker\Factory::create('es_ES');
-    $user = factory('App\User')->create();
+    $tutorial = mt_rand(0,1);
+    $user = factory('App\User')->create([
+        'last_access' => $tutorial ? null : Carbon::now(),
+    ]);
     return [
         'user_id' => $user->id,
         'name' => $faker->firstName,
@@ -26,5 +30,6 @@ $factory->define(App\Profile::class, function (Faker $faker) {
         'personal_id_number' => $user->personal_id_number,
         'license_number' => $faker->swiftBicNumber,
         'license_year' => $faker->year($max = 'now'),
+        'tutorial_completed' => $tutorial,
     ];
 });

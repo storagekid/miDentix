@@ -138,6 +138,9 @@
         watch: {
           tabSelected() {
             if (this.tabSelected == '4') {
+                if (this.profileSrc.clinicsCount) {
+                  this.completePhase(4);
+                }
               this.forward.ButtonText = 'Terminar';
               this.forward.ButtonIcon = 'glyphicon glyphicon-ok';
             }
@@ -195,7 +198,9 @@
             } else if (tab == 'masters') {
 
             } else if (tab == 'clinics') {
-
+              if (this.profileSrc.clinicsCount) {
+                this.completePhase(4);
+              }
             }
           },
           checkSteps() {

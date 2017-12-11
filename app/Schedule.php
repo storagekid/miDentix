@@ -9,8 +9,15 @@ class Schedule extends Model
 	protected $fillable = [
         'clinic_id', 'profile_id', 'schedule',
     ];
+    protected $with = ['especialties'];
 
-    public function profiles() {
-    	return $this->belongsToMany(Profile::class);
+    public function profile() {
+    	return $this->belongsTo(Profile::class);
+    }
+    public function clinic() {
+        return $this->belongsTo(Clinic::class);
+    }
+    public function especialties() {
+    	return $this->belongsToMany(Especialty::class)->withTimestamps();
     }
 }

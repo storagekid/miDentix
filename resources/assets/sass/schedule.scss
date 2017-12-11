@@ -10,6 +10,7 @@
 .schedule-time-row {
     display: inline-block;
     width: 100%;
+    padding-right: 50px;
 }
 .schedule-hours-row {
     width: 90%;
@@ -30,7 +31,7 @@
     font-weight: bolder;
 }
 .schedule-day-row {
-    padding-right: 10px;
+    padding-right: 50px;
 }
 .schedule-frames-row {
 	width: 90%;
@@ -51,7 +52,7 @@
     margin: 15px 0;
 }
 .legend > div > div {
-    height: 30px;
+/*    height: 30px;*/
     margin-bottom: 10px;
     font-size: 12px;
     padding: 0;
@@ -99,17 +100,35 @@
     /*border: 1px solid $gray;*/
     background-color: $gray-lighter;
 }
-.schedule-frame.clinic1 {
+.schedule-frame.clinic1, .clinic1 {
 	background-color: $dentix-main-80;
 }
-.schedule-frame.clinic2 {
+.schedule-frame.clinic2, .clinic2 {
     background-color: $gray-base;
 }
-.schedule-frame.clinic3 {
+.schedule-frame.clinic3, .clinic3 {
     background-color: $dentix-main-50;
 }
-.schedule-frame.clinic4 {
+.schedule-frame.clinic4, .clinic4 {
     background-color: $gray;
+}
+.schedule-frame.clinic5, .clinic5 {
+    background-color: $dentix-copper;
+}
+.schedule-frame.clinic6, .clinic6{
+    background-color: $dentix-ocean;
+}
+.schedule-frame.clinic7, .clinic7 {
+    background-color: $dentix-copper-50;
+}
+.schedule-frame.clinic8, .clinic8 {
+    background-color: $dentix-ocean-50;
+}
+.schedule-frame.clinic9, .clinic9 {
+    background-color: $dentix-copper-20;
+}
+.schedule-frame.clinic10, .clinic10 {
+    background-color: $dentix-ocean-20;
 }
 .schedule-frame:hover, .schedule-frame.active:hover {
     background: $dentix-main;
@@ -124,11 +143,21 @@
 .schedule-table tbody tr:nth-child(odd) {
     background: $gray-lighter;
 }
+.schedule-legend {
+    height: 30px;
+    min-width: 20px;
+}
 @media (max-width: 500px) {
 	.schedule-hour {
 	    width: 7.9%;
 	    font-size: 13px;
 	}
+    .schedule-day-row {
+    padding-right: 10px;
+    }
+    .schedule-time-row {
+    padding-right: 10px;
+    }
 }
 @media (max-width: 1024px) {
     .delete-Schedule {

@@ -92,6 +92,7 @@
         width: 100%;
         clear: both;
         margin-bottom: 10px;
+        font-size: 1.2em;
     }
 
 </style>

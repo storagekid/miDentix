@@ -7,6 +7,7 @@ use App\Schedule;
 use App\Clinic_Profile;
 use App\Extratime;
 use App\Profile;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -38,6 +39,26 @@ class ScheduleController extends Controller
                 'clinic_id' => request('clinic_id'),
             ]);
         }
+        if (request('especialtiesToRemove')) {
+            $found = [];
+            $items = request('especialtiesToRemove');
+            foreach ($items as $item) {
+                $found[] = $item;
+                $schedule->especialties()->detach($item);
+            }
+            $schedule->updated_at = Carbon::now();
+            $schedule->save();
+        }
+        if (request('especialtiesToSave')) {
+            $found = [];
+            $items = request('especialtiesToSave');
+            foreach ($items as $item) {
+                $found[] = $item;
+                $schedule->especialties()->attach($item);
+            }
+            $schedule->updated_at = Carbon::now();
+            $schedule->save();
+        }
        	if (request()->expectsJson()) {
             return response([
                 'status'=>'Schedule created',
@@ -49,6 +70,32 @@ class ScheduleController extends Controller
         $schedule->update([
             'schedule' => request('schedule'),
         ]);
+        if (request('especialtiesToRemove')) {
+            $found = [];
+            $items = request('especialtiesToRemove');
+            foreach ($items as $item) {
+                $found[] = $item;
+                $schedule->especialties()->detach($item);
+            }
+            $schedule->updated_at = Carbon::now();
+            $schedule->save();
+        }
+        if (request('especialtiesToSave')) {
+            $found = [];
+            $items = request('especialtiesToSave');
+            foreach ($items as $item) {
+                $found[] = $item;
+                $schedule->especialties()->attach($item);
+            }
+            $schedule->updated_at = Carbon::now();
+            $schedule->save();
+        }
+        if (request()->expectsJson()) {
+            return response([
+                'status'=>'Schedule updated',
+                'schedule' => $schedule->fresh(), 
+                200]);
+        }
     }
     public function destroy(Schedule $schedule) {
         try {

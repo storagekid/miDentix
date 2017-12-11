@@ -11,10 +11,12 @@ class Clinic_Profile extends Model
     ];
     protected $table = 'clinic_profile';
 
-    public function profiles() {
-    	return $this->belongsToMany(Profile::class);
+    public function profile() {
+    	return $this->belongsTo(Profile::class);
     }
-
+    public function clinic() {
+        return $this->belongsTo(Clinic::class);
+    }
     public function schedule() {
     	return \App\Schedule::where([
             'profile_id' => $this->profile_id,

@@ -67,7 +67,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-xs-12 col-sm-6">
+<!--           <div class="form-group col-xs-12 col-sm-6">
             <label for="name">Especialidades: <br>(selecciona todas las que procedan)</label>
             <div class="checkbox">
               <label v-for="especialty in especialties">
@@ -80,7 +80,7 @@
                 {{especialty.name}}
               </label>
             </div>
-          </div>
+          </div> -->
           <div class="form-group col-xs-12 col-sm-6">
             <label for="name">Experiencia profesional: <br>(selecciona todas las que procedan)</label>
             <div class="checkbox">
@@ -297,12 +297,12 @@
                 this.experiences = data.data;
               });
           },
-          fetchEspecialties() {
-            axios.get('/api/especialty')
-              .then(data => {
-                this.especialties = data.data;
-              });
-          },
+          // fetchEspecialties() {
+          //   axios.get('/api/especialty')
+          //     .then(data => {
+          //       this.especialties = data.data;
+          //     });
+          // },
           updateProfile(id) {
             let keys = Object.keys(this.profileToSave).length;
             if (!this.checkForUpdate(keys) && !this.tutorial) {
@@ -398,7 +398,7 @@
         created() {
           moment.locale('es');
           this.fetchExperiences();
-          this.fetchEspecialties();
+          // this.fetchEspecialties();
         },
         beforeUpdate() {
           for (let field in this.formErrors) {

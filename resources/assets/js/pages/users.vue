@@ -7,154 +7,171 @@
       <div class="panel-heading text-center" v-if="admin">
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Solicitudes</h3>
       </div>
-      <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
-          <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
-              <div class="col-xs-6">
-                  <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
-              </div>
-              <div class="col-xs-6">
-                  <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
-              </div>
-          </div>
-          <div class="row dates" v-if="filtering.date.state">
-            <form>
-              <div class="col-xs-6 form-group">
-                <label for="start-date">Desde:</label>
-                <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
-              </div>
-              <div class="col-xs-6 form-group">
-                <label for="end-date">Hasta:</label>
-                <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
-              </div>
-              <div class="col-xs-12 form-group">
-                <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
-              </div>
-            </form>
-          </div>
-          <div class="row dates" v-if="filtering.search.state">
-            <form @submit.prevent="">
-              <div class="col-xs-12 form-group">
-                <label for="search">Buscar:</label>
-                <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
-              </div>
-            </form>
-          </div>
-          <ul class="list-group" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
-              <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
-                  <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
-              </li>
-          </ul>
-          <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
+      <div class="loader-box" v-if="loading">
+        <i class="fa fa-spinner fa-spin loading-box"></i>
       </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
-          <button 
-            class="btn btn-sm btn-info btn-block clear-filters" 
-            v-if="Object.keys(this.filtering.filters).length"
-            @click.prevent="clearAllFilters"
-            ><h4>Borrar Filtros</h4>
-          </button>
+      <div v-show="!loading">
+        <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
+            <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
+                <div class="col-xs-6">
+                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
+                </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
+                </div>
+            </div>
+            <div class="row dates" v-if="filtering.date.state">
+              <form>
+                <div class="col-xs-6 form-group">
+                  <label for="start-date">Desde:</label>
+                  <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
+                </div>
+                <div class="col-xs-6 form-group">
+                  <label for="end-date">Hasta:</label>
+                  <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
+                </div>
+                <div class="col-xs-12 form-group">
+                  <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
+                </div>
+              </form>
+            </div>
+            <div class="row dates" v-if="filtering.search.state">
+              <form @submit.prevent="">
+                <div class="col-xs-12 form-group">
+                  <label for="search">Buscar:</label>
+                  <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
+                </div>
+              </form>
+            </div>
+            <ul class="list-group" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
+                <li v-for="filter in filtering.filters[filtering.name].keys" class="col-xs-6 list-item">
+                    <input type="checkbox" name="" @click="toggleFilterItem(filter.keys, filter.state, filtering.name)" v-model="filter.state"><span v-text="filter.label"></span>
+                </li>
+            </ul>
+            <button class="btn btn-sm btn-block btn-info" @click="toggleFiltering">Cerrar</button>
         </div>
-      </div>
-      <div class="panel-body">
-        <div :class="panelClass">
-          <table 
-            class="table table-responsive" 
-            v-if="admin && !showRequest.method"
-            >
-            <thead>
-              <tr>
-                <th class="clinic">
-                  Nombre
-                  <p>
-                      <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1')"></span>
-                      <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{search:['name','lastname1','lastname2'],noOptions:true})"></span>
-                  </p>
-                </th>
-                <th class="clinic">
-                  Email
-                  <p>
-                      <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
-                      <span :class="filterClasses('email')" @click="filterColumn('email',{search:['email'],noOptions:true})"></span>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Teléfono
-                  <p>
-                      <span :class="orderClasses('phone')" @click="orderColumn('phone')"></span>
-                      <span :class="filterClasses('phone')" @click="filterColumn('phone',{search:['phone'],noOptions:true})"></span>
-                  </p>
-                </th>
-                <th>
-                  DNI
-                  <p>
-                      <span :class="orderClasses('personal_id_number')" @click="orderColumn('personal_id_number')"></span>
-                      <span :class="filterClasses('personal_id_number')" @click="filterColumn('personal_id_number',{search:['personal_id_number'],noOptions:true})"></span>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Nº de Licencia
-                  <p>
-                      <span :class="orderClasses('license_number')" @click="orderColumn('license_number')"></span>
-                      <span :class="filterClasses('license_number')" @click="filterColumn('license_number')"></span>
-                  </p>
-                </th>
-                <th class="hidden-xs">
-                  Año de Licencia
-                  <p>
-                      <span :class="orderClasses('license_year')" @click="orderColumn('license_year',{integer:true})"></span>
-                      <span :class="filterClasses('license_year')" @click="filterColumn('license_year',{integer:true})"></span>
-                  </p>
-                </th>
-                <th class="icons">
-                  Estado
-                  <p>
-                      <span :class="orderClasses('last_access')" @click="orderColumn('last_access',{object:'user'})"></span>
-                      <span :class="filterClasses('last_access')" @click="filterColumn('last_access',{object:'user',boolean:['Offline','Online']})"></span>
-                  </p>
-                </th>
-                <th class="buttons-text icons"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="user in users" v-show="checkFilter(user.id)">
-                <td><strong>{{user.lastname1}} {{user.lastname2}}, {{user.name}}</strong></td>
-                <td><strong>{{user.email}}</strong></td>
-                <td>{{user.phone}}</td>
-                <td class="hidden-xs">{{user.personal_id_number}}</td>
-                <td class="hidden-xs">{{user.license_number}}
-                  <td class="hidden-xs" v-text="user.license_year"></td>
-                </td>
-                <td>
-                  <div :class="requestClasses(user.user.last_access)">
-                    <span class="hidden-xs" v-text="requestText(user.user.last_access)">
-                    </span>
-                    <span :class="requestIcon(user.user.last_access)"></span>
-                  </div>
-                </td>
-                <td>
-                  <button 
-                    type="button" 
-                    class="btn btn-primary"
-                    @click="toggleShowRequest(user)"
-                    >
-                    <span class="hidden-xs">Detalles
-                    </span>
-                    <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="row">
+          <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
+            <button 
+              class="btn btn-sm btn-info btn-block clear-filters" 
+              v-if="Object.keys(this.filtering.filters).length"
+              @click.prevent="clearAllFilters"
+              ><h4>Borrar Filtros</h4>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="panel-footer">
-        <div class="progress">
-          <div 
-            class="progress-bar progress-bar-primary progress-bar-striped" :style="profileusers.barStyle"
-            v-if="profileusers.ratio > 10"
-            >
-            <span>{{profileusers.barText}}</span>
+        <div class="panel-body">
+          <div :class="panelClass">
+            <table 
+              class="table table-responsive" 
+              v-if="admin && !showRequest.method"
+              >
+              <thead>
+                <tr>
+                  <th class="clinic">
+                    Nombre
+                    <p>
+                        <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1')"></span>
+                        <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{search:['name','lastname1','lastname2'],noOptions:true})"></span>
+                    </p>
+                  </th>
+                  <th class="clinic">
+                    Especialidades
+                    <p>
+                        <span :class="orderClasses('name')" @click="orderColumn('name')"></span>
+                        <span :class="filterClasses('name')" @click="filterColumn('name',{object:'especialties'})"></span>
+                    </p>
+                  </th>
+                  <!-- <th class="clinic">
+                    Email
+                    <p>
+                        <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
+                        <span :class="filterClasses('email')" @click="filterColumn('email',{search:['email'],noOptions:true})"></span>
+                    </p>
+                  </th> -->
+                  <th class="hidden-xs">
+                    Solicitudes
+                    <p>
+                        <span :class="orderClasses('requestsCount')" @click="orderColumn('requestsCount',{integer:true})"></span>
+                        <span :class="filterClasses('requestsCount')" @click="filterColumn('requestsCount',{numeric:true})"></span>
+                    </p>
+                  </th>
+                  <th>
+                    DNI
+                    <p>
+                        <span :class="orderClasses('personal_id_number')" @click="orderColumn('personal_id_number')"></span>
+                        <span :class="filterClasses('personal_id_number')" @click="filterColumn('personal_id_number',{search:['personal_id_number'],noOptions:true})"></span>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">
+                    Nº de Licencia
+                    <p>
+                        <span :class="orderClasses('license_number')" @click="orderColumn('license_number')"></span>
+                        <span :class="filterClasses('license_number')" @click="filterColumn('license_number')"></span>
+                    </p>
+                  </th>
+                  <th class="hidden-xs">
+                    Año de Licencia
+                    <p>
+                        <span :class="orderClasses('license_year')" @click="orderColumn('license_year',{integer:true})"></span>
+                        <span :class="filterClasses('license_year')" @click="filterColumn('license_year',{integer:true})"></span>
+                    </p>
+                  </th>
+                  <th class="icons">
+                    Estado
+                    <p>
+                        <span :class="orderClasses('last_access')" @click="orderColumn('last_access',{object:'user'})"></span>
+                        <span :class="filterClasses('last_access')" @click="filterColumn('last_access',{object:'user',boolean:['Offline','Online']})"></span>
+                    </p>
+                  </th>
+                  <th class="buttons-text icons"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(user, index) in users" v-show="checkFilter(user.id)">
+                  <td><strong>{{user.lastname1}} {{user.lastname2}}, {{user.name}}</strong></td>
+                  <td><strong v-html="parseEspecialties(index)"></strong></td>
+                  <td><a 
+                    :href="'/requests?user[0]='
+                          +user.id+'&user[1]='
+                          +userCompleteName(index)
+                    ">{{user.requestsCount}}
+                  </a></td>
+                  <td class="hidden-xs">{{user.personal_id_number}}</td>
+                  <td class="hidden-xs">{{user.license_number}}
+                    <td class="hidden-xs" v-text="user.license_year"></td>
+                  </td>
+                  <td>
+                    <div :class="requestClasses(user.user.last_access)">
+                      <span class="hidden-xs" v-text="requestText(user.user.last_access)">
+                      </span>
+                      <span :class="requestIcon(user.user.last_access)"></span>
+                    </div>
+                  </td>
+                  <td>
+                    <button 
+                      type="button" 
+                      class="btn btn-primary"
+                      @click="toggleShowRequest(user)"
+                      >
+                      <span class="hidden-xs">Detalles
+                      </span>
+                      <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="progress">
+            <div 
+              class="progress-bar progress-bar-primary progress-bar-striped" :style="profileusers.barStyle"
+              v-if="profileusers.ratio > 10"
+              >
+              <span>{{profileusers.barText}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -173,6 +190,7 @@
         props: ['page','admin'],
         data() {
             return {
+              loading: true,
               showRequest: {
                 method: false,
                 request: {},
@@ -370,15 +388,45 @@
             this.startFilters();
             this.calculateRatio();
           },
+          userEspecialtiesBuilder() {
+            for (let user of this.users) {
+              let especialties = [];
+              let ids = [];
+              for (let schedule of user.schedules) {
+                for (let especialty of schedule.especialties) {
+                  if (ids.indexOf(especialty.id) == -1) {
+                    ids.push(especialty.id);
+                    especialties.push(especialty);
+                  }
+                } 
+              }
+              user.especialties = especialties;
+            }
+          },
+          parseEspecialties(index) {
+            let especialties = [];
+            for (let especialty of this.users[index].especialties) {
+              if (especialties.indexOf(especialty.name) == -1) {
+                especialties.push(especialty.name);
+              }
+            }
+            return especialties.join('<br>');
+          },
+          userCompleteName(index) {
+            let fullname = this.users[index].lastname1+' '+this.users[index].lastname2+' '+this.users[index].name;
+            return cleanUpSpecialChars(fullname.toLowerCase());
+          },
           fetchUsers() {
             axios.get('/api/users')
               .then(data => {
                 if (data.data.users) {
                   this.users = data.data.users;
+                  this.userEspecialtiesBuilder();
                   this.buildFiltering('users');
                   this.buildOrdering('users');
                   this.selectAllFilters();
                   this.startFilters();
+                  this.loading = false;
                   // this.applyUrlFilters();
                   // this.orderColumn('license_year',{order:'desc'});
                 }
@@ -395,9 +443,9 @@
             }
           }
         },
-        created() {
+        mounted() {
           moment.locale('es');
-          this.fetchUsers();
+          setTimeout(function(){this.fetchUsers()}.bind(this),1000);
           this.hideIfPage();
         }
     }
