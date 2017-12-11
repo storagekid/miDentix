@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Extratime;
+use Carbon\Carbon;
 
 class ExtratimeController extends Controller
 {
@@ -21,6 +22,16 @@ class ExtratimeController extends Controller
     	        'provincia_id' => request('provincia_id'),
     	        'schedule' => request('schedule'),
     	   	]);
+            if (request('especialtiesToSave')) {
+                $found = [];
+                $items = request('especialtiesToSave');
+                foreach ($items as $item) {
+                    $found[] = $item;
+                    $extratime->especialties()->attach($item);
+                }
+                $extratime->updated_at = Carbon::now();
+                $extratime->save();
+            }
     	   	if (request()->expectsJson()) {
                 return response([
                     'status'=>'Extratime created',

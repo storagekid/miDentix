@@ -11,7 +11,7 @@
           <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
               <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
                   <div class="col-xs-6">
-                      <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
+                      <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos/Ninguno</button>
                   </div>
                   <div class="col-xs-6">
                       <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
@@ -65,19 +65,22 @@
                   <th>Provincia</th>
                   <th>Clínica</th>
                   <th class="hidden-xs">Fecha</th>
-                  <th>Detalles</th>
+                  <th class="hidden-xs">Especialidades</th>
+                  <th>Horario</th>
                   <th>Estado</th>
                   <th v-if="updateExtratimes"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="extraTime in profileSrc.extratimes">
+                <tr v-for="(extraTime, index) in profileSrc.extratimes">
                   <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
                   <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
                   <td>{{extraTime.clinic_id ? 
                     extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
-                    'Indiferente'}}</td>
+                    'Indiferente'}}
+                  </td>
                   <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
+                  <td><strong v-html="parseEspecialties(index)"></strong></td>
                   <td v-html="scheduleReader(extraTime.schedule)"></td>
                   <td>
                     <div :class="doStateBadge(extraTime.state).classes">
@@ -138,6 +141,13 @@
                           <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
                       </p>
                     </th>
+                    <th class="clinic">
+                      Especialidades
+                      <p>
+                          <span :class="orderClasses('name')" @click="orderColumn('name')"></span>
+                          <span :class="filterClasses('name')" @click="filterColumn('name',{object:'especialties'})"></span>
+                      </p>
+                    </th>
                     <th>Detalles</th>
                     <th class="icons">
                     Estado
@@ -150,7 +160,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="extraTime in extratimes" v-show="checkFilter(extraTime.id)">
+                  <tr v-for="(extraTime, index) in extratimes" v-show="checkFilter(extraTime.id)">
                     <td><strong>{{extraTime.profile.lastname1}} {{extraTime.profile.lastname2}}, {{extraTime.profile.name}}</strong></td>
                     <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
                     <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
@@ -158,6 +168,7 @@
                       extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
                       'Indiferente'}}</td>
                     <td class="hidden-xs" v-text="extraDate(extraTime.created_at)"></td>
+                    <td><strong v-html="parseEspecialties(index)"></strong></td>
                     <td v-html="scheduleReader(extraTime.schedule)"></td>
                     <td>
                       <div :class="doStateBadge(extraTime.state).classes">
@@ -192,11 +203,12 @@
             <div class="col-xs-12 col-md-10 col-md-offset-1">
               <div class="col-xs-12 col-sm-4 vcenter">
                 <div class="alert alert-info form-group">
-                  <p><strong>{{extratimeSelected.profile.name}} {{extratimeSelected.profile.lastname1}}</strong></p>
+                  <h3><strong>{{extratimeSelected.profile.name}} {{extratimeSelected.profile.lastname1}}</strong></h3>
                   <p>CA: <strong>{{extratimeSelected.state_id ? extratimeSelected.states.name : 'Indiferente'}}</strong></p>
                   <p>Provincia: <strong>{{extratimeSelected.provincia_id ? extratimeSelected.provincia.nombre : 'Indiferente'}}</strong></p>
                   <p>Clínica: <strong>{{extratimeSelected.clinic_id ? extratimeSelected.clinic.city : 'Indiferente'}}</strong></p>
                   <p>Fecha: <strong>{{extraDate(extratimeSelected.created_at)}}</strong></p>
+                  <p>Especialidades: <strong v-html="parseEspecialties(0,extratimeSelected.especialties,true)"></strong></p>
                   <p>Estado: <strong>{{extratimeSelected.closed_at ? extratimeSelected.clinic.city : 'Pendiente'}}</strong></p>
                   <p>Horario: <strong v-html="scheduleReader(extratimeSelected.schedule,'inline')"></strong></p>
                 </div>
@@ -273,6 +285,31 @@
         watch: {
         },
         methods: {
+          parseEspecialties(index,object,string) {
+            let especialties = [];
+            let glue = '<br>';
+            if (string) {glue = ', '}
+            if (object) {
+              for (let especialty of object) {
+                if (especialties.indexOf(especialty.name) == -1) {
+                  especialties.push(especialty.name);
+                }
+              }
+              return especialties.join(glue);
+            }
+            let source = '';
+            if (App.role == 'admin') {
+              source = 'extratimes';
+            } else {
+              source = 'profileSrc.extratimes';
+            }
+            for (let especialty of this[source][index].especialties) {
+              if (especialties.indexOf(especialty.name) == -1) {
+                especialties.push(especialty.name);
+              }
+            }
+            return especialties.join(glue);
+          },
           startFilters() {
             if (this.filtering.filters['state']) {
               delete(this.filtering.filters['state']);

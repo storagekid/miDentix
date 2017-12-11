@@ -14,7 +14,7 @@
         <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
             <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
                 <div class="col-xs-6">
-                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
+                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos/Ninguno</button>
                 </div>
                 <div class="col-xs-6">
                     <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
@@ -64,7 +64,7 @@
           <div :class="panelClass">
             <table 
               class="table table-responsive" 
-              v-if="admin && !showRequest.method"
+              v-if="admin && !this.userSelected"
               >
               <thead>
                 <tr>
@@ -82,32 +82,32 @@
                         <span :class="filterClasses('name')" @click="filterColumn('name',{object:'especialties'})"></span>
                     </p>
                   </th>
-                  <!-- <th class="clinic">
-                    Email
-                    <p>
-                        <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
-                        <span :class="filterClasses('email')" @click="filterColumn('email',{search:['email'],noOptions:true})"></span>
-                    </p>
-                  </th> -->
                   <th class="hidden-xs">
-                    Solicitudes
+                    Nº Solicitudes
                     <p>
                         <span :class="orderClasses('requestsCount')" @click="orderColumn('requestsCount',{integer:true})"></span>
                         <span :class="filterClasses('requestsCount')" @click="filterColumn('requestsCount',{numeric:true})"></span>
                     </p>
                   </th>
-                  <th>
-                    DNI
+                  <th class="clinic">
+                    Nº Clínicas
                     <p>
-                        <span :class="orderClasses('personal_id_number')" @click="orderColumn('personal_id_number')"></span>
-                        <span :class="filterClasses('personal_id_number')" @click="filterColumn('personal_id_number',{search:['personal_id_number'],noOptions:true})"></span>
+                        <span :class="orderClasses('clinicsCount')" @click="orderColumn('clinicsCount',{integer:true})"></span>
+                        <span :class="filterClasses('clinicsCount')" @click="filterColumn('clinicsCount',{numeric:true})"></span>
+                    </p>
+                  </th>
+                  <th class="clinic">
+                    Email
+                    <p>
+                        <span :class="orderClasses('email')" @click="orderColumn('email')"></span>
+                        <span :class="filterClasses('email')" @click="filterColumn('email',{search:['email'],noOptions:true})"></span>
                     </p>
                   </th>
                   <th class="hidden-xs">
-                    Nº de Licencia
+                    Teléfono
                     <p>
-                        <span :class="orderClasses('license_number')" @click="orderColumn('license_number')"></span>
-                        <span :class="filterClasses('license_number')" @click="filterColumn('license_number')"></span>
+                        <span :class="orderClasses('phone')" @click="orderColumn('phone')"></span>
+                        <span :class="filterClasses('phone')" @click="filterColumn('phone')"></span>
                     </p>
                   </th>
                   <th class="hidden-xs">
@@ -131,14 +131,15 @@
                 <tr v-for="(user, index) in users" v-show="checkFilter(user.id)">
                   <td><strong>{{user.lastname1}} {{user.lastname2}}, {{user.name}}</strong></td>
                   <td><strong v-html="parseEspecialties(index)"></strong></td>
-                  <td><a 
+                  <td><strong><a 
                     :href="'/requests?user[0]='
                           +user.id+'&user[1]='
                           +userCompleteName(index)
                     ">{{user.requestsCount}}
-                  </a></td>
-                  <td class="hidden-xs">{{user.personal_id_number}}</td>
-                  <td class="hidden-xs">{{user.license_number}}
+                  </a></strong</td>
+                  <td class="hidden-xs">{{user.clinicsCount}}</td>
+                  <td class="hidden-xs"><a :href="'mailTo:'+user.email">{{user.email}}</a></td>
+                  <td class="hidden-xs">{{user.phone}}
                     <td class="hidden-xs" v-text="user.license_year"></td>
                   </td>
                   <td>
@@ -150,18 +151,70 @@
                   </td>
                   <td>
                     <button 
-                      type="button" 
-                      class="btn btn-primary"
-                      @click="toggleShowRequest(user)"
-                      >
-                      <span class="hidden-xs">Detalles
-                      </span>
-                      <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
-                    </button>
+                        type="button" 
+                        class="btn btn-primary btn-sm"
+                        @click="toggleShowDetails(index)"
+                        >
+                        <span class="hidden-xs">Detalles
+                        </span>
+                        <span class="glyphicon glyphicon-arrow-right visible-xs-block"></span>
+                      </button>
                   </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+        <div class="row" v-if="this.admin && this.userSelected">
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="col-xs-12 col-sm-4 vcenter">
+              <div class="alert alert-info form-group">
+                <h3><strong>{{userSelected.name}} {{userSelected.lastname1}}</strong></h3>
+                <p>Email: <strong>{{userSelected.email}}</strong></p>
+                <p>Teléfono: <strong>{{userSelected.phone}}</strong></p>
+                <p>DNI: <strong>{{userSelected.personal_id_number}}</strong></p>
+                <p>Licencia: <strong>{{userSelected.license_number}}</strong></p>
+                <p>Año Licencia: <strong>{{userSelected.license_year}}</strong></p>
+                <p>Especialidades: <strong v-html="parseEspecialties(0,userSelected.especialties,true)"></strong></p>
+                <p>Último Acceso: <strong>{{userSelected.user.last_access ? userSelected.user.last_access : 'Nunca'}}</strong></p>
+              </div>
+<!--               <div class="row" v-if="extratimeSelected.state == 1">
+                <div class="form-group col-xs-6">
+                  <button class="btn btn-success btn-block btn-sm"
+                  @click="closeExtratime(extratimeSelected.id,2)"
+                  >Aceptar
+                  </button>
+                </div>
+                <div class="form-group col-xs-6">
+                  <button class="btn btn-danger btn-block btn-sm"
+                  @click="closeExtratime(extratimeSelected.id,0)"
+                  >Denegar
+                  </button>
+                </div>
+              </div>
+              <div class="row" v-if="extratimeSelected.state == 2">
+                <div class="form-group col-xs-12 alert alert-success">
+                  <p>Aceptada el: <strong>{{extraDate(extratimeSelected.updated_at)}}</strong></p>
+                </div>
+              </div>
+              <div class="row" v-if="extratimeSelected.state == 0">
+                <div class="form-group col-xs-12 alert alert-danger">
+                  <p>Denegada el: <strong>{{extraDate(extratimeSelected.updated_at)}}</strong></p>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="form-group col-xs-12">
+                  <button class="btn btn-info btn-block btn-sm" @click="toggleShowDetails">Volver</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-8 tutorial-prompt vcenter">
+              <schedule
+                :profileSelected="userSelected"
+                :admin="true"
+                >
+              </schedule>
+            </div>
           </div>
         </div>
         <div class="panel-footer">
@@ -191,11 +244,11 @@
         data() {
             return {
               loading: true,
-              showRequest: {
-                method: false,
-                request: {},
-                requestClinic: [],
-              },
+              // showRequest: {
+              //   method: false,
+              //   request: {},
+              //   requestClinic: [],
+              // },
               profileSrc: {
                 users: [],
               },
@@ -217,6 +270,7 @@
               },
               showElement: true,
               users: {},
+              userSelected: false,
             }
         },
         watch: {
@@ -403,18 +457,43 @@
               user.especialties = especialties;
             }
           },
-          parseEspecialties(index) {
+          parseEspecialties(index,object,string) {
             let especialties = [];
-            for (let especialty of this.users[index].especialties) {
+            let glue = '<br>';
+            if (string) {glue = ', '}
+            if (object) {
+              for (let especialty of object) {
+                if (especialties.indexOf(especialty.name) == -1) {
+                  especialties.push(especialty.name);
+                }
+              }
+              return especialties.join(glue);
+            }
+            let source = '';
+            if (App.role == 'admin') {
+              source = 'users';
+            } else {
+              source = 'users';
+            }
+            for (let especialty of this[source][index].especialties) {
               if (especialties.indexOf(especialty.name) == -1) {
                 especialties.push(especialty.name);
               }
             }
-            return especialties.join('<br>');
+            return especialties.join(glue);
           },
           userCompleteName(index) {
-            let fullname = this.users[index].lastname1+' '+this.users[index].lastname2+' '+this.users[index].name;
+            let lastname2 = this.users[index].lastname2 ? this.users[index].lastname2 : '';
+            let fullname = this.users[index].name+' '+this.users[index].lastname1+' '+lastname2;
             return cleanUpSpecialChars(fullname.toLowerCase());
+          },
+          toggleShowDetails(id=null, extratime=null) {
+            if (this.userSelected) {
+              console.log('Toggleling')
+              this.userSelected = false;
+            } else {
+              this.userSelected = this.users[id];
+            }
           },
           fetchUsers() {
             axios.get('/api/users')
@@ -424,7 +503,7 @@
                   this.userEspecialtiesBuilder();
                   this.buildFiltering('users');
                   this.buildOrdering('users');
-                  this.selectAllFilters();
+                  this.selectAllItems();
                   this.startFilters();
                   this.loading = false;
                   // this.applyUrlFilters();

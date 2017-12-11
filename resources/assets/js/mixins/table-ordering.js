@@ -17,7 +17,7 @@ export default {
 		},
 		orderColumn(name, options={object:null,date:false,order:false,integer:false}) {
 			// console.log(source);
-			let orderingFunction = '';
+			let orderingFunction = undefined;
 			if (options.integer) {
 				orderingFunction = function(a, b){return a-b};
 			} 

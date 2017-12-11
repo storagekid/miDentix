@@ -103,7 +103,7 @@
                   name: '1',
                   icon: 'glyphicon glyphicon-lock',
                   header: 'Paso 1:<br>Seguridad',
-                  text: 'Por favor, cambia la contraseña temporal.<br>Debe contener al menos una mayúscula, una mnúscula, un número y un símbolo ("#","$","%","&"...)',
+                  text: 'Por favor, cambia la contraseña temporal.<br>La nueva contraseña debe ser de al menos 8 caracteres y contener una mayúscula, una mnúscula y un número.',
                   completed: false,
                 },
                 '2': {

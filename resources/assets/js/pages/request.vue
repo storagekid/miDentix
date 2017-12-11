@@ -14,7 +14,7 @@
         <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
             <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
                 <div class="col-xs-6">
-                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos</button>
+                    <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos/Ninguno</button>
                 </div>
                 <div class="col-xs-6">
                     <button class="btn btn-sm btn-block btn-info" @click="invertSelectionFilters">Invertir Selección</button>
@@ -387,6 +387,8 @@
             this.filtering.name = '';
           },
           applyUrlFilters() {
+            this.filtering.filters = {};
+            this.selectAllItems();
             // Example with Array
             // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
             let search = getAllUrlParams();
@@ -407,7 +409,8 @@
                 this.filtering.state = false;
               } else if (filter == 'user') {
                 let fullname = search['user'][1].replace(/%20/g, " ");
-                this.filterColumn('lastname1',{object:'profile',search:['lastname1','lastname2', 'name'],noOptions:true});
+                console.log(fullname);
+                this.filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true});
                 this.filtering.search.string = fullname;
                 this.filtering.state = false;
                 this.searchString();
@@ -556,7 +559,7 @@
                   this.requests = data.data.requests;
                   this.buildFiltering('requests');
                   this.buildOrdering('requests');
-                  this.selectAllFilters();
+                  this.selectAllItems();
                   this.startFilters();
                   this.applyUrlFilters();
                   this.orderColumn('created_at',{order:'desc'});

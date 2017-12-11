@@ -9,7 +9,7 @@ class Extratime extends Model
 	protected $fillable = [
         'clinic_id', 'state_id', 'provincia_id', 'profile_id', 'state', 'schedule',
     ];
-    protected $with = ['clinic','provincia','states'];
+    protected $with = ['clinic','provincia','states','especialties'];
 
     public function clinic() {
     	return $this->belongsTo(Clinic::class);
@@ -22,5 +22,8 @@ class Extratime extends Model
     }
     public function profile() {
         return $this->belongsTo(Profile::class);
+    }
+    public function especialties() {
+        return $this->belongsToMany(Especialty::class)->withTimestamps();
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="form-group col-xs-12 text-center" v-if="addingId">
+        <div class="form-group col-xs-12 text-center" v-if="addingId || newExtraTime">
           <label for="name"><h3>Especialidades ejercidas en esta clínica:</h3>(selecciona todas las que procedan)</label>
           <div class="checkbox">
             <label v-for="especialty in especialties">
@@ -63,11 +63,20 @@
                                         <td><p :class="frameClasses(clinic['id'],true)">
                                             </p>
                                         </td>
-                                        <td class="hidden-xs">{{clinic.city}}</td>
+                                        <td class="hidden-xs" v-show="tdShowing">{{clinic.city}}</td>
                                         <td><strong>{{clinic.address_real_1}}</strong></td>
                                         <td><strong v-html="getSpecialties(clinic.id)"></strong></td>
-                                        <td class="hidden-xs"><strong v-html="scheduleReader(getSchedule(clinic.id))"></strong></td>
+                                        <td class="hidden-xs" v-show="tdShowing"><strong v-html="scheduleReader(getSchedule(clinic.id))"></strong></td>
                                         <td><span class="badge">{{clinicHours[clinic['id']]}} H</span></td>
+                                        <td>
+                                            <button 
+                                                class="btn btn-sm btn-danger delete-Schedule"
+                                                @click="deleteSchedule(clinic['id'])"
+                                                v-show="updateMode"
+                                                >
+                                                <span class="glyphicon glyphicon-remove"></span>
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -345,6 +354,7 @@
                         provincia_id: this.addingPro,
                         state_id: this.addingCA,
                         schedule: JSON.stringify(this.scheduleToSave),
+                        'especialtiesToSave': this.especialtiesToSave,
                     }).catch((error) => {
                         flash({
                             message: error.response.data, 
@@ -453,7 +463,6 @@
                     });
                     return false;
                 }
-                console.log(this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length));
                 if (this.updateMode && 
                         (this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length)) <= 0) {
                     flash({
@@ -477,6 +486,13 @@
                 if (!this.clinicHoursDef['extra']) {
                     flash({
                         message:'Debes seleccionar al menos una hora.', 
+                        label:'warning'
+                    });
+                    return false;
+                }
+                if (!this.updateMode && !this.especialtiesToSave.length ) {
+                    flash({
+                        message:'Debes seleccionar al menos una especialidad.', 
                         label:'warning'
                     });
                     return false;
@@ -594,13 +610,23 @@
                 }
             },
             scheduleReader(schedule, inline=false) {
-            if (inline) {
-              return scheduleToHumans(schedule).replace('<br>',' | ');
-            }
-            return scheduleToHumans(schedule);
+                // console.log(schedule);
+                if (!schedule) {
+                    return '-';
+                }
+                if (inline) {
+                  return scheduleToHumans(schedule).replace('<br>',' | ');
+                }
+                return scheduleToHumans(schedule);
           },
         },
         computed: {
+            tdShowing() {
+                if (App.page == 'home') {
+                    return false;
+                }
+                return true;
+            },
             userEspecialties() {
               let response = []
               for (let especialty of this.selectedSchedule.especialties) {

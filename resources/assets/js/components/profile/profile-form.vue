@@ -156,19 +156,23 @@
             } else {
               field = e.target.id;
             }
-            if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
-              this.formErrors[field] = 'Este campo es obligatorio';
-              return false;
-            }
-            if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
-              let nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
-              if (!this.profileSrc[field].match(nameFormat)) {
-                this.formErrors[field] = 'No se permiten números ni símbolos';
+            if (field != 'lastname2') {
+              if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
+                this.formErrors[field] = 'Este campo es obligatorio';
                 return false;
               }
-              if (this.profileSrc[field].length > 30) {
-                this.formErrors[field] = 'Máximo 30 caracteres';
-                return false;
+            }
+            if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
+              if (this.profileSrc[field]) {
+                let nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
+                if (!this.profileSrc[field].match(nameFormat)) {
+                  this.formErrors[field] = 'No se permiten números ni símbolos';
+                  return false;
+                }
+                if (this.profileSrc[field].length > 30) {
+                  this.formErrors[field] = 'Máximo 30 caracteres';
+                  return false;
+                }
               }
             }
             if (field == 'email') {

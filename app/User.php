@@ -39,6 +39,9 @@ class User extends Authenticatable
                 $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
                 break;
             case 'admin':
+                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers'];
+                break;
+            case 'root':
                 $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
                 break;
             default:

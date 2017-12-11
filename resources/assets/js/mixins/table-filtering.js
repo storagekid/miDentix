@@ -55,6 +55,7 @@ export default {
             this.filtering.showOptions = false;
         }
         if (options.search) {
+        	// this.selectAllItems();
             this.filtering.search.state = true;
             let target = [];
             if (options.object) {
@@ -68,8 +69,10 @@ export default {
 	            	    	// console.log('NullName: '+options.nullName);
 	            	    } else {
 	            	    	for (let field of options.search) {
-	            	    		let temp = item[options.object][field];
-	            	    	  	fullstring += temp+' ';
+	            	    		if (item[options.object][field]) {
+	            	    			let temp = item[options.object][field];
+	            	    	  		fullstring += temp+' ';
+	            	    		}
 	            	    	}
 	            	    }
             	    	target.push([id,cleanUpSpecialChars(fullstring.toLowerCase())]);
@@ -80,7 +83,10 @@ export default {
             	  if (this.filtering.selected.indexOf(item.id) != -1) {
             	    let fullstring = '';
             	    for (let field of options.search) {
-            	      fullstring += item[field]+' ';
+            	      	if (item[field]) {
+            	      		let temp = item[field];
+            	        		fullstring += temp+' ';
+            	      	}
             	    }
             	    fullstring = fullstring;
             	    target.push([item.id,cleanUpSpecialChars(fullstring.toLowerCase())]);
@@ -289,6 +295,9 @@ export default {
 		            this.filtering.selected.push(this[this.filtering.source][i].id);
 		        }
 		    }
+		    for (var i = 0; i < this.filtering.filters[this.filtering.name].keys.length; i++) {
+		        this.filtering.filters[this.filtering.name].keys[i].state = true;
+		    }
 		},
 		clearFilters(filter) {
 		  if (this.filtering.state) {
@@ -335,8 +344,8 @@ export default {
 			this.filtering.date.start = null;
 			this.filtering.date.end = null;
 			this.filtering.search.state = false;
-			this.filtering.search.string = null;
-			this.filtering.search.target = [];
+			// this.filtering.search.string = null;
+			// this.filtering.search.target = [];
 		},
 		filterClasses(object) {
 		  if (this.filtering.filters[object]) {

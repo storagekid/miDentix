@@ -12,6 +12,28 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Scripts --}}
+    <script>
+        // $page = window.getPage();
+        getPage = function() {
+            let str = window.location.pathname.substring(1);
+            let index = str.indexOf('/',2);
+            if (index != -1) {
+                str = str.substring(1,index);
+            } 
+            return str;
+        }
+        let auth = "<?php echo auth()->check(); ?>"      
+        if (auth != '') {
+            let user = {!! json_encode(auth()->user()) !!};
+            window.App = {!! json_encode([
+                'role' => '',
+            ]) !!};
+            window.App.role = user.role;
+            window.App.page = getPage();
+        }
+    </script>
 </head>
 <body>
     <div id="app">

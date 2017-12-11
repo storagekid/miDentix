@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
                 Master_University_ProfileSeeder::class,
                 RequestsSeeder::class,
                 ExtratimesSeeder::class,
+                Especialty_ExtratimeSeeder::class,
             ]);
         } else {
             $this->call([

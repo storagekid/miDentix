@@ -22769,6 +22769,7 @@ module.exports = defaults;
 				this.filtering.showOptions = false;
 			}
 			if (options.search) {
+				// this.selectAllItems();
 				this.filtering.search.state = true;
 				var target = [];
 				if (options.object) {
@@ -22796,8 +22797,10 @@ module.exports = defaults;
 										for (var _iterator2 = options.search[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 											var field = _step2.value;
 
-											var temp = item[options.object][field];
-											fullstring += temp + ' ';
+											if (item[options.object][field]) {
+												var temp = item[options.object][field];
+												fullstring += temp + ' ';
+											}
 										}
 									} catch (err) {
 										_didIteratorError2 = true;
@@ -22850,7 +22853,10 @@ module.exports = defaults;
 									for (var _iterator4 = options.search[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
 										var _field = _step4.value;
 
-										_fullstring += _item[_field] + ' ';
+										if (_item[_field]) {
+											var _temp = _item[_field];
+											_fullstring += _temp + ' ';
+										}
 									}
 								} catch (err) {
 									_didIteratorError4 = true;
@@ -23214,6 +23220,9 @@ module.exports = defaults;
 					this.filtering.selected.push(this[this.filtering.source][i].id);
 				}
 			}
+			for (var i = 0; i < this.filtering.filters[this.filtering.name].keys.length; i++) {
+				this.filtering.filters[this.filtering.name].keys[i].state = true;
+			}
 		},
 		clearFilters: function clearFilters(filter) {
 			if (this.filtering.state) {
@@ -23302,8 +23311,8 @@ module.exports = defaults;
 			this.filtering.date.start = null;
 			this.filtering.date.end = null;
 			this.filtering.search.state = false;
-			this.filtering.search.string = null;
-			this.filtering.search.target = [];
+			// this.filtering.search.string = null;
+			// this.filtering.search.target = [];
 		},
 		filterClasses: function filterClasses(object) {
 			if (this.filtering.filters[object]) {
@@ -23340,7 +23349,7 @@ module.exports = defaults;
 			var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { object: null, date: false, order: false, integer: false };
 
 			// console.log(source);
-			var orderingFunction = '';
+			var orderingFunction = undefined;
 			if (options.integer) {
 				orderingFunction = function orderingFunction(a, b) {
 					return a - b;
@@ -91569,7 +91578,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -91580,6 +91589,15 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -91958,7 +91976,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 clinic_id: this.addingId,
                 provincia_id: this.addingPro,
                 state_id: this.addingCA,
-                schedule: JSON.stringify(this.scheduleToSave)
+                schedule: JSON.stringify(this.scheduleToSave),
+                'especialtiesToSave': this.especialtiesToSave
             }).catch(function (error) {
                 flash({
                     message: error.response.data,
@@ -92090,7 +92109,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
                 return false;
             }
-            console.log(this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length));
             if (this.updateMode && this.selectedSchedule.especialties.length + (this.especialtiesToSave.length - this.especialtiesToRemove.length) <= 0) {
                 flash({
                     message: 'Debes seleccionar al menos una especialidad.',
@@ -92111,6 +92129,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (!this.clinicHoursDef['extra']) {
                 flash({
                     message: 'Debes seleccionar al menos una hora.',
+                    label: 'warning'
+                });
+                return false;
+            }
+            if (!this.updateMode && !this.especialtiesToSave.length) {
+                flash({
+                    message: 'Debes seleccionar al menos una especialidad.',
                     label: 'warning'
                 });
                 return false;
@@ -92315,6 +92340,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         scheduleReader: function scheduleReader(schedule) {
             var inline = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
+            // console.log(schedule);
+            if (!schedule) {
+                return '-';
+            }
             if (inline) {
                 return scheduleToHumans(schedule).replace('<br>', ' | ');
             }
@@ -92322,6 +92351,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     computed: {
+        tdShowing: function tdShowing() {
+            if (App.page == 'home') {
+                return false;
+            }
+            return true;
+        },
         userEspecialties: function userEspecialties() {
             var response = [];
             var _iteratorNormalCompletion8 = true;
@@ -92395,7 +92430,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.addingId
+    _vm.addingId || _vm.newExtraTime
       ? _c("div", { staticClass: "form-group col-xs-12 text-center" }, [
           _vm._m(0),
           _vm._v(" "),
@@ -92557,9 +92592,21 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "hidden-xs" }, [
-                          _vm._v(_vm._s(clinic.city))
-                        ]),
+                        _c(
+                          "td",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.tdShowing,
+                                expression: "tdShowing"
+                              }
+                            ],
+                            staticClass: "hidden-xs"
+                          },
+                          [_vm._v(_vm._s(clinic.city))]
+                        ),
                         _vm._v(" "),
                         _c("td", [
                           _c("strong", [_vm._v(_vm._s(clinic.address_real_1))])
@@ -92573,20 +92620,62 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "hidden-xs" }, [
-                          _c("strong", {
-                            domProps: {
-                              innerHTML: _vm._s(
-                                _vm.scheduleReader(_vm.getSchedule(clinic.id))
-                              )
-                            }
-                          })
-                        ]),
+                        _c(
+                          "td",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.tdShowing,
+                                expression: "tdShowing"
+                              }
+                            ],
+                            staticClass: "hidden-xs"
+                          },
+                          [
+                            _c("strong", {
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.scheduleReader(_vm.getSchedule(clinic.id))
+                                )
+                              }
+                            })
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("td", [
                           _c("span", { staticClass: "badge" }, [
                             _vm._v(_vm._s(_vm.clinicHours[clinic["id"]]) + " H")
                           ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c(
+                            "button",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.updateMode,
+                                  expression: "updateMode"
+                                }
+                              ],
+                              staticClass:
+                                "btn btn-sm btn-danger delete-Schedule",
+                              on: {
+                                click: function($event) {
+                                  _vm.deleteSchedule(clinic["id"])
+                                }
+                              }
+                            },
+                            [
+                              _c("span", {
+                                staticClass: "glyphicon glyphicon-remove"
+                              })
+                            ]
+                          )
                         ])
                       ])
                     })
@@ -94941,7 +95030,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -95369,6 +95458,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.filtering.name = '';
     },
     applyUrlFilters: function applyUrlFilters() {
+      this.filtering.filters = {};
+      this.selectAllItems();
       // Example with Array
       // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
       var search = getAllUrlParams();
@@ -95410,7 +95501,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           this.filtering.state = false;
         } else if (filter == 'user') {
           var fullname = search['user'][1].replace(/%20/g, " ");
-          this.filterColumn('lastname1', { object: 'profile', search: ['lastname1', 'lastname2', 'name'], noOptions: true });
+          console.log(fullname);
+          this.filterColumn('lastname1', { object: 'profile', search: ['name', 'lastname1', 'lastname2'], noOptions: true });
           this.filtering.search.string = fullname;
           this.filtering.state = false;
           this.searchString();
@@ -95627,7 +95719,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this2.requests = data.data.requests;
           _this2.buildFiltering('requests');
           _this2.buildOrdering('requests');
-          _this2.selectAllFilters();
+          _this2.selectAllItems();
           _this2.startFilters();
           _this2.applyUrlFilters();
           _this2.orderColumn('created_at', { order: 'desc' });
@@ -95716,7 +95808,7 @@ var render = function() {
                           staticClass: "btn btn-sm btn-block btn-info",
                           on: { click: _vm.selectAllFilters }
                         },
-                        [_vm._v("Todos")]
+                        [_vm._v("Todos/Ninguno")]
                       )
                     ]),
                     _vm._v(" "),
@@ -96956,7 +97048,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -97154,6 +97246,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -97166,11 +97311,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       loading: true,
-      showRequest: {
-        method: false,
-        request: {},
-        requestClinic: []
-      },
+      // showRequest: {
+      //   method: false,
+      //   request: {},
+      //   requestClinic: [],
+      // },
       profileSrc: {
         users: []
       },
@@ -97191,7 +97336,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         topButtonIcon: 'glyphicon glyphicon-plus-sign'
       },
       showElement: true,
-      users: {}
+      users: {},
+      userSelected: false
     };
   },
 
@@ -97530,40 +97676,92 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
     },
-    parseEspecialties: function parseEspecialties(index) {
+    parseEspecialties: function parseEspecialties(index, object, string) {
       var especialties = [];
-      var _iteratorNormalCompletion8 = true;
-      var _didIteratorError8 = false;
-      var _iteratorError8 = undefined;
+      var glue = '<br>';
+      if (string) {
+        glue = ', ';
+      }
+      if (object) {
+        var _iteratorNormalCompletion8 = true;
+        var _didIteratorError8 = false;
+        var _iteratorError8 = undefined;
+
+        try {
+          for (var _iterator8 = object[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+            var especialty = _step8.value;
+
+            if (especialties.indexOf(especialty.name) == -1) {
+              especialties.push(especialty.name);
+            }
+          }
+        } catch (err) {
+          _didIteratorError8 = true;
+          _iteratorError8 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion8 && _iterator8.return) {
+              _iterator8.return();
+            }
+          } finally {
+            if (_didIteratorError8) {
+              throw _iteratorError8;
+            }
+          }
+        }
+
+        return especialties.join(glue);
+      }
+      var source = '';
+      if (App.role == 'admin') {
+        source = 'users';
+      } else {
+        source = 'users';
+      }
+      var _iteratorNormalCompletion9 = true;
+      var _didIteratorError9 = false;
+      var _iteratorError9 = undefined;
 
       try {
-        for (var _iterator8 = this.users[index].especialties[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-          var especialty = _step8.value;
+        for (var _iterator9 = this[source][index].especialties[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+          var _especialty = _step9.value;
 
-          if (especialties.indexOf(especialty.name) == -1) {
-            especialties.push(especialty.name);
+          if (especialties.indexOf(_especialty.name) == -1) {
+            especialties.push(_especialty.name);
           }
         }
       } catch (err) {
-        _didIteratorError8 = true;
-        _iteratorError8 = err;
+        _didIteratorError9 = true;
+        _iteratorError9 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion8 && _iterator8.return) {
-            _iterator8.return();
+          if (!_iteratorNormalCompletion9 && _iterator9.return) {
+            _iterator9.return();
           }
         } finally {
-          if (_didIteratorError8) {
-            throw _iteratorError8;
+          if (_didIteratorError9) {
+            throw _iteratorError9;
           }
         }
       }
 
-      return especialties.join('<br>');
+      return especialties.join(glue);
     },
     userCompleteName: function userCompleteName(index) {
-      var fullname = this.users[index].lastname1 + ' ' + this.users[index].lastname2 + ' ' + this.users[index].name;
+      var lastname2 = this.users[index].lastname2 ? this.users[index].lastname2 : '';
+      var fullname = this.users[index].name + ' ' + this.users[index].lastname1 + ' ' + lastname2;
       return cleanUpSpecialChars(fullname.toLowerCase());
+    },
+    toggleShowDetails: function toggleShowDetails() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var extratime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      if (this.userSelected) {
+        console.log('Toggleling');
+        this.userSelected = false;
+      } else {
+        this.userSelected = this.users[id];
+      }
     },
     fetchUsers: function fetchUsers() {
       var _this2 = this;
@@ -97574,7 +97772,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this2.userEspecialtiesBuilder();
           _this2.buildFiltering('users');
           _this2.buildOrdering('users');
-          _this2.selectAllFilters();
+          _this2.selectAllItems();
           _this2.startFilters();
           _this2.loading = false;
           // this.applyUrlFilters();
@@ -97663,7 +97861,7 @@ var render = function() {
                           staticClass: "btn btn-sm btn-block btn-info",
                           on: { click: _vm.selectAllFilters }
                         },
-                        [_vm._v("Todos")]
+                        [_vm._v("Todos/Ninguno")]
                       )
                     ]),
                     _vm._v(" "),
@@ -97918,13 +98116,13 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _c("div", { class: _vm.panelClass }, [
-              _vm.admin && !_vm.showRequest.method
+              _vm.admin && !this.userSelected
                 ? _c("table", { staticClass: "table table-responsive" }, [
                     _c("thead", [
                       _c("tr", [
                         _c("th", { staticClass: "clinic" }, [
                           _vm._v(
-                            "\n                  Nombre\n                  "
+                            "\n                    Nombre\n                    "
                           ),
                           _c("p", [
                             _c("span", {
@@ -97952,7 +98150,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", { staticClass: "clinic" }, [
                           _vm._v(
-                            "\n                  Especialidades\n                  "
+                            "\n                    Especialidades\n                    "
                           ),
                           _c("p", [
                             _c("span", {
@@ -97979,7 +98177,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", { staticClass: "hidden-xs" }, [
                           _vm._v(
-                            "\n                  Solicitudes\n                  "
+                            "\n                    Nº Solicitudes\n                    "
                           ),
                           _c("p", [
                             _c("span", {
@@ -98006,24 +98204,55 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
-                        _c("th", [
-                          _vm._v("\n                  DNI\n                  "),
+                        _c("th", { staticClass: "clinic" }, [
+                          _vm._v(
+                            "\n                    Nº Clínicas\n                    "
+                          ),
                           _c("p", [
                             _c("span", {
-                              class: _vm.orderClasses("personal_id_number"),
+                              class: _vm.orderClasses("clinicsCount"),
                               on: {
                                 click: function($event) {
-                                  _vm.orderColumn("personal_id_number")
+                                  _vm.orderColumn("clinicsCount", {
+                                    integer: true
+                                  })
                                 }
                               }
                             }),
                             _vm._v(" "),
                             _c("span", {
-                              class: _vm.filterClasses("personal_id_number"),
+                              class: _vm.filterClasses("clinicsCount"),
                               on: {
                                 click: function($event) {
-                                  _vm.filterColumn("personal_id_number", {
-                                    search: ["personal_id_number"],
+                                  _vm.filterColumn("clinicsCount", {
+                                    numeric: true
+                                  })
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("th", { staticClass: "clinic" }, [
+                          _vm._v(
+                            "\n                    Email\n                    "
+                          ),
+                          _c("p", [
+                            _c("span", {
+                              class: _vm.orderClasses("email"),
+                              on: {
+                                click: function($event) {
+                                  _vm.orderColumn("email")
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              class: _vm.filterClasses("email"),
+                              on: {
+                                click: function($event) {
+                                  _vm.filterColumn("email", {
+                                    search: ["email"],
                                     noOptions: true
                                   })
                                 }
@@ -98034,23 +98263,23 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", { staticClass: "hidden-xs" }, [
                           _vm._v(
-                            "\n                  Nº de Licencia\n                  "
+                            "\n                    Teléfono\n                    "
                           ),
                           _c("p", [
                             _c("span", {
-                              class: _vm.orderClasses("license_number"),
+                              class: _vm.orderClasses("phone"),
                               on: {
                                 click: function($event) {
-                                  _vm.orderColumn("license_number")
+                                  _vm.orderColumn("phone")
                                 }
                               }
                             }),
                             _vm._v(" "),
                             _c("span", {
-                              class: _vm.filterClasses("license_number"),
+                              class: _vm.filterClasses("phone"),
                               on: {
                                 click: function($event) {
-                                  _vm.filterColumn("license_number")
+                                  _vm.filterColumn("phone")
                                 }
                               }
                             })
@@ -98059,7 +98288,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", { staticClass: "hidden-xs" }, [
                           _vm._v(
-                            "\n                  Año de Licencia\n                  "
+                            "\n                    Año de Licencia\n                    "
                           ),
                           _c("p", [
                             _c("span", {
@@ -98088,7 +98317,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("th", { staticClass: "icons" }, [
                           _vm._v(
-                            "\n                  Estado\n                  "
+                            "\n                    Estado\n                    "
                           ),
                           _c("p", [
                             _c("span", {
@@ -98159,34 +98388,42 @@ var render = function() {
                             ]),
                             _vm._v(" "),
                             _c("td", [
+                              _c("strong", [
+                                _c(
+                                  "a",
+                                  {
+                                    attrs: {
+                                      href:
+                                        "/requests?user[0]=" +
+                                        user.id +
+                                        "&user[1]=" +
+                                        _vm.userCompleteName(index)
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(user.requestsCount) +
+                                        "\n                  "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            _c("td", { staticClass: "hidden-xs" }, [
+                              _vm._v(_vm._s(user.clinicsCount))
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "hidden-xs" }, [
                               _c(
                                 "a",
-                                {
-                                  attrs: {
-                                    href:
-                                      "/requests?user[0]=" +
-                                      user.id +
-                                      "&user[1]=" +
-                                      _vm.userCompleteName(index)
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(user.requestsCount) +
-                                      "\n                "
-                                  )
-                                ]
+                                { attrs: { href: "mailTo:" + user.email } },
+                                [_vm._v(_vm._s(user.email))]
                               )
                             ]),
                             _vm._v(" "),
                             _c("td", { staticClass: "hidden-xs" }, [
-                              _vm._v(_vm._s(user.personal_id_number))
-                            ]),
-                            _vm._v(" "),
-                            _c("td", { staticClass: "hidden-xs" }, [
                               _vm._v(
-                                _vm._s(user.license_number) +
-                                  "\n                  "
+                                _vm._s(user.phone) + "\n                    "
                               )
                             ]),
                             _c("td", {
@@ -98227,17 +98464,17 @@ var render = function() {
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-primary",
+                                  staticClass: "btn btn-primary btn-sm",
                                   attrs: { type: "button" },
                                   on: {
                                     click: function($event) {
-                                      _vm.toggleShowRequest(user)
+                                      _vm.toggleShowDetails(index)
                                     }
                                   }
                                 },
                                 [
                                   _c("span", { staticClass: "hidden-xs" }, [
-                                    _vm._v("Detalles\n                    ")
+                                    _vm._v("Detalles\n                        ")
                                   ]),
                                   _vm._v(" "),
                                   _c("span", {
@@ -98255,6 +98492,129 @@ var render = function() {
                 : _vm._e()
             ])
           ]),
+          _vm._v(" "),
+          this.admin && this.userSelected
+            ? _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-xs-12 col-md-10 col-md-offset-1" },
+                  [
+                    _c("div", { staticClass: "col-xs-12 col-sm-4 vcenter" }, [
+                      _c(
+                        "div",
+                        { staticClass: "alert alert-info form-group" },
+                        [
+                          _c("h3", [
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(_vm.userSelected.name) +
+                                  " " +
+                                  _vm._s(_vm.userSelected.lastname1)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Email: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.userSelected.email))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Teléfono: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.userSelected.phone))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("DNI: "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(_vm.userSelected.personal_id_number)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Licencia: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.userSelected.license_number))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Año Licencia: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.userSelected.license_year))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Especialidades: "),
+                            _c("strong", {
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.parseEspecialties(
+                                    0,
+                                    _vm.userSelected.especialties,
+                                    true
+                                  )
+                                )
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Último Acceso: "),
+                            _c("strong", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.userSelected.user.last_access
+                                    ? _vm.userSelected.user.last_access
+                                    : "Nunca"
+                                )
+                              )
+                            ])
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "form-group col-xs-12" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-info btn-block btn-sm",
+                              on: { click: _vm.toggleShowDetails }
+                            },
+                            [_vm._v("Volver")]
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "col-xs-12 col-sm-8 tutorial-prompt vcenter"
+                      },
+                      [
+                        _c("schedule", {
+                          attrs: {
+                            profileSelected: _vm.userSelected,
+                            admin: true
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "panel-footer" }, [
             _c("div", { staticClass: "progress" }, [
@@ -98508,7 +98868,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           name: '1',
           icon: 'glyphicon glyphicon-lock',
           header: 'Paso 1:<br>Seguridad',
-          text: 'Por favor, cambia la contraseña temporal.<br>Debe contener al menos una mayúscula, una mnúscula, un número y un símbolo ("#","$","%","&"...)',
+          text: 'Por favor, cambia la contraseña temporal.<br>La nueva contraseña debe ser de al menos 8 caracteres y contener una mayúscula, una mnúscula y un número.',
           completed: false
         },
         '2': {
@@ -103373,7 +103733,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -103545,19 +103905,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       } else {
         field = e.target.id;
       }
-      if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
-        this.formErrors[field] = 'Este campo es obligatorio';
-        return false;
-      }
-      if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
-        var nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
-        if (!this.profileSrc[field].match(nameFormat)) {
-          this.formErrors[field] = 'No se permiten números ni símbolos';
+      if (field != 'lastname2') {
+        if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
+          this.formErrors[field] = 'Este campo es obligatorio';
           return false;
         }
-        if (this.profileSrc[field].length > 30) {
-          this.formErrors[field] = 'Máximo 30 caracteres';
-          return false;
+      }
+      if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
+        if (this.profileSrc[field]) {
+          var nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
+          if (!this.profileSrc[field].match(nameFormat)) {
+            this.formErrors[field] = 'No se permiten números ni símbolos';
+            return false;
+          }
+          if (this.profileSrc[field].length > 30) {
+            this.formErrors[field] = 'Máximo 30 caracteres';
+            return false;
+          }
         }
       }
       if (field == 'email') {
@@ -104987,7 +105351,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -105004,6 +105368,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_table_filtering_js__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_table_ordering_js__ = __webpack_require__(135);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -105276,6 +105652,77 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {},
   methods: {
+    parseEspecialties: function parseEspecialties(index, object, string) {
+      var especialties = [];
+      var glue = '<br>';
+      if (string) {
+        glue = ', ';
+      }
+      if (object) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = object[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var especialty = _step.value;
+
+            if (especialties.indexOf(especialty.name) == -1) {
+              especialties.push(especialty.name);
+            }
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+
+        return especialties.join(glue);
+      }
+      var source = '';
+      if (App.role == 'admin') {
+        source = 'extratimes';
+      } else {
+        source = 'profileSrc.extratimes';
+      }
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        for (var _iterator2 = this[source][index].especialties[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var _especialty = _step2.value;
+
+          if (especialties.indexOf(_especialty.name) == -1) {
+            especialties.push(_especialty.name);
+          }
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2.return) {
+            _iterator2.return();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+
+      return especialties.join(glue);
+    },
     startFilters: function startFilters() {
       if (this.filtering.filters['state']) {
         delete this.filtering.filters['state'];
@@ -105283,13 +105730,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.filterColumn('state', { number: ['Denegada', 'Pendiente', 'Aceptada'] });
       this.filtering.state = false;
       var empty = true;
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      var _iteratorNormalCompletion3 = true;
+      var _didIteratorError3 = false;
+      var _iteratorError3 = undefined;
 
       try {
-        for (var _iterator = this.filtering.filters['state'].keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var item = _step.value;
+        for (var _iterator3 = this.filtering.filters['state'].keys[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+          var item = _step3.value;
 
           if (item.label == 'Aceptada' || item.label == 'Denegada') {
             console.log(item.keys);
@@ -105298,16 +105745,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _didIteratorError3 = true;
+        _iteratorError3 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
+          if (!_iteratorNormalCompletion3 && _iterator3.return) {
+            _iterator3.return();
           }
         } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
+          if (_didIteratorError3) {
+            throw _iteratorError3;
           }
         }
       }
@@ -105334,13 +105781,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           this.filterColumn(filter);
           this.filtering.state = false;
           var ids = [];
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
+          var _iteratorNormalCompletion4 = true;
+          var _didIteratorError4 = false;
+          var _iteratorError4 = undefined;
 
           try {
-            for (var _iterator2 = this.filtering.filters[filter].keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var item = _step2.value;
+            for (var _iterator4 = this.filtering.filters[filter].keys[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+              var item = _step4.value;
 
               var cleanName = cleanUpSpecialChars(item.label.toLowerCase());
               if (cleanName != search[filter]) {
@@ -105350,16 +105797,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               }
             }
           } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
+            _didIteratorError4 = true;
+            _iteratorError4 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                _iterator2.return();
+              if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                _iterator4.return();
               }
             } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
+              if (_didIteratorError4) {
+                throw _iteratorError4;
               }
             }
           }
@@ -105405,13 +105852,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     notifyClosed: function notifyClosed(id, state) {
-      var _iteratorNormalCompletion3 = true;
-      var _didIteratorError3 = false;
-      var _iteratorError3 = undefined;
+      var _iteratorNormalCompletion5 = true;
+      var _didIteratorError5 = false;
+      var _iteratorError5 = undefined;
 
       try {
-        for (var _iterator3 = this.extratimes[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-          var extratime = _step3.value;
+        for (var _iterator5 = this.extratimes[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+          var extratime = _step5.value;
 
           if (extratime.id == id) {
             extratime.state = state;
@@ -105419,16 +105866,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           }
         }
       } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
+        _didIteratorError5 = true;
+        _iteratorError5 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-            _iterator3.return();
+          if (!_iteratorNormalCompletion5 && _iterator5.return) {
+            _iterator5.return();
           }
         } finally {
-          if (_didIteratorError3) {
-            throw _iteratorError3;
+          if (_didIteratorError5) {
+            throw _iteratorError5;
           }
         }
       }
@@ -105583,7 +106030,7 @@ var render = function() {
                           staticClass: "btn btn-sm btn-block btn-info",
                           on: { click: _vm.selectAllFilters }
                         },
-                        [_vm._v("Todos")]
+                        [_vm._v("Todos/Ninguno")]
                       )
                     ]),
                     _vm._v(" "),
@@ -105854,7 +106301,11 @@ var render = function() {
                       _vm._v(" "),
                       _c("th", { staticClass: "hidden-xs" }, [_vm._v("Fecha")]),
                       _vm._v(" "),
-                      _c("th", [_vm._v("Detalles")]),
+                      _c("th", { staticClass: "hidden-xs" }, [
+                        _vm._v("Especialidades")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", [_vm._v("Horario")]),
                       _vm._v(" "),
                       _c("th", [_vm._v("Estado")]),
                       _vm._v(" "),
@@ -105864,7 +106315,10 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.profileSrc.extratimes, function(extraTime) {
+                    _vm._l(_vm.profileSrc.extratimes, function(
+                      extraTime,
+                      index
+                    ) {
                       return _c("tr", [
                         _c("td", [
                           _vm._v(
@@ -105895,7 +106349,7 @@ var render = function() {
                                   extraTime.clinic.address_real_1 +
                                   ")"
                                 : "Indiferente"
-                            )
+                            ) + "\n              "
                           )
                         ]),
                         _vm._v(" "),
@@ -105907,6 +106361,14 @@ var render = function() {
                             )
                           }
                         }),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("strong", {
+                            domProps: {
+                              innerHTML: _vm._s(_vm.parseEspecialties(index))
+                            }
+                          })
+                        ]),
                         _vm._v(" "),
                         _c("td", {
                           domProps: {
@@ -106127,6 +106589,33 @@ var render = function() {
                           ])
                         ]),
                         _vm._v(" "),
+                        _c("th", { staticClass: "clinic" }, [
+                          _vm._v(
+                            "\n                  Especialidades\n                  "
+                          ),
+                          _c("p", [
+                            _c("span", {
+                              class: _vm.orderClasses("name"),
+                              on: {
+                                click: function($event) {
+                                  _vm.orderColumn("name")
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("span", {
+                              class: _vm.filterClasses("name"),
+                              on: {
+                                click: function($event) {
+                                  _vm.filterColumn("name", {
+                                    object: "especialties"
+                                  })
+                                }
+                              }
+                            })
+                          ])
+                        ]),
+                        _vm._v(" "),
                         _c("th", [_vm._v("Detalles")]),
                         _vm._v(" "),
                         _c("th", { staticClass: "icons" }, [
@@ -106170,7 +106659,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.extratimes, function(extraTime) {
+                      _vm._l(_vm.extratimes, function(extraTime, index) {
                         return _c(
                           "tr",
                           {
@@ -106237,6 +106726,16 @@ var render = function() {
                                 )
                               }
                             }),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c("strong", {
+                                domProps: {
+                                  innerHTML: _vm._s(
+                                    _vm.parseEspecialties(index)
+                                  )
+                                }
+                              })
+                            ]),
                             _vm._v(" "),
                             _c("td", {
                               domProps: {
@@ -106329,7 +106828,7 @@ var render = function() {
                         "div",
                         { staticClass: "alert alert-info form-group" },
                         [
-                          _c("p", [
+                          _c("h3", [
                             _c("strong", [
                               _vm._v(
                                 _vm._s(_vm.extratimeSelected.profile.name) +
@@ -106391,6 +106890,21 @@ var render = function() {
                                 )
                               )
                             ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
+                            _vm._v("Especialidades: "),
+                            _c("strong", {
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.parseEspecialties(
+                                    0,
+                                    _vm.extratimeSelected.especialties,
+                                    true
+                                  )
+                                )
+                              }
+                            })
                           ]),
                           _vm._v(" "),
                           _c("p", [
