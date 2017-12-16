@@ -1,6 +1,6 @@
 <template>
   <div>
-    <request-graphs></request-graphs>
+    <request-graphs @ready="requestsReady"></request-graphs>
     <users-graphs></users-graphs>
   </div>
 </template>
@@ -16,17 +16,44 @@
         ],
         data() {
             return {
+                tests: {
+                    requests: false,
+                    users: true,
+                },
             }
         },
         watch: {
+            ready() {
+                if (this.ready) {
+                    window.events.$emit('loaded');
+                }
+            }   
         },
         methods: {
+            requestsReady() {
+                this.tests.requests = true;
+            }
         },
         computed: {
+            ready() {
+                for (let test in this.tests) {
+                    if (!this.tests[test]) {
+                        return false;
+                    }
+                }
+                return true;
+            }   
+        },
+        beforeCreate() {
+            window.events.$emit('loading');
         },
         created() {
-          moment.locale('es');
+            moment.locale('es');
+            // window.events.$emit('loading');
         },
+        // mounted() {
+        //     window.events.$emit('loading');
+        // }
     }
 </script>
 <style type="text/css">

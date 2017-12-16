@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 433);
+/******/ 	return __webpack_require__(__webpack_require__.s = 438);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4690,7 +4690,9 @@ module.exports = Element;
 
 /***/ }),
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4704,8 +4706,6 @@ module.exports.Rectangle = __webpack_require__(149);
 
 
 /***/ }),
-/* 7 */,
-/* 8 */,
 /* 9 */,
 /* 10 */,
 /* 11 */
@@ -17259,7 +17259,7 @@ __webpack_require__(141)(Chart);
 
 Chart.defaults = __webpack_require__(3);
 Chart.Element = __webpack_require__(4);
-Chart.elements = __webpack_require__(6);
+Chart.elements = __webpack_require__(8);
 Chart.Interaction = __webpack_require__(15);
 Chart.platform = __webpack_require__(16);
 
@@ -27215,7 +27215,7 @@ webpackContext.id = 166;
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('bar', {
@@ -27643,7 +27643,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('bubble', {
@@ -27830,7 +27830,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('doughnut', {
@@ -28136,7 +28136,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('line', {
@@ -28476,7 +28476,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('polarArea', {
@@ -28705,7 +28705,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('radar', {
@@ -29057,7 +29057,7 @@ module.exports = function(Chart) {
 
 
 var defaults = __webpack_require__(3);
-var elements = __webpack_require__(6);
+var elements = __webpack_require__(8);
 var helpers = __webpack_require__(2);
 
 defaults._set('global', {
@@ -30445,14 +30445,19 @@ module.exports = function(Chart) {
 /* 430 */,
 /* 431 */,
 /* 432 */,
-/* 433 */
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(434);
+module.exports = __webpack_require__(439);
 
 
 /***/ }),
-/* 434 */
+/* 439 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

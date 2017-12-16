@@ -39,10 +39,8 @@
     <div id="app">
         @if(auth()->check())
         @include('nav.main')
+        <loading></loading>
         @endif
-{{--         @php
-        var_dump(session('flash'));
-        @endphp --}}
         @yield('content')
         <flash message="{{ session('flash') }}"></flash>
         @if (session('status'))

@@ -22,8 +22,8 @@
                 isActive: '',
                 admin: {
                     requests: [],
-                    profiles: [],
-                    extratimes: [],
+                    profiles: [''],
+                    extratimes: [''],
                     requestsUnsolved: 0,
                     extratimesUnsolved: 0,
                     deadUsers: 0,
@@ -53,8 +53,10 @@
             },
             countDeadUsers() {
                 for (let profile of this.admin.profiles) {
-                    if (!profile.user.last_access) {
-                        this.admin.deadUsers++;
+                    if (profile.user) {
+                        if (!profile.user.last_access) {
+                            this.admin.deadUsers++;
+                        }
                     }
                 }
             },
@@ -93,7 +95,6 @@
             this.fetchMenuData();
         },
         mounted() {
-            console.log('Component mounted.')
         }
     }
 </script>

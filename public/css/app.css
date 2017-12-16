@@ -12995,8 +12995,9 @@ h4 {
 
 .loader-box {
   position: absolute;
-  width: 98%;
-  height: 50vh;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
   color: #753470;
   overflow: hidden;
@@ -13005,7 +13006,7 @@ h4 {
 
 .fa.loading-box {
   font-size: 3em;
-  top: 30px;
+  top: 300px;
   position: absolute;
 }
 

@@ -4,9 +4,6 @@
         <div class="panel-heading text-center" v-if="admin">
           <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Bolsa de Horas</h3>
         </div>
-        <div class="loader-box" v-if="loading">
-          <i class="fa fa-spinner fa-spin loading-box"></i>
-        </div>
         <div v-show="!loading">
           <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
               <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
@@ -467,6 +464,7 @@
                   this.orderColumn('created_at',{order:'desc'});
                 }
                 this.loading = false;
+                window.events.$emit('loaded');
               });
           },
         },
@@ -479,9 +477,12 @@
             }
           }
         },
+        created() {
+          window.events.$emit('loading');
+        },
         mounted() {
           moment.locale('es');
-          setTimeout(function(){this.fetchProfile()}.bind(this),1000);
+          this.fetchProfile();
         },
     }
 </script>

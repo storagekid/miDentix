@@ -204,6 +204,7 @@
                   this.splitByYear();
                 }
                 this.requestNumberGraph();
+                this.$emit('ready');
               });
           },
         },

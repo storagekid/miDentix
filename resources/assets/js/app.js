@@ -21,6 +21,9 @@ window.flash = function (message) {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component('loading', require('./components/loading.vue'));
+Vue.component('flash', require('./components/Flash.vue'));
+
 Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
 Vue.component('requests', require('./pages/request.vue'));
@@ -28,7 +31,6 @@ Vue.component('users', require('./pages/users.vue'));
 Vue.component('tutorial', require('./pages/tutorial.vue'));
 Vue.component('admin-control-panel', require('./pages/admin-control-panel.vue'));
 
-Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('filters', require('./components/filters.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
@@ -40,5 +42,5 @@ Vue.component('new-request', require('./components/requests/new-requests.vue'));
 Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
