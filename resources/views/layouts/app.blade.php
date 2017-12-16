@@ -26,11 +26,11 @@
         }
         let auth = "<?php echo auth()->check(); ?>"      
         if (auth != '') {
-            let user = {!! json_encode(auth()->user()) !!};
+            let role = {!! json_encode(auth()->user()->role) !!};
             window.App = {!! json_encode([
                 'role' => '',
             ]) !!};
-            window.App.role = user.role;
+            window.App.role = role;
             window.App.page = getPage();
         }
     </script>
@@ -39,9 +39,16 @@
     <div id="app">
         @if(auth()->check())
         @include('nav.main')
-        <loading></loading>
         @endif
-        @yield('content')
+        <div class="container-fluid">
+            <div class="row">
+                @include('nav.left')
+                <div class="col-sm-10" id="main-content">
+                    <loading></loading>
+                    @yield('content')
+                </div>
+            </div>
+        </div>
         <flash message="{{ session('flash') }}"></flash>
         @if (session('status'))
         <flash message="{{ session('status') }}"></flash>

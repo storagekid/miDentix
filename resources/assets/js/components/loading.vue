@@ -1,7 +1,9 @@
 <template>
+  <div class="row">
       <div class="loader-box" v-if="loading">
         <i class="fa fa-spinner fa-spin loading-box"></i>
       </div>
+  </div>
 </template>
 
 <script>

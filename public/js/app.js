@@ -90646,7 +90646,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -90696,6 +90696,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -90727,11 +90729,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.loading
-    ? _c("div", { staticClass: "loader-box" }, [
-        _c("i", { staticClass: "fa fa-spinner fa-spin loading-box" })
-      ])
-    : _vm._e()
+  return _c("div", { staticClass: "row" }, [
+    _vm.loading
+      ? _c("div", { staticClass: "loader-box" }, [
+          _c("i", { staticClass: "fa fa-spinner fa-spin loading-box" })
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
