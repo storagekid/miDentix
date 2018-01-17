@@ -111,76 +111,57 @@ export default {
 		let fullName = '';
 		let source = this.filtering.source;
 		for (var i = 0; i < this[source].length; i++) {
+			let base = this[source][i];
+			if (options.object) {
+				base = base[options.object];
+			}
 			let keysDone = false;
 		  	var id = this[this.filtering.source][i].id;
-		    if (!options.object) {
-		      if (options.number) {
-		        fullName = options.number[this[source][i][name]];
+
+	      	if (options.number) {
+		        fullName = options.number[base[name]];
 		        cleanName = cleanUpSpecialChars(fullName.toLowerCase());
-		      } else if (options.numeric) {
-		      	fullName = this[source][i][name];
+	      	} else if (options.numeric) {
+		      	fullName = base[name];
 		      	cleanName = fullName;
-		      } else if (options.boolean) {
-		      	if (this[source][i][name] == null) {
+			} else if (options.boolean) {
+		      	if (!base || base[name] == null) {
 		      		fullName = options.boolean[0];
 		      		cleanName = options.boolean[0].toLowerCase();
 		      	} else {
 		      		fullName = options.boolean[1];
 		      		cleanName = options.boolean[1].toLowerCase();
 		      	}
-		      } else if (this[source][i][name] == null) {
-		        cleanName = '-';
-		        fullName = options.nullName;
-		      } else {
-		        fullName = this[source][i][name];
-                if (options.integer) {
-                  cleanName = fullName;
-                } else {
-                  cleanName = cleanUpSpecialChars(this[source][i][name].toLowerCase());
-                }
-		      }
-		    } else {
-		      	if (options.boolean) {
-			      	if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
-			      		fullName = options.boolean[0];
-			      		cleanName = options.boolean[0].toLowerCase();
-			      	} else {
-			      		fullName = options.boolean[1];
-			      		cleanName = options.boolean[1].toLowerCase();
-			      	}
-                } else if (Array.isArray(this[source][i][options.object])) {
-                	console.log('Array');
-                	keysDone = true;
-                	for (let item of this[source][i][options.object]) {
-                		fullName = item[name];
-                		cleanName = cleanUpSpecialChars(fullName.toLowerCase());
-                		let state = false;
-                		if (labels.indexOf(cleanName) == -1) {
-                		    labels.push(cleanName);
-                		    var key = {label: fullName, keys: [id], state: state};
-                		    keys.push(key);
-                		} else {
-                		  for (var o = 0; o < keys.length; o++) {
-                		    if (keys[o].label == fullName) {
-                		        keys[o].keys.push(id);
-                		    }
-                		  }
-                		}
-                	}
-                } else if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
-                  console.log('here');
-                  console.log(options.object);
-                  cleanName = '-';
-                  fullName = options.nullName;
-                } else {
-	                fullName = this[source][i][options.object][name];
-	                if (options.integer) {
-	                    cleanName = fullName;
-	                } else {
-	                    cleanName = cleanUpSpecialChars(this[source][i][options.object][name].toLowerCase());
-	                }
-                }
-            }
+            } else if (Array.isArray(base)) {
+            	keysDone = true;
+            	for (let item of base) {
+            		fullName = item[name];
+            		cleanName = cleanUpSpecialChars(fullName.toLowerCase());
+            		let state = false;
+            		if (labels.indexOf(cleanName) == -1) {
+            		    labels.push(cleanName);
+            		    var key = {label: fullName, keys: [id], state: state};
+            		    keys.push(key);
+            		} else {
+            		  for (var o = 0; o < keys.length; o++) {
+            		    if (keys[o].label == fullName) {
+            		        keys[o].keys.push(id);
+            		    }
+            		  }
+            		}
+            	}
+            } else if (!base || base[name] == null) {
+              cleanName = '-';
+              fullName = options.nullName;
+            } else {
+	        	fullName = base[name];
+            	if (options.integer) {
+              		cleanName = fullName;
+            	} else {
+              		cleanName = cleanUpSpecialChars(base[name].toLowerCase());
+            	}
+	      	}
+
             if (!keysDone) {
             	let state = false;
             	if (labels.indexOf(cleanName) == -1) {

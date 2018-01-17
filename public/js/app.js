@@ -22910,97 +22910,78 @@ module.exports = defaults;
 			var fullName = '';
 			var source = this.filtering.source;
 			for (var i = 0; i < this[source].length; i++) {
+				var base = this[source][i];
+				if (options.object) {
+					base = base[options.object];
+				}
 				var keysDone = false;
 				var id = this[this.filtering.source][i].id;
-				if (!options.object) {
-					if (options.number) {
-						fullName = options.number[this[source][i][name]];
-						cleanName = cleanUpSpecialChars(fullName.toLowerCase());
-					} else if (options.numeric) {
-						fullName = this[source][i][name];
-						cleanName = fullName;
-					} else if (options.boolean) {
-						if (this[source][i][name] == null) {
-							fullName = options.boolean[0];
-							cleanName = options.boolean[0].toLowerCase();
-						} else {
-							fullName = options.boolean[1];
-							cleanName = options.boolean[1].toLowerCase();
-						}
-					} else if (this[source][i][name] == null) {
-						cleanName = '-';
-						fullName = options.nullName;
+
+				if (options.number) {
+					fullName = options.number[base[name]];
+					cleanName = cleanUpSpecialChars(fullName.toLowerCase());
+				} else if (options.numeric) {
+					fullName = base[name];
+					cleanName = fullName;
+				} else if (options.boolean) {
+					if (!base || base[name] == null) {
+						fullName = options.boolean[0];
+						cleanName = options.boolean[0].toLowerCase();
 					} else {
-						fullName = this[source][i][name];
-						if (options.integer) {
-							cleanName = fullName;
-						} else {
-							cleanName = cleanUpSpecialChars(this[source][i][name].toLowerCase());
-						}
+						fullName = options.boolean[1];
+						cleanName = options.boolean[1].toLowerCase();
 					}
-				} else {
-					if (options.boolean) {
-						if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
-							fullName = options.boolean[0];
-							cleanName = options.boolean[0].toLowerCase();
-						} else {
-							fullName = options.boolean[1];
-							cleanName = options.boolean[1].toLowerCase();
-						}
-					} else if (Array.isArray(this[source][i][options.object])) {
-						console.log('Array');
-						keysDone = true;
-						var _iteratorNormalCompletion5 = true;
-						var _didIteratorError5 = false;
-						var _iteratorError5 = undefined;
+				} else if (Array.isArray(base)) {
+					keysDone = true;
+					var _iteratorNormalCompletion5 = true;
+					var _didIteratorError5 = false;
+					var _iteratorError5 = undefined;
 
-						try {
-							for (var _iterator5 = this[source][i][options.object][Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-								var _item2 = _step5.value;
+					try {
+						for (var _iterator5 = base[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+							var _item2 = _step5.value;
 
-								fullName = _item2[name];
-								cleanName = cleanUpSpecialChars(fullName.toLowerCase());
-								var state = false;
-								if (labels.indexOf(cleanName) == -1) {
-									labels.push(cleanName);
-									var key = { label: fullName, keys: [id], state: state };
-									keys.push(key);
-								} else {
-									for (var o = 0; o < keys.length; o++) {
-										if (keys[o].label == fullName) {
-											keys[o].keys.push(id);
-										}
+							fullName = _item2[name];
+							cleanName = cleanUpSpecialChars(fullName.toLowerCase());
+							var state = false;
+							if (labels.indexOf(cleanName) == -1) {
+								labels.push(cleanName);
+								var key = { label: fullName, keys: [id], state: state };
+								keys.push(key);
+							} else {
+								for (var o = 0; o < keys.length; o++) {
+									if (keys[o].label == fullName) {
+										keys[o].keys.push(id);
 									}
 								}
 							}
-						} catch (err) {
-							_didIteratorError5 = true;
-							_iteratorError5 = err;
+						}
+					} catch (err) {
+						_didIteratorError5 = true;
+						_iteratorError5 = err;
+					} finally {
+						try {
+							if (!_iteratorNormalCompletion5 && _iterator5.return) {
+								_iterator5.return();
+							}
 						} finally {
-							try {
-								if (!_iteratorNormalCompletion5 && _iterator5.return) {
-									_iterator5.return();
-								}
-							} finally {
-								if (_didIteratorError5) {
-									throw _iteratorError5;
-								}
+							if (_didIteratorError5) {
+								throw _iteratorError5;
 							}
 						}
-					} else if (!this[source][i][options.object] || this[source][i][options.object][name] == null) {
-						console.log('here');
-						console.log(options.object);
-						cleanName = '-';
-						fullName = options.nullName;
+					}
+				} else if (!base || base[name] == null) {
+					cleanName = '-';
+					fullName = options.nullName;
+				} else {
+					fullName = base[name];
+					if (options.integer) {
+						cleanName = fullName;
 					} else {
-						fullName = this[source][i][options.object][name];
-						if (options.integer) {
-							cleanName = fullName;
-						} else {
-							cleanName = cleanUpSpecialChars(this[source][i][options.object][name].toLowerCase());
-						}
+						cleanName = cleanUpSpecialChars(base[name].toLowerCase());
 					}
 				}
+
 				if (!keysDone) {
 					var _state = false;
 					if (labels.indexOf(cleanName) == -1) {
@@ -49038,7 +49019,6 @@ window.Vue = __webpack_require__(336);
 window.events = new Vue();
 
 window.flash = function (message) {
-
   window.events.$emit('flash', message);
 };
 
@@ -49068,7 +49048,23 @@ Vue.component('new-request', __webpack_require__(426));
 Vue.component('extra-time', __webpack_require__(431));
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  methods: {
+    checkSession: function checkSession() {
+      axios.get('/api/session').catch(function (response) {
+        console.log(response);
+        window.location.href = '/login';
+      }).then(function (data) {
+        console.log(data.status);
+        if (data.status != 200) {
+          window.location.href = '/logout';
+        }
+      });
+    }
+  },
+  created: function created() {
+    setInterval(this.checkSession, 6 * 60 * 1000);
+  }
 });
 
 /***/ }),
@@ -91290,11 +91286,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       tabs: {
         clinics: {
-          name: 'Clíncas',
+          name: 'Clínicas',
           icon: 'glyphicon glyphicon-home'
         },
         extraTime: {
-          name: 'Bolsa de Horas',
+          name: 'Ampliar horario',
           icon: 'glyphicon glyphicon-time'
         }
       },
@@ -91667,7 +91663,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         message: 'Solicitud eliminada correctamente',
         label: 'success'
       });
-      this.removeProfileExtratime(data.id);
+      // this.removeProfileExtratime(data.id);
       if (!this.profileSrc.extratimes.length) {
         this.toggleUpdate();
       }
@@ -95391,7 +95387,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96078,8 +96074,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this2.buildFiltering('requests');
           _this2.buildOrdering('requests');
           _this2.selectAllItems();
-          _this2.startFilters();
-          _this2.applyUrlFilters();
+          if (App.role == 'admin') {
+            _this2.startFilters();
+            _this2.applyUrlFilters();
+          }
           _this2.orderColumn('created_at', { order: 'desc' });
         }
         _this2.calculateRatio();
@@ -96515,9 +96513,7 @@ var render = function() {
                     _vm.page == "home"
                       ? _c(
                           "tbody",
-                          _vm._l(_vm.profileSrc.requests.slice(0, 5), function(
-                            request
-                          ) {
+                          _vm._l(_vm.requests.slice(0, 5), function(request) {
                             return _c("tr", [
                               _c("td", [
                                 _c("strong", [
@@ -96625,7 +96621,7 @@ var render = function() {
                         )
                       : _c(
                           "tbody",
-                          _vm._l(_vm.profileSrc.requests, function(request) {
+                          _vm._l(_vm.requests, function(request) {
                             return _c("tr", [
                               _c("td", [
                                 _c("strong", [
@@ -104105,7 +104101,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
         if (this.profileSrc[field]) {
-          var nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
+          var nameFormat = /^[a-záàâéèêíìîóòôúùûçñA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇÑ\s']+$/;
           if (!this.profileSrc[field].match(nameFormat)) {
             this.formErrors[field] = 'No se permiten números ni símbolos';
             return false;

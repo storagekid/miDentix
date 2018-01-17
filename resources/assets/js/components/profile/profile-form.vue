@@ -164,7 +164,7 @@
             }
             if (field == 'name' || field == 'lastname1' || field == 'lastname2') {
               if (this.profileSrc[field]) {
-                let nameFormat = /^[a-záàâéèêíìîóòôúùûçA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇ\s']+$/;
+                let nameFormat = /^[a-záàâéèêíìîóòôúùûçñA-ZÁÀÂÉÈÊÍÌÎÓÒÔÚÙÛÇÑ\s']+$/;
                 if (!this.profileSrc[field].match(nameFormat)) {
                   this.formErrors[field] = 'No se permiten números ni símbolos';
                   return false;

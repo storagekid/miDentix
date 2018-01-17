@@ -95,7 +95,7 @@
               </tr>
             </thead>
             <tbody v-if="page == 'home'">
-              <tr v-for="request in profileSrc.requests.slice(0,5)">
+              <tr v-for="request in requests.slice(0,5)">
                 <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
                 <td>{{request.type}}</td>
                 <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
@@ -123,7 +123,7 @@
               </tr>
             </tbody>
             <tbody v-else>
-              <tr v-for="request in profileSrc.requests">
+              <tr v-for="request in requests">
                 <td><strong>{{request.clinic.city}}</strong><br>({{request.clinic.address_real_1}})</td>
                 <td>{{request.type}}</td>
                 <td v-if="showElement" class="hidden-xs">{{request.type_detail1 ? request.type_detail1 : '-'}}</td>
@@ -557,8 +557,10 @@
                   this.buildFiltering('requests');
                   this.buildOrdering('requests');
                   this.selectAllItems();
-                  this.startFilters();
-                  this.applyUrlFilters();
+                  if (App.role == 'admin') {
+                    this.startFilters();
+                    this.applyUrlFilters();
+                  }
                   this.orderColumn('created_at',{order:'desc'});
                 }
                 this.calculateRatio();

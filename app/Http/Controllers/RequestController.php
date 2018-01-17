@@ -20,7 +20,8 @@ class RequestController extends Controller
         $typesDetail1 = $request->type_details1[0];
         if (auth()->user()->role == 'user') {
             $profile = auth()->user()->profile->load(['requests','clinics']);
-            return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs];
+            $requests = $profile->requests;
+            return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs,'requests'=>$requests];
         } 
         if (auth()->user()->role == 'admin') {
             $profile = auth()->user()->profile->load(['requests','clinics']);

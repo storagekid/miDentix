@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function() {
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 	Route::get('/api/users', 'UserController@indexApi');
 
+	Route::get('/api/session', 'SessionController@indexApi');
+
 	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
 });
 

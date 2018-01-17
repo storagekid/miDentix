@@ -12,7 +12,6 @@ window.Vue = require('vue');
 window.events = new Vue();
 
 window.flash = function (message) {
-
 	window.events.$emit('flash', message);
 };
 
@@ -43,4 +42,22 @@ Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 
 const app = new Vue({
     el: '#app',
+    methods: {
+    	checkSession() {
+    		axios.get('/api/session')
+    			.catch(response => {
+    				console.log(response);
+    				window.location.href = '/login';
+    			})
+    			.then(data => {
+    				console.log(data.status);
+    				if (data.status != 200) {
+    					window.location.href = '/logout';
+    				}
+    			});
+    	}
+    },
+    created() {
+    	setInterval(this.checkSession, (6*60*1000));
+    },
 });

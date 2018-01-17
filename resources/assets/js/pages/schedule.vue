@@ -237,11 +237,11 @@
               },
               tabs: {
                 clinics: {
-                  name: 'Clíncas',
+                  name: 'Clínicas',
                   icon: 'glyphicon glyphicon-home',
                 },
                 extraTime: {
-                  name: 'Bolsa de Horas',
+                  name: 'Ampliar horario',
                   icon: 'glyphicon glyphicon-time',
                 },
               },
@@ -556,7 +556,7 @@
                   message: 'Solicitud eliminada correctamente', 
                   label: 'success'
               });
-              this.removeProfileExtratime(data.id);
+              // this.removeProfileExtratime(data.id);
               if (!this.profileSrc.extratimes.length) {
                 this.toggleUpdate();
               }
