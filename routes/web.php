@@ -28,6 +28,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::patch('/schedule/{schedule}', 'ScheduleController@update');
 
 	Route::get('/api/profile', 'ProfileController@indexApi');
+	Route::get('/api/profile/{profile}', 'ProfileController@indexApiById');
 	Route::patch('/profile/{profile}', 'ProfileController@update');
 
 	Route::get('/api/experience', 'ExperienceController@indexApi');

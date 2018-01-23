@@ -25,7 +25,7 @@ class RequestController extends Controller
         } 
         if (auth()->user()->role == 'admin') {
             $profile = auth()->user()->profile->load(['requests','clinics']);
-            $requests = RequestModel::all()->load(['profile']);
+            $requests = RequestModel::all()->load(['profile','admin']);
             return ['types'=>$types,'details'=>$typesDetail1,'profile'=>$profile,'labs'=>$labs,'requests'=>$requests];
         }
     }
@@ -60,6 +60,7 @@ class RequestController extends Controller
     }
     public function update(RequestModel $request) {
         $request->closed_at = Carbon::now();
+        $request->closed_by = auth()->id();
         $request->save();
         if (request()->expectsJson()) {
             return response([

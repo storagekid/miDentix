@@ -22,6 +22,7 @@ class CreateRequestsTable extends Migration
             $table->text('description');
             $table->timestamps();
             $table->dateTime('closed_at')->nullable()->default(null);
+            $table->unsignedInteger('closed_by')->nullable()->default(null);
         });
     }
 

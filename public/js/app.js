@@ -91935,7 +91935,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -92600,6 +92600,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 }
 
+                return false;
+            } else {
+                console.log("New Clinic");
+                if (this.especialtiesToSave.indexOf(id) != -1) {
+                    return true;
+                }
                 return false;
             }
         },
@@ -95387,7 +95393,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -96023,13 +96029,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             message: 'Solicitud cerrada.',
             label: 'success'
           });
-          _this.notifyClosed(_this.showRequest.request.id);
+          var newRequest = response.data.request;
+          _this.notifyClosed(_this.showRequest.request.id, newRequest);
           window.events.$emit('requestClosed');
           _this.toggleShowRequest();
         }
       });
     },
-    notifyClosed: function notifyClosed(id) {
+    notifyClosed: function notifyClosed(id, newRequest) {
       var _iteratorNormalCompletion5 = true;
       var _didIteratorError5 = false;
       var _iteratorError5 = undefined;
@@ -96039,7 +96046,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           var request = _step5.value;
 
           if (request.id == id) {
-            request.closed_at = __WEBPACK_IMPORTED_MODULE_0_moment__().format();
+            // request.closed_at = moment().format();
+            request.closed_at = newRequest.closed_at;
+            request.closed_by = newRequest.closed_by;
             break;
           }
         }
@@ -97215,27 +97224,9 @@ var render = function() {
               _c(
                 "div",
                 {
-                  staticClass: "form-group col-xs-12 col-sm-10 col-sm-offset-1"
+                  staticClass: "form-group col-xs-12 col-sm-8 col-sm-offset-2"
                 },
                 [
-                  _vm.showRequest.method
-                    ? _c(
-                        "button",
-                        {
-                          staticClass:
-                            "btn btn-sm btn-info btn-block form-control",
-                          attrs: { type: "submit" },
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.toggleShowRequest($event)
-                            }
-                          }
-                        },
-                        [_c("h4", [_vm._v("Volver")])]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
                   _vm.admin &&
                   _vm.showRequest.method &&
                   !_vm.showRequest.request.closed_at
@@ -97253,6 +97244,24 @@ var render = function() {
                           }
                         },
                         [_c("h4", [_vm._v("Cerrar Solicitud")])]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRequest.method
+                    ? _c(
+                        "button",
+                        {
+                          staticClass:
+                            "btn btn-sm btn-info btn-block form-control",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.toggleShowRequest($event)
+                            }
+                          }
+                        },
+                        [_c("h4", [_vm._v("Volver")])]
                       )
                     : _vm._e()
                 ]
@@ -99107,7 +99116,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -99244,7 +99253,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           name: '4',
           icon: 'glyphicon glyphicon-home',
           header: 'Paso 4:<br>Clínicas',
-          text: 'Añade las clínicas en las que trabajas, y...',
+          text: 'Añade las clínicas en las que trabajas, y gestiona tu tiempo.',
           completed: false
         }
       },
@@ -99252,7 +99261,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         ButtonText: this.tabSelected == 4 ? 'Terminar' : 'Siguiente',
         ButtonIcon: 'glyphicon glyphicon-chevron-right'
       },
-      tabSelected: '1'
+      tabSelected: null,
+      tutorial_completed: false
     };
   },
 
@@ -99269,57 +99279,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     finisTutorial: function finisTutorial() {
+      this.tutorial_completed = true;
       this.updateProfileTutorial(0);
-      window.location.href = '/home';
     },
     moveForward: function moveForward() {
       if (this.tabSelected == 4) {
         return this.finisTutorial();
       }
-      this.tabSelected++;
-      this.updateProfileTutorial(this.tabSelected);
-      this.fetchProfile();
+      this.updateProfileTutorial(this.tabSelected + 1);
     },
     completePhase: function completePhase(number) {
-      if (this.tabSelected == 2) {
-        flash({
-          message: 'Perfil actualizado',
-          label: 'success'
-        });
-        this.fetchProfile();
-      }
       console.log('Completed!!!');
       this.tabs[this.tabSelected].completed = true;
-      // this.tabSelected = number + 1;
     },
     notifyNoErrors: function notifyNoErrors() {
       this.tabs[this.tabSelected].completed = true;
     },
-    toggleTab: function toggleTab(tab) {
-      if (this.tabSelected == tab) {
-        console.log('Equal');
-        return;
-      }
-      if (this.profileSrc.tutorial_completed > tab) {
-        flash({
-          message: 'Ya has completado este paso.',
-          label: 'warning'
-        });
-        return false;
-      }
-      if (!this.checkSteps()) {
-        console.log('Check');
-        return false;
-      }
-      this.tabSelected = tab;
-      if (tab == 'pass') {} else if (tab == 'info') {} else if (tab == 'masters') {} else if (tab == 'clinics') {
-        if (this.profileSrc.clinicsCount) {
-          this.completePhase(4);
-        }
-      }
-    },
     checkSteps: function checkSteps() {
-
       if (!this.tabs['1'].completed) {
         flash({
           message: 'Debes cambiar la contraseña antes de poder avanzar.',
@@ -99329,15 +99305,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       return true;
     },
-    tabCompletion: function tabCompletion() {
-      var userPhase = this.profileSrc.tutorial_completed;
-      for (var tab in this.tabs) {
-        if (userPhase > tab) {
-          this.tabs[tab].completed = true;
-        }
-      }
-    },
     updateProfileTutorial: function updateProfileTutorial(phase) {
+      var _this = this;
+
+      console.log("Updating to: " + phase);
       axios.patch('/tutorial/' + this.profileSrc.id, {
         'tutorial_completed': phase
       }).catch(function (error) {
@@ -99358,20 +99329,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).then(function (response) {
         if (response.status == 200) {
           flash({
-            message: 'Paso ' + parseInt(phase - 1) + ' terminado.',
+            message: 'Paso ' + parseInt(_this.tabSelected) + ' terminado.',
             label: 'success'
           });
+          if (_this.tutorial_completed) {
+            flash({
+              message: 'Muchas gracias, ya puedes empezar a usar la plataforma.',
+              label: 'success'
+            });
+            setTimeout(function () {
+              window.location.href = '/home';
+            }, 3000);
+          } else {
+            _this.fetchProfile();
+          }
         }
       });
     },
     fetchProfile: function fetchProfile() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/profile').then(function (data) {
-        _this.profileSrc = data.data;
-        _this.tabCompletion();
-        _this.tabSelected = _this.profileSrc.tutorial_completed;
-        _this.copyProfile();
+        _this2.profileSrc = data.data;
+        _this2.tabSelected = _this2.profileSrc.tutorial_completed;
+        _this2.copyProfile();
       });
     },
     copyProfile: function copyProfile() {
@@ -99428,46 +99409,53 @@ var render = function() {
                   "div",
                   { staticClass: "col-xs-12 col-md-3 tutorial-prompt vcenter" },
                   [
-                    _c("div", { staticClass: "alert alert-info" }, [
-                      _c("h3", {
-                        domProps: {
-                          innerHTML: _vm._s(_vm.tabs[_vm.tabSelected].header)
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("p", {
-                          domProps: {
-                            innerHTML: _vm._s(_vm.tabs[_vm.tabSelected].text)
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary btn-block",
-                            attrs: {
-                              disabled: !_vm.tabs[_vm.tabSelected].completed,
-                              type: "button"
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.moveForward()
-                              }
+                    _vm.tabSelected
+                      ? _c("div", { staticClass: "alert alert-info" }, [
+                          _c("h3", {
+                            domProps: {
+                              innerHTML: _vm._s(
+                                _vm.tabs[_vm.tabSelected].header
+                              )
                             }
-                          },
-                          [
-                            _c("span", { class: _vm.forward.ButtonIcon }),
-                            _vm._v(
-                              _vm._s(_vm.forward.ButtonText) +
-                                "\n                  "
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c("p", {
+                              domProps: {
+                                innerHTML: _vm._s(
+                                  _vm.tabs[_vm.tabSelected].text
+                                )
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary btn-block",
+                                attrs: {
+                                  disabled: !_vm.tabs[_vm.tabSelected]
+                                    .completed,
+                                  type: "button"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    _vm.moveForward()
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { class: _vm.forward.ButtonIcon }),
+                                _vm._v(
+                                  _vm._s(_vm.forward.ButtonText) +
+                                    "\n                  "
+                                )
+                              ]
                             )
-                          ]
-                        )
-                      ])
-                    ])
+                          ])
+                        ])
+                      : _vm._e()
                   ]
                 ),
                 _vm._v(" "),
@@ -104857,7 +104845,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104872,6 +104860,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
 //
 //
 //
@@ -105001,7 +104991,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         description: '',
         descriptionClasses: 'form-group col-xs-12'
       },
-      requestDate: ''
+      requestDate: '',
+      adminProfile: null
     };
   },
 
@@ -105120,6 +105111,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return false;
       }
       return true;
+    },
+    fetchAdminProfile: function fetchAdminProfile() {
+      var _this2 = this;
+
+      axios.get('/api/profile/' + this.request.closed_by).then(function (data) {
+        _this2.adminProfile = data.data;
+      });
     }
   },
   computed: {
@@ -105164,8 +105162,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     requestStateText: function requestStateText() {
-      if (this.request.closed_at) {
-        return 'Resuelta el ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.request.closed_at).format('L');
+      if (this.request.closed_at && this.adminProfile) {
+        return 'Resuelta por ' + this.adminProfile.name + ' ' + this.adminProfile.lastname1 + ' el ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.request.closed_at).format('L');
       } else {
         return 'Pendiente';
       }
@@ -105173,6 +105171,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     __WEBPACK_IMPORTED_MODULE_0_moment__["locale"]('es');
+    if (this.request.closed_by) {
+      this.fetchAdminProfile();
+    }
   }
 });
 
@@ -105185,20 +105186,22 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", { attrs: { id: "new-request-form" } }, [
+    _c("div", { staticClass: "text-center" }, [
+      _c("h4", [
+        _vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate) + " por:")
+      ]),
+      _vm._v(" "),
+      _c("h3", [
+        _vm._v(
+          _vm._s(_vm.request.profile.name) +
+            " " +
+            _vm._s(_vm.request.profile.lastname1)
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _vm.showMode && _vm.showHeader
       ? _c("div", { class: _vm.requestClasses }, [
-          _c("h4", [
-            _vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate) + " por:")
-          ]),
-          _vm._v(" "),
-          _c("h3", [
-            _vm._v(
-              _vm._s(_vm.request.profile.name) +
-                " " +
-                _vm._s(_vm.request.profile.lastname1)
-            )
-          ]),
-          _vm._v(" "),
           _c("h4", [
             _vm._v("Estado: "),
             _c("strong", [_vm._v(_vm._s(_vm.requestStateText))])

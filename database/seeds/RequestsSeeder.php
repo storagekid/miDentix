@@ -13,15 +13,17 @@ class RequestsSeeder extends Seeder
     public function run()
 	{
 		$profiles = \App\Clinic_Profile::all()->load('profile');
+		$admins = \App\User::where('role','admin')->get();
 		// $items = \App\Experience::all();
 		// $Selected = [];
 		foreach($profiles as $profile) {
-			if ($profile->profile->user->role == 'admin') break;
+			if ($profile->profile->user->role != 'user') continue;
 			$closed = mt_rand(0,1);
 			factory('App\Request', mt_rand(0,8))->create([
 				'profile_id' => $profile->profile_id,
 				'clinic_id' => $profile->clinic_id,
 				'closed_at' => $closed ? Carbon::now() : null,
+				'closed_by' => $closed ? $admins[mt_rand(0,count($admins)-1)]->id : null,
 			]);
 			// $times = mt_rand(0,8);
 			// while($times > 0) {

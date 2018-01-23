@@ -30,4 +30,7 @@ class Request extends Model
     public function profile() {
         return $this->belongsTo(Profile::class);
     }
+    public function admin() {
+        return $this->belongsTo(User::class, 'closed_by');
+    }
 }

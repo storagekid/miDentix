@@ -20,7 +20,7 @@
               >
               <div class="row">
                 <div class="col-xs-12 col-md-3 tutorial-prompt vcenter">
-                  <div class="alert alert-info">
+                  <div class="alert alert-info" v-if="tabSelected">
                     <h3 v-html="tabs[tabSelected].header"></h3>
                     <div class="form-group">
                       <p v-html="tabs[tabSelected].text"></p>
@@ -124,7 +124,7 @@
                   name: '4',
                   icon: 'glyphicon glyphicon-home',
                   header: 'Paso 4:<br>Clínicas',
-                  text: 'Añade las clínicas en las que trabajas, y...',
+                  text: 'Añade las clínicas en las que trabajas, y gestiona tu tiempo.',
                   completed: false,
                 },
               },
@@ -132,7 +132,8 @@
                 ButtonText: this.tabSelected == 4 ? 'Terminar' : 'Siguiente',
                 ButtonIcon: 'glyphicon glyphicon-chevron-right',
               },
-              tabSelected: '1',
+              tabSelected: null,
+              tutorial_completed: false,
             }
         },
         watch: {
@@ -148,63 +149,23 @@
         },
         methods: {
           finisTutorial() {
+            this.tutorial_completed = true;
             this.updateProfileTutorial(0);
-            window.location.href = '/home';
           },
           moveForward() {
             if (this.tabSelected == 4) {
               return this.finisTutorial();
             }
-            this.tabSelected++;
-            this.updateProfileTutorial(this.tabSelected);
-            this.fetchProfile();
+            this.updateProfileTutorial(this.tabSelected+1);
           },
           completePhase(number) {
-            if (this.tabSelected == 2) {
-              flash({
-                  message: 'Perfil actualizado', 
-                  label: 'success'
-              });
-              this.fetchProfile();
-            }
             console.log('Completed!!!');
             this.tabs[this.tabSelected].completed = true;
-            // this.tabSelected = number + 1;
           },
           notifyNoErrors() {
             this.tabs[this.tabSelected].completed = true;
           },
-          toggleTab(tab) {
-            if (this.tabSelected == tab) {
-              console.log('Equal');
-              return;
-            }
-            if (this.profileSrc.tutorial_completed > tab) {
-              flash({
-                   message:'Ya has completado este paso.', 
-                   label:'warning'
-               });
-              return false;
-            }
-            if (!this.checkSteps()) {
-              console.log('Check');
-              return false;
-            }
-            this.tabSelected = tab;
-            if (tab == 'pass') {
-
-            } else if (tab == 'info') {
-
-            } else if (tab == 'masters') {
-
-            } else if (tab == 'clinics') {
-              if (this.profileSrc.clinicsCount) {
-                this.completePhase(4);
-              }
-            }
-          },
           checkSteps() {
-
             if (!this.tabs['1'].completed) {
               flash({
                    message:'Debes cambiar la contraseña antes de poder avanzar.', 
@@ -214,15 +175,8 @@
             }
             return true;
           },
-          tabCompletion() {
-            let userPhase = this.profileSrc.tutorial_completed;
-            for (let tab in this.tabs) {
-              if (userPhase > tab) {
-                this.tabs[tab].completed = true;
-              }
-            }
-          },
           updateProfileTutorial(phase) {
+            console.log("Updating to: "+phase);
             axios.patch('/tutorial/'+this.profileSrc.id, {
               'tutorial_completed': phase,
             }).catch((error) => {
@@ -243,9 +197,18 @@
               }).then(response => {
                   if (response.status == 200) {
                     flash({
-                        message: 'Paso ' +parseInt((phase-1))+ ' terminado.', 
+                        message: 'Paso ' +parseInt(this.tabSelected)+ ' terminado.', 
                         label: 'success'
                     });
+                    if (this.tutorial_completed) {
+                      flash({
+                          message: 'Muchas gracias, ya puedes empezar a usar la plataforma.', 
+                          label: 'success'
+                      });
+                      setTimeout(function() {window.location.href = '/home'}, 3000);
+                    } else {
+                      this.fetchProfile();
+                    }
                   }
               });
           },
@@ -253,7 +216,6 @@
             axios.get('/api/profile')
               .then(data => {
                 this.profileSrc = data.data;
-                this.tabCompletion();
                 this.tabSelected = this.profileSrc.tutorial_completed;
                 this.copyProfile();
               });

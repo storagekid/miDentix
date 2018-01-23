@@ -581,6 +581,12 @@
                   }
                 }
                 return false;
+              } else {
+                console.log("New Clinic");
+                  if (this.especialtiesToSave.indexOf(id) != -1) {
+                    return true;
+                  }
+                return false;
               }
             },
             fetchEspecialties() {

@@ -289,20 +289,20 @@
               </div>
             </div>
           </div>
-          <div class="form-group col-xs-12 col-sm-10 col-sm-offset-1">
-            <button 
-              type="submit" 
-              class="btn btn-sm btn-info btn-block form-control" 
-              v-if="showRequest.method"
-              @click.prevent="toggleShowRequest"
-              ><h4>Volver</h4>
-            </button>
+          <div class="form-group col-xs-12 col-sm-8 col-sm-offset-2">
             <button 
               type="submit" 
               class="btn btn-sm btn-success btn-block form-control" 
               v-if="admin && showRequest.method && !showRequest.request.closed_at"
               @click.prevent="closeRequest"
               ><h4>Cerrar Solicitud</h4>
+            </button>
+            <button 
+              type="submit" 
+              class="btn btn-sm btn-info btn-block form-control" 
+              v-if="showRequest.method"
+              @click.prevent="toggleShowRequest"
+              ><h4>Volver</h4>
             </button>
           </div>
         </div>
@@ -529,16 +529,19 @@
                           message: 'Solicitud cerrada.', 
                           label: 'success'
                       });
-                      this.notifyClosed(this.showRequest.request.id);
+                      let newRequest = response.data.request;
+                      this.notifyClosed(this.showRequest.request.id, newRequest);
                       window.events.$emit('requestClosed');
                       this.toggleShowRequest();
                     }
                 });
           },
-          notifyClosed(id) {
+          notifyClosed(id, newRequest) {
             for (let request of this.requests) {
               if (request.id == id) {
-                request.closed_at = moment().format();
+                // request.closed_at = moment().format();
+                request.closed_at = newRequest.closed_at;
+                request.closed_by = newRequest.closed_by;
                 break;
               }
             }

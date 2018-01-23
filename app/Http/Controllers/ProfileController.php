@@ -16,6 +16,9 @@ class ProfileController extends Controller
     public function indexApi() {
         return auth()->user()->profile->load(['experiences','masters','courses']);
     }
+    public function indexApiById(Profile $profile) {
+        return $profile;
+    }
 
     public function create(User $user) {
     	return view('layouts.profile.profile-create', compact('user'));

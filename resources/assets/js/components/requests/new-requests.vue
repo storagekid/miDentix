@@ -1,8 +1,10 @@
 <template>
   <form id="new-request-form">
-    <div :class="requestClasses" v-if="showMode && showHeader">
+    <div class="text-center">
       <h4>Solicitud enviada el {{requestDate}} por:</h4>
       <h3>{{request.profile.name}} {{request.profile.lastname1}}</h3>
+    </div>
+    <div :class="requestClasses" v-if="showMode && showHeader">
       <h4>Estado: <strong>{{requestStateText}}</strong></h4>
     </div>
     <div class="form-group">
@@ -136,6 +138,7 @@
                 descriptionClasses: 'form-group col-xs-12',
               },
               requestDate: '',
+              adminProfile: null,
             }
         },
         watch: {
@@ -252,6 +255,12 @@
             }
             return true;
           },
+          fetchAdminProfile() {
+            axios.get('/api/profile/'+this.request.closed_by)
+              .then(data => {
+                this.adminProfile = data.data;
+              });
+          },
         },
         computed: {
           showHeader() {
@@ -295,15 +304,18 @@
             }
           },
           requestStateText() {
-            if (this.request.closed_at) {
-              return 'Resuelta el '+moment(this.request.closed_at).format('L');
+            if (this.request.closed_at && this.adminProfile) {
+              return 'Resuelta por '+this.adminProfile.name+' '+this.adminProfile.lastname1+' el '+moment(this.request.closed_at).format('L');
             } else {
-              return 'Pendiente'
+              return 'Pendiente';
             }
           },
         },
         created() {
           moment.locale('es');
+          if (this.request.closed_by) {
+            this.fetchAdminProfile();
+          }
         }
     }
 </script>
