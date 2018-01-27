@@ -1,101 +1,116 @@
 <template>
     <div>
       <form id="profile-create-form">
-        <div class="row">
-          <div class="form-group col-xs-12 col-sm-6">
-            <label for="name">Nombre:</label>
-            <input id="name" type="text" class="form-control" v-model="profileSrc.name" @blur="checkField">
-            <span class="help-block" v-if="formErrors.name">
-                <strong>{{formErrors.name}}</strong>
-            </span>
-          </div>
-          <div class="form-group col-xs-12 col-sm-6">
-            <div class="row">
-              <label class=" col-xs-12" for="name">Apellidos:</label>
-              <div class=" col-xs-12 col-sm-6">
-                <input id="lastname1" type="text" class="form-control" v-model="profileSrc.lastname1" @blur="checkField">
-                <span class="help-block" v-if="formErrors.lastname1">
-                    <strong>{{formErrors.lastname1}}</strong>
-                </span>
+        <fieldset>
+          <legend>Información Personal</legend>
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-6">
+              <label for="name">Nombre:</label>
+              <input id="name" type="text" class="form-control" v-model="profileSrc.name" @blur="checkField">
+              <span class="help-block" v-if="formErrors.name">
+                  <strong>{{formErrors.name}}</strong>
+              </span>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6">
+              <div class="row">
+                <label class=" col-xs-12" for="name">Apellidos:</label>
+                <div class=" col-xs-12 col-sm-6">
+                  <input id="lastname1" type="text" class="form-control" v-model="profileSrc.lastname1" @blur="checkField">
+                  <span class="help-block" v-if="formErrors.lastname1">
+                      <strong>{{formErrors.lastname1}}</strong>
+                  </span>
+                </div>
+                <div class=" col-xs-12 col-sm-6">
+                  <input id="lastname2" type="text" class="form-control" v-model="profileSrc.lastname2" @blur="checkField">
+                  <span class="help-block" v-if="formErrors.lastname2">
+                      <strong>{{formErrors.lastname2}}</strong>
+                  </span>
+                </div>
               </div>
-              <div class=" col-xs-12 col-sm-6">
-                <input id="lastname2" type="text" class="form-control" v-model="profileSrc.lastname2" @blur="checkField">
-                <span class="help-block" v-if="formErrors.lastname2">
-                    <strong>{{formErrors.lastname2}}</strong>
-                </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-6 col-md-6">
+              <label for="name">Correo Electrónico:</label>
+              <input id="email" type="email" class="form-control" v-model="profileSrc.email" @blur="checkField">
+              <span class="help-block" v-if="formErrors.email">
+                  <strong>{{formErrors.email}}</strong>
+              </span>
+            </div>
+            <div class="form-group col-xs-6 col-sm-3 col-md-3">
+              <label for="name">Teléfono:</label>
+              <input id="phone" type="text" class="form-control" v-model="profileSrc.phone" @blur="checkField">
+              <span class="help-block" v-if="formErrors.phone">
+                  <strong>{{formErrors.phone}}</strong>
+              </span>
+            </div>
+            <div class="form-group col-xs-6 col-sm-3 col-md-3">
+              <label for="name">DNI (o equivalente):</label>
+              <input id="personal_id_number" type="text" class="form-control" v-model="profileSrc.personal_id_number" @blur="checkField"> 
+              <span class="help-block" v-if="formErrors.personal_id_number">
+                  <strong>{{formErrors.personal_id_number}}</strong>
+              </span>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset v-if="$global.role === 'user'">
+          <legend>Información Profesional</legend>
+          <div class="row">
+            <div class="form-group col-xs-6 col-sm-6 col-md-3">
+              <label for="name">Año de Licenciatura:</label>
+              <input id="license_year" type="number" :max="thisYear" class="form-control" v-model="profileSrc.license_year" @blur="checkField"> 
+              <span class="help-block" v-if="formErrors.license_year">
+                  <strong>{{formErrors.license_year}}</strong>
+              </span>
+            </div>
+            <div class="form-group col-xs-6 col-sm-6 col-md-5">
+              <label for="university_id">Lugar de Licenciatura:</label>
+              <select class="form-control" id="university_id" name="university_id" v-model="profileSrc.university_id" @change="checkField">
+                <option 
+                  disabled="" 
+                  value=""
+                  selected=""
+                  >Selecciona un centro
+                </option>
+                <option 
+                  v-for="university in universities" 
+                  :value="university['id']"
+                  >{{university['name']}}
+                </option>
+                <option 
+                  value="0"
+                  >Otro Centro de Formación
+                </option>
+              </select> 
+              <span class="help-block" v-if="formErrors.university_id">
+                  <strong>{{formErrors.university_id}}</strong>
+              </span>
+            </div>
+            <div class="form-group col-xs-12 col-sm-6 col-md-4">
+              <label for="name">Nº de Colegiado/a:</label>
+              <input id="license_number" type="text" class="form-control" v-model="profileSrc.license_number" @blur="checkField"> 
+              <span class="help-block" v-if="formErrors.license_number">
+                  <strong>{{formErrors.license_number}}</strong>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-xs-12 col-sm-12">
+              <label for="name">Experiencia profesional: (selecciona todas las que procedan)</label>
+              <div class="checkbox">
+                <label v-for="experience in experiences">
+                  <input 
+                    type="checkbox" 
+                    :value="experience.id" 
+                    :checked="checkExperiences(experience.id)"
+                    @click="checkFieldBox($event,'experiences',experience.id)"
+                    >
+                  {{experience.name}}
+                </label>
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-xs-12 col-sm-12 col-md-8">
-            <label for="name">Correo Electrónico:</label>
-            <input id="email" type="email" class="form-control" v-model="profileSrc.email" @blur="checkField">
-            <span class="help-block" v-if="formErrors.email">
-                <strong>{{formErrors.email}}</strong>
-            </span>
-          </div>
-          <div class="form-group col-xs-12 col-sm-6 col-md-4">
-            <label for="name">Teléfono:</label>
-            <input id="phone" type="text" class="form-control" v-model="profileSrc.phone" @blur="checkField">
-            <span class="help-block" v-if="formErrors.phone">
-                <strong>{{formErrors.phone}}</strong>
-            </span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="form-group col-xs-6 col-sm-6 col-md-2">
-            <label for="name">Año de Licenciatura:</label>
-            <input id="license_year" type="number" :max="thisYear" class="form-control" v-model="profileSrc.license_year" @blur="checkField"> 
-            <span class="help-block" v-if="formErrors.license_year">
-                <strong>{{formErrors.license_year}}</strong>
-            </span>
-          </div>
-          <div class="form-group col-xs-6 col-sm-6 col-md-5">
-            <label for="name">DNI (o equivalente):</label>
-            <input id="personal_id_number" type="text" class="form-control" v-model="profileSrc.personal_id_number" @blur="checkField"> 
-            <span class="help-block" v-if="formErrors.personal_id_number">
-                <strong>{{formErrors.personal_id_number}}</strong>
-            </span>
-          </div>
-          <div class="form-group col-xs-12 col-sm-6 col-md-5">
-            <label for="name">Nº de Colegiado/a:</label>
-            <input id="license_number" type="text" class="form-control" v-model="profileSrc.license_number" @blur="checkField"> 
-            <span class="help-block" v-if="formErrors.license_number">
-                <strong>{{formErrors.license_number}}</strong>
-            </span>
-          </div>
-        </div>
-        <div class="row">
-<!--           <div class="form-group col-xs-12 col-sm-6">
-            <label for="name">Especialidades: <br>(selecciona todas las que procedan)</label>
-            <div class="checkbox">
-              <label v-for="especialty in especialties">
-                <input 
-                  type="checkbox" 
-                  :value="especialty.id" 
-                  :checked="checkEspecialties(especialty.id)"
-                  @click="checkFieldBox($event,'especialties',especialty.id)"
-                  >
-                {{especialty.name}}
-              </label>
-            </div>
-          </div> -->
-          <div class="form-group col-xs-12 col-sm-6">
-            <label for="name">Experiencia profesional: <br>(selecciona todas las que procedan)</label>
-            <div class="checkbox">
-              <label v-for="experience in experiences">
-                <input 
-                  type="checkbox" 
-                  :value="experience.id" 
-                  :checked="checkExperiences(experience.id)"
-                  @click="checkFieldBox($event,'experiences',experience.id)"
-                  >
-                {{experience.name}}
-              </label>
-            </div>
-          </div>
-        </div>
+        </fieldset>
       </form>
       <div class="row">
         <div class="col-xs-8 col-xs-offset-2 form-group">
@@ -124,10 +139,8 @@
               },
               experiencesToSave: [],
               experiencesToRemove: [],
-              especialtiesToSave: [],
-              especialtiesToRemove: [],
               experiences: {},
-              especialties: {},
+              universities: {},
               updateButton: {
                   method: false,
                   ButtonText: this.tutorial ? 'Confirmar/Actualizar' : 'Actualizar',
@@ -143,6 +156,7 @@
                license_year: false,
                personal_id_number: false,
                license_number: false,
+               university_id: false,
               },
             }
         },
@@ -157,8 +171,8 @@
               field = e.target.id;
             }
             if (field != 'lastname2') {
-              if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
-                this.formErrors[field] = 'Este campo es obligatorio';
+              if (this.profileSrc[field] === "" || this.profileSrc[field] === null) {
+                this.formErrors[field] = 'Obligatorio';
                 return false;
               }
             }
@@ -202,7 +216,7 @@
               }
             }
             if (field == 'license_year') {
-              console.log('LICENSE YEAR!');
+              // console.log('LICENSE YEAR!');
               if (this.profileSrc[field] < (this.thisYear-60)) {
                 this.formErrors[field] = 'Fecha mínima '+(this.thisYear-60);
                 return false;
@@ -229,46 +243,87 @@
             this.formErrors[field] = false;
             return true;
           },
+          // checkFieldBox(e,field,id) {
+          //   let check = function(id) {
+          //       return this.checkExperiences(id); 
+          //   }.bind(this);
+          //   let orgValue = check(id);
+          //   console.log(e);
+          //   let objectToSave = field+'ToSave';
+          //   let objectToRemove = field+'ToRemove';
+          //   if (e.target.checked) {
+          //     if (orgValue) {
+          //       let i = this[objectToRemove].indexOf(id);
+          //       if (i != -1) {
+          //         this[objectToRemove].splice(i,1);
+          //       }
+          //     } else {
+          //       this[objectToSave].push(id);
+          //     }
+          //   } else {
+          //     if (orgValue) {
+          //       this[objectToRemove].push(id);
+          //     } else {
+          //       let i = this[objectToSave].indexOf(id);
+          //       if (i != -1) {
+          //         this[objectToSave].splice(i,1);
+          //       }
+          //     }
+          //   }
+          // },
           checkFieldBox(e,field,id) {
-            let check = function(id) {
-                if (field == "especialties") {
-                   return this.checkEspecialties(id);      
+              let check = function(id) {
+                  if (field == "especialties") {
+                     return this.checkEspecialties(id);      
+                  } else {
+                    return this.checkExperiences(id); 
+                  }
+              }.bind(this);
+              let orgValue = check(id);
+              let objectToSave = field+'ToSave';
+              let objectToRemove = field+'ToRemove';
+              if (e.target.checked) {
+                if (orgValue) {
+                  let i = this[objectToRemove].indexOf(id);
+                  if (i != -1) {
+                    this[objectToRemove].splice(i,1);
+                  }
                 } else {
-                  return this.checkExperiences(id); 
-                }
-            }.bind(this);
-            let orgValue = check(id);
-            let objectToSave = field+'ToSave';
-            let objectToRemove = field+'ToRemove';
-            if (e.target.checked) {
-              if (orgValue) {
-                let i = this[objectToRemove].indexOf(id);
-                if (i != -1) {
-                  this[objectToRemove].splice(i,1);
+                    if (this.userExperiences.indexOf(id) == -1) {
+                        this[objectToSave].push(id);
+                    }
+                    let i = this[objectToRemove].indexOf(id);
+                    if (i != -1) {
+                      this[objectToRemove].splice(i,1);
+                    }
                 }
               } else {
-                this[objectToSave].push(id);
-              }
-            } else {
-              if (orgValue) {
-                this[objectToRemove].push(id);
-              } else {
-                let i = this[objectToSave].indexOf(id);
-                if (i != -1) {
-                  this[objectToSave].splice(i,1);
+                if (orgValue) {
+                    // console.log('here');
+                    if (this.userExperiences.indexOf(id) != -1) {
+                        this[objectToRemove].push(id);
+                    }
+                    let i = this[objectToSave].indexOf(id);
+                    if (i != -1) {
+                        this[objectToSave].splice(i,1);
+                    }
+                } else {
+                  let i = this[objectToSave].indexOf(id);
+                  if (i != -1) {
+                    this[objectToSave].splice(i,1);
+                  }
                 }
               }
-            }
-          },
+            },
           checkField(e, field=null) {
-            console.log('CheckField Passed');
+            // console.log('CheckField Passed');
             if (!field) {
               field = e.target.id;
             }
             let origin = this.profileOriginal[field];
             let value = e.target.value == "" ? null : e.target.value;
 
-            console.log('Origin: '+origin);
+            // console.log('Origin: '+origin);
             if (origin != value && !this.formErrors[field]) {
               this.profileToSave[field] = value;
             } else {
@@ -277,18 +332,31 @@
               }
             }
           },
-          checkEspecialties(id) {
-            for (let especialty of this.profileSrc.especialties) {
-              if (especialty.id == id) {
+          // checkEspecialties(id) {
+          //   for (let especialty of this.profileSrc.especialties) {
+          //     if (especialty.id == id) {
+          //       return true;
+          //       break;
+          //     }
+          //   }
+          //   return false;
+          // },
+          // checkExperiences(id) {
+          //   for (let experience of this.profileSrc.experiences) {
+          //     if (experience.id == id) {
+          //       return true;
+          //       break;
+          //     }
+          //   }
+          //   return false;
+          // },
+          checkExperiences(id) {
+            for (let experience of this.profileSrc.experiences) {
+              if (experience.id == id && (this.experiencesToRemove.indexOf(id) == -1)) {
                 return true;
                 break;
               }
-            }
-            return false;
-          },
-          checkExperiences(id) {
-            for (let experience of this.profileSrc.experiences) {
-              if (experience.id == id) {
+              if (this.experiencesToSave.indexOf(id) != -1) {
                 return true;
                 break;
               }
@@ -301,12 +369,12 @@
                 this.experiences = data.data;
               });
           },
-          // fetchEspecialties() {
-          //   axios.get('/api/especialty')
-          //     .then(data => {
-          //       this.especialties = data.data;
-          //     });
-          // },
+          fetchUniversities() {
+            axios.get('/api/universities')
+              .then(data => {
+                this.universities = data.data;
+              });
+          },
           updateProfile(id) {
             let keys = Object.keys(this.profileToSave).length;
             if (!this.checkForUpdate(keys) && !this.tutorial) {
@@ -316,14 +384,10 @@
                    });
             } else {
               let profile = keys ? this.profileSrc : null;
-              let especialtiesToSave = this.especialtiesToSave.length ? this.especialtiesToSave : null;
-              let especialtiesToRemove = this.especialtiesToRemove.length ? this.especialtiesToRemove : null;
               let experiencesToSave = this.experiencesToSave.length ? this.experiencesToSave : null;
               let experiencesToRemove = this.experiencesToRemove.length ? this.experiencesToRemove : null;
               axios.patch('/profile/'+this.profileSrc.id, {
                 'profile': profile,
-                'especialtiesToRemove': especialtiesToRemove,
-                'especialtiesToSave': especialtiesToSave,
                 'experiencesToRemove': experiencesToRemove,
                 'experiencesToSave': experiencesToSave,
               }).catch((error) => {
@@ -349,9 +413,7 @@
           },
           checkForUpdate(keys) {
             if (keys || 
-                this.especialtiesToSave.length || 
                 this.experiencesToSave.length || 
-                this.especialtiesToRemove.length || 
                 this.experiencesToRemove.length) {
               return true;
             } else {
@@ -363,11 +425,16 @@
             };
             this.experiencesToSave = [];
             this.experiencesToRemove = [];
-            this.especialtiesToSave = [];
-            this.especialtiesToRemove = [];
           },
         },
         computed: {
+          userExperiences() {
+            let response = [];
+            for (let experience of this.profileSrc.experiences) {
+              response.push(experience.id);
+            }
+            return response;
+          },
           errors() {
             let num = 0;
             for (let error in this.formErrors) {
@@ -402,6 +469,7 @@
         created() {
           moment.locale('es');
           this.fetchExperiences();
+          this.fetchUniversities();
           // this.fetchEspecialties();
         },
         beforeUpdate() {

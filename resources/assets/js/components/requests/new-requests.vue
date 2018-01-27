@@ -1,11 +1,13 @@
 <template>
   <form id="new-request-form">
-    <div class="text-center">
-      <h4>Solicitud enviada el {{requestDate}} por:</h4>
-      <h3>{{request.profile.name}} {{request.profile.lastname1}}</h3>
-    </div>
-    <div :class="requestClasses" v-if="showMode && showHeader">
-      <h4>Estado: <strong>{{requestStateText}}</strong></h4>
+    <div v-if="request.id">
+      <div class="text-center">
+        <h4>Solicitud enviada el {{requestDate}} por:</h4>
+        <h3>{{request.profile.name}} {{request.profile.lastname1}}</h3>
+      </div>
+      <div :class="requestClasses" v-if="showMode && showHeader">
+        <h4>Estado: <strong>{{requestStateText}}</strong></h4>
+      </div>
     </div>
     <div class="form-group">
       <label for="clinic_id">Clínica</label>

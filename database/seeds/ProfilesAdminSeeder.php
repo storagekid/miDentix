@@ -12,6 +12,7 @@ class ProfilesAdminSeeder extends Seeder
      */
     public function run()
 	{
+		$group = \App\Group::where('name','Administrators')->first()->id;
 		$profile = factory('App\Profile')->create([
 			'email' => 'jgvillalba@dentix.es',
 			'personal_id_number' => '50459500F',
@@ -22,6 +23,7 @@ class ProfilesAdminSeeder extends Seeder
 		$user->email = $profile->email;
 		$user->password = Hash::make('Migabinete01');
 		$user->role = 'root';
+		$user->group_id = $group;
 		$user->save();
 		$profile = factory('App\Profile')->create([
 			'email' => 'ralvarado@dentix.es',
@@ -32,6 +34,7 @@ class ProfilesAdminSeeder extends Seeder
 		$user->email = $profile->email;
 		$user->password = Hash::make('Migabinete01');
 		$user->role = 'admin';
+		$user->group_id = $group;
 		$user->save();
 		$profile = factory('App\Profile')->create([
 			'email' => 'dhernandez@dentix.es',
@@ -42,6 +45,7 @@ class ProfilesAdminSeeder extends Seeder
 		$user->email = $profile->email;
 		$user->password = Hash::make('Migabinete01');
 		$user->role = 'admin';
+		$user->group_id = $group;
 		$user->save();
 	}
 }

@@ -16,9 +16,11 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Profile::class, function (Faker $faker) {
 	$faker = \Faker\Factory::create('es_ES');
+    $group = \App\Group::where('name','Dentists')->first()->id;
     $tutorial = mt_rand(0,1);
     $user = factory('App\User')->create([
         'last_access' => $tutorial ? null : Carbon::now(),
+        'group_id' => $group,
     ]);
     return [
         'user_id' => $user->id,

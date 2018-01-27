@@ -5,7 +5,7 @@
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>  Mis Solicitudes</h3>
       </div>
       <div class="panel-heading text-center" v-if="admin">
-        <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Solicitudes</h3>
+        <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Usuarios</h3>
       </div>
       <div v-show="!loading">
         <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
@@ -172,33 +172,11 @@
                 <p>DNI: <strong>{{userSelected.personal_id_number}}</strong></p>
                 <p>Licencia: <strong>{{userSelected.license_number}}</strong></p>
                 <p>Año Licencia: <strong>{{userSelected.license_year}}</strong></p>
+                <!-- <p>Centro de Licencia: <strong>{{userSelected.university_id ? userSelected.university.name : "Otro"}}</strong></p> -->
+                <p>Centro de Licencia: <strong>{{userLicenseCenter}}</strong></p>
                 <p>Especialidades: <strong v-html="parseEspecialties(0,userSelected.especialties,true)"></strong></p>
                 <p>Último Acceso: <strong>{{userSelected.user.last_access ? userSelected.user.last_access : 'Nunca'}}</strong></p>
               </div>
-<!--               <div class="row" v-if="extratimeSelected.state == 1">
-                <div class="form-group col-xs-6">
-                  <button class="btn btn-success btn-block btn-sm"
-                  @click="closeExtratime(extratimeSelected.id,2)"
-                  >Aceptar
-                  </button>
-                </div>
-                <div class="form-group col-xs-6">
-                  <button class="btn btn-danger btn-block btn-sm"
-                  @click="closeExtratime(extratimeSelected.id,0)"
-                  >Denegar
-                  </button>
-                </div>
-              </div>
-              <div class="row" v-if="extratimeSelected.state == 2">
-                <div class="form-group col-xs-12 alert alert-success">
-                  <p>Aceptada el: <strong>{{extraDate(extratimeSelected.updated_at)}}</strong></p>
-                </div>
-              </div>
-              <div class="row" v-if="extratimeSelected.state == 0">
-                <div class="form-group col-xs-12 alert alert-danger">
-                  <p>Denegada el: <strong>{{extraDate(extratimeSelected.updated_at)}}</strong></p>
-                </div>
-              </div> -->
               <div class="row">
                 <div class="form-group col-xs-12">
                   <button class="btn btn-info btn-block btn-sm" @click="toggleShowDetails">Volver</button>
@@ -215,14 +193,22 @@
           </div>
         </div>
         <div class="panel-footer">
-          <div class="progress">
+          <h3>Total: <strong>{{filtering.selected.length}}</strong></h3>
+          <!-- <div class="progress">
             <div 
               class="progress-bar progress-bar-primary progress-bar-striped" :style="profileusers.barStyle"
               v-if="profileusers.ratio > 10"
               >
               <span>{{profileusers.barText}}</span>
             </div>
-          </div>
+          </div> -->
+          <button class="btn btn-sm btn-primary" @click.prevent="exportExcel">Exportar Excel</button>
+<!--           <form action="/export-excel" method="post">
+            <input type="hidden" name="_token" :value="csrf">
+            <input v-for="id in filtering.selected" type="hidden" name="ids[]" :value="id">
+            <input type="hidden" name="model" value="Profile">
+            <button type="submit">Exportar Excel</button>
+          </form> -->
         </div>
       </div>
     </div>
@@ -240,6 +226,7 @@
         props: ['page','admin'],
         data() {
             return {
+              csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
               loading: true,
               // showRequest: {
               //   method: false,
@@ -273,6 +260,27 @@
         watch: {
         },
         methods: {
+          exportExcel() {
+            // axios.post('/export-excel', {model:'Profile', ids:this.filtering.selected}
+            //   ).then(response => {
+            //     console.log(response);
+            //   });
+            axios({
+              url: '/export-excel',
+              method: 'POST',
+              responseType: 'blob', // important
+              data: {
+                model:'Profile', ids:this.filtering.selected
+              }
+            }).then((response) => {
+              const url = window.URL.createObjectURL(new Blob([response.data]));
+              const link = document.createElement('a');
+              link.href = url;
+              link.setAttribute('download', 'usuarios miGabinete '+moment().format()+'.xlsx');
+              document.body.appendChild(link);
+              link.click();
+            });
+          },
           startFilters() {
             if (this.filtering.filters['last_access']) {
               delete(this.filtering.filters['last_access']);
@@ -282,7 +290,7 @@
             let empty = true;
             for (let item of this.filtering.filters['last_access'].keys) {
               if (item.label == 'Online') {
-                console.log(item.keys);
+                // console.log(item.keys);
                 empty = false;
                 this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
               }
@@ -313,7 +321,7 @@
                   let cleanName = cleanUpSpecialChars(item.label.toLowerCase());
                   if (cleanName != search[filter]) {
                     ids = item.keys;
-                    console.log('Search Filter: '+search[filter]);
+                    // console.log('Search Filter: '+search[filter]);
                     this.toggleFilterItem(ids, 'checked', filter);
                   }
                 }
@@ -486,7 +494,7 @@
           },
           toggleShowDetails(id=null, extratime=null) {
             if (this.userSelected) {
-              console.log('Toggleling')
+              // console.log('Toggleling')
               this.userSelected = false;
             } else {
               this.userSelected = this.users[id];
@@ -512,6 +520,15 @@
           },
         },
         computed: {
+          userLicenseCenter() {
+            if (this.userSelected.university_id) {
+              return this.userSelected.university.name;
+            }
+            if (this.userSelected.university_id === 0) {
+              return "Otro";
+            }
+            return "-";
+          },
           panelClass() {
             if (this.admin) {
               return 'panel-body-admin';

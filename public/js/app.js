@@ -48998,7 +48998,8 @@ module.exports = adjacency_graphs;
 
 __webpack_require__(312);
 __webpack_require__(436);
-module.exports = __webpack_require__(437);
+__webpack_require__(437);
+module.exports = __webpack_require__(438);
 
 
 /***/ }),
@@ -49047,8 +49048,23 @@ Vue.component('profile-form', __webpack_require__(421));
 Vue.component('new-request', __webpack_require__(426));
 Vue.component('extra-time', __webpack_require__(431));
 
+var shared = {
+  role: App.role,
+  page: App.page
+};
+shared.install = function () {
+  Object.defineProperty(Vue.prototype, '$global', {
+    get: function get() {
+      return shared;
+    }
+  });
+};
+Vue.use(shared);
 var app = new Vue({
   el: '#app',
+  data: {
+    ready: false
+  },
   methods: {
     checkSession: function checkSession() {
       axios.get('/api/session').catch(function (response) {
@@ -91575,7 +91591,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
           if (schedule.clinic_id == data.clinic_id) {
             if (data.especialtiesToSave) {
-              console.log(data.especialtiesToSaveObjects);
+              // console.log(data.especialtiesToSaveObjects);
               var _iteratorNormalCompletion2 = true;
               var _didIteratorError2 = false;
               var _iteratorError2 = undefined;
@@ -91771,7 +91787,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     fetch: function fetch() {
       var _this = this;
 
-      console.log('FETCHING');
+      // console.log('FETCHING');
       axios.get('/api/schedule').then(function (data) {
         _this.refresh(data.data);
       });
@@ -92153,6 +92169,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         break;
                     }
                 }
+                // console.log(this.selectedScheduleId);
             } catch (err) {
                 _didIteratorError = true;
                 _iteratorError = err;
@@ -92167,8 +92184,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 }
             }
-
-            console.log(this.selectedScheduleId);
         },
         profileSrc: function profileSrc() {
             this.clinics = this.profileSrc.clinics;
@@ -92327,7 +92342,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addExtraTime: function addExtraTime() {
             var _this = this;
 
-            console.log('Adding Extra Time Request');
+            // console.log('Adding Extra Time Request');
             axios[this.callMethod](this.url, {
                 profile_id: this.profileSrc.id,
                 clinic_id: this.addingId,
@@ -92550,7 +92565,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             } else {
                 if (orgValue) {
-                    console.log('here');
+                    // console.log('here');
                     if (this.userEspecialties.indexOf(id) != -1) {
                         this[objectToRemove].push(id);
                     }
@@ -92602,7 +92617,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 return false;
             } else {
-                console.log("New Clinic");
+                // console.log("New Clinic");
                 if (this.especialtiesToSave.indexOf(id) != -1) {
                     return true;
                 }
@@ -93703,7 +93718,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -93720,14 +93735,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment_locale_es__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment_locale_es__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -93852,26 +93859,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.passChange = false;
       }
     },
-    editButtonMethod: function editButtonMethod() {
-      if (this.tabSelected == 'info') {
-        this.updateProfile();
-      } else if (this.tabSelected == 'masters') {
-        this.toggleUpdate();
-      }
-    },
-    toggleUpdate: function toggleUpdate() {
-      if (!this.updateButton.method) {
-        this.updateButton.method = true;
-        this.updateButton.ButtonText = 'Cancelar';
-        this.updateButton.ButtonClasses = 'btn btn-danger';
-        this.updateButton.ButtonIcon = 'glyphicon glyphicon-remove';
-      } else {
-        this.updateButton.method = false;
-        this.updateButton.ButtonText = 'Modificar';
-        this.updateButton.ButtonClasses = 'btn btn-primary';
-        this.updateButton.ButtonIcon = 'glyphicon glyphicon-pencil';
-      }
-    },
     toggleTab: function toggleTab(tab) {
       if (this.tabSelected == tab) {
         return;
@@ -93894,9 +93881,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     updateDate: function updateDate() {
-      if (this.profileSrc.updated_at > this.profileSrc.created_at) {
-        this.updatedDate = 'Actualizado el: ' + __WEBPACK_IMPORTED_MODULE_1_moment__(this.profileSrc.updated_at).format('L');
+      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      if (!date) {
+        date = this.profileSrc.updated_at;
       }
+      this.updatedDate = 'Actualizado: ' + __WEBPACK_IMPORTED_MODULE_1_moment__(date).fromNow();
     },
     notifyAdded: function notifyAdded() {
       flash({
@@ -93910,6 +93900,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         message: 'Perfil actualizado',
         label: 'success'
       });
+      // this.updateDate(moment());
       this.fetchProfile();
     },
     notifyDeleted: function notifyDeleted() {
@@ -93932,7 +93923,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     }
   },
-  computed: {},
+  computed: {
+    ready: function ready() {
+      if (this.profileSrc.id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
   created: function created() {
     __WEBPACK_IMPORTED_MODULE_1_moment__["locale"]('es');
     this.fetchProfile();
@@ -95133,7 +95132,7 @@ var render = function() {
                   },
                   [
                     _c("span", { class: tab["icon"] }),
-                    _vm._v(_vm._s(tab["name"]) + "\n                ")
+                    _vm._v(_vm._s(tab["name"]) + "\n            ")
                   ]
                 )
               ])
@@ -95142,136 +95141,140 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("div", { staticClass: "tab-content" }, [
-          _c(
-            "div",
-            {
-              staticClass: "tab-pane active",
-              attrs: { role: "tabpanel", id: "profile-clinics" }
-            },
-            [
-              _vm.tabSelected == "info"
-                ? _c("div", { staticClass: "text-center" }, [
-                    _c("div", { staticClass: "row" }, [
-                      !_vm.passChange
-                        ? _c(
-                            "div",
-                            { staticClass: "col-xs-12 col-md-4 vcenter" },
-                            [
-                              _vm._m(0),
-                              _vm._v(" "),
-                              _c(
+      _vm.ready
+        ? _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "tab-content" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "tab-pane active",
+                  attrs: { role: "tabpanel", id: "profile-clinics" }
+                },
+                [
+                  _vm.tabSelected == "info"
+                    ? _c("div", { staticClass: "text-center" }, [
+                        _c("div", { staticClass: "row" }, [
+                          !_vm.passChange
+                            ? _c(
                                 "div",
-                                { staticClass: "btn-center-box col-xs-12" },
+                                { staticClass: "col-xs-12 col-md-3 vcenter" },
                                 [
-                                  _vm._m(1),
+                                  _vm._m(0),
                                   _vm._v(" "),
                                   _c(
-                                    "a",
-                                    {
-                                      attrs: {
-                                        href: "#",
-                                        id: "image-change-button"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          $event.preventDefault()
-                                          _vm.toggleChangePass($event)
-                                        }
-                                      }
-                                    },
+                                    "div",
+                                    { staticClass: "btn-center-box col-xs-12" },
                                     [
+                                      _vm._m(1),
+                                      _vm._v(" "),
                                       _c(
-                                        "button",
-                                        { staticClass: "btn btn-warning" },
-                                        [_vm._v("Cambiar Contraseña")]
+                                        "a",
+                                        {
+                                          attrs: {
+                                            href: "#",
+                                            id: "image-change-button"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              $event.preventDefault()
+                                              _vm.toggleChangePass($event)
+                                            }
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "button",
+                                            { staticClass: "btn btn-warning" },
+                                            [_vm._v("Cambiar Contraseña")]
+                                          )
+                                        ]
                                       )
                                     ]
                                   )
                                 ]
                               )
-                            ]
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.passChange
-                        ? _c(
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.passChange
+                            ? _c(
+                                "div",
+                                { staticClass: "col-xs-8 col-md-3 vcenter" },
+                                [
+                                  _c("pass-changer", {
+                                    attrs: { profileSrc: _vm.profileSrc },
+                                    on: {
+                                      cancel: _vm.toggleChangePass,
+                                      changed: _vm.toggleChangePass
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
                             "div",
-                            { staticClass: "col-xs-8 col-md-4 vcenter" },
+                            { staticClass: "col-xs-12 col-md-9 vcenter" },
                             [
-                              _c("pass-changer", {
-                                attrs: { profileSrc: _vm.profileSrc },
-                                on: {
-                                  cancel: _vm.toggleChangePass,
-                                  changed: _vm.toggleChangePass
-                                }
+                              _c("profile-form", {
+                                attrs: {
+                                  profileSrc: _vm.profileSrc,
+                                  profileOriginal: _vm.profileOriginal
+                                },
+                                on: { updated: _vm.notifyUpdated }
                               })
                             ],
                             1
                           )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-xs-12 col-md-8 vcenter" },
-                        [
-                          _c("profile-form", {
-                            attrs: {
-                              profileSrc: _vm.profileSrc,
-                              profileOriginal: _vm.profileOriginal
-                            },
-                            on: { updated: _vm.notifyUpdated }
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.tabSelected == "masters"
+                    ? _c("div", { staticClass: "row" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "col-xs-12 col-md-10 col-md-offset-1"
+                          },
+                          [
+                            _c("masters", {
+                              attrs: { updateMethod: _vm.updateButton.method },
+                              on: {
+                                added: _vm.notifyAdded,
+                                deleted: _vm.notifyDeleted,
+                                courseDeleted: _vm.notifyCourseDeleted
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    : _vm._e()
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            !_vm.tutorial
+              ? _c("div", { staticClass: "panel-footer" }, [
+                  _c("div", { attrs: { id: "profile-info-footer" } }, [
+                    _c("h3", [
+                      _vm.updatedDate
+                        ? _c("span", {
+                            staticClass: "glyphicon glyphicon-calendar"
                           })
-                        ],
-                        1
-                      )
+                        : _vm._e(),
+                      _vm.updatedDate
+                        ? _c("span", {
+                            domProps: { textContent: _vm._s(_vm.updatedDate) }
+                          })
+                        : _vm._e()
                     ])
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.tabSelected == "masters"
-                ? _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      { staticClass: "col-xs-12 col-md-10 col-md-offset-1" },
-                      [
-                        _c("masters", {
-                          attrs: { updateMethod: _vm.updateButton.method },
-                          on: {
-                            added: _vm.notifyAdded,
-                            deleted: _vm.notifyDeleted,
-                            courseDeleted: _vm.notifyCourseDeleted
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                : _vm._e()
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        !_vm.tutorial
-          ? _c("div", { staticClass: "panel-footer" }, [
-              _c("div", { attrs: { id: "profile-info-footer" } }, [
-                _c("h3", [
-                  _vm.updatedDate
-                    ? _c("span", {
-                        staticClass: "glyphicon glyphicon-calendar"
-                      })
-                    : _vm._e(),
-                  _vm.updatedDate
-                    ? _c("span", {
-                        domProps: { textContent: _vm._s(_vm.updatedDate) }
-                      })
-                    : _vm._e()
                 ])
-              ])
-            ])
-          : _vm._e()
-      ])
+              : _vm._e()
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -95393,7 +95396,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -95770,7 +95773,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         topButtonIcon: 'glyphicon glyphicon-plus-sign'
       },
       showElement: true,
-      requests: {}
+      requests: []
     };
   },
 
@@ -95792,7 +95795,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           var item = _step.value;
 
           if (item.label == 'Resuelta') {
-            console.log(item.keys);
+            // console.log(item.keys);
             empty = false;
             this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
           }
@@ -95861,7 +95864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           this.filtering.state = false;
         } else if (filter == 'user') {
           var fullname = search['user'][1].replace(/%20/g, " ");
-          console.log(fullname);
+          // console.log(fullname);
           this.filterColumn('lastname1', { object: 'profile', search: ['name', 'lastname1', 'lastname2'], noOptions: true });
           this.filtering.search.string = fullname;
           this.filtering.state = false;
@@ -95881,7 +95884,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               var cleanName = cleanUpSpecialChars(item.label.toLowerCase());
               if (cleanName != search[filter]) {
                 ids = item.keys;
-                console.log('Search Filter: ' + search[filter]);
+                // console.log('Search Filter: '+search[filter]);
                 this.toggleFilterItem(ids, 'checked', filter);
               }
             }
@@ -96001,7 +96004,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         label: 'success'
       });
       this.toggleAddRequest();
-      this.fetchProfile();
+      setTimeout(function () {
+        window.location.href = '/requests';
+      }, 1000);
+      // this.fetchProfile();
     },
     closeRequest: function closeRequest() {
       var _this = this;
@@ -96079,14 +96085,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this2.details = data.data.details;
         _this2.labs = data.data.labs;
         if (data.data.requests) {
-          _this2.requests = data.data.requests;
-          _this2.buildFiltering('requests');
-          _this2.buildOrdering('requests');
-          _this2.selectAllItems();
+          // console.log(data.data);
+          // this.requests = data.data;
+          _this2.requests = [];
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = data.data.requests[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var request = _step6.value;
+
+              // console.log(request);
+              _this2.requests.push(request);
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
           if (App.role == 'admin') {
+            _this2.buildFiltering('requests');
+            _this2.selectAllItems();
             _this2.startFilters();
             _this2.applyUrlFilters();
           }
+          _this2.buildOrdering('requests');
           _this2.orderColumn('created_at', { order: 'desc' });
         }
         _this2.calculateRatio();
@@ -96598,7 +96632,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
-                                        staticClass: "btn btn-primary",
+                                        staticClass: "btn btn-sm btn-primary",
                                         attrs: { type: "button" },
                                         on: {
                                           click: function($event) {
@@ -96706,7 +96740,7 @@ var render = function() {
                                     _c(
                                       "button",
                                       {
-                                        staticClass: "btn btn-primary",
+                                        staticClass: "btn btn-sm btn-primary",
                                         attrs: { type: "button" },
                                         on: {
                                           click: function($event) {
@@ -97145,7 +97179,7 @@ var render = function() {
                                 _c(
                                   "button",
                                   {
-                                    staticClass: "btn btn-primary",
+                                    staticClass: "btn btn-sm btn-primary",
                                     attrs: { type: "button" },
                                     on: {
                                       click: function($event) {
@@ -97414,7 +97448,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -97648,20 +97682,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -97673,6 +97693,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ['page', 'admin'],
   data: function data() {
     return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       loading: true,
       // showRequest: {
       //   method: false,
@@ -97706,6 +97727,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {},
   methods: {
+    exportExcel: function exportExcel() {
+      // axios.post('/export-excel', {model:'Profile', ids:this.filtering.selected}
+      //   ).then(response => {
+      //     console.log(response);
+      //   });
+      axios({
+        url: '/export-excel',
+        method: 'POST',
+        responseType: 'blob', // important
+        data: {
+          model: 'Profile', ids: this.filtering.selected
+        }
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'usuarios miGabinete ' + __WEBPACK_IMPORTED_MODULE_0_moment__().format() + '.xlsx');
+        document.body.appendChild(link);
+        link.click();
+      });
+    },
     startFilters: function startFilters() {
       if (this.filtering.filters['last_access']) {
         delete this.filtering.filters['last_access'];
@@ -97722,7 +97764,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           var item = _step.value;
 
           if (item.label == 'Online') {
-            console.log(item.keys);
+            // console.log(item.keys);
             empty = false;
             this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
           }
@@ -97775,7 +97817,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               var cleanName = cleanUpSpecialChars(item.label.toLowerCase());
               if (cleanName != search[filter]) {
                 ids = item.keys;
-                console.log('Search Filter: ' + search[filter]);
+                // console.log('Search Filter: '+search[filter]);
                 this.toggleFilterItem(ids, 'checked', filter);
               }
             }
@@ -98120,7 +98162,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var extratime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
       if (this.userSelected) {
-        console.log('Toggleling');
+        // console.log('Toggleling')
         this.userSelected = false;
       } else {
         this.userSelected = this.users[id];
@@ -98147,6 +98189,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   computed: {
+    userLicenseCenter: function userLicenseCenter() {
+      if (this.userSelected.university_id) {
+        return this.userSelected.university.name;
+      }
+      if (this.userSelected.university_id === 0) {
+        return "Otro";
+      }
+      return "-";
+    },
     panelClass: function panelClass() {
       if (this.admin) {
         return 'panel-body-admin';
@@ -98916,6 +98967,13 @@ var render = function() {
                           ]),
                           _vm._v(" "),
                           _c("p", [
+                            _vm._v("Centro de Licencia: "),
+                            _c("strong", [
+                              _vm._v(_vm._s(_vm.userLicenseCenter))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("p", [
                             _vm._v("Especialidades: "),
                             _c("strong", {
                               domProps: {
@@ -98981,19 +99039,24 @@ var render = function() {
             : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "panel-footer" }, [
-            _c("div", { staticClass: "progress" }, [
-              _vm.profileusers.ratio > 10
-                ? _c(
-                    "div",
-                    {
-                      staticClass:
-                        "progress-bar progress-bar-primary progress-bar-striped",
-                      style: _vm.profileusers.barStyle
-                    },
-                    [_c("span", [_vm._v(_vm._s(_vm.profileusers.barText))])]
-                  )
-                : _vm._e()
-            ])
+            _c("h3", [
+              _vm._v("Total: "),
+              _c("strong", [_vm._v(_vm._s(_vm.filtering.selected.length))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-sm btn-primary",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.exportExcel($event)
+                  }
+                }
+              },
+              [_vm._v("Exportar Excel")]
+            )
           ])
         ]
       )
@@ -99016,7 +99079,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("h3", { staticClass: "panel-title" }, [
       _c("span", { staticClass: "glyphicon glyphicon-hand-up" }),
-      _vm._v("Solicitudes")
+      _vm._v("Usuarios")
     ])
   }
 ]
@@ -103909,7 +103972,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104038,6 +104101,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -104049,10 +104127,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       profileToSave: {},
       experiencesToSave: [],
       experiencesToRemove: [],
-      especialtiesToSave: [],
-      especialtiesToRemove: [],
       experiences: {},
-      especialties: {},
+      universities: {},
       updateButton: {
         method: false,
         ButtonText: this.tutorial ? 'Confirmar/Actualizar' : 'Actualizar',
@@ -104067,7 +104143,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         phone: false,
         license_year: false,
         personal_id_number: false,
-        license_number: false
+        license_number: false,
+        university_id: false
       }
     };
   },
@@ -104082,8 +104159,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         field = e.target.id;
       }
       if (field != 'lastname2') {
-        if (this.profileSrc[field] == "" || this.profileSrc[field] == null) {
-          this.formErrors[field] = 'Este campo es obligatorio';
+        if (this.profileSrc[field] === "" || this.profileSrc[field] === null) {
+          this.formErrors[field] = 'Obligatorio';
           return false;
         }
       }
@@ -104127,7 +104204,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
       if (field == 'license_year') {
-        console.log('LICENSE YEAR!');
+        // console.log('LICENSE YEAR!');
         if (this.profileSrc[field] < this.thisYear - 60) {
           this.formErrors[field] = 'Fecha mínima ' + (this.thisYear - 60);
           return false;
@@ -104154,6 +104231,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.formErrors[field] = false;
       return true;
     },
+
+    // checkFieldBox(e,field,id) {
+    //   let check = function(id) {
+    //       return this.checkExperiences(id); 
+    //   }.bind(this);
+    //   let orgValue = check(id);
+    //   console.log(e);
+    //   let objectToSave = field+'ToSave';
+    //   let objectToRemove = field+'ToRemove';
+    //   if (e.target.checked) {
+    //     if (orgValue) {
+    //       let i = this[objectToRemove].indexOf(id);
+    //       if (i != -1) {
+    //         this[objectToRemove].splice(i,1);
+    //       }
+    //     } else {
+    //       this[objectToSave].push(id);
+    //     }
+    //   } else {
+    //     if (orgValue) {
+    //       this[objectToRemove].push(id);
+    //     } else {
+    //       let i = this[objectToSave].indexOf(id);
+    //       if (i != -1) {
+    //         this[objectToSave].splice(i,1);
+    //       }
+    //     }
+    //   }
+    // },
     checkFieldBox: function checkFieldBox(e, field, id) {
       var check = function (id) {
         if (field == "especialties") {
@@ -104172,15 +104278,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this[objectToRemove].splice(i, 1);
           }
         } else {
-          this[objectToSave].push(id);
+          if (this.userExperiences.indexOf(id) == -1) {
+            this[objectToSave].push(id);
+          }
+          var _i = this[objectToRemove].indexOf(id);
+          if (_i != -1) {
+            this[objectToRemove].splice(_i, 1);
+          }
         }
       } else {
         if (orgValue) {
-          this[objectToRemove].push(id);
+          // console.log('here');
+          if (this.userExperiences.indexOf(id) != -1) {
+            this[objectToRemove].push(id);
+          }
+          var _i2 = this[objectToSave].indexOf(id);
+          if (_i2 != -1) {
+            this[objectToSave].splice(_i2, 1);
+          }
         } else {
-          var _i = this[objectToSave].indexOf(id);
-          if (_i != -1) {
-            this[objectToSave].splice(_i, 1);
+          var _i3 = this[objectToSave].indexOf(id);
+          if (_i3 != -1) {
+            this[objectToSave].splice(_i3, 1);
           }
         }
       }
@@ -104188,14 +104307,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     checkField: function checkField(e) {
       var field = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-      console.log('CheckField Passed');
+      // console.log('CheckField Passed');
       if (!field) {
         field = e.target.id;
       }
       var origin = this.profileOriginal[field];
       var value = e.target.value == "" ? null : e.target.value;
 
-      console.log('Origin: ' + origin);
+      // console.log('Origin: '+origin);
       if (origin != value && !this.formErrors[field]) {
         this.profileToSave[field] = value;
       } else {
@@ -104204,16 +104323,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
     },
-    checkEspecialties: function checkEspecialties(id) {
+
+    // checkEspecialties(id) {
+    //   for (let especialty of this.profileSrc.especialties) {
+    //     if (especialty.id == id) {
+    //       return true;
+    //       break;
+    //     }
+    //   }
+    //   return false;
+    // },
+    // checkExperiences(id) {
+    //   for (let experience of this.profileSrc.experiences) {
+    //     if (experience.id == id) {
+    //       return true;
+    //       break;
+    //     }
+    //   }
+    //   return false;
+    // },
+    checkExperiences: function checkExperiences(id) {
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
 
       try {
-        for (var _iterator = this.profileSrc.especialties[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var especialty = _step.value;
+        for (var _iterator = this.profileSrc.experiences[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var experience = _step.value;
 
-          if (especialty.id == id) {
+          if (experience.id == id && this.experiencesToRemove.indexOf(id) == -1) {
+            return true;
+            break;
+          }
+          if (this.experiencesToSave.indexOf(id) != -1) {
             return true;
             break;
           }
@@ -104235,37 +104377,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       return false;
     },
-    checkExperiences: function checkExperiences(id) {
-      var _iteratorNormalCompletion2 = true;
-      var _didIteratorError2 = false;
-      var _iteratorError2 = undefined;
-
-      try {
-        for (var _iterator2 = this.profileSrc.experiences[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-          var experience = _step2.value;
-
-          if (experience.id == id) {
-            return true;
-            break;
-          }
-        }
-      } catch (err) {
-        _didIteratorError2 = true;
-        _iteratorError2 = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion2 && _iterator2.return) {
-            _iterator2.return();
-          }
-        } finally {
-          if (_didIteratorError2) {
-            throw _iteratorError2;
-          }
-        }
-      }
-
-      return false;
-    },
     fetchExperiences: function fetchExperiences() {
       var _this = this;
 
@@ -104273,15 +104384,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this.experiences = data.data;
       });
     },
-
-    // fetchEspecialties() {
-    //   axios.get('/api/especialty')
-    //     .then(data => {
-    //       this.especialties = data.data;
-    //     });
-    // },
-    updateProfile: function updateProfile(id) {
+    fetchUniversities: function fetchUniversities() {
       var _this2 = this;
+
+      axios.get('/api/universities').then(function (data) {
+        _this2.universities = data.data;
+      });
+    },
+    updateProfile: function updateProfile(id) {
+      var _this3 = this;
 
       var keys = Object.keys(this.profileToSave).length;
       if (!this.checkForUpdate(keys) && !this.tutorial) {
@@ -104291,14 +104402,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
       } else {
         var profile = keys ? this.profileSrc : null;
-        var especialtiesToSave = this.especialtiesToSave.length ? this.especialtiesToSave : null;
-        var especialtiesToRemove = this.especialtiesToRemove.length ? this.especialtiesToRemove : null;
         var experiencesToSave = this.experiencesToSave.length ? this.experiencesToSave : null;
         var experiencesToRemove = this.experiencesToRemove.length ? this.experiencesToRemove : null;
         axios.patch('/profile/' + this.profileSrc.id, {
           'profile': profile,
-          'especialtiesToRemove': especialtiesToRemove,
-          'especialtiesToSave': especialtiesToSave,
           'experiencesToRemove': experiencesToRemove,
           'experiencesToSave': experiencesToSave
         }).catch(function (error) {
@@ -104316,14 +104423,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           // });
         }).then(function (response) {
           if (response.status == 200) {
-            _this2.$emit('updated');
-            _this2.cleanUpdates();
+            _this3.$emit('updated');
+            _this3.cleanUpdates();
           }
         });
       }
     },
     checkForUpdate: function checkForUpdate(keys) {
-      if (keys || this.especialtiesToSave.length || this.experiencesToSave.length || this.especialtiesToRemove.length || this.experiencesToRemove.length) {
+      if (keys || this.experiencesToSave.length || this.experiencesToRemove.length) {
         return true;
       } else {
         return false;
@@ -104333,11 +104440,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.profileToSave = {};
       this.experiencesToSave = [];
       this.experiencesToRemove = [];
-      this.especialtiesToSave = [];
-      this.especialtiesToRemove = [];
     }
   },
   computed: {
+    userExperiences: function userExperiences() {
+      var response = [];
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        for (var _iterator2 = this.profileSrc.experiences[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var experience = _step2.value;
+
+          response.push(experience.id);
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2.return) {
+            _iterator2.return();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+
+      return response;
+    },
     errors: function errors() {
       var num = 0;
       for (var error in this.formErrors) {
@@ -104372,6 +104506,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     __WEBPACK_IMPORTED_MODULE_0_moment__["locale"]('es');
     this.fetchExperiences();
+    this.fetchUniversities();
     // this.fetchEspecialties();
   },
   beforeUpdate: function beforeUpdate() {
@@ -104394,325 +104529,449 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("form", { attrs: { id: "profile-create-form" } }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-6" }, [
-          _c("label", { attrs: { for: "name" } }, [_vm._v("Nombre:")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.name,
-                expression: "profileSrc.name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "name", type: "text" },
-            domProps: { value: _vm.profileSrc.name },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+      _c("fieldset", [
+        _c("legend", [_vm._v("Información Personal")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "form-group col-xs-12 col-sm-6" }, [
+            _c("label", { attrs: { for: "name" } }, [_vm._v("Nombre:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.profileSrc.name,
+                  expression: "profileSrc.name"
                 }
-                _vm.$set(_vm.profileSrc, "name", $event.target.value)
+              ],
+              staticClass: "form-control",
+              attrs: { id: "name", type: "text" },
+              domProps: { value: _vm.profileSrc.name },
+              on: {
+                blur: _vm.checkField,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.profileSrc, "name", $event.target.value)
+                }
               }
-            }
-          }),
+            }),
+            _vm._v(" "),
+            _vm.formErrors.name
+              ? _c("span", { staticClass: "help-block" }, [
+                  _c("strong", [_vm._v(_vm._s(_vm.formErrors.name))])
+                ])
+              : _vm._e()
+          ]),
           _vm._v(" "),
-          _vm.formErrors.name
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.formErrors.name))])
+          _c("div", { staticClass: "form-group col-xs-12 col-sm-6" }, [
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "label",
+                { staticClass: " col-xs-12", attrs: { for: "name" } },
+                [_vm._v("Apellidos:")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: " col-xs-12 col-sm-6" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profileSrc.lastname1,
+                      expression: "profileSrc.lastname1"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "lastname1", type: "text" },
+                  domProps: { value: _vm.profileSrc.lastname1 },
+                  on: {
+                    blur: _vm.checkField,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profileSrc, "lastname1", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.formErrors.lastname1
+                  ? _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.formErrors.lastname1))])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: " col-xs-12 col-sm-6" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.profileSrc.lastname2,
+                      expression: "profileSrc.lastname2"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "lastname2", type: "text" },
+                  domProps: { value: _vm.profileSrc.lastname2 },
+                  on: {
+                    blur: _vm.checkField,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.profileSrc, "lastname2", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.formErrors.lastname2
+                  ? _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.formErrors.lastname2))])
+                    ])
+                  : _vm._e()
               ])
-            : _vm._e()
+            ])
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-6" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("label", { staticClass: " col-xs-12", attrs: { for: "name" } }, [
-              _vm._v("Apellidos:")
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "form-group col-xs-12 col-sm-6 col-md-6" }, [
+            _c("label", { attrs: { for: "name" } }, [
+              _vm._v("Correo Electrónico:")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: " col-xs-12 col-sm-6" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.profileSrc.lastname1,
-                    expression: "profileSrc.lastname1"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "lastname1", type: "text" },
-                domProps: { value: _vm.profileSrc.lastname1 },
-                on: {
-                  blur: _vm.checkField,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.profileSrc, "lastname1", $event.target.value)
-                  }
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.profileSrc.email,
+                  expression: "profileSrc.email"
                 }
-              }),
-              _vm._v(" "),
-              _vm.formErrors.lastname1
-                ? _c("span", { staticClass: "help-block" }, [
-                    _c("strong", [_vm._v(_vm._s(_vm.formErrors.lastname1))])
-                  ])
-                : _vm._e()
+              ],
+              staticClass: "form-control",
+              attrs: { id: "email", type: "email" },
+              domProps: { value: _vm.profileSrc.email },
+              on: {
+                blur: _vm.checkField,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.profileSrc, "email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.formErrors.email
+              ? _c("span", { staticClass: "help-block" }, [
+                  _c("strong", [_vm._v(_vm._s(_vm.formErrors.email))])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group col-xs-6 col-sm-3 col-md-3" }, [
+            _c("label", { attrs: { for: "name" } }, [_vm._v("Teléfono:")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.profileSrc.phone,
+                  expression: "profileSrc.phone"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { id: "phone", type: "text" },
+              domProps: { value: _vm.profileSrc.phone },
+              on: {
+                blur: _vm.checkField,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.profileSrc, "phone", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.formErrors.phone
+              ? _c("span", { staticClass: "help-block" }, [
+                  _c("strong", [_vm._v(_vm._s(_vm.formErrors.phone))])
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group col-xs-6 col-sm-3 col-md-3" }, [
+            _c("label", { attrs: { for: "name" } }, [
+              _vm._v("DNI (o equivalente):")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: " col-xs-12 col-sm-6" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.profileSrc.lastname2,
-                    expression: "profileSrc.lastname2"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "lastname2", type: "text" },
-                domProps: { value: _vm.profileSrc.lastname2 },
-                on: {
-                  blur: _vm.checkField,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.profileSrc, "lastname2", $event.target.value)
-                  }
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.profileSrc.personal_id_number,
+                  expression: "profileSrc.personal_id_number"
                 }
-              }),
-              _vm._v(" "),
-              _vm.formErrors.lastname2
-                ? _c("span", { staticClass: "help-block" }, [
-                    _c("strong", [_vm._v(_vm._s(_vm.formErrors.lastname2))])
+              ],
+              staticClass: "form-control",
+              attrs: { id: "personal_id_number", type: "text" },
+              domProps: { value: _vm.profileSrc.personal_id_number },
+              on: {
+                blur: _vm.checkField,
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.profileSrc,
+                    "personal_id_number",
+                    $event.target.value
+                  )
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.formErrors.personal_id_number
+              ? _c("span", { staticClass: "help-block" }, [
+                  _c("strong", [
+                    _vm._v(_vm._s(_vm.formErrors.personal_id_number))
                   ])
-                : _vm._e()
-            ])
+                ])
+              : _vm._e()
           ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-12 col-md-8" }, [
-          _c("label", { attrs: { for: "name" } }, [
-            _vm._v("Correo Electrónico:")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.email,
-                expression: "profileSrc.email"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "email", type: "email" },
-            domProps: { value: _vm.profileSrc.email },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.profileSrc, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.formErrors.email
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.formErrors.email))])
-              ])
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-6 col-md-4" }, [
-          _c("label", { attrs: { for: "name" } }, [_vm._v("Teléfono:")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.phone,
-                expression: "profileSrc.phone"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "phone", type: "text" },
-            domProps: { value: _vm.profileSrc.phone },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.profileSrc, "phone", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.formErrors.phone
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.formErrors.phone))])
-              ])
-            : _vm._e()
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-xs-6 col-sm-6 col-md-2" }, [
-          _c("label", { attrs: { for: "name" } }, [
-            _vm._v("Año de Licenciatura:")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.license_year,
-                expression: "profileSrc.license_year"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "license_year", type: "number", max: _vm.thisYear },
-            domProps: { value: _vm.profileSrc.license_year },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.profileSrc, "license_year", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.formErrors.license_year
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.formErrors.license_year))])
-              ])
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-xs-6 col-sm-6 col-md-5" }, [
-          _c("label", { attrs: { for: "name" } }, [
-            _vm._v("DNI (o equivalente):")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.personal_id_number,
-                expression: "profileSrc.personal_id_number"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "personal_id_number", type: "text" },
-            domProps: { value: _vm.profileSrc.personal_id_number },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(
-                  _vm.profileSrc,
-                  "personal_id_number",
-                  $event.target.value
-                )
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.formErrors.personal_id_number
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [
-                  _vm._v(_vm._s(_vm.formErrors.personal_id_number))
-                ])
-              ])
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-6 col-md-5" }, [
-          _c("label", { attrs: { for: "name" } }, [
-            _vm._v("Nº de Colegiado/a:")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.profileSrc.license_number,
-                expression: "profileSrc.license_number"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { id: "license_number", type: "text" },
-            domProps: { value: _vm.profileSrc.license_number },
-            on: {
-              blur: _vm.checkField,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.profileSrc, "license_number", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _vm.formErrors.license_number
-            ? _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.formErrors.license_number))])
-              ])
-            : _vm._e()
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-xs-12 col-sm-6" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "checkbox" },
-            _vm._l(_vm.experiences, function(experience) {
-              return _c("label", [
-                _c("input", {
-                  attrs: { type: "checkbox" },
-                  domProps: {
-                    value: experience.id,
-                    checked: _vm.checkExperiences(experience.id)
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.checkFieldBox($event, "experiences", experience.id)
+      _vm.$global.role === "user"
+        ? _c("fieldset", [
+            _c("legend", [_vm._v("Información Profesional")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "div",
+                { staticClass: "form-group col-xs-6 col-sm-6 col-md-3" },
+                [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Año de Licenciatura:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.profileSrc.license_year,
+                        expression: "profileSrc.license_year"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      id: "license_year",
+                      type: "number",
+                      max: _vm.thisYear
+                    },
+                    domProps: { value: _vm.profileSrc.license_year },
+                    on: {
+                      blur: _vm.checkField,
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.profileSrc,
+                          "license_year",
+                          $event.target.value
+                        )
+                      }
                     }
-                  }
-                }),
-                _vm._v(
-                  "\n                " +
-                    _vm._s(experience.name) +
-                    "\n              "
+                  }),
+                  _vm._v(" "),
+                  _vm.formErrors.license_year
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.formErrors.license_year))
+                        ])
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group col-xs-6 col-sm-6 col-md-5" },
+                [
+                  _c("label", { attrs: { for: "university_id" } }, [
+                    _vm._v("Lugar de Licenciatura:")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.profileSrc.university_id,
+                          expression: "profileSrc.university_id"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { id: "university_id", name: "university_id" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.profileSrc,
+                              "university_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          _vm.checkField
+                        ]
+                      }
+                    },
+                    [
+                      _c(
+                        "option",
+                        { attrs: { disabled: "", value: "", selected: "" } },
+                        [_vm._v("Selecciona un centro\n            ")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.universities, function(university) {
+                        return _c(
+                          "option",
+                          { domProps: { value: university["id"] } },
+                          [
+                            _vm._v(
+                              _vm._s(university["name"]) + "\n            "
+                            )
+                          ]
+                        )
+                      }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("Otro Centro de Formación\n            ")
+                      ])
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm.formErrors.university_id
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.formErrors.university_id))
+                        ])
+                      ])
+                    : _vm._e()
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group col-xs-12 col-sm-6 col-md-4" },
+                [
+                  _c("label", { attrs: { for: "name" } }, [
+                    _vm._v("Nº de Colegiado/a:")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.profileSrc.license_number,
+                        expression: "profileSrc.license_number"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { id: "license_number", type: "text" },
+                    domProps: { value: _vm.profileSrc.license_number },
+                    on: {
+                      blur: _vm.checkField,
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.profileSrc,
+                          "license_number",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.formErrors.license_number
+                    ? _c("span", { staticClass: "help-block" }, [
+                        _c("strong", [
+                          _vm._v(_vm._s(_vm.formErrors.license_number))
+                        ])
+                      ])
+                    : _vm._e()
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "form-group col-xs-12 col-sm-12" }, [
+                _c("label", { attrs: { for: "name" } }, [
+                  _vm._v(
+                    "Experiencia profesional: (selecciona todas las que procedan)"
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "checkbox" },
+                  _vm._l(_vm.experiences, function(experience) {
+                    return _c("label", [
+                      _c("input", {
+                        attrs: { type: "checkbox" },
+                        domProps: {
+                          value: experience.id,
+                          checked: _vm.checkExperiences(experience.id)
+                        },
+                        on: {
+                          click: function($event) {
+                            _vm.checkFieldBox(
+                              $event,
+                              "experiences",
+                              experience.id
+                            )
+                          }
+                        }
+                      }),
+                      _vm._v(
+                        "\n              " +
+                          _vm._s(experience.name) +
+                          "\n            "
+                      )
+                    ])
+                  })
                 )
               ])
-            })
-          )
-        ])
-      ])
+            ])
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
@@ -104730,25 +104989,14 @@ var render = function() {
           },
           [
             _c("span", { class: _vm.updateButton.ButtonIcon }),
-            _vm._v(_vm._s(_vm.updateButton.ButtonText) + "\n          ")
+            _vm._v(_vm._s(_vm.updateButton.ButtonText) + "\n      ")
           ]
         )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("label", { attrs: { for: "name" } }, [
-      _vm._v("Experiencia profesional: "),
-      _c("br"),
-      _vm._v("(selecciona todas las que procedan)")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -104845,7 +105093,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104860,6 +105108,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment_locale_es___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment_locale_es__);
+//
+//
 //
 //
 //
@@ -105186,26 +105436,32 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", { attrs: { id: "new-request-form" } }, [
-    _c("div", { staticClass: "text-center" }, [
-      _c("h4", [
-        _vm._v("Solicitud enviada el " + _vm._s(_vm.requestDate) + " por:")
-      ]),
-      _vm._v(" "),
-      _c("h3", [
-        _vm._v(
-          _vm._s(_vm.request.profile.name) +
-            " " +
-            _vm._s(_vm.request.profile.lastname1)
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm.showMode && _vm.showHeader
-      ? _c("div", { class: _vm.requestClasses }, [
-          _c("h4", [
-            _vm._v("Estado: "),
-            _c("strong", [_vm._v(_vm._s(_vm.requestStateText))])
-          ])
+    _vm.request.id
+      ? _c("div", [
+          _c("div", { staticClass: "text-center" }, [
+            _c("h4", [
+              _vm._v(
+                "Solicitud enviada el " + _vm._s(_vm.requestDate) + " por:"
+              )
+            ]),
+            _vm._v(" "),
+            _c("h3", [
+              _vm._v(
+                _vm._s(_vm.request.profile.name) +
+                  " " +
+                  _vm._s(_vm.request.profile.lastname1)
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.showMode && _vm.showHeader
+            ? _c("div", { class: _vm.requestClasses }, [
+                _c("h4", [
+                  _vm._v("Estado: "),
+                  _c("strong", [_vm._v(_vm._s(_vm.requestStateText))])
+                ])
+              ])
+            : _vm._e()
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -105944,7 +106200,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           var item = _step3.value;
 
           if (item.label == 'Aceptada' || item.label == 'Denegada') {
-            console.log(item.keys);
+            // console.log(item.keys);
             empty = false;
             this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
           }
@@ -105997,7 +106253,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
               var cleanName = cleanUpSpecialChars(item.label.toLowerCase());
               if (cleanName != search[filter]) {
                 ids = item.keys;
-                console.log('Search Filter: ' + search[filter]);
+                // console.log('Search Filter: '+search[filter]);
                 this.toggleFilterItem(ids, 'checked', filter);
               }
             }
@@ -106125,7 +106381,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var extratime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
       if (this.extratimeSelected) {
-        console.log('Toggleling');
+        // console.log('Toggleling')
         this.profileSelected = false;
         this.extratimeSelected = false;
       } else {
@@ -106137,7 +106393,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this3 = this;
 
       axios.get('/api/schedule/' + id).then(function (data) {
-        console.log('HERE!!!');
+        // console.log('HERE!!!');
         _this3.profileSelected = data.data;
       });
     },
@@ -106148,7 +106404,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         if (!_this4.admin) {
           _this4.profileSrc = data.data;
         } else {
-          console.log(data.data);
+          // console.log(data.data);
           _this4.extratimes = data.data.extratimes;
           _this4.buildFiltering('extratimes');
           _this4.buildOrdering('extratimes');
@@ -107567,6 +107823,12 @@ function getAllUrlParams(url) {
 
 /***/ }),
 /* 437 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 438 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

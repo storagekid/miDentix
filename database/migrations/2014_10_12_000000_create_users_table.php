@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             // $table->string('personal_id_number')->unique();
             $table->string('password');
             $table->string('role');
+            $table->string('group_id');
             $table->string('avatar_path')->nullable();
             $table->rememberToken();
             $table->dateTime('last_access')->nullable()->default(null);

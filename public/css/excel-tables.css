@@ -1,0 +1,79 @@
+/*$body-bg: #f5f8fa;*/
+
+/*$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%);*/
+
+/*$navbar-default-link-disabled-bg:          transparent;*/
+
+/*$btn-font-weight:                normal;*/
+
+/*// Allows for customizing button radius independently from global border radius*/
+
+/*$navbar-height:                    50px;
+$navbar-margin-bottom:             $line-height-computed;
+$navbar-border-radius:             $border-radius-base;
+$navbar-padding-horizontal:        floor(($grid-gutter-width / 2));
+$navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2);
+$navbar-collapse-max-height:       340px;*/
+
+/*$panel-success-text:          $state-success-text;
+$panel-success-border:        $state-success-border;
+$panel-success-heading-bg:    $state-success-bg;
+
+$panel-info-text:             $state-info-text;
+$panel-info-border:           $state-info-border;
+$panel-info-heading-bg:       $state-info-bg;
+
+$panel-warning-text:          $state-warning-text;
+$panel-warning-border:        $state-warning-border;
+$panel-warning-heading-bg:    $state-warning-bg;
+
+$panel-danger-text:           $state-danger-text;
+$panel-danger-border:         $state-danger-border;
+$panel-danger-heading-bg:     $state-danger-bg;*/
+
+tbody tr:last-child td.data {
+  border-bottom: 1px medium #753470;
+}
+
+td:nth-child(2) {
+  border-left: 1px medium #753470;
+}
+
+td:last-child {
+  border-right: 1px medium #753470;
+}
+
+.header {
+  background: #753470;
+  color: #FFF;
+  font-size: 20;
+  font-weight: 100;
+  height: 30;
+  vertical-align: middle;
+  text-align: center;
+}
+
+tr {
+  color: #000;
+}
+
+tr:nth-child(even) td.data {
+  background: #f1eaf0;
+}
+
+tr:nth-child(odd) td.data {
+  background: #FFF;
+}
+
+.data {
+  font-size: 12;
+  height: 25;
+  vertical-align: middle;
+  padding: 5;
+  font-weight: 400;
+}
+
+.margin {
+  width: 10;
+}
+

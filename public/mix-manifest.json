@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/excel-tables.css": "/css/excel-tables.css",
     "/js/charts.js": "/js/charts.js",
     "/js/functions.js": "/js/functions.js"
 }

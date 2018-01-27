@@ -13,15 +13,8 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
-    static $password;
+$factory->define(App\Group::class, function (Faker $faker) {
     return [
-        // 'personal_id_number' => $faker->unique()->swiftBicNumber,
-        // 'password' => $password ?: $password = bcrypt('secret'),
-        'email' => $faker->unique()->safeEmail,
-        'password' => bcrypt('Migabinete01'),
-        'role' => 'user',
-        'group_id' => 3,
-        'remember_token' => str_random(10),
+        'name' => $faker->unique()->word,
     ];
 });

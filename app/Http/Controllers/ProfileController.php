@@ -24,7 +24,7 @@ class ProfileController extends Controller
     	return view('layouts.profile.profile-create', compact('user'));
     }
     public function update(Profile $profile) {
-    	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed'];
+    	$allowed = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','university_id','tutorial_completed'];
 
         // request()->validate([
         //     'email' => 'required|unique:users',
@@ -42,7 +42,7 @@ class ProfileController extends Controller
         	$profileSent = request('profile');
         	foreach ($profileSent as $key => $value) {
         		if (in_array($key, $allowed)) {
-        			$profile[$key] = $value;
+        			$profile->$key = $value;
         		}
         	};
             $user = $profile->user;

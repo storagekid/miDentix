@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/session', 'SessionController@indexApi');
 
 	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
+
+	Route::post('/export-excel', 'ExcelController@export');
 });
 
 Route::middleware(['auth','tutorial'])->group(function() {

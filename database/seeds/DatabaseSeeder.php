@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
         	StatesSeeder::class,
+            CostCentersSeeder::class,
         	ClinicsSeeder::class,
         	CountriesSeeder::class,
         	EspecialtiesSeeder::class,
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
         	LaboratoriesSeeder::class,
         	// UsersSeeder::class,
             Master_UniversitySeeder::class,
+            GroupsSeeder::class,
         ]);
         if (!$this->profileCSV) {
             $this->call([

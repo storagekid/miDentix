@@ -12,7 +12,7 @@
             </ul>
           </h3>
         </div>
-        <div class="panel-body">
+        <div class="panel-body" v-if="ready">
           <div class="tab-content">
             <div 
               role="tabpanel" 
@@ -21,7 +21,7 @@
               >
               <div v-if="tabSelected == 'info'" class="text-center">
                 <div class="row">
-                  <div class="col-xs-12 col-md-4 vcenter" v-if="!passChange">
+                  <div class="col-xs-12 col-md-3 vcenter" v-if="!passChange">
                     <div class="profile-pic-round text-center">
                       <a href="/profile" class="thumbnail center-block">
                         <img src="/img/profile.jpg" alt="...">
@@ -36,7 +36,7 @@
                       </a>
                     </div>
                   </div>
-                  <div class="col-xs-8 col-md-4 vcenter"  v-if="passChange">
+                  <div class="col-xs-8 col-md-3 vcenter"  v-if="passChange">
                     <pass-changer 
                       :profileSrc="profileSrc"
                       @cancel="toggleChangePass"
@@ -44,7 +44,7 @@
                      >
                     </pass-changer>
                   </div>
-                  <div class="col-xs-12 col-md-8 vcenter">
+                  <div class="col-xs-12 col-md-9 vcenter">
                     <profile-form
                       :profileSrc="profileSrc"
                       :profileOriginal="profileOriginal"
@@ -72,14 +72,6 @@
               <h3>
                 <span class="glyphicon glyphicon-calendar" v-if="updatedDate"></span><span v-if="updatedDate" v-text="updatedDate"></span>
               </h3>
-<!--               <button 
-                type="button" 
-                :class="updateButton.ButtonClasses" 
-                @click="editButtonMethod()"
-                v-if="showEditButton"
-                >
-                <span :class="updateButton.ButtonIcon"></span>{{updateButton.ButtonText}}
-              </button> -->
             </div>
           </div>
         </div>
@@ -130,26 +122,6 @@
               this.passChange = false;
             }
           },
-          editButtonMethod() {
-            if (this.tabSelected == 'info') {
-              this.updateProfile();
-            } else if (this.tabSelected == 'masters') {
-              this.toggleUpdate();
-            }
-          },
-          toggleUpdate() {
-            if (!this.updateButton.method) {
-              this.updateButton.method = true;
-              this.updateButton.ButtonText = 'Cancelar';
-              this.updateButton.ButtonClasses = 'btn btn-danger';
-              this.updateButton.ButtonIcon = 'glyphicon glyphicon-remove';
-            } else {
-              this.updateButton.method = false;
-              this.updateButton.ButtonText = 'Modificar';
-              this.updateButton.ButtonClasses = 'btn btn-primary';
-              this.updateButton.ButtonIcon = 'glyphicon glyphicon-pencil';
-            }
-          },
           toggleTab(tab) {
             if (this.tabSelected == tab) {
               return;
@@ -170,10 +142,11 @@
                 this.copyProfile();
               });
           },
-          updateDate() {
-            if (this.profileSrc.updated_at > this.profileSrc.created_at) {
-              this.updatedDate = 'Actualizado el: '+moment(this.profileSrc.updated_at).format('L');
+          updateDate(date=null) {
+            if (!date) {
+              date = this.profileSrc.updated_at;
             }
+            this.updatedDate = 'Actualizado: '+moment(date).fromNow();
           },
           notifyAdded() {
             flash({
@@ -187,6 +160,7 @@
                 message: 'Perfil actualizado', 
                 label: 'success'
             });
+            // this.updateDate(moment());
             this.fetchProfile();
           },
           notifyDeleted() {
@@ -210,6 +184,14 @@
           }
         },
         computed: {
+          ready() {
+            if (this.profileSrc.id) {
+              return true;
+            }
+            else {
+              return false;
+            }
+          },
         },
         created() {
           moment.locale('es');

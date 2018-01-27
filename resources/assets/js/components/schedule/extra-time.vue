@@ -316,7 +316,7 @@
             let empty = true;
             for (let item of this.filtering.filters['state'].keys) {
               if (item.label == 'Aceptada' || item.label == 'Denegada') {
-                console.log(item.keys);
+                // console.log(item.keys);
                 empty = false;
                 this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
               }
@@ -347,7 +347,7 @@
                   let cleanName = cleanUpSpecialChars(item.label.toLowerCase());
                   if (cleanName != search[filter]) {
                     ids = item.keys;
-                    console.log('Search Filter: '+search[filter]);
+                    // console.log('Search Filter: '+search[filter]);
                     this.toggleFilterItem(ids, 'checked', filter);
                   }
                 }
@@ -433,7 +433,7 @@
           },
           toggleShowDetails(id=null, extratime=null) {
             if (this.extratimeSelected) {
-              console.log('Toggleling')
+              // console.log('Toggleling')
               this.profileSelected = false;
               this.extratimeSelected = false;
             } else {
@@ -444,7 +444,7 @@
           fetchProfileId(id) {
             axios.get('/api/schedule/'+id)
               .then(data => {
-                console.log('HERE!!!');
+                // console.log('HERE!!!');
                 this.profileSelected = data.data;
               });
           },
@@ -454,7 +454,7 @@
                 if (!this.admin) {
                   this.profileSrc = data.data;
                 } else {
-                  console.log(data.data);
+                  // console.log(data.data);
                   this.extratimes = data.data.extratimes;
                   this.buildFiltering('extratimes');
                   this.buildOrdering('extratimes');

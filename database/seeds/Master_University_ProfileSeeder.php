@@ -15,16 +15,18 @@ class Master_University_ProfileSeeder extends Seeder
 		$items = \App\Master_University::all();
 		$Selected = [];
 		foreach($profiles as $profile) {
-			$times = mt_rand(0,3);
-			while($times > 0) {
-				$item = $items[mt_rand(0,count($items)-1)];
-				if (!in_array($item, $Selected)) {
-					$Selected[] = $item;
-					$profile->masters()->save($item);
-					$times--;
+			if(!$profile->tutorial_completed) {
+				$times = mt_rand(0,3);
+				while($times > 0) {
+					$item = $items[mt_rand(0,count($items)-1)];
+					if (!in_array($item, $Selected)) {
+						$Selected[] = $item;
+						$profile->masters()->save($item);
+						$times--;
+					}
 				}
+				$Selected = [];
 			}
-			$Selected = [];
 		}
 	}
 }

@@ -40,8 +40,21 @@ Vue.component('profile-form', require('./components/profile/profile-form.vue'));
 Vue.component('new-request', require('./components/requests/new-requests.vue'));
 Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 
+const shared = {
+    role: App.role,
+    page: App.page
+}
+shared.install = function(){
+  Object.defineProperty(Vue.prototype, '$global', {
+    get () { return shared }
+  })
+}
+Vue.use(shared);
 const app = new Vue({
     el: '#app',
+    data: {
+        ready: false,
+    },
     methods: {
     	checkSession() {
     		axios.get('/api/session')

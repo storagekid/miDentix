@@ -7,6 +7,7 @@ use App\Course;
 use App\Especialty;
 use App\Experience;
 use App\User;
+use App\University;
 
 class Profile extends Model
 {
@@ -14,6 +15,8 @@ class Profile extends Model
     protected $hidden = ['user_id'];
 
     protected $appends = ['requestsCount','clinicsCount'];
+
+    protected $with = ['university']; 
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -38,6 +41,9 @@ class Profile extends Model
     }
     public function clinics() {
         return $this->belongsToMany(Clinic::class);
+    }
+    public function university() {
+        return $this->belongsTo(University::class);
     }
     public function schedules() {
         return $this->hasMany(Schedule::class);

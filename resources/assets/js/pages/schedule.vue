@@ -523,7 +523,7 @@
               for (let schedule of this.profileSrc.schedules) {
                 if (schedule.clinic_id == data.clinic_id) {
                   if (data.especialtiesToSave) {
-                    console.log(data.especialtiesToSaveObjects);
+                    // console.log(data.especialtiesToSaveObjects);
                     for (let especialty of data.especialtiesToSaveObjects) {
                       schedule.especialties.push(especialty);
                     }
@@ -662,7 +662,7 @@
               }
             },
             fetch() {
-              console.log('FETCHING');
+              // console.log('FETCHING');
               axios.get('/api/schedule')
                 .then(data => {
                   this.refresh(data.data);

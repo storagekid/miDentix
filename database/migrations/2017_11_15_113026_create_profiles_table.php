@@ -25,6 +25,7 @@ class CreateProfilesTable extends Migration
             $table->string('license_number')->nullable();
             $table->unsignedInteger('tutorial_completed')->default(1);
             $table->unsignedInteger('license_year')->nullable();
+            $table->unsignedInteger('university_id')->nullable()->default(null);
             // $table->string('experience_type');
             // $table->unsignedInteger('experience_time');
             $table->timestamps();

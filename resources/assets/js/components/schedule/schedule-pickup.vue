@@ -212,7 +212,7 @@
                       break;
                     }
                 }
-                console.log(this.selectedScheduleId);
+                // console.log(this.selectedScheduleId);
             },
             profileSrc() {
                 this.clinics = this.profileSrc.clinics;
@@ -346,7 +346,7 @@
                 }
             },
             addExtraTime() {
-                console.log('Adding Extra Time Request');
+                // console.log('Adding Extra Time Request');
                 axios[this.callMethod](this.url, 
                     { 
                         profile_id: this.profileSrc.id,
@@ -552,7 +552,7 @@
                 }
               } else {
                 if (orgValue) {
-                    console.log('here');
+                    // console.log('here');
                     if (this.userEspecialties.indexOf(id) != -1) {
                         this[objectToRemove].push(id);
                     }
@@ -582,7 +582,7 @@
                 }
                 return false;
               } else {
-                console.log("New Clinic");
+                // console.log("New Clinic");
                   if (this.especialtiesToSave.indexOf(id) != -1) {
                     return true;
                   }
@@ -634,7 +634,7 @@
                 return true;
             },
             userEspecialties() {
-              let response = []
+              let response = [];
               for (let especialty of this.selectedSchedule.especialties) {
                 response.push(especialty.id);
               }

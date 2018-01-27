@@ -112,7 +112,7 @@
                 <td v-if="showElement">
                   <button 
                     type="button" 
-                    class="btn btn-primary"
+                    class="btn btn-sm btn-primary"
                     @click="toggleShowRequest(request)"
                     >
                     <span class="hidden-xs">Detalles
@@ -140,7 +140,7 @@
                 <td v-if="showElement">
                   <button 
                     type="button" 
-                    class="btn btn-primary"
+                    class="btn btn-sm btn-primary"
                     @click="toggleShowRequest(request)"
                     >
                     <span class="hidden-xs">Detalles
@@ -265,7 +265,7 @@
                   <td>
                     <button 
                       type="button" 
-                      class="btn btn-primary"
+                      class="btn btn-sm btn-primary"
                       @click="toggleShowRequest(request)"
                       >
                       <span class="hidden-xs">Detalles
@@ -358,7 +358,7 @@
                   topButtonIcon: 'glyphicon glyphicon-plus-sign',
               },
               showElement: true,
-              requests: {},
+              requests: [],
             }
         },
         watch: {
@@ -373,7 +373,7 @@
             let empty = true;
             for (let item of this.filtering.filters['closed_at'].keys) {
               if (item.label == 'Resuelta') {
-                console.log(item.keys);
+                // console.log(item.keys);
                 empty = false;
                 this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
               }
@@ -406,7 +406,7 @@
                 this.filtering.state = false;
               } else if (filter == 'user') {
                 let fullname = search['user'][1].replace(/%20/g, " ");
-                console.log(fullname);
+                // console.log(fullname);
                 this.filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true});
                 this.filtering.search.string = fullname;
                 this.filtering.state = false;
@@ -419,7 +419,7 @@
                   let cleanName = cleanUpSpecialChars(item.label.toLowerCase());
                   if (cleanName != search[filter]) {
                     ids = item.keys;
-                    console.log('Search Filter: '+search[filter]);
+                    // console.log('Search Filter: '+search[filter]);
                     this.toggleFilterItem(ids, 'checked', filter);
                   }
                 }
@@ -503,7 +503,8 @@
                 label: 'success'
             });
             this.toggleAddRequest();
-            this.fetchProfile();
+            setTimeout(function() {window.location.href = '/requests'}, 1000);
+            // this.fetchProfile();
           },
           closeRequest() {
             axios.patch('/requests/'+this.showRequest.request.id, {
@@ -556,14 +557,20 @@
                 this.details = data.data.details;
                 this.labs = data.data.labs;
                 if (data.data.requests) {
-                  this.requests = data.data.requests;
-                  this.buildFiltering('requests');
-                  this.buildOrdering('requests');
-                  this.selectAllItems();
+                  // console.log(data.data);
+                  // this.requests = data.data;
+                  this.requests = []; 
+                  for (let request of data.data.requests) {
+                    // console.log(request);
+                    this.requests.push(request);
+                  }
                   if (App.role == 'admin') {
+                    this.buildFiltering('requests');
+                    this.selectAllItems();
                     this.startFilters();
                     this.applyUrlFilters();
                   }
+                  this.buildOrdering('requests');
                   this.orderColumn('created_at',{order:'desc'});
                 }
                 this.calculateRatio();

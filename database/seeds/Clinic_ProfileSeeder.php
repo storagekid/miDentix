@@ -15,16 +15,18 @@ class Clinic_ProfileSeeder extends Seeder
 		$items = \App\Clinic::all();
 		$Selected = [];
 		foreach($profiles as $profile) {
-			$times = mt_rand(1,3);
-			while($times > 0) {
-				$item = $items[mt_rand(0,count($items)-1)];
-				if (!in_array($item, $Selected)) {
-					$Selected[] = $item;
-					$profile->clinics()->save($item);
-					$times--;
+			if(!$profile->tutorial_completed) {
+				$times = mt_rand(1,3);
+				while($times > 0) {
+					$item = $items[mt_rand(0,count($items)-1)];
+					if (!in_array($item, $Selected)) {
+						$Selected[] = $item;
+						$profile->clinics()->save($item);
+						$times--;
+					}
 				}
+				$Selected = [];
 			}
-			$Selected = [];
 		}
 	}
 }
