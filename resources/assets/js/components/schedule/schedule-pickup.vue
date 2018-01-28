@@ -186,7 +186,11 @@
                             this.updateEmpty = false;
                         }
                     } else {
-                        this.rollBackCreate(this.idToRestore);
+                        if (this.newExtraTime) {
+                            this.rollBackExtratime(this.idToRestore);
+                        } else {
+                            this.rollBackCreate(this.idToRestore);
+                        }
                     }
                     this.idToRestore = false;
                 }
@@ -238,6 +242,12 @@
                 this.emptyScheduleMaker();
                 delete(this.jarClasses[id]);
                 this.$emit('rollback', {day:null,id,hour:null,value:null});
+            },
+            rollBackExtratime(id) {
+                this.daysCleaner('extra');
+                delete(this.jarClasses['extra']);
+                this.emptyScheduleMaker();
+                this.$emit('rollbackExtra', id);
             },
             checkClass(day,hour,clinic) {
                 if (this.daysDef[day][hour]) {

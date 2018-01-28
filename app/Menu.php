@@ -58,6 +58,11 @@ class Menu {
 		 	'link' => '/users',
 		 	'icon' => 'glyphicon glyphicon-user'
 		],
+		'Dentists' => [
+			'name' => 'Odontólogos', 
+		 	'link' => '/dentists',
+		 	'icon' => 'glyphicon glyphicon-user'
+		],
 		'Tools' => [
 			'name' => 'Tools', 
 		 	'link' => '/tools',

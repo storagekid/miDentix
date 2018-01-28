@@ -82,9 +82,10 @@
                             <option 
                                 v-for="clinic in clinicsSrc" 
                                 :value="clinic['id']"
-                                v-if="checkProvincia(clinic['provincia_id'],clinic['id'])"
+                                v-if="checkProvincia(clinic['provincia_id'],clinic['id']) && !clinic['closed']"
                                 >
-                                {{clinic['city']}} ({{clinic['address_real_1']}})
+                                <!-- {{clinic['city']}} ({{clinic['address_real_1']}}) -->
+                                {{clinic['cost_center']['name']}}
                             </option>
                         </select>
                     </div>
@@ -152,6 +153,7 @@
                       @deleted="notifyRemoving"
                       @toggleDay="checkDay"
                       @rollback="rollback"
+                      @rollbackExtra="rollbackExtra"
                       @addextra="notifyExtra"
                       ></schedule-pickup>
                   </div>
@@ -468,7 +470,8 @@
             checkProvincia(id, clinicId) {
               for (let i = 0; i < this.profileSrc.clinics.length; i++) {
                 if (this.profileSrc.clinics[i].id == clinicId
-                    && this.addClinic.selectedClinicId != clinicId) {
+                    && this.addClinic.selectedClinicId != clinicId
+                    && this.addClinic.method != 'extraTime') {
                   return false;
                 }
               }

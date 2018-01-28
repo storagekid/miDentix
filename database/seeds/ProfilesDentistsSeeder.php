@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProfilesSeeder extends Seeder
+class ProfilesDentistsSeeder extends Seeder
 {
     /**
      * Run the database seeds.

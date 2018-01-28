@@ -26,9 +26,9 @@ Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
 Vue.component('requests', require('./pages/request.vue'));
-Vue.component('users', require('./pages/users.vue'));
+Vue.component('dentists', require('./pages/dentists.vue'));
 Vue.component('tutorial', require('./pages/tutorial.vue'));
-Vue.component('admin-control-panel', require('./pages/admin-control-panel.vue'));
+Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
 
 Vue.component('filters', require('./components/filters.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
@@ -42,7 +42,8 @@ Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 
 const shared = {
     role: App.role,
-    page: App.page
+    group: App.group,
+    page: App.page,
 }
 shared.install = function(){
   Object.defineProperty(Vue.prototype, '$global', {

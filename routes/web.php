@@ -21,6 +21,8 @@ Route::middleware(['auth'])->group(function() {
 
 	Route::patch('/requests/{request}', 'RequestController@update');
 
+	Route::get('/dentists', 'DentistController@index');
+
 	Route::get('/api/schedule', 'ScheduleController@indexApi');
 	Route::get('/api/schedule/{profile}', 'ScheduleController@indexProfileApi');
 	Route::post('/schedule', 'ScheduleController@store');
@@ -50,6 +52,8 @@ Route::middleware(['auth'])->group(function() {
 
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 	Route::get('/api/users', 'UserController@indexApi');
+
+	Route::get('/api/dentists', 'DentistController@indexApi');
 
 	Route::get('/api/session', 'SessionController@indexApi');
 

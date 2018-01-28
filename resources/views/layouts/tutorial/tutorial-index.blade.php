@@ -1,4 +1,4 @@
-@extends('layouts.app-no-auth')
+@extends('layouts.app-tutorial')
 
 @section('content')
 <div class="container-fluid">

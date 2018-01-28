@@ -40,20 +40,13 @@
 <body>
     <div id="app">
         @if(auth()->check())
-        @include('nav.main')
+            @include('nav.main')
+            <loading></loading>
         @endif
-        <div class="container-fluid">
-            <div class="row">
-                @include('nav.left')
-                <div class="col-sm-10" id="main-content">
-                    <loading></loading>
-                    @yield('content')
-                </div>
-            </div>
-        </div>
+        @yield('content')
         <flash message="{{ session('flash') }}"></flash>
         @if (session('status'))
-        <flash message="{{ session('status') }}"></flash>
+            <flash message="{{ session('status') }}"></flash>
         @endif
     </div>
 

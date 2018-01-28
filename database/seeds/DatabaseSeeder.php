@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         ]);
         if (!$this->profileCSV) {
             $this->call([
-                ProfilesSeeder::class,
+                ProfilesDentistsSeeder::class,
                 ProfilesAdminSeeder::class,
                 Clinic_ProfileSeeder::class,
                 SchedulesSeeder::class,
@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
                 RequestsSeeder::class,
                 ExtratimesSeeder::class,
                 Especialty_ExtratimeSeeder::class,
+                UsersClinicSeeder::class,
             ]);
         } else {
             $this->call([

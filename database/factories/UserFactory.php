@@ -21,7 +21,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('Migabinete01'),
         'role' => 'user',
-        'group_id' => 3,
         'remember_token' => str_random(10),
     ];
 });

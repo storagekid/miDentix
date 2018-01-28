@@ -1,0 +1,1 @@
+<admin-dentists-control-panel></admin-dentists-control-panel>

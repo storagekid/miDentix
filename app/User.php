@@ -29,25 +29,35 @@ class User extends Authenticatable
         'id','password', 'remember_token',
     ];
 
+    protected $with = ['group'];
+
     public function profile() {
         return $this->hasOne(Profile::class);
     }
-
-    public function getMenu($role) {
-        switch ($role) {
-            case 'user':
-                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
-                break;
-            case 'admin':
-                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers'];
-                break;
-            case 'root':
-                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
-                break;
-            default:
-                $list = array();
-                break;
-        };
+    public function group() {
+        return $this->belongsToMany(Group::class);
+    }
+    public function getMenu($domain, $groups, $role) {
+        switch($domain) {
+            case 'gabinete':
+                switch($groups[0]) {
+                    case 'Dentists':
+                        switch ($role) {
+                            case 'user':
+                                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
+                                break;
+                            case 'admin':
+                                $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
+                                break;
+                            case 'root':
+                                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
+                                break;
+                            default:
+                                $list = array();
+                                break;
+                        };
+                }
+        }
         $menu = new Menu;
         return json_encode($menu->get($list));
     }

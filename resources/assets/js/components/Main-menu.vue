@@ -5,7 +5,7 @@
                 <span :class="menu.icon"></span> 
                 <span class="hidden-sm" v-text="menu.name"></span>
                 <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
-                <span class="badge badge-menu" v-if="menu.name == 'Usuarios' && admin.deadUsers">{{admin.deadUsers}}</span>
+                <span class="badge badge-menu" v-if="menu.name == 'Odontólogos' && admin.deadUsers">{{admin.deadUsers}}</span>
                 <span class="badge badge-menu" v-if="(menu.name == 'Bolsa de Horas' || menu.name == 'Jornada') && admin.extratimesUnsolved > 0">{{admin.extratimesUnsolved}}</span>
             </a>
         </li>
@@ -34,9 +34,9 @@
             getActive() {
                 let str = window.location.pathname;
                 let index = str.indexOf('/',2);
-                if (index != -1) {
-                    str = str.substring(0,index);
-                } 
+                // if (index != -1) {
+                //     str = str.substring(0,index);
+                // } 
                 this.isActive = str;
             },
             countUnsolved() {
