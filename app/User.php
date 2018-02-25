@@ -56,6 +56,21 @@ class User extends Authenticatable
                                 $list = array();
                                 break;
                         };
+                    case 'Marketing':
+                        switch ($role) {
+                            case 'user':
+                                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
+                                break;
+                            case 'admin':
+                                $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
+                                break;
+                            case 'root':
+                                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
+                                break;
+                            default:
+                                $list = array();
+                                break;
+                        };
                 }
         }
         $menu = new Menu;

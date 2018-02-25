@@ -13,10 +13,21 @@ class MenuController extends Controller
         if (auth()->user()->role == 'admin') {
             $requests = RequestModel::all();
             $extratimes = Extratime::all();
+            // $profiles = Profile::all()->load(['user' => function($query) {
+            // 	$query->select('id','last_access')->where('role','user');
+            // }]);
             $profiles = Profile::all()->load(['user' => function($query) {
-            	$query->select('id','last_access')->where('role','user');
+                $query->select('id','last_access')->where('role','user');
             }]);
-            return ['requests'=>$requests,'profiles'=>$profiles, 'extratimes'=>$extratimes];
+            $filtered_collection = $profiles->filter(function ($item) {
+                if ($item->user) {
+                    $groups = $item->user->group()->pluck('name')->toArray();
+                    if (in_array('Dentists', $groups)) {
+                        return $item;
+                    }
+                }
+            })->values();
+            return ['requests'=>$requests,'profiles'=>$filtered_collection, 'extratimes'=>$extratimes];
         }
         if (auth()->user()->role == 'user') {
         	$requests = auth()->user()->profile->requests;
