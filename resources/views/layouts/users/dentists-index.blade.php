@@ -8,10 +8,10 @@
   @endif
   <div class="row below-header">
     <div class="col-xs-12">
-      <dentists
+      <dentists2
       :admin="true"
       >  
-      </dentists>
+      </dentists2>
     </div>
   </div>
 @endsection

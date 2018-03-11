@@ -43,9 +43,9 @@
         @include('nav.main')
         @endif
         <div class="container-fluid">
+            @include('nav.left')
             <div class="row">
-                @include('nav.left')
-                <div class="col-sm-10" id="main-content">
+                <div class="'col-xs-12" id="main-content">
                     <loading></loading>
                     @yield('content')
                 </div>

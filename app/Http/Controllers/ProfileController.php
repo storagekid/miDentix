@@ -20,6 +20,12 @@ class ProfileController extends Controller
         return $profile;
     }
 
+    public function show(Profile $profile) {
+        return view('layouts.profile.profile-show', [
+            'profile' => $profile,
+        ]);
+    }
+
     public function create(User $user) {
     	return view('layouts.profile.profile-create', compact('user'));
     }

@@ -27,10 +27,14 @@ Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
 Vue.component('requests', require('./pages/request.vue'));
 Vue.component('dentists', require('./pages/dentists.vue'));
+Vue.component('dentists2', require('./pages/dentists2.vue'));
 Vue.component('tutorial', require('./pages/tutorial.vue'));
 Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
 
+Vue.component('vue-table', require('./components/vue-table.vue'));
 Vue.component('filters', require('./components/filters.vue'));
+Vue.component('profile-left', require('./components/profile/profile-left.vue'));
+Vue.component('nav-left', require('./components/nav-left.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
 Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
@@ -55,6 +59,16 @@ const app = new Vue({
     el: '#app',
     data: {
         ready: false,
+        leftMenu: true,
+    },
+    computed: {
+        mainColumns() {
+            if (this.leftMenu) {
+                return 'col-sm-10';
+            } else {
+                return 'col-sm-12';
+            }
+        }
     },
     methods: {
     	checkSession() {
@@ -69,9 +83,13 @@ const app = new Vue({
     					window.location.href = '/logout';
     				}
     			});
-    	}
+    	},
+        toggleMainColumns($event) {
+            this.leftMenu = $event.data;
+        }
     },
     created() {
     	setInterval(this.checkSession, (6*60*1000));
+        window.events.$on('toggleLeftMenu', this.toggleMainColumns);
     },
 });

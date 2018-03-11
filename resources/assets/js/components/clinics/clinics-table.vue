@@ -22,7 +22,7 @@
         <div class="panel-body">
             <a href="#'">
                 <button type="button" class="btn btn-sm btn-info btn-block">
-                    <h3>Nueva Clínia</h3>
+                    <h3>Nueva Clínica</h3>
                 </button>
             </a>
             <form class="">
@@ -59,7 +59,7 @@
                             <th class="col-xs-12">Provincia</th>
                             <th class="col-xs-12">CCAA</th>
                             <th class="col-xs-12">País</th>
-                            <th class="buttons"></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +68,7 @@
                                 <input type="checkbox" name="" @click="toggleSelected(index)" :checked="selected.indexOf(index) != -1">
                             </td>
                             <td>
-                                <span v-text="clinicFullName(index)"></span>
+                                <strong><span v-html="clinicFullName(index)"></span></strong>
                             </td>
                             <td>
                                 <input v-if="editable==clinic.id" type="text" name="city" v-model="clinic.city" class="col-xs-12">
@@ -118,7 +118,7 @@
                                 <input v-if="editable==clinic.id" type="text" name="provincia.state.country.name" v-model="clinic.provincia.state.country.name" class="col-xs-12">
                                 <span v-else v-text="clinic.provincia.state.country.name"></span>
                             </td>
-                            <td>
+                            <td class="buttons">
                                 <button v-if="editable==''" type="button" class="btn btn-warning" @click="makeEditable(clinic, index)">
                                     <span class="glyphicon glyphicon-pencil"></span>
                                 </button>
@@ -371,7 +371,7 @@
             },
             clinicFullName(index) {
                 var clinic = this.clinics[index];
-                return clinic.city + ' (' + clinic.address_real_1 + ' ' + clinic.address_real_2 + ')';
+                return clinic.city + ' <br><small>(' + clinic.address_real_1 + ' ' + clinic.address_real_2 + ')</small>';
             }
         },
         computed: {
@@ -410,11 +410,18 @@
         overflow: auto;
         height: 80vh;
     }
+    table {
+        font-size: 0.9em;
+    }
     table th.count {
 /*        min-width: 3vw;
 */    }
-    table th.buttons {
-        min-width: 4vw;
+    table td.buttons {
+        width: 100px;
+        display: block;
+    }
+    #clinics-table > tbody > tr > td {
+        line-height: 1.1;
     }
     table td input.col-xs-12 {
         padding: 0;

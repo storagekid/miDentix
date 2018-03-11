@@ -1,0 +1,36 @@
+/*#filterColumn {
+    position: absolute;
+    margin-top: 50px;
+    padding: 20px;
+    background: rgba(255,255,255,0.95);
+    z-index: 10;
+    border: 1px solid #753470;
+}*/
+#filterColumn ul {
+    margin: 0;
+    padding: 0;
+    max-height: 50vh;
+    overflow: auto;
+}
+#filterColumn ul li {
+    list-style: none;
+    font-weight: bolder;
+    padding: 3px 20px;
+    color: #753470;
+}
+#filterColumn ul li.unselected{
+    color: $gray-light;
+}
+#filterColumn input[type="checkbox"] {
+    margin: 5px;
+}
+.clear-filters {
+    margin-top: 15px;
+}
+.glyphicon.selected {
+    color: $dentix-main;
+    font-size: 1.2em;
+}
+.glyphicon.unselected {
+    color: $gray-light;
+}

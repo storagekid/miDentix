@@ -45,7 +45,7 @@ class Menu {
 		],
 		'Clinics' => [
 			'name' => 'Clínicas', 
-		 	'link' => '#',
+		 	'link' => '/clinics',
 		 	'icon' => 'glyphicon glyphicon-home'
 		],
 		'Papers' => [

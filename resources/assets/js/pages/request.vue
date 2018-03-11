@@ -8,7 +8,7 @@
         <h3 class="panel-title"><span class="glyphicon glyphicon-hand-up"></span>Solicitudes</h3>
       </div>
       <div v-show="!loading">
-        <div id="filterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
+        <div id="buildFilterColumn" class="col-xs-4 col-xs-offset-4" v-show="filtering.state">
             <div class="row buttons" v-if="!filtering.date.state && filtering.showOptions">
                 <div class="col-xs-6">
                     <button class="btn btn-sm btn-block btn-info" @click="selectAllFilters">Todos/Ninguno</button>
@@ -162,7 +162,7 @@
                     Usuario
                     <p>
                         <span :class="orderClasses('lastname1')" @click="orderColumn('lastname1',{object:'profile'})"></span>
-                        <span :class="filterClasses('lastname1')" @click="filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true})"></span>
+                        <span :class="filterClasses('lastname1')" @click="buildFilterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true})"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -176,7 +176,7 @@
                     Clínica
                     <p>
                         <span :class="orderClasses('city')" @click="orderColumn('city',{object:'clinic'})"></span>
-                        <span :class="filterClasses('city')" @click="filterColumn('city',{object:'clinic'})"></span>
+                        <span :class="filterClasses('city')" @click="buildFilterColumn('city',{object:'clinic'})"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -190,7 +190,7 @@
                     Tipo
                     <p>
                         <span :class="orderClasses('type')" @click="orderColumn('type')"></span>
-                        <span :class="filterClasses('type')" @click="filterColumn('type')"></span>
+                        <span :class="filterClasses('type')" @click="buildFilterColumn('type')"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -204,7 +204,7 @@
                     Detalle
                     <p>
                         <span :class="orderClasses('type_detail1')" @click="orderColumn('type_detail1')"></span>
-                        <span :class="filterClasses('type_detail1')" @click="filterColumn('type_detail1',{nullName:'N/A'})"></span>
+                        <span :class="filterClasses('type_detail1')" @click="buildFilterColumn('type_detail1',{nullName:'N/A'})"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -218,7 +218,7 @@
                     Fecha
                     <p>
                         <span :class="orderClasses('created_at')" @click="orderColumn('created_at')"></span>
-                        <span :class="filterClasses('created_at')" @click="filterColumn('created_at',{date:true})"></span>
+                        <span :class="filterClasses('created_at')" @click="buildFilterColumn('created_at',{date:true})"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -233,7 +233,7 @@
                     Estado
                     <p>
                         <span :class="orderClasses('closed_at')" @click="orderColumn('closed_at')"></span>
-                        <span :class="filterClasses('closed_at')" @click="filterColumn('closed_at',{nullName:'Pendiente',boolean:['Pendiente','Resuelta']})"></span>
+                        <span :class="filterClasses('closed_at')" @click="buildFilterColumn('closed_at',{nullName:'Pendiente',boolean:['Pendiente','Resuelta']})"></span>
                         <button 
                             class="btn btn-sm btn-danger delete-Schedule"
                             v-if="filtering.filters['dontShow']"
@@ -364,25 +364,6 @@
         watch: {
         },
         methods: {
-          startFilters() {
-            if (this.filtering.filters['closed_at']) {
-              delete(this.filtering.filters['closed_at']);
-            }
-            this.filterColumn('closed_at',{nullName:'Pendiente',boolean:['Pendiente','Resuelta']});
-            this.filtering.state = false;
-            let empty = true;
-            for (let item of this.filtering.filters['closed_at'].keys) {
-              if (item.label == 'Resuelta') {
-                // console.log(item.keys);
-                empty = false;
-                this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
-              }
-            }
-            if (empty) {
-              delete(this.filtering.filters['closed_at']);
-            }
-            this.filtering.name = '';
-          },
           applyUrlFilters() {
             // this.filtering.filters = {};
             // this.selectAllItems();
@@ -398,7 +379,7 @@
                 search[filter] = search[filter].replace(/%20/g, " ");
               }
               if (filter == 'created_at') {
-                this.filterColumn('created_at',{date:true});
+                this.buildFilterColumn('created_at',{date:true});
                 this.filtering.date.end = search['created_at'][0];
                 this.filtering.date.start = search['created_at'][1];
                 this.filtering.date.state = true;
@@ -407,12 +388,12 @@
               } else if (filter == 'user') {
                 let fullname = search['user'][1].replace(/%20/g, " ");
                 // console.log(fullname);
-                this.filterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true});
+                this.buildFilterColumn('lastname1',{object:'profile',search:['name','lastname1','lastname2'],noOptions:true});
                 this.filtering.search.string = fullname;
                 this.filtering.state = false;
                 this.searchString();
               } else {
-                this.filterColumn(filter);
+                this.buildFilterColumn(filter);
                 this.filtering.state = false;
                 let ids = [];
                 for (let item of this.filtering.filters[filter].keys) {
@@ -568,7 +549,7 @@
                     this.buildFiltering('requests');
                     this.selectAllItems();
                     this.startFilters();
-                    this.applyUrlFilters();
+                    // this.applyUrlFilters();
                   }
                   this.buildOrdering('requests');
                   this.orderColumn('created_at',{order:'desc'});

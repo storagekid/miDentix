@@ -80,7 +80,7 @@ class User extends Authenticatable
                                 $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
                                 break;
                             case 'root':
-                                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
+                                $list = ['CPanel','Users','Clinics','Papers','Tools'];
                                 break;
                             default:
                                 $list = array();

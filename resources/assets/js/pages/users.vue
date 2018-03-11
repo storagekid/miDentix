@@ -203,12 +203,6 @@
             </div>
           </div> -->
           <button class="btn btn-sm btn-primary" @click.prevent="exportExcel">Exportar Excel</button>
-<!--           <form action="/export-excel" method="post">
-            <input type="hidden" name="_token" :value="csrf">
-            <input v-for="id in filtering.selected" type="hidden" name="ids[]" :value="id">
-            <input type="hidden" name="model" value="Profile">
-            <button type="submit">Exportar Excel</button>
-          </form> -->
         </div>
       </div>
     </div>

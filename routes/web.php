@@ -78,6 +78,7 @@ Route::middleware(['auth','tutorial'])->group(function() {
 
 	Route::get('/profile/{user}/create', 'ProfileController@create');
 	Route::get('/profile', 'ProfileController@index');
+	Route::get('/profiles/{profile}', 'ProfileController@show');
 
 	Route::get('/requests', 'RequestController@index');
 	Route::get('/requests/create', 'RequestController@create');
