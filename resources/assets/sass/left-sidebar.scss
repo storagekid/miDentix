@@ -6,7 +6,9 @@ $link-hover-color: $dentix-white;
 $link-hover-decoration: underline !default;
 /* make sidebar nav vertical */ 
 .navbar-left-sidebar {
-  background-color: #F3F3F3;
+  background-color: #E8E8E8;
+  box-shadow: 0px 3px 0px 0px #666;
+  border-radius: 0;
 }
 .sidebar-nav .navbar .navbar-collapse {
   padding: 0;
@@ -15,6 +17,7 @@ $link-hover-decoration: underline !default;
 .sidebar-nav .navbar ul {
   float: none;
   display: block;
+  color: #333;
 }
 .sidebar-nav .navbar li {
   float: none;
@@ -22,6 +25,11 @@ $link-hover-decoration: underline !default;
 }
 .sidebar-nav .navbar li:nth-child(even) {
   background-color: #FFF;
+  color: $dentix-main;
+}
+.sidebar-nav .navbar li:nth-child(even) .badge-menu {
+    background: $dentix-main;
+    color: #FFF;
 }
 .sidebar-nav .navbar li a {
   padding-top: 8px;
@@ -29,18 +37,18 @@ $link-hover-decoration: underline !default;
 }
 /* Left-SideBar unique styles */
 .sidebar-nav > .navbar-default .navbar-nav > li > a {
-  color: #444;
+  color: inherit;
 }
 .sidebar-nav > .navbar-default .navbar-nav > li > a:hover,
   .sidebar-nav > .navbar-default .navbar-nav > li > a:focus,
   .sidebar-nav > .navbar-default .navbar-nav > li > a:active {
   color: $dentix-white;
-  background-color: #999;
+  background-color: #777;
 }
 .sidebar-nav > .navbar-default .navbar-nav > .active > a, 
 .sidebar-nav > .navbar-default .navbar-nav > .active > a:hover, 
  .sidebar-nav > .navbar-default .navbar-nav > .active > a:focus {
-  background-color: #777;
+  background-color: $dentix-main;
   color: $dentix-white;
 }
 .sidebar-nav .navbar li .menu-name {
@@ -49,14 +57,15 @@ $link-hover-decoration: underline !default;
 .sidebar-nav .badge-menu {
     background: #666;
     color: #FFF;
-    font-size: 16px;
-    padding: 3px 8px;
+    font-size: 14px;
+    padding: 2px 8px 4px 8px;
 }
 .sidebar-nav > .navbar-default .navbar-nav > li > a:hover .badge-menu,
   .sidebar-nav > .navbar-default .navbar-nav > li > a:focus .badge-menu,
   .sidebar-nav > .navbar-default .navbar-nav > li > a:active .badge-menu {
-    background: #FFF;
-    color: #666;
+    background: inherit;
+    color: inherit;
+    border: 1px solid;
 }
 .sidebar-nav > .navbar-default .navbar-nav > .active > a .badge-menu, 
 .sidebar-nav > .navbar-default .navbar-nav > .active > a:hover .badge-menu, 
@@ -102,9 +111,10 @@ hr.left-nav-hr {
     float: left;
     height: 100vh;
     padding: 0;
-    background: #F3F3F3;
-    -webkit-box-shadow: 3px 0 3px #BBB;
-    box-shadow: 3px 0 3px #BBB;
+    background: #777;
+    -webkit-box-shadow: 2px 0 0px #AAA;
+    box-shadow: 2px 0 0px #AAA;
+    border-right: 1px solid #666;
     margin-left: -15px;
   }
   #side-profile {

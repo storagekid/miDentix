@@ -49,7 +49,7 @@
                 <form @submit.prevent="">
                   <div class="col-xs-12 form-group searchFilterBox">
                     <label for="search">Buscar:</label>
-                    <input class="form-control" type="text" name="search" v-model="filtering.search.string" @keyup="searchString">
+                    <input class="form-control" type="text" name="search" v-model="filtering.searches[filtering.name].string" @keyup="searchString">
                   </div>
                 </form>
               </div>
@@ -77,20 +77,20 @@
             <th v-for="(column, index) in columns" :class="column.name" v-show="column.show" :ref="'column-'+column.name+'-header'" v-bind:style="{width:column.width}">
               <div v-if="(column.filtering || column.sortable) && column.name != 'buttons'">
                   <span v-if="column.sorting.active" :class="orderClasses(column.name)" @click="orderColumn(column.name,column.sorting.options)"></span>
-                  <span :class="filterClasses(column.name)" @click="toggleFilterMenu($event,column.filtering.key,column.filtering.options,column.label)"></span>
+                  <span :class="filterClasses(column.label)" @click="toggleFilterMenu($event,column.filtering.key,column.filtering.options,column.label)"></span>
               </div>
               <span class="column-name">{{column.label}}</span>
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in items" v-show="checkFilter(item.id)" :class="rowsSelected.indexOf(index) != -1 ? 'selected' : ''" @click="toggleSelectedRow(index)">
+          <tr v-for="(item, itemIndex) in items" v-show="checkFilter(item.id)" :class="rowsSelected.indexOf(itemIndex) != -1 ? 'selected' : ''" @click="toggleSelectedRow(itemIndex)">
             <td v-if="tableOptions.counterColumn" ref="column-counter-row">
-              <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(index) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(index)"></span>
+              <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(itemIndex) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(itemIndex)"></span>
                 <!-- <input type="checkbox" name="" :checked="rowsSelected.indexOf(index) != -1" disabled> -->
             </td>
-            <td v-for="(column, index) in columns" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width}">
-              <strong v-if="column.parse" v-html="parseArrayItems(index,column.parse)"></strong>
+            <td v-for="(column, columnIndex) in columns" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width}">
+              <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.parse)"></strong>
               <strong v-else-if="column.boolean">{{item[column.object][column.name] ? column.boolean[1] : column.boolean[0]}}</strong>
               <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
               <strong v-else-if="column.name === 'buttons'">
@@ -311,23 +311,26 @@
               }
           },
           selectAllRows() {
-              if (this.items.length == this.rowsSelected.length) {
-                  this.rowsSelected = [];
-                  return;
-              }
-              for (var i = 0; i < this.items.length; i++) {
-                  if (this.rowsSelected.indexOf(i) == -1) {
-                      this.rowsSelected.push(i);
-                  }
-              }
+            if (this.filtering.selected.length == this.rowsSelected.length) {
+              this.rowsSelected = [];
+              return;
+            }
+            this.rowsSelected = [];
+            for (var i = 0; i < this.items.length; i++) {
+                if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
+                    this.rowsSelected.push(i);
+                }
+            }
           },
           invertRowSelection() {
               for (var i = 0; i < this.items.length; i++) {
+                if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
                   if (this.rowsSelected.indexOf(i) == -1) {
                       this.rowsSelected.push(i);
                   } else {
                       this.rowsSelected.splice(this.rowsSelected.indexOf(i),1);
                   }
+                }
               }
           },
           exportExcel() {

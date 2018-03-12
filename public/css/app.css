@@ -11671,7 +11671,10 @@ input:-webkit-autofill:focus {
 /* make sidebar nav vertical */
 
 .navbar-left-sidebar {
-  background-color: #F3F3F3;
+  background-color: #E8E8E8;
+  -webkit-box-shadow: 0px 3px 0px 0px #666;
+          box-shadow: 0px 3px 0px 0px #666;
+  border-radius: 0;
 }
 
 .sidebar-nav .navbar .navbar-collapse {
@@ -11682,6 +11685,7 @@ input:-webkit-autofill:focus {
 .sidebar-nav .navbar ul {
   float: none;
   display: block;
+  color: #333;
 }
 
 .sidebar-nav .navbar li {
@@ -11691,6 +11695,12 @@ input:-webkit-autofill:focus {
 
 .sidebar-nav .navbar li:nth-child(even) {
   background-color: #FFF;
+  color: #753470;
+}
+
+.sidebar-nav .navbar li:nth-child(even) .badge-menu {
+  background: #753470;
+  color: #FFF;
 }
 
 .sidebar-nav .navbar li a {
@@ -11701,20 +11711,20 @@ input:-webkit-autofill:focus {
 /* Left-SideBar unique styles */
 
 .sidebar-nav > .navbar-default .navbar-nav > li > a {
-  color: #444;
+  color: inherit;
 }
 
 .sidebar-nav > .navbar-default .navbar-nav > li > a:hover,
 .sidebar-nav > .navbar-default .navbar-nav > li > a:focus,
 .sidebar-nav > .navbar-default .navbar-nav > li > a:active {
   color: #fff;
-  background-color: #999;
+  background-color: #777;
 }
 
 .sidebar-nav > .navbar-default .navbar-nav > .active > a,
 .sidebar-nav > .navbar-default .navbar-nav > .active > a:hover,
 .sidebar-nav > .navbar-default .navbar-nav > .active > a:focus {
-  background-color: #777;
+  background-color: #753470;
   color: #fff;
 }
 
@@ -11725,15 +11735,16 @@ input:-webkit-autofill:focus {
 .sidebar-nav .badge-menu {
   background: #666;
   color: #FFF;
-  font-size: 16px;
-  padding: 3px 8px;
+  font-size: 14px;
+  padding: 2px 8px 4px 8px;
 }
 
 .sidebar-nav > .navbar-default .navbar-nav > li > a:hover .badge-menu,
 .sidebar-nav > .navbar-default .navbar-nav > li > a:focus .badge-menu,
 .sidebar-nav > .navbar-default .navbar-nav > li > a:active .badge-menu {
-  background: #FFF;
-  color: #666;
+  background: inherit;
+  color: inherit;
+  border: 1px solid;
 }
 
 .sidebar-nav > .navbar-default .navbar-nav > .active > a .badge-menu,
@@ -11787,9 +11798,10 @@ hr.left-nav-hr {
     float: left;
     height: 100vh;
     padding: 0;
-    background: #F3F3F3;
-    -webkit-box-shadow: 3px 0 3px #BBB;
-    box-shadow: 3px 0 3px #BBB;
+    background: #777;
+    -webkit-box-shadow: 2px 0 0px #AAA;
+    box-shadow: 2px 0 0px #AAA;
+    border-right: 1px solid #666;
     margin-left: -15px;
   }
 
@@ -12811,10 +12823,10 @@ hr {
   background-color: rgba(255, 255, 255, 0.5);
   border: 0;
   border-radius: 0;
-  border-bottom: 2px solid #753470;
+  border-bottom: 1px solid #753470;
   border-top: 1px solid #eee;
-  -webkit-box-shadow: inset 0px -3px 0px 0px #DDD;
-          box-shadow: inset 0px -3px 0px 0px #DDD;
+  -webkit-box-shadow: inset 0px -3px 0px 0px #E6E6E6;
+          box-shadow: inset 0px -3px 0px 0px #E6E6E6;
 }
 
 .panel-default > .panel-body {
@@ -13131,6 +13143,10 @@ label h3 {
 
 .custom-table table thead {
   display: block;
+  border-bottom: 1px solid #AAA;
+  -webkit-box-shadow: 0px 2px 0px 0px #DDD;
+          box-shadow: 0px 2px 0px 0px #DDD;
+  background-color: #FFFFFF;
 }
 
 .custom-table table tbody {
@@ -13140,7 +13156,7 @@ label h3 {
 }
 
 .custom-table table thead tr th {
-  border-top: none;
+  border: none;
 }
 
 .custom-table table tbody tr td {
@@ -13149,7 +13165,7 @@ label h3 {
 }
 
 .custom-table table tbody tr:nth-child(odd) {
-  background: #F9F9F9;
+  background: #EEE;
 }
 
 .custom-table table tbody tr.selected {
@@ -13157,7 +13173,7 @@ label h3 {
 }
 
 .custom-table table tbody tr:hover {
-  background: #f2f2f2;
+  background: #cfcfce;
 }
 
 .custom-table .panel-body button {
@@ -13260,12 +13276,13 @@ label h3 {
 }
 
 #filters-info-header {
-  margin: 20px 0;
-  padding: 0 40px;
+  margin: 0;
+  padding: 20px 40px;
+  background-color: #FFF;
 }
 
 #filters-info-box {
-  border-bottom: 1px solid #753470;
+  border-bottom: 1px solid #DDD;
 }
 
 #filters-info-box .menu-button {

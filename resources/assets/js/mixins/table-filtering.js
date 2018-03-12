@@ -22,6 +22,7 @@ export default {
 			    string: null,
 			    target: [],
 			  },
+			  searches: {},
 			  keys: [],
 			  selected: [],
 			  backup: [],
@@ -46,13 +47,17 @@ export default {
 				search:false,
 				noOptions:false
 				},
-			columnName) 
+			columnLabel) 
 			{
 			if (options.noOptions) {
 	            this.filtering.showOptions = false;
 	        }
 	        if (options.search) {
 	        	// this.selectAllItems();
+	        	if (!this.filtering.searches[columnLabel]) {
+	        		this.filtering.searches[columnLabel] = {};
+	        		this.filtering.searches[columnLabel].string = '';
+	        	}
 	            this.filtering.search.state = true;
 	            let target = [];
 	            if (options.object) {
@@ -90,24 +95,24 @@ export default {
 	            	  }
 	            	}
 	            }
-	            this.filtering.search.target = target;
+	            this.filtering.searches[columnLabel].target = target;
 	        }
 			if (options.date) {
 			    this.filtering.date.state = true;
 			} else {
 			    this.filtering.date.state = false;
 			}
-			this.filtering.name = name;
+			this.filtering.name = columnLabel;
 			this.filtering.state = true;
 
-			if (!this.filtering.filters[name]) {
-				this.filtering.filters[name] = {};
-				this.filtering.filters[name].name = name;
-				this.filtering.filters[name].label = columnName;
-				this.filtering.filters[name].active = false;
-				this.filtering.filters[name].keys = [];
-				this.filtering.filters[name].filteredKeys = [];
-				this.filtering.filtersOrder.push(name);
+			if (!this.filtering.filters[columnLabel]) {
+				this.filtering.filters[columnLabel] = {};
+				this.filtering.filters[columnLabel].name = name;
+				this.filtering.filters[columnLabel].label = columnLabel;
+				this.filtering.filters[columnLabel].active = false;
+				this.filtering.filters[columnLabel].keys = [];
+				this.filtering.filters[columnLabel].filteredKeys = [];
+				this.filtering.filtersOrder.push(columnLabel);
 				var labels = [];
 				var keys =[];
 				let cleanName = '';
@@ -180,9 +185,9 @@ export default {
 		            	}
 		            }
 				}
-				this.filtering.filters[name].keys = keys;
+				this.filtering.filters[columnLabel].keys = keys;
 				let filters = {};
-				filters[name] = this.filtering.filters[name];
+				filters[columnLabel] = this.filtering.filters[columnLabel];
 				this.checkFilteriTemsStatus(filters);
 			}
 			this.filtering.state = true;
@@ -191,13 +196,17 @@ export default {
 		    return this.filtering.selected.indexOf(id) == -1 ? false : true;
 		},
 		clearFilter(index) {
-			this.$delete(this.filtering.filters,index);
-			for (let i in this.filtering.filtersOrder) {
-				if (this.filtering.filtersOrder[i] == index) {
-					console.log(index);
-					this.filtering.filtersOrder.splice(i,1);
+			// for (let i in this.filtering.filtersOrder) {
+			// 	if (this.filtering.filtersOrder[i] == this.filtering.filters[index].label) {
+			// 		this.filtering.filtersOrder.splice(i,1);
+			// 	}
+			// }
+			for (let key of this.filtering.filters[index].filteredKeys) {
+				if (this.filtering.selected.indexOf(key) == -1) {
+					this.filtering.selected.push(key);
 				}
 			}
+			this.$delete(this.filtering.filters,index);
 		},	
 		filterDates(object) {
 		  console.log('Start Date: '+moment(this.filtering.date.start).format('x'));
@@ -256,9 +265,11 @@ export default {
 		searchString() {
 		  console.log('searching');
 		  this.filtering.selected = [];
-		  for (let string of this.filtering.search.target) {
-		    if (string[1].indexOf(this.filtering.search.string.toLowerCase()) != -1) {
+		  for (let string of this.filtering.searches[this.filtering.name].target) {
+		    if (string[1].indexOf(this.filtering.searches[this.filtering.name].string.toLowerCase()) != -1) {
 		      this.filtering.selected.push(string[0]);
+		    } else {
+		    	this.filtering.filters[this.filtering.name].filteredKeys.push(string[0]);
 		    }
 		  }
 		},

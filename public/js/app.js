@@ -22615,6 +22615,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 					string: null,
 					target: []
 				},
+				searches: {},
 				keys: [],
 				selected: [],
 				backup: []
@@ -22639,13 +22640,17 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 				search: false,
 				noOptions: false
 			};
-			var columnName = arguments[2];
+			var columnLabel = arguments[2];
 
 			if (options.noOptions) {
 				this.filtering.showOptions = false;
 			}
 			if (options.search) {
 				// this.selectAllItems();
+				if (!this.filtering.searches[columnLabel]) {
+					this.filtering.searches[columnLabel] = {};
+					this.filtering.searches[columnLabel].string = '';
+				}
 				this.filtering.search.state = true;
 				var target = [];
 				if (options.object) {
@@ -22768,24 +22773,24 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 						}
 					}
 				}
-				this.filtering.search.target = target;
+				this.filtering.searches[columnLabel].target = target;
 			}
 			if (options.date) {
 				this.filtering.date.state = true;
 			} else {
 				this.filtering.date.state = false;
 			}
-			this.filtering.name = name;
+			this.filtering.name = columnLabel;
 			this.filtering.state = true;
 
-			if (!this.filtering.filters[name]) {
-				this.filtering.filters[name] = {};
-				this.filtering.filters[name].name = name;
-				this.filtering.filters[name].label = columnName;
-				this.filtering.filters[name].active = false;
-				this.filtering.filters[name].keys = [];
-				this.filtering.filters[name].filteredKeys = [];
-				this.filtering.filtersOrder.push(name);
+			if (!this.filtering.filters[columnLabel]) {
+				this.filtering.filters[columnLabel] = {};
+				this.filtering.filters[columnLabel].name = name;
+				this.filtering.filters[columnLabel].label = columnLabel;
+				this.filtering.filters[columnLabel].active = false;
+				this.filtering.filters[columnLabel].keys = [];
+				this.filtering.filters[columnLabel].filteredKeys = [];
+				this.filtering.filtersOrder.push(columnLabel);
 				var labels = [];
 				var keys = [];
 				var cleanName = '';
@@ -22879,9 +22884,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 						}
 					}
 				}
-				this.filtering.filters[name].keys = keys;
+				this.filtering.filters[columnLabel].keys = keys;
 				var filters = {};
-				filters[name] = this.filtering.filters[name];
+				filters[columnLabel] = this.filtering.filters[columnLabel];
 				this.checkFilteriTemsStatus(filters);
 			}
 			this.filtering.state = true;
@@ -22890,65 +22895,64 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 			return this.filtering.selected.indexOf(id) == -1 ? false : true;
 		},
 		clearFilter: function clearFilter(index) {
-			this.$delete(this.filtering.filters, index);
-			for (var i in this.filtering.filtersOrder) {
-				if (this.filtering.filtersOrder[i] == index) {
-					console.log(index);
-					this.filtering.filtersOrder.splice(i, 1);
+			// for (let i in this.filtering.filtersOrder) {
+			// 	if (this.filtering.filtersOrder[i] == this.filtering.filters[index].label) {
+			// 		this.filtering.filtersOrder.splice(i,1);
+			// 	}
+			// }
+			var _iteratorNormalCompletion6 = true;
+			var _didIteratorError6 = false;
+			var _iteratorError6 = undefined;
+
+			try {
+				for (var _iterator6 = this.filtering.filters[index].filteredKeys[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+					var key = _step6.value;
+
+					if (this.filtering.selected.indexOf(key) == -1) {
+						this.filtering.selected.push(key);
+					}
+				}
+			} catch (err) {
+				_didIteratorError6 = true;
+				_iteratorError6 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion6 && _iterator6.return) {
+						_iterator6.return();
+					}
+				} finally {
+					if (_didIteratorError6) {
+						throw _iteratorError6;
+					}
 				}
 			}
+
+			this.$delete(this.filtering.filters, index);
 		},
 		filterDates: function filterDates(object) {
 			console.log('Start Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x'));
 			console.log('End Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x'));
 			var startDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x');
 			var endDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x');
-			var _iteratorNormalCompletion6 = true;
-			var _didIteratorError6 = false;
-			var _iteratorError6 = undefined;
+			var _iteratorNormalCompletion7 = true;
+			var _didIteratorError7 = false;
+			var _iteratorError7 = undefined;
 
 			try {
-				for (var _iterator6 = this.filtering.filters[object].keys[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-					var date = _step6.value;
+				for (var _iterator7 = this.filtering.filters[object].keys[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+					var date = _step7.value;
 
 					if (__WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') > startDate && __WEBPACK_IMPORTED_MODULE_0_moment__(date.label).format('x') < endDate) {
-						var _iteratorNormalCompletion7 = true;
-						var _didIteratorError7 = false;
-						var _iteratorError7 = undefined;
-
-						try {
-							for (var _iterator7 = date.keys[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-								var key = _step7.value;
-
-								if (this.filtering.selected.indexOf(key) == -1) {
-									this.filtering.selected.push(key);
-								}
-							}
-						} catch (err) {
-							_didIteratorError7 = true;
-							_iteratorError7 = err;
-						} finally {
-							try {
-								if (!_iteratorNormalCompletion7 && _iterator7.return) {
-									_iterator7.return();
-								}
-							} finally {
-								if (_didIteratorError7) {
-									throw _iteratorError7;
-								}
-							}
-						}
-					} else {
 						var _iteratorNormalCompletion8 = true;
 						var _didIteratorError8 = false;
 						var _iteratorError8 = undefined;
 
 						try {
 							for (var _iterator8 = date.keys[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-								var _key = _step8.value;
+								var key = _step8.value;
 
-								if (this.filtering.selected.indexOf(_key) != -1) {
-									this.filtering.selected.splice(this.filtering.selected.indexOf(_key), 1);
+								if (this.filtering.selected.indexOf(key) == -1) {
+									this.filtering.selected.push(key);
 								}
 							}
 						} catch (err) {
@@ -22965,19 +22969,46 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 								}
 							}
 						}
+					} else {
+						var _iteratorNormalCompletion9 = true;
+						var _didIteratorError9 = false;
+						var _iteratorError9 = undefined;
+
+						try {
+							for (var _iterator9 = date.keys[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+								var _key = _step9.value;
+
+								if (this.filtering.selected.indexOf(_key) != -1) {
+									this.filtering.selected.splice(this.filtering.selected.indexOf(_key), 1);
+								}
+							}
+						} catch (err) {
+							_didIteratorError9 = true;
+							_iteratorError9 = err;
+						} finally {
+							try {
+								if (!_iteratorNormalCompletion9 && _iterator9.return) {
+									_iterator9.return();
+								}
+							} finally {
+								if (_didIteratorError9) {
+									throw _iteratorError9;
+								}
+							}
+						}
 					}
 				}
 			} catch (err) {
-				_didIteratorError6 = true;
-				_iteratorError6 = err;
+				_didIteratorError7 = true;
+				_iteratorError7 = err;
 			} finally {
 				try {
-					if (!_iteratorNormalCompletion6 && _iterator6.return) {
-						_iterator6.return();
+					if (!_iteratorNormalCompletion7 && _iterator7.return) {
+						_iterator7.return();
 					}
 				} finally {
-					if (_didIteratorError6) {
-						throw _iteratorError6;
+					if (_didIteratorError7) {
+						throw _iteratorError7;
 					}
 				}
 			}
@@ -23018,29 +23049,31 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 		searchString: function searchString() {
 			console.log('searching');
 			this.filtering.selected = [];
-			var _iteratorNormalCompletion9 = true;
-			var _didIteratorError9 = false;
-			var _iteratorError9 = undefined;
+			var _iteratorNormalCompletion10 = true;
+			var _didIteratorError10 = false;
+			var _iteratorError10 = undefined;
 
 			try {
-				for (var _iterator9 = this.filtering.search.target[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-					var string = _step9.value;
+				for (var _iterator10 = this.filtering.searches[this.filtering.name].target[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+					var string = _step10.value;
 
-					if (string[1].indexOf(this.filtering.search.string.toLowerCase()) != -1) {
+					if (string[1].indexOf(this.filtering.searches[this.filtering.name].string.toLowerCase()) != -1) {
 						this.filtering.selected.push(string[0]);
+					} else {
+						this.filtering.filters[this.filtering.name].filteredKeys.push(string[0]);
 					}
 				}
 			} catch (err) {
-				_didIteratorError9 = true;
-				_iteratorError9 = err;
+				_didIteratorError10 = true;
+				_iteratorError10 = err;
 			} finally {
 				try {
-					if (!_iteratorNormalCompletion9 && _iterator9.return) {
-						_iterator9.return();
+					if (!_iteratorNormalCompletion10 && _iterator10.return) {
+						_iterator10.return();
 					}
 				} finally {
-					if (_didIteratorError9) {
-						throw _iteratorError9;
+					if (_didIteratorError10) {
+						throw _iteratorError10;
 					}
 				}
 			}
@@ -23088,51 +23121,51 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 			}
 		},
 		clearFilters: function clearFilters(filter) {
-			var _iteratorNormalCompletion10 = true;
-			var _didIteratorError10 = false;
-			var _iteratorError10 = undefined;
+			var _iteratorNormalCompletion11 = true;
+			var _didIteratorError11 = false;
+			var _iteratorError11 = undefined;
 
 			try {
-				for (var _iterator10 = this.filtering.filters[filter].keys[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-					var item = _step10.value;
-					var _iteratorNormalCompletion11 = true;
-					var _didIteratorError11 = false;
-					var _iteratorError11 = undefined;
+				for (var _iterator11 = this.filtering.filters[filter].keys[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
+					var item = _step11.value;
+					var _iteratorNormalCompletion12 = true;
+					var _didIteratorError12 = false;
+					var _iteratorError12 = undefined;
 
 					try {
-						for (var _iterator11 = item.keys[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
-							var key = _step11.value;
+						for (var _iterator12 = item.keys[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
+							var key = _step12.value;
 
 							if (this.filtering.selected.indexOf(key) == -1) {
 								this.filtering.selected.push(key);
 							}
 						}
 					} catch (err) {
-						_didIteratorError11 = true;
-						_iteratorError11 = err;
+						_didIteratorError12 = true;
+						_iteratorError12 = err;
 					} finally {
 						try {
-							if (!_iteratorNormalCompletion11 && _iterator11.return) {
-								_iterator11.return();
+							if (!_iteratorNormalCompletion12 && _iterator12.return) {
+								_iterator12.return();
 							}
 						} finally {
-							if (_didIteratorError11) {
-								throw _iteratorError11;
+							if (_didIteratorError12) {
+								throw _iteratorError12;
 							}
 						}
 					}
 				}
 			} catch (err) {
-				_didIteratorError10 = true;
-				_iteratorError10 = err;
+				_didIteratorError11 = true;
+				_iteratorError11 = err;
 			} finally {
 				try {
-					if (!_iteratorNormalCompletion10 && _iterator10.return) {
-						_iterator10.return();
+					if (!_iteratorNormalCompletion11 && _iterator11.return) {
+						_iterator11.return();
 					}
 				} finally {
-					if (_didIteratorError10) {
-						throw _iteratorError10;
+					if (_didIteratorError11) {
+						throw _iteratorError11;
 					}
 				}
 			}
@@ -23186,13 +23219,13 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 			this.buildFilterColumn('closed_at', { nullName: 'Pendiente', boolean: ['Pendiente', 'Resuelta'] }, 'Estado');
 			this.filtering.state = false;
 			var empty = true;
-			var _iteratorNormalCompletion12 = true;
-			var _didIteratorError12 = false;
-			var _iteratorError12 = undefined;
+			var _iteratorNormalCompletion13 = true;
+			var _didIteratorError13 = false;
+			var _iteratorError13 = undefined;
 
 			try {
-				for (var _iterator12 = this.filtering.filters['closed_at'].keys.entries()[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
-					var _ref = _step12.value;
+				for (var _iterator13 = this.filtering.filters['closed_at'].keys.entries()[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+					var _ref = _step13.value;
 
 					var _ref2 = _slicedToArray(_ref, 2);
 
@@ -23206,16 +23239,16 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 					}
 				}
 			} catch (err) {
-				_didIteratorError12 = true;
-				_iteratorError12 = err;
+				_didIteratorError13 = true;
+				_iteratorError13 = err;
 			} finally {
 				try {
-					if (!_iteratorNormalCompletion12 && _iterator12.return) {
-						_iterator12.return();
+					if (!_iteratorNormalCompletion13 && _iterator13.return) {
+						_iterator13.return();
 					}
 				} finally {
-					if (_didIteratorError12) {
-						throw _iteratorError12;
+					if (_didIteratorError13) {
+						throw _iteratorError13;
 					}
 				}
 			}
@@ -99893,7 +99926,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -100360,22 +100393,25 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
       }
     },
     selectAllRows: function selectAllRows() {
-      if (this.items.length == this.rowsSelected.length) {
+      if (this.filtering.selected.length == this.rowsSelected.length) {
         this.rowsSelected = [];
         return;
       }
+      this.rowsSelected = [];
       for (var i = 0; i < this.items.length; i++) {
-        if (this.rowsSelected.indexOf(i) == -1) {
+        if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
           this.rowsSelected.push(i);
         }
       }
     },
     invertRowSelection: function invertRowSelection() {
       for (var i = 0; i < this.items.length; i++) {
-        if (this.rowsSelected.indexOf(i) == -1) {
-          this.rowsSelected.push(i);
-        } else {
-          this.rowsSelected.splice(this.rowsSelected.indexOf(i), 1);
+        if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
+          if (this.rowsSelected.indexOf(i) == -1) {
+            this.rowsSelected.push(i);
+          } else {
+            this.rowsSelected.splice(this.rowsSelected.indexOf(i), 1);
+          }
         }
       }
     },
@@ -101051,14 +101087,21 @@ var render = function() {
                                       {
                                         name: "model",
                                         rawName: "v-model",
-                                        value: _vm.filtering.search.string,
-                                        expression: "filtering.search.string"
+                                        value:
+                                          _vm.filtering.searches[
+                                            _vm.filtering.name
+                                          ].string,
+                                        expression:
+                                          "filtering.searches[filtering.name].string"
                                       }
                                     ],
                                     staticClass: "form-control",
                                     attrs: { type: "text", name: "search" },
                                     domProps: {
-                                      value: _vm.filtering.search.string
+                                      value:
+                                        _vm.filtering.searches[
+                                          _vm.filtering.name
+                                        ].string
                                     },
                                     on: {
                                       keyup: _vm.searchString,
@@ -101067,7 +101110,9 @@ var render = function() {
                                           return
                                         }
                                         _vm.$set(
-                                          _vm.filtering.search,
+                                          _vm.filtering.searches[
+                                            _vm.filtering.name
+                                          ],
                                           "string",
                                           $event.target.value
                                         )
@@ -101233,7 +101278,7 @@ var render = function() {
                                   : _vm._e(),
                                 _vm._v(" "),
                                 _c("span", {
-                                  class: _vm.filterClasses(column.name),
+                                  class: _vm.filterClasses(column.label),
                                   on: {
                                     click: function($event) {
                                       _vm.toggleFilterMenu(
@@ -101262,7 +101307,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.items, function(item, index) {
+              _vm._l(_vm.items, function(item, itemIndex) {
                 return _c(
                   "tr",
                   {
@@ -101275,10 +101320,12 @@ var render = function() {
                       }
                     ],
                     class:
-                      _vm.rowsSelected.indexOf(index) != -1 ? "selected" : "",
+                      _vm.rowsSelected.indexOf(itemIndex) != -1
+                        ? "selected"
+                        : "",
                     on: {
                       click: function($event) {
-                        _vm.toggleSelectedRow(index)
+                        _vm.toggleSelectedRow(itemIndex)
                       }
                     }
                   },
@@ -101291,12 +101338,12 @@ var render = function() {
                             _c("span", {
                               staticClass: "glyphicon glyphicon-check",
                               class:
-                                _vm.rowsSelected.indexOf(index) != -1
+                                _vm.rowsSelected.indexOf(itemIndex) != -1
                                   ? "selected"
                                   : "unselected",
                               on: {
                                 click: function($event) {
-                                  _vm.toggleSelectedRow(index)
+                                  _vm.toggleSelectedRow(itemIndex)
                                 }
                               }
                             })
@@ -101304,7 +101351,7 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm._l(_vm.columns, function(column, index) {
+                    _vm._l(_vm.columns, function(column, columnIndex) {
                       return _c(
                         "td",
                         {
@@ -101325,7 +101372,7 @@ var render = function() {
                             ? _c("strong", {
                                 domProps: {
                                   innerHTML: _vm._s(
-                                    _vm.parseArrayItems(index, column.parse)
+                                    _vm.parseArrayItems(itemIndex, column.parse)
                                   )
                                 }
                               })
