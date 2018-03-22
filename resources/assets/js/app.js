@@ -15,13 +15,18 @@ window.flash = function (message) {
 	window.events.$emit('flash', message);
 };
 
+import Vuex from 'vuex';
+Vue.use(Vuex);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.component('counter', require('./components/Counter.vue'));
+
 Vue.component('loading', require('./components/loading.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('page', require('./components/page.vue'));
 
 Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
@@ -32,6 +37,7 @@ Vue.component('tutorial', require('./pages/tutorial.vue'));
 Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
 
 Vue.component('vue-table', require('./components/vue-table.vue'));
+Vue.component('vue-model-options', require('./components/vue-model-options'));
 Vue.component('filters', require('./components/filters.vue'));
 Vue.component('profile-left', require('./components/profile/profile-left.vue'));
 Vue.component('nav-left', require('./components/nav-left.vue'));
@@ -43,6 +49,7 @@ Vue.component('pass-changer', require('./components/profile/pass-changer.vue'));
 Vue.component('profile-form', require('./components/profile/profile-form.vue'));
 Vue.component('new-request', require('./components/requests/new-requests.vue'));
 Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
+Vue.component('clinics', require('./components/clinics/clinics.vue'));
 
 const shared = {
     role: App.role,

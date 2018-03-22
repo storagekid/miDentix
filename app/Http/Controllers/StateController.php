@@ -7,7 +7,7 @@ use App\State;
 
 class StateController extends Controller
 {
-     public function indexApi() {
+    public function indexApi() {
         return State::all();
     }
 }

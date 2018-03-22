@@ -2,7 +2,11 @@
     font-size: .9em;
     text-align: left;
   }
-  .custom-table .panel-body{
+  .custom-table .panel-body {
+    overflow: auto;
+  }
+  .custom-table .panel-body table {
+    display: inline-table;
   }
   .custom-table .panel-footer.table-footer{
     background-color: #753470;
@@ -53,6 +57,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    max-height: 50vh;
+    overflow: auto;
+  }
+  .searchFilterContainer {
+    display: inline-block;
   }
   .thead-right-click-menu{
       background: #FAFAFA;
@@ -110,26 +119,56 @@
 }
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
   padding: 8px 15px;
+  white-space: nowrap;
 }
-#filters-info-header {
+#items-info-header {
     margin: 0;
-    padding: 20px 40px;
+    padding: 10px 40px;
     background-color: #FFF;
+    position: relative;
 }
-#filters-info-box {
-    border-bottom: 1px solid #DDD;
+.table-new-item {
+  position: absolute;
+  top: 7px;
+  left: 12px;
 }
-#filters-info-box .menu-button {
+.custom-table .table-new-item > button {
+  background-color: #753470;
+  padding: 13px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 0px 0px #DDD;
+}
+.custom-table .table-new-item > button span {
+  color: #FFFFFF;
+  padding: 0 3px;
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.table-header-box-wrapper {
+  border-bottom: 1px solid #DDD;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+.table-header-box {
+  display: inline-block;
+  padding-left: 10px;
+}
+.table-header-box button[disabled], .table-header-box html input[disabled] {
+  color: #DDD;
+}
+.table-header-box .menu-button {
     padding: 3px 10px;
     display: inline-block;
     margin-bottom: 3px;
     margin-right: 10px;
 }
-#filters-info-box .filter-remover-title {
+.table-header-box .filter-remover-title {
     margin-left: 10px;
     color: $dentix-main;
 }
-#filters-info-box .filter-remover {
+.table-header-box .filter-remover {
     display: inline-block;
     margin-left: 10px;
     padding: 3px 10px;

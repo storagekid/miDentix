@@ -8,7 +8,16 @@
   @endif
   <div class="row below-header">
     <div class="col-xs-12">
-        <clinics-table :data="{{$clinics}}" :provincias-src="{{$provincias}}"></clinics-table>
+        <clinics 
+          :admin="true"
+        >
+        </clinics>
+{{--       <page 
+        :admin="true"
+        :model="clinics"
+        :tableData="{}"
+      >
+      </page> --}}
     </div>
   </div>
 @endsection

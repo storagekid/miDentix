@@ -11691,21 +11691,18 @@ input:-webkit-autofill:focus {
 .sidebar-nav .navbar li {
   float: none;
   display: block;
+  color: #444;
 }
 
 .sidebar-nav .navbar li:nth-child(even) {
   background-color: #FFF;
-  color: #753470;
-}
-
-.sidebar-nav .navbar li:nth-child(even) .badge-menu {
-  background: #753470;
-  color: #FFF;
+  color: #555;
 }
 
 .sidebar-nav .navbar li a {
   padding-top: 8px;
   padding-bottom: 8px;
+  color: inherit;
 }
 
 /* Left-SideBar unique styles */
@@ -11733,7 +11730,7 @@ input:-webkit-autofill:focus {
 }
 
 .sidebar-nav .badge-menu {
-  background: #666;
+  background: #753470;
   color: #FFF;
   font-size: 14px;
   padding: 2px 8px 4px 8px;
@@ -12816,6 +12813,7 @@ hr {
   display: inline-block;
   -webkit-box-shadow: 4px 4px 3px #DDD;
           box-shadow: 4px 4px 3px #DDD;
+  max-width: 100%;
 }
 
 .panel-default > .panel-heading {
@@ -13044,6 +13042,90 @@ hr {
   display: none;
 }
 
+.panel-body input.form-control,
+.panel-body select.form-control {
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #CCC;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075);
+}
+
+span.required-reminder {
+  font-size: 2em;
+  line-height: 0;
+  color: red;
+  vertical-align: middle;
+}
+
+span.glyphicon.glyphicon-exclamation-sign.error-icon {
+  position: absolute;
+  top: 38px;
+  right: 25px;
+  color: #960000;
+}
+
+span.glyphicon.glyphicon-exclamation-sign.error-icon:hover .tooltip.error-tip {
+  opacity: 1;
+  display: block;
+}
+
+.tooltip.error-tip {
+  right: 20px;
+  top: -30px;
+  display: none;
+  min-width: 200px;
+  background: rgba(150, 0, 0, 0.85);
+  padding: 0px;
+  padding-top: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: .9em;
+  font-family: Arial;
+}
+
+.tooltip.error-tip ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip.error-tip ul li {
+  margin-bottom: 5px;
+  line-height: 1.2;
+  padding: 5px 10px 3px 10px;
+}
+
+.tooltip.error-tip ul li:nth-child(even) {
+  color: #960000;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/*2nd Level Panels*/
+
+.panel .panel {
+  width: 95%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.panel-body .panel-heading {
+  font-size: .7em;
+  margin: 0 auto;
+  color: #333;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #BBB;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+.panel-body .panel-body {
+  background-color: transparent;
+}
+
 .list-badget {
   display: inline-block;
   float: none;
@@ -13135,6 +13217,14 @@ label h3 {
   text-align: left;
 }
 
+.custom-table .panel-body {
+  overflow: auto;
+}
+
+.custom-table .panel-body table {
+  display: inline-table;
+}
+
 .custom-table .panel-footer.table-footer {
   background-color: #753470;
   -webkit-box-shadow: inset 0px 3px 0px 0px #5e2a5a;
@@ -13197,6 +13287,12 @@ label h3 {
   list-style: none;
   margin: 0;
   padding: 0;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.searchFilterContainer {
+  display: inline-block;
 }
 
 .thead-right-click-menu {
@@ -13273,31 +13369,68 @@ label h3 {
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
   padding: 8px 15px;
+  white-space: nowrap;
 }
 
-#filters-info-header {
+#items-info-header {
   margin: 0;
-  padding: 20px 40px;
+  padding: 10px 40px;
   background-color: #FFF;
+  position: relative;
 }
 
-#filters-info-box {
+.table-new-item {
+  position: absolute;
+  top: 7px;
+  left: 12px;
+}
+
+.custom-table .table-new-item > button {
+  background-color: #753470;
+  padding: 13px;
+  border-radius: 50%;
+  -webkit-box-shadow: 2px 2px 0px 0px #DDD;
+          box-shadow: 2px 2px 0px 0px #DDD;
+}
+
+.custom-table .table-new-item > button span {
+  color: #FFFFFF;
+  padding: 0 3px;
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+
+.table-header-box-wrapper {
   border-bottom: 1px solid #DDD;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
 }
 
-#filters-info-box .menu-button {
+.table-header-box {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.table-header-box button[disabled],
+.table-header-box html input[disabled] {
+  color: #DDD;
+}
+
+.table-header-box .menu-button {
   padding: 3px 10px;
   display: inline-block;
   margin-bottom: 3px;
   margin-right: 10px;
 }
 
-#filters-info-box .filter-remover-title {
+.table-header-box .filter-remover-title {
   margin-left: 10px;
   color: #753470;
 }
 
-#filters-info-box .filter-remover {
+.table-header-box .filter-remover {
   display: inline-block;
   margin-left: 10px;
   padding: 3px 10px;

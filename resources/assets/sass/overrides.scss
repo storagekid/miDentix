@@ -58,6 +58,7 @@ hr {
 .panel.panel-default {
     display: inline-block;
     box-shadow: 4px 4px 3px #DDD;
+    max-width: 100%;
 }
 .panel-default > .panel-heading {
     color: #753470;
@@ -235,6 +236,74 @@ hr {
 }
 .panel-default.panel-tabbed .tab-content .list-group li .panel-footer{
     display: none;
+}
+.panel-body input.form-control, .panel-body select.form-control {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #CCC;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.075);
+}
+span.required-reminder {
+    font-size: 2em;
+    line-height: 0;
+    color: red;
+    vertical-align: middle;
+}
+span.glyphicon.glyphicon-exclamation-sign.error-icon {
+    position: absolute;
+    top: 38px;
+    right: 25px;
+    color: rgb(150,0,0);
+}
+span.glyphicon.glyphicon-exclamation-sign.error-icon:hover .tooltip.error-tip {
+    opacity: 1;
+    display: block;
+}
+.tooltip.error-tip {
+    right: 20px;
+    top: -30px;
+    display: none;
+    min-width: 200px;
+    background: rgba(150, 0, 0, 0.85);
+    padding: 0px;
+    padding-top: 5px; 
+    color: white;
+    font-weight: bold;
+    font-size: .9em;
+    font-family: Arial;
+}
+.tooltip.error-tip ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.tooltip.error-tip ul li {
+    margin-bottom: 5px;
+    line-height: 1.2;
+    padding: 5px 10px 3px 10px;
+}
+.tooltip.error-tip ul li:nth-child(even) {
+    color: rgb(150,0,0);
+    background: rgba(255, 255, 255, 0.85);
+}
+/*2nd Level Panels*/
+.panel .panel {
+    width: 95%;
+    box-shadow: none;
+}
+.panel-body .panel-heading {
+    font-size: .7em;
+    margin: 0 auto;
+    color: #333;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #BBB;
+    box-shadow: none;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+.panel-body .panel-body {
+    background-color: transparent;
 }
 .list-badget {
     display: inline-block;

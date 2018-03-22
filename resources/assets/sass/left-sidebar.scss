@@ -22,18 +22,17 @@ $link-hover-decoration: underline !default;
 .sidebar-nav .navbar li {
   float: none;
   display: block;
+  color: #444;
 }
 .sidebar-nav .navbar li:nth-child(even) {
   background-color: #FFF;
-  color: $dentix-main;
-}
-.sidebar-nav .navbar li:nth-child(even) .badge-menu {
-    background: $dentix-main;
-    color: #FFF;
+  color: #555;
+
 }
 .sidebar-nav .navbar li a {
   padding-top: 8px;
   padding-bottom: 8px;
+  color: inherit;
 }
 /* Left-SideBar unique styles */
 .sidebar-nav > .navbar-default .navbar-nav > li > a {
@@ -55,7 +54,7 @@ $link-hover-decoration: underline !default;
  font-size: 0.9em;
 }
 .sidebar-nav .badge-menu {
-    background: #666;
+    background: $dentix-main;
     color: #FFF;
     font-size: 14px;
     padding: 2px 8px 4px 8px;

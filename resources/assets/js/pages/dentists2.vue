@@ -1,22 +1,38 @@
 <template>
   <div id="users-info-box">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center" v-if="admin">
-        <h3 class="panel-title"></span>Odontólogos</h3>
+    <div class="rows">
+      <div class="col-xs-9">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center" v-if="admin">
+            <h3 class="panel-title"></span>Odontólogos</h3>
+          </div>
+          <div class="panel-body" v-show="!loading">
+            <vue-table 
+              v-if="users" 
+              :table-items="users" 
+              :table-columns="tableColumns"
+              :table-options="tableOptions"
+              >
+            </vue-table>
+          </div>
+        </div>
       </div>
-      <div class="panel-body" v-show="!loading">
-        <vue-table 
-          v-if="users" 
-          :table-items="users" 
-          :table-columns="tableColumns"
-          :table-options="tableOptions"
-          >
-        </vue-table>
+      <div class="col-xs-3">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center" v-if="admin">
+            <h3 class="panel-title"></span>Opciones</h3>
+          </div>
+          <div class="panel-body" v-show="!loading">
+            <vue-model-options
+              v-if="users" 
+              :table-items="users" 
+              :table-columns="tableColumns"
+              :table-options="tableOptions"
+            >
+            </vue-model-options>
+          </div>
+        </div>
       </div>
-<!--       <div class="panel-footer">
-        <h3>Total: <strong>{{footer.totalRows}}</strong></h3>
-        <button class="btn btn-sm btn-primary" @click.prevent="exportExcel">Exportar Excel</button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -25,8 +41,9 @@
     import * as moment from 'moment';
     import 'moment/locale/es';
     import vueTable from '../components/vue-table';
+    import vueModelOptions from '../components/vue-model-options';
     export default {
-        components: {vueTable},
+        components: {vueTable,vueModelOptions},
         props: ['page','admin'],
         data() {
             return {
@@ -187,17 +204,11 @@
                   },
                   width:'',
                 },
-                {
-                  name: 'buttons',
-                  label: 'Acciones',
-                  show: true,
-                  buttons: ['show','edit','delete'],
-                  width:'',
-                }
               ],
               tableOptions: {
                 model: 'profiles',
                 counterColumn: true,
+                actions: ['show','edit','delete'],
               },
               header: {},
               body: {},

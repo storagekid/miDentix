@@ -14,7 +14,10 @@ class ClinicController extends Controller
     	return view('layouts.clinics.index',compact('clinics','provincias'));
     }
      public function indexApi() {
-        return Clinic::all()->load('costCenter');
+        // return Clinic::all()->load('costCenter');
+        return response([
+                'model'=>Clinic::all()->load('costCenter'),
+                ],200);
     }
     public function update(Clinic $clinic) {
 
@@ -35,5 +38,11 @@ class ClinicController extends Controller
         //     'body' => request('body'),
         // ]);
 
+    }
+    public function destroyApi() {
+        // return Clinic::all()->load('costCenter');
+        return response([
+                'Clinics Removed!!!',
+                ],200);
     }
 }

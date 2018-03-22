@@ -45,8 +45,12 @@ Route::middleware(['auth'])->group(function() {
 
 	Route::get('/api/menu', 'MenuController@indexApi');
 	Route::get('/api/clinics', 'ClinicController@indexApi');
+	Route::delete('/api/clinic', 'ClinicController@destroyApi');
 	Route::get('/api/provincias', 'ProvinciaController@indexApi');
+	Route::get('/api/provincia', 'ProvinciaController@indexApi');
 	Route::get('/api/states', 'StateController@indexApi');
+	Route::get('/api/state', 'StateController@indexApi');
+	Route::get('/api/country', 'CountryController@indexApi');
 	Route::get('/api/universities', 'UniversityController@indexApi');
 	Route::get('/api/requests', 'RequestController@indexApi');
 

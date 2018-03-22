@@ -1,26 +1,52 @@
 <template>
   <div class="custom-table">
     <div :class="panelClass">
-      <div id="filters-info-header" class="row" v-if="Object.keys(filtering.filters).length">
-        <div id="filters-info-box">
-          <div 
-            class="alert alert-info menu-button" 
-            v-if="Object.keys(this.filtering.filters).length"
-            @click.prevent="clearAllFilters"
+      <div id="items-info-header" class="row">
+        <span class="table-new-item">
+          <button 
+            v-if="options.showNew"
+            type="button" 
+            @click="toggleNew"
             >
-            <span class="glyphicon glyphicon-remove"></span>
-              Eliminar Filtros
+            <span class="glyphicon glyphicon-plus">
+            </span>
+          </button>
+        </span>
+        <div class="table-header-box-wrapper">
+          <div id="items-actions" class="table-header-box">
+            <span class="filter-remover-title">Selección:</span>
+            <span v-for="action in options.actions" class="table-column-buttons">
+              <button 
+                type="button" 
+                :class="actionBtnClass(action)"
+                @click="sendAction(action)"
+                :disabled="actionChecker(action)" 
+                >
+                <span :class="actionIconClass(action)">
+                </span>
+              </button>
+            </span>
           </div>
-          <span class="filter-remover-title">Filtros:</span>
-          <div class="filter-remover" v-for="(filter, index) in filtering.filters" v-if="filtering.filters[index].active">
-            <span class="glyphicon glyphicon-remove" @click="clearFilter(index)"></span>
-            {{filter.label}}
+          <div id="items-filters"  class="table-header-box">
+            <span class="filter-remover-title">Filtros:</span>
+            <div 
+              class="alert alert-info menu-button" 
+              v-if="Object.keys(this.filtering.filters).length"
+              @click.prevent="clearAllFilters"
+              >
+              <span class="glyphicon glyphicon-remove"></span>
+                Eliminar Filtros
+            </div>
+            <div class="filter-remover" v-for="(filter, index) in filtering.filters" v-if="filtering.filters[index].active">
+              <span class="glyphicon glyphicon-remove" @click="clearFilter(index)"></span>
+              {{filter.label}}
+            </div>
           </div>
         </div>
       </div>
       <table 
         class="table table-responsive" 
-        v-if="!this.itemSelected"
+        v-bind:style="{width: tableWidth+'px'}"
         >
         <thead @click.right.prevent="toggleTheadMenu">
           <div id="FilterColumn" ref="theadFilterMenu" tabindex="-2" class="thead-right-click-menu" v-show="filtering.show" v-bind:style="{top:theadMenu.top, left:theadMenu.left}">
@@ -53,7 +79,7 @@
                   </div>
                 </form>
               </div>
-              <ul class="" v-if="!filtering.date.state && filtering.state && filtering.showOptions">
+              <ul class="" v-if="filtering.state && filtering.showOptions">
                   <li v-for="(filter, index) in filtering.filters[filtering.name].keys" :class="filter.state ? 'selected' : 'unselected'" @click="toggleFilterItem(filter.keys, filter.state, filtering.name, index)">
                     <span :class="menuFilterClasses(filter.state)"></span>
                     {{filter.label}}
@@ -74,7 +100,7 @@
                 </div>
                 {{selectedCount}}
             </th>
-            <th v-for="(column, index) in columns" :class="column.name" v-show="column.show" :ref="'column-'+column.name+'-header'" v-bind:style="{width:column.width}">
+            <th v-for="(column, index) in columns" :class="column.name" v-show="column.show" :ref="'column-'+column.name+'-header'" v-bind:style="{width:column.width+'px'}">
               <div v-if="(column.filtering || column.sortable) && column.name != 'buttons'">
                   <span v-if="column.sorting.active" :class="orderClasses(column.name)" @click="orderColumn(column.name,column.sorting.options)"></span>
                   <span :class="filterClasses(column.label)" @click="toggleFilterMenu($event,column.filtering.key,column.filtering.options,column.label)"></span>
@@ -87,24 +113,13 @@
           <tr v-for="(item, itemIndex) in items" v-show="checkFilter(item.id)" :class="rowsSelected.indexOf(itemIndex) != -1 ? 'selected' : ''" @click="toggleSelectedRow(itemIndex)">
             <td v-if="tableOptions.counterColumn" ref="column-counter-row">
               <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(itemIndex) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(itemIndex)"></span>
-                <!-- <input type="checkbox" name="" :checked="rowsSelected.indexOf(index) != -1" disabled> -->
             </td>
-            <td v-for="(column, columnIndex) in columns" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width}">
+            <td v-for="(column, columnIndex) in columns" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width+'px', whiteSpace:item[column.name] && item[column.name].length > 12 ? 'inherit' : 'nowrap'}">
               <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.parse)"></strong>
+              <strong v-else-if="column.linebreak" v-html="linebreak(item[column.name],column.linebreak.needles,column.linebreak.options)"></strong>
               <strong v-else-if="column.boolean">{{item[column.object][column.name] ? column.boolean[1] : column.boolean[0]}}</strong>
               <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
-              <strong v-else-if="column.name === 'buttons'">
-                <span v-for="action in column.buttons" class="table-column-buttons">
-                  <button 
-                    type="button" 
-                    :class="actionBtnClass(action)">
-                    <a :href="'/'+tableOptions.model+'/'+item.id">
-                    <span :class="actionIconClass(action)">
-                    </span>
-                    </a>
-                  </button>
-                </span>
-              </strong>
+              <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
               <strong v-else>{{item[column.name]}}</strong>
             </td>
           </tr>
@@ -121,11 +136,11 @@
 <script>
     import * as moment from 'moment';
     import 'moment/locale/es';
+    import excel from '../mixins/excel.js';
     import tableFiltering from '../mixins/table-filtering.js';
     import tableOrdering from '../mixins/table-ordering.js';
     export default {
-        components: {},
-        mixins: [tableFiltering,tableOrdering],
+        mixins: [tableFiltering,tableOrdering,excel],
         props: ['tableItems','tableColumns','tableOptions'],
         data() {
             return {
@@ -139,25 +154,6 @@
               },
               rowsSelected: [],
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              loading: true,
-              profileitems: {
-                resolved: 0,
-                total: 0,
-                barStyle: '',
-                barText: '',
-                ratio: 0,
-              },
-              labs: [],
-              types: [],
-              details: [],
-              addRequest: {
-                  method: false,
-                  topButtonText: 'Nueva Solicitud',
-                  topButtonClasses: 'btn btn-sm btn-info',
-                  topButtonIcon: 'glyphicon glyphicon-plus-sign',
-              },
-              showElement: true,
-              itemSelected: false,
             }
         },
         watch: {
@@ -168,8 +164,10 @@
           }
         },
         methods: {
+          toggleNew() {
+            this.$emit('toggleCreateModel');
+          },
           checkFilteriTemsStatus(filters) {
-            console.log(filters);
             for (let filter in filters) {
               for (let [index, value] of this.filtering.filters[filter].keys.entries()) {
                 if (value.keys.length > 1) {
@@ -205,7 +203,6 @@
                 this.setMenu('theadMenu',e.y, e.x)
                 }.bind(this));
                 e.preventDefault();
-              console.log("Right Click Menu!!!");
             }
           },
           toggleFilterMenu(e,name,options,columnLabel) {
@@ -236,7 +233,7 @@
           },
           toggleColumn(index) {
             this.columns[index].show = !this.columns[index].show;
-            if (this.columns[index].show && (this.columns[index].width == '0px')) {
+            if (this.columns[index].show && !this.columns[index].width) {
               setTimeout(this.setColumnWidth, 100, index);
             }
           },
@@ -244,21 +241,17 @@
             let columnHeader = 'column-'+this.columns[index].name+'-header';
             let columnRows = 'column-'+this.columns[index].name+'-row';
             let maxWidth = 0;
-            console.log('changing single width');
-            console.log(columnHeader);
             if (Array.isArray(this.$refs[columnHeader])) {
-                console.log('HERE');
                 maxWidth = this.$refs[columnHeader][0].clientWidth;
             } else {
               maxWidth = this.$refs[columnHeader].clientWidth;
             }
-            console.log('Original: '+maxWidth);
             for (let [index, value] of this.$refs[columnRows].entries()) {
               if (value.clientWidth > maxWidth) {
                 maxWidth = value.clientWidth;
               }
             }
-            let finalWidth = maxWidth+'px';
+            let finalWidth = maxWidth;
             this.columns[index].width = finalWidth;
           },
           setColumnsWidth() {
@@ -276,15 +269,12 @@
                   maxWidth = value.clientWidth;
                 }
               }
-              let finalWidth = maxWidth+'px';
+              let finalWidth = maxWidth;
               this.columns[index].width = finalWidth;
             }
             if (this.options.counterColumn) {
               this.$refs['column-counter-row'][0].style.width = this.$refs['column-counter-header'].clientWidth+'px';
             }
-          },
-          setElementWidth(element, width) {
-            element.style.width = width;
           },
           setMenu(ref, top, left) {
             let largestHeight = window.innerHeight - this.$refs[ref].offsetHeight - 25;
@@ -295,13 +285,6 @@
 
             this.theadMenu.top = top + 'px';
             this.theadMenu.left = left + 'px';
-          },
-          tableAction(id,action) {
-            switch(action) {
-              case 'show':
-                axios('/'+this.tableOptions.model+'/'+id);
-                break;
-            }
           },
           toggleSelectedRow(index) {
               if (this.rowsSelected.indexOf(index) == -1) {
@@ -333,125 +316,6 @@
                 }
               }
           },
-          exportExcel() {
-            axios({
-              url: '/export-excel',
-              method: 'POST',
-              responseType: 'blob', // important
-              data: {
-                model:'Profile', ids:this.filtering.selected
-              }
-            }).then((response) => {
-              const url = window.URL.createObjectURL(new Blob([response.data]));
-              const link = document.createElement('a');
-              link.href = url;
-              link.setAttribute('download', 'usuarios miGabinete '+moment().format()+'.xlsx');
-              document.body.appendChild(link);
-              link.click();
-            });
-          },
-          startFilters() {
-            if (this.filtering.filters['last_access']) {
-              delete(this.filtering.filters['last_access']);
-            }
-            this.buildFilterColumn('last_access',{object:'item',boolean:['Offline','Online']});
-            this.filtering.state = false;
-            let empty = true;
-            for (let item of this.filtering.filters['last_access'].keys) {
-              if (item.label == 'Online') {
-                // console.log(item.keys);
-                empty = false;
-                this.toggleFilterItem(item.keys, 'checked', this.filtering.name);
-              }
-            }
-            if (empty) {
-              delete(this.filtering.filters['last_access']);
-            }
-            this.filtering.name = '';
-          },
-          applyUrlFilters() {
-            // Example with Array
-            // ?created_at[0]=2017-12-01&created_at[1]=2017-01-01&closed_at=Pendiente
-            let search = getAllUrlParams();
-            for (let filter in search) {
-              search[filter] = search[filter].replace(/%20/g, " ");
-              if (filter == 'created_at') {
-                this.buildFilterColumn('created_at',{date:true});
-                this.filtering.date.end = search['created_at'][0];
-                this.filtering.date.start = search['created_at'][1];
-                this.filtering.date.state = true;
-                this.filterDates('created_at');
-                this.filtering.state = false;
-              } else {
-                this.buildFilterColumn(filter);
-                this.filtering.state = false;
-                let ids = [];
-                for (let item of this.filtering.filters[filter].keys) {
-                  let cleanName = cleanUpSpecialChars(item.label.toLowerCase());
-                  if (cleanName != search[filter]) {
-                    ids = item.keys;
-                    // console.log('Search Filter: '+search[filter]);
-                    this.toggleFilterItem(ids, 'checked', filter);
-                  }
-                }
-              }
-            }
-          },
-          closeRequest() {
-            axios.patch('/items/'+this.showRequest.request.id, {
-              'request': this.showRequest.request,
-              }).catch((error) => {
-                  if (error.response.data.errors) {
-                    for (let item in error.response.data.errors) {
-                        flash({
-                            message: error.response.data.errors[item][0], 
-                            label: 'danger'
-                        });
-                      }
-                  }
-                  if (error.response.data.message && error.response.status == 400) {
-                    return flash({
-                          message: error.response.data.message, 
-                          label: 'danger'
-                      });
-                  }
-                }).then(response => {
-                    if (response.status == 200) {
-                      flash({
-                          message: 'Solicitud cerrada.', 
-                          label: 'success'
-                      });
-                      this.notifyClosed(this.showRequest.request.id);
-                      window.events.$emit('requestClosed');
-                      this.toggleShowRequest();
-                    }
-                });
-          },
-          notifyClosed(id) {
-            for (let request of this.items) {
-              if (request.id == id) {
-                request.closed_at = moment().format();
-                break;
-              }
-            }
-            this.startFilters();
-            this.calculateRatio();
-          },
-          itemEspecialtiesBuilder() {
-            for (let item of this.items) {
-              let especialties = [];
-              let ids = [];
-              for (let schedule of item.schedules) {
-                for (let especialty of schedule.especialties) {
-                  if (ids.indexOf(especialty.id) == -1) {
-                    ids.push(especialty.id);
-                    especialties.push(especialty);
-                  }
-                } 
-              }
-              item.especialties = especialties;
-            }
-          },
           parseArrayItems(index,[object,string]) {
             if (!this.items[index][object].length) {
               return '-';
@@ -465,11 +329,6 @@
               }
             }
             return items.join(glue);
-          },
-          itemCompleteName(index) {
-            let lastname2 = this.items[index].lastname2 ? this.items[index].lastname2 : '';
-            let fullname = this.items[index].name+' '+this.items[index].lastname1+' '+lastname2;
-            return cleanUpSpecialChars(fullname.toLowerCase());
           },
           actionBtnClass(action) {
             switch(action) {
@@ -496,7 +355,7 @@
                 return 'glyphicon glyphicon-pencil';
                 break;
               case 'delete':
-                return 'glyphicon glyphicon-remove';
+                return 'glyphicon glyphicon-trash';
                 break;
               default:
                 return 'glyphicon glyphicon-minus';
@@ -516,30 +375,73 @@
                 break;
             }
           },
-          setColumnsStyle() {
-            for (let [index, column] of this.columns.entries()) {
-              if (!this.columns[index].width) {
-                this.columns[index].width = '1px';
-                this.columnsWidth.push('1px');
+          linebreak(
+              string,
+              neddles,
+              options = {
+                small: false,
+                removeNeedels: false
+              }
+            ){
+            let parsedString = "";
+            let indexes = [];
+            let pieces = [];
+            for (let neddle of neddles) {
+              if (string.indexOf(neddle) != -1) {
+                indexes.push(string.indexOf(neddle));
               }
             }
+            pieces.push(string.slice(0,indexes[0])+"<br>");
+            if (options.small) {
+              pieces[0] = pieces[0]+"<small>";
+            }
+            if (indexes.length == 1) {
+              pieces.push(string.slice(indexes[0]));
+            }
+            else if (indexes.length == 2) {
+              pieces.push(string.slice(indexes[0],indexes[1])+"<br>");
+              pieces.push(string.slice(indexes[1]));
+            }
+            else if (indexes.length > 2) {
+              for (let i = 1; i < indexes.length; i++) {
+                if (i+1 <= indexes.length) {
+                  pieces.push(string.slice(i,indexes[i+1])+"<br>")
+                }
+              }
+              pieces.push(string.slice(indexes[indexes.length-1]));
+            }
+            for (let piece of pieces) {
+              parsedString += piece.trim();
+            }
+            if (options.small) {
+              parsedString += "</small>";
+            }
+            return parsedString;
           },
-          columnStyle(index) {
-            return 'width: '+this.columns[index].width;
-          }
+          actionChecker(action) {
+            if ((action == 'show' || action == 'edit') && this.rowsSelected.length == 1) {
+              return false;
+            } else if (action == 'delete' && this.rowsSelected.length) {
+              return false;
+            }
+            return true;
+          },
+          sendAction(action) {
+            switch(action) {
+              case 'show':
+                this.toggleShowItem(this.rowsSelected[0]);
+                break;
+              case 'edit':
+                this.toggleEditItem(this.rowsSelected[0]);
+                break;
+              case 'delete':
+                axios.delete('api/'+this.options.model,this.rowsSelected);
+            }
+          },
         },
         computed: {
           selectedCount() {
             return this.rowsSelected.length;
-          },
-          itemLicenseCenter() {
-            if (this.itemSelected.university_id) {
-              return this.itemSelected.university.name;
-            }
-            if (this.itemSelected.university_id === 0) {
-              return "Otro";
-            }
-            return "-";
           },
           panelClass() {
             if (this.admin) {
@@ -548,13 +450,21 @@
               return 'panel-body';
             }
           },
+          tableWidth() {
+            let totalWidth = 0;
+            for (let column of this.columns) {
+              if (column.show) {
+                totalWidth += column.width;
+              }
+            }
+            return totalWidth;
+          }
         },
         created() {
           moment.locale('es');
           this.buildFiltering('items');
           this.buildOrdering('items');
           this.selectAllItems();
-          // this.setColumnsStyle();
         },
         mounted() {
           this.setColumnsWidth();
