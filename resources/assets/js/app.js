@@ -15,14 +15,11 @@ window.flash = function (message) {
 	window.events.$emit('flash', message);
 };
 
-import Vuex from 'vuex';
-Vue.use(Vuex);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-Vue.component('counter', require('./components/Counter.vue'));
 
 Vue.component('loading', require('./components/loading.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
