@@ -8,6 +8,15 @@ body {
 hr {
 	margin: 10px 0;
 }
+.mb-10 > *:not(:last-child) {
+    margin-bottom: 10px;
+}
+.mr-10 > *:not(:last-child) {
+    margin-right: 10px;
+}
+.m-0 {
+    margin: 0;
+}
 .header {
     margin-bottom: -15px;
 }
@@ -50,6 +59,7 @@ hr {
 }
 .panel {
     box-shadow: none;
+    height: max-content;
 }
 .panel-default {
     border: 0;

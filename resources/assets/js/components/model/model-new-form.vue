@@ -11,6 +11,7 @@
               <div class="row">
                 <div 
                   v-for="(field, index) in newModelForm.fields" 
+                  :key="index"
                   class="form-group"
                   :class="field.colClasses ? field.colClasses : 'col-xs-12 col-md-4'"
                   >
@@ -38,7 +39,8 @@
                       {{field.type.default.text}}
                     </option>
                     <option 
-                      v-for="modelItem in models[field.type.model]" 
+                      v-for="(modelItem, index) in models[field.type.model]" 
+                      :key="index"
                       v-if="!field.dependsOn || (field.dependsOn && modelToSave[field.dependsOn] == modelItem[field.dependsOn])"
                       :value="modelItem[field.type.value]"
                       :selected="modelToSave[field.name]"
@@ -54,7 +56,7 @@
                       class="tooltip error-tip"
                     >
                     <ul>
-                      <li v-for="description in errors.errorsInField[field.name]">
+                      <li v-for="(description, index) in errors.errorsInField[field.name]" :key="index">
                         {{errors.descriptions[field.name][description]}}
                       </li>
                     </ul>
@@ -74,6 +76,7 @@
             <button 
             class="btn btn-warning btn-sm" 
               @click.prevent="cancelCreating"
+              @click.right.prevent="$modal.hide('new-clinic')"
               >
               Cancelar
             </button>

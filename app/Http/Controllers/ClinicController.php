@@ -14,9 +14,12 @@ class ClinicController extends Controller
     	return view('layouts.clinics.index',compact('clinics','provincias'));
     }
      public function indexApi() {
-        // return Clinic::all()->load('costCenter');
+        $clinics = Clinic::all()->load(['costCenter','stationaries']);
+        $clinics->map(function($clinic) {
+            return $clinic->getStationaryFilesUrl();
+        });
         return response([
-                'model'=>Clinic::all()->load('costCenter'),
+                'model'=>$clinics,
                 ],200);
     }
     public function update(Clinic $clinic) {

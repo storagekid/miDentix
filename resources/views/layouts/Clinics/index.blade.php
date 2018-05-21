@@ -12,12 +12,6 @@
           :admin="true"
         >
         </clinics>
-{{--       <page 
-        :admin="true"
-        :model="clinics"
-        :tableData="{}"
-      >
-      </page> --}}
     </div>
   </div>
 @endsection

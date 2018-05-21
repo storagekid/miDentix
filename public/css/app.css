@@ -12748,6 +12748,18 @@ hr {
   margin: 10px 0;
 }
 
+.mb-10 > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.mr-10 > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.m-0 {
+  margin: 0;
+}
+
 .header {
   margin-bottom: -15px;
 }
@@ -12802,6 +12814,9 @@ hr {
 .panel {
   -webkit-box-shadow: none;
           box-shadow: none;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .panel-default {
@@ -13437,5 +13452,126 @@ label h3 {
   background-color: #E9E9E9;
   font-weight: bold;
   border-radius: 20px;
+}
+
+.fx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.fx-w-100 {
+  width: 100%;
+}
+
+.fx-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.fx-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.jf-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.jf-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.jf-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.jf-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.fx-25 {
+  -webkit-box-flex: .25;
+      -ms-flex: .25;
+          flex: .25;
+}
+
+.fx-50 {
+  -webkit-box-flex: .50;
+      -ms-flex: .50;
+          flex: .50;
+}
+
+.fx-75 {
+  -webkit-box-flex: .75;
+      -ms-flex: .75;
+          flex: .75;
+}
+
+.fx-100 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.loader {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+
+.loader:after {
+  -webkit-animation: spinAround 500ms infinite linear;
+          animation: spinAround 500ms infinite linear;
+  border: 2px solid #dbdbdb;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+  position: absolute;
+  left: calc(50% - (1em / 2));
+  top: calc(50% - (1em / 2));
+  position: absolute !important;
+}
+
+@-webkit-keyframes spinAround {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes spinAround {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
 }
 

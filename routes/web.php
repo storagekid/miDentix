@@ -93,6 +93,17 @@ Route::middleware(['auth','tutorial'])->group(function() {
 
 	Route::get('/clinics', 'ClinicController@index');
 	Route::patch('/clinics/{clinic}', 'ClinicController@update');
+
+	Route::get('/stationary', 'StationaryController@index');
+	Route::get('/stationary/download', 'StationaryController@download');
+	Route::get('/stationary/download-all', 'StationaryController@downloadAll');
+	Route::get('/stationary/download/{clinic}', 'StationaryController@downloadClinic');
+	Route::post('/stationary/{clinic}', 'StationaryController@store');
+	Route::post('/stationary', 'StationaryController@regen');
+
+	Route::post('/order/{clinic}', 'OrderController@store');
+	Route::get('/order/{shoppingbag}/{provider}', 'ShoppingBagController@download');
+	
 });
 
 

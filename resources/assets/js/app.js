@@ -47,6 +47,7 @@ Vue.component('profile-form', require('./components/profile/profile-form.vue'));
 Vue.component('new-request', require('./components/requests/new-requests.vue'));
 Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
 Vue.component('clinics', require('./components/clinics/clinics.vue'));
+Vue.component('stationary', require('./components/stationary/index.vue'));
 
 const shared = {
     role: App.role,
@@ -59,6 +60,12 @@ shared.install = function(){
   })
 }
 Vue.use(shared);
+import VModal from 'vue-js-modal';
+Vue.use(VModal);
+
+import Helpers from './tools/helpers';
+Vue.use(Helpers);
+
 const app = new Vue({
     el: '#app',
     data: {

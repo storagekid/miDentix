@@ -1,0 +1,38 @@
+.fx {
+    display: flex;
+    height: 100%;
+}
+.fx-w-100 {
+    width: 100%;
+}
+.fx-center {
+    justify-content: center;
+    align-self: center;
+}
+.fx-col {
+    flex-direction: column;
+}
+.jf-center {
+    justify-content: center;
+}
+.jf-end {
+    justify-content: flex-end;
+}
+.jf-between {
+    justify-content: space-between;
+}
+.jf-around {
+    justify-content: space-around;
+}
+.fx-25 {
+    flex: .25;
+}
+.fx-50 {
+    flex: .50;
+}
+.fx-75 {
+    flex: .75;
+}
+.fx-100 {
+    flex: 1;
+}

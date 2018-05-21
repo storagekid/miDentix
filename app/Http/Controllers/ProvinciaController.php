@@ -8,6 +8,8 @@ use App\Provincia;
 class ProvinciaController extends Controller
 {
      public function indexApi() {
-        return Provincia::all();
+        return response([
+            'model'=>Provincia::get(),
+            ],200);
     }
 }

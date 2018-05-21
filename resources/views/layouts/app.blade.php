@@ -47,7 +47,6 @@
             <div class="row">
                 <div class="'col-xs-12" id="main-content">
                     <loading></loading>
-                    <counter></counter>
                     @yield('content')
                 </div>
             </div>
@@ -56,6 +55,7 @@
         @if (session('status'))
         <flash message="{{ session('status') }}"></flash>
         @endif
+        <!-- @include('modals.all') -->
     </div>
 
     <!-- Scripts -->

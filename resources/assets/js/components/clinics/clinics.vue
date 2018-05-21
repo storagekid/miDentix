@@ -15,13 +15,14 @@
               @toggleCreateModel="model.state = 'creating'"
               >
             </vue-table>
-            <model-new-form
-              v-if="model.state == 'creating'"
-              :form-data="modelNewFormData"
-              :modelNewFormOptions="modelNewFormDataOptions"
-              @CreatingModelCanceled="model.state=null"
+            <modal name="new-clinic" height="auto" width="1000px" maxWidht="80%">
+              <model-new-form
+                :form-data="modelNewFormData"
+                :modelNewFormOptions="modelNewFormDataOptions"
+                @CreatingModelCanceled="model.state=null"
               >
-            </model-new-form>
+              </model-new-form>
+            </modal>
           </div>
         </div>
       </div>
@@ -491,7 +492,7 @@
         mounted() {
           moment.locale('es');
           this.fetchModel();
-          this.model.state = 'creating';
+          // this.model.state = 'creating';
         }
     }
 </script>

@@ -4,8 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Menu;
-use App\Profile;
 
 class User extends Authenticatable
 {
@@ -26,66 +24,78 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'id','password', 'remember_token',
+        'id', 'password', 'remember_token',
     ];
 
     protected $with = ['group'];
 
-    public function profile() {
+    public function profile()
+    {
         return $this->hasOne(Profile::class);
     }
-    public function group() {
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function group()
+    {
         return $this->belongsToMany(Group::class);
     }
-    public function getMenu($domain, $groups, $role) {
-        switch($domain) {
+
+    public function getMenu($domain, $groups, $role)
+    {
+        switch ($domain) {
             case 'gabinete':
-                switch($groups[0]) {
+                switch ($groups[0]) {
                     case 'Dentists':
                         switch ($role) {
                             case 'user':
-                                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
+                                $list = ['CPanel', 'Profile', 'Requests', 'Schedule', 'Masters', 'Protocols', 'Surveys'];
                                 break;
                             case 'admin':
-                                $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Dentists', 'Clinics', 'Papers'];
                                 break;
                             case 'root':
-                                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Users', 'Clinics', 'Papers', 'Tools'];
                                 break;
                             default:
-                                $list = array();
+                                $list = [];
                                 break;
                         };
+                        break;
                     case 'Marketing':
                         switch ($role) {
                             case 'user':
-                                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
+                                $list = ['Stationary', 'PersonalTags', 'MedicalDirectory'];
                                 break;
                             case 'admin':
-                                $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Dentists', 'Clinics', 'Papers'];
                                 break;
                             case 'root':
-                                $list = ['CPanel','Requests','ExtraTime','Users','Clinics','Papers','Tools'];
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Users', 'Clinics', 'Papers', 'Tools'];
                                 break;
                             default:
-                                $list = array();
+                                $list = [];
                                 break;
                         };
-                        case 'Administrators':
+                        break;
+                    case 'Administrators':
                         switch ($role) {
                             case 'user':
-                                $list = ['CPanel','Profile','Requests','Schedule','Masters','Protocols','Surveys'];
+                                $list = ['CPanel', 'Profile', 'Requests', 'Schedule', 'Masters', 'Protocols', 'Surveys'];
                                 break;
                             case 'admin':
-                                $list = ['CPanel','Requests','ExtraTime','Dentists','Clinics','Papers'];
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Dentists', 'Clinics', 'Papers'];
                                 break;
                             case 'root':
-                                $list = ['CPanel','Users','Clinics','Papers','Tools'];
+                                $list = ['CPanel', 'Users', 'Clinics', 'Stationary', 'PersonalTags', 'MedicalDirectory', 'Tools'];
                                 break;
                             default:
-                                $list = array();
+                                $list = [];
                                 break;
                         };
+                        break;
                 }
         }
         $menu = new Menu;

@@ -51,5 +51,31 @@ class ProfilesAdminSeeder extends Seeder
 		$user->role = 'admin';
 		$user->group()->attach($group);
 		$user->save();
+
+		$group = \App\Group::where('name','Marketing')->first()->id;
+		$profile = factory('App\Profile')->create([
+			'email' => 'acruz@dentix.es',
+			'name' => 'Alba',
+			'lastname1' => 'Cruz',
+		]);
+		$user = $profile->user;
+		$user->email = $profile->email;
+		$user->password = Hash::make('Migabinete01');
+		$user->role = 'user';
+		$user->group()->attach($group);
+		$user->save();
+
+		$group = \App\Group::where('name','Marketing')->first()->id;
+		$profile = factory('App\Profile')->create([
+			'email' => 'bbarragan@dentix.es',
+			'name' => 'Blanca',
+			'lastname1' => 'Barragán',
+		]);
+		$user = $profile->user;
+		$user->email = $profile->email;
+		$user->password = Hash::make('Migabinete01');
+		$user->role = 'user';
+		$user->group()->attach($group);
+		$user->save();
 	}
 }

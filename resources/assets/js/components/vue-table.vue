@@ -7,6 +7,7 @@
             v-if="options.showNew"
             type="button" 
             @click="toggleNew"
+            @click.right.prevent="$modal.show('new-clinic')"
             >
             <span class="glyphicon glyphicon-plus">
             </span>
@@ -165,7 +166,8 @@
         },
         methods: {
           toggleNew() {
-            this.$emit('toggleCreateModel');
+            // this.$emit('toggleCreateModel');
+            this.$modal.show('new-clinic');
           },
           checkFilteriTemsStatus(filters) {
             for (let filter in filters) {
