@@ -14,7 +14,6 @@ let mix = require('laravel-mix');
  });
 
 mix.js(['resources/assets/js/app.js', 'resources/assets/js/tools/functions.js'], 'public/js')
-	.js('resources/assets/js/charts.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/excel-tables.scss', 'public/css')
    .copy('node_modules/font-awesome/fonts', 'public/fonts');

@@ -1,4 +1,4 @@
-"id","city","address_real_1","address_real_2","address_adv_1","address_adv_2","postal_code","phone_real","phone_adv","email_ext","sanitary_code","provincia_id","clinic-cloud_id","created_at","updated_at"
+"id","city","address_real_1","address_real_2","address_adv_1","address_adv_2","postal_code","phone_real","phone_adv","email_ext","sanitary_code","county_id","clinic-cloud_id","created_at","updated_at"
 "1","A Coruña","Rúa Juana de Vega, 23",,"Rúa Juana de Vega, 23",,"15004","981 216 261","881 241 631","coruna","C-15-003280.","15","47",2017-12-31,2017-12-31
 "2","Albacete","C/ Concepción, 11",,"C/ Concepción, 11",,"2006","967 810 835","967 961 470","albacete","0207459/0211461.","2","186",2017-12-31,2017-12-31
 "3","Alcalá de Henares","Pl. de Atilano Casado, 3",,"Pl. de Atilano Casado, 3",,"28801","91 071 41 34","91 116 54 01","alcalahenares2","13911.","28","222",2017-12-31,2017-12-31

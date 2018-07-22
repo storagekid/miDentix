@@ -26,7 +26,7 @@ $factory->define(App\Clinic::class, function (Faker $faker) {
         'phone_adv' => $faker->word,
         'email_ext' => $faker->word,
         'sanitary_code' => $faker->word,
-        'provincia_id' => 1,
+        'county_id' => 1,
         'clinic-cloud_id' => $faker->word,
     ];
 });

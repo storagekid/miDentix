@@ -1,7 +1,7 @@
 <template>
     <div class="flash-container" v-if="flashEvent">
-        <div :class="alert.label" role="alert" v-for="(alert, index) in alerts"> 
-          {{ alert.body }}
+        <div :class="alert.label" role="alert" v-for="(alert, index) in alerts" v-html="alert.body"> 
+          <!-- {{ alert.body }} -->
         </div>
     </div>
 </template>

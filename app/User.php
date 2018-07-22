@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -67,7 +69,7 @@ class User extends Authenticatable
                     case 'Marketing':
                         switch ($role) {
                             case 'user':
-                                $list = ['Stationary', 'PersonalTags', 'MedicalDirectory'];
+                                $list = ['Stationary', 'PersonalTags', 'MedicalDirectory','Orders','Clinics','Providers'];
                                 break;
                             case 'admin':
                                 $list = ['CPanel', 'Requests', 'ExtraTime', 'Dentists', 'Clinics', 'Papers'];

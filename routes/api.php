@@ -13,6 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::namespace('API')->group(function () {
+    Route::get('/clinics/table', 'ClinicController@table');
+    Route::resource('clinics', 'ClinicController');
+    Route::get('/providers/table', 'ProviderController@table');
+    Route::get('/providers/form', 'ProviderController@form');
+    Route::resource('providers', 'ProviderController');
+    Route::resource('orders', 'OrderController');
+    Route::get('/stationaries/table', 'StationaryController@table');
+    Route::get('/stationaries/form', 'StationaryController@form');
+    Route::resource('stationaries', 'StationaryController');
+    Route::resource('counties', 'CountyController');
+    Route::resource('states', 'StateController');
+    Route::resource('countries', 'CountryController');
+
+    Route::get('/table', 'TableController@index');
+    Route::get('/form', 'FormController@index');
+    Route::resource('relations', 'RelationController');
+    
 });

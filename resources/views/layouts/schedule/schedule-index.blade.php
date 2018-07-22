@@ -8,7 +8,7 @@
         <div class="col-xs-12">
             <schedule
             :clinics-src="{{$clinics}}"
-            :provincias-src="{{$provincias}}"
+            :counties-src="{{$counties}}"
             :states-src="{{$states}}"
             :clickable="true"
             ></schedule>

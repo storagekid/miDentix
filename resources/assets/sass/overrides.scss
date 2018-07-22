@@ -17,6 +17,9 @@ hr {
 .m-0 {
     margin: 0;
 }
+.pv-20 {
+    padding: 20px 0;
+}
 .header {
     margin-bottom: -15px;
 }
@@ -72,11 +75,13 @@ hr {
 }
 .panel-default > .panel-heading {
     color: #753470;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.005);
     border: 0;
     border-radius: 0;
     border-bottom: 1px solid #753470;
-    border-top: 1px solid #eee;
+    border-left: 2px solid #fff;
+    border-top: 1px solid #fff;
+    -webkit-box-shadow: inset 0px -3px 0px 0px #E6E6E6;
     box-shadow: inset 0px -3px 0px 0px #E6E6E6;
 }
 .panel-default > .panel-body {
@@ -219,7 +224,7 @@ hr {
     background: transparent;
 }
 .panel-default.panel-tabbed .tab-content .list-group li h4 .clinic-hours {
-    display: inline-block;
+    // display: inline-block;
     width: auto;
     float: right;
 }

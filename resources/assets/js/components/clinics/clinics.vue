@@ -1,55 +1,66 @@
 <template>
-  <div id="users-info-box">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="panel panel-default">
-          <div class="panel-heading text-center" v-if="admin">
-            <h3 class="panel-title">Clínicas</h3>
-          </div>
-          <div class="panel-body" v-show="!loading">
-            <vue-table 
-              v-if="model.items && !model.state" 
-              :table-items="model.items" 
-              :table-columns="tableColumns"
-              :table-options="tableOptions"
-              @toggleCreateModel="model.state = 'creating'"
-              >
-            </vue-table>
-            <modal name="new-clinic" height="auto" width="1000px" maxWidht="80%">
-              <model-new-form
-                :form-data="modelNewFormData"
-                :modelNewFormOptions="modelNewFormDataOptions"
-                @CreatingModelCanceled="model.state=null"
-              >
-              </model-new-form>
-            </modal>
+  <div id="clinics-home" class="fx pv-20">
+     <template>
+      <modal name="new-model" height="auto" width="1000px" maxWidht="80%">
+        <model-new-form
+            :form-data="modelNewFormData"
+            :modelNewFormOptions="modelNewFormDataOptions"
+          >
+        </model-new-form>
+      </modal>
+    </template>
+    <template>
+      <modal name="delete-model" height="auto" width="1000px" maxWidht="80%">
+        <div class="fx jf-center">
+          <div class="fx-100 panel panel-default">
+            <div class="panel-heading text-center">
+              <h3 class="panel-title">Eliminar Registros</h3>
+            </div>
+            <div class="panel-body">
+              <button 
+              class="btn btn-warning btn-sm" 
+                @click.prevent="$modal.hide('delete-model')"
+                >
+                Cancelar
+              </button>
+              <button 
+              class="btn btn-primary btn-sm" 
+                @click.prevent="createNew"
+                >
+                Eliminar
+              </button>
+            </div>
           </div>
         </div>
+      </modal>
+    </template>
+    <template v-if="$store.getters.ready">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title">Clínicas</h3>
+        </div>
+        <div class="panel-body">
+          <vue-table
+            :model="'clinics'"
+            :mode="'vuex'" 
+            :table-columns="tableColumns"
+            :table-options="tableOptions"
+            >
+          </vue-table>
+        </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
 <script>
-    import * as moment from 'moment';
-    import 'moment/locale/es';
-    import model from '../../mixins/model.js';
     import modelNewForm from '../../components/model/model-new-form.vue';
-    import vueTable from '../../components/vue-table';
     import vueModelOptions from '../../components/vue-model-options';
     export default {
-        components: {vueTable,vueModelOptions,modelNewForm},
-        mixins: [model],
-        props: ['admin'],
+        components: {vueModelOptions,modelNewForm},
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              loading: true,
-              header: {},
-              body: {},
-              footer: {
-                totalRows: 0,
-              },
               tableColumns: [
                 {
                   name: 'fullName',
@@ -77,7 +88,7 @@
                 {
                   name: 'city',
                   label: 'Ciudad',
-                  show: true,
+                  show: false,
                   sorting: {
                     active: true,
                   },
@@ -128,7 +139,7 @@
                 {
                   name: 'address_adv_1',
                   label: 'Dirección adv 1',
-                  show: true,
+                  show: false,
                   sorting: {
                     active: true,
                   },
@@ -196,7 +207,7 @@
                 {
                   name: 'phone_adv',
                   label: 'Tel. Comercial',
-                  show: true,
+                  show: false,
                   sorting: {
                     active: true,
                   },
@@ -230,7 +241,7 @@
                 {
                   name: 'sanitary_code',
                   label: 'Código Sanitario',
-                  show: true,
+                  show: false,
                   sorting: {
                     active: true,
                   },
@@ -245,7 +256,7 @@
                   width:'',
                 },
                 {
-                  name: 'provinciaName',
+                  name: 'countyName',
                   label: 'Provincia',
                   show: true,
                   sorting: {
@@ -253,9 +264,9 @@
                   },
                   filtering: {
                     active: true,
-                    key: 'provinciaName',
+                    key: 'countyName',
                     options: {
-                      search:['provinciaName'],
+                      search:['countyName'],
                       noOptions:false,
                     },
                   },
@@ -303,13 +314,14 @@
                 },
               ],
               tableOptions: {
-                model: 'Clinic',
+                model: 'clinics',
                 counterColumn: true,
                 actions: ['show','edit','delete'],
                 showNew: true,
               },
               modelNewFormData: {
-                models: ['country','provincia','state'],
+                model: 'clinics',
+                models: ['countries','counties','states'],
                 fields: {
                   country_id: {
                     label: 'País',
@@ -320,7 +332,7 @@
                     affects: 'state_id',
                     type: {
                       name: 'select',
-                      model:'country',
+                      model:'countries',
                       text: 'name',
                       value:'id',
                       default: {
@@ -337,10 +349,10 @@
                     value: null,
                     dontRecord: true,
                     dependsOn: 'country_id',
-                    affects: 'provincia_id',
+                    affects: 'county_id',
                     type: {
                       name: 'select',
-                      model:'state',
+                      model:'states',
                       text: 'name',
                       value:'id',
                       default: {
@@ -350,16 +362,16 @@
                       },
                     },
                   },
-                  provincia_id: {
+                  county_id: {
                     label: 'Provincia',
                     rules: ['required'],
-                    name: 'provincia_id',
+                    name: 'county_id',
                     value: null,
                     dependsOn: 'state_id',
                     type: {
                       name: 'select',
-                      model:'provincia',
-                      text: 'nombre',
+                      model:'counties',
+                      text: 'name',
                       value:'id',
                       default: {
                         value: null,
@@ -368,10 +380,10 @@
                       },
                     },
                   },
-                  name: {
+                  city: {
                     label: 'Ciudad/Municipio',
                     rules: ['required','min:5','max:64'],
-                    name: 'name',
+                    name: 'city',
                     value: null,
                     colClasses: 'col-xs-12 col-md-4',
                     type: {
@@ -469,30 +481,284 @@
             }
         },
         methods: {
-          fetchModel() {
-            axios.get('/api/'+this.model.name)
-              .then(data => {
-                if (data.data.model) {
-                  this.model.items = data.data.model;
-                  this.loading = false;
-                  window.events.$emit('loaded');
-                }
-              });
-          },
           updateFooter(e) {
             this.footer.totalRows = e;
-          }
+          },
         },
         computed: {
+          // items() {
+          //   return this.$store.state.models['clinics'].items;
+          // },
         },
         created() {
-          window.events.$emit('loading');
           window.events.$on('rowsSelected', this.updateFooter);
+          this.$store.dispatch('fetchModels', ['clinics']);
         },
         mounted() {
-          moment.locale('es');
-          this.fetchModel();
-          // this.model.state = 'creating';
+          // this.$store.dispatch('fetchModels',['clinics']);
+          // this.$store.dispatch('setTableClass',{name:'Patata'});          
+          // this.$store.dispatch('setTable',
+          //   {
+          //     name:'clinics',
+          //     options:{
+          //       model: 'clinics',
+          //       counterColumn: true,
+          //       actions: ['show','edit','delete'],
+          //       showNew: true,
+          //     },
+          //     columns: [
+          //       {
+          //         name: 'fullName',
+          //         label: 'Clínica',
+          //         show: true,
+          //         linebreak: {
+          //           needles: ['(','esq.'],
+          //           options: {
+          //             small: true
+          //           }
+          //         },
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'fullName',
+          //           options: {
+          //             search:['fullName'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'city',
+          //         label: 'Ciudad',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'city',
+          //           options: {
+          //             search:['city'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'address_real_1',
+          //         label: 'Dirección real 1',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'address_real_1',
+          //           options: {
+          //             search:['address_real_1'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'address_real_2',
+          //         label: 'Dirección real 2',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'address_real_2',
+          //           options: {
+          //             search:['address_real_2'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'address_adv_1',
+          //         label: 'Dirección adv 1',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'address_adv_1',
+          //           options: {
+          //             search:['address_adv_1'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'address_adv_2',
+          //         label: 'Dirección adv 2',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'address_adv_2',
+          //           options: {
+          //             search:['address_adv_2'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'postal_code',
+          //         label: 'CP',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'postal_code',
+          //           options: {
+          //             search:['postal_code'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'phone_real',
+          //         label: 'Tel. Real',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'phone_real',
+          //           options: {
+          //             search:['phone_real'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'phone_adv',
+          //         label: 'Tel. Comercial',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'phone_adv',
+          //           options: {
+          //             search:['phone_adv'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'email_ext',
+          //         label: 'Email',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'email_ext',
+          //           options: {
+          //             search:['email_ext'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'sanitary_code',
+          //         label: 'Código Sanitario',
+          //         show: false,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key:'sanitary_code',
+          //           options: {
+          //             search:['sanitary_code'],
+          //             noOptions:true
+          //           } 
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'countyName',
+          //         label: 'Provincia',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key: 'countyName',
+          //           options: {
+          //             search:['countyName'],
+          //             noOptions:false,
+          //           },
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'stateName',
+          //         label: 'CCAA',
+          //         show: true,
+          //         linebreak: {
+          //           needles: [','],
+          //           options: {
+          //             small: true
+          //           }
+          //         },
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key: 'stateName',
+          //           options: {
+          //             search:['stateName'],
+          //             noOptions:false,
+          //           },
+          //         },
+          //         width:'',
+          //       },
+          //       {
+          //         name: 'countryName',
+          //         label: 'País',
+          //         show: true,
+          //         sorting: {
+          //           active: true,
+          //         },
+          //         filtering: {
+          //           active: true,
+          //           key: 'countryName',
+          //           options: {
+          //             search:['countryName'],
+          //             noOptions:false,
+          //           },
+          //         },
+          //         width:'',
+          //       },
+          //     ],
+          // });
         }
     }
 </script>

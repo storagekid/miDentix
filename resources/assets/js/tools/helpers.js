@@ -11,6 +11,13 @@ const Helpers = {
         },
         Vue.randomArrayValue = function (array) {
             return array[Math.floor(Math.random() * array.length)];
+        },
+        Vue.scrollToHash = function (id) {
+            location.hash = "#" + id;
+        },
+        Vue.scrollToElement = function(id) {
+            var topPos = document.getElementById(id).offsetTop;
+            document.getElementById(id).parentNode.scrollTop = topPos-10;
         }
     }
 }

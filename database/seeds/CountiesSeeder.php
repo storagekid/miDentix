@@ -3,11 +3,11 @@
 use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class ProvinciasSeeder extends CsvSeeder
+class CountiesSeeder extends CsvSeeder
 {
 	public function __construct()
 	{
-		$this->table = 'provincias';
+		$this->table = 'counties';
 		$this->csv_delimiter = ',';
 		$this->filename = base_path().'/database/seeds/csvs/provincias.csv';
 	}

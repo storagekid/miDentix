@@ -10,11 +10,11 @@
 
 <script>
     export default {
-        props: ['data','provincias-src'],
+        props: ['data','counties-src'],
         data() {
             return {
                 clinics: this.data,
-                provincias: this.provinciasSrc,
+                counties: this.countiesSrc,
                 selected: [],
                 editable: '',
                 options: this.$refs,
@@ -147,8 +147,8 @@
             makeEditable(clinic, index) {
                 this.editable = clinic.id;
                 this.oldClinic = Object.assign({},clinic);
-                this.oldClinic.provincia = Object.assign({},clinic.provincia);
-                this.oldClinic.provincia.state = Object.assign({},clinic.provincia.state);
+                this.oldClinic.county = Object.assign({},clinic.county);
+                this.oldClinic.county.state = Object.assign({},clinic.county.state);
                 window.flash('Estas en modo edición');
             },
             cancelEditable(index) {
@@ -158,13 +158,13 @@
                 this.oldClinic = '';
                 window.flash('Edición cancelada');
             },
-            provinciaChanged(event, clinicIndex) {
+            countyChanged(event, clinicIndex) {
                 this.clinicIndex = clinicIndex;
-                window.events.$emit('provinciaUpdated',event);
+                window.events.$emit('countyUpdated',event);
             },
             changename(event) {
-                this.clinics[this.clinicIndex].provincia_id = event.target.value;
-                this.clinics[this.clinicIndex].provincia.state.name = this.provincias[event.target.selectedIndex].state.name;
+                this.clinics[this.clinicIndex].counuty_id = event.target.value;
+                this.clinics[this.clinicIndex].county.state.name = this.counties[event.target.selectedIndex].state.name;
             },
             update(index) {
                 var updateData = {};
@@ -202,7 +202,7 @@
             }
         },
         created() {
-            window.events.$on('provinciaUpdated', this.changename);
+            window.events.$on('countyUpdated', this.changename);
         },
     }
 </script>

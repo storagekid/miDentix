@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class StationariesSeeder extends Seeder
 {
@@ -11,7 +10,7 @@ class StationariesSeeder extends Seeder
      * @return void
      */
     public function run()
-	{
+    {
         $stationary = new \App\Stationary;
         $stationary->name = 'a4sheet';
         $stationary->description = 'Hoja A4';
@@ -35,5 +34,5 @@ class StationariesSeeder extends Seeder
         $stationary->description = 'Sobre Bolsa 324x229';
         $stationary->price = 0.5;
         $stationary->save();
-	}
+    }
 }

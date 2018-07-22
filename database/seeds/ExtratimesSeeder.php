@@ -13,30 +13,30 @@ class ExtratimesSeeder extends Seeder
 	{
 		$profiles = \App\Profile::all();
 		$states = \App\State::all();
-		$provincias = \App\Provincia::all();
+		$counties = \App\County::all();
 		$clinics = \App\Clinic::all();
 		// $items = \App\Experience::all();
 		// $Selected = [];
 		foreach($profiles as $profile) {
 			if ($profile->user->role == 'admin') break;
 			$state_id = null;
-			$provincia_id = null;
+			$county_id = null;
 			$clinic_id = null;
 			$times = mt_rand(0,5);
 			while ($times) {
 				$state = mt_rand(0,1);
 				if ($state) {
 					$state_id = mt_rand(1,count($states));
-					$provincia = mt_rand(0,1);
+					$county = mt_rand(0,1);
 					$selectedPro = [];
-					if ($provincia) {
-						foreach ($provincias as $provincia) {
-							if ($provincia->state->id == $state_id) {
-								$selectedPro[] = $provincia->id;
+					if ($county) {
+						foreach ($counties as $county) {
+							if ($county->state->id == $state_id) {
+								$selectedPro[] = $county->id;
 							}
 						}
 						if (count($selectedPro)) {
-							$provincia_id = $selectedPro[mt_rand(0,count($selectedPro)-1)];
+							$county_id = $selectedPro[mt_rand(0,count($selectedPro)-1)];
 						} else {
 							break;
 						}
@@ -44,7 +44,7 @@ class ExtratimesSeeder extends Seeder
 						$selectedClinics = [];
 						if ($clinic) {
 							foreach ($clinics as $clinic) {
-								if ($clinic->provincia->id == $provincia_id) {
+								if ($clinic->county->id == $county_id) {
 									$selectedClinics[] = $clinic->id;
 								}
 							}
@@ -60,7 +60,7 @@ class ExtratimesSeeder extends Seeder
 				factory('App\Extratime')->create([
 					'profile_id' => $profile->id,
 					'clinic_id' => $clinic_id,
-					'provincia_id' => $provincia_id,
+					'county_id' => $county_id,
 					'state_id' => $state_id,
 					'schedule' => $schedule,
 					'state' => mt_rand(0,2),

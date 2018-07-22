@@ -37,11 +37,6 @@
               models: {},
               modelsFetched: 0,
               modelToSave: {},
-              // modelToSave: {
-              //   country_id: null,
-              //   state_id: null,
-              //   provincia_id: null,
-              // },
               readyToSave: false,
             }
         },

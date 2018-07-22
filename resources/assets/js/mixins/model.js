@@ -31,7 +31,8 @@ export default {
             }
           },
         selectModel(model,id) {
-            if (!id) {
+            console.log(id);
+            if (id == 'null') {
                 this.models[model].itemSelected = null;
                 this.models[model].idSelected = null;
                 return false;

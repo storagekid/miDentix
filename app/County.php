@@ -1,13 +1,12 @@
 <?php
 
 namespace App;
-use App\State;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Provincia extends Model
+class County extends Model
 {
-	protected $with = ['state'];
+    protected $with = ['state'];
 
     public function state() {
     	return $this->belongsTo(State::class);

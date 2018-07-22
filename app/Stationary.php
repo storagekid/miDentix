@@ -5,24 +5,245 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use TCPDF;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\Tableable;
+use App\Traits\Formable;
 
 class Stationary extends Model
 {
+    use Tableable;
+    use Formable;
      /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'provider_id', 'price'
+        'name', 'description','details','customizable','provider_id', 'price', 'file', 'link'
     ];
 
-    public function clinics() {
-        return $this->belongsToMany(Clinic::class);
+    protected $appends = ['providerList'];
+
+    protected $with = ['providers'];
+
+    // Tableable DATA
+    protected $tableColumns = [
+        'name' => [
+            'label' => 'Nombre'
+        ], 
+        'description' => [
+            'label' => 'Descripción',
+            'filtering' => ['search']
+        ], 
+        'details' => [
+            'label' => 'Detalles'
+        ], 
+        'customizable' => [
+            'label' => 'Personalizable',
+            'boolean' => ['Sí','No'],
+            'sorting' => ['integer'],
+            'filtering' => [
+                'off',
+                'boolean' => ['No','Sí']
+            ],
+        ], 
+        'price' => [
+            'label' => 'Precio'
+        ], 
+        'providerList' => [
+            'label' => 'Proveedores',
+            'parse' => true
+        ],
+        'link' => [
+            'label' => 'Diseño',
+            'boolean' => ['Sí','No'],
+            'sorting' => ['integer'],
+            'filtering' => [
+                'boolean' => ['No','Sí']
+            ],
+        ], 
+    ];
+
+    protected $tableOptions = [['show','edit','delete'], true, true];
+
+    // END Tableable Data
+
+    // Formable DATA
+
+    protected $formFields = [
+        'name' => [
+            'label' =>'Nombre',
+            'rules' =>['required','min:5','max:64'],
+          ],
+          'description' => [
+            'label' =>'Descripción',
+            'rules' =>['required','min:5','max:64'],
+          ],
+          'price' => [
+            'label' =>'Precio',
+            'rules' =>['required'],
+            'type' => [
+              'name' =>'inputDecimal',
+            ],
+          ],
+          'details' => [
+            'label' =>'Detalles',
+            'rules' =>['required','min:5','max:255'],
+          ],
+          'customizable' => [
+            'label' =>'Personalizable',
+            'value' =>false,
+            'type' => [
+              'name' =>'checkBox',
+            ],
+          ],
+          'file' => [
+            'label' =>'Diseño',
+            'value' =>false,
+            'type' => [
+              'name' => 'file',
+            ],
+          ],
+    ];
+
+    protected $formModels = ['countries','counties','states','providers'];
+
+    protected $formRelations = [
+        'providers' => [
+            'label' => 'Proveedores',
+            'header' => 'Nuevo Proveedor',
+            'name' => 'providers',
+            'fields' => [
+              'country_id' => [
+                'label' => 'País',
+                'rules' => ['required'],
+                'name' => 'country_id',
+                'value' => null,
+                'dontRecord' => false,
+                'affects' => 'state_id',
+                'type' => [
+                  'name' => 'select',
+                  'model' => 'countries',
+                  'text' => 'name',
+                  'value' => 'id',
+                  'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona un País',
+                    'disabled' => true,
+                  ],
+                ],
+              ],
+              'state_id' => [
+                'label' => 'CCAA',
+                'rules' => [],
+                'name' => 'state_id',
+                'value' => null,
+                'dontRecord' => false,
+                'dependsOn' => 'country_id',
+                'affects' => 'county_id',
+                'type' => [
+                  'name' => 'select',
+                  'model' => 'states',
+                  'text' => 'name',
+                  'value' => 'id',
+                  'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una CCAA',
+                    'disabled' => true,
+                  ],
+                ],
+              ],
+              'county_id' => [
+                'label' => 'Provincia',
+                'rules' => [],
+                'name' => 'county_id',
+                'value' => null,
+                'dependsOn' => 'state_id',
+                'affects' => 'clinic_id',
+                'type' => [
+                  'name' => 'select',
+                  'model' => 'counties',
+                  'text' => 'name',
+                  'value' => 'id',
+                  'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una Provincia',
+                    'disabled' => true,
+                  ],
+                ],
+              ],
+              'clinic_id' => [
+                'label' => 'Clínica',
+                'rules' => [],
+                'name' => 'clinic_id',
+                'value' => null,
+                'dontRecord' => false,
+                'dependsOn' => 'county_id',
+                'type' => [
+                  'name' => 'select',
+                  'model' => 'clinics',
+                  'text' => 'fullName',
+                  'value' => 'id',
+                  'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una Clínica',
+                    'disabled' => true,
+                  ],
+                ],
+              ],
+              'provider_id' => [
+                'label' => 'Proveedor',
+                'rules' => [],
+                'name' => 'provider_id',
+                'value' => null,
+                'dontRecord' => false,
+                'type' => [
+                  'name' => 'select',
+                  'model' => 'providers',
+                  'text' => 'name',
+                  'value' => 'id',
+                  'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona un Proveedor',
+                    'disabled' => true,
+                  ],
+                ],
+              ],
+            ]
+        ]
+    ];
+
+    // END Formable DATA
+
+    // public function providers() {
+    //     return $this->belongsToMany(Provider::class, 'product_providers', 'product_id', 'provider_id')
+    //         ->withPivot(['country_id','state_id','county_id','clinic_id']);;
+    // }
+
+    public function providers() {
+        return $this->hasMany(Provider_Stationary::class, 'product_id');
+    }
+
+    public function getProviderListAttribute() {
+        // return implode(', ', $this->providers->pluck('name')->toArray());
+        return $this->providers->pluck('providerName');
     }
 
     public function orders() {
         return $this->morphMany(Order::class, 'orderable');
+    }
+
+    public function clinics()
+    {
+        return $this->belongsToMany(Clinic::class)
+            ->withPivot(['id', 'file', 'link']);
+    }
+
+    // public function getTableColumnsAttribute() {
+    //     return $this->tableColumns;
+    // }
+
+    public function setCustomizableAttribute($value) {
+        $this->attributes['customizable'] = $value == null ? false : true;
     }
 
     public function regen() {
@@ -33,12 +254,13 @@ class Stationary extends Model
         // }
     }
 
-    public function makePdf($stationary, $dirFiscal, $cp, $clinica, $telReal, $force=false) {
+    public function makePdf($directory, $stationary, $clinic, $force=false) {
         
         $object = $stationary->description; //'Hoja A4 '
-        $street = trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $dirFiscal));
-        $folder = $clinica . ' (' . $street . ')';
-        $dir = 'stationary/' . $folder . '/';
+        $street = trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $clinic->address_real_1));
+        $folder = $clinic->cleanName;
+        // $dir = 'stationary/' . $folder . '/';
+        $dir = $directory . $folder . '/';
         $file = $folder.'.pdf';
         $path =  storage_path('app/'.$dir . $object . ' ' . $file);
 
@@ -52,22 +274,22 @@ class Stationary extends Model
 
         switch ($stationary->name) {
             case 'a4sheet':
-                $this->makeA4($dirFiscal, $cp, $clinica, $telReal, $path);
+                $this->makeA4($clinic, $path);
                 break;
             case 'recepi':
-                $this->makeRecepi($dirFiscal, $cp, $clinica, $telReal, $path);
+                $this->makeRecepi($clinic, $path);
                 break;
             case 'envelope':
-                $this->makeSobreAmericano($dirFiscal, $cp, $clinica, $telReal, $path);
+                $this->makeSobreAmericano($clinic, $path);
                 break;
             case 'envelopeBig':
-                $this->makeSobreBolsa($dirFiscal, $cp, $clinica, $telReal, $path);
+                $this->makeSobreBolsa($clinic, $path);
                 break;
         }
 
     }
 
-    public function makeA4($dirFiscal, $cp, $clinica, $telReal, $path, $force=false)
+    public function makeA4($clinic, $path, $force=false)
     {
 
         $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
@@ -124,7 +346,7 @@ class Stationary extends Model
         $pdf->RoundedRect($marginLeft, 273.5, 185.6, 15, 4, '1111', 'F');
 
         $pdf->setY(277);
-        $text = $dirFiscal . '. ' . $cp . ' ' . $clinica . '. ' . $telReal . '.';
+        $text = $clinic->address_real_1 . '. ' . $clinic->postal_code . ' ' . $clinic->city . '. ' . $clinic->phone_real . '.';
         $pdf->SetFont('dentixth', '', 10, '', false);
         $pdf->Cell(185.6, '', $text, 0, 0, 'C', false, '');
 
@@ -153,7 +375,7 @@ class Stationary extends Model
 
         return true;
     }
-    function makeRecepi($dirFiscal,$cp,$clinica,$telReal, $path, $force=false) 
+    function makeRecepi($clinic, $path, $force=false) 
     {
 
         $pdf = new TCPDF("L","mm","A5",true,"UTF-8",false);
@@ -213,7 +435,7 @@ class Stationary extends Model
         $pdf->RoundedRect($marginLeft,125,210-$marginRight-$marginLeft,15,4,'1111','F');
       
         $pdf->setY(128.4);
-        $text = $dirFiscal.". ".$cp." ".$clinica.". ".$telReal.".";
+        $text = $clinic->address_real_1.". ".$clinic->postal_code." ".$clinic->city.". ".$clinic->phone_real.".";
         $pdf->SetFont('dentixth','',10,'',false);
         $pdf->Cell(185.6,'',$text,0,0,'C',false,'');
       
@@ -228,7 +450,7 @@ class Stationary extends Model
       
     }
 
-    function makeSobreAmericano($dirFiscal,$cp,$clinica,$telReal, $path, $force=false) 
+    function makeSobreAmericano($clinic, $path, $force=false) 
     {
 
         $pdf = new TCPDF("L","mm","A5",true,"UTF-8",false);
@@ -272,17 +494,17 @@ class Stationary extends Model
         $pdf->RoundedRect(5,83,141.6,26.25,4,'1111','F');
       
         $pdf->setY(86.5);
-        $text = $dirFiscal.".";
+        $text = $clinic->address_real_1.".";
         $pdf->SetFont('dentixlt','',9,'',false);
         $pdf->Cell(131,'',$text,0,0,'L',false,'');
       
         $pdf->setY(90.5);
-        $text = $cp." ".$clinica.".";
+        $text = $clinic->postal_code." ".$clinic->city.".";
         $pdf->SetFont('dentixlt','',9,'',false);
         $pdf->Cell(131,'',$text,0,0,'L',false,'');
       
         $pdf->setY(94.5);
-        $text = "Tel. ".$telReal.".";
+        $text = "Tel. ".$clinic->phone_real.".";
         $pdf->SetFont('dentixlt','',9,'',false);
         $pdf->Cell(131,'',$text,0,0,'L',false,'');
       
@@ -305,7 +527,7 @@ class Stationary extends Model
       
     }
 
-    function makeSobreBolsa($dirFiscal,$cp,$clinica,$telReal, $path, $force=false) 
+    function makeSobreBolsa($clinic, $path, $force=false) 
     {
 
         $pdf = new TCPDF("L","mm","A5",true,"UTF-8",false);
@@ -350,16 +572,16 @@ class Stationary extends Model
         $pdf->RoundedRect(7,184,204,38,4,'1111','F');
       
         $pdf->setXY(14,188);
-        $text = $dirFiscal.".";
+        $text = $clinic->address_real_1.".";
         $pdf->SetFont('dentixlt','',13,'',false);
         $pdf->Cell(190,'',$text,0,0,'L',false,'');
       
         $pdf->setXY(14,194);
-        $text = $cp." ".$clinica.".";
+        $text = $clinic->postal_code." ".$clinic->city.".";
         $pdf->Cell(190,'',$text,0,0,'L',false,'');
       
         $pdf->setXY(14,200);
-        $text = "Tel. ".$telReal.".";
+        $text = "Tel. ".$clinic->phone_real.".";
         $pdf->Cell(190,'',$text,0,0,'L',false,'');
       
         $pdf->setXY(14,212);

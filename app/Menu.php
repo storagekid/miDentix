@@ -84,7 +84,17 @@ class Menu
             'name' => 'Cuadro Médico',
             'link' => '/directory',
             'icon' => 'glyphicon glyphicon-th-list'
-        ]
+        ],
+        'Orders' => [
+            'name' => 'Pedidos',
+            'link' => '/orders',
+            'icon' => 'glyphicon glyphicon-transfer'
+        ],
+        'Providers' => [
+            'name' => 'Proveedores',
+            'link' => '/providers',
+            'icon' => 'glyphicon glyphicon-briefcase'
+        ],
     ];
 
     public function get($list)

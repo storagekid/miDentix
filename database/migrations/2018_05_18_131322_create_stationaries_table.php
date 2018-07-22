@@ -16,8 +16,12 @@ class CreateStationariesTable extends Migration
         Schema::create('stationaries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');            
-            $table->unsignedDecimal('price',5,2);
+            $table->string('description');
+            $table->string('details');
+            $table->unsignedDecimal('price', 5, 2);
+            $table->boolean('customizable')->default(0);
+            $table->string('file')->nullable()->default(null);
+            $table->string('link')->nullable()->default(null);
             $table->timestamps();
         });
     }

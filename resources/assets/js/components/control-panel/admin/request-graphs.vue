@@ -5,60 +5,58 @@
           <h3 class="panel-title">Evolución Solicitudes</h3>
         </div>
         <div class="panel-body">
-            <h4 class="panel-title text-center">
-              <a class="col-xs-12" style="margin-bottom: 10px" @click="toggleFilters">
-                <span :class="filtersButtonClasses"></span>Filtros
-              </a>
-            </h4>
-            <div class="panel-body" style="padding: 0" v-show="filters.show">
-              <form class="form-inline">
-                <div class="form-group col-xs-6 col-sm-3">
-                  <label for="exampleInputName2">Tramo</label>
-                  <p>Desde: <input type="date" name="start-date"></p>
-                  <p>Hasta: <input type="date" name="end-date"></p>
-                </div>
-                <div class="form-group col-xs-6 col-sm-3">
-                  <label for="exampleInputName2">CCAA</label>
-                  <p>
-                    <select class="form-control">
-                      <option value="" selected="">Todas</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                      <option value="">Comunidad 1</option>
-                   </select>
-                  </p>
-                </div>
-                <div class="form-group col-xs-6 col-sm-3">
-                  <label for="exampleInputName2">Provincia</label>
-                  <p>
-                    <select class="form-control">
-                      <option value="" selected="">Todas</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                      <option value="">Provincia 1</option>
-                    </select>
-                  </p>
-                </div>
-                <div class="col-xs-6 col-sm-3">
-                  <label for="exampleInputName2">Estado</label>
-                    <p><input type="checkbox" checked=""> Resueltas</p>
-                    <p><input type="checkbox" checked=""> Pendientes</p>
-                  </label>
-                </div>
-              </form>
-            </div>
+          <h4 class="panel-title text-center">
+            <a class="col-xs-12" style="margin-bottom: 10px" @click="toggleFilters">
+              <span :class="filtersButtonClasses"></span>Filtros
+            </a>
+          </h4>
+          <div class="panel-body" style="padding: 0" v-show="filters.show">
+            <form class="form-inline">
+              <div class="form-group col-xs-6 col-sm-3">
+                <label for="exampleInputName2">Tramo</label>
+                <p>Desde: <input type="date" name="start-date"></p>
+                <p>Hasta: <input type="date" name="end-date"></p>
+              </div>
+              <div class="form-group col-xs-6 col-sm-3">
+                <label for="exampleInputName2">CCAA</label>
+                <p>
+                  <select class="form-control">
+                    <option value="" selected="">Todas</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                    <option value="">Comunidad 1</option>
+                  </select>
+                </p>
+              </div>
+              <div class="form-group col-xs-6 col-sm-3">
+                <label for="exampleInputName2">Provincia</label>
+                <p>
+                  <select class="form-control">
+                    <option value="" selected="">Todas</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                    <option value="">Provincia 1</option>
+                  </select>
+                </p>
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <label for="exampleInputName2">Estado</label>
+                  <p><input type="checkbox" checked=""> Resueltas</p>
+                  <p><input type="checkbox" checked=""> Pendientes</p>
+              </div>
+            </form>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-4">
@@ -77,7 +75,7 @@
 </template>
 
 <script>
-    import Chart from 'chart.js';
+    // import Chart from 'chart.js';
     import * as moment from 'moment';
     import 'moment/locale/es';
     export default {

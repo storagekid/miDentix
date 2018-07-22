@@ -1,4 +1,4 @@
-"id","nombre","state_id","created_at","updated_at"
+"id","name","state_id","created_at","updated_at"
 "1","Araba/Álava","16",2017-12-31,2017-12-31
 "2","Albacete","8",2017-12-31,2017-12-31
 "3","Alicante/Alacant","10",2017-12-31,2017-12-31

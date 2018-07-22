@@ -1,0 +1,12 @@
+id,name,description,price,details,customizable,file,link,created_at,updated_at
+,a4sheet,Hoja A4,1,85 g,1,,,2017-11-15 16:50:36,2017-11-15 16:50:36
+,recepi,Recetario,0.5,100 g,1,,,2017-11-15 16:50:36,2017-11-15 16:50:36
+,envelope,Sobre Americano 225x115,0.25,125 g,1,,,2017-11-15 16:50:36,2017-11-15 16:50:36
+,envelopeBig,Sobre Bolsa 324x229,0.30,126 g,1,,,2017-11-16 16:50:36,2017-11-16 16:50:36
+,anamnesis,Anamnesis,0.27,127 g,0,,,2017-11-17 16:50:36,2017-11-17 16:50:36
+,complaintForm,Hoja de Reclamaciones,0.28,128 g,0,,,2017-11-18 16:50:36,2017-11-18 16:50:36
+,labSchedule,Agenda de Laboratorio,0.29,129 g,0,,,2017-11-19 16:50:36,2017-11-19 16:50:36
+,medicalRecord,Historia Clínica,0.30,130 g,0,,,2017-11-20 16:50:36,2017-11-20 16:50:36
+,survey,Encuesta de Satisfacción,0.31,131 g,0,,,2017-11-21 16:50:36,2017-11-21 16:50:36
+,warrantyBookletFixed,Talonario de Garantías (P. Removibles),0.32,132 g,0,,,2017-11-22 16:50:36,2017-11-22 16:50:36
+,warrantyBooklet,Talonario de Garantías (P. Fijas),0.33,133 g,0,,,2017-11-23 16:50:36,2017-11-23 16:50:36

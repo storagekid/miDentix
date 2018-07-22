@@ -361,7 +361,7 @@
                     { 
                         profile_id: this.profileSrc.id,
                         clinic_id: this.addingId, 
-                        provincia_id: this.addingPro,
+                        county_id: this.addingPro,
                         state_id: this.addingCA,
                         schedule: JSON.stringify(this.scheduleToSave),
                         'especialtiesToSave': this.especialtiesToSave,

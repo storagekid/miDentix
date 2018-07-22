@@ -44,23 +44,23 @@
                         <label for="clinic_id">Provincia</label>
                         <select 
                           class="form-control" 
-                          id="provincia_id" 
-                          name="provincia_id" 
-                          @change="selectProvincia" 
-                          :disabled="addClinic.provinciaSelectDisabled"
-                          v-model="addClinic.selectedProvinciaId"
+                          id="county_id" 
+                          name="county_id" 
+                          @change="selectCounty" 
+                          :disabled="addClinic.countySelectDisabled"
+                          v-model="addClinic.selectedCountyId"
                           >
                           <option 
                             disabled="" 
-                            :selected="addClinic.selectedProvinciaId"
+                            :selected="addClinic.selectedCountyId"
                             value=""
-                          >{{addClinic.selectedProvinciaText}}</option>
+                          >{{addClinic.selectedCountyText}}</option>
                             <option 
-                                v-for="provincia in provinciasSrc" 
-                                :value="provincia['id']" 
-                                v-if="checkState(provincia['state_id'])"
+                                v-for="county in countiesSrc" 
+                                :value="county['id']" 
+                                v-if="checkState(county['state_id'])"
                                 >
-                                {{provincia['nombre']}}
+                                {{county['nombre']}}
                             </option>
                         </select>
                     </div>
@@ -82,7 +82,7 @@
                             <option 
                                 v-for="clinic in clinicsSrc" 
                                 :value="clinic['id']"
-                                v-if="checkProvincia(clinic['provincia_id'],clinic['id']) && !clinic['closed']"
+                                v-if="checkCounty(clinic['county_id'],clinic['id']) && !clinic['closed']"
                                 >
                                 <!-- {{clinic['city']}} ({{clinic['address_real_1']}}) -->
                                 {{clinic['cost_center']['name']}}
@@ -137,7 +137,7 @@
                       :clickable="clickable"
                       :profile-src="profileSrc" 
                       :addingCA="addClinic.selectedStateId"
-                      :addingPro="addClinic.selectedProvinciaId"
+                      :addingPro="addClinic.selectedCountyId"
                       :addingId="addClinic.selectedClinicId"
                       :schedules="schedules"
                       :days="days"
@@ -199,7 +199,7 @@
                 clinics: [],
               },
               clinicsSrc: [],
-              provinciasSrc: [],
+              countiesSrc: [],
               statesSrc: [],
               // especialties: [],
               schedules: {},
@@ -214,27 +214,27 @@
               dayHours: ['9','10','11','12','13','14','15','16','17','18','19','20'],
               addClinic: {
                   method: false,
-                  provinciaSelectDisabled: true,
+                  countySelectDisabled: true,
                   clinicSelectDisabled: true,
                   topButtonText: 'Añadir Clinica',
                   topButtonClasses: 'btn btn-sm btn-info',
                   topButtonIcon: 'glyphicon glyphicon-plus-sign',
                   selectedStateId: '',
                   selectedStateText: 'Selecciona una CCAA',
-                  selectedProvinciaId: '',
-                  selectedProvinciaText: 'Selecciona una Provincia',
+                  selectedCountyId: '',
+                  selectedCountyText: 'Selecciona una Provincia',
                   selectedClinicId: '',
                   selectedClinicText: 'Selecciona una clínica',
               },
               updateSchedules: {
                   method: false,
-                  provinciaSelectDisabled: true,
+                  countySelectDisabled: true,
                   clinicSelectDisabled: true,
                   ButtonText: 'Modificar',
                   ButtonClasses: 'btn btn-primary',
                   ButtonIcon: 'glyphicon glyphicon-pencil',
                   selectedStateId: '',
-                  selectedProvinciaId: '',
+                  selectedCountyId: '',
                   selectedClinicId: '',
               },
               tabs: {
@@ -302,13 +302,13 @@
               this.picker = false;
               this.addClinic.topButtonText = 'Nueva Solicitud';
               this.addClinic.selectedStateText = 'Cualquier CA';
-              this.addClinic.selectedProvinciaText = 'Cualquier Provincia';
+              this.addClinic.selectedCountyText = 'Cualquier Provincia';
               this.addClinic.selectedClinicText = 'Cualquier Clínica';
             } else if (tab == 'clinics') {
               this.picker = true;
               this.addClinic.topButtonText = 'Añadir Clínca';
               this.addClinic.selectedStateText = 'Selecciona una CA';
-              this.addClinic.selectedProvinciaText = 'Selecciona una Provincia';
+              this.addClinic.selectedCountyText = 'Selecciona una Provincia';
               this.addClinic.selectedClinicText = 'Selecciona una Clínica';
             }
           },
@@ -387,7 +387,7 @@
                   this.addClinic.method = null;
                   this.addClinic.selectedClinicId = '';
                   this.addClinic.selectedStateId = '';
-                  this.addClinic.selectedProvinciaId = '';
+                  this.addClinic.selectedCountyId = '';
                   this.addClinic.topButtonText = 'Nueva Solicitud';
                   this.addClinic.topButtonClasses = 'btn btn-sm btn-info';
                   this.addClinic.topButtonIcon = 'glyphicon glyphicon-plus-sign';
@@ -409,7 +409,7 @@
                   this.addClinic.topButtonText = 'Añadir Clinica';
                   this.addClinic.topButtonClasses = 'btn btn-sm btn-info';
                   this.addClinic.topButtonIcon = 'glyphicon glyphicon-plus-sign';
-                  this.addClinic.selectedProvinciaId = '';
+                  this.addClinic.selectedCountyId = '';
                   this.addClinic.selectedStateId = '';
                   this.addClinic.selectedClinicId = '';
                 }
@@ -453,21 +453,21 @@
             },
             selectState(e) {
                 this.addClinic.selectedStateId = e.target.value;
-                this.addClinic.provinciaSelectDisabled = false;
+                this.addClinic.countySelectDisabled = false;
                 this.addClinic.clinicSelectDisabled = true;
                 this.addClinic.selectedClinicId = '';
-                this.addClinic.selectedProvinciaId = '';
+                this.addClinic.selectedCountyId = '';
 
             },
             checkState(id) {
                 return this.addClinic.selectedStateId == id;
             },
-            selectProvincia(e) {
-                this.addClinic.selectedProvinciaId = e.target.value;
+            selectCounty(e) {
+                this.addClinic.selectedCountyId = e.target.value;
                 this.addClinic.clinicSelectDisabled = false;
                 this.addClinic.selectedClinicId = '';
             },
-            checkProvincia(id, clinicId) {
+            checkCounty(id, clinicId) {
               for (let i = 0; i < this.profileSrc.clinics.length; i++) {
                 if (this.profileSrc.clinics[i].id == clinicId
                     && this.addClinic.selectedClinicId != clinicId
@@ -475,7 +475,7 @@
                   return false;
                 }
               }
-              if (this.addClinic.selectedProvinciaId != id) {
+              if (this.addClinic.selectedCountyId != id) {
                 return false;
               }
               return true;
@@ -684,10 +684,10 @@
                   this.clinicsSrc = data.data;
                 });
             },
-            fetchProvincias() {
-              axios.get('/api/provincias')
+            fetchCounties() {
+              axios.get('/api/counties')
                 .then(data => {
-                  this.provinciasSrc = data.data;
+                  this.countiesSrc = data.data;
                 });
             },
             fetchStates() {
@@ -696,54 +696,6 @@
                   this.statesSrc = data.data;
                 });
             },
-            // fetchEspecialties() {
-            //   axios.get('/api/especialty')
-            //     .then(data => {
-            //       this.especialties = data.data;
-            //     });
-            // },
-            // checkFieldBox(e,field,id) {
-            //   let check = function(id) {
-            //       if (field == "especialties") {
-            //          return this.checkEspecialties(id);      
-            //       } else {
-            //         return this.checkExperiences(id); 
-            //       }
-            //   }.bind(this);
-            //   let orgValue = check(id);
-            //   let objectToSave = field+'ToSave';
-            //   let objectToRemove = field+'ToRemove';
-            //   if (e.target.checked) {
-            //     if (orgValue) {
-            //       let i = this[objectToRemove].indexOf(id);
-            //       if (i != -1) {
-            //         this[objectToRemove].splice(i,1);
-            //       }
-            //     } else {
-            //       this[objectToSave].push(id);
-            //     }
-            //   } else {
-            //     if (orgValue) {
-            //       this[objectToRemove].push(id);
-            //     } else {
-            //       let i = this[objectToSave].indexOf(id);
-            //       if (i != -1) {
-            //         this[objectToSave].splice(i,1);
-            //       }
-            //     }
-            //   }
-            // },
-            // checkEspecialties(id) {
-            //   if (this.updateSchedules.selectedSchedule.id) {
-            //     for (let especialty of this.updateSchedules.selectedSchedule.especialties) {
-            //       if (especialty.id == id) {
-            //         return true;
-            //         break;
-            //       }
-            //     }
-            //     return false;
-            //   }
-            // },
             rollbackExtra(id) {
               delete(this.schedules[id]);
               this.daysCleaner('extra');
@@ -752,9 +704,6 @@
             }
         },
         computed: {
-          // selectedScheduleId() {
-          //   return this.updateSchedules.selectedClinicId
-          // },
           clinicNumber() {
             let number = this.profileSrc.clinics.length;
             if (number == 1) {
@@ -785,7 +734,7 @@
             // this.profileSrc = this.profileSelected;
           }
           this.fetchClinics();
-          this.fetchProvincias();
+          this.fetchCounties();
           this.fetchStates();
           this.hideTabs();
         }

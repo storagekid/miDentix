@@ -15,38 +15,18 @@ class Form {
         };
         this.updating = {
             state: false,
+            items: [],
         };
         this.destroying = {
             state: false,
-        }
+        };
+        this.modelToSave = {};
     }
 
 
     /**
      * Fetch all relevant data for the form.
      */
-    data() {
-        let data = {};
-        data[this.name] = {
-            name: this.name,
-            items: null,
-            state: null,
-            idSelected: null,
-            itemSelected: null,
-            creating: {
-                state: false,
-            },
-            updating: {
-                state: false,
-            },
-            destroying: {
-                state: false,
-            }
-        };
-
-        return data;
-    }
-
 
     /**
      * Reset the form fields.

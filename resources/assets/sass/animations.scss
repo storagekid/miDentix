@@ -1,0 +1,16 @@
+@keyframes glitterDentix {
+    from {
+      background-color: inherit;
+    }
+  
+    to {
+      background-color: $gray;
+    }
+  }
+  
+  .glitter-dentix {
+    animation-duration: 1s;
+    animation-name: glitterDentix;
+    animation-iteration-count: 4;
+    animation-direction: alternate;
+  }

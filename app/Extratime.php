@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Extratime extends Model
 {
 	protected $fillable = [
-        'clinic_id', 'state_id', 'provincia_id', 'profile_id', 'state', 'schedule',
+        'clinic_id', 'state_id', 'county_id', 'profile_id', 'state', 'schedule',
     ];
-    protected $with = ['clinic','provincia','states','especialties'];
+    protected $with = ['clinic','county','states','especialties'];
 
     public function clinic() {
     	return $this->belongsTo(Clinic::class);
     }
-    public function provincia() {
-    	return $this->belongsTo(Provincia::class);
+    public function county() {
+    	return $this->belongsTo(County::class);
     }
     public function states() {
     	return $this->belongsTo(State::class, 'state_id');

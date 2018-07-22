@@ -18,7 +18,7 @@ class CreateExtratimesTable extends Migration
             $table->unsignedInteger('clinic_id')->nullable();
             $table->unsignedInteger('profile_id');
             $table->unsignedInteger('state_id')->nullable();
-            $table->unsignedInteger('provincia_id')->nullable();
+            $table->unsignedInteger('county_id')->nullable();
             $table->text('schedule');
             $table->unsignedInteger('state')->default(1); // Pendiente
             $table->timestamps();

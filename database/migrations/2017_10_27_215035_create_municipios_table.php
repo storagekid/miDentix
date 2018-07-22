@@ -18,7 +18,7 @@ class CreateMunicipiosTable extends Migration
             $table->string('CMunicipio');
             $table->string('CPostal');
             $table->string('name');
-            $table->unsignedInteger('provincia_id');
+            $table->unsignedInteger('county_id');
             $table->timestamps();
         });
     }

@@ -71,7 +71,7 @@
               <tbody>
                 <tr v-for="(extraTime, index) in profileSrc.extratimes">
                   <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
-                  <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
+                  <td>{{extraTime.county_id ? extraTime.county.nombre : 'Indiferente'}}</td>
                   <td>{{extraTime.clinic_id ? 
                     extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
                     'Indiferente'}}
@@ -120,8 +120,8 @@
                     <th>
                       Provincia
                       <p>
-                          <span :class="orderClasses('nombre')" @click="orderColumn('nombre',{object:'provincia'})"></span>
-                          <span :class="filterClasses('nombre')" @click="filterColumn('nombre',{object:'provincia',search:['nombre'],nullName:'Indiferente'})"></span>
+                          <span :class="orderClasses('nombre')" @click="orderColumn('nombre',{object:'county'})"></span>
+                          <span :class="filterClasses('nombre')" @click="filterColumn('nombre',{object:'county',search:['nombre'],nullName:'Indiferente'})"></span>
                       </p>
                     </th>
                     <th>
@@ -160,7 +160,7 @@
                   <tr v-for="(extraTime, index) in extratimes" v-show="checkFilter(extraTime.id)">
                     <td><strong>{{extraTime.profile.lastname1}} {{extraTime.profile.lastname2}}, {{extraTime.profile.name}}</strong></td>
                     <td>{{extraTime.state_id ? extraTime.states.name : 'Indiferente'}}</td>
-                    <td>{{extraTime.provincia_id ? extraTime.provincia.nombre : 'Indiferente'}}</td>
+                    <td>{{extraTime.county_id ? extraTime.county.nombre : 'Indiferente'}}</td>
                     <td>{{extraTime.clinic_id ? 
                       extraTime.clinic.city+' ('+extraTime.clinic.address_real_1+')' : 
                       'Indiferente'}}</td>
@@ -202,7 +202,7 @@
                 <div class="alert alert-info form-group">
                   <h3><strong>{{extratimeSelected.profile.name}} {{extratimeSelected.profile.lastname1}}</strong></h3>
                   <p>CA: <strong>{{extratimeSelected.state_id ? extratimeSelected.states.name : 'Indiferente'}}</strong></p>
-                  <p>Provincia: <strong>{{extratimeSelected.provincia_id ? extratimeSelected.provincia.nombre : 'Indiferente'}}</strong></p>
+                  <p>Provincia: <strong>{{extratimeSelected.county_id ? extratimeSelected.county.nombre : 'Indiferente'}}</strong></p>
                   <p>Clínica: <strong>{{extratimeSelected.clinic_id ? extratimeSelected.clinic.city : 'Indiferente'}}</strong></p>
                   <p>Fecha: <strong>{{extraDate(extratimeSelected.created_at)}}</strong></p>
                   <p>Especialidades: <strong v-html="parseEspecialties(0,extratimeSelected.especialties,true)"></strong></p>

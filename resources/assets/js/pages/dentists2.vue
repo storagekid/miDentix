@@ -40,10 +40,9 @@
 <script>
     import * as moment from 'moment';
     import 'moment/locale/es';
-    import vueTable from '../components/vue-table';
     import vueModelOptions from '../components/vue-model-options';
     export default {
-        components: {vueTable,vueModelOptions},
+        components: {vueModelOptions},
         props: ['page','admin'],
         data() {
             return {

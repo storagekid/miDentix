@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Laravel\Passport\Passport;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,20 +16,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        \View::composer(['layouts.home.home','layouts.schedule.*'], function($view){
-            $profile = auth()->user()->profile;
-            $profileClinics = $profile->clinics;
-            $profileSchedules = $profile->schedules;
-            $clinics = \App\Clinic::all();
-            $states = \App\State::all();
-            $provincias = \App\Provincia::all();
-            $view->with([
-                'profile' => $profile, 
-                'clinics' => $clinics,
-                'states' => $states,
-                'provincias' => $provincias,
-            ]);
-        });
+        Passport::routes();
+        // \View::composer(['layouts.home.home','layouts.schedule.*'], function($view){
+        //     $profile = auth()->user()->profile;
+        //     $profileClinics = $profile->clinics;
+        //     $profileSchedules = $profile->schedules;
+        //     $clinics = \App\Clinic::all();
+        //     $states = \App\State::all();
+        //     $counties = \App\County::all();
+        //     $view->with([
+        //         'profile' => $profile, 
+        //         'clinics' => $clinics,
+        //         'states' => $states,
+        //         'counties' => $counties,
+        //     ]);
+        // });
     }
 
 

@@ -19,7 +19,7 @@ class ExtratimeController extends Controller
     	        'profile_id' => request('profile_id'),
     	        'clinic_id' => request('clinic_id'),
     	        'state_id' => request('state_id'),
-    	        'provincia_id' => request('provincia_id'),
+    	        'county_id' => request('county_id'),
     	        'schedule' => request('schedule'),
     	   	]);
             if (request('especialtiesToSave')) {

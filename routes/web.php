@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
+
 	Route::get('/tutorial', 'TutorialController@index')->name('tutorial');
 	Route::patch('/tutorial/{profile}', 'TutorialController@update');
 
@@ -44,18 +45,15 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/extratime', 'ExtratimeController@index');
 
 	Route::get('/api/menu', 'MenuController@indexApi');
-	Route::get('/api/clinics', 'ClinicController@indexApi');
 	Route::delete('/api/clinic', 'ClinicController@destroyApi');
-	Route::get('/api/provincias', 'ProvinciaController@indexApi');
-	Route::get('/api/provincia', 'ProvinciaController@indexApi');
-	Route::get('/api/states', 'StateController@indexApi');
-	Route::get('/api/state', 'StateController@indexApi');
-	Route::get('/api/country', 'CountryController@indexApi');
 	Route::get('/api/universities', 'UniversityController@indexApi');
 	Route::get('/api/requests', 'RequestController@indexApi');
 
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 	Route::get('/api/users', 'UserController@indexApi');
+	Route::get('/api/user', function (Request $request) {
+        return request()->user();
+    });
 
 	Route::get('/api/dentists', 'DentistController@indexApi');
 
@@ -98,9 +96,13 @@ Route::middleware(['auth','tutorial'])->group(function() {
 	Route::get('/stationary/download', 'StationaryController@download');
 	Route::get('/stationary/download-all', 'StationaryController@downloadAll');
 	Route::get('/stationary/download/{clinic}', 'StationaryController@downloadClinic');
+	Route::post('/stationary/complete', 'StationaryController@complete');
 	Route::post('/stationary/{clinic}', 'StationaryController@store');
 	Route::post('/stationary', 'StationaryController@regen');
 
+	Route::get('/providers', 'ProviderController@index');
+
+	Route::get('/orders', 'OrderController@index');
 	Route::post('/order/{clinic}', 'OrderController@store');
 	Route::get('/order/{shoppingbag}/{provider}', 'ShoppingBagController@download');
 	

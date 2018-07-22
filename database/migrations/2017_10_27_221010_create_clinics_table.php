@@ -26,7 +26,7 @@ class CreateClinicsTable extends Migration
             $table->string('email_ext')->nullable();
             $table->string('sanitary_code')->nullable();
             $table->unsignedInteger('cost_center_id')->nullable();
-            $table->unsignedInteger('provincia_id');
+            $table->unsignedInteger('county_id');
             $table->unsignedInteger('clinic-cloud_id')->nullable();
             $table->unsignedInteger('closed')->default(0);
             $table->timestamps();

@@ -1,17 +1,17 @@
 <template>
-  <div id="stationery">
-    <div class="">
+  <div id="stationery" class="fx pv-20" v-if="pageReady">
+    <template>
       <div class="fx fx-w-100 jf-around">
         <div class="fx fx-75 fx-col">  
           <div class="panel panel-default">
-            <div class="panel-heading text-center" v-if="admin">
-              <h3 class="panel-title">Papelería</h3>
+            <div class="panel-heading text-center">
+              <h3 class="panel-title">Hacer Pedido</h3>
             </div>
-            <div class="panel-body" v-if="!loading">
+            <div class="panel-body">
               <form action="" style="padding:10px">
                   <div class="form-group">
                     <label for="clinicId"><h4>Selecciona una clínica</h4></label>
-                    <select class="form-control" name="clinic" id="clnic-selector" v-model="models.clinics.idSelected" @change="selectModel('clinics',models.clinics.idSelected)">
+                    <select class="form-control" name="clinic" id="clnic-selector" v-model="models.clinics.idSelected" @change="$store.commit('selectModel',{model:'clinics',id:models.clinics.idSelected})">
                         <option 
                             value="null"
                             v-text="'-'"
@@ -28,17 +28,34 @@
                     </select>
                   </div>
                   <div class="form-group fx fx-width-100 fx-col" v-if="models.clinics.itemSelected">
-                    <label for="clinicId"><h4>Haz un pedido</h4></label>
+                    <label for="clinicId"><h4>Materiales Personalizados</h4></label>
                     <div class="fx fx-width-100 jf-between">
                       <div class="fx fx-100 jf-around">
                         <div class="form-group mr-10">
                           <button
                             class="btn"
-                            :class="{'btn-success': shoppingCart.includes(stationary.pivot.id)}"
+                            :class="{'btn-success': shoppingCart.includes(stationary.id)}"
                             v-for="(stationary, index) in models.clinics.itemSelected.stationaries"
                             :key="index"
                             v-text="stationary.description"
-                            @click.prevent="shoppingCartToggle(stationary.pivot.id)"
+                            @click.prevent="shoppingCartToggle(stationary.id)"
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <label for="clinicId"><h4>Materiales Genéricos</h4></label>
+                    <div class="fx fx-width-100 jf-between">
+                      <div class="fx fx-100 jf-around">
+                        <div class="form-group mr-10">
+                          <button
+                            class="btn"
+                            :class="{'btn-success': shoppingCart.includes(stationary.id)}"
+                            v-for="(stationary, index) in models.stationaries.items"
+                            v-if="!stationary.customizable"
+                            :key="index"
+                            v-text="stationary.description"
+                            @click.prevent="shoppingCartToggle(stationary.id)"
                             >
                           </button>
                         </div>
@@ -48,47 +65,28 @@
               </form> 
             </div>
           </div>
-          <div v-if="modelsReady">
-            <div class="panel panel-default" v-if="models.clinics.idSelected">
+          <div class="fx fx-col">
+            <div class="panel panel-default fx-100">
               <div class="panel-heading text-center">
-                <h3 class="panel-title">Materiales</h3>
+                <h3 class="panel-title">Papelería</h3>
               </div>
               <div class="panel-body">
-                <form action="" style="padding:10px">
-                  <div class="form-group fx fx-width-100 fx-col">
-                    <label for="clinicId"><h4>Descarga</h4></label>
-                    <div class="fx fx-width-100 jf-between">
-                      <div class="fx fx-100 jf-around">
-                        <button 
-                          class="btn btn-info"
-                          v-for="(stationary, index) in models.clinics.itemSelected.stationaries"
-                          :key="index"
-                          v-text="stationary.description"
-                          @click.prevent="getFiles(stationary.pivot.id, $event)"
-                          >
-                        </button>
-                      </div>
-                      <div class="fx fx-50 jf-end">
-                        <button 
-                          class="btn btn-primary"
-                          v-text="'Papelería Completa'"
-                          @click.prevent="getClinic(models.clinics.itemSelected.id, $event)"
-                          >
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </form> 
+                <vue-table 
+                  v-if="models[model].items" 
+                  :model="model"
+                  mode="vuex"
+                  >
+                </vue-table>
               </div>
             </div>
           </div>
         </div>  
         <div class="fx fx-col">  
           <div class="panel panel-default" v-if="shoppingCart.length">
-            <div class="panel-heading text-center" v-if="admin">
+            <div class="panel-heading text-center">
               <h3 class="panel-title">Pedido</h3>
             </div>
-            <div class="panel-body" v-show="!loading">
+            <div class="panel-body">
               <div id="filterColumn">
                 <h3>{{ models.clinics.itemSelected.city}} </h3>
                 <h6>{{ models.clinics.itemSelected.address_real_1 }}</h6>
@@ -114,13 +112,16 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading text-center" v-if="admin">
+            <div class="panel-heading text-center">
               <h3 class="panel-title">Admin Tools</h3>
             </div>
-            <div class="panel-body" v-show="!loading">
+            <div class="panel-body">
               <form action="" style="padding:10px" class="mb-10">
                   <div class="form-group m-0">
                     <button class="btn btn-primary btn-block" @click.prevent="regenerateStationary">Regenerar Materiales</button>
+                  </div>
+                  <div class="form-group m-0">
+                    <button class="btn btn-primary btn-block" @click.prevent="completeStationary">Completar Materiales</button>
                   </div>
                   <div class="form-group m-0">
                     <button 
@@ -133,27 +134,62 @@
               </form> 
             </div>
           </div>
+          <div>
+            <div class="panel panel-default" v-if="$store.state.models.clinics.idSelected">
+              <div class="panel-heading text-center">
+                <h3 class="panel-title">Materiales</h3>
+              </div>
+              <div class="panel-body">
+                <form action="" style="padding:10px">
+                  <div class="form-group fx fx-width-100 fx-col">
+                    <label for="clinicId"><h4>Descarga</h4></label>
+                    <div class="fx fx-width-100 jf-between fx-col mb-10">
+                      <div class="fx fx-100 jf-around fx-col mb-10">
+                        <button 
+                          class="btn btn-info"
+                          v-for="(stationary, index) in models.clinics.itemSelected.stationaries"
+                          :key="index"
+                          v-text="stationary.description"
+                          @click.prevent="getFiles(stationary.pivot.id, $event)"
+                          >
+                        </button>
+                      </div>
+                      <div class="">
+                        <button 
+                          class="btn btn-primary btn-block"
+                          v-text="'Papelería Completa'"
+                          @click.prevent="getClinic(models.clinics.itemSelected.id, $event)"
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form> 
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
 <script>
     import * as moment from 'moment';
-    import model from '../../mixins/model.js';
     import 'moment/locale/es';
     export default {
-        components: {},
-        mixins: [model],
-        props: ['admin'],
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              loading: true,
+              modelsNeeded: ['clinics','providers','stationaries'],
               downloading: true,
               selectedClinic: null,
               shoppingCart: [],
+              model: 'stationaries',
+              //Table
+              footer: {
+                totalRows: 0,
+              },
             }
         },
         watch: {
@@ -162,30 +198,29 @@
           }
         },
         computed: {
+          pageReady() {
+            for (let model of this.modelsNeeded) {
+              if (!this.$store.state.models[model]) {
+                console.log('false');
+                return false;
+              }
+            }
+            return true;
+          },
+          models() {
+            return this.$store.state.models;
+          },
           stationariesSelected() {
             let vm = this;
-            let selected = this.models.clinics.itemSelected.stationaries.filter(function(item) {
-              if (vm.shoppingCart.includes(item.pivot.id)) {
+            let selected = this.models.stationaries.items.filter(function(item) {
+              if (vm.shoppingCart.includes(item.id)) {
                 return item;
               }
             });
             return selected;
           },
-          patata() {
-            return 2+2;
-          }
         },
         methods: {
-          // fetchModel() {
-          //   axios.get('/api/'+this.model.name)
-          //     .then(data => {
-          //       if (data.data.model) {
-          //         this.model.items = data.data.model;
-          //         this.loading = false;
-          //         window.events.$emit('loaded');
-          //       }
-          //     });
-          // },
           shoppingCartToggle(id) {
             if (this.shoppingCart.includes(id)) {
               this.shoppingCart.splice(this.shoppingCart.indexOf(id),1);
@@ -196,16 +231,18 @@
           setOrder() {
             axios.post('/order/'+this.models.clinics.itemSelected.id, {items: this.shoppingCart})
               .then((response) => {
-                this.selectModel(null);
+                this.$store.commit('selectModel',{model:'clinics',id:'null'});
                 flash({
                     message: 'Pedido enviado. Muchas gracias', 
                     label: 'success'
                 });
               }).catch((error) => {
                 flash({
-                    message: error.response.data, 
-                    label: 'danger'
-                });
+                        // message: error.response.data, 
+                        message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
+                        label: 'danger'
+                    });
+                Vue.buttonLoaderRemove(e, classes);
               });
           },
           getStationary(e) {
@@ -226,8 +263,20 @@
               document.body.appendChild(link);
               link.click();
             }).then((response) => {
+              flash({
+                      // message: error.response.data, 
+                      message: 'Descarga completada.', 
+                      label: 'success'
+                  });
               Vue.buttonLoaderRemove(e, classes);
-            });
+            }).catch((error) => {
+              flash({
+                      // message: error.response.data, 
+                      message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
+                      label: 'danger'
+                  });
+              Vue.buttonLoaderRemove(e, classes);
+            });;
           },
           getFiles(id,e) {
             let classes = Vue.buttonLoaderOnEvent(e);
@@ -249,8 +298,20 @@
               link.setAttribute('download', name); //or any other extension
               document.body.appendChild(link);
               link.click();
+              flash({
+                      // message: error.response.data, 
+                      message: 'Descarga completada.', 
+                      label: 'success'
+                  });
               Vue.buttonLoaderRemove(e, classes);
-            });
+            }).catch((error) => {
+              flash({
+                      // message: error.response.data, 
+                      message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
+                      label: 'danger'
+                  });
+              Vue.buttonLoaderRemove(e, classes);
+            });;
           },
           getClinic(id, e) {
             let classes = Vue.buttonLoaderOnEvent(e);
@@ -269,6 +330,18 @@
               link.setAttribute('download', name); //or any other extension
               document.body.appendChild(link);
               link.click();
+              flash({
+                      // message: error.response.data, 
+                      message: 'Descarga completada.', 
+                      label: 'success'
+                  });
+              Vue.buttonLoaderRemove(e, classes);
+            }).catch((error) => {
+              flash({
+                      // message: error.response.data, 
+                      message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
+                      label: 'danger'
+                  });
               Vue.buttonLoaderRemove(e, classes);
             });
           },
@@ -278,16 +351,20 @@
             .then((response) => {
               Vue.buttonLoaderRemove(e, classes);
             });
+          },
+          completeStationary(e) {
+            let classes = Vue.buttonLoaderOnEvent(e);
+            axios.post('/stationary/complete')
+            .then((response) => {
+              Vue.buttonLoaderRemove(e, classes);
+            });
           }
         },
         created() {
-          window.events.$emit('loading')
-          this.fetchModels(['clinics','provincias']);
+          this.$store.dispatch('fetchModels',this.modelsNeeded);
         },
         mounted() {
-          moment.locale('es');
-          // this.fetchModel();
-        }
+        },
     }
 </script>
 <style type="text/css">

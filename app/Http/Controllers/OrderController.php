@@ -18,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('layouts.orders.index');
     }
 
     /**
@@ -39,7 +39,8 @@ class OrderController extends Controller
      */
     public function store(Request $request, Clinic $clinic)
     {
-        $items = \App\ClinicStationary::find(request('items'));
+        // $items = \App\ClinicStationary::find(request('items'));
+        $items = \App\Stationary::find(request('items'));
 
         $shoppingBag = ShoppingBag::create();
 
@@ -48,12 +49,15 @@ class OrderController extends Controller
             $order->shopping_bag_id = $shoppingBag->id;
             $order->user_id = auth()->id();
             $order->clinic_id = $clinic->id;
-            $order->provider_id = 1;
+            $order->provider_id = $item->providers[0]->id;
             $order->quantity = 500;
             $order->urgent = 0;
+            // dd($order);
 
-            $orderItem = \App\Stationary::find($item->stationary_id)->fresh();
-            $orderItem->orders()->save($order);
+            // $orderItem = \App\Stationary::find($item->stationary_id)->fresh();
+            // $orderItem->orders()->save($order);
+            
+            $item->orders()->save($order);
         }
 
         $groupOrders = $shoppingBag->orders->groupBy('provider_id');

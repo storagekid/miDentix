@@ -4,24 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clinic;
-use App\Provincia;
+use App\County;
 
 class ClinicController extends Controller
 {
     public function index() {
     	$clinics = Clinic::all();
-    	$provincias = Provincia::all();
-    	return view('layouts.clinics.index',compact('clinics','provincias'));
+    	$counties = County::all();
+    	return view('layouts.clinics.index',compact('clinics','counties'));
     }
-     public function indexApi() {
-        $clinics = Clinic::all()->load(['costCenter','stationaries']);
-        $clinics->map(function($clinic) {
-            return $clinic->getStationaryFilesUrl();
-        });
-        return response([
-                'model'=>$clinics,
-                ],200);
-    }
+
     public function update(Clinic $clinic) {
 
         // $this->authorize('update',$reply);
