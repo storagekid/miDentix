@@ -25,6 +25,8 @@ Vue.component('loading', require('./components/loading.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('page', require('./components/page.vue'));
 Vue.component('custom-modal', require('./components/custom-modal.vue'));
+Vue.component('shopping-cart-nav-container', require('./components/shopping-cart-nav-container.vue'));
+Vue.component('shopping-cart', require('./components/shopping-cart.vue'));
 
 // Vue.component('schedule', require('./pages/schedule.vue'));
 Vue.component('profile', require('./pages/profile.vue'));
@@ -102,19 +104,19 @@ const app = new Vue({
         },
         modalsToShow() {
             let modals = [];
-            for (let modal in this.$store.state.modals) {
-                if (this.$store.state.modals[modal].active) modals.push(modal);
+            for (let modal in this.$store.state.Modal.modals) {
+                if (this.$store.state.Modal.modals[modal].active) modals.push(modal);
             }
             return modals;
-            // return this.$store.state.modals.filter(item => item.active);
+            // return this.$store.state.Modal.modals.filter(item => item.active);
         },
         modalsToHide() {
             let modals = [];
-            for (let modal in this.$store.state.modals) {
-                if (!this.$store.state.modals[modal].active) modals.push(modal);
+            for (let modal in this.$store.state.Modal.modals) {
+                if (!this.$store.state.Modal.modals[modal].active) modals.push(modal);
             }
             return modals;
-            // return this.$store.state.modals.filter(item => !item.active);
+            // return this.$store.state.Modal.modals.filter(item => !item.active);
         }
     },
     methods: {

@@ -116,7 +116,6 @@ class StationaryController extends Controller
                     $file = $stationary->description . ' ' . $fullName . '.pdf';
                     $link = $dir . $fullName . '/' . $file;
                     $stationary->makePdf($dir, $stationary, $clinic, true);
-                    $items[$stationary->id] = ['link' => $link, 'file' => $file];
                     // Thumbnails
                     // create Imagick object
                     $imagick = new \Imagick();
@@ -124,8 +123,11 @@ class StationaryController extends Controller
                     $imagick->readImage(storage_path('app/' . $link));
                     $jpgFile = $stationary->description . ' ' . $fullName . '.jpg';
                     $jpgLink = $dir . $fullName . '/' . $jpgFile;
+                    $jpgPath = Storage::url($jpgFile);
                     // Writes an image
-                    $imagick->writeImages(storage_path('app/' . $jpgLink), true);
+                    $imagick->writeImages(storage_path('app/public/' . $jpgFile), true);
+
+                    $items[$stationary->id] = ['link' => $link, 'file' => $file, 'thumbnail' => $jpgPath];
                 }
             }
             $clinic->stationaries()->sync($items);

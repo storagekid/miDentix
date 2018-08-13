@@ -19,6 +19,7 @@ class CreateClinicStationaryTable extends Migration
             $table->unsignedInteger('stationary_id');
             $table->string('file');
             $table->string('link');
+            $table->string('thumbnail');
             $table->timestamps();
         });
     }

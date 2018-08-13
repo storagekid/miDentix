@@ -1,12 +1,12 @@
 @extends('layouts.app-no-auth')
 
 @section('content')
-<div class="container" id="login-container">
-    <div class="row">
+<div class="" id="login-container">
+    <div class="fx fx-100 fx-col">
         <h1 class="text-center hidden-xs">Queremos estar más cerca de ti <br>porque nos preocupa tu bienestar.</h1>
         <h1 class="text-center visible-xs-block">Queremos estar<br> más cerca de ti <br>porque nos preocupa<br> tu bienestar.</h1>
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default" id="login-box">
+        <div class="fx fx-100 fx-center">
+            <div class="" id="login-box">
                 <h3 class="panel-heading text-center">Acceso a la plataforma</h3>
 
                 <div class="panel-body text-center">

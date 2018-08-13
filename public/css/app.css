@@ -11531,7 +11531,6 @@ input:-webkit-autofill:focus {
   color: white;
   font-size: 20px;
   font-weight: lighter;
-  padding: 10px;
   margin: 0 auto;
   text-align: center;
   display: block;
@@ -11981,6 +11980,10 @@ hr.left-nav-hr {
     margin: 0 7px;
   }
 
+  .navbar-default .navbar-right > li {
+    max-height: 50px;
+  }
+
   .navbar-default .navbar-nav > li > a {
     color: #fff;
   }
@@ -12140,38 +12143,6 @@ li#alerts .dropdown-menu li a {
   text-align: center;
 }
 
-#main-content .panel-default {
-  margin-bottom: 30px;
-}
-
-#main-content .list-group-item {
-  padding: 5px 15px;
-}
-
-#main-content .list-group-item .list-badget {
-  vertical-align: middle;
-}
-
-#main-content .panel-default .panel-heading h3 {
-  font-size: 2em;
-  font-weight: lighter;
-}
-
-#main-content .panel-footer > .progress {
-  margin-bottom: 0;
-}
-
-#main-content .panel-body > table {
-  margin: 0;
-  /*	display: block;
-*/
-  overflow-x: auto;
-}
-
-#main-content .panel-body > table .buttons-text {
-  width: 100px;
-}
-
 #main-content .jumbotron {
   min-height: 200px;
   background-color: #9a6e99;
@@ -12238,104 +12209,6 @@ li#alerts .dropdown-menu li a {
 #main-content select.form-control option:checked {
   background-color: #f1eaf0;
   color: #753470;
-}
-
-#work-box .panel-body {
-  padding-top: 20px;
-}
-
-#work-box .panel-title {
-  display: block;
-}
-
-#work-box .panel-footer {
-  margin-top: 0;
-  padding: 8px 15px;
-}
-
-#work-box .panel-footer #clinic-total-hours {
-  padding: 0;
-}
-
-#work-box .panel-footer h3 {
-  display: inline-block;
-  margin: 0;
-  color: #753470;
-  font-size: 20px;
-}
-
-#work-box .list-group {
-  margin-bottom: 15px;
-}
-
-#work-box .list-group-item {
-  padding: 0;
-  border: 0;
-}
-
-#work-box #accordion .panel-heading {
-  padding: 10px 0;
-  background: transparent;
-  color: #753470;
-  display: inline-block;
-  width: 100%;
-  border-bottom: 1px dotted #585857;
-}
-
-#work-box #accordion .panel-heading.active h4 {
-  font-weight: bolder;
-}
-
-#work-box #accordion .panel-heading .clinic-hours {
-  padding: 0;
-  display: inline-block;
-  float: none;
-}
-
-#work-box #accordion .panel-body {
-  padding: 0;
-}
-
-#work-box #accordion .panel-title {
-  display: inline-block;
-  width: 100%;
-}
-
-#work-box #accordion .panel-title a {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-#work-box .panel-footer .badge {
-  float: right;
-  background-color: #753470;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 100;
-  padding: 5px 15px;
-}
-
-/* Clinic Schedule Overrides */
-
-#work-box #accordion #schedule-header {
-  display: none;
-}
-
-#work-box #accordion #schedule-footer {
-  display: none;
-}
-
-#work-box #schedule-container {
-  padding: 0;
-}
-
-#work-box #schedule-inner-frame {
-  border: 0;
-  border-color: none;
-  margin-bottom: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  padding-right: 5px;
 }
 
 .profile-pic-round > a {
@@ -12412,278 +12285,14 @@ form#profile-create-form {
   margin-bottom: 10px;
 }
 
-#requests-info-box .panel-body {
-  max-height: 55vh;
-  overflow-y: auto;
+#orders .btn img {
+  max-height: 100px;
+  border: 1px solid lightgray;
 }
 
-#requests-info-box .panel-body#admin-requests-table {
-  max-height: 60vh;
-}
-
-#requests-info-box .request-state h3 {
-  margin-top: 5px;
-}
-
-#new-request-form {
-  padding: 15px;
-}
-
-#schedule-info-box .tab-pane .schedule-table {
-  padding: 15px;
-}
-
-#schedule-info-box .tab-pane .table-responsive {
-  border: none;
-}
-
-#schedule-create-box .panel-default {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-#schedule-create-box .panel-default {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-#schedule-create-box #schedule-container {
-  padding: 0;
-}
-
-#schedule-create-box #schedule-container .panel-heading {
-  background: transparent;
-  color: #585857;
-  border: none;
-}
-
-#schedule-create-box #schedule-container #schedule-footer {
-  color: #585857;
-  border-top: 1px solid #9a6e99;
-}
-
-#schedule-create-box #schedule-container #schedule-footer .panel-footer {
-  background: transparent;
-}
-
-#schedule-inner-frame {
-  display: block;
-  background-color: #fff;
-  width: 100%;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-#schedule-body {
-  margin: 5px 0;
-}
-
-.schedule-time-row {
-  display: inline-block;
-  width: 100%;
-  padding-right: 50px;
-}
-
-.schedule-hours-row {
-  width: 90%;
-  display: inline-block;
-  float: right;
-  height: 20px;
-  padding: 5px 5px;
-}
-
-.schedule-hour {
-  width: 8.10%;
-  font-size: 13px;
-  display: inline-table;
-  padding: 0;
+#orders .btn p {
   margin: 0;
-  float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #753470;
-  font-weight: bolder;
-}
-
-.schedule-day-row {
-  padding-right: 50px;
-}
-
-.schedule-frames-row {
-  width: 90%;
-  display: inline-block;
-  float: right;
-  height: 20px;
-  padding: 5px 5px;
-}
-
-.schedule-frames-row.legend {
-  width: 90%;
-  display: block;
-  margin: 0 auto;
-  float: none;
-  height: auto;
-  padding: 5px 5px;
-}
-
-.rowBtn {
-  margin: 15px 0;
-}
-
-.legend > div > div {
-  /*    height: 30px;*/
-  margin-bottom: 10px;
-  font-size: 12px;
-  padding: 0;
-}
-
-.legend > div > div > div {
-  padding: 0;
-}
-
-.legend > div p,
-.legend > div strong {
-  padding: 0;
-  margin-bottom: 0;
-}
-
-.legend > div .badge {
-  background: #888;
-  font-size: 13px;
-}
-
-.legend > div > .schedule-frame,
-.legend > div > p {
-  height: inherit;
-}
-
-.legend > div > .schedule-frame {
-  margin-right: 10px;
-}
-
-.schedule-day-name-box {
-  display: inline-block;
-  width: 10%;
-  margin: 0;
-  padding: 0 5%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.schedule-day-name {
-  color: #753470;
-  font-weight: bolder;
-}
-
-.schedule-frame {
-  width: 4.166%;
-  background: #ddd2e0;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  border: 1px solid white;
-  float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.schedule-frame.empty {
-  /*border: 1px solid $gray;*/
-  background-color: #f2f2f2;
-}
-
-.schedule-frame.clinic1,
-.clinic1 {
-  background-color: #895287;
-}
-
-.schedule-frame.clinic2,
-.clinic2 {
-  background-color: #585857;
-}
-
-.schedule-frame.clinic3,
-.clinic3 {
-  background-color: #ae8eaf;
-}
-
-.schedule-frame.clinic4,
-.clinic4 {
-  background-color: #adadac;
-}
-
-.schedule-frame.clinic5,
-.clinic5 {
-  background-color: #736420;
-}
-
-.schedule-frame.clinic6,
-.clinic6 {
-  background-color: #385076;
-}
-
-.schedule-frame.clinic7,
-.clinic7 {
-  background-color: #af9831;
-}
-
-.schedule-frame.clinic8,
-.clinic8 {
-  background-color: #5173aa;
-}
-
-.schedule-frame.clinic9,
-.clinic9 {
-  background-color: #ccb447;
-}
-
-.schedule-frame.clinic10,
-.clinic10 {
-  background-color: #728ebc;
-}
-
-.schedule-frame:hover,
-.schedule-frame.active:hover {
-  background: #753470;
-}
-
-.delete-Schedule {
-  border-radius: 100%;
-  margin-right: 10px;
-}
-
-.delete-Schedule span {
-  padding: 0;
-}
-
-.schedule-table tbody tr:nth-child(odd) {
-  background: #f2f2f2;
-}
-
-.schedule-legend {
-  height: 30px;
-  min-width: 20px;
-}
-
-@media (max-width: 500px) {
-  .schedule-hour {
-    width: 7.9%;
-    font-size: 13px;
-  }
-
-  .schedule-day-row {
-    padding-right: 10px;
-  }
-
-  .schedule-time-row {
-    padding-right: 10px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .delete-Schedule {
-    padding: 3px 7px;
-  }
+  padding: 8px 5px 0px 5px;
 }
 
 /*#filterColumn {
@@ -12740,6 +12349,10 @@ form#profile-create-form {
   color: #753470;
 }
 
+* {
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
+}
+
 body {
   overflow: hidden;
 }
@@ -12748,11 +12361,25 @@ hr {
   margin: 10px 0;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .mb-10 > *:not(:last-child) {
   margin-bottom: 10px;
 }
 
 .mr-10 > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+.mb-10-all > * {
+  margin-bottom: 10px;
+}
+
+.mr-10-all > * {
   margin-right: 10px;
 }
 
@@ -12845,6 +12472,10 @@ hr {
   border-top: 1px solid #fff;
   -webkit-box-shadow: inset 0px -3px 0px 0px #E6E6E6;
   box-shadow: inset 0px -3px 0px 0px #E6E6E6;
+}
+
+.panel-title {
+  font-size: 1.5em;
 }
 
 .panel-default > .panel-body {
@@ -13078,9 +12709,7 @@ span.required-reminder {
 }
 
 span.glyphicon.glyphicon-exclamation-sign.error-icon {
-  position: absolute;
-  top: 38px;
-  right: 25px;
+  float: right;
   color: #960000;
 }
 
@@ -13091,7 +12720,6 @@ span.glyphicon.glyphicon-exclamation-sign.error-icon:hover .tooltip.error-tip {
 
 .tooltip.error-tip {
   right: 20px;
-  top: -30px;
   display: none;
   min-width: 200px;
   background: rgba(150, 0, 0, 0.85);
@@ -13275,6 +12903,15 @@ label h3 {
   display: block;
   max-height: 70vh;
   overflow: auto;
+}
+
+.custom-table table tbody#main-tbody-empty td {
+  -webkit-column-span: all;
+          column-span: all;
+  width: 100%;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1.2em;
 }
 
 .custom-table table thead tr th {
@@ -13522,6 +13159,11 @@ label h3 {
       justify-content: space-around;
 }
 
+.fx-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .fx-25 {
   -webkit-box-flex: .25;
       -ms-flex: .25;
@@ -13544,6 +13186,11 @@ label h3 {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+.fx-b-50 {
+  -ms-flex-preferred-size: 48%;
+      flex-basis: 48%;
 }
 
 .loader {
@@ -13602,6 +13249,92 @@ label h3 {
   max-width: 95%;
   margin: auto;
   padding: 20px 0;
+}
+
+.selectable {
+  background-color: #f1eaf0;
+}
+
+.selectable p {
+  color: #753470;
+}
+
+.selectable.selected {
+  background-color: #753470;
+}
+
+.selectable.selected p {
+  color: #fff;
+}
+
+.selectable:hover {
+  background-color: #ae8eaf;
+}
+
+.selectable:hover p {
+  color: #fff;
+}
+
+.selectable-rev {
+  background-color: #fff;
+  border: 1px solid #c5afc8 !important;
+}
+
+.selectable-dark {
+  background-color: #753470;
+}
+
+.selectable-rev p {
+  color: #585857;
+}
+
+.selectable-dark p {
+  color: #fff;
+}
+
+#shopping-cart-nav-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#shopping-cart-nav-container .number-alert {
+  background-color: white;
+  color: red;
+  border-radius: 50%;
+  padding: 1px 9px;
+}
+
+#shopping-cart-nav-container .number-alert p {
+  margin-bottom: 3px;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+
+#shopping-cart-nav-item:hover #shopping-cart {
+  display: block;
+}
+
+#nav-main #shopping-cart {
+  display: none;
+  position: fixed;
+  margin-left: -20px;
+  min-width: 200px;
+  z-index: 99;
+  text-align: center;
+}
+
+#nav-main #shopping-cart .panel-heading {
+  background-color: #f1eaf0;
+}
+
+#nav-main #shopping-cart .panel-body {
+  color: #585857;
+  background-color: #fff;
+  padding: 0 20px;
 }
 
 @-webkit-keyframes glitterDentix {

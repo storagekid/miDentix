@@ -124,7 +124,7 @@ class Provider_Stationary extends Model
           ],
           'provider_id' => [
             'label' => 'Proveedor',
-            'rules' => [],
+            'rules' => ['required'],
             'name' => 'provider_id',
             'value' => null,
             'dontRecord' => false,

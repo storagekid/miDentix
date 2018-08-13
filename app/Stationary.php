@@ -238,10 +238,6 @@ class Stationary extends Model
             ->withPivot(['id', 'file', 'link']);
     }
 
-    // public function getTableColumnsAttribute() {
-    //     return $this->tableColumns;
-    // }
-
     public function setCustomizableAttribute($value) {
         $this->attributes['customizable'] = $value == null ? false : true;
     }

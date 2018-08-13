@@ -1,0 +1,32 @@
+.selectable {
+    background-color: $dentix-main-10;
+    p {
+        color: $dentix-main;
+    }
+    &.selected {
+        background-color: $dentix-main;
+        p {
+            color: $dentix-white;
+        }
+    }
+    &:hover {
+        background-color: $dentix-main-50;
+        p {
+            color: $dentix-white;;
+        }
+    }
+}
+
+.selectable-rev {
+    background-color: $dentix-white;
+    border: 1px solid $dentix-main-35 !important;
+}
+.selectable-dark {
+    background-color: $dentix-main;
+}
+.selectable-rev p {
+    color: $dentix-secondary;
+}
+.selectable-dark p {
+    color: $dentix-white;
+}

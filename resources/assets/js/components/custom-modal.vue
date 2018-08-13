@@ -1,6 +1,6 @@
 <template>
     <modal 
-        :name="name" height="auto" width="1000px" maxWidht="80%"
+        :name="name" height="auto" :width="width" maxWidht="80%"
         @closed="destroyModal"
         >
         <slot></slot>
@@ -9,11 +9,11 @@
 
 <script>
     export default {
-        props: ['name'],
+        props: ['name', 'width'],
         methods: {
             destroyModal() {
-                this.$store.commit('hideModal', {name: this.name});
-                this.$store.commit('destroyModal', {name: this.name});
+                this.$store.commit('Modal/hideModal', {name: this.name});
+                this.$store.commit('Modal/destroyModal', {name: this.name});
             }
         },
     }

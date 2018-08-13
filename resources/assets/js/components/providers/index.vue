@@ -270,7 +270,7 @@
         },
         computed: {
           models() {
-            return this.$store.state.models;
+            return this.$store.state.Model.models;
           },
         },
         methods: {

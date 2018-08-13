@@ -50,6 +50,9 @@
 	div#app-navbar-collapse > ul {
      margin: 0 7px; 
 	}
+	.navbar-default .navbar-right > li {
+		max-height: 50px;
+	}
 	.navbar-default .navbar-nav > li > a {
     color: $dentix-white;
 	}

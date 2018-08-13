@@ -30,6 +30,15 @@
     max-height: 70vh;
     overflow: auto;
   }
+
+  .custom-table table tbody#main-tbody-empty td {
+    column-span: all;
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.2em;
+  }
+
   .custom-table table thead tr th {
     border: none;
   }

@@ -2,7 +2,7 @@
   <div class="custom-table">
     <!-- MODALS -->
     <template>
-        <custom-modal :name="'new-' + model + '-model'">
+        <custom-modal :name="'new-' + model + '-model'" :width="'1000px'">
           <model-new-form
               :model="model"
               :related-model="relatedModel"
@@ -128,15 +128,15 @@
             </th>
           </tr>
         </thead>
-        <tbody id="main-tbody">
-          <tr 
-          v-for="(item, itemIndex) in items"ç
-          :ref="model+item.id" 
-          :key="item.id" 
-          :id="model+item.id"
-          v-show="checkFilter(item.id)" 
-          :class="[rowsSelected.indexOf(item.id) != -1 ? 'selected' : '', animationClassesGetter(item.id)]"           
-          @click="toggleSelectedRow(item.id)">
+        <tbody id="main-tbody" v-if="items.length">
+          <tr
+            v-for="(item, itemIndex) in items"
+            :ref="model+item.id" 
+            :key="item.id" 
+            :id="model+item.id"
+            v-show="checkFilter(item.id)" 
+            :class="[rowsSelected.indexOf(item.id) != -1 ? 'selected' : '', animationClassesGetter(item.id)]"           
+            @click="toggleSelectedRow(item.id)">
             <td v-if="options.counterColumn" ref="column-counter-row">
               <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(item.id) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(item.id)"></span>
             </td>
@@ -144,11 +144,16 @@
               <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.name)"></strong>
               <strong v-else-if="column.linebreak" v-html="linebreak(item[column.name],column.linebreak.needles,column.linebreak.options)"></strong>
               <strong v-else-if="column.boolean">{{item[column.name] ? column.boolean[0] : column.boolean[1]}}</strong>
-              <!-- <strong v-else-if="column.boolean">{{item[column.object][column.name] ? column.boolean[1] : column.boolean[0]}}</strong> -->
               <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
               <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
               <strong v-else>{{item[column.name]}}</strong>
             </td>
+          </tr>
+        </tbody>
+        <tbody id="main-tbody-empty" v-else>
+          <tr
+            >
+            <td>NO ITEMS YET</td>
           </tr>
         </tbody>
       </table>
@@ -163,11 +168,13 @@
 
 <script>
 import excel from "../../mixins/excel.js";
-import TableClass from '../../classes/tableClass';
 import tableFiltering from "../../mixins/table-filtering.js";
 import tableOrdering from "../../mixins/table-ordering.js";
 import modelNewForm from '../../components/model/model-new-form.vue';
 import modelDeleteForm from '../../components/model/model-delete-form.vue';
+
+import { mapActions, mapMutations } from 'vuex';
+
 export default {
   components: {modelNewForm, modelDeleteForm},
   mixins: [tableFiltering, tableOrdering, excel],
@@ -176,7 +183,6 @@ export default {
     return {
       columns: [],
       options: [],
-      // items: this.tableItems,
       theadMenu: {
         show: false,
         top: "0px",
@@ -205,13 +211,22 @@ export default {
         }
     },
     "newModel.id"() {
-      if (this.newModel.id) {
+      if (this.newModel.id && !this.relatedModel) {
         console.log("Adding");
         this.filtering.selected.push(this.newModel.id);
+      }
+    },
+    "newRelation.id"() {
+      if (this.newRelation.id && this.relatedModel) {
+        console.log("Adding Relation");
+        this.filtering.selected.push(this.newRelation.id);
       }
     }
   },
   methods: {
+    ...mapMutations('Table', [
+    'setTable', 'removeTable'
+    ]),
     animationClassesGetter(id) {
       return {
         "glitter-dentix":
@@ -219,12 +234,8 @@ export default {
       };
     },
     toggleNew() {
-      // this.$modal.show("new-model");
-      this.$store.commit('newModal', {name:'new-' + this.model + '-model',data:{model:this.model, mode:'create'}});
+      this.$store.commit('Modal/newModal', {name:'new-' + this.model + '-model',data:{model:this.model, mode:'create'}});
     },
-    // toggleEdit() {
-    //   this.$modal.show("edit-model");
-    // },
     checkFilteriTemsStatus(filters) {
       for (let filter in filters) {
         for (let [index, value] of this.filtering.filters[
@@ -368,17 +379,17 @@ export default {
       this.rowsSelected = [];
       for (var i = 0; i < this.items.length; i++) {
         if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
-          this.rowsSelected.push(i);
+          this.rowsSelected.push(this.items[i].id);
         }
       }
     },
     invertRowSelection() {
       for (var i = 0; i < this.items.length; i++) {
         if (this.filtering.selected.indexOf(this.items[i].id) != -1) {
-          if (this.rowsSelected.indexOf(i) == -1) {
-            this.rowsSelected.push(i);
+          if (this.rowsSelected.indexOf(this.items[i].id) == -1) {
+            this.rowsSelected.push(this.items[i].id);
           } else {
-            this.rowsSelected.splice(this.rowsSelected.indexOf(i), 1);
+            this.rowsSelected.splice(this.rowsSelected.indexOf(this.items[i].id), 1);
           }
         }
       }
@@ -502,60 +513,46 @@ export default {
           this.toggleShowItem(this.rowsSelected[0]);
           break;
         case "edit":
-          this.$store.dispatch('showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected}});
+          this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected}});
           break;
         case "delete":
-          this.$store.commit('newModal', {name:'delete-' + this.model + '-model',data:{model:this.model ,ids:this.rowsSelected, mode:'destroy'}});
+          this.$store.commit('Modal/newModal', {name:'delete-' + this.model + '-model',data:{model:this.model ,ids:this.rowsSelected, mode:'destroy'}});
       }
       this.rowsSelected = [];
     },
     initializeTable() {
-      let temp = new TableClass({name:name});
       if (this.mode == "vuex") {
         axios.get('/api/table/?model='+this.model+'&relation='+this.relatedModel).then(({data}) => {
                 this.columns = data.table.columns;
                 this.options = data.table.options;
             }).then(() => {
-              this.$store.commit('setTable', this.model);
+              // this.$store.commit('Table/setTable', this.model);
+              this.setTable(this.model);
             });
       } else {
         // Initialize for local model approach.
       }
     },
-    filter1(item) {
-      return item.id > 200;
-    },
-    filter2(item) {
-      return item.name.email != false; 
-    }
   },
   computed: {
-    tableRows() {
-      let rows = [];
-      if (rows = document.getElementById("main-tbody")) {
-        return rows.childNodes;
-      }
-    },
     // FROM VUEX
     animationClasses() {
-      return this.$store.state.animationClasses;
+      return this.$store.state.Model.animationClasses;
     },
     newModel() {
-      return this.$store.state.newModel;
+      return this.$store.state.Model.newModel[this.model];
+    },
+    newRelation() {
+      return this.$store.state.Model.newRelation[this.relatedModel+this.model];
     },
     items() {
       if (this.tableItems) {
         return this.tableItems;
       }
-      return this.$store.state.models[this.model].items;
-    },
-    filterd() {
-      return this.$store.state.models[this.model].items.filter(function() {
-
-      });
+      return this.$store.state.Model.models[this.model].items;
     },
     tables() {
-      return this.$store.state.tables;
+      return this.$store.state.Table.tables;
     },
     selectedCount() {
       return this.rowsSelected.length;
@@ -582,8 +579,6 @@ export default {
     this.buildFiltering("items");
     this.buildOrdering("items");
     this.selectAllItems();    
-    // this.itemsWatcher = this.items.length;
-    // this.rowsWatcher = this.items.length;
   },
   mounted() {
     if (this.mode != 'vuex') {
@@ -591,7 +586,7 @@ export default {
     }
   },
   beforeDestroy() {
-    this.$store.commit('removeTable', this.model);
+    this.$store.commit('Table/removeTable', this.model);
   }
 };
 </script>

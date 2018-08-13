@@ -45,11 +45,37 @@ class OrderController extends Controller
         $shoppingBag = ShoppingBag::create();
 
         foreach($items as $item) {
+            $provider = $item->providers[0]->provider_id;
+            if (count($item->providers) > 1) {
+                $top = 1;
+                foreach ($item->providers as $tempProvider) {
+                    // $level = $tempProvider->country_id + $tempProvider->state_id + $tempProvider->county_id + $tempProvider->clinic_id;
+                    // if ($level > $top) {
+                    //     $top = $level;
+                    //     $provider = $tempProvider->provider_id;
+                    // }
+                    if ($tempProvider->clinic_id && $tempProvider->clinic_id == $clinic->id) {
+                        $provider = $tempProvider->provider_id;
+                        break;
+                    } else if ($tempProvider->county_id && $tempProvider->county_id == $clinic->county_id) {
+                        $top = 3;
+                        $provider = $tempProvider->provider_id;
+                    } else if ($tempProvider->state_id && $tempProvider->state_id == $clinic->county->state_id) {
+                        if ($top < 2) {
+                            $provider = $tempProvider->provider_id;                            
+                        }
+                    } else if ($tempProvider->country_id && $tempProvider->country_id == $clinic->country_id && !$tempProvider->county_id && !$tempProvider->state_id && !$tempProvider->clinic_id) {
+                        $top = 1;
+                        $provider = $tempProvider->provider_id;  
+                    }
+                }
+            }
+            // dd($item);
             $order = new Order;
             $order->shopping_bag_id = $shoppingBag->id;
             $order->user_id = auth()->id();
             $order->clinic_id = $clinic->id;
-            $order->provider_id = $item->providers[0]->id;
+            $order->provider_id = $provider;
             $order->quantity = 500;
             $order->urgent = 0;
             // dd($order);
@@ -63,6 +89,7 @@ class OrderController extends Controller
         $groupOrders = $shoppingBag->orders->groupBy('provider_id');
         foreach ($groupOrders as $id => $stationaries) {
             $provider = \App\Provider::find($id);
+            // dd($provider);
             Mail::to($provider->email)
                 ->cc(Auth()->user()->email)
                 ->send(new StationaryOrder($stationaries));

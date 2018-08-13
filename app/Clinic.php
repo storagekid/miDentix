@@ -40,7 +40,7 @@ class Clinic extends Model
     public function stationaries()
     {
         return $this->belongsToMany(Stationary::class)
-            ->withPivot(['id', 'file']);
+            ->withPivot(['id', 'file', 'thumbnail']);
     }
 
     public function tableColumns()

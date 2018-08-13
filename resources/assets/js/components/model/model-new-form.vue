@@ -1,6 +1,6 @@
 <template>
   <div id="model-new-container">
-    <loading v-if="!$store.state.forms[model]"></loading>
+    <loading v-if="!$store.state.Form.forms[model]"></loading>
     <div class="fx jf-center" v-else>
       <div class="panel panel-default">
         <div class="panel-heading text-center">
@@ -10,12 +10,12 @@
         </div>
         <div class="">
           <form>
-            <div class="row">
+            <div class="fx fx-50 fx-wrap jf-between">
               <div 
                 v-for="(field, index) in fields" 
                 :key="index"
                 class="form-group"
-                :class="field.colClasses ? field.colClasses : 'col-xs-12 col-md-4'"
+                :class="field.colClasses ? field.colClasses : 'fx-b-50'"
                 >
                 <label>{{field.label}}</label>
                 <span
@@ -23,6 +23,20 @@
                   class="required-reminder"
                   >
                   *
+                </span>
+                <span
+                  v-if="errorsHas(field.name)"
+                  class="glyphicon glyphicon-exclamation-sign error-icon"
+                >
+                  <div
+                    class="tooltip error-tip"
+                  >
+                  <ul>
+                    <li v-for="(description, index) in errors.errorsInField[field.name]" :key="index">
+                      {{errors.descriptions[field.name][description]}}
+                    </li>
+                  </ul>
+                  </div>
                 </span>
                 <select 
                   v-if="field.type.name == 'select'" 
@@ -41,7 +55,7 @@
                     {{field.type.default.text}}
                   </option>
                   <option 
-                    v-for="(modelItem, index) in $store.state.models[field.type.model].items" 
+                    v-for="(modelItem, index) in $store.state.Model.models[field.type.model].items" 
                     :key="modelItem.id"
                     v-if="!field.dependsOn || (field.dependsOn && modelToSave[field.dependsOn] == modelItem[field.dependsOn])"
                     :value="modelItem[field.type.value]"
@@ -50,20 +64,6 @@
                     {{modelItem[field.type.text]}}
                   </option>
                 </select>
-                <span
-                  v-if="errorsHas(field.name)"
-                  class="glyphicon glyphicon-exclamation-sign error-icon"
-                >
-                  <div
-                    class="tooltip error-tip"
-                  >
-                  <ul>
-                    <li v-for="(description, index) in errors.errorsInField[field.name]" :key="index">
-                      {{errors.descriptions[field.name][description]}}
-                    </li>
-                  </ul>
-                  </div>
-                </span>
                 <input 
                   v-if="field.type.name == 'inputText'"
                   type="text" 
@@ -103,7 +103,7 @@
                       Cambiar
                     </button>
                     <button
-                      @click.prevent="$store.commit('removeFile', {'model': model, 'file': field.name})"
+                      @click.prevent="$store.commit('Model/removeFile', {'model': model, 'file': field.name})"
                       >
                       Eliminar
                     </button>                    
@@ -124,26 +124,12 @@
             <hr>
               <div v-for="(relation, index) in relations" :key="index">
                 <h3>{{relation.label}}</h3>
-                <!-- <button 
-                  class="btn btn-primary btn-sm" 
-                  @click.prevent="newRelation(relation.name)" 
-                  v-text="'Añadir'"
-                  v-if="!forms[model]['relations'][relation.name].active"
-                  >
-                </button> 
-                <relation-new-form
-                  v-if="forms[model]['relations'][relation.name].active"
-                  :model="model" 
-                  :form-data="relation"
-                  >
-                  <h3 slot="header" class="panel-title">{{relation.header}}</h3>
-                </relation-new-form> -->
                 <template v-if="modelToSave[relation.name]">
                     <vue-table 
                     :model="relation.name"
                     mode="vuex"
                     :related-model="model"
-                    :table-items="$store.state.models[model].modelToSave[relation.name]"
+                    :table-items="$store.state.Model.models[model].modelToSave[relation.name]"
                     >
                   </vue-table>
                 </template> 
@@ -172,22 +158,18 @@
 <script>
     import errors from '../../mixins/errors.js';
     import validations from '../../mixins/validations.js';
-    import relationNewForm from '../../components/model/relation-new-form.vue';
     export default {
         mixins: [errors,validations],
         props: ['model', 'relatedModel', 'modelNewFormOptions'],
-        components: {relationNewForm},
         data() {
             return {
               fields: {},
               models: [],
               relations: {},
-              // formOptions: this.modelNewFormOptions,
               formOptions: {
                 checkSourceData: true,
                 hasFiles: false,
               },
-              // modelToSave: {},
             }
         },
         watch: {
@@ -204,12 +186,11 @@
             this.$refs[field][0].click();
           },
           newRelation(relationSource) {
-            this.$store.commit('newRelationForm',{model: this.model, relation: relationSource})
+            this.$store.commit('Form/newRelationForm',{model: this.model, relation: relationSource})
           },
           setFiles(name, file) {
             console.log(file);
             this.modelToSave[name] = file;
-            // this.$store.commit('setFileToModel', {'model': this.model, 'name': file.name, field: name});
             this.formOptions['hasFiles'] = this.modelToSave[name] ? true : false;
           },
           selectChangedActions(fieldName,fieldValue,fieldRules,fieldAffects) {
@@ -220,7 +201,6 @@
           },
           checkFieldCascade(fieldName,fieldValue,fieldRules,fieldAffects) {
             this.modelToSave[fieldAffects] = null;
-            // this.$set(this.modelToSave,fieldAffects, null);
             this.validateField(
               fieldAffects,
               this.modelToSave[fieldAffects],
@@ -232,7 +212,7 @@
             return false;
           },
           cancelCreating() {
-            this.$store.commit('hideModal', {name: this.modalName});
+            this.$store.commit('Modal/hideModal', {name: this.modalName});
           },
           sendAction() {
             if (this.relatedModel) {
@@ -241,23 +221,23 @@
             else {
               this.updating ? this.updateModel() : this.createNew();              
             }
-            this.$store.commit('hideModal', {name: this.modalName});            
+            this.$store.commit('Modal/hideModal', {name: this.modalName});            
           },
           updateRelation() {
-            this.$store.dispatch('updateRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
+            this.$store.dispatch('Model/updateRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
           },
           createNewRelation() {
-            this.$store.dispatch('setNewRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
+            this.$store.dispatch('Model/setNewRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
           },
           createNew() {
-            this.$store.dispatch('createNewModel', {name: this.model, model: this.modelToSave, hasFiles: this.formOptions.hasFiles});
+            this.$store.dispatch('Model/createNewModel', {name: this.model, model: this.modelToSave, hasFiles: this.formOptions.hasFiles});
           },
           updateModel() {
             console.log('Updating!!!');
-            this.$store.dispatch('updateModel', {name: this.model, model: this.modelToSave, hasFiles: this.formOptions.hasFiles});
+            this.$store.dispatch('Model/updateModel', {name: this.model, model: this.modelToSave, hasFiles: this.formOptions.hasFiles});
           },
           modelToSaveBuilder(modelItem=null) {
-            this.$store.commit('modelToSaveBuilder', {model: this.model, fields: this.fields, item: modelItem, relations: this.relations});
+            this.$store.commit('Model/modelToSaveBuilder', {model: this.model, fields: this.fields, item: modelItem, relations: this.relations});
           },
           initializeForm() {
             axios.get('/api/form?model=' + this.model + '&ids='+this.modal.ids + '&relation=' + this.relatedModel).then(({data}) => {
@@ -267,18 +247,17 @@
                 // this.options = data.table.options;
             }).then(() => {
               if (this.models) {
-                this.$store.dispatch('fetchModels', this.models);
+                this.$store.dispatch('Model/fetchModels', this.models);
               }
-              this.$store.commit('setForm', {model: this.model, models: this.models, relations: this.relations});
+              this.$store.commit('Form/setForm', {model: this.model, models: this.models, relations: this.relations});
               if (this.modal.mode == 'edit') {
                 if (this.modal.items.length === 1) {
                   this.modelToSaveBuilder(this.modal.items[0]); 
-                  // this.$store.state.models[this.model].modelToSave = this.modal.items[0];                  
                 }
               } else {
                 this.modelToSaveBuilder();                
               }
-              this.$store.commit('formsReady');
+              this.$store.commit('Form/formsReady');
               if (this.formOptions.checkSourceData) {
                 for (let field in this.fields) {
                   this.validateField(
@@ -296,7 +275,7 @@
             return !this.errorsCount;
           },
           forms() {
-            return this.$store.state.forms;
+            return this.$store.state.Form.forms;
           },
           creating() {
             return this.modal.mode === 'create';
@@ -305,24 +284,23 @@
             return this.modal.mode === 'edit';
           },
           modalName() {
-            // let start = this.modal.mode === 'edit' ? 'updating-' : 'new-';
             return  'new-' + this.model + '-model';
           },
           modal() {
-            return this.$store.state.modals[this.modalName];
+            return this.$store.state.Modal.modals[this.modalName];
           },
           modelToSave() {
-            return this.$store.state.models[this.model].modelToSave;
+            return this.$store.state.Model.models[this.model].modelToSave;
           }
         },
         created() {
-          this.$store.commit('formsNotReady');
+          this.$store.commit('Form/formsNotReady');
           this.initializeForm();
-          // this.modelToSaveBuilder();
         },
         destroyed() {
-            this.$store.commit('destroyForm',{name: this.model});
-            this.$store.commit('restoreModelState',{name: this.model});
+            this.$store.commit('Form/destroyForm',{name: this.model});
+            this.$store.commit('Model/restoreModelState',{name: this.model});
+            this.$store.commit('Model/restoreNewIds',{model: this.model, relation: this.relatedModel});
         }
     }
 </script>

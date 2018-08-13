@@ -9,30 +9,6 @@
     padding-right: 15px;
     text-align: center;
 }
-#main-content .panel-default {
-	margin-bottom: 30px;
-}
-#main-content .list-group-item {
-	padding: 5px 15px;
-}
-#main-content .list-group-item .list-badget {
-    vertical-align: middle;
-}
-#main-content .panel-default .panel-heading h3{
-	font-size: 2em;
-    font-weight: lighter;
-}
-#main-content .panel-footer > .progress {
-	margin-bottom: 0;
-}
-#main-content .panel-body > table {
-	margin: 0;
-/*	display: block;
-*/	overflow-x: auto;
-}
-#main-content .panel-body > table .buttons-text {
-	width: 100px;
-}
 
 #main-content .jumbotron {
 	min-height: $jumbotron-height;

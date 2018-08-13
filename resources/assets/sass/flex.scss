@@ -25,6 +25,9 @@
 .jf-around {
     justify-content: space-around;
 }
+.fx-wrap {
+    flex-wrap: wrap;
+}
 .fx-25 {
     flex: .25;
 }
@@ -36,4 +39,7 @@
 }
 .fx-100 {
     flex: 1;
+}
+.fx-b-50 {
+    flex-basis: 48%;
 }
