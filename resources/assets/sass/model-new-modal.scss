@@ -1,11 +1,17 @@
-#main-content .v--modal{
 
-    .panel-default {
-        margin-bottom: 0;
+#main-content {
+    .v--modal-overlay {
+        overflow: auto;
+        z-index: 9999;
     }
-    .panel-default .panel-body {
-        max-width: 95%;
-        margin: auto;
-        padding: 20px 0;
+    .v--modal {
+        .panel-default {
+            margin-bottom: 0;
+        }
+        .panel-default > .panel-body {
+            // max-width: 95%;
+            // margin: auto;
+            padding: 20px;
+        }
     }
 } 

@@ -104,7 +104,7 @@ export default {
 					}
 			}
 			// With VueX
-			this.$store.commit('setOrderedItems',{modelName: this.model, model: orderedItems});
+			this.$store.commit('Model/setOrderedItems',{modelName: this.model, model: orderedItems});
 			// With local model,
 			// this[this.lastOrder.source] = orderedItems;
 		},

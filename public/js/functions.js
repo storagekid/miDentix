@@ -1,3 +1,14 @@
+function scrollToAndGlow(name, id, state, commit) {
+	setTimeout(function() {
+		// Vue.scrollToElement(name);
+		commit('addIdToAnimate', id)
+		// state.animationClasses["glitter-dentix"].push(id);
+		setTimeout(function() {
+			commit('cleanAnimations', "glitter-dentix")
+		},3000); 
+	},1000);
+}
+
 function cleanUpSpecialChars(str)
 {
     str = str.replace(/[àá]/g,"a");

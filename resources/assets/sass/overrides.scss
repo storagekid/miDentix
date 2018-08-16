@@ -82,9 +82,25 @@ ul {
     border: 0;
     background-color: transparent;
 }
+.fx {
+    .panel.panel-default {
+        display: flex;
+        flex-direction: column;
+        // height: inherit;
+        // flex: 1 1 auto;
+    }
+}
+.panel {
+    .panel-footer button {
+        float: right;
+        padding: 2px 15px;
+        background-color: #FFF;
+        color: inherit;
+    }
+}
 .panel.panel-default {
     display: inline-block;
-    box-shadow: 4px 4px 3px #DDD;
+    // box-shadow: 4px 4px 3px #DDD;
     max-width: 100%;
 }
 .panel-default > .panel-heading {
@@ -101,7 +117,7 @@ ul {
 .panel-title {
     font-size: 1.5em;
 }
-.panel-default > .panel-body {
+.panel-default > .panel-body.btrans5 {
     background-color: rgba(255,255,255,.5);
 }
 .panel-default .panel-footer {
@@ -135,12 +151,6 @@ ul {
 	color: #FFF;
 	font-size: 20px;
 	display: inline-block;
-}
-.panel-footer button {
-	float: right;
-	padding: 2px 15px;
-    background-color: #FFF;
-    color: inherit;
 }
 .panel-body table .clinic {
     min-width: 100px;

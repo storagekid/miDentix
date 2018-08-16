@@ -1,19 +1,21 @@
 <template>
-  <div id="providers" class="fx pv-20" v-if="pageReady">
+  <div id="clinics" class="fx pv-20" v-if="pageReady">
     <template>
       <div class="fx fx-w-100 jf-around">
-        <div class="fx fx-75 fx-col">  
+        <div class="fx fx-100 fx-col">  
           <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <h3 class="panel-title">Proveedores</h3>
-            </div>
-            <div class="panel-body">
-              <vue-table 
-                v-if="models[model].items" 
-                :model="model"
-                mode="vuex"
-                >
-              </vue-table>
+            <div class="panel panel-default fx-100">
+              <div class="panel-heading text-center">
+                <h3 class="panel-title">Clinics</h3>
+              </div>
+              <div class="panel-body">
+                <vue-table 
+                  v-if="models[model].items" 
+                  :model="model"
+                  mode="vuex"
+                  >
+                </vue-table>
+              </div>
             </div>
           </div>
         </div>  
@@ -27,8 +29,8 @@
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              modelsNeeded: ['providers'],
-              model: 'providers',
+              modelsNeeded: ['clinics'],
+              model: 'clinics',
               //Table
               footer: {
                 totalRows: 0,

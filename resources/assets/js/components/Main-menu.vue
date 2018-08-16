@@ -1,7 +1,7 @@
 <template>
     <ul class="nav navbar-nav">
         <li v-for="menu in items" :class="{ active: menu.link === isActive}">
-            <a :href="menu.link"> 
+            <router-link :to="menu.link"> 
                 <div class="left-menu-link-container">
                     <span :class="menu.icon"></span>
                     <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
@@ -10,7 +10,17 @@
                 </div> 
                 <hr class="left-nav-hr">
                 <span class="menu-name" v-text="menu.name"></span>
-            </a>
+            </router-link>
+            <!-- <a :href="menu.link"> 
+                <div class="left-menu-link-container">
+                    <span :class="menu.icon"></span>
+                    <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
+                    <span class="badge badge-menu" v-if="menu.name == 'Odontólogos' && admin.deadUsers">{{admin.deadUsers}}</span>
+                    <span class="badge badge-menu" v-if="(menu.name == 'Bolsa de Horas' || menu.name == 'Jornada') && admin.extratimesUnsolved > 0">{{admin.extratimesUnsolved}}</span>
+                </div> 
+                <hr class="left-nav-hr">
+                <span class="menu-name" v-text="menu.name"></span>
+            </a> -->
         </li>
     </ul>
 </template>

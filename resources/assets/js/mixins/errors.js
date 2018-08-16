@@ -39,7 +39,6 @@ export default {
 		},
 		fieldErrorRemover(field, rule) {
 			let i = this.errors.errorsInField[field].indexOf(rule);
-			// this.$delete(this.errors.errorsInField[field],i);
 			this.errors.errorsInField[field].splice(i, 1);
 		},
 		requiredDescription() {

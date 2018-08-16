@@ -2,17 +2,19 @@
   <div id="model-new-container">
     <loading v-if="!$store.state.Form.forms[model]"></loading>
     <div class="fx jf-center" v-else>
-      <div class="panel panel-default">
+      <div class="panel panel-default fx-100">
         <div class="panel-heading text-center">
-          <slot name="header">
+          <slot name="header" v-if="!batchMode">
             <h3 class="panel-title">{{updating ? 'Actualizar' : 'Nuevo'}} elemento</h3>
           </slot>
+          <h3 class="panel-title" v-else>Edición Múltiple</h3>
         </div>
-        <div class="">
+        <div class="panel-body">
           <form>
             <div class="fx fx-50 fx-wrap jf-between">
               <div 
                 v-for="(field, index) in fields" 
+                v-if="!batchMode || (batchMode && field.batch)"
                 :key="index"
                 class="form-group"
                 :class="field.colClasses ? field.colClasses : 'fx-b-50'"
@@ -56,7 +58,7 @@
                   </option>
                   <option 
                     v-for="(modelItem, index) in $store.state.Model.models[field.type.model].items" 
-                    :key="modelItem.id"
+                    :key="index"
                     v-if="!field.dependsOn || (field.dependsOn && modelToSave[field.dependsOn] == modelItem[field.dependsOn])"
                     :value="modelItem[field.type.value]"
                     :selected="modelToSave[field.name]"
@@ -121,8 +123,8 @@
             </div>
           </form>
           <template v-if="Object.keys(relations).length">
-            <hr>
               <div v-for="(relation, index) in relations" :key="index">
+                <hr>
                 <h3>{{relation.label}}</h3>
                 <template v-if="modelToSave[relation.name]">
                     <vue-table 
@@ -134,8 +136,9 @@
                   </vue-table>
                 </template> 
               </div>
-            <hr>
           </template>
+        </div>
+        <div class="panel-footer fx mr-10">
           <button 
           class="btn btn-warning btn-sm" 
             @click.prevent="cancelCreating"
@@ -224,7 +227,10 @@
             this.$store.commit('Modal/hideModal', {name: this.modalName});            
           },
           updateRelation() {
-            this.$store.dispatch('Model/updateRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
+            if (this.ghostMode) {
+              return this.$store.dispatch('Model/updateGhostRelation', {name: this.relatedModel, relation: this.model, ids:this.modal.ids, modelToSave: this.modelToSave});
+            }
+            this.$store.dispatch('Model/updateRelation', {name: this.relatedModel, relation: this.model, ids:this.modal.ids, item: this.modelToSave});            
           },
           createNewRelation() {
             this.$store.dispatch('Model/setNewRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
@@ -234,10 +240,18 @@
           },
           updateModel() {
             console.log('Updating!!!');
-            this.$store.dispatch('Model/updateModel', {name: this.model, model: this.modelToSave, hasFiles: this.formOptions.hasFiles});
+            this.$store.dispatch('Model/updateModel', {name: this.model, model: this.modelToSave, ids:this.modal.ids, hasFiles: this.formOptions.hasFiles});
           },
-          modelToSaveBuilder(modelItem=null) {
-            this.$store.commit('Model/modelToSaveBuilder', {model: this.model, fields: this.fields, item: modelItem, relations: this.relations});
+          modelToSaveBuilder(options={modelItem:null, batch:false}) {
+            let defFields;
+
+            if (options.batch) {
+              defFields = this.batchFields;
+            } else {
+              defFields = this.fields;
+            }
+            // console.log(defFields);
+            this.$store.commit('Model/modelToSaveBuilder', {model: this.model, fields: defFields, item: options.modelItem, relations: this.relations});
           },
           initializeForm() {
             axios.get('/api/form?model=' + this.model + '&ids='+this.modal.ids + '&relation=' + this.relatedModel).then(({data}) => {
@@ -252,14 +266,19 @@
               this.$store.commit('Form/setForm', {model: this.model, models: this.models, relations: this.relations});
               if (this.modal.mode == 'edit') {
                 if (this.modal.items.length === 1) {
-                  this.modelToSaveBuilder(this.modal.items[0]); 
+                  this.modelToSaveBuilder({modelItem:this.modal.items[0]}); 
+                } else if (this.modal.items.length > 1) {
+                  console.log('Batch Updating!!!!');
+                  // this.modelToSaveBatchBuilder(this.modal.items[0]);
+                  this.modelToSaveBuilder({batch:this.batchMode});
                 }
               } else {
                 this.modelToSaveBuilder();                
               }
               this.$store.commit('Form/formsReady');
               if (this.formOptions.checkSourceData) {
-                for (let field in this.fields) {
+                let fieldsForChecking = this.batchMode ? this.batchFields : this.fields;
+                for (let field in fieldsForChecking) {
                   this.validateField(
                     field,
                     this.modelToSave[field],
@@ -282,6 +301,31 @@
           },
           updating() {
             return this.modal.mode === 'edit';
+          },
+          // Ghost mode active when parent Model is new and the no record persisted on the DB.
+          ghostMode() {
+            if (this.relatedModel) {
+              if (!this.$store.state.Model.models[this.relatedModel].modelToSave.id) {
+                return true;
+              }
+            }
+            return false;
+          },
+          batchMode() {
+            if (this.updating) {
+              return this.$store.state.Modal.modals[this.modalName].items.length > 1;              
+            }
+          },
+          batchFields() {
+            let batchFields = {};
+            if (this.batchMode) {
+              for (let field in this.fields) {
+                if (this.fields[field].batch) {
+                  batchFields[field] = this.fields[field];
+                }
+              }
+             return batchFields;
+            }
           },
           modalName() {
             return  'new-' + this.model + '-model';

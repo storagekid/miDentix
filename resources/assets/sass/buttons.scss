@@ -12,7 +12,7 @@
     &:hover {
         background-color: $dentix-main-50;
         p {
-            color: $dentix-white;;
+            color: $dentix-white;
         }
     }
 }
@@ -20,12 +20,26 @@
 .selectable-rev {
     background-color: $dentix-white;
     border: 1px solid $dentix-main-35 !important;
+    p {
+        color: $dentix-secondary;
+    }
+    &.selected {
+        background-color: $dentix-main;
+        color: $dentix-white;
+        p {
+            color: $dentix-white;
+        }
+    }
+    &:hover {
+        background-color: $dentix-main-50;
+        color: $dentix-white;
+        p {
+            color: $dentix-white;
+        }
+    }
 }
 .selectable-dark {
     background-color: $dentix-main;
-}
-.selectable-rev p {
-    color: $dentix-secondary;
 }
 .selectable-dark p {
     color: $dentix-white;

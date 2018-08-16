@@ -214,11 +214,6 @@ class Stationary extends Model
 
     // END Formable DATA
 
-    // public function providers() {
-    //     return $this->belongsToMany(Provider::class, 'product_providers', 'product_id', 'provider_id')
-    //         ->withPivot(['country_id','state_id','county_id','clinic_id']);;
-    // }
-
     public function providers() {
         return $this->hasMany(Provider_Stationary::class, 'product_id');
     }

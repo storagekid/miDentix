@@ -1,6 +1,9 @@
 <template>
     <modal 
-        :name="name" height="auto" :width="width" maxWidht="80%"
+        :name="name" 
+        height="auto" 
+        :width="width" 
+        maxWidht="80%"
         @closed="destroyModal"
         >
         <slot></slot>

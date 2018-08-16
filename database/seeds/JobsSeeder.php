@@ -3,13 +3,13 @@
 use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class CostCentersSeeder extends CsvSeeder
+class JobsSeeder extends CsvSeeder
 {
 	public function __construct()
 	{
-		$this->table = 'cost_centers';
+		$this->table = 'jobs';
 		$this->csv_delimiter = ',';
-		$this->filename = base_path().'/database/seeds/csvs/cost_centers_cc.csv';
+		$this->filename = base_path().'/database/seeds/csvs/jobs.csv';
 	}
     /**
      * Run the database seeds.

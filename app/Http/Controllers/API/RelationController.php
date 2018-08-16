@@ -104,11 +104,19 @@ class RelationController extends Controller
         // var_dump($model);
         // $id = $model::orderBy('id', 'desc')->first()->id+1;
         // $model->update(request()->all());
-        $model = $model::make(request()->all());
-        $model->id = $id;
+        $ghostModel = $model::find($id);
+        if (!$ghostModel) {
+            $model = $model::make(request()->all());
+            $model->id = $id;
+        } else {
+            $model = $ghostModel;
+            $model->update(request()->all());
+        }
+        
         // $model->id = $id;
         return response([
             'relation' => $model,
+            'id' => $id,
             ],200);
     }
 

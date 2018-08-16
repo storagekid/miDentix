@@ -10,7 +10,7 @@ class ProfileCSVSeeder extends CsvSeeder
 	{
 		$this->table = 'profiles';
 		$this->csv_delimiter = ',';
-		$this->filename = base_path().'/database/seeds/csvs/meta4-100.csv';
+		$this->filename = base_path().'/database/seeds/csvs/meta4-fixed.csv';
 	}
     /**
      * Run the database seeds.

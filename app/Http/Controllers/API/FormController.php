@@ -26,7 +26,12 @@ class FormController extends Controller
         $model = 'App\\' . $model;
 
         if (request('ids') !== 'undefined' ) {
-            $model = $model::find(request('ids'));
+            $ghostModel = $model::find(request('ids'));
+            if (!$ghostModel) {
+                $model = $model::make();            
+            } else {
+                $model = $ghostModel;
+            }
         } else {
             $model = $model::make();            
         }

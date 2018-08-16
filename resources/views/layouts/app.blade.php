@@ -46,8 +46,9 @@
             @include('nav.left')
             <div class="row">
                 <div class="'col-xs-12" id="main-content">
-                    <loading></loading>
-                    @yield('content')
+                    <!-- <loading></loading> -->
+                    <router-view></router-view>
+                    <!-- @yield('content') -->
                 </div>
             </div>
         </div>

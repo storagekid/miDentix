@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             CostCentersSeeder::class,
             ClinicsSeeder::class,
             CountriesSeeder::class,
+            JobsSeeder::class,
+            JobTypesSeeder::class,
             EspecialtiesSeeder::class,
             MastersSeeder::class,
             ExperiencesSeeder::class,
@@ -51,6 +53,7 @@ class DatabaseSeeder extends Seeder
         } else {
             $this->call([
                 ProfileCSVSeeder::class,
+                ClinicProfileMeta4Seeder::class,
                 ProfilesAdminSeeder::class,
             ]);
         }

@@ -35,27 +35,40 @@ class Provider extends Model
         ],
     ];
 
-    protected $tableOptions = ['providers', ['show','edit','delete'], true, true];
+    protected $tableOptions = [['show','edit','delete'], true, true];
 
-        // Formable DATA
+    // Formable DATA
 
-        protected $formFields = [
-            'name' => [
-                'label' =>'Nombre',
-                'rules' =>['required','min:5','max:64'],
-              ],
-              'email' => [
-                'label' =>'Email',
-                'rules' =>['required','min:5','max:64'],
-              ],
-        ];
-    
-        protected $formModels = [];
-    
-        protected $formRelations = [
-        ];
-    
-        // END Formable DATA
+    protected $formFields = [
+        'name' => [
+            'label' =>'Nombre',
+            'rules' =>['required','min:5','max:64'],
+            ],
+            'email' => [
+            'label' =>'Email',
+            'rules' =>['required','min:5','max:64'],
+            ], 
+            'address' => [
+                'label' => 'Dirección',
+                'rules' =>['min:5','max:255'],
+            ], 
+            'phone' => [
+                'label' => 'Teléfono',
+                'rules' =>['required','min:9','max:12'],
+                'batch' => true,
+            ], 
+            'CIF' => [
+                'label' => 'CIF',
+                'rules' =>['required','min:8','max:10'],
+            ],
+    ];
+
+    protected $formModels = [];
+
+    protected $formRelations = [
+    ];
+
+    // END Formable DATA
 
     public function orders()
     {

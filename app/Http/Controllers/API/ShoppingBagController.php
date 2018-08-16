@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Provider;
+use App\ShoppingBag;
 
-class ProviderController extends Controller
+class ShoppingBagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,18 @@ class ProviderController extends Controller
     public function index()
     {
         return response([
-            'model'=>Provider::get(),
-        ],200);
+            'model'=>ShoppingBag::get(),
+            ],200);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,11 +38,7 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        $provider = Provider::create(request()->all());
-
-        return response([
-            'newmodel' => $provider,
-        ], 200);
+        //
     }
 
     /**
@@ -47,6 +53,17 @@ class ProviderController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -55,13 +72,7 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $provider = Provider::find($id);
-
-        $provider->update(request()->all());
-
-        return response([
-            'updatedModel' => $provider->fresh(),
-        ], 200);
+        //
     }
 
     /**
@@ -72,6 +83,6 @@ class ProviderController extends Controller
      */
     public function destroy($id)
     {
-        Provider::destroy($id);
+        //
     }
 }

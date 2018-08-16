@@ -47,6 +47,7 @@ trait Formable {
             $temp['name'] = $name;
             $temp['rules'] = array_key_exists('rules', $options) ? $options['rules'] : [];
             $temp['value'] = array_key_exists('value', $options) ? $options['value'] : null;
+            $temp['batch'] = array_key_exists('batch', $options) ? $options['batch'] : false;
             $temp['colClasses'] = array_key_exists('colClasses', $options) ? $options['colClasses'] : 'fx-b-50';
             $temp['dontRecord'] = array_key_exists('dontRecord', $options) ? $options['dontRecord'] : false;
             $temp['dependsOn'] = array_key_exists('dependsOn', $options) ? $options['dependsOn'] : null;

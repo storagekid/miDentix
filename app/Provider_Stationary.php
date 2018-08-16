@@ -63,6 +63,7 @@ class Provider_Stationary extends Model
                 'disabled' => true,
               ],
             ],
+            'batch' => true,
           ],
           'state_id' => [
             'label' => 'CCAA',
@@ -83,6 +84,7 @@ class Provider_Stationary extends Model
                 'disabled' => true,
               ],
             ],
+            'batch' => true,
           ],
           'county_id' => [
             'label' => 'Provincia',
@@ -102,6 +104,7 @@ class Provider_Stationary extends Model
                 'disabled' => true,
               ],
             ],
+            'batch' => true,
           ],
           'clinic_id' => [
             'label' => 'Clínica',
@@ -121,6 +124,7 @@ class Provider_Stationary extends Model
                 'disabled' => true,
               ],
             ],
+            'batch' => true,
           ],
           'provider_id' => [
             'label' => 'Proveedor',

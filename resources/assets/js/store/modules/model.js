@@ -42,16 +42,13 @@ const actions = {
         axios.post('/api/'+name, payload, {headers})
             .then(({data}) => {
                 commit('addNewModel', {modelName: name, model: data.newmodel});
-                setTimeout(function() {
-                    Vue.scrollToElement(name+data.newmodel.id);
-                    state.animationClasses["glitter-dentix"].push(data.newmodel.id); 
-                },1000);
+                scrollToAndGlow(name+data.newmodel.id, data.newmodel.id, state, commit);
             })
             .catch(({error}) => {
                 console.log(error);
             });            
     },
-    updateModel({commit, state}, {name, model, hasFiles}) {
+    updateModel({commit, state}, {name, model, ids, hasFiles}) {
         let headers = {};
         let payload = model;
         let method = 'patch';
@@ -70,17 +67,16 @@ const actions = {
             }
             payload.append('file', model['design']);
         };
-        axios[method]('/api/'+name+'/'+model.id, payload, {headers})
-            .then(({data}) => {
-                commit('updateModel', {modelName: name, model: data.updatedModel});
-                setTimeout(function() {
-                    Vue.scrollToElement(name+data.updatedModel.id);
-                    state.animationClasses["glitter-dentix"].push(data.updatedModel.id); 
-                },1000);
-            })
-            .catch(({error}) => {
-                console.log(error);
-            });            
+        for (let modelId of ids) {
+            axios[method]('/api/'+name+'/'+modelId, payload, {headers})
+                .then(({data}) => {
+                    commit('updateModel', {modelName: name, model: data.updatedModel});
+                    scrollToAndGlow(name+data.updatedModel.id,data.updatedModel.id, state, commit);
+                })
+                .catch(({error}) => {
+                    console.log(error);
+                });
+        }            
     },
     removeModels({commit, state}, {name,ids}) {
         for (let id of ids) {
@@ -129,13 +125,41 @@ const actions = {
             let id = state.models[name].modelToSave[relation].length+'t'+1;
             data.relation['id'] = id;
             commit('setNewRelation', {'name': name, 'relation': relation, item: data.relation});
+            scrollToAndGlow(relation+data.relation.id,data.relation.id, state, commit);
         })
     },
-    updateRelation({state, commit}, {name, relation, item}) {
-        axios.patch('/api/relations/'+item.id+'?model='+name+'&relation='+relation, item)
-        .then(({data}) => {
-            commit('updateRelation', {'name': name, 'relation': relation, model: data.relation});
-        })
+    updateRelation({state, commit}, {name, relation, ids, item}) {
+        for (let modelId of ids) {
+            axios.patch('/api/relations/'+modelId+'?model='+name+'&relation='+relation, item)
+            .then(({data}) => {
+                if (data.relation.id != data.id) {
+                    data.relation.id = data.id;
+                }
+                commit('updateRelation', {'name': name, 'relation': relation, model: data.relation});
+                scrollToAndGlow(relation+data.relation.id,data.relation.id, state, commit);
+            })
+        }
+    },
+    updateGhostRelation({state, commit}, {name, relation, ids, modelToSave}) {
+        for (let modelId of ids) {
+            let relationToUpdate;
+            for (const [index, oldModel] of state.models[name].modelToSave[relation].entries()) {
+                if (oldModel.id == modelId) {
+                    relationToUpdate = oldModel;
+                    for (let field in modelToSave) {
+                        relationToUpdate[field] = modelToSave[field];
+                    }
+                }
+            }
+            axios.patch('/api/relations/'+modelId+'?model='+name+'&relation='+relation, relationToUpdate)
+            .then(({data}) => {
+                if (data.relation.id != data.id) {
+                    data.relation.id = data.id;
+                }
+                commit('updateRelation', {'name': name, 'relation': relation, model: data.relation});
+                scrollToAndGlow(relation+data.relation.id,data.relation.id, state, commit);
+            })
+        }
     },
     removeRelations({commit, state}, {name, relation, ids}) {
         let items = state.models[name].modelToSave[relation];
@@ -145,6 +169,12 @@ const actions = {
     },
 };
 const mutations = {
+    addIdToAnimate(state, id) {
+		state.animationClasses["glitter-dentix"].push(id);      
+    },
+    cleanAnimations(state, animation) {
+        state.animationClasses[animation] = []; 
+    },
     modelsReady(state) {
         state.ready = true;
     },
@@ -165,10 +195,22 @@ const mutations = {
         models[name].modelToSave[relation].push(item);
         Vue.set(state.newRelation, name+relation, {id: item.id});
     },
-    updateRelation({models}, {name, relation , model}) {
-        for (const [index, item] of models[name].modelToSave[relation].entries()) {
+    updateRelation(state, {name, relation , model}) {
+        for (const [index, item] of state.models[name].modelToSave[relation].entries()) {
             if (item.id == model.id) {
-                Vue.set(models[name].modelToSave[relation], index, model);
+                Vue.set(state.models[name].modelToSave[relation], index, model);
+                Vue.set(state.newRelation, name+relation, {id: item.id});
+            }
+        }
+    },
+    updateGhostRelation(state, {name, relation, ids, modelToSave}) {
+        for (const [index, item] of state.models[name].modelToSave[relation].entries()) {
+            if (ids.includes(item.id)) {
+                for (let field in modelToSave) {
+                    item[field] = modelToSave[field];
+                }
+                // Vue.set(state.models[name].modelToSave[relation], index, model);
+                Vue.set(state.newRelation, name+relation, {id: item.id});
             }
         }
     },
@@ -200,6 +242,7 @@ const mutations = {
         models[model].itemSelected = models[model].items.find(item => item.id === id);
     },
     modelToSaveBuilder({models}, {model, fields, item=null, relations}) {
+        console.log(fields);
         for (let field in fields) {
             Vue.set(
                 models[model].modelToSave,

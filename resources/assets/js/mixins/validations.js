@@ -11,6 +11,13 @@ export default {
 
 	methods: {
         validateField(field,input,rules) {
+            if (!rules.includes('required') && (!input || input == '')) {
+                if (this.errorsHas(field)) {
+                    this.$delete(this.errors.errorsInField, field);
+                    this.errors.fieldsWithErrors.splice(this.errors.fieldsWithErrors.indexOf(field),1);
+                }
+                return true;
+            }
             for (let rule of rules) {
                 let params = '';
                 if (rule.indexOf(':') != -1) {
@@ -23,7 +30,6 @@ export default {
                     if (!this.errorsHas(field)) {
                         this.errors.fieldsWithErrors.push(field);
                         this.$set(this.errors.errorsInField,field,[]);
-                        // this.errors.errorsInField[field] = []; 
                     }
                     if (!this.fieldHasError(field, rule)) {
                         this.errors.errorsInField[field].push(rule); 
@@ -50,7 +56,7 @@ export default {
             return false;
         },
         maxLength(input, param) {
-            if (input && param > input.length) return true;
+            if (input && param >= input.length) return true;
             return false;
         }
 	}

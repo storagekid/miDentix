@@ -38,11 +38,12 @@ trait Tableable {
             } else {
                 $name = $column;
             }
-
+            
             $temp = [];
             $temp['label'] = array_key_exists('label', $options) ? $options['label'] : ucfirst($name);;
             $temp['name'] = $name;
             $temp['show'] = true;
+            $temp['linebreak'] = array_key_exists('linebreak', $options) ? $options['linebreak'] : false;
             $temp['boolean'] = array_key_exists('boolean', $options) ? $options['boolean'] : false;
             $temp['parse'] = array_key_exists('parse', $options) ? true : false;
             $temp['width'] = "";

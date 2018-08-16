@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-table">
+  <div class="custom-table fx fx-col">
     <!-- MODALS -->
     <template>
         <custom-modal :name="'new-' + model + '-model'" :width="'1000px'">
@@ -36,10 +36,11 @@
             <span class="filter-remover-title">Selección:</span>
             <span v-for="(action, index) in options.actions" :key="index" class="table-column-buttons">
               <button 
-                type="button" 
+                type="button"
+                class="custom-table-btn" 
                 :class="actionBtnClass(action)"
                 @click="sendAction(action)"
-                :disabled="actionChecker(action)" 
+                :disabled="actionDisabler(action)" 
                 >
                 <span :class="actionIconClass(action)">
                 </span>
@@ -64,7 +65,7 @@
         </div>
       </div>
       <table 
-        class="table table-responsive" 
+        class="table table-responsive fx fx-col" 
         v-bind:style="{'min-width': tableWidth+'px'}"
         >
         <thead @click.right.prevent="toggleTheadMenu">
@@ -206,9 +207,11 @@ export default {
       }
     },
     tables() {
-      if (this.tables[this.model].ready && this.items.length) {
+      if (this.tables[this.model]) {
+        if (this.tables[this.model].ready && this.items.length) {
           this.setColumnsWidth();
         }
+      }
     },
     "newModel.id"() {
       if (this.newModel.id && !this.relatedModel) {
@@ -496,13 +499,13 @@ export default {
       }
       return parsedString;
     },
-    actionChecker(action) {
+    actionDisabler(action) {
       if (
-        (action == "show" || action == "edit") &&
+        (action == "show") &&
         this.rowsSelected.length == 1
       ) {
         return false;
-      } else if (action == "delete" && this.rowsSelected.length) {
+      } else if ((action == "delete" || action == "edit") && this.rowsSelected.length) {
         return false;
       }
       return true;
@@ -540,10 +543,18 @@ export default {
       return this.$store.state.Model.animationClasses;
     },
     newModel() {
-      return this.$store.state.Model.newModel[this.model];
+      if (this.$store.state.Model.newModel[this.model]) {
+        return this.$store.state.Model.newModel[this.model];
+      } else {
+        return {id:false};
+      }
     },
     newRelation() {
-      return this.$store.state.Model.newRelation[this.relatedModel+this.model];
+      if (this.$store.state.Model.newRelation[this.relatedModel+this.model]) {
+        return this.$store.state.Model.newRelation[this.relatedModel+this.model];
+      } else {
+        return {id:false};
+      }
     },
     items() {
       if (this.tableItems) {
@@ -559,9 +570,9 @@ export default {
     },
     panelClass() {
       if (this.admin) {
-        return "panel-body-admin";
+        return "panel-body-admin fx fx-col";
       } else {
-        return "panel-body";
+        return "panel-body fx fx-col";
       }
     },
     tableWidth() {

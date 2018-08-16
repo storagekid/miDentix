@@ -59,7 +59,13 @@ class ClinicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $clinic = Clinic::find($id);
+
+        $clinic->update(request()->all());
+
+        return response([
+            'updatedModel' => $clinic->fresh(),
+        ], 200);
     }
 
     /**
@@ -71,14 +77,5 @@ class ClinicController extends Controller
     public function destroy($id)
     {
         Clinic::destroy($id);
-    }
-
-    public function table()
-    {
-        $clinic = Clinic::first();
-        $columns = $clinic->tableColumns();
-        return response([
-            'columns' => $columns,
-            ], 200);
     }
 }

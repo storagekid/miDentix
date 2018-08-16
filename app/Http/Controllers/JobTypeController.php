@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
+use App\JobType;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Provider;
 
-class ProviderController extends Controller
+class JobTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,17 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        return response([
-            'model'=>Provider::get(),
-        ],200);
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,20 +35,27 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        $provider = Provider::create(request()->all());
-
-        return response([
-            'newmodel' => $provider,
-        ], 200);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\JobType  $jobType
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(JobType $jobType)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\JobType  $jobType
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(JobType $jobType)
     {
         //
     }
@@ -50,28 +64,22 @@ class ProviderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\JobType  $jobType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, JobType $jobType)
     {
-        $provider = Provider::find($id);
-
-        $provider->update(request()->all());
-
-        return response([
-            'updatedModel' => $provider->fresh(),
-        ], 200);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\JobType  $jobType
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(JobType $jobType)
     {
-        Provider::destroy($id);
+        //
     }
 }

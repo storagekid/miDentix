@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCostCentersTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateCostCentersTable extends Migration
      */
     public function up()
     {
-        Schema::create('cost_centers', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('cc_id')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCostCentersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cost_centers');
+        Schema::dropIfExists('jobs');
     }
 }

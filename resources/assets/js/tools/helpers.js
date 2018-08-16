@@ -18,6 +18,15 @@ const Helpers = {
         Vue.scrollToElement = function(id) {
             var topPos = document.getElementById(id).offsetTop;
             document.getElementById(id).parentNode.scrollTop = topPos-10;
+        },
+        Vue.scrollToAndGlow = function(name, id) {
+            setTimeout(function() {
+                Vue.scrollToElement(name);
+                store.state.Model.animationClasses["glitter-dentix"].push(id);
+                setTimeout(function() {
+                    store.state.Model.animationClasses["glitter-dentix"] = []; 
+                },3000); 
+            },1000);
         }
     }
 }

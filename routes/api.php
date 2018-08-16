@@ -24,6 +24,7 @@ Route::namespace('API')->group(function () {
     Route::get('/providers/form', 'ProviderController@form');
     Route::resource('providers', 'ProviderController');
     Route::resource('orders', 'OrderController');
+    Route::resource('shoppingBags', 'ShoppingBagController');
     Route::get('/stationaries/table', 'StationaryController@table');
     Route::get('/stationaries/form', 'StationaryController@form');
     Route::resource('stationaries', 'StationaryController');

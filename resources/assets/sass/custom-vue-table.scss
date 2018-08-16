@@ -6,7 +6,10 @@
     overflow: auto;
   }
   .custom-table .panel-body table {
-    display: inline-table;
+    // display: inline-table;
+  }
+  .custom-table .panel-body table.table {
+    margin-bottom: 0;
   }
   .custom-table .panel-body table tr {
     display: flex;
@@ -27,8 +30,9 @@
   }
   .custom-table table tbody {
     display: block;
-    max-height: 70vh;
+    max-height: 65vh;
     overflow: auto;
+    background: rgba(255,255,255, 0.8);
   }
 
   .custom-table table tbody#main-tbody-empty td {
@@ -56,7 +60,7 @@
   .custom-table table tbody tr:hover {
     background: $gray-light;
   }
-  .custom-table .panel-body button {
+  .custom-table .panel-body .custom-table-btn {
     margin: 0;
     border: none;
     background: none;
@@ -161,6 +165,7 @@
   display: block;
   height: 20px;
   width: 20px;
+  font-size: 1.3em;
 }
 .table-header-box-wrapper {
   border-bottom: 1px solid #DDD;
