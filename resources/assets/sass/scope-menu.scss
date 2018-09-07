@@ -1,0 +1,14 @@
+#scope-menu-container {
+    margin-top: 15px;
+    margin-left: 100px;
+    label {
+        margin-bottom: 0;
+    }
+    select {
+        color: $dentix-main;
+    }
+    button {
+        padding: 0 20px;
+        font-weight: 900;
+    }
+}

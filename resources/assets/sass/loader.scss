@@ -6,7 +6,7 @@
     
 .loader:after {
     animation: spinAround 500ms infinite linear;
-    border: 2px solid #dbdbdb;
+    border: 2px solid white;
     border-radius: 290486px;
     border-right-color: transparent;
     border-top-color: transparent;
@@ -18,6 +18,25 @@
     position: absolute;
     left: calc(50% - (1em / 2));
     top: calc(50% - (1em / 2));
+    position: absolute !important;
+}
+
+.loader-xl:after {
+    -webkit-animation: spinAround 500ms infinite linear;
+    animation: spinAround 500ms infinite linear;
+    border: 3px solid $dentix-main;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    font-size: 4em;
+    display: block;
+    height: 2em;
+    position: relative;
+    width: 2em;
+    position: absolute;
+    left: calc(50% - (2em / 2));
+    top: calc(50% - (2em / 2));
     position: absolute !important;
 }
     

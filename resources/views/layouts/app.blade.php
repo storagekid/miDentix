@@ -12,30 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 
-    {{-- Scripts --}}
-    <script>
-        // $page = window.getPage();
-        getPage = function() {
-            let str = window.location.pathname.substring(1);
-            let index = str.indexOf('/',2);
-            if (index != -1) {
-                str = str.substring(1,index);
-            } 
-            return str;
-        }
-        let auth = "<?php echo auth()->check(); ?>"      
-        if (auth != '') {
-            let role = {!! json_encode(auth()->user()->role) !!};
-            let groups = {!! json_encode(auth()->user()->group()->pluck('name')) !!};
-            window.App = {!! json_encode([
-                'role' => '',
-            ]) !!};
-            window.App.role = role;
-            window.App.group = groups;
-            window.App.page = getPage();
-        }
-    </script>
 </head>
 <body>
     <div id="app">
@@ -47,7 +25,10 @@
             <div class="row">
                 <div class="'col-xs-12" id="main-content">
                     <!-- <loading></loading> -->
-                    <router-view></router-view>
+                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                        <loading v-if="!$store.getters['Scope/ready']"></loading>
+                        <router-view v-else></router-view>
+                    </transition>
                     <!-- @yield('content') -->
                 </div>
             </div>

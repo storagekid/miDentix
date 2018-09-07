@@ -30,6 +30,11 @@ export default {
 		};
 	},
 
+	computed: {
+		unfiltered() {
+				
+		}
+	},
 	methods: {
 		buildFiltering(source) {
 			this.filtering.source = source;
@@ -47,7 +52,8 @@ export default {
 				search: false,
 				noOptions: false
 			},
-			columnLabel) {
+			columnLabel) 
+			{
 			if (options.noOptions) {
 				this.filtering.showOptions = false;
 			}
@@ -62,12 +68,10 @@ export default {
 				if (options.object) {
 					for (let item of this[this.filtering.source]) {
 						let id = item.id;
-						// console.log(id);
 						if (this.filtering.selected.indexOf(id) != -1) {
 							let fullstring = '';
 							if (!item[options.object]) {
 								fullstring = options.nullName;
-								// console.log('NullName: '+options.nullName);
 							} else {
 								for (let field of options.search) {
 									if (item[options.object][field]) {

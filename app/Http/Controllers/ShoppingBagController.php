@@ -95,6 +95,9 @@ class ShoppingBagController extends Controller
             if ($item->customizable) {
                 $temp = \App\ClinicStationary::where(['stationary_id'=>$stationary->orderable_id,'clinic_id'=>$stationary->clinic_id])->pluck('link')->toArray();
                 return $temp[0];
+            } else if ($item->name == 'medicalChart') {
+                $temp = \App\Stationary::where(['id'=>$stationary->orderable_id])->pluck('link')->toArray();
+                return $temp[0]; 
             } else {
                 $temp = \App\Stationary::where(['id'=>$stationary->orderable_id])->pluck('link')->toArray();
                 return $temp[0]; 
@@ -108,7 +111,7 @@ class ShoppingBagController extends Controller
         // }, $files);
         // dd($files);
         $dir = 'orders/';
-        $name = $orders[0]->clinic->fullName . '.zip';
+        $name = $orders[0]->clinic->cleanName . '.zip';
         $path = storage_path('app/' . $dir . $name);
 
         // dd($name);

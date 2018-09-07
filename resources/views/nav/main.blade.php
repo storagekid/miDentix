@@ -1,7 +1,6 @@
 <nav class="navbar navbar-default navbar-static-top" id="nav-main">
-    <div class="container">
+    <div class="">
         <div class="navbar-header">
-
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
@@ -25,6 +24,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                <scope-menu></scope-menu>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -34,22 +34,14 @@
                     {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                 @else
                     <div class="visible-xs-block" id="left-nav-xs">
-                        <main-menu :menu="{{auth()->user()->getMenu('gabinete', auth()->user()->group()->pluck('name')->toArray(),auth()->user()->role )}}" :user="{{auth()->user()}}"></main-menu>
+                        <main-menu :menu="{{auth()->user()->getMenu('gabinete', auth()->user()->group()->pluck('name')->toArray(),auth()->user()->role )}}" :user="$store.state.user"></main-menu>
                     </div>
                     <shopping-cart-nav-container>
                         <shopping-cart></shopping-cart>
                     </shopping-cart-nav-container>
-                    <!-- <li v-if="@{{$store.state.ShoppingCart.shoppingCart.length()}}">
-                        <a href="" id="shopping-cart-nav-container" @click.prevent >
-                            <i class="glyphicon glyphicon-shopping-cart" id="shopping-cart-main-nav-icon">
-                                <shopping-cart></shopping-cart>                    
-                            </i>
-                            <div class="number-alert"><p>4</p></div>
-                        </a>
-                    </li> -->
                     <li class="dropdown" id="profile-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                           <span class="glyphicon glyphicon-user"></span> {{ Auth::user()->profile->name }} <span class="caret"></span>
+                           <span class="glyphicon glyphicon-user"></span> {{ \App\Profile::find(session('selectedProfile'))->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
@@ -73,11 +65,11 @@
                     </li>
                 @endguest
             </ul>
-            @if(auth()->user()->profile->tutorial_completed)
+            <!-- @if(auth()->user()->profile->tutorial_completed)
                 <div class="hidden-xs" id="alerts-lg">
                     @include('nav.alerts')
                 </div>
-            @endif
+            @endif -->
         </div>
     </div>
 </nav>

@@ -34,6 +34,7 @@ class Clinic extends Model
     'address_real_2' => [
       'label' => 'Dir. Real 2',
       'filtering' => ['search'],
+      'show' => false
     ],
     'address_adv_1' => [
       'label' => 'Dir. Comercial',
@@ -42,6 +43,7 @@ class Clinic extends Model
     'address_adv_2' => [
       'label' => 'Dir. Comercial 2',
       'filtering' => ['search'],
+      'show' => false
     ],
     'postal_code' => [
       'label' => 'CP',
@@ -61,6 +63,10 @@ class Clinic extends Model
     ],
     'sanitary_code' => [
       'label' => 'Código Sanitario',
+      'filtering' => ['search'],
+    ],
+    'costCenterName' => [
+      'label' => 'Centro de Coste',
       'filtering' => ['search'],
     ],
     'countyName' => [
@@ -83,7 +89,7 @@ class Clinic extends Model
   // Formable DATA
   protected $formFields = [
     'country_id' => [
-        'label' =>'Nombre',
+        'label' =>'País',
         'dontRecord' => true,
         'affects' => 'state_id',
         'type' => [
@@ -165,26 +171,40 @@ class Clinic extends Model
     ],
     'sanitary_code' => [
       'label' =>'Código Sanitario',
-      'rules' => ['required', 'min:4','max:255'],
+      'rules' => ['min:4','max:255'],
       'batch' => true,
     ],
     'email_ext' => [
       'label' =>'Extensión Email',
-      'rules' => ['required', 'min:4','max:255'],
+      'rules' => ['min:4','max:255'],
     ],
+    'cost_center_id' => [
+      'label' =>'Centro de Coste',
+      'type' => [
+        'name' =>'select',
+        'model' => 'cost_centers',
+        'text' =>  'name',
+        'value' => 'id',
+        'default' => [
+          'value' => null,
+          'text' => 'Selecciona un Centro de Coste',
+          'disabled' => true,
+        ],
+      ],
+  ],
 ];
 
-protected $formModels = ['countries','counties','states'];
+protected $formModels = ['countries','counties','states','cost_centers'];
 
 protected $formRelations = [
 ];
 
 // END Formable DATA
 
-  protected $fillable = ['city', 'address_real_1', 'address_real_2', 'address_adv_1', 'address_adv_2', 'postal_code', 'phone_real', 'phone_adv', 'email_ext', 'sanitary_code', 'county_id'];
+  protected $fillable = ['city', 'address_real_1', 'address_real_2', 'address_adv_1', 'address_adv_2', 'postal_code', 'phone_real', 'phone_adv', 'email_ext', 'sanitary_code', 'county_id', 'cost_center_id'];
   protected $guarded = [];
   protected $with = ['county'];
-  protected $appends = ['fullName', 'cleanName', 'countyName', 'stateName', 'countryName'];
+  protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
   protected $casts = ['postal_code' => 'string'];
   protected $stationary = [];
 
@@ -253,16 +273,31 @@ protected $formRelations = [
     return $cleanName;
   }
 
+  public function getCostCenterNameAttribute()
+  {
+      return $this->costCenter ? $this->costCenter->name : '-';
+  }
+
   public function getCountyNameAttribute()
   {
       return $this->county->name;
   }
 
+  public function getStateIdAttribute()
+  {
+      return $this->county->state ? $this->county->state->id : null;
+  }
+  
   public function getStateNameAttribute()
   {
       return $this->county->state->name;
   }
 
+  public function getCountryIdAttribute()
+  {
+      return $this->county->state->country ? $this->county->state->country->id : null;
+  }
+  
   public function getCountryNameAttribute()
   {
       return $this->county->state->country->name;

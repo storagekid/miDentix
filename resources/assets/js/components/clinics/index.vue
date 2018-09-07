@@ -12,6 +12,7 @@
                 <vue-table 
                   v-if="models[model].items" 
                   :model="model"
+                  :scoped="model"
                   mode="vuex"
                   >
                 </vue-table>
@@ -37,8 +38,6 @@
               },
             }
         },
-        watch: {
-        },
         computed: {
           models() {
             return this.$store.state.Model.models;
@@ -55,7 +54,7 @@
         methods: {
         },
         created() {
-          this.$store.dispatch('Model/fetchModels',this.modelsNeeded);
+          this.$store.dispatch('Model/fetchModels',{models: this.modelsNeeded});
         },
         mounted() {
         },

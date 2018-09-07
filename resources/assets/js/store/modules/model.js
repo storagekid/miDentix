@@ -21,7 +21,10 @@ const actions = {
         } else {
             selected = state.models[model].items.filter(model => payload.ids.includes(model.id));            
         }
-        commit('Modal/newModal', {name:'new-' + model + '-model', data:{'model':model , 'ids':payload.ids, items: selected, mode:'edit'}}, { root: true });                        
+        if (!payload.column) {
+            payload['column'] = null;
+        }
+        commit('Modal/newModal', {name:'new-' + model + '-model', data:{'model':model , 'ids':payload.ids, items: selected, mode:payload.mode, fields:payload.column}}, { root: true });                        
     },
     createNewModel({commit, state}, {name,model,hasFiles}) {
         let headers = {};
@@ -81,8 +84,12 @@ const actions = {
     removeModels({commit, state}, {name,ids}) {
         for (let id of ids) {
             axios.delete('/api/'+name+'/'+id)
-            .then((response) => {
+            .then(({data}) => {
                 commit('removeModel', {model: name, id:id});
+                flash({
+                    message: data.message ? data.message : name + 'eliminado correctamente.', 
+                    label: 'success'
+                });
             })
             .catch(({error}) => {
                 console.log('Error deleting');
@@ -90,11 +97,11 @@ const actions = {
         };
         commit('Modal/hideModal',{name: 'delete-' + name + '-model'}, { root: true });
     },
-    fetchModels({state,commit}, models) {
+    fetchModels({state,commit}, options = {models, ids:null, groupBy:null ,refresh:false}) {
         let modelsToFetch = [];
         let modelsFetched = 0;
-        for(let model of models) {
-            if (!state.models[model]) {
+        for(let model of options.models) {
+            if (!state.models[model] || options.refresh) {
                 commit('setModel', {name: model});
                 modelsToFetch.push(model);
             }
@@ -102,12 +109,84 @@ const actions = {
         if (modelsToFetch.length) {
             commit('modelsNotReady');
             for(let model of modelsToFetch) {
-                axios.get('/api/'+model)
+                let params = {};
+                if (options.ids) {
+                    params['ids'] = options.ids;
+                }
+                if (options.groupby) {
+                    params['groupby'] = options.groupby;
+                }
+                axios({
+                    url: '/api/'+model,
+                    method: 'GET',
+                    params: params
+                  })
                 .then(data => {
                     if (data.data.model) {
                         let items = data.data.model;
                         commit('setItemsFetched', {name: model, items: items});
                         modelsFetched++;
+                    }
+                    if (modelsToFetch.length == modelsFetched) {
+                        commit('modelsReady');
+                    }
+                })
+                .catch(error => {
+                    console.log('Error fetching models');
+                });
+            }
+        }
+    },
+    fetchFilteredModels({state,commit, rootState}, options = {models, groupBy:null ,refresh:false, scoped:false}) {
+        let modelsToFetch = [];
+        let modelsFetched = 0;
+        for(let model in options.models) {
+            if (!state.models[model] || options.refresh) {
+                commit('setModel', {name: model});
+                modelsToFetch.push(model);
+            }
+        }
+        if (modelsToFetch.length) {
+            commit('modelsNotReady');
+            for(let model of modelsToFetch) {
+                console.log('Model: ' + model);
+                console.log(options.models[model]);
+                let params = {};
+                if (options.models[model].ids) {
+                    params['ids'] = options.models[model].ids;
+                }
+                if (options.models[model].clinic) {
+                    params['clinic_id'] = options.models[model].clinic;
+                }
+                if (options.models[model].groupby) {
+                    params['groupby'] = options.models[model].groupby;
+                }
+                if (options.scoped) {
+                    params['clinic_id'] = rootState.Scope.clinics.selected;
+                    params['clinics'] = rootState.Scope.clinics.ids;
+                    params['county_id'] = rootState.Scope.counties.selected;
+                    params['counties'] = rootState.Scope.counties.ids;
+                    params['state_id'] = rootState.Scope.states.selected;
+                    params['states'] = rootState.Scope.states.ids;
+                    params['country_id'] = rootState.Scope.countries.selected;
+                    params['countries'] = rootState.Scope.countries.ids;
+                }
+                axios({
+                    url: '/api/'+model,
+                    method: 'GET',
+                    params: params
+                  })
+                // axios.get('/api/'+model+'?ids='+options.models[model].ids+'&groupby='+options.groupBy)
+                .then(data => {
+                    if (data.data.model) {
+                        let items = data.data.model;
+                        commit('setItemsFetched', {name: model, items: items});
+                        modelsFetched++;
+                        if (rootState.Scope[model]) {
+                            if (rootState.Scope[model].selected) {
+                                commit('selectModel', {'model': model, id: rootState.Scope[model].selected});
+                            }
+                        }
                     }
                     if (modelsToFetch.length == modelsFetched) {
                         commit('modelsReady');
@@ -195,6 +274,9 @@ const mutations = {
         models[name].modelToSave[relation].push(item);
         Vue.set(state.newRelation, name+relation, {id: item.id});
     },
+    deleteTempNewRelation({models}, {name, relation}) {
+        Vue.delete(state.newRelation, relation+name);
+    },
     updateRelation(state, {name, relation , model}) {
         for (const [index, item] of state.models[name].modelToSave[relation].entries()) {
             if (item.id == model.id) {
@@ -225,10 +307,12 @@ const mutations = {
         models[name].modelToSave = {};
     },
     restoreNewIds(state, {model, relation}) {
-        Vue.delete(state.newModel, model);
-        if (relation) {
-            Vue.delete(state.newRelation, relation+model);
-        }
+        // if (state.newModel[model]) {
+        //     state.newModel[model].ids = [];
+        // }
+        // if (relation) {
+        //     Vue.delete(state.newRelation, relation+model);
+        // }
     },
     setItemsFetched({models}, {name, items}) {
         models[name].items = items;
@@ -239,10 +323,9 @@ const mutations = {
             models[model].idSelected = null;
             return false;
         }
-        models[model].itemSelected = models[model].items.find(item => item.id === id);
+        models[model].itemSelected = models[model].items.find(item => item.id == id);
     },
     modelToSaveBuilder({models}, {model, fields, item=null, relations}) {
-        console.log(fields);
         for (let field in fields) {
             Vue.set(
                 models[model].modelToSave,
@@ -276,10 +359,17 @@ const mutations = {
             }
         }
     },
-    addNewModel(state, {modelName,model}) {
-        state.models[modelName].items.push(model);
-        Vue.set(state.newModel, modelName, {id: model.id});
+    addNewModel(state, {modelName, model}) {
+        state.models[modelName].items.unshift(model);
+        if (!state.newModel[modelName]) {
+            Vue.set(state.newModel, modelName, {ids: [model.id]});
+        } else {
+            state.newModel[modelName].ids.push(model.id);
+        }
         // state.newModel.id = model.id;
+    },
+    cleanNewModelId(state, {model, id}) {
+        state.newModel[model].ids.splice(state.newModel[model].ids.indexOf(id), 1);
     },
     updateModel(state, {modelName,model}) {
         for (const [index, item] of state.models[modelName].items.entries()) {

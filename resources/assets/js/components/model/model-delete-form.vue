@@ -1,26 +1,31 @@
 <template>
   <div id="model-delete-container">
     <loading v-if="!$store.getters.ready"></loading>
-    <div class="fx jf-center" v-else>
-      <div class="fx-100 panel panel-default">
-            <div class="panel-heading text-center">
-              <h3 class="panel-title">Eliminar Registros</h3>
-            </div>
-            <div class="fx fx-100 fx-center mb-10-all mr-10-all">
-                <button 
-                class="btn btn-warning btn-sm" 
-                    @click.prevent="cancelDeleting"
-                    >
-                    Cancelar
-                </button>
-                <button 
-                class="btn btn-primary btn-sm" 
-                    @click.prevent="confirmDeleting"
-                    >
-                    Eliminar
-                </button>
+    <div class="fx fx-col jf-center" v-else>
+      <div class="modal-heading text-center">
+          <h3 class="panel-title">Eliminar Registros</h3>
+      </div>
+      <div class="modal-body">
+        <div class="panel-default fx-100">
+            <div class="panel-body text-center">
+                <h4>¿Estas seguro de que deseas eliminar los registros</h4>
             </div>
         </div>
+      </div>
+      <div class="modal-footer fx mr-10">
+            <button 
+                class="btn btn-warning btn-sm" 
+                @click.prevent="cancelDeleting"
+                >
+                Cancelar
+            </button>
+            <button 
+                class="btn btn-primary btn-sm" 
+                @click.prevent="confirmDeleting"
+                >
+                Eliminar
+            </button>
+      </div>
     </div>
   </div>
 </template>

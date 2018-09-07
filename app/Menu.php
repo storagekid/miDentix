@@ -60,6 +60,11 @@ class Menu
             'link' => '/users',
             'icon' => 'glyphicon glyphicon-user'
         ],
+        'Profiles' => [
+            'name' => 'Personal',
+            'link' => '/profiles',
+            'icon' => 'glyphicon glyphicon-user'
+        ],
         'Dentists' => [
             'name' => 'Odontólogos',
             'link' => '/dentists',
@@ -79,6 +84,11 @@ class Menu
             'name' => 'Identificadores',
             'link' => '/personal-tags',
             'icon' => 'glyphicon glyphicon-tags'
+        ],
+        'BusinessCard' => [
+            'name' => 'Tarjeta de Visita',
+            'link' => '/business-card',
+            'icon' => 'glyphicon glyphicon-credit-card'
         ],
         'MedicalDirectory' => [
             'name' => 'Cuadro Médico',

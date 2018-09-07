@@ -20,9 +20,13 @@ use Illuminate\Http\Request;
 Route::namespace('API')->group(function () {
     Route::get('/clinics/table', 'ClinicController@table');
     Route::resource('clinics', 'ClinicController');
+    Route::resource('profiles', 'ProfileController');
+    Route::resource('cost_centers', 'CostCenterController');
     Route::get('/providers/table', 'ProviderController@table');
     Route::get('/providers/form', 'ProviderController@form');
     Route::resource('providers', 'ProviderController');
+    Route::resource('jobs', 'JobController');
+    Route::resource('job_types', 'JobTypeController');
     Route::resource('orders', 'OrderController');
     Route::resource('shoppingBags', 'ShoppingBagController');
     Route::get('/stationaries/table', 'StationaryController@table');

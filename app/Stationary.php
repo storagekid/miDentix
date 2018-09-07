@@ -45,9 +45,11 @@ class Stationary extends Model
                 'off',
                 'boolean' => ['No','Sí']
             ],
+            'multiEdit' => true,
         ], 
         'price' => [
-            'label' => 'Precio'
+            'label' => 'Precio',
+            'multiEdit' => true,
         ], 
         'providerList' => [
             'label' => 'Proveedores',
@@ -95,6 +97,7 @@ class Stationary extends Model
             'type' => [
               'name' =>'checkBox',
             ],
+            'batch' => true,
           ],
           'file' => [
             'label' =>'Diseño',
@@ -276,6 +279,9 @@ class Stationary extends Model
             case 'envelopeBig':
                 $this->makeSobreBolsa($clinic, $path);
                 break;
+            case 'businessCardClinic':
+                $this->makeClinicBusinessCard($clinic, $path);
+                break;
         }
 
     }
@@ -337,7 +343,7 @@ class Stationary extends Model
         $pdf->RoundedRect($marginLeft, 273.5, 185.6, 15, 4, '1111', 'F');
 
         $pdf->setY(277);
-        $text = $clinic->address_real_1 . '. ' . $clinic->postal_code . ' ' . $clinic->city . '. ' . $clinic->phone_real . '.';
+        $text = $clinic->address_real_1 . '. ' . $clinic->postal_code . ' ' . $clinic->city . '. Tel. ' . $clinic->phone_real . '.';
         $pdf->SetFont('dentixth', '', 10, '', false);
         $pdf->Cell(185.6, '', $text, 0, 0, 'C', false, '');
 
@@ -426,7 +432,7 @@ class Stationary extends Model
         $pdf->RoundedRect($marginLeft,125,210-$marginRight-$marginLeft,15,4,'1111','F');
       
         $pdf->setY(128.4);
-        $text = $clinic->address_real_1.". ".$clinic->postal_code." ".$clinic->city.". ".$clinic->phone_real.".";
+        $text = $clinic->address_real_1.". ".$clinic->postal_code." ".$clinic->city.". Tel. ".$clinic->phone_real.".";
         $pdf->SetFont('dentixth','',10,'',false);
         $pdf->Cell(185.6,'',$text,0,0,'C',false,'');
       
@@ -592,6 +598,161 @@ class Stationary extends Model
       
         return true;
       
+    }
+
+    public static function makeClinicBusinessCard($clinic, $path, $force=false) {
+
+        $line1 = $clinic->address_real_1.", ".$clinic->postal_code." ".$clinic->city;
+        $line2 = "";
+        $email = false;
+        $domain = 'dentix.es';
+
+        $pdf = new TCPDF("L","mm","A4",true,"UTF-8",false);
+
+        $pdf->SetAuthor("Dentix® - Dpto. de Desarrollo");
+        $pdf->SetCreator("Generador de Identificadores Dentix®.");
+        $pdf->SetTitle("Identificadores Dentix®.");
+        $pdf->SetKeywords("Dentix Clínicas Identificadores");
+        $pdf->SetSubject("Identificadores para los uniformes de clínica.");
+
+        $pdf->setPrintHeader(false);
+        $pdf->setPrintFooter(false);
+
+        $bleed = 3;
+        $slug = 5;
+
+        $marginTop = $bleed+$slug;
+        $marginLeft = $bleed+$slug;
+        $marginRight = $bleed+$slug;
+        $marginBottom = $bleed+$slug;
+
+        $pdf->SetMargins($marginLeft,$marginTop,$marginRight,$marginBottom,true);
+
+        $Color512 = "PANTONE 512 C";
+        $Color9C = "PANTONE Cool Grey 9C";
+
+        $pdf->AddSpotColor($Color512,50,90,13,15);
+
+        $pdf->SetDrawSpotColor($Color512,100);
+        $pdf->SetFillSpotColor($Color512,100);
+        $pdf->SetTextSpotColor($Color512,100);
+
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        $pdf->SetAutoPageBreak(1,1);
+
+        $pageWidth = 85+(($bleed+$slug)*2);
+        $pageHeight = 55+(($bleed+$slug)*2);
+        $size = array($pageWidth,$pageHeight);
+
+        $pdf->AddPage("L",$size);
+        
+        // $pdf->setY(0);
+        $pdf->SetFillSpotColor($Color512,10);
+        $pdf->Rect($slug,27.5+$bleed+$slug,$pageWidth-($slug*2),17,'F');
+
+        $pdf->setY(16+$bleed+$slug);
+        $text = 'Dentix ' . $clinic->city;
+        $pdf->SetFont('dentixroman','',14,'',false);
+        $pdf->Cell(85,'',$text,0,0,'C',false,'');
+
+        // $pdf->setY(19+$bleed+$slug);
+        // $text = $job;
+        // $pdf->SetFont('dentixth','',10,'',false);
+        // $pdf->Cell(85,'',$text,0,0,'C',false,'');
+
+        $lineHeight = 3.2;
+        if (!empty($line2)) {
+            $y = 29.5+$bleed+$slug;
+        } else {
+            $y = 31+$bleed+$slug;
+        }
+        $pdf->setY($y);
+        $text = $line1;
+        $pdf->SetFont('dentixth','',8,'',false);
+        $pdf->Cell(85,'',$text,0,0,'C',false,'');
+
+        if (!empty($line2)) {
+            $y = $y+$lineHeight;
+            $pdf->setY($y);
+            $text = $line2;
+            $pdf->SetFont('dentixth','',8,'',false);
+            $pdf->Cell(85,'',$text,0,0,'C',false,'');
+        } else {
+            $y = $y+($lineHeight*1.2);
+            $pdf->setY($y);
+            $text = 'Tel.: ' .  $clinic->phone_real;
+            $pdf->SetFont('dentixth','',8,'',false);
+            $pdf->Cell(85,'',$text,0,0,'C',false,'');
+        }
+
+        $y = $y+($lineHeight*1.2);
+        $pdf->setY($y);
+        $text = 'info.' . $clinic->email_ext . '@' . $domain;
+        $pdf->SetFont('dentixroman','',8,'',false);
+        $pdf->Cell(85,'',$text,0,0,'C',false,'');
+
+
+        $pdf->setY(47.7+$bleed+$slug);
+        $text = "www.dentix.com";
+        $pdf->SetFont('dentixth','',10,'',false);
+        $pdf->Cell(85,'',$text,0,0,'C',false,'');
+
+        if ($bleed > 0) {
+            // bleed($pdf,$pageWidth,$pageHeight,$bleed,$slug);
+            $pdf->SetLineWidth(0.15);
+            $pdf->SetDrawColor(0);
+            // Líneas de sangre horizontales
+            $pdf->Line(0,$slug+$bleed,$slug,$slug+$bleed);
+            $pdf->Line($pageWidth,$slug+$bleed,$pageWidth-($slug),$slug+$bleed);
+            $pdf->Line(0,$pageHeight-($slug+$bleed),$slug,$pageHeight-($slug+$bleed));
+            $pdf->Line($pageWidth,$pageHeight-($slug+$bleed),$pageWidth-($slug),$pageHeight-($slug+$bleed));
+            // / Líneas de sangre horizontales
+
+            // Líneas de sangre verticales
+
+            $pdf->Line($slug+$bleed,0,$slug+$bleed,$slug);
+            $pdf->Line($pageWidth-($slug+$bleed),0,$pageWidth-($slug+$bleed),$slug);
+            $pdf->Line($slug+$bleed,$pageHeight,$slug+$bleed,$pageHeight-$slug);
+            $pdf->Line($pageWidth-($slug+$bleed),$pageHeight,$pageWidth-($slug+$bleed),$pageHeight-$slug);
+
+            // / Líneas de sangre verticales
+        }
+
+        $pdf->AddPage();
+
+        $pdf->SetFillSpotColor($Color512,100);
+        $pdf->Rect(0+$slug,0+$slug,85+($bleed*2),55+($bleed*2),'F');
+
+        $pdf->SetDrawColor(0,0,0,0);
+        $pdf->SetFillColor(0,0,0,0);
+
+        $pdf->ImageEps(asset('img/logo-claim-512.eps'), 22+$bleed+$slug, 24+$bleed+$slug, 43, '', '', true, '', '', 0, false);
+
+        if ($bleed > 0) {
+            // bleed($pdf,$pageWidth,$pageHeight,$bleed,$slug);
+            $pdf->SetLineWidth(0.15);
+            $pdf->SetDrawColor(0);
+            // Líneas de sangre horizontales
+            $pdf->Line(0,$slug+$bleed,$slug,$slug+$bleed);
+            $pdf->Line($pageWidth,$slug+$bleed,$pageWidth-($slug),$slug+$bleed);
+            $pdf->Line(0,$pageHeight-($slug+$bleed),$slug,$pageHeight-($slug+$bleed));
+            $pdf->Line($pageWidth,$pageHeight-($slug+$bleed),$pageWidth-($slug),$pageHeight-($slug+$bleed));
+            // / Líneas de sangre horizontales
+
+            // Líneas de sangre verticales
+
+            $pdf->Line($slug+$bleed,0,$slug+$bleed,$slug);
+            $pdf->Line($pageWidth-($slug+$bleed),0,$pageWidth-($slug+$bleed),$slug);
+            $pdf->Line($slug+$bleed,$pageHeight,$slug+$bleed,$pageHeight-$slug);
+            $pdf->Line($pageWidth-($slug+$bleed),$pageHeight,$pageWidth-($slug+$bleed),$pageHeight-$slug);
+
+            // / Líneas de sangre verticales
+        }
+
+        $pdf->Output($path,"F");   
+        return true;
+
     }
 
     public function dotLine($object, $start, $y, $weight, $end)

@@ -18,8 +18,9 @@ class StationaryController extends Controller
     public function index()
     {
         return response([
-                'model'=>Stationary::get(),
-                ],200);
+            'model'=>Stationary::get(),
+            ],200
+        );
     }
 
     /**
@@ -111,9 +112,9 @@ class StationaryController extends Controller
                 if (is_string($relation)) {
                     $relation = json_decode($relation, true);
                 }
-                $nRelation = count($relation); 
+                $nRelation = count($relation);
+                $stationary->providers()->delete();
                 if ($nRelation > 0) {
-                    $stationary->providers()->delete();
                     foreach($relation as $model) {
                         $temp = $stationary->providers()->make($model);
                         $stationary->providers()->save($temp);

@@ -15,13 +15,20 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        $clinics = Clinic::all()->load(['costCenter', 'stationaries']);
-        $clinics->map(function ($clinic) {
-            return $clinic->getStationaryFilesUrl();
-        });
+        if (request()->has('ids')) {
+            if (request('ids') != 'undefined') {
+                $clinics = Clinic::orderBy('city')->orderBy('address_real_1')->find(request('ids'))->load(['costCenter', 'stationaries']);
+            }
+        } else {
+            $clinics = Clinic::orderBy('city')->orderBy('address_real_1')->get()->load(['costCenter', 'stationaries']);
+        }
+        // $clinics->map(function ($clinic) {
+        //     return $clinic->getStationaryFilesUrl();
+        // });
         return response([
-                'model' => $clinics,
-                ], 200);
+            'model' => $clinics,
+            ], 200
+        );
     }
 
     /**

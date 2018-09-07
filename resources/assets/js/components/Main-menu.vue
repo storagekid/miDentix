@@ -1,5 +1,5 @@
 <template>
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" v-if="$store.getters['Scope/ready']">
         <li v-for="menu in items" :class="{ active: menu.link === isActive}">
             <router-link :to="menu.link"> 
                 <div class="left-menu-link-container">
@@ -11,23 +11,13 @@
                 <hr class="left-nav-hr">
                 <span class="menu-name" v-text="menu.name"></span>
             </router-link>
-            <!-- <a :href="menu.link"> 
-                <div class="left-menu-link-container">
-                    <span :class="menu.icon"></span>
-                    <span class="badge badge-menu" v-if="menu.name == 'Necesidades' && admin.requestsUnsolved">{{admin.requestsUnsolved}}</span>
-                    <span class="badge badge-menu" v-if="menu.name == 'Odontólogos' && admin.deadUsers">{{admin.deadUsers}}</span>
-                    <span class="badge badge-menu" v-if="(menu.name == 'Bolsa de Horas' || menu.name == 'Jornada') && admin.extratimesUnsolved > 0">{{admin.extratimesUnsolved}}</span>
-                </div> 
-                <hr class="left-nav-hr">
-                <span class="menu-name" v-text="menu.name"></span>
-            </a> -->
         </li>
     </ul>
 </template>
 
 <script>
     export default {
-        props: ['menu','user'],
+        props: ['menu'],
         data() {
             return {
                 items: this.menu,
@@ -41,6 +31,11 @@
                     extratimesUnsolved: 0,
                     deadUsers: 0,
                 }
+            }
+        },
+        computed: {
+            user() {
+                return this.$store.state.User.user;
             }
         },
         methods: {

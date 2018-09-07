@@ -50,10 +50,10 @@ class StationaryController extends Controller
 
     public function downloadClinic(Request $request, Clinic $clinic)
     {
-        $files = glob(storage_path('app/stationary/' . $clinic->countryName . '/clinics/' . $clinic->fullName . '/*'));
-        $route = storage_path('app/stationary/' . $clinic->fullName . '/test.zip');
+        $files = glob(storage_path('app/stationary/' . $clinic->countryName . '/clinics/' . $clinic->cleanName . '/*'));
+        $route = storage_path('app/stationary/' . $clinic->cleanName . '/test.zip');
         \Zipper::make($route)->add($files)->close();
-        return response()->download($route, $clinic->fullName . '.zip')->deleteFileAfterSend(true);
+        return response()->download($route, $clinic->cleanName . '.zip')->deleteFileAfterSend(true);
     }
 
     public function downloadAll()
@@ -85,16 +85,18 @@ class StationaryController extends Controller
                     $file = $stationary->description . ' ' . $fullName . '.pdf';
                     $link = $dir . $fullName . '/' . $file;
                     $stationary->makePdf($dir, $stationary, $clinic, true);
-                    $item = ['link' => $link, 'file' => $file];
                     // Thumbnails
                     // create Imagick object
                     $imagick = new \Imagick();
                     // Reads image from PDF
-                    $imagick->readImage(storage_path('app/' . $link));
+                    $imagick->readImage(storage_path('app/' . $link.'[0]'));
                     $jpgFile = $stationary->description . ' ' . $fullName . '.jpg';
                     $jpgLink = $dir . $fullName . '/' . $jpgFile;
+                    $jpgPath = Storage::url($jpgFile);
                     // Writes an image
-                    $imagick->writeImages(storage_path('app/' . $jpgLink), true);
+                    $imagick->writeImages(storage_path('app/public/' . $jpgFile), true);
+
+                    $item = ['link' => $link, 'file' => $file, 'thumbnail' => $jpgPath];
                     $clinic->stationaries()->attach($stationary->id, $item);
                 }
             }
@@ -102,10 +104,13 @@ class StationaryController extends Controller
     }
 
     public function regen(Request $request)
-    {
-        Storage::deleteDirectory('stationary/España/clinics');
+    {   
+        $forceMode = request('force');
+        if ($forceMode) {
+            Storage::deleteDirectory('stationary/España/clinics');
+        }
         $clinics = Clinic::get();
-        $clinics->map(function ($clinic) {
+        $clinics->map(function ($clinic) use ($forceMode) {
             $country = $clinic->countryName;
             $dir = 'stationary/' . $country . '/clinics/';
             $fullName = $clinic->cleanName;
@@ -115,7 +120,7 @@ class StationaryController extends Controller
                 if ($stationary->customizable) {
                     $file = $stationary->description . ' ' . $fullName . '.pdf';
                     $link = $dir . $fullName . '/' . $file;
-                    $stationary->makePdf($dir, $stationary, $clinic, true);
+                    $stationary->makePdf($dir, $stationary, $clinic, $forceMode);
                     // Thumbnails
                     // create Imagick object
                     $imagick = new \Imagick();

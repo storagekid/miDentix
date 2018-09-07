@@ -32,7 +32,7 @@
           </button>
         </span>
         <div class="table-header-box-wrapper">
-          <div id="items-actions" class="table-header-box">
+          <div id="items-actions" class="table-header-box" v-if="options.actions.length">
             <span class="filter-remover-title">Selección:</span>
             <span v-for="(action, index) in options.actions" :key="index" class="table-column-buttons">
               <button 
@@ -64,100 +64,108 @@
           </div>
         </div>
       </div>
-      <table 
-        class="table table-responsive fx fx-col" 
-        v-bind:style="{'min-width': tableWidth+'px'}"
-        >
-        <thead @click.right.prevent="toggleTheadMenu">
-          <div id="FilterColumn" ref="theadFilterMenu" tabindex="-2" class="thead-right-click-menu" v-show="filtering.show" v-bind:style="{top:theadMenu.top, left:theadMenu.left}">
-              <div class="buttons-row">
-                <div class="alert alert-info menu-button" @click="selectAllFilters"><span class="glyphicon glyphicon-asterisk"></span></div>
-                <div class="alert alert-info menu-button" @click="invertSelectionFilters"><span class="glyphicon glyphicon-random"></span></div>
-                <div class="alert alert-info menu-button" @click="closeFilterMenu(filtering.name)"><span class="glyphicon glyphicon-remove"></span></div>
-              </div>
-              <hr>
-              <div class="searchFilterContainer" v-if="filtering.date.state">
-                <form @submit.prevent>
-                  <div class="col-xs-6 form-group">
-                    <label for="start-date">Desde:</label>
-                    <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
-                  </div>
-                  <div class="col-xs-6 form-group">
-                    <label for="end-date">Hasta:</label>
-                    <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
-                  </div>
-                  <div class="col-xs-12 form-group">
-                    <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
-                  </div>
-                </form>
-              </div>
-              <div class="searchFilterContainer" v-if="filtering.search.state">
-                <form @submit.prevent>
-                  <div class="col-xs-12 form-group searchFilterBox">
-                    <label for="search">Buscar:</label>
-                    <input class="form-control" type="text" name="search" v-model="filtering.searches[filtering.name].string" @keyup="searchString">
-                  </div>
-                </form>
-              </div>
-              <ul class="" v-if="filtering.state && filtering.showOptions">
-                  <li v-for="(filter, index) in filtering.filters[filtering.name].keys" :key="index" :class="filter.state ? 'selected' : 'unselected'" @click="toggleFilterItem(filter.keys, filter.state, filtering.name, index)">
-                    <span :class="menuFilterClasses(filter.state)"></span>
-                    {{filter.label}}
-                  </li>
-              </ul>
-          </div>
-          <ul class="thead-right-click-menu" ref="theadMenu" tabindex="-1" v-if="theadMenu.show" @blur="toggleTheadMenu" v-bind:style="{top:theadMenu.top, left:theadMenu.left}">
-            <li v-for="(column, index) in columns" @click.stop="toggleColumn(index)" :key="index" :class="column.show ? 'columnSelected' : ''">
-              <span class="glyphicon glyphicon-check" :class="column.show ? 'selected' : 'unselected'"></span>
-              {{column.label}}
-            </li>
-          </ul>
-          <tr>
-            <th v-if="options.counterColumn" class="count" ref="column-counter-header">
-                <div>
-                    <span class="glyphicon glyphicon-asterisk" @click="selectAllRows"></span>
-                    <span class="glyphicon glyphicon-random" @click="invertRowSelection"></span>
+      <div class="table-wrapper fx">
+        <table 
+          class="table table-responsive fx fx-col" 
+          v-bind:style="{'min-width': tableWidth+'px'}"
+          >
+          <thead @click.right.prevent="toggleTheadMenu">
+            <div id="FilterColumn" ref="theadFilterMenu" tabindex="-2" class="thead-right-click-menu" v-show="filtering.show" v-bind:style="{top:theadMenu.top, left:theadMenu.left}">
+                <div class="buttons-row">
+                  <div class="alert alert-info menu-button" @click="selectAllFilters"><span class="glyphicon glyphicon-asterisk"></span></div>
+                  <div class="alert alert-info menu-button" @click="invertSelectionFilters"><span class="glyphicon glyphicon-random"></span></div>
+                  <div class="alert alert-info menu-button" @click="closeFilterMenu(filtering.name)"><span class="glyphicon glyphicon-remove"></span></div>
                 </div>
-                {{selectedCount}}
-            </th>
-            <th v-for="(column, index) in columns" :key="index" :class="column.name" v-show="column.show" :ref="'column-'+column.name+'-header'" v-bind:style="{width:column.width+'px'}">
-              <div v-if="(column.filtering || column.sortable) && column.name != 'buttons'">
-                  <span v-if="column.sorting.active" :class="orderClasses(column.name)" @click="orderColumn(column.name,column.sorting.options)"></span>
-                  <span v-if="column.filtering.active" :class="filterClasses(column.label)" @click="toggleFilterMenu($event,column.filtering.key,column.filtering.options,column.label)"></span>
-              </div>
-              <span class="column-name">{{column.label}}</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="main-tbody" v-if="items.length">
-          <tr
-            v-for="(item, itemIndex) in items"
-            :ref="model+item.id" 
-            :key="item.id" 
-            :id="model+item.id"
-            v-show="checkFilter(item.id)" 
-            :class="[rowsSelected.indexOf(item.id) != -1 ? 'selected' : '', animationClassesGetter(item.id)]"           
-            @click="toggleSelectedRow(item.id)">
-            <td v-if="options.counterColumn" ref="column-counter-row">
-              <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(item.id) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(item.id)"></span>
-            </td>
-            <td v-for="(column, columnIndex) in columns" :key="columnIndex" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width+'px', whiteSpace:item[column.name] && item[column.name].length > 12 ? 'inherit' : 'nowrap'}">
-              <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.name)"></strong>
-              <strong v-else-if="column.linebreak" v-html="linebreak(item[column.name],column.linebreak.needles,column.linebreak.options)"></strong>
-              <strong v-else-if="column.boolean">{{item[column.name] ? column.boolean[0] : column.boolean[1]}}</strong>
-              <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
-              <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
-              <strong v-else>{{item[column.name]}}</strong>
-            </td>
-          </tr>
-        </tbody>
-        <tbody id="main-tbody-empty" v-else>
-          <tr
-            >
-            <td>NO ITEMS YET</td>
-          </tr>
-        </tbody>
-      </table>
+                <hr>
+                <div class="searchFilterContainer" v-if="filtering.date.state">
+                  <form @submit.prevent>
+                    <div class="col-xs-6 form-group">
+                      <label for="start-date">Desde:</label>
+                      <input class="form-control" type="date" name="start-date" v-model="filtering.date.start">
+                    </div>
+                    <div class="col-xs-6 form-group">
+                      <label for="end-date">Hasta:</label>
+                      <input class="form-control" type="date" name="end-date" v-model="filtering.date.end">
+                    </div>
+                    <div class="col-xs-12 form-group">
+                      <button class="btn btn-sm btn-block btn-primary form-control" @click.prevent="filterDates(filtering.name)">Aplicar</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="searchFilterContainer" v-if="filtering.search.state">
+                  <form @submit.prevent>
+                    <div class="col-xs-12 form-group searchFilterBox">
+                      <label for="search">Buscar:</label>
+                      <input class="form-control" type="text" name="search" v-model="filtering.searches[filtering.name].string" @keyup="searchString">
+                    </div>
+                  </form>
+                </div>
+                <ul class="" v-if="filtering.state && filtering.showOptions">
+                    <li v-for="(filter, index) in filtering.filters[filtering.name].keys" :key="index" :class="filter.state ? 'selected' : 'unselected'" @click="toggleFilterItem(filter.keys, filter.state, filtering.name, index)">
+                      <span :class="menuFilterClasses(filter.state)"></span>
+                      {{filter.label}}
+                    </li>
+                </ul>
+            </div>
+            <ul class="thead-right-click-menu" ref="theadMenu" tabindex="-1" v-if="theadMenu.show" @blur="toggleTheadMenu" v-bind:style="{top:theadMenu.top, left:theadMenu.left}">
+              <li v-for="(column, index) in columns" @click.stop="toggleColumn(index)" :key="index" :class="column.show ? 'columnSelected' : ''">
+                <span class="glyphicon glyphicon-check" :class="column.show ? 'selected' : 'unselected'"></span>
+                {{column.label}}
+              </li>
+            </ul>
+            <tr>
+              <th v-if="options.counterColumn" class="count" ref="column-counter-header">
+                  <div>
+                      <span class="glyphicon glyphicon-asterisk" @click="selectAllRows"></span>
+                      <span class="glyphicon glyphicon-random" @click="invertRowSelection"></span>
+                  </div>
+                  {{selectedCount}}
+              </th>
+              <th v-for="(column, index) in columns" :key="index" :class="column.name" v-show="column.show" :ref="'column-'+column.name+'-header'" v-bind:style="{width:column.width+'px'}">
+                <div v-if="(column.filtering || column.sortable) && column.name != 'buttons'">
+                    <span v-if="column.sorting.active" :class="orderClasses(column.name)" @click="orderColumn(column.name,column.sorting.options)"></span>
+                    <span v-if="column.filtering.active" :class="filterClasses(column.label)" @click="toggleFilterMenu($event,column.filtering.key,column.filtering.options,column.label)"></span>
+                    <span
+                      v-if="column.multiEdit"
+                      class="glyphicon glyphicon-pencil" 
+                      @click.prevent="columnMultiEdit(column.name)" 
+                      :disabled="multiColumnEditDisabler">
+                    </span>
+                </div>
+                <span class="column-name">{{column.label}}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody id="main-tbody" v-if="items.length">
+            <tr
+              v-for="(item, itemIndex) in items"
+              :ref="model+item.id" 
+              :key="item.id" 
+              :id="model+item.id"
+              v-show="checkFilter(item.id)" 
+              :class="[rowsSelected.indexOf(item.id) != -1 ? 'selected' : '', animationClassesGetter(item.id)]"           
+              @click="toggleSelectedRow(item.id)">
+              <td v-if="options.counterColumn" ref="column-counter-row">
+                <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(item.id) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(item.id)"></span>
+              </td>
+              <td v-for="(column, columnIndex) in columns" :key="columnIndex" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width+'px', whiteSpace:item[column.name] && item[column.name].length > 12 ? 'inherit' : 'nowrap'}">
+                <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.name)"></strong>
+                <strong v-else-if="column.linebreak" v-html="linebreak(item[column.name],column.linebreak.needles,column.linebreak.options)"></strong>
+                <strong v-else-if="column.boolean">{{item[column.name] ? column.boolean[0] : column.boolean[1]}}</strong>
+                <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
+                <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
+                <strong v-else>{{item[column.name]}}</strong>
+              </td>
+            </tr>
+          </tbody>
+          <tbody id="main-tbody-empty" v-else>
+            <tr
+              >
+              <td>NO ITEMS YET</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="panel-footer table-footer">
       <!-- <h3>Total: <strong>{{filtering.selected.length}}</strong></h3> -->
@@ -179,11 +187,11 @@ import { mapActions, mapMutations } from 'vuex';
 export default {
   components: {modelNewForm, modelDeleteForm},
   mixins: [tableFiltering, tableOrdering, excel],
-  props: ["model", "relatedModel", "mode", "tableItems"],
+  props: ["model", "relatedModel", "mode", "tableItems", "scoped"],
   data() {
     return {
       columns: [],
-      options: [],
+      options: {actions:[]},
       theadMenu: {
         show: false,
         top: "0px",
@@ -198,9 +206,6 @@ export default {
     };
   },
   watch: {
-    tableRows() {
-      console.log("Table Rows Change!!!");
-    },
     "filtering.selected"() {
       if (Object.keys(this.filtering.filters).length) {
         this.checkFilteriTemsStatus(this.filtering.filters);
@@ -208,27 +213,33 @@ export default {
     },
     tables() {
       if (this.tables[this.model]) {
-        if (this.tables[this.model].ready && this.items.length) {
+        if (this.items.length) {
           this.setColumnsWidth();
+          this.setReady(this.model);
         }
       }
     },
-    "newModel.id"() {
-      if (this.newModel.id && !this.relatedModel) {
-        console.log("Adding");
-        this.filtering.selected.push(this.newModel.id);
+    "newModel.ids"() {
+      if (!this.relatedModel) {
+        for (let id of this.newModel.ids) {
+          if (!this.filtering.selected.includes(id)) {
+            this.filtering.selected.push(id);
+            // Clean ID From newModel Array
+            this.$store.commit('Model/cleanNewModelId', {model: this.model, 'id': id});
+          }
+        }
       }
     },
     "newRelation.id"() {
       if (this.newRelation.id && this.relatedModel) {
-        console.log("Adding Relation");
         this.filtering.selected.push(this.newRelation.id);
+        this.$store.commit('Model/deleteTempNewRelation', {'name': this.model, 'relation': this.relatedModel});
       }
     }
   },
   methods: {
     ...mapMutations('Table', [
-    'setTable', 'removeTable'
+    'setTable', 'removeTable', 'setReady'
     ]),
     animationClassesGetter(id) {
       return {
@@ -516,12 +527,15 @@ export default {
           this.toggleShowItem(this.rowsSelected[0]);
           break;
         case "edit":
-          this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected}});
+          this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected, mode:'edit'}});
           break;
         case "delete":
           this.$store.commit('Modal/newModal', {name:'delete-' + this.model + '-model',data:{model:this.model ,ids:this.rowsSelected, mode:'destroy'}});
       }
       this.rowsSelected = [];
+    },
+    columnMultiEdit(name) {
+      this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected, mode:'multiColumn', column:name}});
     },
     initializeTable() {
       if (this.mode == "vuex") {
@@ -538,6 +552,16 @@ export default {
     },
   },
   computed: {
+    multiColumnEditDisabler() {
+      return this.rowsSelected.length > 1 ? false : true;
+    },
+    multiColumnFields() {
+      let names = [];
+      this.columns.map(column => {
+        column.multiEdit ? names.push(column.name) : false
+      });
+      return names;
+    },
     // FROM VUEX
     animationClasses() {
       return this.$store.state.Model.animationClasses;
@@ -546,7 +570,7 @@ export default {
       if (this.$store.state.Model.newModel[this.model]) {
         return this.$store.state.Model.newModel[this.model];
       } else {
-        return {id:false};
+        return {ids:[]};
       }
     },
     newRelation() {
@@ -559,8 +583,10 @@ export default {
     items() {
       if (this.tableItems) {
         return this.tableItems;
+      } else if (this.scoped) {
+        return this.$store.state.Model.models[this.model].items.filter(item => this.$store.state.Scope[this.scoped].ids.includes(item.id));
       }
-      return this.$store.state.Model.models[this.model].items;
+      else return this.$store.state.Model.models[this.model].items;
     },
     tables() {
       return this.$store.state.Table.tables;

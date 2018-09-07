@@ -53,7 +53,7 @@
         methods: {
         },
         created() {
-          this.$store.dispatch('Model/fetchModels',this.modelsNeeded);
+          this.$store.dispatch('Model/fetchModels', {models: this.modelsNeeded});
         },
         mounted() {
         },

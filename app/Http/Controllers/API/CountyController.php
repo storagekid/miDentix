@@ -15,9 +15,18 @@ class CountyController extends Controller
      */
     public function index()
     {
+        if (request()->has('ids')) {
+            if (request('ids')) {
+                $models = County::find(request('ids'));
+            }
+        } else {
+            $models = County::get();
+        }
+
         return response([
-            'model' => County::get(),
-            ], 200);
+            'model' => $models,
+            ], 200
+        );
     }
 
     /**

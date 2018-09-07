@@ -19,6 +19,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('clinic_id');
             $table->unsignedInteger('provider_id');
+            $table->unsignedInteger('profile_id')->nullable();
+            $table->string('details')->nullable();
             $table->unsignedInteger('orderable_id');
             $table->string('orderable_type');
             $table->unsignedInteger('quantity');

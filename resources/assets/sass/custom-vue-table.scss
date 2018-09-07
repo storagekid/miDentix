@@ -1,9 +1,15 @@
   .custom-table {
     font-size: .9em;
     text-align: left;
+    [disabled] {
+      color: #DDD;
+    }
+    .table-wrapper {
+      overflow: auto;
+    }
   }
   .custom-table .panel-body {
-    overflow: auto;
+    overflow: hidden;
   }
   .custom-table .panel-body table {
     // display: inline-table;
@@ -66,6 +72,9 @@
     background: none;
     font-size: 1.3em;
     padding: 2px 5px;
+  }
+  .custom-table-btn[disabled] {
+    color: #DDD;
   }
   .custom-table button > a {
     color: inherit;
@@ -176,6 +185,7 @@
 .table-header-box {
   display: inline-block;
   padding-left: 10px;
+  min-height: 30px;
 }
 .table-header-box button[disabled], .table-header-box html input[disabled] {
   color: #DDD;

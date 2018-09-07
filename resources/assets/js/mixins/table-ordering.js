@@ -16,7 +16,6 @@ export default {
 			this.lastOrder.source = source;
 		},
 		orderColumn(name, options={object:null,date:false,order:false,integer:false}) {
-			// console.log(source);
 			// let temp = this.$store.state.models.clinics.items.slice(0);
 			let orderingFunction = undefined;
 			if (options.integer) {

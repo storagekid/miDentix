@@ -12,31 +12,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script>
-        // $page = window.getPage();
-        getPage = function() {
-            let str = window.location.pathname.substring(1);
-            let index = str.indexOf('/',2);
-            if (index != -1) {
-                str = str.substring(1,index);
-            } 
-            return str;
-        }
-        let auth = "<?php echo auth()->check(); ?>"      
-        if (auth != '') {
-            window.App = {!! json_encode([
-                'role' => '',
-            ]) !!};
-            window.App.page = getPage();
-        }
-    </script>
+
 </head>
 <body>
     <div id="app">
-        @if(auth()->check())
-            @include('nav.main')
-            <loading></loading>
-        @endif
         @yield('content')
         <flash message="{{ session('flash') }}"></flash>
         @if (session('status'))

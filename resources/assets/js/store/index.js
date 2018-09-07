@@ -2,6 +2,8 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 import axios from 'axios';
 
+import Scope from './modules/scope';
+import User from './modules/user';
 import ShoppingCart from './modules/shopping-cart';
 import Table from './modules/table';
 import Form from './modules/form';
@@ -12,22 +14,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     modules: {
+        Scope,
+        User,
         ShoppingCart,
         Table,
         Form,
         Model,
-        Modal
+        Modal,
     },
     state: {
-        user: {},
         app: {
         },
         pages: {},
     },
 
     getters: {
-        ready({readiness, Model, Form}) {
-            if (!Model.ready || !Form.ready) {
+        ready(state, getters,{Model, Form, Table, rootGetters}) {
+            if (!Model.ready || !Form.ready || !getters['Table/ready']) {
                 return false;
             }
             return true;
@@ -35,19 +38,13 @@ export default new Vuex.Store({
     },
 
     actions: {
-        // USER
-        fetchUser({commit}) {
-            axios.get('/api/user')
-                .then(({data}) => {
-                    commit('setUser', data);
-                })
-        },
+        // APP
+        startApp({dispatch}) {
+            dispatch('User/fetchUser');
+        }
     },
 
     mutations: {
         //User
-        setUser(state, user) {
-            state.user = user;
-        },
     }
 })

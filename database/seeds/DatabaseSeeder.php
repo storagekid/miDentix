@@ -32,13 +32,13 @@ class DatabaseSeeder extends Seeder
             GroupsSeeder::class,
             ProvidersSeeder::class,
             StationariesSeederCSV::class,
-            // StationariesSeeder::class,
-            ProvidersSeeder::class,
+            ClinicStationariesSeeder::class,
+            ProductProvidersSeeder::class,
         ]);
         if (!$this->profileCSV) {
             $this->call([
                 ProfilesDentistsSeeder::class,
-                ProfilesAdminSeeder::class,
+                // ProfilesAdminSeeder::class,
                 Clinic_ProfileSeeder::class,
                 SchedulesSeeder::class,
                 Especialty_ScheduleSeeder::class,
@@ -48,13 +48,14 @@ class DatabaseSeeder extends Seeder
                 RequestsSeeder::class,
                 ExtratimesSeeder::class,
                 Especialty_ExtratimeSeeder::class,
-                UsersClinicSeeder::class,
             ]);
         } else {
             $this->call([
                 ProfileCSVSeeder::class,
                 ClinicProfileMeta4Seeder::class,
+                ClinicProfileTestsSeeder::class,
                 ProfilesAdminSeeder::class,
+                UsersClinicSeeder::class,
             ]);
         }
     }

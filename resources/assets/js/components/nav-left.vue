@@ -5,8 +5,8 @@
                 <div class="navbar navbar-default navbar-left-sidebar" role="navigation">
                     <div class="navbar-collapse collapse sidebar-navbar-collapse">
                         <span id="close-left-menu" class="glyphicon glyphicon-resize-small" @click="toggleLeftMenu"></span>
-                        <profile-left :user="user"></profile-left>
-                        <main-menu :menu="menu" :user="user"></main-menu>
+                        <profile-left></profile-left>
+                        <main-menu :menu="menu" :user="$store.state.user"></main-menu>
                     </div>
                 </div>
             </div>

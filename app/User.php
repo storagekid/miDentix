@@ -35,6 +35,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+    public function profiles()
+    {
+        return $this->hasMany(Profile::class);
+    }
     public function orders()
     {
         return $this->hasMany(Order::class);
@@ -69,10 +73,26 @@ class User extends Authenticatable
                     case 'Marketing':
                         switch ($role) {
                             case 'user':
-                                $list = ['Stationary', 'PersonalTags', 'MedicalDirectory','Orders','Clinics','Providers'];
+                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
                                 break;
                             case 'admin':
-                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Dentists', 'Clinics', 'Papers'];
+                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
+                                break;
+                            case 'root':
+                                $list = ['CPanel', 'Requests', 'ExtraTime', 'Users', 'Clinics', 'Papers', 'Tools'];
+                                break;
+                            default:
+                                $list = [];
+                                break;
+                        };
+                        break;
+                    case 'Clinics':
+                        switch ($role) {
+                            case 'user':
+                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
+                                break;
+                            case 'admin':
+                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
                                 break;
                             case 'root':
                                 $list = ['CPanel', 'Requests', 'ExtraTime', 'Users', 'Clinics', 'Papers', 'Tools'];

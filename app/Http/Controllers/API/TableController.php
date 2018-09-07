@@ -24,7 +24,7 @@ class TableController extends Controller
         }
 
         $model = 'App\\' . $model;
-
+        // dd($model);
         // var_dump(request('ids'));
         // var_dump($model);
         $model = $model::make();

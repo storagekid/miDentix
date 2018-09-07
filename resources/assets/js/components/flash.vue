@@ -1,9 +1,11 @@
 <template>
-    <div class="flash-container" v-if="flashEvent">
-        <div :class="alert.label" role="alert" v-for="(alert, index) in alerts" v-html="alert.body"> 
-          <!-- {{ alert.body }} -->
+    <transition enter-active-class="animated bounceInRight" leave-active-class="animated bounceOutRight">
+        <div class="flash-container" v-if="flashEvent">
+            <div :class="alert.label" role="alert" v-for="(alert, index) in alerts" :key="index" v-html="alert.body"> 
+            <!-- {{ alert.body }} -->
+            </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>

@@ -15,9 +15,18 @@ class CountryController extends Controller
      */
     public function index()
     {
+        if (request()->has('ids')) {
+            if (request('ids')) {
+                $models = Country::find(request('ids'));
+            }
+        } else {
+            $models = Country::get();
+        }
+
         return response([
-            'model' => Country::get(),
-            ], 200);
+            'model' => $models,
+            ], 200
+        );
     }
 
     /**

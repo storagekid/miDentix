@@ -15,9 +15,18 @@ class StateController extends Controller
      */
     public function index()
     {
+        if (request()->has('ids')) {
+            if (request('ids')) {
+                $models = State::find(request('ids'));
+            }
+        } else {
+            $models = State::get();
+        }
+
         return response([
-            'model'=>State::get(),
-            ],200);
+            'model' => $models,
+            ], 200
+        );
     }
 
     /**

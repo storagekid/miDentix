@@ -4,11 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Tableable;
+use App\Traits\Scope;
 
 class Order extends Model
 {
     use Tableable;
-
+    use Scope;
     // Tableable DATA
     protected $tableColumns = [
         'itemName' => [
@@ -18,6 +19,12 @@ class Order extends Model
             'label' => 'Clínica',
             'filtering' => ['search']
         ], 
+        'profileName' => [
+            'label' => 'Personalizado para'
+        ],
+        'details' => [
+            'label' => 'Detalles'
+        ],
         'userName' => [
             'label' => 'Realizado por'
         ],
@@ -44,11 +51,11 @@ class Order extends Model
         ], 
     ];
 
-    protected $tableOptions = [['show','edit','delete'], true, true];
+    protected $tableOptions = [[], true, false];
 
     // END Tableable Data
 
-    protected $appends = ['itemName', 'providerName', 'clinicName', 'userName'];
+    protected $appends = ['itemName', 'providerName', 'clinicName', 'userName', 'profileName'];
 
     public function orderable()
     {
@@ -74,6 +81,10 @@ class Order extends Model
     {
         return $this->belongsTo(Provider::class);
     }
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 
     // Attributes Setters
 
@@ -92,8 +103,17 @@ class Order extends Model
         return $this->provider->name;
     }
 
+    public function getProfileNameAttribute()
+    {
+        if ($this->profile) {
+            return $this->profile->fullName;
+        } else {
+            return '-';
+        }
+    }
+
     public function getUserNameAttribute()
     {
-        return $this->user->profile->name . ' ' . $this->user->profile->lastname1;
+        return $this->user ? $this->user->profile->name . ' ' . $this->user->profile->lastname1 : 'Deleted';
     }
 }

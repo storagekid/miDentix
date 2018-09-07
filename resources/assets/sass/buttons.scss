@@ -1,5 +1,6 @@
 .selectable {
     background-color: $dentix-main-10;
+    color: $dentix-main;
     p {
         color: $dentix-main;
     }
@@ -19,7 +20,8 @@
 
 .selectable-rev {
     background-color: $dentix-white;
-    border: 1px solid $dentix-main-35 !important;
+    border: 1px solid $dentix-main-35;
+    color: $dentix-main;
     p {
         color: $dentix-secondary;
     }

@@ -2,8 +2,8 @@
     <li class="dropdown" id="alerts">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             <span class="badge">3</span>
-           <span class="glyphicon glyphicon-bell"></span>
-           <span class="caret"></span>
+            <span class="glyphicon glyphicon-bell"></span>
+            <span class="caret"></span>
         </a>
         <ul class="dropdown-menu" role="menu">
             <li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Clinic;
 
 class OrderController extends Controller
 {
@@ -15,11 +16,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::get()->load(['orderable','clinic','user','provider']);
-
         return response([
-                'model'=>$orders,
-                ],200);
+            'model' => Order::scoped('order'),
+            ], 200
+        );
     }
 
     /**
