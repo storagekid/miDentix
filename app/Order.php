@@ -34,15 +34,15 @@ class Order extends Model
         'quantity' => [
             'label' => 'Cantidad'
         ],
-        'urgent' => [
-            'label' => 'Urgente',
-            'boolean' => ['Sí','No'],
-            'sorting' => ['integer'],
-            'filtering' => [
-                'off',
-                'boolean' => ['No','Sí']
-            ],
-        ],  
+        // 'urgent' => [
+        //     'label' => 'Urgente',
+        //     'boolean' => ['Sí','No'],
+        //     'sorting' => ['integer'],
+        //     'filtering' => [
+        //         'off',
+        //         'boolean' => ['No','Sí']
+        //     ],
+        // ],  
         'created_at' => [
             'label' => 'Fecha de Pedido',
         ], 

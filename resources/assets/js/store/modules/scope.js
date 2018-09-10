@@ -24,9 +24,8 @@ const getters = {
             if (rootState.Model.models.countries.items && rootState.Model.models.counties.items && rootState.Model.models.states.items && rootState.Model.models.clinics.items) {
                 return true;
             }
-        } else {
-            return false;
         }
+        return false;
     },
     key(state) {
         let country = state.countries.selected ? state.countries.selected : '-';

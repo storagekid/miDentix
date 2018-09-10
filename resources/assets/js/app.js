@@ -85,6 +85,9 @@ const app = new Vue({
         },
     },
     computed: {
+        ready() {
+            return this.$store.getters.ready;
+        },
         mainColumns() {
             if (this.leftMenu) {
                 return 'col-sm-10';

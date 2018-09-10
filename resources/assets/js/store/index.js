@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Scope from './modules/scope';
 import User from './modules/user';
+import Page from './modules/page';
 import ShoppingCart from './modules/shopping-cart';
 import Table from './modules/table';
 import Form from './modules/form';
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     modules: {
         Scope,
         User,
+        Page,
         ShoppingCart,
         Table,
         Form,
@@ -25,15 +27,14 @@ export default new Vuex.Store({
     state: {
         app: {
         },
-        pages: {},
     },
 
     getters: {
         ready(state, getters,{Model, Form, Table, rootGetters}) {
-            if (!Model.ready || !Form.ready || !getters['Table/ready']) {
-                return false;
+            if (getters['Scope/ready']) {
+                return true;
             }
-            return true;
+            return false;
         }
     },
 

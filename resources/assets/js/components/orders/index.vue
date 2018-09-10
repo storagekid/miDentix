@@ -1,6 +1,6 @@
 <template>
-  <div id="orders" class="fx pv-20" v-if="$store.getters.ready">
-    <template>
+  <page :name="model" :models="modelsNeeded" :tables="tablesNeeded">
+    <template slot="page-content">
       <div class="fx fx-w-100 jf-around mr-10">
         <div class="fx fx-100 fx-col fx-align-center"> 
           <div class="panel panel-default">
@@ -9,7 +9,7 @@
               </div>
               <div class="panel-body fx fx-col">
                 <vue-table 
-                  v-if="models[model].items" 
+                  v-if="tableItems" 
                   :model="model"
                   mode="vuex"
                   >
@@ -21,7 +21,7 @@
         </div>
       </div>
     </template>
-  </div>
+  </page>
 </template>
 
 <script>
@@ -30,20 +30,15 @@
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
               modelsNeeded: ['orders'],
-              downloading: true,
-              selectedClinic: null,
               model: 'orders',
               //Table
               footer: {
                 totalRows: 0,
               },
+              tablesNeeded: ['orders'],
             }
         },
         watch: {
-          scopeKey() {
-            console.log('Scope Key Changed!!!!');
-            this.$store.dispatch('Model/fetchFilteredModels', {models: {'orders':{}}, refresh: true, scoped: true});
-          }
         },
         computed: {
           scopeKey() {
@@ -52,13 +47,13 @@
           shoppingCart() {
             return this.$store.state.ShoppingCart.shoppingCart;
           },
-          pageReady() {
-            for (let model of this.modelsNeeded) {
-              if (!this.$store.state.Model.models[model]) {
-                return false;
+          tableItems() {
+            if (this.$store.state.Model.models[this.model]) {
+              if (this.$store.state.Model.models[this.model].items) {
+                return true;
               }
             }
-            return true;
+            return false;
           },
           models() {
             return this.$store.state.Model.models;
@@ -101,9 +96,6 @@
           },
         },
         created() {
-          if (this.$store.getters['Scope/ready']) {
-            this.$store.dispatch('Model/fetchFilteredModels', {models: {'orders':{}}, scoped: true});
-          }
         },
         mounted() {
         },

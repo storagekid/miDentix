@@ -25,10 +25,10 @@
             <div class="row">
                 <div class="'col-xs-12" id="main-content">
                     <!-- <loading></loading> -->
-                    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                        <loading v-if="!$store.getters['Scope/ready']"></loading>
+                    <!-- <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut"> -->
+                        <loading v-if="!$store.getters.ready"></loading>
                         <router-view v-else></router-view>
-                    </transition>
+                    <!-- </transition> -->
                     <!-- @yield('content') -->
                 </div>
             </div>

@@ -1,4 +1,4 @@
-<template>
+<template v-if="tableReady">
   <div class="custom-table fx fx-col">
     <!-- MODALS -->
     <template>
@@ -585,11 +585,16 @@ export default {
         return this.tableItems;
       } else if (this.scoped) {
         return this.$store.state.Model.models[this.model].items.filter(item => this.$store.state.Scope[this.scoped].ids.includes(item.id));
+      } else if (this.$store.state.Model.models[this.model].items) {
+        return this.$store.state.Model.models[this.model].items;
       }
-      else return this.$store.state.Model.models[this.model].items;
+      else return [];
     },
     tables() {
       return this.$store.state.Table.tables;
+    },
+    tableReady() {
+      return this.$store.state.Table.tables[this.model].ready;
     },
     selectedCount() {
       return this.rowsSelected.length;

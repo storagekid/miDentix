@@ -1,50 +1,53 @@
-.loader {
-    color: transparent !important;
-    pointer-events: none;
-    position: relative;
-}
-    
-.loader:after {
-    animation: spinAround 500ms infinite linear;
-    border: 2px solid white;
-    border-radius: 290486px;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    content: "";
-    display: block;
-    height: 1em;
-    position: relative;
-    width: 1em;
-    position: absolute;
-    left: calc(50% - (1em / 2));
-    top: calc(50% - (1em / 2));
-    position: absolute !important;
-}
-
-.loader-xl:after {
-    -webkit-animation: spinAround 500ms infinite linear;
-    animation: spinAround 500ms infinite linear;
-    border: 3px solid $dentix-main;
-    border-radius: 290486px;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    content: "";
-    font-size: 4em;
-    display: block;
-    height: 2em;
-    position: relative;
-    width: 2em;
-    position: absolute;
-    left: calc(50% - (2em / 2));
-    top: calc(50% - (2em / 2));
-    position: absolute !important;
-}
-    
-@keyframes spinAround {
-    from {
-    transform: rotate(0deg)
+#loader-container {
+    .loader-title {
+        font-size: 2em;
+        margin-bottom: 30px;
     }
-    to {
-    transform: rotate(359deg)
+    .loader {
+        color: transparent !important;
+        pointer-events: none;
+        position: relative;
+    }
+        
+    .loader:after {
+        animation: spinAround 500ms infinite linear;
+        border: 2px solid white;
+        border-radius: 290486px;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        content: "";
+        display: block;
+        height: 1em;
+        position: relative;
+        width: 1em;
+        position: absolute;
+        left: calc(50% - (1em / 2));
+        top: calc(50% - (1em / 2));
+        position: absolute !important;
+    }
+    
+    .loader-xl:after {
+        -webkit-animation: spinAround 500ms infinite linear;
+        animation: spinAround 500ms infinite linear;
+        border: 3px solid #753470;
+        border-radius: 290486px;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        content: "";
+        font-size: 3em;
+        display: block;
+        height: 2em;
+        width: 2em;
+        margin: 0 auto;
+        position: relative;
+    }
+        
+    @keyframes spinAround {
+        from {
+        transform: rotate(0deg)
+        }
+        to {
+        transform: rotate(359deg)
+        }
     }
 }
