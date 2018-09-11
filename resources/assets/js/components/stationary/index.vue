@@ -1,6 +1,6 @@
 <template>
-  <div id="stationary" class="fx pv-20" v-if="pageReady && $store.state.Model.models.clinics">
-    <template>
+  <page :name="model" :models="modelsNeeded" :tables="tablesNeeded">
+    <template slot="page-content">
       <div class="fx fx-w-100 jf-around">
         <div class="fx fx-100 fx-col ph-10">  
           <div class="fx fx-col">
@@ -11,7 +11,7 @@
               </div>
               <div class="panel-body">
                 <vue-table 
-                  v-if="models[model].items" 
+                  v-if="tableItems"
                   :model="model"
                   mode="vuex"
                   >
@@ -88,7 +88,7 @@
         </div>
       </div>
     </template>
-  </div>
+  </page>
 </template>
 
 <script>
@@ -99,8 +99,7 @@
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
               modelsNeeded: ['providers','stationaries'],
-              downloading: true,
-              selectedClinic: null,
+              tablesNeeded: ['stationaries'],
               model: 'stationaries',
               //Table
               footer: {
@@ -114,13 +113,13 @@
           models() {
             return this.$store.state.Model.models;
           },
-          pageReady() {
-            for (let model of this.modelsNeeded) {
-              if (!this.$store.state.Model.models[model]) {
-                return false;
+          tableItems() {
+            if (this.$store.state.Model.models[this.model]) {
+              if (this.$store.state.Model.models[this.model].items) {
+                return true;
               }
             }
-            return true;
+            return false;
           },
         },
         methods: {
@@ -203,7 +202,6 @@
           }
         },
         created() {
-          this.$store.dispatch('Model/fetchModels', {models: this.modelsNeeded});
         },
         mounted() {
         },

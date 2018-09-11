@@ -34,15 +34,15 @@ class Order extends Model
         'quantity' => [
             'label' => 'Cantidad'
         ],
-        // 'urgent' => [
-        //     'label' => 'Urgente',
-        //     'boolean' => ['Sí','No'],
-        //     'sorting' => ['integer'],
-        //     'filtering' => [
-        //         'off',
-        //         'boolean' => ['No','Sí']
-        //     ],
-        // ],  
+        'urgent' => [
+            'label' => 'Urgente',
+            'boolean' => ['Sí','No'],
+            'sorting' => ['integer'],
+            'filtering' => [
+                'off',
+                'boolean' => ['No','Sí']
+            ],
+        ],  
         'created_at' => [
             'label' => 'Fecha de Pedido',
         ], 
@@ -69,7 +69,7 @@ class Order extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Profile::class);
     }
 
     public function clinic()
@@ -114,6 +114,7 @@ class Order extends Model
 
     public function getUserNameAttribute()
     {
-        return $this->user ? $this->user->profile->name . ' ' . $this->user->profile->lastname1 : 'Deleted';
+        return $this->user ? $this->user->name . ' ' . $this->user->lastname1 : 'Deleted';
+        // return $this->user ? $this->user->profile->name . ' ' . $this->user->profile->lastname1 : 'Deleted';
     }
 }

@@ -19,7 +19,7 @@ class MultipleProfiles
         if (count (auth()->user()->profiles) > 1 && !$request->session()->has('selectedProfile')) {
             return redirect()->route('profile-selector');
         } elseif (count (auth()->user()->profiles) == 1) {
-		    session(['selectedProfile'=> auth()->user()->profiles[0]->id]);
+		    session(['selectedProfile' => auth()->user()->profiles[0]->id]);
         }
         return $next($request);
     }

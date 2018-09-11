@@ -1,9 +1,12 @@
 <template>
-  <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-    <div :id="name" class="fx pv-20" v-show="pageReady">
-      <slot name="page-content"></slot>
-    </div>
-  </transition>
+  <div>
+    <page-loading v-if="!pageReady" :name="name"></page-loading>
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+      <div :id="name" class="fx pv-20" v-show="pageReady">
+        <slot name="page-content"></slot>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -48,10 +51,18 @@
           },
         },
         methods: {
+          fetchModels() {
+            let models = {};
+            for (let model of this.models) {
+              models[model] = {};
+            }
+            this.$store.dispatch('Model/fetchFilteredModels', {'models': models, 'scoped': true});
+          }
         },
         created() {
-          this.$store.commit('Page/setPage', {name: this.name});
-          this.$store.dispatch('Model/fetchFilteredModels', {models: {'orders':{}}, scoped: true});
+          this.$store.commit('Page/setPage', {name: this.name, models: this.models, tables: this.tables});
+          this.fetchModels();
+          // this.$store.dispatch('Model/fetchFilteredModels', {models: {'orders':{}}, scoped: true});
         },
         mounted() {
         },

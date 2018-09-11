@@ -29,7 +29,7 @@
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              modelsNeeded: ['orders'],
+              modelsNeeded: ['orders','profiles','stationaries'],
               model: 'orders',
               //Table
               footer: {

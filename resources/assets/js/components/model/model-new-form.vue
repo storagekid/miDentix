@@ -11,7 +11,7 @@
       <div class="modal-body">
         <div class="panel-default fx-100">
           <div class="panel-body">
-            <form id="new-model-form" @submit.prevent="sendAction">
+            <form :id="'new-' + model + '-form'" @submit.self.prevent.stop>
               <div class="fx fx-50 fx-wrap jf-between">
                 <div 
                   v-for="(field, index) in fields" 
@@ -166,7 +166,7 @@
                     </template> 
                   </div>
               </template>
-              <button type="submit" ref="sendButton" class="hidden">
+              <button type="submit" :ref="'sendButton'+model+relatedModel" class="hidden" @click="sendAction">
               </button>
             </form>
           </div>
@@ -209,14 +209,14 @@
             }
         },
         watch: {
-          forms() {
-            if (this.forms[this.model].ready) {
-              }
-          },
+          // forms() {
+          //   if (this.forms[this.model].ready) {
+          //     }
+          // },
         },
         methods: {
           sendForm(e) {
-            this.$refs.sendButton.click()
+            this.$refs['sendButton'+this.model+this.relatedModel].click();
           }, 
           showField(field) {
             if (this.batchMode && field.batch) {
@@ -280,6 +280,7 @@
             this.$store.dispatch('Model/updateRelation', {name: this.relatedModel, relation: this.model, ids:this.modal.ids, item: this.modelToSave});            
           },
           createNewRelation() {
+            console.log('Create new relation');
             this.$store.dispatch('Model/setNewRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
           },
           createNew() {

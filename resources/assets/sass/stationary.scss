@@ -1,14 +1,13 @@
-// #orders .btn {
-//     border: 1px solid $dentix-main;
-// }
-
-#stationary .btn img {
-    max-height: 100px;
-    border: 1px solid lightgray;
-}
-
-#stationary .btn p {
-    margin: 0;
-    padding: 8px 5px 0px 5px;
+#stationaries {
+    .btn {
+        img {
+            max-height: 100px;
+            border: 1px solid lightgray;
+        }
+        p {
+            margin: 0;
+            padding: 8px 5px 0px 5px;
+        }
+    }
 }
 

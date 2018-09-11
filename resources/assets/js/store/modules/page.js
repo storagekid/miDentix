@@ -21,6 +21,8 @@ const mutations= {
     setPage({pages}, payload) {
         Vue.set(pages, payload.name, {});
         Vue.set(pages[payload.name], 'ready', false);
+        Vue.set(pages[payload.name], 'models', payload.models);
+        Vue.set(pages[payload.name], 'tables', payload.tables);
     },
     setReady({pages}, payload) {
         pages[payload.name].ready = true;

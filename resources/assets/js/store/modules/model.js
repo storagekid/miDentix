@@ -201,6 +201,8 @@ const actions = {
     setNewRelation({state, commit}, {name, relation, item}) {
         axios.post('/api/relations/?model='+name+'&relation='+relation, item)
         .then(({data}) => {
+            console.log('Here');
+            console.log(state.models[name].modelToSave);
             let id = state.models[name].modelToSave[relation].length+'t'+1;
             data.relation['id'] = id;
             commit('setNewRelation', {'name': name, 'relation': relation, item: data.relation});

@@ -1,30 +1,31 @@
+.loader-title {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+.loader {
+    color: transparent !important;
+    pointer-events: none;
+    position: relative;
+}
+    
+.loader:after {
+    animation: spinAround 500ms infinite linear;
+    border: 2px solid white;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1em;
+    position: relative;
+    width: 1em;
+    position: absolute;
+    left: calc(50% - (1em / 2));
+    top: calc(50% - (1em / 2));
+    position: absolute !important;
+}
+
 #loader-container {
-    .loader-title {
-        font-size: 2em;
-        margin-bottom: 30px;
-    }
-    .loader {
-        color: transparent !important;
-        pointer-events: none;
-        position: relative;
-    }
-        
-    .loader:after {
-        animation: spinAround 500ms infinite linear;
-        border: 2px solid white;
-        border-radius: 290486px;
-        border-right-color: transparent;
-        border-top-color: transparent;
-        content: "";
-        display: block;
-        height: 1em;
-        position: relative;
-        width: 1em;
-        position: absolute;
-        left: calc(50% - (1em / 2));
-        top: calc(50% - (1em / 2));
-        position: absolute !important;
-    }
     
     .loader-xl:after {
         -webkit-animation: spinAround 500ms infinite linear;
@@ -40,6 +41,32 @@
         width: 2em;
         margin: 0 auto;
         position: relative;
+    }
+        
+    @keyframes spinAround {
+        from {
+        transform: rotate(0deg)
+        }
+        to {
+        transform: rotate(359deg)
+        }
+    }
+}
+#page-loading-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,.8);
+    z-index: 9999;
+    align-items: center;
+
+    .progress {
+        width: 20%;
+    }
+    .progress-bar-dentix {
+        background-color: $dentix-main;
     }
         
     @keyframes spinAround {

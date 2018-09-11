@@ -1,6 +1,6 @@
 <template>
-  <div id="personal-tags" class="fx pv-20" v-if="$store.getters.ready">
-    <template>
+  <page :name="model" :models="modelsNeeded">
+    <template slot="page-content">
       <div class="fx fx-w-100 jf-around mr-10">
         <div class="fx fx-100 fx-col fx-align-center">  
           <div class="panel panel-default">
@@ -16,7 +16,10 @@
                     <label for="clinicId"><h4>Selecciona los Identificadores</h4></label>
                     <div class="fx fx-width-75 fx-center">
                       <div class="fx fx-100 jf-around">
-                        <div class="form-group mr-10-all mb-10-all">
+                        <div 
+                          class="form-group mr-10-all mb-10-all"
+                          v-if="tableItems"
+                          >
                           <button
                             class="btn selectable-rev personal-tag"
                             :class="{'selected': profilesSelected.includes(tag.id)}"
@@ -43,7 +46,7 @@
               <div class="panel-heading text-center">
                 <h3 class="panel-title">Acciones</h3>
               </div>
-              <div class="panel-body btrans5" v-if="models.profiles.items">
+              <div class="panel-body btrans5" v-if="tableItems">
                 <form action="" style="padding:10px">
                   <div class="fx fx-width-100 fx-col">
                     <div class="fx fx-width-100 jf-between fx-col mb-10">
@@ -79,7 +82,7 @@
         </div>
       </div>
     </template>
-  </div>
+  </page>
 </template>
 
 <script>
@@ -87,11 +90,11 @@
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              modelsNeeded: [],
+              modelsNeeded: ['profiles'],
               profilesSelected: [],
               downloading: true,
               selectedClinic: null,
-              model: 'orders',
+              model: 'profiles',
               //Table
               footer: {
                 totalRows: 0,
@@ -105,6 +108,14 @@
           }
         },
         computed: {
+          tableItems() {
+            if (this.$store.state.Model.models[this.model]) {
+              if (this.$store.state.Model.models[this.model].items) {
+                return true;
+              }
+            }
+            return false;
+          },
           scopeKey() {
             return this.$store.state.Scope.scopeKey;
           },
@@ -209,9 +220,9 @@
           },
         },
         created() {
-          if (this.$store.getters['Scope/ready']) {
-            this.$store.dispatch('Model/fetchFilteredModels', {models: {'profiles':{}}, scoped: true});
-          }
+          // if (this.$store.getters['Scope/ready']) {
+          //   this.$store.dispatch('Model/fetchFilteredModels', {models: {'profiles':{}}, scoped: true});
+          // }
         },
         mounted() {
         },

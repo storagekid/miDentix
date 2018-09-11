@@ -12252,12 +12252,12 @@ form#profile-create-form {
   margin-bottom: 10px;
 }
 
-#stationary .btn img {
+#stationaries .btn img {
   max-height: 100px;
   border: 1px solid lightgray;
 }
 
-#stationary .btn p {
+#stationaries .btn p {
   margin: 0;
   padding: 8px 5px 0px 5px;
 }
@@ -13191,18 +13191,18 @@ label h3 {
       flex-basis: 48%;
 }
 
-#loader-container .loader-title {
+.loader-title {
   font-size: 2em;
   margin-bottom: 30px;
 }
 
-#loader-container .loader {
+.loader {
   color: transparent !important;
   pointer-events: none;
   position: relative;
 }
 
-#loader-container .loader:after {
+.loader:after {
   -webkit-animation: spinAround 500ms infinite linear;
           animation: spinAround 500ms infinite linear;
   border: 2px solid white;
@@ -13246,6 +13246,39 @@ label h3 {
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg);
   }
+}
+
+@keyframes spinAround {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+#page-loading-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-loading-container .progress {
+  width: 20%;
+}
+
+#page-loading-container .progress-bar-dentix {
+  background-color: #753470;
 }
 
 @keyframes spinAround {

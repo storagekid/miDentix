@@ -24,6 +24,7 @@ window.flash = function (message) {
 Vue.component('loading', require('./components/loading.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('page', require('./components/page.vue'));
+Vue.component('page-loading', require('./components/page-loading.vue'));
 Vue.component('custom-modal', require('./components/custom-modal.vue'));
 Vue.component('shopping-cart-nav-container', require('./components/shopping-cart-nav-container.vue'));
 Vue.component('shopping-cart', require('./components/shopping-cart.vue'));

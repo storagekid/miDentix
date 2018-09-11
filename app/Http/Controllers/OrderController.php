@@ -177,7 +177,9 @@ class OrderController extends Controller
     public function createOrder($shoppingBag, $clinic, $provider, $profile=null, $item=null, $details=null) {
         $order = new Order;
         $order->shopping_bag_id = $shoppingBag->id;
-        $order->user_id = auth()->id();
+        // $order->user_id = auth()->id();
+        // Profile ID despite variable name
+        $order->user_id = session('selectedProfile');
         $order->clinic_id = $clinic->id;
         $order->provider_id = $provider;
         $order->profile_id = $profile;
