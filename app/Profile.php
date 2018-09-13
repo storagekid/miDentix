@@ -265,15 +265,18 @@ protected $formRelations = [
     }
     public function getNameAttribute($value)
     {
-        return ucwords(strtolower($value));
+        return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
+        // return ucwords(strtolower($value));
     }
     public function getLastname1Attribute($value)
     {
-        return ucwords(strtolower($value));
+        return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
+        // return ucwords(strtolower($value));
     }
     public function getLastname2Attribute($value)
     {
-        return ucwords(strtolower($value));
+        return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
+        // return ucwords(strtolower($value));
     }
     public function getFullNameAttribute() {
         return $this->name . ' ' . $this->lastname1;
