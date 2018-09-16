@@ -8,6 +8,9 @@ use App\ClinicStationary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use App\Jobs\CompleteStationary;
+use App\Printers\StationaryCustomizablePrinter;
 
 class StationaryController extends Controller
 {
@@ -70,8 +73,10 @@ class StationaryController extends Controller
         return response()->download($route, 'Papelería.zip')->deleteFileAfterSend(true);
     }
 
-    public function complete(Request $request)
+    public function completeBackup(Request $request)
     {
+        Log::info("Request cycle without Queues started");
+        // $this->dispatch(new CompleteStationary());
         $clinics = Clinic::get();
         $clinics->map(function ($clinic) {
             $country = $clinic->countryName;
@@ -101,6 +106,43 @@ class StationaryController extends Controller
                 }
             }
         });
+        Log::info("Request cycle without Queues finished");
+    }
+
+    public function complete(Request $request)
+    {
+        // Log::info("Request cycle without Queues started");
+        // $this->dispatch(new CompleteStationary());
+        $clinics = Clinic::get();
+        $clinics->map(function ($clinic) {
+            $country = $clinic->countryName;
+            $dir = 'stationary/' . $country . '/clinics/';
+            $fullName = $clinic->cleanName;
+            $stationaries = Stationary::get();
+            $clinicStationaries = $clinic->stationaries->pluck('id');
+            $items = [];
+            foreach ($stationaries as $stationary) {
+                if ($stationary->customizable && !$clinicStationaries->contains($stationary->id)) {
+                    $pdf = new StationaryCustomizablePrinter($stationary, $clinic, true);
+                    $pdf->jobSelector();
+                    // dd($pdf);
+                    // Thumbnails
+                    // create Imagick object
+                    $imagick = new \Imagick();
+                    // Reads image from PDF
+                    $imagick->readImage($pdf->pathToFile.'[0]');
+                    $jpgFile = $stationary->description . ' ' . $fullName . '.jpg';
+                    $jpgLink = $pdf->directory. '/' . $jpgFile;
+                    $jpgPath = Storage::url($jpgFile);
+                    // Writes an image
+                    $imagick->writeImages(storage_path('app/public/' . $jpgFile), true);
+
+                    $item = ['link' => $pdf->directory . '/' . $pdf->fileName, 'file' => $pdf->fileName, 'thumbnail' => $jpgPath];
+                    $clinic->stationaries()->attach($stationary->id, $item);
+                }
+            }
+        });
+        // Log::info("Request cycle without Queues finished");
     }
 
     public function regen(Request $request)

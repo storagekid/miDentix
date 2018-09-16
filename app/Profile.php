@@ -282,8 +282,7 @@ protected $formRelations = [
         return $this->name . ' ' . $this->lastname1;
     }
     public function getCleanNameAttribute() {
-        $cleanName = cleanString($this->fullName);
-        return $cleanName;
+        return cleanString($this->fullName);
     }
     public function getJobNameAttribute() {
         return $this->job ? $this->job->name : 'undefined';

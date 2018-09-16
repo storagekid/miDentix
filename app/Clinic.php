@@ -264,13 +264,17 @@ protected $formRelations = [
 
   public function getFullNameAttribute()
   {
-      $street = trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $this->address_real_1));
-      return $this->city . ' (' . $street . ')';
+      // $street = trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $this->address_real_1));
+      return $this->city . ' (' . $this->cleanStreet . ')';
   }
 
   public function getCleanNameAttribute() {
     $cleanName = cleanString($this->fullName);
     return $cleanName;
+  }
+
+  public function getCleanStreetAttribute() {
+    return trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $this->address_real_1));
   }
 
   public function getCostCenterNameAttribute()

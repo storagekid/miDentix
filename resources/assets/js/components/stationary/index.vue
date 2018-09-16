@@ -198,6 +198,14 @@
             axios.post('/stationary/complete')
             .then((response) => {
               Vue.buttonLoaderRemove(e, classes);
+            })
+            .catch((error) => {
+              flash({
+                message: error.response.data.message, 
+                // message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
+                label: 'danger'
+              });
+              Vue.buttonLoaderRemove(e, classes);
             });
           }
         },
