@@ -15,8 +15,6 @@ class Provider_Stationary extends Model
 
     protected $table = 'product_providers';
 
-    protected $appends = ['providerName', 'countryName', 'stateName', 'countyName', 'clinicName'];
-
     // TABLE
     protected $tableColumns = [
         'providerName' => [
@@ -147,6 +145,9 @@ class Provider_Stationary extends Model
     ];
 
     protected $formModels = ['countries','counties','states','providers'];
+
+    protected $with = ['provider', 'country', 'state', 'county', 'clinic'];
+    protected $appends = ['providerName', 'countryName', 'stateName', 'countyName', 'clinicName'];
 
     public function provider() {
         return $this->belongsTo(Provider::class);

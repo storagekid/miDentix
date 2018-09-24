@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Cache;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,9 +59,14 @@ Route::middleware(['auth'])->group(function() {
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 	Route::get('/api/users', 'UserController@indexApi');
 	Route::get('/api/user', function (Request $request) {
-		$user = auth()->user();
-		$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countyIdsScope', 'countryIdsScope', 'stateIdsScope');
-		$user['profile'] = $profile;
+		$user = Cache::rememberForever('user_' . session('user.email'), function() {
+			$user = auth()->user();
+			$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
+			$user['profile'] = $profile;
+			return $user;
+		});
+        session(['clinicsScope' => $user->profile->clinicIdsScope->toArray()]);
+
 		return $user;
     });
 
@@ -72,6 +77,33 @@ Route::middleware(['auth'])->group(function() {
 	Route::delete('/clinic_profile/{clinic}/{profile}', 'ClinicProfileController@destroy');
 
 	Route::post('/export-excel', 'ExcelController@export');
+
+	Route::namespace('API')->prefix('api')->group(function () {
+		Route::get('/clinics/table', 'ClinicController@table');
+		Route::resource('clinics', 'ClinicController');
+		Route::resource('profiles', 'ProfileController');
+		Route::resource('cost_centers', 'CostCenterController');
+		Route::get('/providers/table', 'ProviderController@table');
+		Route::get('/providers/form', 'ProviderController@form');
+		Route::resource('providers', 'ProviderController');
+		Route::resource('jobs', 'JobController');
+		Route::resource('job_types', 'JobTypeController');
+		Route::resource('orders', 'OrderController');
+		Route::resource('shoppingBags', 'ShoppingBagController');
+		Route::get('/stationaries/table', 'StationaryController@table');
+		Route::get('/stationaries/form', 'StationaryController@form');
+		Route::resource('stationaries', 'StationaryController');
+		Route::resource('counties', 'CountyController');
+		Route::resource('states', 'StateController');
+		Route::resource('countries', 'CountryController');
+	
+		Route::resource('clinic_stationaries', 'ClinicStationaryController');
+
+		Route::get('/table', 'TableController@index');
+		Route::get('/form', 'FormController@index');
+		Route::resource('relations', 'RelationController');
+		
+	});
 });
 
 Route::middleware(['auth', 'tutorial', 'profile-count'])->group(function() {
@@ -110,7 +142,6 @@ Route::middleware(['auth', 'tutorial', 'profile-count'])->group(function() {
 	Route::get('/stationary/download', 'StationaryController@download');
 	Route::get('/stationary/download-all', 'StationaryController@downloadAll');
 	Route::get('/stationary/download/{clinic}', 'StationaryController@downloadClinic');
-	Route::post('/stationary/complete', 'StationaryController@complete');
 	Route::post('/stationary/regen', 'StationaryController@regen');
 	Route::post('/stationary/{clinic}', 'StationaryController@store');
 

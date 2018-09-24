@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use App\State;
 
@@ -20,7 +21,10 @@ class StateController extends Controller
                 $models = State::find(request('ids'));
             }
         } else {
-            $models = State::get();
+            $models = Cache::rememberForever('states', function() {
+                return State::get();
+            });
+            // $models = State::get();
         }
 
         return response([

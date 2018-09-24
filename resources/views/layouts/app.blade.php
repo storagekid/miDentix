@@ -17,13 +17,11 @@
 </head>
 <body>
     <div id="app">
-        @if(auth()->check())
-        @include('nav.main')
-        @endif
+        @include('nav.main-2')
         <div class="container-fluid">
             @include('nav.left')
             <div class="row">
-                <div class="'col-xs-12" id="main-content">
+                <div id="main-content">
                     <!-- <loading></loading> -->
                     <!-- <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut"> -->
                         <loading v-if="!$store.getters.ready"></loading>
@@ -37,7 +35,6 @@
         @if (session('status'))
         <flash message="{{ session('status') }}"></flash>
         @endif
-        <!-- @include('modals.all') -->
     </div>
 
     <!-- Scripts -->

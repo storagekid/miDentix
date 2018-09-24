@@ -280,7 +280,7 @@
             this.$store.dispatch('Model/updateRelation', {name: this.relatedModel, relation: this.model, ids:this.modal.ids, item: this.modelToSave});            
           },
           createNewRelation() {
-            console.log('Create new relation');
+            // console.log('Create new relation');
             this.$store.dispatch('Model/setNewRelation', {name: this.relatedModel, relation: this.model, item: this.modelToSave});            
           },
           createNew() {

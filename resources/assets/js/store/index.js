@@ -26,6 +26,7 @@ export default new Vuex.Store({
     },
     state: {
         app: {
+            counter: 0,
         },
     },
 
@@ -42,10 +43,21 @@ export default new Vuex.Store({
         // APP
         startApp({dispatch}) {
             dispatch('User/fetchUser');
+        },
+        runCounter({state, commit}) {
+            console.log('Starting App. Counter at: ' + state.app.counter);
+            let startCounter = function() {
+                commit('runCounter');
+                console.log('Counter at: ' + state.app.counter);
+            };
+            setInterval(startCounter, 1000);
         }
     },
 
     mutations: {
-        //User
+        // App
+        runCounter({app}) {
+            app.counter++;
+        }
     }
 })

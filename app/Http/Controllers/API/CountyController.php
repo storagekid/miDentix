@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use App\County;
 
@@ -20,7 +21,10 @@ class CountyController extends Controller
                 $models = County::find(request('ids'));
             }
         } else {
-            $models = County::get();
+            $models = Cache::rememberForever('counties', function() {
+                return County::get();
+            });
+            // $models = County::get();
         }
 
         return response([

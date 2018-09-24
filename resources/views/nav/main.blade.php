@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <scope-menu></scope-menu>
+                <scope-menu v-if="$store.getters['Scope/ready']"></scope-menu>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
@@ -34,22 +34,21 @@
                     {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                 @else
                     <div class="visible-xs-block" id="left-nav-xs">
-                        <main-menu :menu="{{auth()->user()->getMenu('gabinete', auth()->user()->group()->pluck('name')->toArray(),auth()->user()->role )}}" :user="$store.state.user"></main-menu>
+                        <!-- <main-menu :menu="{{auth()->user()->getMenu('gabinete', auth()->user()->group()->pluck('name')->toArray(),auth()->user()->role )}}" :user="$store.state.user"></main-menu> -->
+                        <main-menu :menu="{{auth()->user()->getMenu('gabinete', [session('user.group.0.name')], session('user.role') )}}" :user="$store.state.user"></main-menu>
                     </div>
                     <shopping-cart-nav-container>
                         <shopping-cart></shopping-cart>
                     </shopping-cart-nav-container>
                     <li class="dropdown" id="profile-dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                           <span class="glyphicon glyphicon-user"></span> {{ \App\Profile::find(session('selectedProfile'))->name }} <span class="caret"></span>
+                           <span class="glyphicon glyphicon-user"></span> {{ session('user_profile.name') }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            @if(!auth()->user()->profile->tutorial_completed)
-                                <li>
-                                   <a href="/profile"><span class="glyphicon glyphicon-list-alt"></span> Mi Perfil</a>
-                                </li>
-                            @endif
+                            <li>
+                                <a href="/profile"><span class="glyphicon glyphicon-list-alt"></span> Mi Perfil</a>
+                            </li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -65,11 +64,6 @@
                     </li>
                 @endguest
             </ul>
-            <!-- @if(auth()->user()->profile->tutorial_completed)
-                <div class="hidden-xs" id="alerts-lg">
-                    @include('nav.alerts')
-                </div>
-            @endif -->
         </div>
     </div>
 </nav>

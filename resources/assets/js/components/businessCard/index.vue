@@ -25,8 +25,8 @@
                             <h4>{{card.name + ' ' + card.lastname1}}</h4>
                             <p>{{card.job_type_name}}</p>
                             <div class="clinic-info">
-                              <p>{{models.clinics.itemSelected.address_real_1}}, {{models.clinics.itemSelected.postal_code}} {{models.clinics.itemSelected.city}}</p>
-                              <p>{{models.clinics.itemSelected.phone_real}}</p>
+                              <p>{{clinicSelected.address_real_1}}, {{clinicSelected.postal_code}} {{clinicSelected.city}}</p>
+                              <p>{{clinicSelected.phone_real}}</p>
                               <p>{{card.job_type_name}}@dentix.es</p>
                             </div>
                             <p>www.dentix.com</p>
@@ -125,7 +125,7 @@
         },
         watch: {
           scopeKey() {
-            console.log('Scope Key Changed!!!!');
+            // console.log('Scope Key Changed!!!!');
             this.$store.dispatch('Model/fetchFilteredModels', {models: {'profiles':{}}, refresh: true, scoped: true});
           }
         },
@@ -146,6 +146,9 @@
           },
           models() {
             return this.$store.state.Model.models;
+          },
+          clinicSelected() {
+            return this.$store.state.Model.models['clinics'].items.find(item => item.id == this.$store.state.Model.models.clinics.itemSelected);
           },
           mangementStaff() {
             // let vm = this;
@@ -212,12 +215,6 @@
                         });
                     Vue.buttonLoaderRemove(e, classes);
                   }).catch((error) => {
-                    // const { data } = error.response;
-                    // // Read file
-                    // const file = fileReader(data);
-                    // // Parse content and retrieve 'message'
-                    // const { message } = JSON.parse(file);
-                    console.log(message);
                     flash({
                             // message: error.response.data.message, 
                             label: 'danger'

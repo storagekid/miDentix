@@ -169,7 +169,7 @@
             this.addRequest.selectedDetail = e.target.value;
           },
           selectLab(e) {
-            console.log(e);
+            // console.log(e);
             this.addRequest.selectedLabId = e.target.value;
             this.addRequest.selectedDetail = e.target.selectedOptions[0].text;
           },
@@ -275,7 +275,7 @@
             let keys = Object.keys(this.request).length;
             if (!keys) {
               return false;
-              console.log('request empty');
+              // console.log('request empty');
             } else {
               this.addRequest.selectedClinicId = this.request.clinic.id;
               this.addRequest.selectedType = this.request.type;
@@ -284,7 +284,7 @@
               this.addRequest.description = this.request.description;
               this.requestDate = moment(this.request.created_at).format('L');
               return true;
-              console.log('request found!!!');
+              // console.log('request found!!!');
             }
           },
           showDetails() {

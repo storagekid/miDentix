@@ -106,7 +106,7 @@
                     class="btn btn-xs selectable"
                     v-if="$store.state.Scope.clinics.ids.length > 1"
                     v-text="'Seleccionar Área'"
-                    @click.prevent="$store.commit('Scope/setScopeKey')"
+                    @click.prevent="setScope"
                     >
                 </button>
             </div>
@@ -178,6 +178,10 @@
             }
         },
         methods: {
+            setScope() {
+                this.$store.commit('Scope/setScopeKey');
+                this.$cookies.set(this.$store.state.User.user.email + '-scope', this.$store.state.Scope.scopeKey);
+            },
             selectModel(e, model) {
                 let id = e ? e.target.value : null;
                 this.$store.commit('Scope/selectModel', {'model': model, 'id': id})

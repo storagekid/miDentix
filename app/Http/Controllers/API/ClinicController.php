@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Clinic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 
 class ClinicController extends Controller
@@ -15,16 +17,8 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        if (request()->has('ids')) {
-            if (request('ids') != 'undefined') {
-                $clinics = Clinic::orderBy('city')->orderBy('address_real_1')->find(request('ids'))->load(['costCenter', 'stationaries']);
-            }
-        } else {
-            $clinics = Clinic::orderBy('city')->orderBy('address_real_1')->get()->load(['costCenter', 'stationaries']);
-        }
-        // $clinics->map(function ($clinic) {
-        //     return $clinic->getStationaryFilesUrl();
-        // });
+        $clinics = Clinic::cacheClinics();
+
         return response([
             'model' => $clinics,
             ], 200

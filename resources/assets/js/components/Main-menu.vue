@@ -80,27 +80,27 @@
             notifyExtratimeRemoved() {
                 this.admin.extratimesUnsolved--;
             },
-            fetchMenuData() {
-                axios.get('/api/menu')
-                    .then(data => {
-                      this.admin.requests = data.data.requests;
-                      this.admin.extratimes = data.data.extratimes;
-                      this.countUnsolved();
-                      if (this.user.role == 'admin') {
-                        this.admin.profiles = data.data.profiles;
-                        this.countDeadUsers();
-                      }
-                    });
-            }
+            // fetchMenuData() {
+            //     axios.get('/api/menu')
+            //         .then(data => {
+            //           this.admin.requests = data.data.requests;
+            //           this.admin.extratimes = data.data.extratimes;
+            //           this.countUnsolved();
+            //           if (this.user.role == 'admin') {
+            //             this.admin.profiles = data.data.profiles;
+            //             this.countDeadUsers();
+            //           }
+            //         });
+            // }
         },
         created() {
-            window.events.$on('requestClosed', this.notifySolved);
-            window.events.$on('requestAdded', this.notifyRequestAdded);
-            window.events.$on('extratimeAdded', this.notifyExtratimeAdded);
-            window.events.$on('extratimeRemoved', this.notifyExtratimeRemoved);
-            window.events.$on('extratimeSolved', this.notifyExtratimeRemoved);
-            this.getActive();
-            this.fetchMenuData();
+            // window.events.$on('requestClosed', this.notifySolved);
+            // window.events.$on('requestAdded', this.notifyRequestAdded);
+            // window.events.$on('extratimeAdded', this.notifyExtratimeAdded);
+            // window.events.$on('extratimeRemoved', this.notifyExtratimeRemoved);
+            // window.events.$on('extratimeSolved', this.notifyExtratimeRemoved);
+            // this.getActive();
+            // this.fetchMenuData();
         },
         mounted() {
         }

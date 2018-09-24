@@ -4,7 +4,7 @@
       <div class="fx fx-w-100 jf-around">
         <div class="fx fx-100 fx-col ph-10">  
           <div class="fx fx-col">
-            <stationary-products></stationary-products>
+            <stationary-products v-if="$store.state.Scope.clinics.selected != '-'"></stationary-products>
             <div class="panel panel-default fx-100">
               <div class="panel-heading text-center">
                 <h3 class="panel-title">Papelería</h3>
@@ -37,7 +37,7 @@
                     </button>
                   </div>
                   <div class="form-group m-0">
-                    <button class="btn btn-primary btn-block" @click.prevent="regenerateStationary">Regenerar Materiales</button>
+                    <button class="btn btn-primary btn-block" @click.prevent="completeStationary($event, true)">Regenerar Materiales</button>
                   </div>
                   <div class="form-group m-0">
                     <button class="btn btn-primary btn-block" @click.prevent="completeStationary">Completar Materiales</button>
@@ -98,7 +98,7 @@
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              modelsNeeded: ['providers','stationaries'],
+              modelsNeeded: ['providers','stationaries','clinic_stationaries'],
               tablesNeeded: ['stationaries'],
               model: 'stationaries',
               //Table
@@ -186,23 +186,40 @@
               Vue.buttonLoaderRemove(e, classes);
             });;
           },
-          regenerateStationary(e) {
+          completeStationary(e, force=false) {
             let classes = Vue.buttonLoaderOnEvent(e);
-            axios.post('/stationary/regen', {force:true})
-            .then((response) => {
-              Vue.buttonLoaderRemove(e, classes);
-            });
-          },
-          completeStationary(e) {
-            let classes = Vue.buttonLoaderOnEvent(e);
-            axios.post('/stationary/complete')
-            .then((response) => {
+            let params = {'force':force};
+            if (this.$store.state.Scope.clinics.selected) {
+                params['clinic_id'] = this.$store.state.Scope.clinics.selected;
+            } else if (this.$store.state.Scope.counties.selected) {
+                params['county_id'] = this.$store.state.Scope.counties.selected;
+            } else if (this.$store.state.Scope.states.selected) {
+                params['state_id'] = this.$store.state.Scope.states.selected;
+            } else if (this.$store.state.Scope.countries.selected) {
+                params['country_id'] = this.$store.state.Scope.countries.selected;
+            } else {
+                params['scope'] = false;
+            }
+            axios({
+              url: '/stationary/regen',
+              method: 'POST',
+              params: params
+            })
+            .then(({data}) => {
+              console.log('Data: ' + data);
+              if (data.clinic_stationaries) {
+                this.$store.commit('Model/setItemsFetched', {name: 'clinic_stationaries', items: data.clinic_stationaries});
+              } else {
+                flash({
+                  message: data.message, 
+                  label: 'success'
+                });
+              }
               Vue.buttonLoaderRemove(e, classes);
             })
             .catch((error) => {
               flash({
                 message: error.response.data.message, 
-                // message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
                 label: 'danger'
               });
               Vue.buttonLoaderRemove(e, classes);

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 use App\Traits\Tableable;
 use App\Traits\Formable;
 
@@ -203,8 +204,9 @@ protected $formRelations = [
 
   protected $fillable = ['city', 'address_real_1', 'address_real_2', 'address_adv_1', 'address_adv_2', 'postal_code', 'phone_real', 'phone_adv', 'email_ext', 'sanitary_code', 'county_id', 'cost_center_id'];
   protected $guarded = [];
-  protected $with = ['county'];
-  protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
+  // protected $with = ['county', 'costCenter', 'stationaries'];
+  // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
+  protected $appends = ['fullName', 'cleanName'];
   protected $casts = ['postal_code' => 'string'];
   protected $stationary = [];
 
@@ -233,38 +235,53 @@ protected $formRelations = [
       return $this->hasMany(Order::class);
   }
 
+  public function clinicStationaries()
+  {
+      return $this->HasMany(ClinicStationary::class);
+  }
+
   public function stationaries()
   {
       return $this->belongsToMany(Stationary::class)
           ->withPivot(['id', 'file', 'thumbnail']);
   }
 
-  public function setStationaryLinksAttribute()
-  {
-      $stationary = \App\Stationary::all();
-      $dir = 'stationary/';
-      $fullName = $this->getFullNameAttribute();
-      foreach ($stationary as $item) {
-          $file = $item->description . ' ' . $fullName . '.pdf';
-          $this->attributes[$item->description] = storage_path('app/' . $dir . $fullName . '/' . $file);
-      }
+  public static function cacheClinics() {
+    return Cache::rememberForever('clinics', function() {
+      return Clinic::with(['county', 'costCenter'])
+                  ->orderBy('city')
+                  ->orderBy('address_real_1')
+                  ->get()
+                  ->each
+                  ->append(['countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName']);
+    });
   }
 
-  public function getStationaryFilesUrl()
-  {
-      $stationary = \App\Stationary::all();
-      $dir = 'stationary/';
-      $fullName = $this->getFullNameAttribute();
-      foreach ($stationary as $item) {
-          $file = $item->description . ' ' . $fullName . '.pdf';
-          $this->stationary[$item->description] = storage_path('app/' . $dir . $fullName . '/' . $file);
-      }
-      return $this;
-  }
+  // public function setStationaryLinksAttribute()
+  // {
+  //     $stationary = \App\Stationary::all();
+  //     $dir = 'stationary/';
+  //     $fullName = $this->getFullNameAttribute();
+  //     foreach ($stationary as $item) {
+  //         $file = $item->description . ' ' . $fullName . '.pdf';
+  //         $this->attributes[$item->description] = storage_path('app/' . $dir . $fullName . '/' . $file);
+  //     }
+  // }
+
+  // public function getStationaryFilesUrl()
+  // {
+  //     $stationary = \App\Stationary::all();
+  //     $dir = 'stationary/';
+  //     $fullName = $this->getFullNameAttribute();
+  //     foreach ($stationary as $item) {
+  //         $file = $item->description . ' ' . $fullName . '.pdf';
+  //         $this->stationary[$item->description] = storage_path('app/' . $dir . $fullName . '/' . $file);
+  //     }
+  //     return $this;
+  // }
 
   public function getFullNameAttribute()
   {
-      // $street = trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $this->address_real_1));
       return $this->city . ' (' . $this->cleanStreet . ')';
   }
 

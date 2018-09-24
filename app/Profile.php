@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 use TCPDF;
 use Carbon\Carbon;
 use App\Course;
@@ -26,200 +27,201 @@ class Profile extends Model
     protected $guarded = [];
     protected $hidden = ['user_id'];
 
-    protected $appends = ['requestsCount','clinicsCount','full_name' ,'job_name','job_type_name'];
+    protected $appends = ['clinicsCount', 'full_name', 'job_name', 'job_type_name'];
+    // protected $accesors = ['clinicsCount', 'full_name', 'job_name', 'job_type_name'];
     // , 'clinicScope', 'clinicIdsScope', 'countyIdsScope', 'countryIdsScope', 'stateIdsScope'
-    protected $with = ['university']; 
+    protected $with = ['clinics', 'job', 'jobType']; 
 
-      // Tableable DATA
-  protected $tableColumns = [
-    'name' => [
-      'label' => 'Nombre',
-      'filtering' => ['search'],
-    ],
-    'lastname1' => [
-      'label' => 'Apellido',
-      'filtering' => ['search'],
-    ],
-    'lastname2' => [
-        'label' => 'Apellido2',
+    // Tableable DATA
+    protected $tableColumns = [
+        'name' => [
+        'label' => 'Nombre',
+        'filtering' => ['search'],
+        ],
+        'lastname1' => [
+        'label' => 'Apellido',
+        'filtering' => ['search'],
+        ],
+        'lastname2' => [
+            'label' => 'Apellido2',
+            'filtering' => ['search'],
+            'show' => false
+        ],
+        'email' => [
+            'label' => 'Correo Electrónico',
+            'filtering' => ['search'],
+        ],
+        'phone' => [
+        'label' => 'Teléfono',
+        'filtering' => ['search'],
+        ],
+        'personal_id_number' => [
+        'label' => 'DNI',
+        'filtering' => ['search'],
+        ],
+        'gender' => [
+        'label' => 'Género',
         'filtering' => ['search'],
         'show' => false
-    ],
-    'email' => [
-        'label' => 'Correo Electrónico',
+        ],
+        'job_type_name' => [
+        'label' => 'Cargo',
         'filtering' => ['search'],
-    ],
-    'phone' => [
-      'label' => 'Teléfono',
-      'filtering' => ['search'],
-    ],
-    'personal_id_number' => [
-      'label' => 'DNI',
-      'filtering' => ['search'],
-    ],
-    'gender' => [
-      'label' => 'Género',
-      'filtering' => ['search'],
-      'show' => false
-    ],
-    'job_type_name' => [
-      'label' => 'Cargo',
-      'filtering' => ['search'],
-    ],
-  ];
-  protected $tableOptions = [['show','edit','delete'], true, true];
+        ],
+    ];
+    protected $tableOptions = [['show','edit','delete'], true, true];
 
-  // END Tableable Data
+    // END Tableable Data
 
-  // Formable DATA
-  protected $formFields = [
-    'name' => [
-        'label' =>'Nombre',
-        'rules' => ['required','min:3','max:64'],
-    ],
-    'lastname1' => [
-        'label' =>'Apellido',
-        'rules' => ['required','min:3','max:64'],
-    ],
-    'lastname2' => [
-        'label' =>'Segundo apellido',
-        'rules' => ['min:3','max:64'],
-    ],
-    'email' => [
-      'label' =>'Correo Electrónico',
-      'rules' => ['min:5','max:64'],
-      'type' => [
-        'name' =>'email',
-      ],
-    ],
-    'phone' => [
-      'label' =>'Teléfono',
-      'rules' => ['min:9','max:15'],
-    ],
-    'gender' => [
-        'label' =>'Género',
-        'rules' => ['required'],
-    ],
-    'job_id' => [
-        'label' =>'Categoría',
+    // Formable DATA
+    protected $formFields = [
+        'name' => [
+            'label' =>'Nombre',
+            'rules' => ['required','min:3','max:64'],
+        ],
+        'lastname1' => [
+            'label' =>'Apellido',
+            'rules' => ['required','min:3','max:64'],
+        ],
+        'lastname2' => [
+            'label' =>'Segundo apellido',
+            'rules' => ['min:3','max:64'],
+        ],
+        'email' => [
+        'label' =>'Correo Electrónico',
+        'rules' => ['min:5','max:64'],
+        'type' => [
+            'name' =>'email',
+        ],
+        ],
+        'phone' => [
+        'label' =>'Teléfono',
+        'rules' => ['min:9','max:15'],
+        ],
+        'gender' => [
+            'label' =>'Género',
+            'rules' => ['required'],
+        ],
+        'job_id' => [
+            'label' =>'Categoría',
+            'rules' => ['required'],
+            'type' => [
+            'name' =>'select',
+            'model' => 'jobs',
+            'text' =>  'name',
+            'value' => 'id',
+            'default' => [
+                'value' => null,
+                'text' => 'Selecciona una Categoría',
+                'disabled' => true,
+            ],
+            ],
+        ],
+        'job_type_id' => [
+        'label' =>'Puesto',
         'rules' => ['required'],
         'type' => [
-          'name' =>'select',
-          'model' => 'jobs',
-          'text' =>  'name',
-          'value' => 'id',
-          'default' => [
+            'name' =>'select',
+            'model' => 'job_types',
+            'text' =>  'name',
+            'value' => 'id',
+            'default' => [
             'value' => null,
-            'text' => 'Selecciona una Categoría',
+            'text' => 'Selecciona un Puesto',
             'disabled' => true,
-          ],
+            ],
         ],
-    ],
-    'job_type_id' => [
-      'label' =>'Puesto',
-      'rules' => ['required'],
-      'type' => [
-        'name' =>'select',
-        'model' => 'job_types',
-        'text' =>  'name',
-        'value' => 'id',
-        'default' => [
-          'value' => null,
-          'text' => 'Selecciona un Puesto',
-          'disabled' => true,
         ],
-      ],
-    ],
-];
+    ];
 
-protected $formModels = ['jobs','job_types'];
+    protected $formModels = ['jobs','job_types'];
 
-protected $formRelations = [
-    'clinics' => [
-        'label' => 'Clínicas',
-        'header' => 'Nueva Clínica',
-        'name' => 'clinics',
-        'fields' => [
-          'country_id' => [
-            'label' => 'País',
-            'name' => 'country_id',
-            'value' => null,
-            'dontRecord' => true,
-            'affects' => 'state_id',
-            'type' => [
-              'name' => 'select',
-              'model' => 'countries',
-              'text' => 'name',
-              'value' => 'id',
-              'default' => [
+    protected $formRelations = [
+        'clinics' => [
+            'label' => 'Clínicas',
+            'header' => 'Nueva Clínica',
+            'name' => 'clinics',
+            'fields' => [
+            'country_id' => [
+                'label' => 'País',
+                'name' => 'country_id',
                 'value' => null,
-                'text' => 'Selecciona un País',
-                'disabled' => true,
-              ],
+                'dontRecord' => true,
+                'affects' => 'state_id',
+                'type' => [
+                'name' => 'select',
+                'model' => 'countries',
+                'text' => 'name',
+                'value' => 'id',
+                'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona un País',
+                    'disabled' => true,
+                ],
+                ],
             ],
-          ],
-          'state_id' => [
-            'label' => 'CCAA',
-            'name' => 'state_id',
-            'value' => null,
-            'dontRecord' => true,
-            'dependsOn' => 'country_id',
-            'affects' => 'county_id',
-            'type' => [
-              'name' => 'select',
-              'model' => 'states',
-              'text' => 'name',
-              'value' => 'id',
-              'default' => [
+            'state_id' => [
+                'label' => 'CCAA',
+                'name' => 'state_id',
                 'value' => null,
-                'text' => 'Selecciona una CCAA',
-                'disabled' => true,
-              ],
+                'dontRecord' => true,
+                'dependsOn' => 'country_id',
+                'affects' => 'county_id',
+                'type' => [
+                'name' => 'select',
+                'model' => 'states',
+                'text' => 'name',
+                'value' => 'id',
+                'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una CCAA',
+                    'disabled' => true,
+                ],
+                ],
             ],
-          ],
-          'county_id' => [
-            'label' => 'Provincia',
-            'name' => 'county_id',
-            'value' => null,
-            'dependsOn' => 'state_id',
-            'affects' => 'clinic_id',
-            'dontRecord' => true,
-            'type' => [
-              'name' => 'select',
-              'model' => 'counties',
-              'text' => 'name',
-              'value' => 'id',
-              'default' => [
+            'county_id' => [
+                'label' => 'Provincia',
+                'name' => 'county_id',
                 'value' => null,
-                'text' => 'Selecciona una Provincia',
-                'disabled' => true,
-              ],
+                'dependsOn' => 'state_id',
+                'affects' => 'clinic_id',
+                'dontRecord' => true,
+                'type' => [
+                'name' => 'select',
+                'model' => 'counties',
+                'text' => 'name',
+                'value' => 'id',
+                'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una Provincia',
+                    'disabled' => true,
+                ],
+                ],
             ],
-          ],
-          'clinic_id' => [
-            'label' => 'Clínica',
-            'rules' => ['required'],
-            'name' => 'clinic_id',
-            'value' => null,
-            'dontRecord' => false,
-            'dependsOn' => 'county_id',
-            'type' => [
-              'name' => 'select',
-              'model' => 'clinics',
-              'text' => 'fullName',
-              'value' => 'id',
-              'default' => [
+            'clinic_id' => [
+                'label' => 'Clínica',
+                'rules' => ['required'],
+                'name' => 'clinic_id',
                 'value' => null,
-                'text' => 'Selecciona una Clínica',
-                'disabled' => true,
-              ],
+                'dontRecord' => false,
+                'dependsOn' => 'county_id',
+                'type' => [
+                'name' => 'select',
+                'model' => 'clinics',
+                'text' => 'fullName',
+                'value' => 'id',
+                'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona una Clínica',
+                    'disabled' => true,
+                ],
+                ],
             ],
-          ],
+            ]
         ]
-    ]
-];
+    ];
 
-// END Formable DATA
+    // END Formable DATA
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -270,13 +272,13 @@ protected $formRelations = [
     }
     public function getLastname1Attribute($value)
     {
-        return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
-        // return ucwords(strtolower($value));
+        $str = mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
+        return $str = str_replace('De L', 'de l', $str);
     }
     public function getLastname2Attribute($value)
     {
-        return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
-        // return ucwords(strtolower($value));
+        $str = mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
+        return $str = str_replace('De L', 'de l', $str);
     }
     public function getFullNameAttribute() {
         return $this->name . ' ' . $this->lastname1;
@@ -285,10 +287,12 @@ protected $formRelations = [
         return cleanString($this->fullName);
     }
     public function getJobNameAttribute() {
-        return $this->job ? $this->job->name : 'undefined';
+        // return $this->job ? $this->job->name : 'undefined';
+        return $this->job->name;
     }
     public function getJobTypeNameAttribute() {
         return $this->jobType ? $this->jobType->name : 'undefined';
+        // return $this->jobType->name;
     }
     public function getRequestsCountAttribute() {
         return $this->requests->count();
@@ -298,16 +302,23 @@ protected $formRelations = [
     }
     public function getClinicScopeAttribute() {
         if ($this->clinicsCount) {
-            return $this->clinics;
+            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
+                return $this->clinics;
+            });
         } elseif ($this->user->role == 'user') {
             // Get Madrid County Clinics as a Test
-            return \App\Clinic::where('county_id', 28)->get();
+            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
+                return \App\Clinic::where('county_id', 28)->get();
+            });
         } elseif ($this->user->role == 'admin') {
-            return \App\Clinic::get();
+            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
+                return \App\Clinic::get();
+            });
         }
     }
     public function getClinicIdsScopeAttribute() {
-        return $this->clinicScope->pluck('id');
+        $scope = $this->clinicScope->pluck('id');
+        return $scope;
     }
     
     public function getCountyIdsScopeAttribute() {

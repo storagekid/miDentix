@@ -48,6 +48,9 @@ trait Tableable {
             $temp['parse'] = array_key_exists('parse', $options) ? true : false;
             $temp['multiEdit'] = array_key_exists('multiEdit', $options) ? true : false;
             $temp['width'] = "";
+            // if (!in_array($name, $this->accesors)) {
+            //     $temp['maxLengthId'] = $this::orderByRaw('CHAR_LENGTH('. $name .')')->first(['id']);
+            // }
             $temp['sorting'] = $this->sortingBuilder($sorting);
             $temp['filtering'] = $this->filteringBuilder($name, $filtering);
             $defColumns[] = $temp;

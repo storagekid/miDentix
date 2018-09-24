@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
 use App\Country;
 
@@ -20,7 +21,10 @@ class CountryController extends Controller
                 $models = Country::find(request('ids'));
             }
         } else {
-            $models = Country::get();
+            $models = Cache::rememberForever('countries', function() {
+                return Country::get();
+            });
+            // $models = Country::get();
         }
 
         return response([

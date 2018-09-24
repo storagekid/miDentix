@@ -96,7 +96,7 @@
         methods: {
             setOrder(e) {
                 let classes = Vue.buttonLoaderOnEvent(e);
-                this.$store.dispatch('ShoppingCart/setOrder', {clinic: this.$store.state.Model.models.clinics.itemSelected.id, e:e, classes: classes});
+                this.$store.dispatch('ShoppingCart/setOrder', {clinic: this.$store.state.Model.models.clinics.itemSelected, e:e, classes: classes});
             },
         }
     };

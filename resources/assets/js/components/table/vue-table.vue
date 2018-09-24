@@ -214,8 +214,12 @@ export default {
     tables() {
       if (this.tables[this.model]) {
         if (this.items.length) {
+          var t0 = performance.now();
           this.setColumnsWidth();
-          this.setReady(this.model);
+          // this.setColumnsWidthReverse();
+          var t1 = performance.now();
+          console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
+          this.setReady({model: this.model});
         }
       }
     },
@@ -364,6 +368,33 @@ export default {
       if (this.options.counterColumn) {
         for (let [index, value] of this.$refs["column-counter-row"].entries()) {
           value.style.width = this.$refs["column-counter-header"].clientWidth + "px";
+        }
+      }
+    },
+    setColumnsWidthReverse() {
+      for (var i = 0; i < this.columns.length-1; i++) {
+      // for (let [index, value] of this.columns.entries()) {
+        let columnHeader = "column-" + this.columns[i].name + "-header";
+        let columnRows = "column-" + this.columns[i].name + "-row";
+        let maxWidth = 0;
+        if (Array.isArray(this.$refs[columnHeader])) {
+          maxWidth = this.$refs[columnHeader][0].clientWidth;
+        } else {
+          maxWidth = this.$refs[columnHeader].clientWidth;
+        }
+        for (var j = 0; j < this.$refs[columnRows].length-1; j++) {
+        // for (let [index, value] of this.$refs[columnRows].entries()) {      
+          if (this.$refs[columnRows][j].clientWidth > maxWidth) {
+            maxWidth = this.$refs[columnRows][j].clientWidth;
+          }
+        }
+        let finalWidth = maxWidth;
+        this.columns[i].width = finalWidth;
+      }
+      if (this.options.counterColumn) {
+        for (var i = 0; i < this.$refs["column-counter-row"].length-1; i++) {
+        // for (let [index, value] of this.$refs["column-counter-row"].entries()) {
+          this.$refs["column-counter-row"][i].style.width = this.$refs["column-counter-header"].clientWidth + "px";
         }
       }
     },
@@ -543,8 +574,15 @@ export default {
                 this.columns = data.table.columns;
                 this.options = data.table.options;
             }).then(() => {
+              console.log('Table Data ' + this.model + ' fetched');
               // this.$store.commit('Table/setTable', this.model);
-              this.setTable(this.model);
+              this.setTable({model: this.model});
+            })
+            .catch((error) => {
+                flash({
+                    message: error.response.data.message, 
+                    label: 'danger'
+                  });
             });
       } else {
         // Initialize for local model approach.
@@ -617,6 +655,7 @@ export default {
     }
   },
   created() {
+    console.log('Table Component ' + this.model + ' created');
     this.initializeTable();
     this.buildFiltering("items");
     this.buildOrdering("items");
@@ -626,6 +665,7 @@ export default {
     if (this.mode != 'vuex') {
       // this.setColumnsWidth();      
     }
+    console.log('Table Component ' + this.model + ' mounted');
   },
   beforeDestroy() {
     this.$store.commit('Table/removeTable', this.model);

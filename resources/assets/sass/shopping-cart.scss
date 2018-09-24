@@ -14,9 +14,9 @@
         }
     }
     .badge-container {
-        position: absolute;
-        right: 35px;
-        top: 8px;
+        // position: absolute;
+        // right: 35px;
+        // top: 8px;
         background-color:$dentix-main-10;
         color: $dentix-main;
         font-weight: bolder;
@@ -37,7 +37,7 @@
         display: block;
     }
 }
-#nav-main #shopping-cart {
+#top-nav-bar #shopping-cart {
     display: none;
     position: absolute;
     right: -100px;

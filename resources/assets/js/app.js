@@ -38,6 +38,7 @@ Vue.component('profile', require('./pages/profile.vue'));
 // Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
 
 Vue.component('vue-table', require('./components/table/vue-table.vue'));
+// Vue.component('vue-table-fixed', require('./components/table/vue-table-fixed.vue'));
 // Vue.component('vue-table-row', require('./components/table/vue-table-row.vue'));
 // Vue.component('vue-model-options', require('./components/vue-model-options'));
 // Vue.component('filters', require('./components/filters.vue'));
@@ -65,6 +66,9 @@ Vue.use(VModal);
 
 import Helpers from './tools/helpers';
 Vue.use(Helpers);
+
+import VueCookies from 'vue-cookies';
+Vue.use(VueCookies);
 
 const app = new Vue({
     el: '#app',
@@ -118,6 +122,7 @@ const app = new Vue({
     },
     created() {
         this.$store.dispatch('startApp');
+        // this.$store.dispatch('runCounter');
         // this.$store.dispatch('fetchUser');
         window.events.$on('toggleLeftMenu', this.toggleMainColumns);
     },

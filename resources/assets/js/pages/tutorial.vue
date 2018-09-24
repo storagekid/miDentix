@@ -159,7 +159,7 @@
             this.updateProfileTutorial(this.tabSelected+1);
           },
           completePhase(number) {
-            console.log('Completed!!!');
+            // console.log('Completed!!!');
             this.tabs[this.tabSelected].completed = true;
           },
           notifyNoErrors() {
@@ -176,7 +176,7 @@
             return true;
           },
           updateProfileTutorial(phase) {
-            console.log("Updating to: "+phase);
+            // console.log("Updating to: "+phase);
             axios.patch('/tutorial/'+this.profileSrc.id, {
               'tutorial_completed': phase,
             }).catch((error) => {

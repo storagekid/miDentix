@@ -212,8 +212,8 @@ export default {
 			this.$delete(this.filtering.filters, index);
 		},
 		filterDates(object) {
-			console.log('Start Date: ' + moment(this.filtering.date.start).format('x'));
-			console.log('End Date: ' + moment(this.filtering.date.end).format('x'));
+			// console.log('Start Date: ' + moment(this.filtering.date.start).format('x'));
+			// console.log('End Date: ' + moment(this.filtering.date.end).format('x'));
 			let startDate = moment(this.filtering.date.start).format('x');
 			let endDate = moment(this.filtering.date.end).format('x');
 			for (let date of this.filtering.filters[object].keys) {
@@ -266,7 +266,7 @@ export default {
 			}
 		},
 		searchString() {
-			console.log('searching');
+			// console.log('searching');
 			this.filtering.selected = [];
 			this.filtering.selected = [];
 			this.filtering.filters[this.filtering.name].filteredKeys = [];

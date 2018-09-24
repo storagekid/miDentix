@@ -2,40 +2,59 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Facades\Cache;
 use App\Clinic;
 use App\Order;
 
 trait Scope {
 
-    public static function scoped($model) {
-        $models = strtolower(str_plural($model));
-        $model = '\\App\\' . ucfirst(strtolower($model));
-        $clinics = null;
-        if (request('clinic_id')) {
-            $clinics = Clinic::find(request('clinic_id'));
-            $items = $clinics[$models]->toArray();
-        }
-        elseif (request('clinics')) {
-            $clinics = Clinic::find(request('clinics'));
-            $count = 1;
-            if (count($clinics)) {
-                $items = $clinics[0][$models]->toArray();
-                if (count($clinics) > 1) {
-                    foreach ($clinics as $clinic) {
-                        if ($count > 1) {
-                            $items = array_merge($items, $clinic[$models]->toArray());
-                        }
-                        $count++;
-                    }
-                }
-            } else {
-                $items = $clinics[$models]->toArray();
-            }
-        } 
-        
-        if (!$clinics) {
-            $items = $model::get();
-        }
+    public static function clinicScoped($model) {
+        $clinics = self::getScope();
+        // $models = strtolower(str_plural($model));
+        // $model = '\\App\\' . ucfirst(strtolower($model));
+        $model = '\\App\\' . ucfirst($model);
+
+        $items = $model::whereHas('clinic', function($query) use ($clinics) {
+            $query->whereIn('id', $clinics);
+        })->get();
+
         return $items;
+    }
+    public static function clinicsScoped($model) {
+        $clinics = self::getScope();
+
+        // $model = '\\App\\' . ucfirst(strtolower($model));
+        $model = '\\App\\' . ucfirst($model);
+
+        $items = $model::whereHas('clinics', function($query) use ($clinics) {
+            $query->whereIn('clinic_id', $clinics);
+        })->get();
+
+        return $items;
+    }
+
+    public static function getScope() {
+        $clinics = null;
+        switch (true) {
+            case request()->has('country_id') :
+                $clinics = Clinic::cacheClinics();
+                $clinics = $clinics->where('country_id', request('country_id'))->pluck('id')->toArray();
+                break;
+            case request()->has('state_id') :
+                $clinics = Clinic::cacheClinics();
+                $clinics = $clinics->where('state_id', request('state_id'))->pluck('id')->toArray();
+                break;
+            case request()->has('county_id') :
+                $clinics = Clinic::cacheClinics();
+                $clinics = $clinics->where('county_id', request('county_id'))->pluck('id')->toArray();
+                break;
+            case request()->has('clinic_id') :
+                $clinics = [request('clinic_id')];
+                break;
+        }
+        if (!$clinics) {
+            $clinics = session('clinicsScope');
+        }
+        return $clinics;
     }
 }

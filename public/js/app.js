@@ -30459,7 +30459,9 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuex
         Modal: __WEBPACK_IMPORTED_MODULE_10__modules_modal__["a" /* default */]
     },
     state: {
-        app: {}
+        app: {
+            counter: 0
+        }
     },
 
     getters: {
@@ -30482,11 +30484,27 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuex
             var dispatch = _ref2.dispatch;
 
             dispatch('User/fetchUser');
+        },
+        runCounter: function runCounter(_ref3) {
+            var state = _ref3.state,
+                commit = _ref3.commit;
+
+            console.log('Starting App. Counter at: ' + state.app.counter);
+            var startCounter = function startCounter() {
+                commit('runCounter');
+                console.log('Counter at: ' + state.app.counter);
+            };
+            setInterval(startCounter, 1000);
         }
     },
 
     mutations: {
-        //User
+        // App
+        runCounter: function runCounter(_ref4) {
+            var app = _ref4.app;
+
+            app.counter++;
+        }
     }
 }));
 
@@ -30546,9 +30564,9 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(145);
-__webpack_require__(320);
 __webpack_require__(321);
-module.exports = __webpack_require__(322);
+__webpack_require__(322);
+module.exports = __webpack_require__(323);
 
 
 /***/ }),
@@ -30562,6 +30580,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_js_modal__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_js_modal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tools_helpers__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_cookies__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_cookies___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_cookies__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -30602,6 +30622,7 @@ Vue.component('profile', __webpack_require__(195));
 // Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
 
 Vue.component('vue-table', __webpack_require__(206));
+// Vue.component('vue-table-fixed', require('./components/table/vue-table-fixed.vue'));
 // Vue.component('vue-table-row', require('./components/table/vue-table-row.vue'));
 // Vue.component('vue-model-options', require('./components/vue-model-options'));
 // Vue.component('filters', require('./components/filters.vue'));
@@ -30629,6 +30650,9 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_2_vue_js_modal___default.a);
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_3__tools_helpers__["a" /* default */]);
+
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue_cookies___default.a);
 
 var app = new Vue({
     el: '#app',
@@ -30724,6 +30748,7 @@ var app = new Vue({
     },
     created: function created() {
         this.$store.dispatch('startApp');
+        // this.$store.dispatch('runCounter');
         // this.$store.dispatch('fetchUser');
         window.events.$on('toggleLeftMenu', this.toggleMainColumns);
     }
@@ -62784,7 +62809,7 @@ var render = function() {
     [
       _vm.$store.getters["ShoppingCart/itemsInCart"] != 0 &&
       _vm.$store.state.Model.models.clinics
-        ? _c("li", { attrs: { id: "shopping-cart-nav-item" } }, [
+        ? _c("div", { attrs: { id: "shopping-cart-nav-item" } }, [
             _c(
               "a",
               {
@@ -63030,7 +63055,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         setOrder: function setOrder(e) {
             var classes = Vue.buttonLoaderOnEvent(e);
-            this.$store.dispatch('ShoppingCart/setOrder', { clinic: this.$store.state.Model.models.clinics.itemSelected.id, e: e, classes: classes });
+            this.$store.dispatch('ShoppingCart/setOrder', { clinic: this.$store.state.Model.models.clinics.itemSelected, e: e, classes: classes });
         }
     }
 });
@@ -64941,7 +64966,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -65179,8 +65204,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     tables: function tables() {
       if (this.tables[this.model]) {
         if (this.items.length) {
+          var t0 = performance.now();
           this.setColumnsWidth();
-          this.setReady(this.model);
+          // this.setColumnsWidthReverse();
+          var t1 = performance.now();
+          console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.");
+          this.setReady({ model: this.model });
         }
       }
     },
@@ -65503,6 +65532,33 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
         }
       }
     },
+    setColumnsWidthReverse: function setColumnsWidthReverse() {
+      for (var i = 0; i < this.columns.length - 1; i++) {
+        // for (let [index, value] of this.columns.entries()) {
+        var columnHeader = "column-" + this.columns[i].name + "-header";
+        var columnRows = "column-" + this.columns[i].name + "-row";
+        var maxWidth = 0;
+        if (Array.isArray(this.$refs[columnHeader])) {
+          maxWidth = this.$refs[columnHeader][0].clientWidth;
+        } else {
+          maxWidth = this.$refs[columnHeader].clientWidth;
+        }
+        for (var j = 0; j < this.$refs[columnRows].length - 1; j++) {
+          // for (let [index, value] of this.$refs[columnRows].entries()) {      
+          if (this.$refs[columnRows][j].clientWidth > maxWidth) {
+            maxWidth = this.$refs[columnRows][j].clientWidth;
+          }
+        }
+        var finalWidth = maxWidth;
+        this.columns[i].width = finalWidth;
+      }
+      if (this.options.counterColumn) {
+        for (var i = 0; i < this.$refs["column-counter-row"].length - 1; i++) {
+          // for (let [index, value] of this.$refs["column-counter-row"].entries()) {
+          this.$refs["column-counter-row"][i].style.width = this.$refs["column-counter-header"].clientWidth + "px";
+        }
+      }
+    },
     setMenu: function setMenu(ref, top, left) {
       var largestHeight = window.innerHeight - this.$refs[ref].offsetHeight - 25;
       var largestWidth = window.innerWidth - this.$refs[ref].offsetWidth - 25;
@@ -65745,8 +65801,14 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
           _this.columns = data.table.columns;
           _this.options = data.table.options;
         }).then(function () {
+          console.log('Table Data ' + _this.model + ' fetched');
           // this.$store.commit('Table/setTable', this.model);
-          _this.setTable(_this.model);
+          _this.setTable({ model: _this.model });
+        }).catch(function (error) {
+          flash({
+            message: error.response.data.message,
+            label: 'danger'
+          });
         });
       } else {
         // Initialize for local model approach.
@@ -65845,6 +65907,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     }
   },
   created: function created() {
+    console.log('Table Component ' + this.model + ' created');
     this.initializeTable();
     this.buildFiltering("items");
     this.buildOrdering("items");
@@ -65854,6 +65917,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     if (this.mode != 'vuex') {
       // this.setColumnsWidth();      
     }
+    console.log('Table Component ' + this.model + ' mounted');
   },
   beforeDestroy: function beforeDestroy() {
     this.$store.commit('Table/removeTable', this.model);
@@ -66243,8 +66307,8 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 			this.$delete(this.filtering.filters, index);
 		},
 		filterDates: function filterDates(object) {
-			console.log('Start Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x'));
-			console.log('End Date: ' + __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x'));
+			// console.log('Start Date: ' + moment(this.filtering.date.start).format('x'));
+			// console.log('End Date: ' + moment(this.filtering.date.end).format('x'));
 			var startDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.start).format('x');
 			var endDate = __WEBPACK_IMPORTED_MODULE_0_moment__(this.filtering.date.end).format('x');
 			var _iteratorNormalCompletion7 = true;
@@ -66360,7 +66424,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 			}
 		},
 		searchString: function searchString() {
-			console.log('searching');
+			// console.log('searching');
 			this.filtering.selected = [];
 			this.filtering.selected = [];
 			this.filtering.filters[this.filtering.name].filteredKeys = [];
@@ -67084,7 +67148,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$store.dispatch('Model/updateRelation', { name: this.relatedModel, relation: this.model, ids: this.modal.ids, item: this.modelToSave });
     },
     createNewRelation: function createNewRelation() {
-      console.log('Create new relation');
+      // console.log('Create new relation');
       this.$store.dispatch('Model/setNewRelation', { name: this.relatedModel, relation: this.model, item: this.modelToSave });
     },
     createNew: function createNew() {
@@ -69724,6 +69788,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     methods: {
+        setScope: function setScope() {
+            this.$store.commit('Scope/setScopeKey');
+            this.$cookies.set(this.$store.state.User.user.email + '-scope', this.$store.state.Scope.scopeKey);
+        },
         selectModel: function selectModel(e, model) {
             var id = e ? e.target.value : null;
             this.$store.commit('Scope/selectModel', { 'model': model, 'id': id });
@@ -69946,7 +70014,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      _vm.$store.commit("Scope/setScopeKey")
+                      return _vm.setScope($event)
                     }
                   }
                 })
@@ -70165,29 +70233,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         notifyExtratimeRemoved: function notifyExtratimeRemoved() {
             this.admin.extratimesUnsolved--;
-        },
-        fetchMenuData: function fetchMenuData() {
-            var _this = this;
-
-            axios.get('/api/menu').then(function (data) {
-                _this.admin.requests = data.data.requests;
-                _this.admin.extratimes = data.data.extratimes;
-                _this.countUnsolved();
-                if (_this.user.role == 'admin') {
-                    _this.admin.profiles = data.data.profiles;
-                    _this.countDeadUsers();
-                }
-            });
         }
     },
     created: function created() {
-        window.events.$on('requestClosed', this.notifySolved);
-        window.events.$on('requestAdded', this.notifyRequestAdded);
-        window.events.$on('extratimeAdded', this.notifyExtratimeAdded);
-        window.events.$on('extratimeRemoved', this.notifyExtratimeRemoved);
-        window.events.$on('extratimeSolved', this.notifyExtratimeRemoved);
-        this.getActive();
-        this.fetchMenuData();
+        // window.events.$on('requestClosed', this.notifySolved);
+        // window.events.$on('requestAdded', this.notifyRequestAdded);
+        // window.events.$on('extratimeAdded', this.notifyExtratimeAdded);
+        // window.events.$on('extratimeRemoved', this.notifyExtratimeRemoved);
+        // window.events.$on('extratimeSolved', this.notifyExtratimeRemoved);
+        // this.getActive();
+        // this.fetchMenuData();
     },
     mounted: function mounted() {}
 });
@@ -72798,25 +72853,34 @@ var actions = {
     initScope: function initScope(_ref, _ref2) {
         var state = _ref.state,
             commit = _ref.commit,
-            dispatch = _ref.dispatch;
+            dispatch = _ref.dispatch,
+            rootState = _ref.rootState;
         var profile = _ref2.profile;
 
         commit('setCountries', profile.countryIdsScope);
         commit('setCounties', profile.countyIdsScope);
         commit('setStates', profile.stateIdsScope);
         commit('setClinics', profile.clinicIdsScope);
-        if (state.countries.ids.length == 1) {
-            commit('selectModel', { model: 'countries', id: state.countries.ids[0] });
+        if (window.$cookies.isKey(rootState.User.user.email + '-scope')) {
+            var scopeArray = window.$cookies.get(rootState.User.user.email + '-scope').split('.');
+            commit('selectScopeModel', { model: 'countries', id: scopeArray[0] });
+            commit('selectScopeModel', { model: 'states', id: scopeArray[1] });
+            commit('selectScopeModel', { model: 'counties', id: scopeArray[2] });
+            commit('selectScopeModel', { model: 'clinics', id: scopeArray[3] });
+        } else if (state.countries.ids.length == 1) {
+            commit('selectScopeModel', { model: 'countries', id: state.countries.ids[0] });
             if (state.states.ids.length == 1) {
-                commit('selectModel', { model: 'states', id: state.states.ids[0] });
+                commit('selectScopeModel', { model: 'states', id: state.states.ids[0] });
                 if (state.counties.ids.length == 1) {
-                    commit('selectModel', { model: 'counties', id: state.counties.ids[0] });
+                    commit('selectScopeModel', { model: 'counties', id: state.counties.ids[0] });
                     if (state.clinics.ids.length == 1) {
-                        commit('selectModel', { model: 'clinics', id: state.clinics.ids[0] });
+                        commit('selectScopeModel', { model: 'clinics', id: state.clinics.ids[0] });
                     }
                 }
             }
         }
+
+        commit('setScopeKey');
         dispatch('Model/fetchFilteredModels', { models: { 'clinics': { ids: null } } }, { root: true });
         dispatch('Model/fetchFilteredModels', { models: { 'countries': { ids: null } } }, { root: true });
         dispatch('Model/fetchFilteredModels', { models: { 'counties': { ids: null } } }, { root: true });
@@ -72829,6 +72893,7 @@ var mutations = {
         var county = state.counties.selected ? state.counties.selected : '-';
         var stateID = state.states.selected ? state.states.selected : '-';
         var clinic = state.clinics.selected ? state.clinics.selected : '-';
+        console.log('Setting Scope Key: ' + country + stateID + county + clinic);
         state.scopeKey = country + '.' + stateID + '.' + county + '.' + clinic;
     },
     setCountries: function setCountries(state, ids) {
@@ -72863,7 +72928,7 @@ var mutations = {
             state.clinics.ids.push(id);
         }
     },
-    selectModel: function selectModel(state, _ref3) {
+    selectScopeModel: function selectScopeModel(state, _ref3) {
         var model = _ref3.model,
             id = _ref3.id;
 
@@ -73272,17 +73337,23 @@ var getters = {
 };
 var actions = {};
 var mutations = {
-    setTable: function setTable(state, model) {
+    setTable: function setTable(state, _ref2) {
+        var model = _ref2.model;
+
         Vue.set(state.tables, model, {});
         Vue.set(state.tables[model], 'ready', false);
+        console.log('Table ' + model + ' setted');
     },
     removeTable: function removeTable(state, model) {
         Vue.delete(state.tables, model);
     },
-    setReady: function setReady(state, model) {
-        console.log('Setting Ready ' + model);
-        console.log('Tables: ' + state.tables);
+    setReady: function setReady(state, _ref3) {
+        var model = _ref3.model;
+
+        // console.log('Setting Ready ' + model);
+        // console.log('Tables: ' + state.tables);
         state.tables[model].ready = true;
+        console.log('Table ' + model + ' Ready');
     }
 };
 
@@ -73582,9 +73653,9 @@ var actions = {
             commit('addNewModel', { modelName: name, model: data.newmodel });
             scrollToAndGlow(name + data.newmodel.id, data.newmodel.id, state, commit);
         }).catch(function (_ref6) {
-            var error = _ref6.error;
+            // console.log(error);
 
-            console.log(error);
+            var error = _ref6.error;
         });
     },
     updateModel: function updateModel(_ref7, _ref8) {
@@ -73627,9 +73698,9 @@ var actions = {
                     commit('updateModel', { modelName: name, model: data.updatedModel });
                     scrollToAndGlow(name + data.updatedModel.id, data.updatedModel.id, state, commit);
                 }).catch(function (_ref10) {
-                    var error = _ref10.error;
+                    // console.log(error);
 
-                    console.log(error);
+                    var error = _ref10.error;
                 });
             }
         } catch (err) {
@@ -73663,9 +73734,9 @@ var actions = {
                     label: 'success'
                 });
             }).catch(function (_ref14) {
-                var error = _ref14.error;
+                // console.log('Error deleting');
 
-                console.log('Error deleting');
+                var error = _ref14.error;
             });
         };
 
@@ -73757,7 +73828,7 @@ var actions = {
                         commit('modelsReady');
                     }
                 }).catch(function (error) {
-                    console.log('Error fetching models');
+                    // console.log('Error fetching models');
                 });
             };
 
@@ -73797,6 +73868,7 @@ var actions = {
         var modelsFetched = 0;
         for (var model in options.models) {
             if (!state.models[model] || options.refresh) {
+                // console.log('Refresh!!!!');
                 commit('setModel', { name: model });
                 modelsToFetch.push(model);
             }
@@ -73805,8 +73877,8 @@ var actions = {
             commit('modelsNotReady');
 
             var _loop3 = function _loop3(_model2) {
-                console.log('Model: ' + _model2);
-                console.log(options.models[_model2]);
+                // console.log('Model: ' + model);
+                // console.log(options.models[model]);
                 var params = {};
                 if (options.models[_model2].ids) {
                     params['ids'] = options.models[_model2].ids;
@@ -73818,14 +73890,17 @@ var actions = {
                     params['groupby'] = options.models[_model2].groupby;
                 }
                 if (options.scoped) {
-                    params['clinic_id'] = rootState.Scope.clinics.selected;
-                    params['clinics'] = rootState.Scope.clinics.ids;
-                    params['county_id'] = rootState.Scope.counties.selected;
-                    params['counties'] = rootState.Scope.counties.ids;
-                    params['state_id'] = rootState.Scope.states.selected;
-                    params['states'] = rootState.Scope.states.ids;
-                    params['country_id'] = rootState.Scope.countries.selected;
-                    params['countries'] = rootState.Scope.countries.ids;
+                    if (rootState.Scope.clinics.selected != '-') {
+                        params['clinic_id'] = rootState.Scope.clinics.selected;
+                    } else if (rootState.Scope.counties.selected != '-') {
+                        params['county_id'] = rootState.Scope.counties.selected;
+                    } else if (rootState.Scope.states.selected != '-') {
+                        params['state_id'] = rootState.Scope.states.selected;
+                    } else if (rootState.Scope.countries.selected != '-') {
+                        params['country_id'] = rootState.Scope.countries.selected;
+                    } else {
+                        params['scope'] = false;
+                    }
                 }
                 axios({
                     url: '/api/' + _model2,
@@ -73838,6 +73913,7 @@ var actions = {
                         var items = data.data.model;
                         commit('setItemsFetched', { name: _model2, items: items });
                         modelsFetched++;
+                        console.log('Model ' + _model2 + ' fetched');
                         if (rootState.Scope[_model2]) {
                             if (rootState.Scope[_model2].selected) {
                                 commit('selectModel', { 'model': _model2, id: rootState.Scope[_model2].selected });
@@ -73848,7 +73924,10 @@ var actions = {
                         commit('modelsReady');
                     }
                 }).catch(function (error) {
-                    console.log('Error fetching models');
+                    flash({
+                        message: error.response.data.message,
+                        label: 'danger'
+                    });
                 });
             };
 
@@ -73888,8 +73967,8 @@ var actions = {
         axios.post('/api/relations/?model=' + name + '&relation=' + relation, item).then(function (_ref19) {
             var data = _ref19.data;
 
-            console.log('Here');
-            console.log(state.models[name].modelToSave);
+            // console.log('Here');
+            // console.log(state.models[name].modelToSave);
             var id = state.models[name].modelToSave[relation].length + 't' + 1;
             data.relation['id'] = id;
             commit('setNewRelation', { 'name': name, 'relation': relation, item: data.relation });
@@ -74195,9 +74274,8 @@ var mutations = {
             models[model].idSelected = null;
             return false;
         }
-        models[model].itemSelected = models[model].items.find(function (item) {
-            return item.id == id;
-        });
+        models[model].itemSelected = id;
+        // models[model].itemSelected = models[model].items.find(item => item.id == id);
     },
     modelToSaveBuilder: function modelToSaveBuilder(_ref52, _ref53) {
         var models = _ref52.models;
@@ -74258,7 +74336,8 @@ var mutations = {
                 var item = _ref58[1];
 
                 if (item.id == model.id) {
-                    state.models[modelName].items[index] = model;
+                    Vue.set(state.models[modelName].items, index, model);
+                    // state.models[modelName].items[index] = model;
                 }
             }
         } catch (err) {
@@ -77253,7 +77332,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -77295,17 +77374,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      modelsNeeded: ['orders', 'profiles', 'stationaries'],
+      modelsNeeded: ['orders'],
+      tablesNeeded: ['orders'],
       model: 'orders',
       //Table
       footer: {
         totalRows: 0
-      },
-      tablesNeeded: ['orders']
+      }
     };
   },
 
-  watch: {},
+  watch: {
+    scopeKey: function scopeKey() {
+      var models = {};
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.modelsNeeded[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var model = _step.value;
+
+          models[model] = {};
+        }
+        // this.$store.dispatch('Model/fetchFilteredModels', {'models': models, 'scoped': true});
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      this.$store.dispatch('Model/fetchFilteredModels', { 'models': models, 'refresh': true, 'scoped': true });
+    }
+  },
   computed: {
     scopeKey: function scopeKey() {
       return this.$store.state.Scope.scopeKey;
@@ -77509,7 +77619,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -77622,7 +77732,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      modelsNeeded: ['providers', 'stationaries'],
+      modelsNeeded: ['providers', 'stationaries', 'clinic_stationaries'],
       tablesNeeded: ['stationaries'],
       model: 'stationaries',
       //Table
@@ -77710,20 +77820,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Vue.buttonLoaderRemove(e, classes);
       });;
     },
-    regenerateStationary: function regenerateStationary(e) {
-      var classes = Vue.buttonLoaderOnEvent(e);
-      axios.post('/stationary/regen', { force: true }).then(function (response) {
-        Vue.buttonLoaderRemove(e, classes);
-      });
-    },
     completeStationary: function completeStationary(e) {
+      var _this = this;
+
+      var force = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
       var classes = Vue.buttonLoaderOnEvent(e);
-      axios.post('/stationary/complete').then(function (response) {
+      var params = { 'force': force };
+      if (this.$store.state.Scope.clinics.selected) {
+        params['clinic_id'] = this.$store.state.Scope.clinics.selected;
+      } else if (this.$store.state.Scope.counties.selected) {
+        params['county_id'] = this.$store.state.Scope.counties.selected;
+      } else if (this.$store.state.Scope.states.selected) {
+        params['state_id'] = this.$store.state.Scope.states.selected;
+      } else if (this.$store.state.Scope.countries.selected) {
+        params['country_id'] = this.$store.state.Scope.countries.selected;
+      } else {
+        params['scope'] = false;
+      }
+      axios({
+        url: '/stationary/regen',
+        method: 'POST',
+        params: params
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        console.log('Data: ' + data);
+        if (data.clinic_stationaries) {
+          _this.$store.commit('Model/setItemsFetched', { name: 'clinic_stationaries', items: data.clinic_stationaries });
+        } else {
+          flash({
+            message: data.message,
+            label: 'success'
+          });
+        }
         Vue.buttonLoaderRemove(e, classes);
       }).catch(function (error) {
         flash({
           message: error.response.data.message,
-          // message: 'Error en el servidor.<br>Por favor, contacte con el administrador de la plataforma', 
           label: 'danger'
         });
         Vue.buttonLoaderRemove(e, classes);
@@ -77820,7 +77954,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -77885,10 +78019,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {};
     },
 
-    watch: {},
+    watch: {
+        scopeKey: function scopeKey() {
+            var models = { 'clinic_stationaries': {} };
+            this.$store.dispatch('Model/fetchFilteredModels', { 'models': models, 'refresh': true, 'scoped': true });
+        }
+    },
     computed: {
+        scopeKey: function scopeKey() {
+            return this.$store.state.Scope.scopeKey;
+        },
         shoppingCart: function shoppingCart() {
             return this.$store.state.ShoppingCart.shoppingCart;
+        },
+        clinicSelected: function clinicSelected() {
+            var _this = this;
+
+            return this.$store.state.Model.models['clinics'].items.find(function (item) {
+                return item.id == _this.$store.state.Model.models.clinics.itemSelected;
+            });
+        },
+        clinicStationaries: function clinicStationaries() {
+            return this.$store.state.Model.models['clinic_stationaries'].items;
         },
         models: function models() {
             return this.$store.state.Model.models;
@@ -77918,99 +78070,111 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "panel-body" }, [
-          _c(
-            "form",
-            { staticStyle: { padding: "10px" }, attrs: { action: "" } },
-            [
-              _c("div", { staticClass: "form-group fx fx-width-100 fx-col" }, [
-                _vm._m(1),
-                _vm._v(" "),
-                _c("div", { staticClass: "fx fx-width-100 jf-between" }, [
-                  _c("div", { staticClass: "fx fx-100 jf-around" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group mr-10-all mb-10-all" },
-                      _vm._l(
-                        _vm.models.clinics.itemSelected.stationaries,
-                        function(stationary, index) {
-                          return _c(
-                            "button",
-                            {
-                              key: index,
-                              staticClass: "btn selectable",
-                              class: {
-                                selected: _vm.shoppingCart[
-                                  "stationaries"
-                                ].ids.includes(stationary.id)
-                              },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  _vm.shoppingCartToggle(
-                                    stationary.id,
-                                    "stationaries"
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  src: stationary.pivot.thumbnail,
-                                  alt: ""
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("p", [_vm._v(_vm._s(stationary.description))])
-                            ]
-                          )
-                        }
-                      )
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _c("div", { staticClass: "fx fx-width-75 fx-center" }, [
-                  _c("div", { staticClass: "fx fx-75 jf-around" }, [
-                    _c(
-                      "div",
-                      { staticClass: "form-group mr-10-all mb-10-all" },
-                      _vm._l(_vm.models.stationaries.items, function(
-                        stationary,
-                        index
-                      ) {
-                        return !stationary.customizable
-                          ? _c("button", {
-                              key: index,
-                              staticClass: "btn selectable-rev",
-                              class: {
-                                selected: _vm.shoppingCart[
-                                  "stationaries"
-                                ].ids.includes(stationary.id)
-                              },
-                              domProps: {
-                                textContent: _vm._s(stationary.description)
-                              },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  _vm.shoppingCartToggle(
-                                    stationary.id,
-                                    "stationaries"
-                                  )
-                                }
-                              }
+          _vm.clinicSelected
+            ? _c(
+                "form",
+                { staticStyle: { padding: "10px" }, attrs: { action: "" } },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "form-group fx fx-width-100 fx-col" },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "fx fx-width-100 jf-between" }, [
+                        _c("div", { staticClass: "fx fx-100 jf-around" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group mr-10-all mb-10-all" },
+                            _vm._l(_vm.clinicStationaries, function(
+                              stationary,
+                              index
+                            ) {
+                              return _c(
+                                "button",
+                                {
+                                  key: index,
+                                  staticClass: "btn selectable",
+                                  class: {
+                                    selected: _vm.shoppingCart[
+                                      "stationaries"
+                                    ].ids.includes(stationary.stationary.id)
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      _vm.shoppingCartToggle(
+                                        stationary.stationary.id,
+                                        "stationaries"
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("img", {
+                                    attrs: {
+                                      src: stationary.thumbnail,
+                                      alt: ""
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("p", [
+                                    _vm._v(
+                                      _vm._s(stationary.stationary.description)
+                                    )
+                                  ])
+                                ]
+                              )
                             })
-                          : _vm._e()
-                      })
-                    )
-                  ])
-                ])
-              ])
-            ]
-          )
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "fx fx-width-75 fx-center" }, [
+                        _c("div", { staticClass: "fx fx-75 jf-around" }, [
+                          _c(
+                            "div",
+                            { staticClass: "form-group mr-10-all mb-10-all" },
+                            _vm._l(_vm.models.stationaries.items, function(
+                              stationary,
+                              index
+                            ) {
+                              return !stationary.customizable
+                                ? _c("button", {
+                                    key: index,
+                                    staticClass: "btn selectable-rev",
+                                    class: {
+                                      selected: _vm.shoppingCart[
+                                        "stationaries"
+                                      ].ids.includes(stationary.id)
+                                    },
+                                    domProps: {
+                                      textContent: _vm._s(
+                                        stationary.description
+                                      )
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        _vm.shoppingCartToggle(
+                                          stationary.id,
+                                          "stationaries"
+                                        )
+                                      }
+                                    }
+                                  })
+                                : _vm._e()
+                            })
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            : _vm._e()
         ])
       ])
     : _vm._e()
@@ -78075,7 +78239,9 @@ var render = function() {
               "div",
               { staticClass: "fx fx-col" },
               [
-                _c("stationary-products"),
+                _vm.$store.state.Scope.clinics.selected != "-"
+                  ? _c("stationary-products")
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "panel panel-default fx-100" }, [
                   _c("div", { staticClass: "panel-heading text-center" }, [
@@ -78145,7 +78311,7 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
-                              return _vm.regenerateStationary($event)
+                              _vm.completeStationary($event, true)
                             }
                           }
                         },
@@ -78622,7 +78788,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -78660,6 +78826,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -78669,7 +78839,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       model: 'clinics',
       //Table
       footer: {
-        totalRows: 0
+        totalRows: 34
       }
     };
   },
@@ -78751,7 +78921,27 @@ var render = function() {
                           : _vm._e()
                       ],
                       1
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "panel-footer table-footer" }, [
+                      _c("h3", [
+                        _vm._v("Total: "),
+                        _c("strong", [_vm._v(_vm._s(_vm.footer.totalRows))])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-primary",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                            }
+                          }
+                        },
+                        [_vm._v("Exportar Excel")]
+                      )
+                    ])
                   ])
                 ])
               ])
@@ -78867,7 +79057,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -78910,28 +79100,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       modelsNeeded: ['profiles'],
+      tablesNeeded: ['profiles'],
       model: 'profiles',
       //Table
       footer: {
-        totalRows: 0
+        totalRows: 33
       }
     };
   },
 
   watch: {
     scopeKey: function scopeKey() {
-      console.log('Scope Key Changed!!!!');
-      this.$store.dispatch('Model/fetchFilteredModels', { models: { 'profiles': {} }, refresh: true, scoped: true });
-    }
-  },
-  computed: {
-    scopeKey: function scopeKey() {
-      return this.$store.state.Scope.scopeKey;
-    },
-    models: function models() {
-      return this.$store.state.Model.models;
-    },
-    pageReady: function pageReady() {
+      var models = {};
       var _iteratorNormalCompletion = true;
       var _didIteratorError = false;
       var _iteratorError = undefined;
@@ -78940,10 +79120,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         for (var _iterator = this.modelsNeeded[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var model = _step.value;
 
-          if (!this.$store.state.Model.models[model]) {
-            return false;
-          }
+          models[model] = {};
         }
+        // this.$store.dispatch('Model/fetchFilteredModels', {'models': models, 'scoped': true});
       } catch (err) {
         _didIteratorError = true;
         _iteratorError = err;
@@ -78959,22 +79138,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }
 
-      return true;
+      this.$store.dispatch('Model/fetchFilteredModels', { 'models': models, 'refresh': true, 'scoped': true });
+    }
+  },
+  computed: {
+    scopeKey: function scopeKey() {
+      return this.$store.state.Scope.scopeKey;
+    },
+    models: function models() {
+      return this.$store.state.Model.models;
+    },
+    tableItems: function tableItems() {
+      if (this.$store.state.Model.models[this.model]) {
+        if (this.$store.state.Model.models[this.model].items) {
+          return true;
+        }
+      }
+      return false;
     }
   },
   methods: {},
-  created: function created() {
-    if (this.$store.getters['Scope/ready']) {
-      if (this.$store.state.Scope.counties.selected) {
-        this.$store.dispatch('Model/fetchFilteredModels', { models: { 'profiles': {} }, scoped: true });
-      } else {
-        flash({
-          message: 'Debe seleccionar una provincia',
-          label: 'danger'
-        });
-      }
-    }
-  },
+  created: function created() {},
   mounted: function mounted() {}
 });
 
@@ -78986,50 +79170,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.pageReady
-    ? _c(
-        "div",
-        { staticClass: "fx pv-20", attrs: { id: "profiles" } },
-        [
-          [
-            _c("div", { staticClass: "fx fx-w-100 jf-around" }, [
-              _c("div", { staticClass: "fx fx-100 fx-col" }, [
-                _c("div", { staticClass: "panel panel-default" }, [
-                  _c("div", { staticClass: "panel panel-default fx-100" }, [
-                    _vm._m(0),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "panel-body" },
-                      [
-                        _vm.models[_vm.model].items
-                          ? _c("vue-table", {
-                              attrs: { model: _vm.model, mode: "vuex" }
-                            })
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  ])
-                ])
+  return _c(
+    "page",
+    {
+      attrs: {
+        name: _vm.model,
+        models: _vm.modelsNeeded,
+        tables: _vm.tablesNeeded
+      }
+    },
+    [
+      _c("template", { slot: "page-content" }, [
+        _c("div", { staticClass: "fx fx-w-100 jf-around" }, [
+          _c("div", { staticClass: "fx fx-100 fx-col" }, [
+            _c("div", { staticClass: "panel panel-default" }, [
+              _c("div", { staticClass: "panel panel-default fx-100" }, [
+                _c("div", { staticClass: "panel-heading text-center" }, [
+                  _c("h3", { staticClass: "panel-title" }, [_vm._v("Personal")])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "panel-body" },
+                  [
+                    _vm.tableItems
+                      ? _c("vue-table", {
+                          attrs: { model: _vm.model, mode: "vuex" }
+                        })
+                      : _vm._e()
+                  ],
+                  1
+                )
               ])
             ])
-          ]
-        ],
-        2
-      )
-    : _vm._e()
+          ])
+        ])
+      ])
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading text-center" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Personal")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -79242,7 +79423,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {
     scopeKey: function scopeKey() {
-      console.log('Scope Key Changed!!!!');
+      // console.log('Scope Key Changed!!!!');
       this.$store.dispatch('Model/fetchFilteredModels', { models: { 'profiles': {} }, refresh: true, scoped: true });
     }
   },
@@ -79742,7 +79923,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -79881,7 +80062,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {
     scopeKey: function scopeKey() {
-      console.log('Scope Key Changed!!!!');
+      // console.log('Scope Key Changed!!!!');
       this.$store.dispatch('Model/fetchFilteredModels', { models: { 'profiles': {} }, refresh: true, scoped: true });
     }
   },
@@ -79924,6 +80105,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     models: function models() {
       return this.$store.state.Model.models;
+    },
+    clinicSelected: function clinicSelected() {
+      var _this = this;
+
+      return this.$store.state.Model.models['clinics'].items.find(function (item) {
+        return item.id == _this.$store.state.Model.models.clinics.itemSelected;
+      });
     },
     mangementStaff: function mangementStaff() {
       // let vm = this;
@@ -80040,12 +80228,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 });
                 Vue.buttonLoaderRemove(e, classes);
               }).catch(function (error) {
-                // const { data } = error.response;
-                // // Read file
-                // const file = fileReader(data);
-                // // Parse content and retrieve 'message'
-                // const { message } = JSON.parse(file);
-                console.log(message);
                 flash({
                   // message: error.response.data.message, 
                   label: 'danger'
@@ -80181,22 +80363,19 @@ var render = function() {
                                                         _c("p", [
                                                           _vm._v(
                                                             _vm._s(
-                                                              _vm.models.clinics
-                                                                .itemSelected
+                                                              _vm.clinicSelected
                                                                 .address_real_1
                                                             ) +
                                                               ", " +
                                                               _vm._s(
-                                                                _vm.models
-                                                                  .clinics
-                                                                  .itemSelected
+                                                                _vm
+                                                                  .clinicSelected
                                                                   .postal_code
                                                               ) +
                                                               " " +
                                                               _vm._s(
-                                                                _vm.models
-                                                                  .clinics
-                                                                  .itemSelected
+                                                                _vm
+                                                                  .clinicSelected
                                                                   .city
                                                               )
                                                           )
@@ -80205,8 +80384,7 @@ var render = function() {
                                                         _c("p", [
                                                           _vm._v(
                                                             _vm._s(
-                                                              _vm.models.clinics
-                                                                .itemSelected
+                                                              _vm.clinicSelected
                                                                 .phone_real
                                                             )
                                                           )
@@ -80725,7 +80903,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   watch: {
     scopeKey: function scopeKey() {
-      console.log('Scope Key Changed!!!!');
+      // console.log('Scope Key Changed!!!!');
       this.$store.dispatch('Model/fetchFilteredModels', { models: { 'profiles': {} }, refresh: true, scoped: true });
     }
   },
@@ -80844,7 +81022,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     closePlayer: function closePlayer() {
-      console.log("closing player");
+      // console.log("closing player");
       this.player = false;
     },
     jobInClinic: function jobInClinic(id) {
@@ -81371,7 +81549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var group in this.groupedProfiles) {
                 counter++;
                 currentHeight += (this.groupedProfiles[group].length + 1) * 100;
-                console.log('Current Height: ' + currentHeight);
+                //   console.log('Current Height: ' + currentHeight);
                 if (currentHeight < this.screenHeight) {
                     page[group] = this.groupedProfiles[group];
                     if (counter == Object.keys(this.groupedProfiles).length) {
@@ -81394,7 +81572,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             setInterval(function () {
                 if (_this.first) {
                     _this.first = false;
-                    console.log(_this.page);
+                    // console.log(this.page);
                     return;
                 }
                 if (_this.page == _this.playerPages.length - 1) {
@@ -81402,7 +81580,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 } else {
                     _this.page = parseInt(_this.page) + 1;
                 }
-                console.log(_this.page);
+                // console.log(this.page);
             }, 5000);
         },
         jobInClinic: function jobInClinic(id) {
@@ -83100,10 +83278,10 @@ if (false) {
 var Helpers = {
     install: function install(Vue, options) {
         Vue.buttonLoaderOnEvent = function (e) {
-            console.log('Here');
+            // console.log('Here');
             var classes = e.target.attributes.class.value;
             e.target.attributes.class.value = classes + ' loader';
-            console.log(classes);
+            // console.log(classes);
             return classes;
         }, Vue.buttonLoaderRemove = function (e, classes) {
             e.target.attributes.class.value = classes;
@@ -83129,6 +83307,134 @@ var Helpers = {
 
 /***/ }),
 /* 320 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Vue Cookies v1.5.7
+ * https://github.com/cmp-cc/vue-cookies
+ *
+ * Copyright 2016, cmp-cc
+ * Released under the MIT license
+ */
+
+(function() {
+
+    var defaultConfig = {
+        expires : '1d',
+        path : '; path=/'
+    }
+
+    var VueCookies = {
+        // install of Vue
+        install: function(Vue) {
+            Vue.prototype.$cookies = this
+            Vue.cookies = this
+        },
+        config : function(expireTimes,path) {
+            if(expireTimes) {
+                defaultConfig.expires = expireTimes;
+            }
+            if(path === '') {
+                defaultConfig.path = '';
+            }else {
+                defaultConfig.path = '; path=' + path;
+            }
+        },
+        get: function(key) {
+            var value = decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null
+
+            if(value && value.startsWith("{") && value.endsWith("}")) {
+                try {
+                    value = JSON.parse(value)
+                }catch (e) {
+                    return value;
+                }
+            }
+            return value;
+        },
+        set: function(key, value, expireTimes, path, domain, secure) {
+            if (!key) {
+                throw new Error("cookie name is not find in first argument")
+            }else if(/^(?:expires|max\-age|path|domain|secure)$/i.test(key)){
+                throw new Error("cookie key name illegality ,Cannot be set to ['expires','max-age','path','domain','secure']\t","current key name: "+key);
+            }
+            // support json object
+            if(value && value.constructor === Object ) {
+                value = JSON.stringify(value);
+            }
+            var _expires = "; max-age=86400"; // temp value, default expire time for 1 day
+            expireTimes = expireTimes || defaultConfig.expires;
+            if (expireTimes) {
+                switch (expireTimes.constructor) {
+                    case Number:
+                        if(expireTimes === Infinity || expireTimes === -1) _expires = "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+                        else _expires = "; max-age=" + expireTimes;
+                        break;
+                    case String:
+                        if (/^(?:\d{1,}(y|m|d|h|min|s))$/i.test(expireTimes)) {
+                            // get capture number group
+                            var _expireTime = expireTimes.replace(/^(\d{1,})(?:y|m|d|h|min|s)$/i, "$1");
+                            // get capture type group , to lower case
+                            switch (expireTimes.replace(/^(?:\d{1,})(y|m|d|h|min|s)$/i, "$1").toLowerCase()) {
+                                // Frequency sorting
+                                case 'm':  _expires = "; max-age=" + +_expireTime * 2592000; break; // 60 * 60 * 24 * 30
+                                case 'd':  _expires = "; max-age=" + +_expireTime * 86400; break; // 60 * 60 * 24
+                                case 'h': _expires = "; max-age=" + +_expireTime * 3600; break; // 60 * 60
+                                case 'min':  _expires = "; max-age=" + +_expireTime * 60; break; // 60
+                                case 's': _expires = "; max-age=" + _expireTime; break;
+                                case 'y': _expires = "; max-age=" + +_expireTime * 31104000; break; // 60 * 60 * 24 * 30 * 12
+                                default: new Error("unknown exception of 'set operation'");
+                            }
+                        } else {
+                            _expires = "; expires=" + expireTimes;
+                        }
+                        break;
+                    case Date:
+                        _expires = "; expires=" + expireTimes.toUTCString();
+                        break;
+                }
+            }
+            document.cookie = encodeURIComponent(key) + "=" + encodeURIComponent(value) + _expires + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : defaultConfig.path) + (secure ? "; secure" : "");
+            return this;
+        },
+        remove: function(key, path, domain) {
+            if (!key || !this.isKey(key)) {
+                return false;
+            }
+            document.cookie = encodeURIComponent(key) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (domain ? "; domain=" + domain : "") + (path ? "; path=" + path : defaultConfig.path);
+            return this;
+        },
+        isKey: function(key) {
+            return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(key).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
+        },
+        keys:  function() {
+            if(!document.cookie) return [];
+            var _keys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/);
+            for (var _index = 0; _index < _keys.length; _index++) {
+                _keys[_index] = decodeURIComponent(_keys[_index]);
+            }
+            return _keys;
+        }
+    }
+
+    if (true) {
+        module.exports = VueCookies;
+    } else if (typeof define == "function" && define.amd) {
+        define([], function() {
+            return VueCookies;
+        })
+    } else if (window.Vue) {
+        Vue.use(VueCookies);
+    }
+    // vue-cookies can exist independently,no dependencies library
+    if(typeof window!=="undefined"){
+        window.$cookies = VueCookies;
+    }
+
+})()
+
+/***/ }),
+/* 321 */
 /***/ (function(module, exports) {
 
 function scrollToAndGlow(name, id, state, commit) {
@@ -83410,13 +83716,13 @@ function getAllUrlParams(url) {
 }
 
 /***/ }),
-/* 321 */
+/* 322 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 322 */
+/* 323 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

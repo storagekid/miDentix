@@ -16,6 +16,9 @@ class StationaryPrinter
     public $clinic, $profile, $stationary;
     public $force;
 
+    public $thumbnailRootDirectory = 'public/stationary/';
+    public $thumbnailDirectory, $thumbnailFile, $thumbnailPath;
+
     protected $Color512 = 'PANTONE 512 C';
     protected $Color9C = 'PANTONE Cool Grey 9C';
 
@@ -29,7 +32,7 @@ class StationaryPrinter
 
     public function __construct(Stationary $stationary, $force = false) {
 
-        $this->pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
+        $this->pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false, true);
 
         $this->pdf->SetAuthor('Dentix® - Dpto. de Desarrollo');
         $this->pdf->SetCreator('Impresora de Papelería Dentix®.');
@@ -54,19 +57,28 @@ class StationaryPrinter
 
     public function directoryConstructor() {
         $mainDirectory = $this->rootDirectory . $this->clinic->countryName;
+        $thumbnailMainDirectory = $this->thumbnailRootDirectory . $this->clinic->countryName;
         if ($this->stationary->customizable) {
             $mainDirectory .= '/clinics/' . $this->clinic->cleanName;
+            $thumbnailMainDirectory .= '/clinics/' . $this->clinic->cleanName;
         } else if ($this->profile) {
             $mainDirectory .= '/personal/' . $this->clinic->cleanName . '/' . $this->stationary->cleanDescription;
+            $thumbnailMainDirectory .= '/personal/' . $this->clinic->cleanName . '/' . $this->stationary->cleanDescription;
         } else {
             $mainDirectory .= '/generic';
+            $thumbnailMainDirectory .= '/generic';
         }
 
         if (!Storage::exists($mainDirectory)) {
             Storage::makeDirectory($mainDirectory);
         }
 
-        return $mainDirectory;
+        if (!Storage::exists($thumbnailMainDirectory)) {
+            Storage::makeDirectory($thumbnailMainDirectory);
+        }
+
+        $this->directory = $mainDirectory;
+        $this->thumbnailDirectory = $thumbnailMainDirectory;
     }
 
     public function fileNameConstructor() {
@@ -107,5 +119,18 @@ class StationaryPrinter
         $pdf->Line($pageWidth-($slug+$bleed),0,$pageWidth-($slug+$bleed),$slug);
         $pdf->Line($slug+$bleed,$pageHeight,$slug+$bleed,$pageHeight-$slug);
         $pdf->Line($pageWidth-($slug+$bleed),$pageHeight,$pageWidth-($slug+$bleed),$pageHeight-$slug);
+    }
+
+    // Thumbnails
+    public function createThumbnail() {
+        // create Imagick object
+        $imagick = new \Imagick();
+        // Reads image from PDF
+        $imagick->readImage($this->pathToFile.'[0]');
+        // Assigns filename and path to the model
+        $this->thumbnailFile = str_replace('.pdf', '.jpg', $this->fileName);
+        $this->thumbnailPath = Storage::url($this->thumbnailDirectory . '/' . $this->thumbnailFile);
+        // Writes an image
+        $imagick->writeImage(storage_path('app/' . $this->thumbnailDirectory . '/' . $this->thumbnailFile));
     }
 }

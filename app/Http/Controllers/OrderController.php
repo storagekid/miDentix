@@ -8,6 +8,7 @@ use App\Clinic;
 use App\ShoppingBag;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\StationaryOrder;
+use App\Mail\StationaryOrderPlaced;
 
 class OrderController extends Controller
 {
@@ -46,7 +47,7 @@ class OrderController extends Controller
                 $items = \App\Stationary::find(request('items')['stationaries']['ids']);
 
                 foreach($items as $item) {
-                    $provider = $this->findBestProvider($item);
+                    $provider = $this->findBestProvider($item, $clinic);
                     $order = $this->createOrder($shoppingBag, $clinic, $provider);
                     
                     $item->orders()->save($order);
@@ -58,7 +59,7 @@ class OrderController extends Controller
             if (request()->has('items.medicalCharts.ids')) {
                 $item = \App\Stationary::where('name','medicalChart')->first();
                 $profiles = request('items')['medicalCharts']['ids'];
-                $provider = $this->findBestProvider($item);
+                $provider = $this->findBestProvider($item, $clinic);
 
                 foreach ($profiles as $profile) {
                     $order = $this->createOrder($shoppingBag, $clinic, $provider, $profile);
@@ -71,7 +72,7 @@ class OrderController extends Controller
             if (request()->has('items.medicalChartJobs.ids')) {
                 $item = \App\Stationary::where('name','medicalChartJob')->first();
                 $jobs = \App\JobType::find(request('items')['medicalChartJobs']['ids']);
-                $provider = $this->findBestProvider($item);
+                $provider = $this->findBestProvider($item, $clinic);
                 foreach ($jobs as $job) {
                     $order = $this->createOrder($shoppingBag, $clinic, $provider, null, null, $job->name);
                     $item->orders()->save($order);
@@ -83,7 +84,7 @@ class OrderController extends Controller
             if (request()->has('items.businessCards.ids')) {
                 $item = \App\Stationary::where('name','businessCard')->first();
                 $profiles = request('items')['businessCards']['ids'];
-                $provider = $this->findBestProvider($item);
+                $provider = $this->findBestProvider($item, $clinic);
 
                 foreach ($profiles as $profile) {
                     $order = $this->createOrder($shoppingBag, $clinic, $provider, $profile);
@@ -99,6 +100,8 @@ class OrderController extends Controller
             Mail::to($provider->email)
                 ->cc(Auth()->user()->email)
                 ->send(new StationaryOrder($stationaries));
+            Mail::to(Auth()->user()->email)
+                ->send(new StationaryOrderPlaced($clinic, Auth()->user()));
         }
         return response([
             'newmodel' => $shoppingBag->orders,
@@ -150,7 +153,7 @@ class OrderController extends Controller
         //
     }
 
-    public function findBestProvider($item) {
+    public function findBestProvider($item, $clinic) {
         $provider = $item->providers[0]->provider_id;
         if (count($item->providers) > 1) {
             $top = 1;

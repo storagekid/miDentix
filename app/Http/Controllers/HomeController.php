@@ -18,10 +18,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     public function index()
     {
         return view('layouts.home.home');

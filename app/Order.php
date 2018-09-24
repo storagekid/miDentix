@@ -51,11 +51,17 @@ class Order extends Model
         ], 
     ];
 
-    protected $tableOptions = [[], true, false];
+    protected $tableOptions = [['show','edit','delete'], true, false];
 
     // END Tableable Data
 
-    protected $appends = ['itemName', 'providerName', 'clinicName', 'userName', 'profileName'];
+    // protected $appends = ['itemName', 'providerName', 'clinicName', 'userName'];
+
+    // protected $with = ['clinic', 'provider', 'user', 'orderable'];
+
+    protected $appends = ['clinicName', 'providerName', 'userName', 'itemName'];
+
+    protected $with = ['clinic', 'provider', 'user', 'orderable'];
 
     public function orderable()
     {

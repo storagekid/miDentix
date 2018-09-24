@@ -163,7 +163,7 @@ export default {
     },
     watch: {
       scopeKey() {
-        console.log('Scope Key Changed!!!!');
+        // console.log('Scope Key Changed!!!!');
         this.$store.dispatch('Model/fetchFilteredModels', {models: {'profiles':{}}, refresh: true, scoped: true});
       }
     },
@@ -216,7 +216,7 @@ export default {
     },
     methods: {
       closePlayer() {
-        console.log("closing player");
+        // console.log("closing player");
         this.player = false;
       },
       jobInClinic(id) {

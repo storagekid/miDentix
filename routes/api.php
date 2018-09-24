@@ -17,27 +17,27 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::namespace('API')->group(function () {
-    Route::get('/clinics/table', 'ClinicController@table');
-    Route::resource('clinics', 'ClinicController');
-    Route::resource('profiles', 'ProfileController');
-    Route::resource('cost_centers', 'CostCenterController');
-    Route::get('/providers/table', 'ProviderController@table');
-    Route::get('/providers/form', 'ProviderController@form');
-    Route::resource('providers', 'ProviderController');
-    Route::resource('jobs', 'JobController');
-    Route::resource('job_types', 'JobTypeController');
-    Route::resource('orders', 'OrderController');
-    Route::resource('shoppingBags', 'ShoppingBagController');
-    Route::get('/stationaries/table', 'StationaryController@table');
-    Route::get('/stationaries/form', 'StationaryController@form');
-    Route::resource('stationaries', 'StationaryController');
-    Route::resource('counties', 'CountyController');
-    Route::resource('states', 'StateController');
-    Route::resource('countries', 'CountryController');
+// Route::namespace('API')->group(function () {
+//     Route::get('/clinics/table', 'ClinicController@table');
+//     Route::resource('clinics', 'ClinicController');
+//     Route::resource('profiles', 'ProfileController');
+//     Route::resource('cost_centers', 'CostCenterController');
+//     Route::get('/providers/table', 'ProviderController@table');
+//     Route::get('/providers/form', 'ProviderController@form');
+//     Route::resource('providers', 'ProviderController');
+//     Route::resource('jobs', 'JobController');
+//     Route::resource('job_types', 'JobTypeController');
+//     Route::resource('orders', 'OrderController');
+//     Route::resource('shoppingBags', 'ShoppingBagController');
+//     Route::get('/stationaries/table', 'StationaryController@table');
+//     Route::get('/stationaries/form', 'StationaryController@form');
+//     Route::resource('stationaries', 'StationaryController');
+//     Route::resource('counties', 'CountyController');
+//     Route::resource('states', 'StateController');
+//     Route::resource('countries', 'CountryController');
 
-    Route::get('/table', 'TableController@index');
-    Route::get('/form', 'FormController@index');
-    Route::resource('relations', 'RelationController');
+//     Route::get('/table', 'TableController@index');
+//     Route::get('/form', 'FormController@index');
+//     Route::resource('relations', 'RelationController');
     
-});
+// });

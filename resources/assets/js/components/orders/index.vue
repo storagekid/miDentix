@@ -29,16 +29,24 @@
         data() {
             return {
               csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-              modelsNeeded: ['orders','profiles','stationaries'],
+              modelsNeeded: ['orders'],
+              tablesNeeded: ['orders'],
               model: 'orders',
               //Table
               footer: {
                 totalRows: 0,
               },
-              tablesNeeded: ['orders'],
             }
         },
         watch: {
+          scopeKey() {
+            let models = {};
+            for (let model of this.modelsNeeded) {
+              models[model] = {};
+            }
+            // this.$store.dispatch('Model/fetchFilteredModels', {'models': models, 'scoped': true});
+            this.$store.dispatch('Model/fetchFilteredModels', {'models': models, 'refresh': true, 'scoped': true});
+          }
         },
         computed: {
           scopeKey() {

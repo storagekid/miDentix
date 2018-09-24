@@ -48,7 +48,7 @@ const actions = {
                 scrollToAndGlow(name+data.newmodel.id, data.newmodel.id, state, commit);
             })
             .catch(({error}) => {
-                console.log(error);
+                // console.log(error);
             });            
     },
     updateModel({commit, state}, {name, model, ids, hasFiles}) {
@@ -77,7 +77,7 @@ const actions = {
                     scrollToAndGlow(name+data.updatedModel.id,data.updatedModel.id, state, commit);
                 })
                 .catch(({error}) => {
-                    console.log(error);
+                    // console.log(error);
                 });
         }            
     },
@@ -92,7 +92,7 @@ const actions = {
                 });
             })
             .catch(({error}) => {
-                console.log('Error deleting');
+                // console.log('Error deleting');
             });
         };
         commit('Modal/hideModal',{name: 'delete-' + name + '-model'}, { root: true });
@@ -132,7 +132,7 @@ const actions = {
                     }
                 })
                 .catch(error => {
-                    console.log('Error fetching models');
+                    // console.log('Error fetching models');
                 });
             }
         }
@@ -142,6 +142,7 @@ const actions = {
         let modelsFetched = 0;
         for(let model in options.models) {
             if (!state.models[model] || options.refresh) {
+                // console.log('Refresh!!!!');
                 commit('setModel', {name: model});
                 modelsToFetch.push(model);
             }
@@ -149,8 +150,8 @@ const actions = {
         if (modelsToFetch.length) {
             commit('modelsNotReady');
             for(let model of modelsToFetch) {
-                console.log('Model: ' + model);
-                console.log(options.models[model]);
+                // console.log('Model: ' + model);
+                // console.log(options.models[model]);
                 let params = {};
                 if (options.models[model].ids) {
                     params['ids'] = options.models[model].ids;
@@ -162,14 +163,17 @@ const actions = {
                     params['groupby'] = options.models[model].groupby;
                 }
                 if (options.scoped) {
-                    params['clinic_id'] = rootState.Scope.clinics.selected;
-                    params['clinics'] = rootState.Scope.clinics.ids;
-                    params['county_id'] = rootState.Scope.counties.selected;
-                    params['counties'] = rootState.Scope.counties.ids;
-                    params['state_id'] = rootState.Scope.states.selected;
-                    params['states'] = rootState.Scope.states.ids;
-                    params['country_id'] = rootState.Scope.countries.selected;
-                    params['countries'] = rootState.Scope.countries.ids;
+                    if (rootState.Scope.clinics.selected != '-') {
+                        params['clinic_id'] = rootState.Scope.clinics.selected;
+                    } else if (rootState.Scope.counties.selected != '-') {
+                        params['county_id'] = rootState.Scope.counties.selected;
+                    } else if (rootState.Scope.states.selected != '-') {
+                        params['state_id'] = rootState.Scope.states.selected;
+                    } else if (rootState.Scope.countries.selected != '-') {
+                        params['country_id'] = rootState.Scope.countries.selected;
+                    } else {
+                        params['scope'] = false;
+                    }
                 }
                 axios({
                     url: '/api/'+model,
@@ -182,6 +186,7 @@ const actions = {
                         let items = data.data.model;
                         commit('setItemsFetched', {name: model, items: items});
                         modelsFetched++;
+                        console.log('Model ' + model + ' fetched');
                         if (rootState.Scope[model]) {
                             if (rootState.Scope[model].selected) {
                                 commit('selectModel', {'model': model, id: rootState.Scope[model].selected});
@@ -192,8 +197,11 @@ const actions = {
                         commit('modelsReady');
                     }
                 })
-                .catch(error => {
-                    console.log('Error fetching models');
+                .catch((error) => {
+                    flash({
+                        message: error.response.data.message, 
+                        label: 'danger'
+                      });
                 });
             }
         }
@@ -201,8 +209,8 @@ const actions = {
     setNewRelation({state, commit}, {name, relation, item}) {
         axios.post('/api/relations/?model='+name+'&relation='+relation, item)
         .then(({data}) => {
-            console.log('Here');
-            console.log(state.models[name].modelToSave);
+            // console.log('Here');
+            // console.log(state.models[name].modelToSave);
             let id = state.models[name].modelToSave[relation].length+'t'+1;
             data.relation['id'] = id;
             commit('setNewRelation', {'name': name, 'relation': relation, item: data.relation});
@@ -325,7 +333,8 @@ const mutations = {
             models[model].idSelected = null;
             return false;
         }
-        models[model].itemSelected = models[model].items.find(item => item.id == id);
+        models[model].itemSelected = id;
+        // models[model].itemSelected = models[model].items.find(item => item.id == id);
     },
     modelToSaveBuilder({models}, {model, fields, item=null, relations}) {
         for (let field in fields) {
@@ -373,10 +382,11 @@ const mutations = {
     cleanNewModelId(state, {model, id}) {
         state.newModel[model].ids.splice(state.newModel[model].ids.indexOf(id), 1);
     },
-    updateModel(state, {modelName,model}) {
+    updateModel(state, {modelName, model}) {
         for (const [index, item] of state.models[modelName].items.entries()) {
             if (item.id == model.id) {
-                state.models[modelName].items[index] = model;
+                Vue.set(state.models[modelName].items, index, model);
+                // state.models[modelName].items[index] = model;
             }
         }
         state.newModel.id = model.id;

@@ -20,17 +20,19 @@ const getters = {
 const actions = {
 };
 const mutations= {
-    setTable(state, model) {
+    setTable(state, {model}) {
         Vue.set(state.tables, model, {});
         Vue.set(state.tables[model], 'ready', false);
+        console.log('Table ' + model + ' setted');
     },
     removeTable(state, model) {
         Vue.delete(state.tables, model);
     },
-    setReady(state, model) {
-        console.log('Setting Ready ' + model);
-        console.log('Tables: ' + state.tables);
+    setReady(state, {model}) {
+        // console.log('Setting Ready ' + model);
+        // console.log('Tables: ' + state.tables);
         state.tables[model].ready = true;
+        console.log('Table ' + model + ' Ready');
     }
 };
 

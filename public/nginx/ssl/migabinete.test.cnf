@@ -1,0 +1,26 @@
+
+        [ req ]
+        prompt = no
+        default_bits = 2048
+        default_keyfile = /etc/nginx/ssl/migabinete.test.key
+        encrypt_key = no
+        default_md = sha256
+        distinguished_name = req_distinguished_name
+        x509_extensions = v3_ca
+
+        [ req_distinguished_name ]
+        O=Vagrant
+        C=UN
+        CN=migabinete.test
+
+        [ v3_ca ]
+        basicConstraints=CA:FALSE
+        subjectKeyIdentifier=hash
+        authorityKeyIdentifier=keyid,issuer
+        keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+        subjectAltName = @alternate_names
+
+        [ alternate_names ]
+        DNS.1 = migabinete.test
+        DNS.2 = *.migabinete.test
+    

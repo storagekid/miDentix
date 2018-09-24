@@ -107,7 +107,7 @@
               for (let group in this.groupedProfiles) {
                   counter++;
                   currentHeight += ((this.groupedProfiles[group].length+1) * 100);
-                  console.log('Current Height: ' + currentHeight);
+                //   console.log('Current Height: ' + currentHeight);
                   if (currentHeight < this.screenHeight) {
                       page[group] = this.groupedProfiles[group];
                       if (counter == Object.keys(this.groupedProfiles).length) {
@@ -142,7 +142,7 @@
                 setInterval(() => {
                     if (this.first) {
                         this.first = false;
-                        console.log(this.page);
+                        // console.log(this.page);
                         return;
                     }
                     if (this.page == this.playerPages.length-1) {
@@ -150,7 +150,7 @@
                     } else {
                         this.page = parseInt(this.page) + 1;
                     }
-                    console.log(this.page);
+                    // console.log(this.page);
                 }, 5000);
             },
           jobInClinic(id) {

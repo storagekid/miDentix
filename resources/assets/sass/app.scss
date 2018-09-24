@@ -13,7 +13,8 @@
 @import "login v2";
 @import "left-sidebar";
 @import "left-sidebar-xs";
-@import "nav-main";
+// @import "nav-main";
+@import "top-nav-bar";
 @import "main-content";
 // @import "home-work-box";
 @import "profile-info-box";
@@ -27,6 +28,7 @@
 @import "filtering";
 @import "overrides";
 @import "custom-vue-table";
+@import "custom-vue-table-fixed";
 @import "flex";
 @import "loader";
 @import "selects";

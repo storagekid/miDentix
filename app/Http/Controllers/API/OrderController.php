@@ -17,7 +17,8 @@ class OrderController extends Controller
     public function index()
     {
         return response([
-            'model' => Order::scoped('order'),
+            'model' => Order::clinicScoped('order'),
+            // 'model' => Order::all(),
             ], 200
         );
     }

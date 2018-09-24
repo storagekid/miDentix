@@ -15,8 +15,15 @@ class StationaryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() 
     {
+        // if (request()->has('clinic_id')) {
+        //     return response([
+        //         'model'=>Stationary::clinicsScoped('stationary'),
+        //         ],200
+        //     );
+        // }
+
         return response([
             'model'=>Stationary::get(),
             ],200
@@ -31,10 +38,6 @@ class StationaryController extends Controller
      */
     public function store(Request $request)
     {
-        // dd(request()->file('file'));
-        // $path = request()->file('file')->storeAs('stationary/España/generic', request()->file('file')->getClientOriginalName());
-        // dd($path);
-        // dd(request()->all());
         $stationary = Stationary::create(request()->all());
 
         if (request()->hasFile('file')) {
@@ -50,35 +53,20 @@ class StationaryController extends Controller
                 $relation = request($key);
                 if (is_string($relation)) {
                     $relation = json_decode($relation, true);
-                    // $relation = json_decode(json_encode($relation), true);
                 }
                 $nRelation = count($relation); 
                 if ($nRelation > 0) {
                     $stationary->providers()->delete();
                     foreach($relation as $model) {
-                        // dd($model);
                         $temp = $stationary->providers()->make($model);
                         $stationary->providers()->save($temp);
                     } 
                 }
             }
-        }
-        // $stationary = Stationary::create(request()->only(['name','description','details','price','customizable']));
-        
+        }        
         return response([
             'newmodel' => $stationary,
             ], 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

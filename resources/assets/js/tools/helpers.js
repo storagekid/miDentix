@@ -2,10 +2,10 @@
 const Helpers = {
     install(Vue, options) {
         Vue.buttonLoaderOnEvent = function (e) {
-            console.log('Here');
+            // console.log('Here');
             let classes = e.target.attributes.class.value;
             e.target.attributes.class.value = classes +' loader';
-            console.log(classes);
+            // console.log(classes);
             return classes;
         },
         Vue.buttonLoaderRemove = function(e, classes) {

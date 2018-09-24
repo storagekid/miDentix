@@ -20,7 +20,7 @@ class StationaryCustomizablePrinter extends StationaryPrinter
 
         $this->clinic = $clinic;
 
-        $this->directory = $this->directoryConstructor();
+        $this->directoryConstructor();
         $this->fileName = $this->fileNameConstructor();
         $this->pathToFile = storage_path('app/' . $this->directory . '/' . $this->fileName);
 

@@ -9,13 +9,17 @@
                 <h3 class="panel-title">Clinics</h3>
               </div>
               <div class="panel-body">
-                <vue-table 
+                <vue-table
                   v-if="models[model].items" 
                   :model="model"
                   :scoped="model"
                   mode="vuex"
                   >
                 </vue-table>
+              </div>
+              <div class="panel-footer table-footer">
+                <h3>Total: <strong>{{footer.totalRows}}</strong></h3>
+                <button class="btn btn-sm btn-primary" @click.prevent="">Exportar Excel</button>
               </div>
             </div>
           </div>
@@ -34,7 +38,7 @@
               model: 'clinics',
               //Table
               footer: {
-                totalRows: 0,
+                totalRows: 34,
               },
             }
         },

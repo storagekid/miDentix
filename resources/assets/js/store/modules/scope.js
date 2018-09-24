@@ -36,23 +36,31 @@ const getters = {
     }
 };
 const actions = {
-    initScope({state, commit, dispatch}, {profile}) {
+    initScope({state, commit, dispatch, rootState}, {profile}) {
         commit('setCountries', profile.countryIdsScope);
         commit('setCounties', profile.countyIdsScope);
         commit('setStates', profile.stateIdsScope);
         commit('setClinics', profile.clinicIdsScope);
-        if (state.countries.ids.length == 1) {
-            commit('selectModel', {model: 'countries', id: state.countries.ids[0]});
+        if (window.$cookies.isKey(rootState.User.user.email + '-scope')) {
+            let scopeArray = window.$cookies.get(rootState.User.user.email + '-scope').split('.');
+            commit('selectScopeModel', {model: 'countries', id: scopeArray[0]});
+            commit('selectScopeModel', {model: 'states', id: scopeArray[1]});
+            commit('selectScopeModel', {model: 'counties', id: scopeArray[2]});
+            commit('selectScopeModel', {model: 'clinics', id: scopeArray[3]});
+        } else if (state.countries.ids.length == 1) {
+            commit('selectScopeModel', {model: 'countries', id: state.countries.ids[0]});
             if (state.states.ids.length == 1) {
-                commit('selectModel', {model: 'states', id: state.states.ids[0]});
+                commit('selectScopeModel', {model: 'states', id: state.states.ids[0]});
                 if (state.counties.ids.length == 1) {
-                    commit('selectModel', {model: 'counties', id: state.counties.ids[0]});
+                    commit('selectScopeModel', {model: 'counties', id: state.counties.ids[0]});
                     if (state.clinics.ids.length == 1) {
-                        commit('selectModel', {model: 'clinics', id: state.clinics.ids[0]});
+                        commit('selectScopeModel', {model: 'clinics', id: state.clinics.ids[0]});
                     }
                 }
             }
         }
+
+        commit('setScopeKey');
         dispatch('Model/fetchFilteredModels', {models: {'clinics':{ids:null}}}, {root: true});
         dispatch('Model/fetchFilteredModels', {models: {'countries':{ids:null}}}, {root: true});
         dispatch('Model/fetchFilteredModels', {models: {'counties':{ids:null}}}, {root: true});
@@ -65,6 +73,7 @@ const mutations = {
         let county = state.counties.selected ? state.counties.selected : '-';
         let stateID = state.states.selected ? state.states.selected : '-';
         let clinic = state.clinics.selected ? state.clinics.selected : '-';
+        console.log('Setting Scope Key: ' + country+stateID+county+clinic);
         state.scopeKey = country + '.' + stateID + '.' + county + '.' + clinic;
     },
     setCountries(state, ids) {
@@ -99,7 +108,7 @@ const mutations = {
             state.clinics.ids.push(id);
         }
     },
-    selectModel(state, {model, id}) {
+    selectScopeModel(state, {model, id}) {
         state[model].selected = id;
     }
 };

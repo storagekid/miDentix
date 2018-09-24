@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Clinic;
 use App\Profile;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -17,19 +17,9 @@ class ProfileController extends Controller
     public function index()
     {
         return response([
-            'model' => Profile::scoped('profile'),
+            'model' => Profile::clinicsScoped('profile'),
             ], 200
         );
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -65,28 +55,6 @@ class ProfileController extends Controller
         return response([
             'newmodel' => $profile,
             ], 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
