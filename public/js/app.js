@@ -72863,18 +72863,18 @@ var actions = {
         commit('setClinics', profile.clinicIdsScope);
         if (window.$cookies.isKey(rootState.User.user.email + '-scope')) {
             var scopeArray = window.$cookies.get(rootState.User.user.email + '-scope').split('.');
-            commit('selectScopeModel', { model: 'countries', id: scopeArray[0] });
-            commit('selectScopeModel', { model: 'states', id: scopeArray[1] });
-            commit('selectScopeModel', { model: 'counties', id: scopeArray[2] });
-            commit('selectScopeModel', { model: 'clinics', id: scopeArray[3] });
+            commit('selectModel', { model: 'countries', id: scopeArray[0] });
+            commit('selectModel', { model: 'states', id: scopeArray[1] });
+            commit('selectModel', { model: 'counties', id: scopeArray[2] });
+            commit('selectModel', { model: 'clinics', id: scopeArray[3] });
         } else if (state.countries.ids.length == 1) {
-            commit('selectScopeModel', { model: 'countries', id: state.countries.ids[0] });
+            commit('selectModel', { model: 'countries', id: state.countries.ids[0] });
             if (state.states.ids.length == 1) {
-                commit('selectScopeModel', { model: 'states', id: state.states.ids[0] });
+                commit('selectModel', { model: 'states', id: state.states.ids[0] });
                 if (state.counties.ids.length == 1) {
-                    commit('selectScopeModel', { model: 'counties', id: state.counties.ids[0] });
+                    commit('selectModel', { model: 'counties', id: state.counties.ids[0] });
                     if (state.clinics.ids.length == 1) {
-                        commit('selectScopeModel', { model: 'clinics', id: state.clinics.ids[0] });
+                        commit('selectModel', { model: 'clinics', id: state.clinics.ids[0] });
                     }
                 }
             }
@@ -72893,7 +72893,7 @@ var mutations = {
         var county = state.counties.selected ? state.counties.selected : '-';
         var stateID = state.states.selected ? state.states.selected : '-';
         var clinic = state.clinics.selected ? state.clinics.selected : '-';
-        console.log('Setting Scope Key: ' + country + stateID + county + clinic);
+        // console.log('Setting Scope Key: ' + country+stateID+county+clinic);
         state.scopeKey = country + '.' + stateID + '.' + county + '.' + clinic;
     },
     setCountries: function setCountries(state, ids) {
@@ -72928,7 +72928,7 @@ var mutations = {
             state.clinics.ids.push(id);
         }
     },
-    selectScopeModel: function selectScopeModel(state, _ref3) {
+    selectModel: function selectModel(state, _ref3) {
         var model = _ref3.model,
             id = _ref3.id;
 
@@ -73600,7 +73600,25 @@ var state = {
         'glitter-dentix': []
     }
 };
-var getters = {};
+var getters = {
+    selected: function selected(state) {
+        var selectedModels = {};
+        if (Object.keys(state.models).length) {
+            var _loop = function _loop(model) {
+                if (state.models[model].itemSelected) {
+                    selectedModels[model] = state.models[model].items.find(function (item) {
+                        return item.id == state.models[model].itemSelected;
+                    });
+                }
+            };
+
+            for (var model in state.models) {
+                _loop(model);
+            }
+        }
+        return selectedModels;
+    }
+};
 var actions = {
     showEdit: function showEdit(_ref, _ref2) {
         var commit = _ref.commit,
@@ -73724,7 +73742,7 @@ var actions = {
         var name = _ref12.name,
             ids = _ref12.ids;
 
-        var _loop = function _loop(id) {
+        var _loop2 = function _loop2(id) {
             axios.delete('/api/' + name + '/' + id).then(function (_ref13) {
                 var data = _ref13.data;
 
@@ -73748,7 +73766,7 @@ var actions = {
             for (var _iterator2 = ids[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                 var id = _step2.value;
 
-                _loop(id);
+                _loop2(id);
             }
         } catch (err) {
             _didIteratorError2 = true;
@@ -73806,7 +73824,7 @@ var actions = {
         if (modelsToFetch.length) {
             commit('modelsNotReady');
 
-            var _loop2 = function _loop2(_model) {
+            var _loop3 = function _loop3(_model) {
                 var params = {};
                 if (options.ids) {
                     params['ids'] = options.ids;
@@ -73840,7 +73858,7 @@ var actions = {
                 for (var _iterator4 = modelsToFetch[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
                     var _model = _step4.value;
 
-                    _loop2(_model);
+                    _loop3(_model);
                 }
             } catch (err) {
                 _didIteratorError4 = true;
@@ -73876,7 +73894,7 @@ var actions = {
         if (modelsToFetch.length) {
             commit('modelsNotReady');
 
-            var _loop3 = function _loop3(_model2) {
+            var _loop4 = function _loop4(_model2) {
                 // console.log('Model: ' + model);
                 // console.log(options.models[model]);
                 var params = {};
@@ -73939,7 +73957,7 @@ var actions = {
                 for (var _iterator5 = modelsToFetch[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
                     var _model2 = _step5.value;
 
-                    _loop3(_model2);
+                    _loop4(_model2);
                 }
             } catch (err) {
                 _didIteratorError5 = true;
@@ -78239,7 +78257,7 @@ var render = function() {
               "div",
               { staticClass: "fx fx-col" },
               [
-                _vm.$store.state.Scope.clinics.selected != "-"
+                _vm.$store.state.Model.models.clinics.itemSelected
                   ? _c("stationary-products")
                   : _vm._e(),
                 _vm._v(" "),
@@ -78788,7 +78806,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -78799,10 +78817,6 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
 //
 //
 //
@@ -78921,27 +78935,7 @@ var render = function() {
                           : _vm._e()
                       ],
                       1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "panel-footer table-footer" }, [
-                      _c("h3", [
-                        _vm._v("Total: "),
-                        _c("strong", [_vm._v(_vm._s(_vm.footer.totalRows))])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-sm btn-primary",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                            }
-                          }
-                        },
-                        [_vm._v("Exportar Excel")]
-                      )
-                    ])
+                    )
                   ])
                 ])
               ])
@@ -80107,11 +80101,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return this.$store.state.Model.models;
     },
     clinicSelected: function clinicSelected() {
-      var _this = this;
-
-      return this.$store.state.Model.models['clinics'].items.find(function (item) {
-        return item.id == _this.$store.state.Model.models.clinics.itemSelected;
-      });
+      return this.$store.getters['Model/selected'].clinics;
     },
     mangementStaff: function mangementStaff() {
       // let vm = this;
@@ -80724,7 +80714,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -81174,6 +81164,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       if (this.shoppingCart.medicalChartJobs) {
         if (this.shoppingCart.medicalChartJobs.ids.length) {
+          console.log('JobCharts');
           var _iteratorNormalCompletion7 = true;
           var _didIteratorError7 = false;
           var _iteratorError7 = undefined;

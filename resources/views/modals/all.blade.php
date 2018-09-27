@@ -1,1 +1,0 @@
-<!-- @include('modals.new-clinic') -->

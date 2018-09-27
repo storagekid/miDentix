@@ -22,9 +22,13 @@ class StationaryPrinter
     protected $Color512 = 'PANTONE 512 C';
     protected $Color9C = 'PANTONE Cool Grey 9C';
 
-    protected $fontDxThin = 'dentixth';
-    protected $fontDxLight = 'dentixlt';
-    protected $fontDxRoman = 'dentixroman';
+    // protected $fontDxThin = 'dentixth';
+    // protected $fontDxLight = 'dentixlt';
+    // protected $fontDxRoman = 'dentixroman';
+
+    protected $fontDxThin = 'newdentixthin';
+    protected $fontDxLight = 'newdentixlight';
+    protected $fontDxRoman = 'newdentixroman';
 
     protected $logo, $logo10percent, $logoClaim512, $logoClaimWhite;
 

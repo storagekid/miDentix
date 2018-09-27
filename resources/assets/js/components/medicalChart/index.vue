@@ -302,6 +302,7 @@ export default {
         }
         if (this.shoppingCart.medicalChartJobs) {
           if (this.shoppingCart.medicalChartJobs.ids.length) {
+            console.log('JobCharts');
             for (let job of this.shoppingCart.medicalChartJobs.ids) {
               axios({
                 url: '/profiles/download-jobcharts',

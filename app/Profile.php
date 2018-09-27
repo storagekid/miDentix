@@ -302,16 +302,12 @@ class Profile extends Model
     }
     public function getClinicScopeAttribute() {
         if ($this->clinicsCount) {
-            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
-                return $this->clinics;
-            });
+            return $this->clinics;
         } elseif ($this->user->role == 'user') {
             // Get Madrid County Clinics as a Test
-            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
-                return \App\Clinic::where('county_id', 28)->get();
-            });
+            return \App\Clinic::where('county_id', 28)->get();
         } elseif ($this->user->role == 'admin') {
-            return Cache::rememberForever('profile' . $this->id . 'clinics', function() {
+            return Cache::rememberForever('clinics', function() {
                 return \App\Clinic::get();
             });
         }

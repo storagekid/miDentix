@@ -1,1 +1,0 @@
-<admin-control-panel></admin-control-panel>

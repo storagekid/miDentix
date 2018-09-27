@@ -12,25 +12,6 @@ use App\Mail\StationaryOrderPlaced;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('layouts.orders.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -108,51 +89,6 @@ class OrderController extends Controller
             ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
-
     public function findBestProvider($item, $clinic) {
         $provider = $item->providers[0]->provider_id;
         if (count($item->providers) > 1) {
@@ -180,8 +116,7 @@ class OrderController extends Controller
     public function createOrder($shoppingBag, $clinic, $provider, $profile=null, $item=null, $details=null) {
         $order = new Order;
         $order->shopping_bag_id = $shoppingBag->id;
-        // $order->user_id = auth()->id();
-        // Profile ID despite variable name
+
         $order->user_id = session('selectedProfile');
         $order->clinic_id = $clinic->id;
         $order->provider_id = $provider;

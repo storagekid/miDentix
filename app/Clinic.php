@@ -12,6 +12,36 @@ class Clinic extends Model
   use Tableable;
   use Formable;
 
+  
+  public static function boot()
+  {
+    parent::boot();
+      Clinic::saving(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::saved(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::creating(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::created(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::updated(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::updating(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::deleted(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::deleting(function () {
+        Cache::forget('clinics');
+      });
+  }
+
   // Tableable DATA
   protected $tableColumns = [
     'fullName' => [

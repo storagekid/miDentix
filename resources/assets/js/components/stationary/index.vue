@@ -4,7 +4,7 @@
       <div class="fx fx-w-100 jf-around">
         <div class="fx fx-100 fx-col ph-10">  
           <div class="fx fx-col">
-            <stationary-products v-if="$store.state.Scope.clinics.selected != '-'"></stationary-products>
+            <stationary-products v-if="$store.state.Model.models.clinics.itemSelected"></stationary-products>
             <div class="panel panel-default fx-100">
               <div class="panel-heading text-center">
                 <h3 class="panel-title">Papelería</h3>

@@ -9,7 +9,19 @@ const state = {
         'glitter-dentix': [],
     }    
 };
-const getters = {};
+const getters = {
+    selected(state) {
+        let selectedModels = {};
+        if (Object.keys(state.models).length ) {
+            for (let model in state.models) {
+                if (state.models[model].itemSelected) {
+                    selectedModels[model] = state.models[model].items.find(item => item.id == state.models[model].itemSelected);
+                }
+            }
+        }
+        return selectedModels;
+    }
+};
 const actions = {
     showEdit({commit, state}, {payload}) {
         let model = payload.model;

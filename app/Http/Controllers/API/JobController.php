@@ -16,7 +16,7 @@ class JobController extends Controller
     public function index()
     {
         return response([
-            'model'=>Job::get(),
+            'model'=>Job::orderBy('name')->get(),
             ],200
         );
     }

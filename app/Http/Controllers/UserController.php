@@ -10,28 +10,6 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function index() {
-        return view('layouts.users.users-index');
-    }
-    public function indexApi() {
-        $users = Profile::all()->load(['user' => function($query) {
-            $query->select('id','last_access')->where('role','user');
-        },'schedules','masters','courses','clinics']);
-        $filtered_collection = $users->filter(function ($item) {
-            if ($item->user) {
-                return $item;
-            }
-        })->values();
-
-        if (request()->expectsJson()) {
-            return response([
-                'users'=>$filtered_collection,
-                ],200);
-        }
-    }
-    public function getRouteKeyName() {
-        return 'personal_id_number';
-    }
     public function resetPassApi() {
     	$pass = Hash::check(request('Contraseña Actual'), auth()->user()->password);
     	if (!$pass) {

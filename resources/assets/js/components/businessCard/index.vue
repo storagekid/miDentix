@@ -148,7 +148,7 @@
             return this.$store.state.Model.models;
           },
           clinicSelected() {
-            return this.$store.state.Model.models['clinics'].items.find(item => item.id == this.$store.state.Model.models.clinics.itemSelected);
+            return this.$store.getters['Model/selected'].clinics;
           },
           mangementStaff() {
             // let vm = this;

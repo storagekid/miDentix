@@ -17,13 +17,6 @@ class StationaryController extends Controller
      */
     public function index() 
     {
-        // if (request()->has('clinic_id')) {
-        //     return response([
-        //         'model'=>Stationary::clinicsScoped('stationary'),
-        //         ],200
-        //     );
-        // }
-
         return response([
             'model'=>Stationary::get(),
             ],200

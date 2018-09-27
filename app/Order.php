@@ -59,7 +59,7 @@ class Order extends Model
 
     // protected $with = ['clinic', 'provider', 'user', 'orderable'];
 
-    protected $appends = ['clinicName', 'providerName', 'userName', 'itemName'];
+    protected $appends = ['clinicName', 'providerName', 'userName', 'itemName', 'profileName'];
 
     protected $with = ['clinic', 'provider', 'user', 'orderable'];
 

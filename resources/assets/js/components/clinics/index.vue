@@ -17,10 +17,6 @@
                   >
                 </vue-table>
               </div>
-              <div class="panel-footer table-footer">
-                <h3>Total: <strong>{{footer.totalRows}}</strong></h3>
-                <button class="btn btn-sm btn-primary" @click.prevent="">Exportar Excel</button>
-              </div>
             </div>
           </div>
         </div>  

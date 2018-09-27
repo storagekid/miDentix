@@ -9,83 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ShoppingBagController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\ShoppingBag  $shoppingBag
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ShoppingBag $shoppingBag)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ShoppingBag  $shoppingBag
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ShoppingBag $shoppingBag)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ShoppingBag  $shoppingBag
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ShoppingBag $shoppingBag)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ShoppingBag  $shoppingBag
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ShoppingBag $shoppingBag)
-    {
-        //
-    }
-
-    public function download($shoppingBag, $provider)
+     public function download($shoppingBag, $provider)
     {
         $orders = \App\Order::where(['provider_id' => $provider, 'shopping_bag_id' => $shoppingBag])->get();
 
@@ -106,23 +30,15 @@ class ShoppingBagController extends Controller
         $files = $files->filter(function($file) {
             if ($file) return $file;
         });
-        // $files = array_filter(function($file) {
-        //     if ($file) return $file;
-        // }, $files);
-        // dd($files);
+
         $dir = 'orders/';
         $name = $orders[0]->clinic->cleanName . '.zip';
         $path = storage_path('app/' . $dir . $name);
-
-        // dd($name);
 
         if (!Storage::exists($dir)) {
             Storage::makeDirectory($dir);
         }
 
-        // dd($files);
-
-        // $route = storage_path('app/stationary/test.zip');
         $zip = \Zipper::make($path);
         foreach($files as $file) {
             $zip->add(storage_path('app/'.$file));
@@ -132,7 +48,4 @@ class ShoppingBagController extends Controller
         return response()->download($path, $name)->deleteFileAfterSend(true);
     }
 
-    public function makeOrderFile($shoppingBag, $provider, $force=false) {
-        // return $path;
-    }
 }
