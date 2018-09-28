@@ -52,6 +52,7 @@ trait Formable {
             $temp['dontRecord'] = array_key_exists('dontRecord', $options) ? $options['dontRecord'] : false;
             $temp['dependsOn'] = array_key_exists('dependsOn', $options) ? $options['dependsOn'] : null;
             $temp['affects'] = array_key_exists('affects', $options) ? $options['affects'] : null;
+            $temp['show'] = array_key_exists('show', $options) ? $options['show'] : true;
             $temp['type'] = $this->formTypeBuilder($type);
 
             $defFields[$key] = $temp;
@@ -67,6 +68,7 @@ trait Formable {
         }
         return [
             'name' => array_key_exists('name', $type) ? $type['name'] : 'inputText',
+            'array' => array_key_exists('array', $type) ? $type['array'] : null,
             'model' => array_key_exists('model', $type) ? $type['model'] : null,
             'text' => array_key_exists('text', $type) ? $type['text'] : null,
             'value' => array_key_exists('value', $type) ? $type['value'] : null,

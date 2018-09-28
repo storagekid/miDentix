@@ -16,6 +16,7 @@
                 <div 
                   v-for="(field, index) in fields" 
                   v-if="showField(field)"
+                  v-show="showFieldIf(field.show)"
                   :key="index"
                   class="form-group"
                   :class="field.colClasses ? field.colClasses : 'fx-b-50'"
@@ -41,6 +42,33 @@
                     </ul>
                     </div>
                   </span>
+                  <select 
+                    v-if="field.type.name == 'selectArray'" 
+                    v-model="modelToSave[field.name]"
+                    :disabled="field.dependsOn ? !modelToSave[field.dependsOn] : false"
+                    :name="field.name"
+                    class="form-control"
+                    @change="selectChangedActions(field.name,modelToSave[field.name],field.rules,field.affects)"
+                    :required="field.rules.includes('required')"
+                    >
+                    <option 
+                      v-if="field.type.default" 
+                      :value="field.type.default.value" 
+                      :disabled="field.type.default.disabled"
+                      :selected="modelToSave[field.name]"
+                      >
+                      {{field.type.default.text}}
+                    </option>
+                    <option 
+                        v-if="field.type.array"
+                        v-for="(arrayItem, index) in field.type.array" 
+                        :key="index"
+                        :value="arrayItem" 
+                        :selected="modelToSave[field.name]"
+                        >
+                        {{arrayItem}}
+                      </option>
+                  </select>
                   <select 
                     v-if="field.type.name == 'select'" 
                     v-model="modelToSave[field.name]"
@@ -215,6 +243,17 @@
           // },
         },
         methods: {
+          showFieldIf(field) {
+            console.log(field);
+            if (field == true) {
+              return true;
+            }
+            for (let name in field) {
+              if (field[name].includes(this.modelToSave[name])) {
+                return true;
+              }
+            }
+          },
           sendForm(e) {
             this.$refs['sendButton'+this.model+this.relatedModel].click();
           }, 

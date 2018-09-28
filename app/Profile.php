@@ -35,12 +35,12 @@ class Profile extends Model
     // Tableable DATA
     protected $tableColumns = [
         'name' => [
-        'label' => 'Nombre',
-        'filtering' => ['search'],
+            'label' => 'Nombre',
+            'filtering' => ['search'],
         ],
         'lastname1' => [
-        'label' => 'Apellido',
-        'filtering' => ['search'],
+            'label' => 'Apellido',
+            'filtering' => ['search'],
         ],
         'lastname2' => [
             'label' => 'Apellido2',
@@ -52,21 +52,25 @@ class Profile extends Model
             'filtering' => ['search'],
         ],
         'phone' => [
-        'label' => 'Teléfono',
-        'filtering' => ['search'],
+            'label' => 'Teléfono',
+            'filtering' => ['search'],
         ],
         'personal_id_number' => [
-        'label' => 'DNI',
-        'filtering' => ['search'],
+            'label' => 'DNI',
+            'filtering' => ['search'],
         ],
         'gender' => [
-        'label' => 'Género',
-        'filtering' => ['search'],
-        'show' => false
+            'label' => 'Género',
+            'filtering' => ['search'],
+            'show' => false
         ],
         'job_type_name' => [
-        'label' => 'Cargo',
-        'filtering' => ['search'],
+            'label' => 'Cargo',
+            'filtering' => ['search'],
+        ],
+        'license_number' => [
+            'label' => 'Nº de Colegiado',
+            'filtering' => ['search'],
         ],
     ];
     protected $tableOptions = [['show','edit','delete'], true, true];
@@ -88,19 +92,28 @@ class Profile extends Model
             'rules' => ['min:3','max:64'],
         ],
         'email' => [
-        'label' =>'Correo Electrónico',
-        'rules' => ['min:5','max:64'],
-        'type' => [
-            'name' =>'email',
+            'label' =>'Correo Electrónico',
+            'rules' => ['min:5','max:64'],
+            'type' => [
+                'name' =>'email',
         ],
         ],
         'phone' => [
-        'label' =>'Teléfono',
-        'rules' => ['min:9','max:15'],
+            'label' =>'Teléfono',
+            'rules' => ['min:9','max:15'],
         ],
         'gender' => [
             'label' =>'Género',
             'rules' => ['required'],
+            'type' => [
+                'name' =>'selectArray',
+                'array' => ['Mujer', 'Varón'],
+                'default' => [
+                    'value' => null,
+                    'text' => 'Selecciona un Género',
+                    'disabled' => true,
+                ],
+            ],
         ],
         'job_id' => [
             'label' =>'Categoría',
@@ -118,19 +131,26 @@ class Profile extends Model
             ],
         ],
         'job_type_id' => [
-        'label' =>'Puesto',
-        'rules' => ['required'],
-        'type' => [
-            'name' =>'select',
-            'model' => 'job_types',
-            'text' =>  'name',
-            'value' => 'id',
-            'default' => [
-            'value' => null,
-            'text' => 'Selecciona un Puesto',
-            'disabled' => true,
+            'label' =>'Puesto',
+            'rules' => ['required'],
+            'type' => [
+                'name' =>'select',
+                'model' => 'job_types',
+                'text' =>  'name',
+                'value' => 'id',
+                'default' => [
+                'value' => null,
+                'text' => 'Selecciona un Puesto',
+                'disabled' => true,
+                ],
             ],
         ],
+        'license_number' => [
+            'label' =>'Nº de Colegiado',
+            'rules' => ['min:3','max:64'],
+            'show' => [
+                'job_id' => [1,4,6,8],
+            ],
         ],
     ];
 
@@ -656,9 +676,10 @@ class Profile extends Model
         
 
     }
-    public static function makeCharts($profiles, $clinic) {
-        $needsSN = false;
-        $snType = 'under';
+    public static function makeCharts($profiles, $clinic, $license=false) {
+
+        $needsSN = $license;
+        $snType = 'right';
         // dd('Doing Charts');
 
         $pdf = new TCPDF("L","mm","A4",true,"UTF-8",false);
@@ -724,13 +745,13 @@ class Profile extends Model
                 if ($snType == 'right') {
                     $pdf->SetTextSpotColor($Color512,100);
                     $pdf->setY((11+(50*$counter))+$bleed+$slug);
-                    $text = '<font>' . $profile->fullName . ' ' . $profile->lastname2 . '</font><font color="rgb(100,100,100)"> - Colegiado: ' . $profile->personal_id_number . '</font>';
+                    $text = '<font>' . $profile->fullName . ' ' . $profile->lastname2 . '</font><font color="rgb(100,100,100)"> - Colegiado: ' . $profile->license_number . '</font>';
                     $pdf->SetFont('dentixth','',68,'',false);
                     $pdf->writeHTMLCell(0,0,0,(13+(50*$counter)),$text,0,0,false,true,'C',false);
                 } else if ($snType == 'under') {
                     $pdf->SetTextSpotColor($Color9C,100);
                     $pdf->setY((40+(50*$counter))+$bleed+$slug);
-                    $text = 'Número de Colegiado ' . $profile->personal_id_number;
+                    $text = 'Número de Colegiado ' . $profile->license_number;
                     $pdf->SetFont('dentixth','',20,'',false);
                     $pdf->Cell(0,0,$text,0,0,'C',false,'');
                 }

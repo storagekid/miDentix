@@ -272,6 +272,7 @@ export default {
               params: {
                 profiles: this.shoppingCart.medicalCharts.ids,
                 clinic: this.$store.state.Scope.clinics.selected,
+                license: this.licenseSwitch,
               },
               responseType: 'blob', // important
             }).then((response) => {

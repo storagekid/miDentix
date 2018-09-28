@@ -29,7 +29,7 @@
                         >
                             <h4 class="player-name fx fx-center">
                                 {{profile.name + ' ' + profile.lastname1}}
-                                <span class="license" v-if="license">{{' - Nº de Licencia: ' + profile.personal_id_number}}</span>   
+                                <span class="license" v-if="license">{{' - Nº de Licencia: ' + profile.license_number}}</span>   
                             </h4>
                         </div>
                     </transition-group>

@@ -55,7 +55,7 @@ class ProfileController extends Controller
         }
     }
 
-    public function downloadCharts (Request $request, $profiles=null, $clinic=null)
+    public function downloadCharts (Request $request, $profiles=null, $clinic=null, $license=false)
     {
         if (!$profiles) {
             $ids = $request->query('profiles');
@@ -68,8 +68,10 @@ class ProfileController extends Controller
         } else {
             $clinic = \App\Clinic::find($clinic);
         }
-
-        $file = Profile::makeCharts($profiles, $clinic);
+        if (request('license') != 'false') {
+            $license = true;
+        }
+        $file = Profile::makeCharts($profiles, $clinic, $license);
 
         return response()->download(storage_path($file))->deleteFileAfterSend(true);
     }
