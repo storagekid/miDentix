@@ -29,32 +29,12 @@ Vue.component('custom-modal', require('./components/custom-modal.vue'));
 Vue.component('shopping-cart-nav-container', require('./components/shopping-cart-nav-container.vue'));
 Vue.component('shopping-cart', require('./components/shopping-cart.vue'));
 
-// Vue.component('schedule', require('./pages/schedule.vue'));
-Vue.component('profile', require('./pages/profile.vue'));
-// Vue.component('requests', require('./pages/request.vue'));
-// Vue.component('dentists', require('./pages/dentists.vue'));
-// Vue.component('dentists2', require('./pages/dentists2.vue'));
-// Vue.component('tutorial', require('./pages/tutorial.vue'));
-// Vue.component('admin-dentists-control-panel', require('./pages/admin-dentists-control-panel.vue'));
-
 Vue.component('vue-table', require('./components/table/vue-table.vue'));
-// Vue.component('vue-table-fixed', require('./components/table/vue-table-fixed.vue'));
-// Vue.component('vue-table-row', require('./components/table/vue-table-row.vue'));
-// Vue.component('vue-model-options', require('./components/vue-model-options'));
-// Vue.component('filters', require('./components/filters.vue'));
+
 Vue.component('profile-left', require('./components/profile/profile-left.vue'));
 Vue.component('nav-left', require('./components/nav-left.vue'));
 Vue.component('scope-menu', require('./components/scope-menu.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
-// Vue.component('clinics-table', require('./components/clinics/clinics-table.vue'));
-// Vue.component('schedule-pickup', require('./components/schedule/schedule-pickup.vue'));
-// Vue.component('masters', require('./components/profile/masters.vue'));
-Vue.component('pass-changer', require('./components/profile/pass-changer.vue'));
-Vue.component('profile-form', require('./components/profile/profile-form.vue'));
-// Vue.component('new-request', require('./components/requests/new-requests.vue'));
-// Vue.component('extra-time', require('./components/schedule/extra-time.vue'));
-// Vue.component('stationary', require('./components/stationary/index.vue'));
-// Vue.component('providers', require('./components/providers/index.vue'));
 
 
 import store from './store';

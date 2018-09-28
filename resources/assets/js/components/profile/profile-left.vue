@@ -1,7 +1,7 @@
 <template>
     <div id="side-profile" v-if="user.email">
       <div class="profile-pic-round">
-        <a href="/profile" class="thumbnail center-block">
+        <a href="#" class="thumbnail center-block">
           <img src="/img/profile-male.jpg" alt="...">
         </a>
       </div>

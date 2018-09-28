@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="app">
-        @include('nav.main-2')
+        @include('nav.main')
         <div class="container-fluid">
             @include('nav.left')
             <div class="row">
