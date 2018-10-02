@@ -73,7 +73,7 @@ class Profile extends Model
             'filtering' => ['search'],
         ],
     ];
-    protected $tableOptions = [['show','edit','delete'], true, true];
+    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
 
     // END Tableable Data
 

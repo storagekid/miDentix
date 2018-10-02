@@ -1,6 +1,5 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-@import "node_modules/font-awesome/scss/font-awesome";
 
 // Variables
 @import "variables";
@@ -13,17 +12,10 @@
 @import "login v2";
 @import "left-sidebar";
 @import "left-sidebar-xs";
-// @import "nav-main";
 @import "top-nav-bar";
 @import "main-content";
-// @import "home-work-box";
 @import "profile-info-box";
 @import "profile-create-box";
-// @import "request-info-box";
-// @import "request-create-box";
-// @import "schedule-info-box";
-// @import "schedule-create-box";
-// @import "schedule";
 @import "stationary";
 @import "filtering";
 @import "overrides";

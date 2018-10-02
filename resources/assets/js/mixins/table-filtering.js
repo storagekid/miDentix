@@ -196,6 +196,7 @@ export default {
 			this.filtering.state = true;
 		},
 		checkFilter(id) {
+			console.log('Checking Filter in table');
 			return this.filtering.selected.indexOf(id) == -1 ? false : true;
 		},
 		clearFilter(index) {

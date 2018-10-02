@@ -59,9 +59,12 @@ const actions = {
                 commit('addNewModel', {modelName: name, model: data.newmodel});
                 scrollToAndGlow(name+data.newmodel.id, data.newmodel.id, state, commit);
             })
-            .catch(({error}) => {
-                // console.log(error);
-            });            
+            .catch((error) => {
+                flash({
+                    message: error.response.data.message, 
+                    label: 'danger'
+                  });
+            });         
     },
     updateModel({commit, state}, {name, model, ids, hasFiles}) {
         let headers = {};

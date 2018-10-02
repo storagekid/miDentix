@@ -6,7 +6,7 @@ export default {
 				errorsInField:{},
 				descriptions: {
 				}
-            },
+			},
 		};
 	},
 	computed: {

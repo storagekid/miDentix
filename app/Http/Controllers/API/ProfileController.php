@@ -30,26 +30,32 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        // dd(request()->all());
-        $profile = Profile::create(request()->all());
-        // dd($profile);
-        foreach ($profile->getRelations() as $key => $value) {
-            if (request()->has($key)) {
-                $relation = request($key);
-                if (is_string($relation)) {
-                    $relation = json_decode($relation, true);
-                    // $relation = json_decode(json_encode($relation), true);
-                }
-                $nRelation = count($relation); 
-                if ($nRelation > 0) {
-                    $profile->clinicProfiles()->delete();
-                    foreach($relation as $model) {
-                        // dd($model);
-                        $temp = $profile->clinicProfiles()->make($model);
-                        $profile->clinicProfiles()->save($temp);
-                    } 
+        try {
+            // dd(request()->all());
+            $profile = Profile::create(request()->all());
+            // dd($profile);
+            foreach ($profile->getRelations() as $key => $value) {
+                if (request()->has($key)) {
+                    $relation = request($key);
+                    if (is_string($relation)) {
+                        $relation = json_decode($relation, true);
+                        // $relation = json_decode(json_encode($relation), true);
+                    }
+                    $nRelation = count($relation); 
+                    if ($nRelation > 0) {
+                        $profile->clinicProfiles()->delete();
+                        foreach($relation as $model) {
+                            // dd($model);
+                            $temp = $profile->clinicProfiles()->make($model);
+                            $profile->clinicProfiles()->save($temp);
+                        } 
+                    }
                 }
             }
+        } catch (\Exception $e) {
+            return response([
+                'message' => $e->getMessage(),
+                ], 301);
         }
 
         return response([

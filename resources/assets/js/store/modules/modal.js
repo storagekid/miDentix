@@ -5,7 +5,7 @@ const getters = {};
 const actions = {
 };
 const mutations= {
-    newModal(state, {name,data}) {
+    newModal(state, {name, data}) {
         Vue.set(state.modals, name, data);
         Vue.set(state.modals[name], 'active', true);
     },

@@ -106,6 +106,7 @@
                       {{modelItem[field.type.text]}}
                     </option> -->
                   </select>
+                  <!-- <input-text v-if="field.type.name == 'inputText'" :data="field" :model="model"></input-text> -->
                   <input 
                     v-if="field.type.name == 'inputText'"
                     type="text" 
@@ -220,9 +221,11 @@
 </template>
 
 <script>
-    import errors from '../../mixins/errors.js';
-    import validations from '../../mixins/validations.js';
+    import errors from '../../../mixins/errors.js';
+    import validations from '../../../mixins/validations.js';
+    import inputText from './fields/inputText';
     export default {
+        components: {inputText},
         mixins: [errors,validations],
         props: ['model', 'relatedModel', 'modelNewFormOptions'],
         data() {
@@ -333,7 +336,7 @@
             let defFields = {};
             let batchMode = false;
             let defRelations = this.relations;
-            if (this.modal.mode == 'edit') {
+            if (this.modal.mode == 'edit' || this.modal.mode == 'clone') {
               if (this.modal.items.length === 1) {
                 modelItem = this.modal.items[0]; 
               } else if (this.modal.items.length > 1) {
@@ -352,7 +355,7 @@
             } else {
               defFields = this.fields;
             }
-            if (defRelations && this.modal.mode != 'edit') {
+            if (defRelations && this.modal.mode != 'edit' && this.modal.mode != 'clone') {
               for (let relation in defRelations) {
                 if (this.$store.state.Scope[relation]) {
                   if (this.$store.state.Scope[relation].selected) {

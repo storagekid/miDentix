@@ -19,7 +19,7 @@
     <div id="app">
         @include('nav.main')
         <div class="container-fluid">
-            @include('nav.left')
+            <nav-left :menu="{{auth()->user()->getMenu('gabinete', [session('user.group.0.name')], session('user.role') )}}"></nav-left>
             <div class="row">
                 <div id="main-content">
                     <!-- <loading></loading> -->

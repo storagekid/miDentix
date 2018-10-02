@@ -15,6 +15,27 @@ window.flash = function (message) {
 	window.events.$emit('flash', message);
 };
 
+import store from './store';
+
+import router from './routes';
+
+import VModal from 'vue-js-modal';
+Vue.use(VModal);
+
+import Helpers from './tools/helpers';
+Vue.use(Helpers);
+
+import VueCookies from 'vue-cookies';
+Vue.use(VueCookies);
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faClone, faEye, faEdit, faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faClone, faEye, faTrashAlt, faEdit);
+library.add(faMinus);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -36,19 +57,9 @@ Vue.component('nav-left', require('./components/nav-left.vue'));
 Vue.component('scope-menu', require('./components/scope-menu.vue'));
 Vue.component('main-menu', require('./components/main-menu.vue'));
 
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-import store from './store';
-
-import router from './routes';
-
-import VModal from 'vue-js-modal';
-Vue.use(VModal);
-
-import Helpers from './tools/helpers';
-Vue.use(Helpers);
-
-import VueCookies from 'vue-cookies';
-Vue.use(VueCookies);
+Vue.config.productionTip = false;
 
 const app = new Vue({
     el: '#app',

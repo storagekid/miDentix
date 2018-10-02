@@ -42,19 +42,9 @@
                 @click="sendAction(action)"
                 :disabled="actionDisabler(action)" 
                 >
-                <font-awesome-icon :icon="actionIconClass(action)" />
-                </font-awesome-icon>
-              </button>
-              <!-- <button 
-                type="button"
-                class="custom-table-btn" 
-                :class="actionBtnClass(action)"
-                @click="sendAction(action)"
-                :disabled="actionDisabler(action)" 
-                >
                 <span :class="actionIconClass(action)">
                 </span>
-              </button> -->
+              </button>
             </span>
           </div>
           <div id="items-filters"  class="table-header-box">
@@ -147,7 +137,16 @@
             </tr>
           </thead>
           <tbody id="main-tbody" v-if="items.length">
-            <tr
+            <vue-table-row
+              v-for="(item, itemIndex) in items"
+              :item="item"
+              :model="model"
+              :columns="columns"
+              :options="options"
+              :key="itemIndex" 
+              >
+            </vue-table-row>
+            <!-- <tr
               v-for="(item, itemIndex) in items"
               :ref="model+item.id" 
               :key="item.id" 
@@ -166,7 +165,7 @@
                 <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
                 <strong v-else>{{item[column.name]}}</strong>
               </td>
-            </tr>
+            </tr> -->
           </tbody>
           <tbody id="main-tbody-empty" v-else>
             <tr
@@ -187,6 +186,7 @@
 
 <script>
 import excel from "../../mixins/excel.js";
+import vueTableRow from "./vue-table-row";
 import tableFiltering from "../../mixins/table-filtering.js";
 import tableOrdering from "../../mixins/table-ordering.js";
 import modelNewForm from '../../components/model/forms/model-new-form.vue';
@@ -195,7 +195,7 @@ import modelDeleteForm from '../../components/model/forms/model-delete-form.vue'
 import { mapActions, mapMutations } from 'vuex';
 
 export default {
-  components: {modelNewForm, modelDeleteForm},
+  components: {vueTableRow, modelNewForm, modelDeleteForm},
   mixins: [tableFiltering, tableOrdering, excel],
   props: ["model", "relatedModel", "mode", "tableItems", "scoped"],
   data() {
@@ -225,7 +225,7 @@ export default {
       if (this.tables[this.model]) {
         if (this.items.length) {
           var t0 = performance.now();
-          this.setColumnsWidth();
+          // this.setColumnsWidth();
           // this.setColumnsWidthReverse();
           var t1 = performance.now();
           console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
@@ -473,9 +473,6 @@ export default {
         case "edit":
           return "alert alert-warning";
           break;
-        case "clone":
-          return "alert alert-warning";
-          break;
         case "delete":
           return "alert alert-danger";
           break;
@@ -487,19 +484,16 @@ export default {
     actionIconClass(action) {
       switch (action) {
         case "show":
-          return ['far', 'eye'];
+          return "glyphicon glyphicon-eye-open";
           break;
         case "edit":
-          return ['far', 'edit'];
-          break;
-        case "clone":
-          return ['far', 'clone'];
+          return "glyphicon glyphicon-pencil";
           break;
         case "delete":
-          return ['far', 'trash-alt'];
+          return "glyphicon glyphicon-trash";
           break;
         default:
-          return "minus";
+          return "glyphicon glyphicon-minus";
           break;
       }
     },
@@ -559,7 +553,7 @@ export default {
     },
     actionDisabler(action) {
       if (
-        (action == "show" || action == 'clone') &&
+        (action == "show") &&
         this.rowsSelected.length == 1
       ) {
         return false;
@@ -575,9 +569,6 @@ export default {
           break;
         case "edit":
           this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected, mode:'edit'}});
-          break;
-        case "clone":
-          this.$store.dispatch('Model/showEdit', {payload:{model:this.model, relatedModel: this.relatedModel, ids:this.rowsSelected, mode:'clone'}});
           break;
         case "delete":
           this.$store.commit('Modal/newModal', {name:'delete-' + this.model + '-model',data:{model:this.model ,ids:this.rowsSelected, mode:'destroy'}});
