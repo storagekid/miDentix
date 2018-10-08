@@ -62,13 +62,13 @@
                 <div class="form-group fx fx-width-100 fx-col">
                   <label for="clinicId"><h4>Descarga</h4></label>
                   <div class="fx fx-width-100 jf-between fx-col mb-10">
-                    <div class="fx fx-100 jf-around fx-col mb-10">
+                    <div class="fx fx-100 jf-around fx-col mb-10" v-if="models.clinic_stationaries">
                       <button 
                         class="btn btn-info"
-                        v-for="(stationary, index) in models.clinics.itemSelected.stationaries"
+                        v-for="(stationary, index) in models.clinic_stationaries.items"
                         :key="index"
-                        v-text="stationary.description"
-                        @click.prevent="getFiles(stationary.pivot.id, $event)"
+                        v-text="stationary.stationary.description"
+                        @click.prevent="getFiles(stationary.stationary.id, $event)"
                         >
                       </button>
                     </div>
@@ -76,7 +76,7 @@
                       <button 
                         class="btn btn-primary btn-block"
                         v-text="'Papelería Completa'"
-                        @click.prevent="getClinic(models.clinics.itemSelected.id, $event)"
+                        @click.prevent="getClinic(models.clinics.itemSelected, $event)"
                         >
                       </button>
                     </div>
