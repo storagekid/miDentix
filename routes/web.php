@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Cache;
 */
 Auth::routes();
 
+// CRM Subdomain
+Route::prefix('landings')->group(function () {
+    Route::get('grpd', function () {
+        return view('landings.rgpd-landing');
+    });
+});
+
 Route::middleware(['auth'])->group(function() {
 
 	Route::get('/profile-selector', function() {
