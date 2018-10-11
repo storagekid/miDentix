@@ -17,7 +17,7 @@ class ProfileController extends Controller
     public function index()
     {
         return response([
-            'model' => Profile::clinicsScoped('profile'),
+            'model' => Profile::clinicsScoped('profile','name'),
             ], 200
         );
     }

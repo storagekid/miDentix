@@ -8,7 +8,7 @@ use App\Order;
 
 trait Scope {
 
-    public static function clinicScoped($model) {
+    public static function clinicScoped($model, $orderBy=null) {
         $clinics = self::getScope();
         // $models = strtolower(str_plural($model));
         // $model = '\\App\\' . ucfirst(strtolower($model));
@@ -16,11 +16,17 @@ trait Scope {
 
         $items = $model::whereHas('clinic', function($query) use ($clinics) {
             $query->whereIn('id', $clinics);
-        })->get();
+        });
+
+        if ($orderBy) {
+            $items->orderBy($orderBy);
+        }
+
+        $items = $items->get();
 
         return $items;
     }
-    public static function clinicsScoped($model) {
+    public static function clinicsScoped($model, $orderBy=null) {
         $clinics = self::getScope();
 
         // $model = '\\App\\' . ucfirst(strtolower($model));
@@ -28,7 +34,13 @@ trait Scope {
 
         $items = $model::whereHas('clinics', function($query) use ($clinics) {
             $query->whereIn('clinic_id', $clinics);
-        })->get();
+        });
+
+        if ($orderBy) {
+            $items->orderBy($orderBy);
+        }
+
+        $items = $items->get();
 
         return $items;
     }
