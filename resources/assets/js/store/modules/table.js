@@ -23,6 +23,7 @@ const mutations= {
     setTable(state, {model}) {
         Vue.set(state.tables, model, {});
         Vue.set(state.tables[model], 'ready', false);
+        Vue.set(state.tables[model], 'filtered', []);
         console.log('Table ' + model + ' setted');
     },
     removeTable(state, model) {
@@ -33,8 +34,12 @@ const mutations= {
         // console.log('Tables: ' + state.tables);
         state.tables[model].ready = true;
         console.log('Table ' + model + ' Ready');
+    },
+    selectRow(state, {table, id}) {
+        console.log(table);
+        state.tables[table].selected.push(id);
     }
-};
+ };
 
 export default {
     namespaced: true,

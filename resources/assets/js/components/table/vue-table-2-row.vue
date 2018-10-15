@@ -20,10 +20,10 @@
 </template>
 
 <script>
-    import tableFiltering from "../../mixins/table-filtering.js";
+    import tableFiltering2 from "../../mixins/table-filtering-2.js";
     export default {
-        mixins: [tableFiltering],
-        props: ['item', 'columns', 'model', 'options'],
+        mixins: [tableFiltering2],
+        props: ['item', 'itemIndex', 'items', 'columns', 'model', 'options', 'selected'],
         data() {
             return {
                 rowsSelected: [],
@@ -43,11 +43,30 @@
                     this.rowsSelected.splice(this.rowsSelected.indexOf(index), 1);
                 }
             },
+            parseArrayItems(index, object, string=null) {
+                if (!this.items[index][object].length) {
+                    return "-";
+                }
+                let items = [];
+                let glue = "<br>";
+                if (string) {
+                    glue = ", ";
+                }
+                for (let item of this.items[index][object]) {
+                    if (items.indexOf(item) == -1) {
+                    items.push(item);
+                    }
+                }
+                return items.join(glue);
+            },
         },
         computed: {
             animationClasses() {
                 return this.$store.state.Model.animationClasses;
             },
+        }, 
+        created() {
+            // this.$store.commit('Table/selectRow', {table: this.model, id: this.item.id});
         }
     }
 </script>

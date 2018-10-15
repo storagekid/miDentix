@@ -137,35 +137,18 @@
             </tr>
           </thead>
           <tbody id="main-tbody" v-if="items.length">
-            <vue-table-row
+            <vue-table-2-row
               v-for="(item, itemIndex) in items"
               :item="item"
+              :item-index="itemIndex"
+              :items="items"
               :model="model"
               :columns="columns"
               :options="options"
               :key="itemIndex" 
+              :selected="filtering.selected"
               >
-            </vue-table-row>
-            <!-- <tr
-              v-for="(item, itemIndex) in items"
-              :ref="model+item.id" 
-              :key="item.id" 
-              :id="model+item.id"
-              v-show="checkFilter(item.id)" 
-              :class="[rowsSelected.indexOf(item.id) != -1 ? 'selected' : '', animationClassesGetter(item.id)]"           
-              @click="toggleSelectedRow(item.id)">
-              <td v-if="options.counterColumn" ref="column-counter-row">
-                <span class="glyphicon glyphicon-check" :class="rowsSelected.indexOf(item.id) != -1 ? 'selected' : 'unselected'" @click="toggleSelectedRow(item.id)"></span>
-              </td>
-              <td v-for="(column, columnIndex) in columns" :key="columnIndex" v-show="column.show" :ref="'column-'+column.name+'-row'" v-bind:style="{width:column.width+'px', whiteSpace:item[column.name] && item[column.name].length > 12 ? 'inherit' : 'nowrap'}">
-                <strong v-if="column.parse" v-html="parseArrayItems(itemIndex,column.name)"></strong>
-                <strong v-else-if="column.linebreak" v-html="linebreak(item[column.name],column.linebreak.needles,column.linebreak.options)"></strong>
-                <strong v-else-if="column.boolean">{{item[column.name] ? column.boolean[0] : column.boolean[1]}}</strong>
-                <strong v-else-if="column.linkable"><a :href="column.linkable.target + item[column.name]">{{item[column.name]}}</a></strong>
-                <strong v-else-if="column.object">{{item[column.object][column.name]}}</strong>
-                <strong v-else>{{item[column.name]}}</strong>
-              </td>
-            </tr> -->
+            </vue-table-2-row>
           </tbody>
           <tbody id="main-tbody-empty" v-else>
             <tr
@@ -186,7 +169,7 @@
 
 <script>
 import excel from "../../mixins/excel.js";
-import vueTableRow from "./vue-table-row";
+import vueTable2Row from "./vue-table-2-row";
 import tableFiltering from "../../mixins/table-filtering.js";
 import tableOrdering from "../../mixins/table-ordering.js";
 import modelNewForm from '../../components/model/forms/model-new-form.vue';
@@ -195,7 +178,7 @@ import modelDeleteForm from '../../components/model/forms/model-delete-form.vue'
 import { mapActions, mapMutations } from 'vuex';
 
 export default {
-  components: {vueTableRow, modelNewForm, modelDeleteForm},
+  components: {vueTable2Row, modelNewForm, modelDeleteForm},
   mixins: [tableFiltering, tableOrdering, excel],
   props: ["model", "relatedModel", "mode", "tableItems", "scoped"],
   data() {
@@ -449,22 +432,22 @@ export default {
         }
       }
     },
-    parseArrayItems(index, object, string=null) {
-      if (!this.items[index][object].length) {
-        return "-";
-      }
-      let items = [];
-      let glue = "<br>";
-      if (string) {
-        glue = ", ";
-      }
-      for (let item of this.items[index][object]) {
-        if (items.indexOf(item) == -1) {
-          items.push(item);
-        }
-      }
-      return items.join(glue);
-    },
+    // parseArrayItems(index, object, string=null) {
+    //   if (!this.items[index][object].length) {
+    //     return "-";
+    //   }
+    //   let items = [];
+    //   let glue = "<br>";
+    //   if (string) {
+    //     glue = ", ";
+    //   }
+    //   for (let item of this.items[index][object]) {
+    //     if (items.indexOf(item) == -1) {
+    //       items.push(item);
+    //     }
+    //   }
+    //   return items.join(glue);
+    // },
     actionBtnClass(action) {
       switch (action) {
         case "show":

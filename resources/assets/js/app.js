@@ -51,6 +51,7 @@ Vue.component('shopping-cart-nav-container', require('./components/shopping-cart
 Vue.component('shopping-cart', require('./components/shopping-cart.vue'));
 
 Vue.component('vue-table', require('./components/table/vue-table.vue'));
+Vue.component('vue-table2', require('./components/table/vue-table-2.vue'));
 
 Vue.component('profile-left', require('./components/profile/profile-left.vue'));
 Vue.component('nav-left', require('./components/nav-left.vue'));

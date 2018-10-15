@@ -87,9 +87,9 @@ class StationaryPrinter
 
     public function fileNameConstructor() {
         if ($this->stationary->customizable) {
-            return $this->stationary->cleanDescription . ' ' . $this->clinic->cleanName . '.pdf';
+            return $this->clinic->cleanName . ' ' . $this->stationary->cleanDescription . '.pdf';
         } else if ($this->profile) {
-            return $this->stationary->cleanDescription . ' ' . $this->profile->cleanName . ' ' . $this->clinic->cleanName . ' - ' . Carbon::now() . '.pdf';
+            return $this->clinic->cleanName . ' ' . $this->stationary->cleanDescription . ' ' . $this->profile->cleanName . ' - ' . Carbon::now() . '.pdf';
         }
 
         // if (Storage::exists($dir . $object . $file) && !$force) {
