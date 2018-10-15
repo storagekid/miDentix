@@ -83552,12 +83552,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['menu', 'user'],
@@ -83603,45 +83597,25 @@ var render = function() {
             expression: "leftMenu"
           }
         ],
-        staticClass: "hidden-xs",
+        staticClass: "fx fx-col fx-100 jf-between",
         attrs: { id: "left-sidebar" }
       },
       [
-        _c("div", { staticClass: "sidebar-nav" }, [
-          _c(
-            "div",
-            {
-              staticClass: "navbar navbar-default navbar-left-sidebar",
-              attrs: { role: "navigation" }
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "navbar-collapse collapse sidebar-navbar-collapse"
-                },
-                [
-                  _c("span", {
-                    staticClass: "glyphicon glyphicon-resize-small",
-                    attrs: { id: "close-left-menu" },
-                    on: { click: _vm.toggleLeftMenu }
-                  }),
-                  _vm._v(" "),
-                  _c("profile-left"),
-                  _vm._v(" "),
-                  _c("main-menu", {
-                    attrs: { menu: _vm.menu, user: _vm.$store.state.user }
-                  })
-                ],
-                1
-              )
-            ]
-          )
-        ]),
+        _c("span", {
+          staticClass: "glyphicon glyphicon-resize-small",
+          attrs: { id: "close-left-menu" },
+          on: { click: _vm.toggleLeftMenu }
+        }),
+        _vm._v(" "),
+        _c("profile-left"),
+        _vm._v(" "),
+        _c("main-menu", {
+          attrs: { menu: _vm.menu, user: _vm.$store.state.user }
+        }),
         _vm._v(" "),
         _vm._m(0)
-      ]
+      ],
+      1
     ),
     _vm._v(" "),
     _c(
@@ -84393,11 +84367,18 @@ var render = function() {
   return _vm.$store.getters["Scope/ready"]
     ? _c(
         "ul",
-        { staticClass: "nav navbar-nav" },
-        _vm._l(_vm.items, function(menu) {
+        {
+          staticClass: "fx fx-col",
+          staticStyle: { flex: "1", "text-align": "center" }
+        },
+        _vm._l(_vm.items, function(menu, index) {
           return _c(
             "li",
-            { class: { active: menu.link === _vm.isActive } },
+            {
+              key: index,
+              staticClass: "left-menu-link",
+              class: { active: menu.link === _vm.isActive }
+            },
             [
               _c("router-link", { attrs: { to: menu.link } }, [
                 _c("div", { staticClass: "left-menu-link-container" }, [

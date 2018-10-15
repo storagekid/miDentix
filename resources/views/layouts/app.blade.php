@@ -16,19 +16,17 @@
 
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="fx fx-100 fx-col" style="height: 100vh">
         @include('nav.main')
-        <div class="container-fluid">
+        <div class="fx fx-100">
             <nav-left :menu="{{auth()->user()->getMenu('gabinete', [session('user.group.0.name')], session('user.role') )}}"></nav-left>
-            <div class="row">
-                <div id="main-content">
-                    <!-- <loading></loading> -->
-                    <!-- <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut"> -->
-                        <loading v-if="!$store.getters.ready"></loading>
-                        <router-view v-else></router-view>
-                    <!-- </transition> -->
-                    <!-- @yield('content') -->
-                </div>
+            <div id="main-content">
+                <!-- <loading></loading> -->
+                <!-- <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut"> -->
+                    <loading v-if="!$store.getters.ready"></loading>
+                    <router-view v-else></router-view>
+                <!-- </transition> -->
+                <!-- @yield('content') -->
             </div>
         </div>
         <flash message="{{ session('flash') }}"></flash>

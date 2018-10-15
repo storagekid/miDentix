@@ -1,6 +1,6 @@
 <template>
-    <ul class="nav navbar-nav" v-if="$store.getters['Scope/ready']">
-        <li v-for="menu in items" :class="{ active: menu.link === isActive}">
+    <ul class="fx fx-col" v-if="$store.getters['Scope/ready']" style="flex: 1; text-align: center">
+        <li v-for="(menu, index) in items" :key="index" class="left-menu-link" :class="{ active: menu.link === isActive}">
             <router-link :to="menu.link"> 
                 <div class="left-menu-link-container">
                     <span :class="menu.icon"></span>

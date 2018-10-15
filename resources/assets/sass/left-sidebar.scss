@@ -86,13 +86,8 @@ hr.left-nav-hr {
     border-color: inherit;
 }
 #left-nav-footer {
-  position: absolute;
-  bottom: 50px;
-  z-index: 9999;
-  left: 0px;
   height: 50px;
   background-color: #753470;
-  width: 100%;
   color: #FFF;
   text-align: center;
   font-size: 1.3em;
@@ -107,14 +102,41 @@ hr.left-nav-hr {
   #left-sidebar {
     position: relative;
     width: 150px;
-    float: left;
-    height: 100vh;
     padding: 0;
     background: #777;
     -webkit-box-shadow: 2px 0 0px #AAA;
     box-shadow: 2px 0 0px #AAA;
     border-right: 1px solid #666;
-    margin-left: -15px;
+    ul {
+      flex: 1;
+      text-align: center;
+      li {
+        flex: 1;
+        padding-top: 5px;
+        font-size: .9em;
+      }
+      li:hover, li:active, li:focus, {
+        background-color: transparent !important;
+        &.left-menu-link {
+          a {
+            color: #FFF;
+          }
+        }
+      }
+      .left-menu-link a {
+        color: #444;
+      }
+      li:nth-child(even) {
+        background-color: #FFF;
+        color: #555;
+      
+      }
+      li:nth-child(odd) {
+        background-color: #DDD;
+        color: #555;
+      
+      }
+    }
   }
   #side-profile {
     min-height: $jumbotron-height;

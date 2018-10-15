@@ -76,7 +76,7 @@ class User extends Authenticatable
                                 $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
                                 break;
                             case 'admin':
-                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers'];
+                                $list = ['Orders','Stationary', 'PersonalTags', 'BusinessCard', 'MedicalDirectory', 'Profiles', 'Clinics','Providers','Users'];
                                 break;
                             case 'root':
                                 $list = ['CPanel', 'Requests', 'ExtraTime', 'Users', 'Clinics', 'Papers', 'Tools'];

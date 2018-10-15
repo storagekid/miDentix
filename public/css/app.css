@@ -8681,13 +8681,8 @@ hr.left-nav-hr {
 }
 
 #left-nav-footer {
-  position: absolute;
-  bottom: 50px;
-  z-index: 9999;
-  left: 0px;
   height: 50px;
   background-color: #753470;
-  width: 100%;
   color: #FFF;
   text-align: center;
   font-size: 1.3em;
@@ -8705,14 +8700,52 @@ hr.left-nav-hr {
   #left-sidebar {
     position: relative;
     width: 150px;
-    float: left;
-    height: 100vh;
     padding: 0;
     background: #777;
     -webkit-box-shadow: 2px 0 0px #AAA;
     box-shadow: 2px 0 0px #AAA;
     border-right: 1px solid #666;
-    margin-left: -15px;
+  }
+
+  #left-sidebar ul {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: center;
+  }
+
+  #left-sidebar ul li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-top: 5px;
+    font-size: .9em;
+  }
+
+  #left-sidebar ul li:hover,
+  #left-sidebar ul li:active,
+  #left-sidebar ul li:focus {
+    background-color: transparent !important;
+  }
+
+  #left-sidebar ul li:hover.left-menu-link a,
+  #left-sidebar ul li:active.left-menu-link a,
+  #left-sidebar ul li:focus.left-menu-link a {
+    color: #FFF;
+  }
+
+  #left-sidebar ul .left-menu-link a {
+    color: #444;
+  }
+
+  #left-sidebar ul li:nth-child(even) {
+    background-color: #FFF;
+    color: #555;
+  }
+
+  #left-sidebar ul li:nth-child(odd) {
+    background-color: #DDD;
+    color: #555;
   }
 
   #side-profile {
@@ -9056,9 +9089,8 @@ li#alerts .dropdown-menu li a {
 }
 
 #main-content {
-  height: 100vh;
+  width: 100%;
   padding-top: 0;
-  padding-bottom: 40px;
   overflow-y: auto;
   background-image: url(/img/main-bg.jpg);
   background-size: cover;

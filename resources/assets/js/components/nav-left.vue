@@ -1,15 +1,9 @@
 <template>
     <div>
-        <div v-show="leftMenu" class="hidden-xs" id="left-sidebar">
-            <div class="sidebar-nav">
-                <div class="navbar navbar-default navbar-left-sidebar" role="navigation">
-                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                        <span id="close-left-menu" class="glyphicon glyphicon-resize-small" @click="toggleLeftMenu"></span>
-                        <profile-left></profile-left>
-                        <main-menu :menu="menu" :user="$store.state.user"></main-menu>
-                    </div>
-                </div>
-            </div>
+        <div v-show="leftMenu" class="fx fx-col fx-100 jf-between" id="left-sidebar">
+            <span id="close-left-menu" class="glyphicon glyphicon-resize-small" @click="toggleLeftMenu"></span>
+            <profile-left></profile-left>
+            <main-menu :menu="menu" :user="$store.state.user"></main-menu>
             <div id="left-nav-footer">
                 <span class="glyphicon glyphicon-inbox"></span>
                 <span class="glyphicon glyphicon-cog"></span>
