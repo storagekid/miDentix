@@ -58,20 +58,23 @@ class StationaryController extends Controller
         $clinics->map(function ($clinic) use ($params) {
             $items = [];
             $clinicStationaries = $clinic->stationaries->pluck('id');
+            if ($params['forceMode'] === 'true') {
+                StationaryCustomizablePrinter::cleanDirectories($clinic);
+            }
             foreach ($params['stationaries'] as $stationary) {
-                if (!$clinicStationaries->contains($stationary->id)||$params['forceMode']) {
+                if (!$clinicStationaries->contains($stationary->id)||$params['forceMode'] === 'true') {
                     $pdf = new StationaryCustomizablePrinter($stationary, $clinic, true);
                     $pdf->jobSelector();
                     $pdf->createThumbnail();
                     $item = ['link' => $pdf->directory . '/' . $pdf->fileName, 'file' => $pdf->fileName, 'thumbnail' => $pdf->thumbnailPath];
-                    if ($params['forceMode']) {
+                    if ($params['forceMode'] === 'true') {
                         $items[$stationary->id] = $item;
                     } else {
                         $clinic->stationaries()->attach($stationary->id, $item);
                     }
                 }
             }
-            if ($params['forceMode']) {
+            if ($params['forceMode'] === 'true') {
                 $clinic->stationaries()->sync($items);
             }
         });

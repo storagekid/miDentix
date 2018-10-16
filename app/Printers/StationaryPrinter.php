@@ -11,12 +11,12 @@ class StationaryPrinter
 {
     protected $pdf;
     
-    public $rootDirectory = 'stationary/'; 
+    public static $rootDirectory = 'stationary/'; 
     public $directory, $fileName, $pathToFile;
     public $clinic, $profile, $stationary;
     public $force;
 
-    public $thumbnailRootDirectory = 'public/stationary/';
+    public static $thumbnailRootDirectory = 'public/stationary/';
     public $thumbnailDirectory, $thumbnailFile, $thumbnailPath;
 
     protected $Color512 = 'PANTONE 512 C';
@@ -60,8 +60,8 @@ class StationaryPrinter
     }
 
     public function directoryConstructor() {
-        $mainDirectory = $this->rootDirectory . $this->clinic->countryName;
-        $thumbnailMainDirectory = $this->thumbnailRootDirectory . $this->clinic->countryName;
+        $mainDirectory = self::$rootDirectory . $this->clinic->countryName;
+        $thumbnailMainDirectory = self::$thumbnailRootDirectory . $this->clinic->countryName;
         if ($this->stationary->customizable) {
             $mainDirectory .= '/clinics/' . $this->clinic->cleanName;
             $thumbnailMainDirectory .= '/clinics/' . $this->clinic->cleanName;
@@ -136,5 +136,10 @@ class StationaryPrinter
         $this->thumbnailPath = Storage::url($this->thumbnailDirectory . '/' . $this->thumbnailFile);
         // Writes an image
         $imagick->writeImage(storage_path('app/' . $this->thumbnailDirectory . '/' . $this->thumbnailFile));
+    }
+
+    public static function cleanDirectories(Clinic $clinic) {
+        Storage::deleteDirectory(self::$rootDirectory . $clinic->countryName . '/clinics/' . $clinic->cleanName);
+        Storage::deleteDirectory(self::$thumbnailRootDirectory . $clinic->countryName .  '/clinics/' . $clinic->cleanName);
     }
 }
