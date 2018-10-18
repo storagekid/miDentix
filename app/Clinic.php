@@ -234,9 +234,9 @@ protected $formRelations = [
 
   protected $fillable = ['city', 'address_real_1', 'address_real_2', 'address_adv_1', 'address_adv_2', 'postal_code', 'phone_real', 'phone_adv', 'email_ext', 'sanitary_code', 'county_id', 'cost_center_id'];
   protected $guarded = [];
-  // protected $with = ['county', 'costCenter', 'stationaries'];
+  protected $with = ['county', 'costCenter'];
   // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
-  protected $appends = ['fullName', 'cleanName'];
+  protected $appends = ['fullName', 'cleanName','countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
   protected $casts = ['postal_code' => 'string'];
   protected $stationary = [];
 
@@ -331,27 +331,27 @@ protected $formRelations = [
 
   public function getCountyNameAttribute()
   {
-      return $this->county->name;
+      return $this->county ? $this->county->name : '-';
   }
 
   public function getStateIdAttribute()
   {
-      return $this->county->state ? $this->county->state->id : null;
+      return $this->county ? $this->county->state->id : null;
   }
   
   public function getStateNameAttribute()
   {
-      return $this->county->state->name;
+      return $this->county ? $this->county->state->name : '-';
   }
 
   public function getCountryIdAttribute()
   {
-      return $this->county->state->country ? $this->county->state->country->id : null;
+      return $this->county ? $this->county->state->country->id : null;
   }
   
   public function getCountryNameAttribute()
   {
-      return $this->county->state->country->name;
+      return $this->county ? $this->county->state->country->name : '-';
   }
 
   public function getPostalCodeAttribute($value)
