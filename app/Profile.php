@@ -503,7 +503,10 @@ class Profile extends Model
             return false;
         }
         $line1 = $clinic->address_real_1.", ".$clinic->postal_code." ".$clinic->city;
-        $line2 = "";
+        $line2 = 'Tel.: ' .  $clinic->phone_real;
+        if ($profile->phone) {
+            $line2 .= ' - Tel.2: ' . $profile->phone;
+        }
         $email = false;
         $domain = 'dentix.es';
 

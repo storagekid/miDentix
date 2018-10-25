@@ -26,8 +26,10 @@
                             <p>{{card.job_type_name}}</p>
                             <div class="clinic-info">
                               <p>{{clinicSelected.address_real_1}}, {{clinicSelected.postal_code}} {{clinicSelected.city}}</p>
-                              <p>{{clinicSelected.phone_real}}</p>
-                              <p>{{card.job_type_name}}@dentix.es</p>
+                              <p>Tel.: {{clinicSelected.phone_real}}
+                                <span v-if="card.phone"> - Tel.2: {{card.phone}}</span>
+                              </p>
+                              <p>{{card.job_type_name.toLowerCase()}}.{{clinicSelected.email_ext}}@dentix.es</p>
                             </div>
                             <p>www.dentix.com</p>
                           </button>
