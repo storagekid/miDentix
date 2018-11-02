@@ -307,7 +307,7 @@ class Profile extends Model
         return cleanString($this->fullName);
     }
     public function getJobNameAttribute() {
-        // return $this->job ? $this->job->name : 'undefined';
+        return $this->job ? $this->job->name : 'undefined';
         return $this->job->name;
     }
     public function getJobTypeNameAttribute() {
