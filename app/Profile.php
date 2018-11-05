@@ -577,7 +577,7 @@ class Profile extends Model
 
         $lineHeight = 3.2;
         if (!empty($line2)) {
-            $y = 29.5+$bleed+$slug;
+            $y = 31+$bleed+$slug;
         } else {
             $y = 31+$bleed+$slug;
         }
