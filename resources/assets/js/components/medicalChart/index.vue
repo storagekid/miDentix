@@ -32,14 +32,26 @@
                                   <h4>{{jobType.name}}</h4>
                               </button>
                               <button
-                              class="btn selectable-rev personal-chart"
-                              :class="{'selected': shoppingCart.medicalCharts.ids.includes(profile.id)}"
+                              class="btn selectable-rev personal-chart fx jf-between fx-align-center"
+                              :class="{'selected': shoppingCart.medicalCharts.ids.includes(profile.id), 'fx-col': !shoppingCart.medicalCharts.ids.includes(profile.id)}"
                               v-for="(profile, index) in models.profiles.items"
                               v-if="profile.job_type_id == jobType.id"
                               :key="index"
-                              @click.prevent="shoppingCartToggle(profile.id, 'medicalCharts')"
                               >
-                                <h4>{{profile.name + ' ' + profile.lastname1}}</h4>
+                                <i class="glyphicon glyphicon-minus-sign fx jf-around fx-align-center" 
+                                  v-if="shoppingCart.medicalCharts.ids.includes(profile.id)"
+                                  @click.prevent="shoppingCartRemove(profile.id, 'medicalCharts')"
+                                ></i>
+                                <h4
+                                  :disabled="shoppingCart.medicalCharts.ids.includes(profile.id)"
+                                  @click.prevent="shoppingCartToggle(profile.id, 'medicalCharts')"
+                                >{{profile.name + ' ' + profile.lastname1}}
+                                  <i class="chart-counter" v-if="shoppingCart.medicalCharts.ids.includes(profile.id)"> {{ chartCounter(profile.id) }} </i>
+                                </h4>
+                                <i class="glyphicon glyphicon-plus-sign fx jf-around fx-align-center" 
+                                  v-if="shoppingCart.medicalCharts.ids.includes(profile.id)"
+                                  @click.prevent="shoppingCartAdd(profile.id, 'medicalCharts')"
+                                ></i>
                               </button>
                             </div>
                           </div>
@@ -215,6 +227,9 @@ export default {
       }
     },
     methods: {
+      chartCounter (id) {
+        return this.shoppingCart.medicalCharts.ids.filter(profile => profile === id).length
+      },
       closePlayer() {
         // console.log("closing player");
         this.player = false;
@@ -236,7 +251,16 @@ export default {
         this.$store.commit('ShoppingCart/cleanShoppingCart', {categories:['medicalCharts', 'medicalChartJobs']});
       },
       shoppingCartToggle(id, category) {
-        this.$store.commit('ShoppingCart/shoppingCartToggle', {item: id, 'category': category});
+        if (!this.shoppingCart.medicalCharts.ids.includes(id)) {
+          this.$store.commit('ShoppingCart/shoppingCartAdd', {item: id, 'category': category});
+        }
+        // this.$store.commit('ShoppingCart/shoppingCartToggle', {item: id, 'category': category});
+      },
+      shoppingCartAdd(id, category) {
+        this.$store.commit('ShoppingCart/shoppingCartAdd', {item: id, 'category': category});
+      },
+      shoppingCartRemove(id, category) {
+        this.$store.commit('ShoppingCart/shoppingCartRemove', {item: id, 'category': category});
       },
       selectAll(names=false, jobs=false) {
         if (names) {
@@ -386,4 +410,14 @@ export default {
 }
 </script>
 <style type="text/css">
+  .chart-counter {
+      padding: 2px 8px 3px 6px;
+      display: inline-block;
+      background-color: white;
+      font-weight: 900;
+      margin-left: 5px;
+      color: #753470;
+      font-size: 1.3em;
+      border-radius: 50%;
+  }
 </style>

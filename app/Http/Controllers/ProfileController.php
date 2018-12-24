@@ -59,7 +59,14 @@ class ProfileController extends Controller
     {
         if (!$profiles) {
             $ids = $request->query('profiles');
-            $profiles = Profile::find($ids);
+            // Removes duplicate IDs
+            // $profiles = Profile::find($ids);
+            
+            // Retrieves duplicate IDs
+            $profiles = [];
+            foreach ($ids as $id) {
+                $profiles[] = Profile::find($id);
+            }
         } else {
             $profiles = Profile::find($profiles);
         }

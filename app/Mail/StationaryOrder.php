@@ -66,7 +66,11 @@ class StationaryOrder extends Mailable
                 }
             }
             if (count($profilesIds)) {
-                $profiles = \App\Profile::find($profilesIds);
+                // $profiles = \App\Profile::find($profilesIds);
+                $profiles = [];
+                foreach ($profilesIds as $id) {
+                    $profiles[] = \App\Profile::find($id);
+                }
                 $this->files['medicalCharts'] = \App\Profile::makeCharts($profiles, $this->clinic);
             }
             if (count($cardIds)) {

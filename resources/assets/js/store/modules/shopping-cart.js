@@ -65,6 +65,12 @@ export default {
               state.shoppingCart[category].ids.push(item);
             }
         },
+        shoppingCartAdd(state, {item, category}) {
+            state.shoppingCart[category].ids.push(item);
+        },
+        shoppingCartRemove(state, {item, category}) {
+            state.shoppingCart[category].ids.splice(state.shoppingCart[category].ids.indexOf(item),1);
+        },
         cleanShoppingCart(state, {categories=null}) {
             if (!categories) {
                 for (let cat in state.shoppingCart) {
