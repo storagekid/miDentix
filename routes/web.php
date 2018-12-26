@@ -25,7 +25,13 @@ Route::middleware(['auth'])->group(function() {
 		return view('profile-selector');
 	})->name('profile-selector');
 	Route::post('/profile-choice', function() {
-		session(['selectedProfile'=> auth()->user()->profiles[request('profile-index')]->id]);
+		// session(['selectedProfile'=> auth()->user()->profiles[request('profile-index')]->id]);
+		$profile = auth()->user()->profiles[request('profile-index')];
+		session([
+			'selectedProfile'=> $profile->id,
+			'user_profile' => $profile->toArray(),
+			'clinicsScope' => $profile->clinicIdsScope->toArray()
+		]);
 		return redirect()->route('home');
 	})->name('profile-choice');
 
@@ -33,18 +39,21 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('/api/profile/{profile}', 'ProfileController@indexApiById');
 	Route::patch('/profile/{profile}', 'ProfileController@update');
 
-	Route::delete('/api/clinic', 'ClinicController@destroyApi');
-
 	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
 	Route::get('/api/users', 'UserController@indexApi');
 	Route::get('/api/user', function (Request $request) {
-		$user = Cache::rememberForever('user_' . session('user.email'), function() {
-			$user = auth()->user();
-			$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
-			$user['profile'] = $profile;
-			return $user;
-		});
-        session(['clinicsScope' => $user->profile->clinicIdsScope->toArray()]);
+		// Cache approach - brokes profile selection
+		// $user = Cache::rememberForever('user_' . session('user.email'), function() {
+		// 	$user = auth()->user();
+		// 	$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
+		// 	$user['profile'] = $profile;
+		// 	return $user;
+		// });
+
+		// Without Cache - Old functionality
+		$user = auth()->user();
+		$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
+		$user['profile'] = $profile;
 
 		return $user;
     });
@@ -101,17 +110,12 @@ Route::middleware(['auth', 'profile-count'])->group(function() {
 
 	Route::get('/users', 'UserController@index');
 
-	Route::get('/clinics', 'ClinicController@index');
-	Route::patch('/clinics/{clinic}', 'ClinicController@update');
-
 	Route::get('/stationary', 'StationaryController@index');
 	Route::get('/stationary/download', 'StationaryController@download');
 	Route::get('/stationary/download-all', 'StationaryController@downloadAll');
 	Route::get('/stationary/download/{clinic}', 'StationaryController@downloadClinic');
 	Route::post('/stationary/regen', 'StationaryController@regen');
 	Route::post('/stationary/{clinic}', 'StationaryController@store');
-
-	Route::get('/providers', 'ProviderController@index');
 
 	Route::get('/orders', 'OrderController@index');
 	Route::post('/order/{clinic}', 'OrderController@store');

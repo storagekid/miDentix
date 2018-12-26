@@ -55,7 +55,6 @@ class LoginController extends Controller
         session(
             [
                 'user' => $user->toArray(),
-                'user_profile' => $user->profile->toArray(),
             ]
         );
     }
