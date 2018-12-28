@@ -19,8 +19,9 @@ class MultipleProfiles
         if (count (auth()->user()->profiles) > 1 && !$request->session()->has('selectedProfile')) {
             return redirect()->route('profile-selector');
         } elseif (count (auth()->user()->profiles) == 1) {
+            $user = auth()->user();
             session([
-                'selectedProfile' => auth()->user()->profiles[0]->id,
+                'selectedProfile' => $user->profiles[0]->id,
                 'user_profile' => $user->profile->toArray(),
                 'clinicsScope' => $user->profile->clinicIdsScope->toArray()
             ]);
