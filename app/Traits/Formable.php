@@ -41,7 +41,7 @@ trait Formable {
             } else {
                 $name = $field;
             }
-
+            // if ($name === 'starts_at') dd($options);
             $temp = [];
             $temp['label'] = array_key_exists('label', $options) ? $options['label'] : ucfirst($name);
             $temp['name'] = $name;
@@ -50,6 +50,7 @@ trait Formable {
             $temp['batch'] = array_key_exists('batch', $options) ? $options['batch'] : false;
             $temp['colClasses'] = array_key_exists('colClasses', $options) ? $options['colClasses'] : 'fx-b-50';
             $temp['dontRecord'] = array_key_exists('dontRecord', $options) ? $options['dontRecord'] : false;
+            $temp['onObject'] = array_key_exists('onObject', $options) ? $options['onObject'] : null;
             $temp['dependsOn'] = array_key_exists('dependsOn', $options) ? $options['dependsOn'] : null;
             $temp['affects'] = array_key_exists('affects', $options) ? $options['affects'] : null;
             $temp['show'] = array_key_exists('show', $options) ? $options['show'] : true;

@@ -16,20 +16,29 @@ class CreateClinicsTable extends Migration
         Schema::create('clinics', function (Blueprint $table) {
             $table->increments('id');
             $table->string('city')->nullable();
-            $table->string('address_real_1')->nullable();
-            $table->string('address_real_2')->nullable();
-            $table->string('address_adv_1')->nullable();
-            $table->string('address_adv_2')->nullable();
+            $table->string('district')->nullable();
+            $table->string('nickname')->nullable();
             $table->string('postal_code')->nullable();
-            $table->string('phone_real')->nullable();
-            $table->string('phone_adv')->nullable();
             $table->string('email_ext')->nullable();
-            $table->string('sanitary_code')->nullable();
             $table->unsignedInteger('cost_center_id')->nullable();
-            $table->unsignedInteger('county_id');
+            $table->unsignedInteger('county_id')->nullable();
+            $table->unsignedInteger('language_id');
+            $table->string('sanitary_code')->nullable();
+            $table->unsignedInteger('clinic_manager_id')->nullable();
+            $table->unsignedInteger('area_manager_id')->nullable();
             $table->unsignedInteger('clinic-cloud_id')->nullable();
             $table->unsignedInteger('closed')->default(0);
+            $table->date('starts_at');
+            $table->date('ends_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
+            // SHOULD BE DELETED
+            // $table->string('address_real_1')->nullable();
+            // $table->string('address_real_2')->nullable();
+            // $table->string('address_adv_1')->nullable();
+            // $table->string('address_adv_2')->nullable();
+            // $table->string('phone_real')->nullable();
+            // $table->string('phone_adv')->nullable();
         });
     }
 

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
 class UsersCSVSeeder extends CsvSeeder

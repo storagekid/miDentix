@@ -2,16 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use TCPDF;
-use Illuminate\Support\Facades\Storage;
-use App\Traits\Tableable;
-use App\Traits\Formable;
 
-class Stationary extends Model
+class Stationary extends Qmodel
 {
-    use Tableable;
-    use Formable;
      /**
      * The attributes that are mass assignable.
      *
@@ -233,7 +226,7 @@ class Stationary extends Model
     public function clinics()
     {
         return $this->belongsToMany(Clinic::class)
-            ->withPivot(['id', 'file', 'link']);
+            ->withPivot(['id', 'file', 'link'])->withTrashed();
     }
 
     public function getCleanDescriptionAttribute() {

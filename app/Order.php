@@ -2,14 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\Tableable;
-use App\Traits\Scope;
 
-class Order extends Model
+class Order extends Qmodel
 {
-    use Tableable;
-    use Scope;
     // Tableable DATA
     protected $tableColumns = [
         'itemName' => [
@@ -55,10 +50,6 @@ class Order extends Model
 
     // END Tableable Data
 
-    // protected $appends = ['itemName', 'providerName', 'clinicName', 'userName'];
-
-    // protected $with = ['clinic', 'provider', 'user', 'orderable'];
-
     protected $appends = ['clinicName', 'providerName', 'userName', 'itemName', 'profileName'];
 
     protected $with = ['clinic', 'provider', 'user', 'orderable'];
@@ -80,7 +71,7 @@ class Order extends Model
 
     public function clinic()
     {
-        return $this->belongsTo(Clinic::class);
+        return $this->belongsTo(Clinic::class)->withTrashed();
     }
 
     public function provider()

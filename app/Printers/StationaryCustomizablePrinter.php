@@ -5,17 +5,19 @@ namespace App\Printers;
 use App\Stationary;
 use App\Clinic;
 use Illuminate\Support\Facades\Storage;
+use App\Profile;
 
 class StationaryCustomizablePrinter extends StationaryPrinter
 {    
     public $clinic;
+    public $profile;
 
     private $marginTop = 10;
     private $marginLeft = 10;
     private $marginRight = 10;
     private $marginBottom = 10;
 
-    public function __construct(Stationary $stationary, Clinic $clinic = null, $force = false) {
+    public function __construct(Stationary $stationary, Clinic $clinic = null, $force = false, Profile $profile = null) {
         parent::__construct($stationary, false);
 
         $this->clinic = $clinic;

@@ -2,38 +2,132 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 use TCPDF;
 use Carbon\Carbon;
-use App\Course;
-use App\Especialty;
-use App\Experience;
-use App\Job;
-use App\User;
-use App\University;
-use App\Traits\Tableable;
-use App\Traits\Formable;
-use App\Traits\Scope;
 
-class Profile extends Model
+class Profile extends Qmodel
 {
-    use Tableable;
-    use Formable;
-    use Scope;
-
-    protected $fillable = ['name','lastname1','lastname2','email','phone','personal_id_number','license_number','license_year','tutorial_completed','job_id','job_type_id', 'gender'];
+    protected $fillable = ['name','lastname1','lastname2','personal_id_number','tutorial_completed','gender','birth_date','country_id','company_id','user_id'];
     protected $guarded = [];
-    protected $hidden = ['user_id'];
+    protected $hidden = [];
 
-    protected $appends = ['clinicsCount', 'full_name', 'job_name', 'job_type_name'];
-    // protected $accesors = ['clinicsCount', 'full_name', 'job_name', 'job_type_name'];
-    // , 'clinicScope', 'clinicIdsScope', 'countyIdsScope', 'countryIdsScope', 'stateIdsScope'
-    protected $with = ['clinics', 'job', 'jobType']; 
+    protected $appends = ['full_name', 'value', 'label'];
+
+    protected static $full = ['clinic_schedules', 'phones', 'emails', 'country', 'company', 'stores', 'clinic_profiles', 'store_profiles', 'user'];
+
+    // Quasar DATA
+    protected $relatedTo = ['emails', 'phones', 'stores', 'clinic_schedules', 'clinic_profiles', 'clinics', 'store_profiles'];
+
+    protected $quasarFormNewLayout = [
+        [
+            'title' => 'Información',
+            'subtitle' => 'General',
+            'fields' => [
+                ['name','lastname1','lastname2','gender','personal_id_number','country_id','birth_date','company_id']
+            ],
+            'relations' => []
+        ],
+        [
+            'title' => 'Clinicas / Oficinas',
+            'icon' => 'store_mall_directory',
+            'fields' => [],
+            'relations' => ['clinics', 'stores']
+        ]
+    ];
+    protected $quasarFormUpdateLayout = [
+        [
+            'title' => 'Información',
+            'subtitle' => 'General',
+            'fields' => [
+                ['name','lastname1','lastname2','gender','personal_id_number','country_id','birth_date','company_id']
+            ],
+            'relations' => ['emails', 'phones']
+        ],
+        [
+            'title' => 'Clinicas / Oficinas',
+            'icon' => 'store_mall_directory',
+            'fields' => [],
+            'relations' => ['clinic_profiles', 'store_profiles']
+        ],
+        [
+            'title' => 'Schedules',
+            'icon' => 'schedule',
+            'fields' => [],
+            'relations' => ['clinic_schedules']
+        ],
+        [
+            'title' => 'User',
+            'icon' => 'vpn_key',
+            'fields' => [
+                ['user_id']
+            ],
+        ]
+    ];
+    protected $quasarFormFields = [
+        'name' => [
+            'label' =>'Nombre',
+        ],
+        'lastname1' => [
+            'label' =>'Apellido',
+        ],
+        'lastname2' => [
+            'label' =>'Segundo apellido',
+        ],
+        'gender' => [
+            'label' =>'Género',
+            'type' => [
+                'name' =>'array',
+                'array' => ['Varón', 'Mujer'],
+                'default' => [
+                    'text' => 'Selecciona un Género',
+                ],
+            ],
+        ],
+        'personal_id_number' => [
+            'label' =>'DNI/PASAPORTE',
+        ],
+        'country_id' => [
+            'label' =>'País',
+            'type' => [
+                'name' =>'select',
+                'model' => 'countries',
+                'default' => [
+                    'text' => 'Selecciona un País',
+                ],
+            ],
+        ],
+        'user_id' => [
+            'label' =>'Usuario',
+            'type' => [
+                'name' =>'select',
+                'model' => 'users',
+                'default' => [
+                    'text' => 'Selecciona un Usuario',
+                ],
+            ],
+        ],
+        'company_id' => [
+            'label' =>'Empresa',
+            'type' => [
+                'name' =>'select',
+                'model' => 'companies',
+                'default' => [
+                    'text' => 'Selecciona una Empresa',
+                ],
+            ],
+        ]
+    ];
+    protected $keyField = 'full_name';
+    // END Quasar DATA
 
     // Tableable DATA
     protected $tableColumns = [
+        'user_id' => [
+            'label' => 'Usuario',
+            'filtering' => ['search'],
+        ],
         'name' => [
             'label' => 'Nombre',
             'filtering' => ['search'],
@@ -47,12 +141,12 @@ class Profile extends Model
             'filtering' => ['search'],
             'show' => false
         ],
-        'email' => [
+        'emails' => [
             'label' => 'Correo Electrónico',
             'filtering' => ['search'],
         ],
-        'phone' => [
-            'label' => 'Teléfono',
+        'phones' => [
+            'label' => 'Teléfonos',
             'filtering' => ['search'],
         ],
         'personal_id_number' => [
@@ -64,8 +158,8 @@ class Profile extends Model
             'filtering' => ['search'],
             'show' => false
         ],
-        'job_type_name' => [
-            'label' => 'Cargo',
+        'clinic_profiles' => [
+            'label' => 'Clinicas',
             'filtering' => ['search'],
         ],
         'license_number' => [
@@ -74,85 +168,7 @@ class Profile extends Model
         ],
     ];
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
-
-    // END Tableable Data
-
-    // Formable DATA
-    protected $formFields = [
-        'name' => [
-            'label' =>'Nombre',
-            'rules' => ['required','min:3','max:64'],
-        ],
-        'lastname1' => [
-            'label' =>'Apellido',
-            'rules' => ['required','min:3','max:64'],
-        ],
-        'lastname2' => [
-            'label' =>'Segundo apellido',
-            'rules' => ['min:3','max:64'],
-        ],
-        'email' => [
-            'label' =>'Correo Electrónico',
-            'rules' => ['min:5','max:64'],
-            'type' => [
-                'name' =>'email',
-        ],
-        ],
-        'phone' => [
-            'label' =>'Teléfono',
-            'rules' => ['min:9','max:15'],
-        ],
-        'gender' => [
-            'label' =>'Género',
-            'rules' => ['required'],
-            'type' => [
-                'name' =>'selectArray',
-                'array' => ['Mujer', 'Varón'],
-                'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona un Género',
-                    'disabled' => true,
-                ],
-            ],
-        ],
-        'job_id' => [
-            'label' =>'Categoría',
-            'rules' => ['required'],
-            'type' => [
-            'name' =>'select',
-            'model' => 'jobs',
-            'text' =>  'name',
-            'value' => 'id',
-            'default' => [
-                'value' => null,
-                'text' => 'Selecciona una Categoría',
-                'disabled' => true,
-            ],
-            ],
-        ],
-        'job_type_id' => [
-            'label' =>'Puesto',
-            'rules' => ['required'],
-            'type' => [
-                'name' =>'select',
-                'model' => 'job_types',
-                'text' =>  'name',
-                'value' => 'id',
-                'default' => [
-                'value' => null,
-                'text' => 'Selecciona un Puesto',
-                'disabled' => true,
-                ],
-            ],
-        ],
-        'license_number' => [
-            'label' =>'Nº de Colegiado',
-            'rules' => ['min:3','max:64'],
-            'show' => [
-                'job_id' => [1,4,6,8],
-            ],
-        ],
-    ];
+    // END Table Data
 
     protected $formModels = ['jobs','job_types'];
 
@@ -246,9 +262,12 @@ class Profile extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
-    // public function especialties() {
-    //     return $this->belongsToMany(Especialty::class);
-    // }
+    public function company() {
+        return $this->belongsTo(Company::class);
+    }
+    public function country() {
+        return $this->belongsTo(Country::class);
+    }
     public function experiences() {
         return $this->belongsToMany(Experience::class);
     }
@@ -265,26 +284,62 @@ class Profile extends Model
         return $this->hasMany(Course::class);
     }
     public function clinics() {
-        return $this->belongsToMany(Clinic::class)->orderBy('city')->orderBy('address_real_1');
+        return $this->belongsToMany(Clinic::class, 'clinic_profiles')->withTrashed();
     }
-    public function clinicProfiles() {
-        return $this->hasMany(Clinic_Profile::class, 'profile_id');
+    public function stores() {
+        return $this->belongsToMany(Store::class, 'store_profiles');
+    }
+    public function addresses()
+    {
+        return $this->morphToMany(Address::class, 'addressable');
+    }
+    public function phones()
+    {
+        return $this->morphMany(Phone::class, 'phoneable');
+    }
+    public function emails()
+    {
+        return $this->morphMany(Email::class, 'emailable');
+    }
+    public function clinic_profiles() {
+        return $this->hasMany(ClinicProfile::class, 'profile_id');
+    }
+    public function store_profiles() {
+        return $this->hasMany(StoreProfile::class, 'profile_id');
     }
     public function university() {
         return $this->belongsTo(University::class);
     }
-    public function schedules() {
-        return $this->hasMany(Schedule::class);
+    public function clinic_schedules() {
+        return $this->hasManyThrough(ClinicSchedule::class, ClinicProfile::class);
+    }
+    public function store_schedules() {
+        return $this->hasManyThrough(StoreSchedule::class, StoreProfile::class);
     }
     public function requests() {
         return $this->hasMany(Request::class);
     }
-    public function job() {
-        return $this->belongsTo(Job::class);
+    public function extratimes() {
+        return $this->hasMany(Extratime::class);
     }
-    public function jobType() {
-        return $this->belongsTo(JobType::class);
+    public function especialties() {
+        $ids = [];
+        $clinic_schedules = $this->clinic_schedules;
+        foreach ($clinic_schedules as $schedule) {
+            $especialties = $schedule->especialties;
+            if (count($especialties)) {
+                // print($especialties);
+                for ($i=0; $i < count($especialties); $i++) { 
+                    if (!in_array($especialties[$i]->id, $ids)) {
+                        // echo $especialties[$i]->id;
+                        $ids[] = $especialties[$i]->id;
+                    }
+                }
+            }
+        }
+        return Especialty::whereIn('id',$ids)->get();
     }
+
     public function getNameAttribute($value)
     {
         return mb_convert_case(strtolower($value), MB_CASE_TITLE, 'UTF-8');
@@ -306,37 +361,33 @@ class Profile extends Model
     public function getCleanNameAttribute() {
         return cleanString($this->fullName);
     }
-    public function getJobNameAttribute() {
-        return $this->job ? $this->job->name : 'undefined';
-        return $this->job->name;
-    }
-    public function getJobTypeNameAttribute() {
-        return $this->jobType ? $this->jobType->name : 'undefined';
-        // return $this->jobType->name;
-    }
     public function getRequestsCountAttribute() {
         return $this->requests->count();
     }
+    // CLINIC SCOPE
     public function getClinicsCountAttribute() {
         return $this->clinics ? $this->clinics->count() : 0;
     }
     public function getClinicScopeAttribute() {
+        if (request()->user()->isRoot()) return Clinic::fetch('clinic', 'city', ['county'], true);
+        // var_dump($this->id);
         if ($this->clinicsCount) {
             return $this->clinics;
-        } elseif ($this->user->role == 'user') {
+        } elseif (array_key_exists('Marketing', $this->user->groupsInfo)) {
             // Get Madrid County Clinics as a Test
-            return \App\Clinic::where('county_id', 28)->get();
-        } elseif ($this->user->role == 'admin') {
-            return Cache::rememberForever('clinics', function() {
-                return \App\Clinic::get();
-            });
+            // if ($this->user->groupsInfo['Clinics'] === 'user') return \App\Clinic::where('county_id', 28)->get();
+            // else {
+                return Clinic::fetch('clinic', 'city', ['county'], true);
+                // return Cache::rememberForever('clinics', function() {
+                //     return \App\Clinic::get();
+                // });
+            // }
         }
     }
     public function getClinicIdsScopeAttribute() {
         $scope = $this->clinicScope->pluck('id');
         return $scope;
     }
-    
     public function getCountyIdsScopeAttribute() {
         $ids = [];
         foreach ($this->clinicScope as $clinic) {
@@ -345,6 +396,9 @@ class Profile extends Model
             }
         }
         return $ids;
+    }
+    public function getCountyScopeAttribute() {
+        return \App\County::find($this->countyIdsScope);
     }
     public function getCountryIdsScopeAttribute() {
         $ids = [];
@@ -355,6 +409,9 @@ class Profile extends Model
         }
         return $ids;
     }
+    public function getCountryScopeAttribute() {
+        return \App\Country::find($this->countryIdsScope);
+    }
     public function getStateIdsScopeAttribute() {
         $ids = [];
         foreach ($this->clinicScope as $clinic) {
@@ -364,26 +421,53 @@ class Profile extends Model
         }
         return $ids;
     }
-    public function extratimes() {
-        return $this->hasMany(Extratime::class);
+    public function getStateScopeAttribute() {
+        return \App\State::find($this->stateIdsScope);
     }
-    public function especialties() {
+    // END CLINIC SCOPE
+    //
+    // STORE SCOPE
+    public function getStoreCountAttribute() {
+        return $this->stores ? $this->stores->count() : 0;
+    }
+    public function getStoreScopeAttribute() {
+        // var_dump($this->id);
+        if (request()->user()->isRoot()) return \App\Store::with('country')->get();
+        if (array_key_exists('Administrators', $this->user->groupsInfo)) {
+        }
+        if ($this->storesCount) {
+            return $this->stores;
+        } elseif (array_key_exists('Administrators', $this->user->groupsInfo)) {
+            // Get Madrid County Clinics as a Test
+            if ($this->user->groupsInfo['Administrators'] === 'user') {
+                return Cache::rememberForever('stores', function() {
+                    return \App\Store::with('country')->get();
+                });
+            }
+            else {
+                return \App\Store::with('country')->get();
+            }
+        } else {
+            return [];
+        }
+    }
+    public function getStoreIdsScopeAttribute() {
+        $scope = count($this->storeScope) ? $this->storeScope->pluck('id') : [];
+        return $scope;
+    }
+    public function getCountryIdsStoreScopeAttribute() {
         $ids = [];
-        $schedules = $this->schedules;
-        foreach ($schedules as $schedule) {
-            $especialties = $schedule->especialties;
-            if (count($especialties)) {
-                // print($especialties);
-                for ($i=0; $i < count($especialties); $i++) { 
-                    if (!in_array($especialties[$i]->id, $ids)) {
-                        // echo $especialties[$i]->id;
-                        $ids[] = $especialties[$i]->id;
-                    }
-                }
+        foreach ($this->storeScope as $store) {
+            if (!in_array($store->country_id, $ids)) {
+                $ids[] = $store->country_id;
             }
         }
-        return Especialty::whereIn('id',$ids)->get();
+        return $ids;
     }
+    public function getCountryStoreScopeAttribute() {
+        return \App\Country::find($this->countryIdsStoreScope);
+    }
+    // END STORE SCOPE
     public static function makeTags($profiles, $clinic) {
         $pdf = new TCPDF("L","mm","A4",true,"UTF-8",false);
 

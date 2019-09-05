@@ -13,13 +13,13 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="control-label">Email</label>
-                                <input id="email" type="text" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="control-label">Name</label>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('name'))
                                     <span class="help-block-login">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                         </div>

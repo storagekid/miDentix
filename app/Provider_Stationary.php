@@ -2,14 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\Formable;
-use App\Traits\Tableable;
-
-class Provider_Stationary extends Model
+class Provider_Stationary extends Qmodel
 {
-    use Formable;
-    use Tableable;
 
     protected $fillable = ['provider_id', 'country_id', 'state_id', 'county_id', 'clinic_id'];
 
@@ -162,7 +156,7 @@ class Provider_Stationary extends Model
         return $this->belongsTo(County::class);
     }
     public function clinic() {
-        return $this->belongsTo(Clinic::class);
+        return $this->belongsTo(Clinic::class)->withTrashed();
     }
 
 

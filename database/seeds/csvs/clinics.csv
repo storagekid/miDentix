@@ -1,209 +1,235 @@
-id,city,address_real_1,address_real_2,address_adv_1,address_adv_2,postal_code,phone_real,phone_adv,email_ext,sanitary_code,cost_center_id,county_id,clinic-cloud_id,closed,created_at,updated_at
-1,A Coruña,"Rúa Juana de Vega, 23",,"Rúa Juana de Vega, 23",,15004,981 216 261,881 241 631,coruna,C-15-003280.,1,15,47,0,2017-12-31,2017-12-31
-2,Albacete,"C/ Concepción, 11",,"C/ Concepción, 11",,2006,967 810 835,967 961 470,albacete,0207459/0211461.,2,2,186,0,2017-12-31,2017-12-31
-3,Alcalá de Henares,"Pl. de Atilano Casado, 3",,"Pl. de Atilano Casado, 3",,28801,91 071 41 34,91 116 54 01,alcalahenares2,13911.,6,28,222,0,2017-12-31,2017-12-31
-4,Alcalá de Henares,"C/ Tinte, 13",,"C/ Tinte, 13",,28801,91 877 52 92,91 116 54 01,alcalahenares,11741.,6,28,13,1,2017-12-31,2017-12-31
-5,Alcantarilla,"C/ Mayor, 127 A",,"C/ Mayor, 127 A",,30820,868 129 970,968 978 790,alcantarilla,4000534/Rmu. 30001384.,7,30,173,0,2017-12-31,2017-12-31
-6,Alcobendas,"C/ Constitución, 37",,"C/ Constitución, 37",,28100,91 651 58 76,91 116 54 02,alcobendas,11703.,8,28,20,0,2017-12-31,2017-12-31
-7,Alcobendas,"C/ Pablo Picasso, 76",,"C/ Constitución, 69",,28100,91 021 05 70,91 116 54 02,alcobendas2,14256.,8,28,245,0,2017-12-31,2017-12-31
-8,Alcoi,"Av. L'Alameda, 13",,"Av. L'Alameda, 13",,3803,865 604 117,865 602 354,alcoy,19117.,10,3,272,0,2017-12-31,2017-12-31
-9,Alcorcón,"C/ Mayor, 10",,"C/ Mayor, 10",,28921,91 610 51 50,91 116 54 03,alcorcon,11769.,9,28,49,0,2017-12-31,2017-12-31
-10,Alcorcón CC TresAguas,"Av. America, 7-9",,,,28922,,,cctresaguas,,,28,212,0,2017-12-31,2017-12-31
-11,Algeciras,"C/ Regino Martínez, 2",,"C/ Regino Martínez, 2",,11201,956 923 140,856 927 982,algeciras,46190.,11,11,196,0,2017-12-31,2017-12-31
-12,Alicante,"Av. Maisonnave, 27",,"Av. Maisonnave, 27",,3003,965 134 549,965 063 641,alicante,CE-14026.,12,3,3,0,2017-12-31,2017-12-31
-13,Almería,"P.º de Almería, 41 esq. c/ Méndez Núñez",,"P.º de Almería, 41",esq. c/ Méndez Núñez,4001,950 958 653,950 951 180,almeria,42241.,13,4,129,0,2017-12-31,2017-12-31
-14,Andújar,"C/ Ollerías, 23",,"C/ Ollerías, 23",,23740,953 899 829,953 890 788,andujar,49426.,14,23,,0,2017-12-31,2017-12-31
-15,Antequera,"C/ Duranes, 23",,"C/ Duranes, 23",,29200,951 23 73 85,951 247 378,antequera,39756.,15,29,160,0,2017-12-31,2017-12-31
-16,Aranjuez,"C/ de San Antonio, 59",,"C/ de San Antonio, 59",,28300,91 061 11 81,91 119 99 96,aranjuez,34455.,16,28,215,0,2017-12-31,2017-12-31
-17,Badajoz,"C/ Manuel Saavedra Palmeiro, 12",,"C/ Manuel Saavedra Palmeiro, 12",,6004,924 200 834,924 980 671,badajoz,06101210.,17,6,127,0,2017-12-31,2017-12-31
-18,Badalona,"C/ del Mar, 67",,"C/ del Mar, 67",,8911,93 170 63 11,93 380 72 95,badalona,E08607469.,18,8,24,0,2017-12-31,2017-12-31
-19,Badalona,"C/ del Mar, 67",,"C/ del Mar, 67",,8911,93 170 63 11,93 380 72 95,badalona,E08607469.,18,8,24,1,2017-12-31,2017-12-31
-20,Barcelona,"C/ Balmes, 284",,"C/ Balmes, 284",,8006,93 189 55 74,93 393 77 96,balmes,E08603418.,26,8,159,0,2017-12-31,2017-12-31
-21,Barcelona,"C/ del Llobregós, 161",,"C/ del Llobregós, 161",,8032,93 164 01 13,93 380 50 98,llobregos,E08617918.,102,8,236,0,2017-12-31,2017-12-31
-22,Barcelona,"C/ Gran de Gràcia, 135",,"C/ Gran de Gràcia, 135",,8012,932 174 182,93 380 72 96,grandegracia,E08584878.,21,8,7,1,2017-12-31,2017-12-31
-23,Barcelona,"Pg. Fabra i Puig, 129",,"Pg. Fabra i Puig, 129",,8016,93 018 12 12,93 394 70 73,fabra,E08618260.,62,8,218,0,2017-12-31,2017-12-31
-24,Barcelona,"Rbla. del Poblenou, 104",,"Rbla. del Poblenou, 104",,8005,93 189 55 82,93 393 77 97,poblenou,E08603400.,22,8,158,0,2017-12-31,2017-12-31
-25,Barcelona,"Rda. Sant Antoni, 17",,"Rda. Sant Antoni, 17",,8011,93 172 73 75,93 393 77 99,santantoni,E08612719.,25,8,206,0,2017-12-31,2017-12-31
-26,Barcelona,"C/ Rosselló, 416",,"C/ Rosselló, 416",,8025,93 173 98 73,93 380 72 97,rosello,E08590247.,23,8,134,0,2017-12-31,2017-12-31
-27,Barcelona,"C/ Sants, 8",,"C/ Sants, 8",,8014,93 432 76 39,93 380 72 98,sants,E08567135.,20,8,119,0,2017-12-31,2017-12-31
-28,Basauri,"Begoñako Andra Mari Kalea, 16",,"Begoñako Andra Mari Kalea, 16",,48970,94 434 97 47,944 342 273,basauri,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,24,48,197,0,2017-12-31,2017-12-31
-29,Benavente,"C/ Herreros, 16",,"C/ Herreros, 16",,49600,980 981 192,980 983 258,benavente,49-C251-0101.,27,49,170,0,2017-12-31,2017-12-31
-30,Bermeo,Lamera Ibilbidea 1,esq. Lope Diaz de Haro Kalea,Lamera Ibilbidea 1,esq. Lope Diaz de Haro Kalea,48370,946 532 908,944 349 915,bermeo,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,28,48,261,0,2017-12-31,2017-12-31
-31,Bilbao,"C/ Aita Esteban Pernet, 2",,C/ Karmelo,"esq. c/ Aita Esteban Pernet, 2",48004,94 694 81 52,944 349 914,santutxu,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,176,48,216,0,2017-12-31,2017-12-31
-32,Bilbao,"C/ Gran Vía de Don Diego López de Haro, 37",,C/ Gran Vía de Don Diego,"López de Haro, 37",48009,94 434 97 81,944 342 275,bilbao,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,29,48,135,0,2017-12-31,2017-12-31
-33,Boadilla del Monte,"C/ Juan Carlos I, 53",esq. ctra. de Majadahonda,"C/ Juan Carlos I, 53",esq. ctra. de Majadahonda,28660,91 290 97 50,91 116 54 04,boadilla,32740.,30,28,151,0,2017-12-31,2017-12-31
-34,Burgos,"Av. del Cid Campeador, 3",,"Av. del Cid Campeador, 3",,9003,947 257 884,947 651 035,burgos,09-C251-0166.,32,9,36,0,2017-12-31,2017-12-31
-35,Cádiz,"C/ Doctor Fleming, 2 esq. av. Ana de Viya, 46",,"C/ Doctor Fleming, 2","esq. av. Ana de Viya, 46",11009,856 913 257,856 927 978,cadiz,42597.,35,11,149,0,2017-12-31,2017-12-31
-36,Cambrils,"C/ de Pau Casals, 45",,"C/ de Pau Casals, 45",,43850,877 066 422,977 271 618,cambrils,E43625919.,36,43,259,0,2017-12-31,2017-12-31
-37,Cartagena,"C/ Puertas de Murcia, 31-35 esq. Pza. Castellini",,"C/ Puertas de Murcia, 31-35",esq. pza. Castellini,30201,868 123 758,968 978 789,cartagena,4000539/Rmu. 30001223.,38,30,131,0,2017-12-31,2017-12-31
-38,Castelldefels,"Av. Santa Maria, 11",,"Av. Santa Maria, 11",,8860,93 636 07 78,93 380 72 99,castelldefels,E08591378.,39,8,125,0,2017-12-31,2017-12-31
-39,Castellón,"Pl. Puerta del Sol, 2",,"Pl. Puerta del Sol, 2",,12001,964 868 924,964 784 017,castellon,13609.,40,12,152,0,2017-12-31,2017-12-31
-40,Castro Urdiales,C/ La Ronda esq. c/ de Pérez Galdós,,C/ La Ronda,esq. c/ de Pérez Galdós,39700,942 941 462,942 940 745,castrourdiales,06/2016/02709.,,39,237,0,2017-12-31,2017-12-31
-41,Ciudad Real,"C/ Postas, 2",,"C/ Postas, 2",,13001,926 677 935,926 670 695,ciudadreal,1307557/1311144.,43,13,242,0,2017-12-31,2017-12-31
-42,Collado Villalba,"C/ Real, 45",,"C/ Real, 45",,28400,91 189 83 75,91 071 45 95,villalba,34292.,45,28,132,0,2017-12-31,2017-12-31
-43,Colmenar Viejo,"C/ Boteros, 3",,"C/ Boteros, 3",,28770,91 071 68 02,91 116 54 21,colmenarviejo,13247.,46,28,181,0,2017-12-31,2017-12-31
-44,Córdoba,"C/ José Cruz Conde, 12",,"C/ José Cruz Conde, 12",,14003,957 497 979,857 800 158,cordoba,41042.,47,14,21,0,2017-12-31,2017-12-31
-45,Cornellà de Llobregat,"Rbla. de Josep Anselm Clavé, 26",,"Rbla. de Josep Anselm Clavé, 26",,8940,933 776 787,93 393 77 93,cornella,E08590335.,48,8,146,0,2017-12-31,2017-12-31
-46,Coslada,"Av. Constitución, 86",,"Av. Constitución, 86",,28821,91 085 19 83,91 116 54 20,coslada,33688.,49,28,166,0,2017-12-31,2017-12-31
-47,Cuenca,"Av. Castilla La Mancha, 2",,"Av. Castilla La Mancha, 2",,16002,969 871 138,969 870 713,cuenca,1606933/1609641.,50,16,133,0,2017-12-31,2017-12-31
-48,Dénia,"C/ Marqués de Campo, 64",,"C/ Marqués de Campo, 64",,3700,865 600 110,865 602 352,denia,18219-676-2016.,52,3,252,0,2017-12-31,2017-12-31
-49,Dos Hermanas,"C/ La Mina, 1",,"C/ La Mina, 1",,41700,955 675 761,954 328 513,doshermanas,41371.,54,41,11,0,2017-12-31,2017-12-31
-50,Durango,"Andra Mari Kalea, 4",,"Andra Mari Kalea, 4",,48200,94 694 81 11,944 349 913,durango,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,55,48,224,0,2017-12-31,2017-12-31
-51,El Ejido,"Bulevar de El Ejido, 222",,"Bulevar de El Ejido, 222",,4700,950 927 343,950 951 181,elejido,47851.,56,4,267,0,2017-12-31,2017-12-31
-52,El Prat de Llobregat,"Av. de la Verge de Montserrat, 105",,"Av. de la Verge de Montserrat, 105",,8820,93 019 04 37,93 380 72 96,elprat,E08626983.,58,8,269,0,2017-12-31,2017-12-31
-53,El Puerto de Santa María,"C/ Virgen de los Milagros, 87",,"C/ Virgen de los Milagros, 87",,11500,956 923 133,856 927 988,elpuerto,45641.,,11,190,0,2017-12-31,2017-12-31
-54,Elche,"Pl. de la Glorieta, 9",,"Pl. de la Glorieta, 9",,3203,96 661 34 75,965 063 642,elche,CE-14046.,59,3,5,0,2017-12-31,2017-12-31
-55,Elda,"C/ Príncipe de Asturias, 25",,"C/ Príncipe de Asturias, 25",,3600,865 600 175,865 602 353,elda,18221-678-2016.,60,3,268,0,2017-12-31,2017-12-31
-56,Estepona,"Av. España, 126",,"Av. España, 126",,29680,951 497 149,951 255 075,estepona,48558.,61,29,271,0,2017-12-31,2017-12-31
-57,Ferrol,"C/ Real, 78",,"C/ Real, 78",,15402,881 246 630,881 241 633,ferrol,C-15-003548.,57,15,143,0,2017-12-31,2017-12-31
-58,Figueres,"Pujada del Castell, 11","cant. c/ Pep Ventura, 1","Pujada del Castell, 11","cant. c/ Pep Ventura, 1",17600,872 984 920,972 982 442,figueres,E17565593.,63,17,254,0,2017-12-31,2017-12-31
-59,Fuengirola,"Av. Condes de San Isidro, 15",,"Av. Condes de San Isidro, 15",,29640,951 491 686,951 255 073,fuengirola,46765.,65,29,248,0,2017-12-31,2017-12-31
-60,Fuenlabrada,"C/ Málaga, 1",esq. c/ Leganés,"C/ Málaga, 1",esq. c/ Leganés,28945,91 498 92 90,91 116 54 06,fuenlabrada2,CS15166,67,28,43,0,2017-12-31,2017-12-31
-61,Fuenlabrada,"C/ Portugal, 44",,"C/ Portugal, 44",,28943,91 608 12 16,91 116 54 05,fuenlabrada1,11819.,66,28,51,0,2017-12-31,2017-12-31
-62,Galdakao,"Juan Bautista Uriarte Kalea, 18, esq. Lapurdi Kalea",,"Juan Bautista Uriarte Kalea, 18",esq. Lapurdi Kalea,48960,945 569 409,944 349 916,galdakao,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,69,48,274,0,2017-12-31,2017-12-31
-63,Gandía,"Racó Pare Leandro Calvo, 1",,"Racó Pare Leandro Calvo, 1",,46701,960 623 039,961 125 273,gandia,17851-465-2015.,70,46,136,0,2017-12-31,2017-12-31
-64,Gavà,"Rbla. de María Casas, 78",,"Rbla. de María Casas, 78",,8850,93 172 73 63,93 394 70 71,gava,E08614314.,71,8,203,0,2017-12-31,2017-12-31
-65,Getafe,"C/ Madrid, 58",,"C/ Madrid, 58",,28902,91 085 19 32,,getafe1,12695.,72,28,191,1,2017-12-31,2017-12-31
-66,Getafe,"C/ Madrid, 73",,"C/ Madrid, 73",,28902,91 683 45 45,91 116 54 07,getafe,10401.,73,28,50,0,2017-12-31,2017-12-31
-67,Getxo,"C/ Mayor, 21",,"C/ Mayor, 21",,48930,94 480 87 21,944 342 271,getxo,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,74,48,29,1,2017-12-31,2017-12-31
-68,Getxo,"C/ Mayor, 21",,"C/ Mayor, 21",,48930,94 480 87 21,944 342 271,getxo,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,74,48,45,0,2017-12-31,2017-12-31
-69,Gijón,"C/ Corrida, 59",,"C/ Corrida, 59",,33206,985 176 057,984 242 512,gijon,C.2.5.1/4132/4.,75,33,9,0,2017-12-31,2017-12-31
-70,Girona,"C/ de Joan Maragall, 35",,"C/ de Joan Maragall, 35",,17002,972 487 367,972 982 441,girona,E17565593.,76,17,117,0,2017-12-31,2017-12-31
-71,Granada,"C.º de Ronda esq. c/ Recogidas, 58",,"C.º de Ronda esq. c/ Recogidas, 58",,18004,958 998 406,958 991 561,granadarecogidas,47835.,79,18,266,0,2017-12-31,2017-12-31
-72,Granada,"C/ Mesones, 17",,"C/ Mesones, 17",,18001,958 536 991,958 991 559,granada,41819.,78,18,12,0,2017-12-31,2017-12-31
-73,Granollers,"Pl. Lluís Perpinyà, 8",,"Pl. Lluís Perpinyà, 8",,8401,93 018 22 65,93 394 70 74,granollers,E08517805.,80,8,209,0,2017-12-31,2017-12-31
-74,Guadalajara,"C/ Virgen del Amparo, 9",,"C/ Virgen del Amparo, 9",,19001,949 215 055,949 870 924,guadalajara,1902949.,81,19,33,0,2017-12-31,2017-12-31
-75,Huelva,"C/ Concepción, 1",,"C/ Concepción, 1",,21001,959 876 955,959 870 840,huelva,47322.,84,21,247,0,2017-12-31,2017-12-31
-76,Huelva,"Ronda Exterior Zona Sur, s/n",,CC Holea,"Ronda Exterior Zona Sur, s/n",21007,959 876 917,959 870 839,ccholea,45963.,83,21,189,0,2017-12-31,2017-12-31
-77,Huesca,"C/ Coso Bajo, 3",,"C/ Coso Bajo, 3",,22001,974 561 162,974 560 773,huesca,RAPS 50/348/18.,85,22,178,0,2017-12-31,2017-12-31
-78,Ibiza,"Av. d´Ignasi Wallis, 35",,"Av. d'Ignasi Wallis, 35",,7800,871 520 123,971 571 485,ibiza,4551.,86,7,273,0,2017-12-31,2017-12-31
-79,Inca,"Pl. de España, 13",,"Pl. de España, 13",,7300,871 579 858,971 571 484,inca,4428.,87,7,204,0,2017-12-31,2017-12-31
-80,Irún,"P.º de Colón, 38",,"P.º de Colón, 38",,20302,94 366 03 54,843 980 982,irun,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,91,20,137,0,2017-12-31,2017-12-31
-81,Jaén,"C/ de la Madre Soledad Torres Acosta, 2",,C/ de la Madre Soledad,"Torres Acosta, 2",23001,953 276 098,953 890 784,jaen,41798.,93,23,120,0,2017-12-31,2017-12-31
-82,Jerez,"Ctra. Nacional IV, Km 639",,CC Área Sur,"Ctra. Nacional IV, Km 639",11408,956 921 159,856 927 980,ccareasur,45853.,95,11,207,0,2017-12-31,2017-12-31
-83,Jerez,"C/ Lancería, 16",,"C/ Lancería, 16",,11402,956 351 851,856 927 979,jerez,40991.,94,11,22,0,2017-12-31,2017-12-31
-84,L'Hospitalet de Llobregat,"Rbla. de la Marina, 542-546",,"Rbla. de la Marina, 542-546",,8901,932 605 328,93 393 77 94,hospitalet,E08581813.,82,8,25,0,2017-12-31,2017-12-31
-85,L'Hospitalet de Llobregat,"Rbla. Just Oliveras, 37-39",,"Rbla. Just Oliveras, 37-39",,8901,93 018 20 30,93 396 49 99,hospitalet2,99771.,82,8,235,1,2017-12-31,2017-12-31
-86,La Línea de la Concepción,"C/ Real, 45",,"C/ Real, 45",,11300,956 921 182,856 927 986,lalinea,46023.,96,11,219,0,2017-12-31,2017-12-31
-87,Las Palmas,"CC Las Arenas, local A-41b. Ctra. del Rincón",,CC Las Arenas. Ctra. del Rincón,,35010,828 121 732,928 987 552,cclasarenas,6747.,42,35,208,0,2017-12-31,2017-12-31
-88,Las Palmas,"Ctra. General del Norte 112 , local 0-29",,CC La Ballena.,Ctra. General del Norte 112,35013,828 121 703,928 987 551,ballena,6726.,33,35,185,0,2017-12-31,2017-12-31
-89,Las Palmas,"C/ Triana, 107",,"C/ Triana, 107",,35002,928 986 821,928 987 548,laspalmas,5697.,97,35,144,0,2017-12-31,2017-12-31
-90,Leganés,"C/ Jeromín, 2 esq. Plaza de París",,"C/ Jeromín, 2, esq. Plaza de París",,28911,91 086 69 68,91 116 54 19,leganes,33148.,98,28,156,0,2017-12-31,2017-12-31
-91,León,"Pl. de Santo Domingo, 5",,"Pl. de Santo Domingo, 5",,24002,987 876 340,987 795 159,leon,24-C251-0261.,99,24,31,0,2017-12-31,2017-12-31
-92,Linares,"Corredera de San Marcos, 23",,"Corredera de San Marcos, 23",,23700,953 893 160,953 890 787,linares,46014.,100,23,226,0,2017-12-31,2017-12-31
-93,Lleida,"C/ del Carme, 25",,"C/ del Carme, 25",,25007,873 499 987,973 982 021,lerida,E25618608.,101,25,210,0,2017-12-31,2017-12-31
-94,Logroño,"Av. Jorge Vigón, 2",,"Av. Jorge Vigón, 2",,26003,941 263 228,941 890 650,logrono,192515025144.,103,26,40,0,2017-12-31,2017-12-31
-95,Lorca,"Av. Juan Carlos I, 28",,"Av. Juan Carlos I, 28",,30800,868 129 961,968 978 791,lorca,4000536/Rmu. 18/00-2491.,104,30,179,0,2017-12-31,2017-12-31
-96,Lugo,"Rúa San Marcos, 4-6",,"Rúa San Marcos, 4-6",,27001,982 981 117,982 980 705,lugo,C-27-001091.,105,27,,0,2017-12-31,2017-12-31
-97,Madrid,"C/ Alcalá, 385",,"C/ Alcalá, 385",,28027,91 368 41 82,91 116 54 10,alcala385,12331.,4,28,42,0,2017-12-31,2017-12-31
-98,Madrid,"C/ Alcalá, 386",,"C/ Alcalá, 386",,28027,91 406 31 72,91 116 54 10,alcala386,12095.,5,28,34,0,2017-12-31,2017-12-31
-99,Madrid,C/ Aracne s/n,,CC Plenilunio. C/ Aracne s/n,,28022,91 061 65 34,91 119 99 92,ccplenilunio,13506.,,28,201,0,2017-12-31,2017-12-31
-100,Madrid,"Av. de la Albufera, 105",,"Av. de la Albufera, 105",,28038,91 430 89 81,91 116 54 08,albufera,12186.,3,28,16,0,2017-12-31,2017-12-31
-101,Madrid,"Av. de Logroño, 112",,"Av. De Logroño, 112",,28042,91 061 63 45,91 116 54 24,barajas,13462.,19,28,195,0,2017-12-31,2017-12-31
-102,Madrid,"Av. de Niza, 57",,"Av. de Niza, 57",,28022,91 085 53 97,91 116 54 18,lasrosas,12956.,87,28,155,0,2017-12-31,2017-12-31
-103,Madrid,"Av. Moratalaz, 127",,"Av. Moratalaz, 127",,28030,91 071 41 66,91 119 99 94,moratalaz,13508.,139,28,217,0,2017-12-31,2017-12-31
-104,Madrid,"C/ Bravo Murillo, 121",,"C/ Bravo Murillo, 121",,28020,91 535 62 64,91 116 54 09,bravomurillo,12068.,31,28,17,0,2017-12-31,2017-12-31
-105,Madrid,"CC La Vaguada - Av. Monforte de Lemos, 36",,"CC La Vaguada - Av. Monforte de Lemos, 36",,28029,910 716 795,91 116 54 14,vaguada2,33836.,219,28,175,0,2017-12-31,2017-12-31
-106,Madrid,"C/ de Arapiles, 1",,"C/ de Arapiles, 1",,28015,91 189 52 81,91 116 54 12,quevedo,32848.,159,28,150,0,2017-12-31,2017-12-31
-107,Madrid,"C/ de la Laguna, 42",,"C/ de la Laguna, 42",,28025,91 119 14 70,91 119 99 95,carabanchel,13615.,37,28,221,0,2017-12-31,2017-12-31
-108,Madrid,"C/ Ginzo de Limia, 39",,"C/ Ginzo de Limia, 39",,28029,91 378 29 83,91 116 54 14,vaguada,12070.,218,28,35,1,2017-12-31,2017-12-31
-109,Madrid,"C/ Goya, 58",,"C/ Goya, 58",,28001,91 021 14 08,91 021 09 54,madridgoya,CS-35314.,125,28,257,0,2017-12-31,2017-12-31
-110,Madrid,"C/ Gran Vía, 46",,"C/ Gran Vía, 46",,28013,91 083 77 50,91 130 09 70,madridgranvia,CS14814.,96,28,,0,2017-12-31,2017-12-31
-111,Madrid,"C/ López de Hoyos, 132",,"C/ López de Hoyos, 132",,28002,91 083 77 08,91 021 09 53,lopezdehoyos,CS-35139.,126,28,223,0,2017-12-31,2017-12-31
-112,Madrid,"C/ Marcelo Usera, 134",,"C/ Marcelo Usera, 134",,28026,91 569 05 89,91 116 54 13,usera134,11866.,215,28,14,0,2017-12-31,2017-12-31
-113,Madrid,"C/ Marcelo Usera, 139",,"C/ Marcelo Usera, 139",,28026,91 460 90 46,91 116 54 13,usera139,11852.,216,28,1,0,2017-12-31,2017-12-31
-114,Madrid,"P.º de las Delicias, 44",,"P.º de las Delicias, 44",,28045,91 527 95 69,91 116 54 11,delicias,5955.,51,28,48,1,2017-12-31,2017-12-31
-115,Madrid,"P.º Federico García Lorca, 3",,"P.º Federico García Lorca, 3",,28031,91 061 01 55,91 119 99 93,vallecas2,13593.,225,28,200,0,2017-12-31,2017-12-31
-116,Madrid,"C/ Palos de la Frontera, 42",,"C/ Palos de la Frontera, 42",,28045,91 168 19 17,91 116 54 11,delicias2,CS13895.,51,28,48,0,2017-12-31,2017-12-31
-117,FALSE,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,#N/A,,#N/A,,28,999,0,2017-12-31,2017-12-31
-118,Mahón,"C/ de Ses Moreres, 48",,"C/ de Ses Moreres, 48",,7703,871 518 832,971 571 479,mahon,4286.,127,7,171,0,2017-12-31,2017-12-31
-119,Majadahonda,"Pl. Cristóbal Colón, 11",,"C/ Gran Vía, 54","esq. pl. Cristóbal Colón, 11",28220,91 085 10 10,91 071 45 97,majadahonda,13880.,128,28,138,0,2017-12-31,2017-12-31
-120,Málaga,"C/ Cuarteles, 64",,"C/ Cuarteles, 64",,29002,951 350 822,951 247 379,malaga2,44233.,130,29,57,0,2017-12-31,2017-12-31
-121,Málaga,"C/ Nueva esq. c/ Liborio García, 1",,C/ Nueva,"esq. c/ Liborio García, 1",29005,952 061 687,951 247 377,malaga,39756.,129,29,23,0,2017-12-31,2017-12-31
-122,Málaga,"C/ Puerta del Mar, 20",,"C/ Puerta del Mar, 20",,29005,951 491 693,951 247 377,malaga3,46648.,129,29,23,0,2017-12-31,2018-08-29
-123,Málaga CC Larios,"Av. de la Aurora, 25. Local A-813",,,,29002,,,larios,,,29,,0,2017-12-31,2017-12-31
-124,Manacor,"C/ Jaume Domenge, 23",,"Pl. Ramón Llull, 7",,7500,871 579 865,971 571 482,manacor,4462.,132,7,193,0,2017-12-31,2017-12-31
-125,Manresa,"C/ Nou, 47",,"C/ Nou, 47",,8241,93 170 62 97,93 393 77 98,manresa,E08606659.,133,8,54,0,2017-12-31,2017-12-31
-126,Marbella,"Av. Ricardo Soriano, 2",,"Av. Ricardo Soriano, 2",,29601,951 358 670,951 247 380,marbella,45210.,134,29,182,0,2017-12-31,2017-12-31
-127,Mataró,"C/ de la Riera, 31",,"C/ de la Riera, 31",,8302,93 018 80 86,93 380 50 99,mataro,E08623735.,135,8,139,0,2017-12-31,2017-12-31
-128,Mérida,"C/ Santa Eulalia, 66",,"C/ Santa Eulalia, 66",,6800,924 956 934,924 980 672,merida,06102489.,136,6,202,0,2017-12-31,2017-12-31
-129,Molina de Segura,"P.º Rosales, 25",,"P.º Rosales, 25",,30500,868 12 99 06,968 978 788,molina,4000541/Rmu. 30001248.,137,30,162,0,2017-12-31,2017-12-31
-130,Mollet del Vallès,"Rbla. Nova, 12",,"Rbla. Nova, 12",,8100,93 170 63 04,93 394 70 70,mollet,E08606070.,138,8,55,0,2017-12-31,2017-12-31
-131,Móstoles,"Av. del Dos de Mayo, 2",,"Av. del Dos de Mayo, 2",,28931,91 618 78 22,91 116 54 15,mostoles,12005.,140,28,44,0,2017-12-31,2017-12-31
-132,Móstoles,"P.º de Goya, 5",,"P.º de Goya, 5",,28932,91 071 46 99,91 021 09 59,mostoles2,33956.,141,28,192,0,2017-12-31,2017-12-31
-133,Motril,"C/ Nueva, esq. c/ Tejedores",,"C/ Nueva, esq. c/ Tejedores",,18600,958 823 226,958 991 560,motril,42287.,142,18,124,0,2017-12-31,2017-12-31
-134,Murcia,"C/ Gran Vía Escultor Francisco Salzillo, 28",,"C/ Gran Vía Escultor Fco. Salzillo, 28",,30001,868 611 466,968 978 792,murcia,4000531/Rmu. 30001231.,143,30,229,0,2017-12-31,2017-12-31
-135,Orihuela,"C/ Calderón de la Barca, 7",,"C/ Calderón de la Barca, 7",,3300,966 23 95 61,965 063 643,orihuela,CE-17429.,144,3,157,0,2017-12-31,2017-12-31
-136,Ourense,"Rúa do paseo, 1",,"Rúa do Paseo, 1",,32003,988 366 542,988 980 660,orense,C-32-000985.,145,32,128,0,2017-12-31,2017-12-31
-137,Oviedo,"C/ Uría, 1",,"C/ Uría, 1",,33003,98 424 13 47,984 242 513,oviedo,C.2.5.1/4195/2.,146,33,145,0,2017-12-31,2017-12-31
-138,Palencia,"C/ Bocaplaza, 3",,C/ Mayor Principal,esq. c/ Bocaplaza,34001,979 699 705,979 690 786,palencia,34-C251-0084.,147,34,165,0,2017-12-31,2017-12-31
-139,Palma,"Av. D’Alexandre Rosselló, 4",,"Av. D’Alexandre Rosselló, 4",,7002,971 463 440,971 571 478,mallorca,3549.,148,7,26,0,2017-12-31,2017-12-31
-140,Palma,"Av. de Jaume III, 26",,"Av. de Jaume III, 26",,7012,871 518 825,971 571 480,mallorca2,4358.,131,7,172,0,2017-12-31,2017-12-31
-141,Pamplona,"Av. de Carlos III el Noble, 1",,"Av. de Carlos III el Noble, 1",,31002,948 203 450,948 980 672,pamplona,CPS-2833C/27-18-NA.,149,31,39,0,2017-12-31,2017-12-31
-142,Pamplona,"Av. de Carlos III el Noble, 28",,"Av. de Carlos III el Noble, 1, 28",,31003,848 479 965,948 980 672,pamplona2,CPS-2833C/27-18-NA.,150,31,231,0,2017-12-31,2017-12-31
-143,Parla,"C/ Real, 64",,"C/ Real, 64",,28981,91 021 21 75,91 021 09 58,parla,CS14592.,151,28,187,0,2017-12-31,2017-12-31
-144,Paterna,"C/ Maestro Canós, 26",,"C/ Maestro Canós, 26",,46980,960 630 173,961 125 274,paterna,18179-608-2016.,152,46,244,0,2017-12-31,2017-12-31
-145,Plasencia,"C/ Pedro Isidro, 1",,"Plaza Mayor, 36-37",,10600,927 774 975,927 770 823,plasencia,10102588.,153,10,251,0,2017-12-31,2017-12-31
-146,Ponferrada,"C/ Camino de Santiago, 2",,"C/ Camino de Santiago, 2",,24400,987 456 782,987 795 160,ponferrada,24-C251-0285.,154,24,130,0,2017-12-31,2017-12-31
-147,Pontevedra,"Rúa Benito Corbal, 23",,"Rúa Benito Corbal, 23",,36001,986 869 417,886 318 111,pontevedra,C-36-002415.,155,36,121,0,2017-12-31,2017-12-31
-148,Portugalete,"C/ Carlos VII, 2",,"C/ Carlos VII, 2",,48920,94 483 10 91,944 342 272,portugalete,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,156,48,18,0,2017-12-31,2017-12-31
-149,Portugalete,"C/ General Castaños, 31",,"C/ General Castaños, 31",,48920,94 654 69 47,944 342 272,portugalete2,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,48,18,0,2017-12-31,2017-12-31
-150,Puerto del Rosario,"C/ Ramón Peñate, 6",,"C/ Primero de Mayo, 50",,35600,828 121 710,928 987 553,fuerteventura,6750.,68,35,184,0,2017-12-31,2017-12-31
-151,Puertollano,"P.º de San Gregorio, 11",,"P.º de San Gregorio, 11",,13500,926 673 468,926 670 694,puertollano,1307484/1310577.,158,13,198,0,2017-12-31,2017-12-31
-152,Reus,"Pl. Prim, 14",,"Pl. Prim, 14",,43201,877 055 944,977 271 616,reus,E43602968.,160,43,140,0,2017-12-31,2017-12-31
-153,Ronda,"Ctra. Espinel esq. c/ Juan José de Puya, 2",,Ctra. Espinel,"esq. c/ Juan José de Puya, 2",29400,951 491 609,951 255 072,ronda,46459.,161,29,225,0,2017-12-31,2017-12-31
-154,Roquetas de Mar,"Pl. Tres Mártires, 7",,"Pl. Tres Mártires, 7",,4740,950 924 712,950 951 182,roquetas,47892.,162,4,264,0,2017-12-31,2017-12-31
-155,Rubí,"Pg. de Francesc Macià, 58-60",,"Pg. de Francesc Macià, 58-60",,8191,93 018 11 78,93 394 70 75,rubi,E08617890.,163,8,211,0,2017-12-31,2017-12-31
-156,Sabadell,"C/ Rambla, 84",,"C/ Rambla, 84",,8201,93 021 69 77,93 390 50 59,sabadell,E08624898.,164,8,141,0,2017-12-31,2017-12-31
-157,Sagunto,"Av. Nueve de Octubre, 71",,"Av. Nueve de Octubre, 71",,46520,960 630 166,961 125 300,sagunto,18204-647-2016.,165,46,258,0,2017-12-31,2017-12-31
-158,Salamanca,"C/ Toro, 104",,"C/ Toro, 104",,37002,923 280 613,923 992 501,salamanca,37-C251-0190.,166,37,32,0,2017-12-31,2017-12-31
-159,San Fernando,"C/ San Rafael, 21",,"C/ San Rafael, 21",,11100,956 923 147,856 927 990,sanfernando,46607.,168,11,234,0,2017-12-31,2017-12-31
-160,San Sebastián,"C/ Miracruz, 16",,"C/ Miracruz, 16",,20001,84 398 91 53,843 980 984,sansebastian2,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,170,20,168,0,2017-12-31,2017-12-31
-161,San Sebastián,"C/ San Marcial, 35",,"C/ San Marcial, 35",,20005,94 344 08 21,843 980 983,sansebastian,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,169,20,37,0,2017-12-31,2017-12-31
-162,San Vicente del Raspeig,"C/ Pintor Picasso, 59",,"C/ Pintor Picasso, 59",,3690,865 608 859,965 063 645,sanvicente,AU/944/2015.,171,3,180,0,2017-12-31,2017-12-31
-163,Sanlúcar de Barrameda,"C/ Ancha, 21",,"C/ Ancha, 21",esq. c/ Castelar,11540,956 921 152,856 927 981,sanlucar,45912.,172,11,199,0,2017-12-31,2017-12-31
-164,Santa Cruz de Tenerife,"C/ Castillo, 65",,"C/ Castillo, 65",,38003,922 980 420,922 980 159,tenerife,7359.,,38,,0,2017-12-31,2017-12-31
-165,Santander,"C/ Calvo Sotelo, 6",,"C/ Calvo Sotelo, 6",,39002,942 318 867,942 940 743,santander,06/2013/01980.,173,39,30,0,2017-12-31,2017-12-31
-166,Santiago de Compostela,"Rúa República de El Salvador, 4",,"Rúa República de El Salvador, 4",,15701,981 555 066,881 241 632,santiago,C-15-003191.,174,15,27,0,2017-12-31,2017-12-31
-167,Santurce,"C/ Sabino Arana, 6",,"C/ Sabino Arana, 6",,48980,94 434 97 40,944 342 274,santurce,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,175,48,194,0,2017-12-31,2017-12-31
-168,Segovia,"Av. del Acueducto, 39",,"Av. del Acueducto, 39",,40002,921 413 102,921 920 636,segovia,40-C251-0102.,177,40,38,0,2017-12-31,2017-12-31
-169,Sevilla,"C/ Asunción, 58",,"C/ Asunción, 58",,41011,854 552 119,954 328 516,sevilla3,46823.,182,41,249,0,2017-12-31,2017-12-31
-170,Sevilla,"C/ Campana, 2",,"C/ Campana, 2",,41002,954 293 083,954 328 514,sevilla1,40971.,178,41,52,0,2017-12-31,2017-12-31
-171,Sevilla,"C/ Luis de Morales, 32",,"C/ Luis de Morales, 32",,41018,854 552 780,954 328 517,sevillaluismorales,48118.,180,41,,0,2017-12-31,2017-12-31
-172,Sevilla,"C/ María Auxiliadora, 18",,"C/ María Auxiliadora, 18",,41008,955 29 85 27,954 328 515,sevilla2,44460.,182,41,163,0,2017-12-31,2017-12-31
-173,Soria,"C/ El Collado, 43",,"C/ El Collado, 43",,42002,975 671 123,975 670 638,soria,42-C251-0049.,183,42,148,0,2017-12-31,2017-12-31
-174,Talavera de la Reina,"C/ San Francisco, 29",,"C/ San Francisco, 29",,45600,925 675 144,925 673 781,talavera,821/14.,201,45,142,0,2017-12-31,2017-12-31
-175,Tarragona,"Rbla. Nova, 77",,"Rbla. Nova, 77",,43003,877 065 917,977 271 617,tarragona,E43622467.,202,43,227,0,2017-12-31,2017-12-31
-176,Telde,"Av. de la Constitución, 43",,"Av. de la Constitución, 43",,35200,928 984 790,928 987 550,telde,5620.,203,35,147,0,2017-12-31,2017-12-31
-177,Terrassa,"Rbla. d’Ègara, 162, cant. c/ d’Iscle Soler, 30",,"Rbla. d’Ègara, 162",,8221,93 736 86 23,93 393 77 95,terrassa,E08582856.,205,8,4,0,2017-12-31,2017-12-31
-178,Teruel,"C/ Ramón y Cajal, 14",,"C/ Ramón y Cajal, 14",,44001,978 081 135,978 080 575,teruel,RAPS 50/348/18.,206,44,205,0,2017-12-31,2017-12-31
-179,Tomelloso,"C/ Don Víctor Peñasco, 41",,"C/ Don Víctor Peñasco, 41",,13700,926 673 428,926 670 693,tomelloso,1307458/1310391.,207,13,56,0,2017-12-31,2017-12-31
-180,Torrejón de Ardoz,"C/ Enmedio, 41",,"C/ Enmedio, 41",,28850,91 660 08 23,91 116 54 17,torrejon,11773.,208,28,15,0,2017-12-31,2017-12-31
-181,Torrelavega,"C/ Julián Ceballos, 15",,"C/ Julián Ceballos, 15",,39300,942 880 245,942 940 744,torrelavega1,06/2017/02986.,,39,,0,2017-12-31,2017-12-31
-182,Torrelavega,"C/ Serafín Escalante, 1",,"C/ Serafín Escalante, 1",,39300,942 880 245,942 940 744,torrelavega,06/2014/02128.,209,39,118,1,2017-12-31,2017-12-31
-183,Torremolinos,"C/ San Miguel, 2",,"C/ San Miguel, 2",,29620,951 358 677,951 247 381,torremolinos,45207.,210,29,183,0,2017-12-31,2017-12-31
-184,Torrent,"Av. del Vedat, 101",,"Av. del Vedat, 101",,46900,961 126 666,961 125 272,torrent,CE-17376.,211,46,153,0,2017-12-31,2017-12-31
-185,Torrevieja,"C/ María Parodi, 21",,"C/ Ramón Gallud, 57",,3181,865 672 807,965 063 644,torrevieja,40056.,212,3,174,0,2017-12-31,2017-12-31
-186,Tudela,"Pl. Nueva, 1",,"Pl. de los Fueros, 1",,31500,848 479 925,948 980 673,tudela,CPS-2831C/27-18-NA.,213,31,176,0,2017-12-31,2017-12-31
-187,Úbeda,"Pl. de Andalucía, 14",,"Pl. de Andalucía, 14",,23400,953 827 687,953 890 786,ubeda,45342.,214,23,177,0,2017-12-31,2017-12-31
-188,Utrera,"C/ La Fuente Vieja, 22",,"C/ La Fuente Vieja, 22",,41710,854 552 985,954 328 560,,,,41,,0,2017-12-31,2017-12-31
-189,Valencia,"C/ de Sant Vicent Màrtir, 55",,"C/ de Sant Vicent Màrtir, 55",,46002,961 194 766,96 112 53 01,valencia3,18178-607-2016.,222,46,250,0,2017-12-31,2017-12-31
-190,Valencia,"C/ del Pintor Sorolla, 35",,"C/ del Pintor Sorolla, 35",,46002,96 352 88 70,961 125 271,valencia2,CE-14596/AU/1028/2014.,221,46,123,0,2017-12-31,2017-12-31
-191,Valencia,"Gran Vía M. del Turia, 1 esq. c/ Ruzafa, 29",,"Gran Vía M. del Turia, 1","esq. c/ Ruzafa, 29",46005,96 352 69 86,961 125 270,valencia1,CE-13530.,220,46,19,0,2017-12-31,2017-12-31
-192,Valladolid,"P.º de Zorrilla, 110",,"P.º de Zorrilla, 110",,47008,983 457 882,983 070 590,valladolid2,47-C251-0267.,224,47,46,0,2017-12-31,2017-12-31
-193,Valladolid,"Pl. de España, 8",,"Pl. de España, 8",,47001,983 214 476,983 070 589,valladolid1,47-C251-0251.,223,47,41,0,2017-12-31,2017-12-31
-194,Vecindario,"Av. Canarias, 259",,"Av. Canarias, 259",,35110,928 987 393,928 987 554,vecindario,6566.,226,35,169,0,2017-12-31,2017-12-31
-195,Vélez-Málaga,"C/ Canalejas, 44",,"C/ Canalejas, 44",,29700,951 493 274,951 255 074,velez-malaga,47448.,227,29,255,0,2017-12-31,2017-12-31
-196,Vigo,"Av. de Gran Vía, 9",,"Av. de Gran Vía, 9",,36204,886 311 366,886 318 113,vigo2,C-36-002463.,229,36,164,0,2017-12-31,2017-12-31
-197,Vigo,"Pr. Porta do Sol, 6",,"Pr. Porta do Sol, 6",,36202,886 311 391,886 318 114,vigo,C-36-002441.,228,36,10,0,2017-12-31,2017-12-31
-198,Vilafranca del Penedès,"Av. de Barcelona, 1",,"Av. de Barcelona, 3",,8720,93 171 12 03,93 390 50 58,vilafranca,E08622386.,230,8,232,0,2017-12-31,2017-12-31
-199,Vilagarcía de Arousa,"Pl. de Galicia, 1",,"Pl. de Galicia, 1",,36600,986 566 956,886 318 112,arousa,C-36-002408.,232,36,126,0,2017-12-31,2017-12-31
-200,Vilanova i la Geltrú,"Rambla Josep Tomàs Ventosa, 25",,"Rambla Josep Tomàs Ventosa, 25",,8800,93 021 55 43,93 396 49 97,vilanova,E08629180.,231,8,230,0,2017-12-31,2017-12-31
-201,Vitoria,"C/ Eduardo Dato, 33",,"C/ Eduardo Dato, 33",,1005,94 556 95 26,945 560 584,vitoria2,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,234,1,53,0,2017-12-31,2017-12-31
-202,Vitoria,"P.º de la Florida, 1",,"P.º de la Florida, 1",,1005,94 513 99 86,945 560 583,vitoria,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,233,1,28,0,2017-12-31,2017-12-31
-203,Zamora,"Pl. de Zorrilla, 5 esq. c/ de Santa Clara",,"Pl. de Zorrilla, 5",esq. c/ de Santa Clara,49003,980 508 024,980 983 257,zamora,49-C251-0095.,235,49,122,0,2017-12-31,2017-12-31
-204,Zaragoza,"C/ Alfonso I, 28",,"C/ Alfonso I, 28",,50003,876 017 563,976 361 631,zaragoza4,RAPS 50/348/18.,238,50,228,0,2017-12-31,2017-12-31
-205,Zaragoza,"C/ Delicias, 6",,"C/ Delicias, 6",,50017,876 015 919,976 361 630,zaragoza3,RAPS 50/348/18.,236,50,6,0,2017-12-31,2017-12-31
-206,Zaragoza,"C/ Jorge Jordana, 9",,"C/ Jorge Jordana, 9",,50017,976 759 642,976 361 630,zaragoza2,RAPS 50/348/18.,237,50,6,1,2017-12-31,2017-12-31
-207,Zaragoza,"C/ San Miguel, 7",,"C/ San Miguel, 7",,50001,976 796 281,976 361 629,zaragoza1,RAPS 50/348/18.,236,50,8,0,2017-12-31,2017-12-31
-208,Madrid,"Ctra. de Canillas, 39",,"Ctra. de Canillas, 39",,28043,91 072 60 00,91 141 16 47,,,,28,,0,2018-09-03,2018-09-03
+id,city,district,nickname,postal_code,email_ext,cost_center_id,county_id,language_id,sanitary_code,clinic_manager_id,area_manager_id,clinic-cloud_id,closed,starts_at,ends_at,created_at,updated_at,deleted_at
+1,A Coruña,,"A Coruna (Juana de Vega, 23)",15004,coruna,1,15,149,C-15-003280.,2269,1578,47,0,2014-05-05,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+2,Albacete,,"Albacete (Concepcion, 11)",2006,albacete,2,2,149,0207459/0211461.,2122,947,186,0,2016-07-01,,2017-12-31 0:00:00,2019-06-21 9:11:09,
+3,Alcalá de Henares,,"Alcala de Henares (de Atilano Casado, 3)",28801,alcalahenares,6,28,149,13911.,,,222,0,2016-05-23,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+4,Alcalá de Henares,,"Alcala de Henares (Tinte, 13)",28801,alcalahenares,6,28,149,11741.,,,13,1,2012-08-01,2018-01-01,2017-12-31 0:00:00,2019-07-26 12:02:22,2019-07-26 12:02:22
+5,Alcantarilla,,"Alcantarilla (Mayor, 127 A)",30820,alcantarilla,7,30,149,4000534/Rmu. 30001384.,,,173,0,2015-05-01,,2017-12-31 0:00:00,2019-06-21 9:11:59,
+6,Alcobendas,,"Alcobendas (Constitucion, 37)",28100,alcobendas,8,28,149,11703.,,,20,0,2012-08-01,,2017-12-31 0:00:00,2019-06-21 9:12:26,
+7,Alcobendas,,"Alcobendas (Constitución, 69)",28100,alcobendas,8,28,149,14256.,,,245,0,2016-06-27,,2017-12-31 0:00:00,2019-08-30 11:15:45,
+8,Alcoi,,"Alcoi (Alameda, 13)",3803,alcoy,10,3,149,19117.,,,272,0,2017-06-05,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+9,Alcorcón,,"Alcorcon (Mayor, 10)",28921,alcorcon,9,28,149,11769.,,,49,0,2011-12-01,,2017-12-31 0:00:00,2019-06-21 9:14:19,
+10,Alcorcón,CC Tres Aguas,"Alcorcon (CC Tres Aguas, America, 7-9)",28922,cctresaguas,,28,149,,,,212,0,1904-02-29,,2017-12-31 0:00:00,2019-07-12 14:08:48,
+11,Algeciras,,"Algeciras (Regino Martinez, 2)",11201,algeciras,11,11,149,46190.,,,196,0,2015-12-16,,2017-12-31 0:00:00,2019-06-21 9:15:35,
+12,Alicante,,"Alicante (Maisonnave, 27)",3003,alicante,12,3,149,12382.,,,3,0,2014-01-23,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+13,Almería,,"Almeria (de Almeria, 41)",4001,almeria,13,4,149,42241.,,,129,0,2014-08-27,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+14,Andújar,,"Andujar (Ollerias, 23)",23740,andujar,14,23,149,49426.,,,,0,2017-09-12,,2017-12-31 0:00:00,2019-06-21 9:16:46,
+15,Antequera,,"Antequera (Duranes, 23)",29200,antequera,15,29,149,43897.,,,160,0,2014-11-24,,2017-12-31 0:00:00,2019-06-21 9:17:17,
+16,Aranjuez,,"Aranjuez (de San Antonio, 59)",28300,aranjuez,16,28,149,CS13948.,,,215,0,2016-05-31,,2017-12-31 0:00:00,2019-06-21 9:17:50,
+17,Badajoz,,"Badajoz (Manuel Saavedra Palmeiro, 12)",6004,badajoz,17,6,149,06101210.,,,127,0,2014-07-15,,2017-12-31 0:00:00,2019-06-21 9:18:07,
+18,Badalona,,"Badalona (del Mar, 67)",8911,badalona,18,8,26,E08607469.,,,24,0,2013-09-01,,2017-12-31 0:00:00,2019-06-21 10:31:03,
+19,Badalona,,"Badalona (del Mar, 73)",8911,badalona,18,8,26,E08581490.,,,24,1,2015-01-01,2017-07-20,2017-12-31 0:00:00,2019-07-18 17:36:55,2018-01-01 0:00:00
+20,Barcelona,,"Barcelona (Balmes, 284)",8006,balmes,26,8,26,E08603418.,,,159,0,2014-11-01,2019-06-01,2017-12-31 0:00:00,2019-07-25 15:42:54,2019-07-25 15:42:54
+21,Barcelona,,"Barcelona (del Llobregos, 161)",8032,llobregos,102,8,26,E08617918.,,,236,0,2016-01-04,,2017-12-31 0:00:00,2019-06-21 10:32:32,
+22,Barcelona,,"Barcelona (Gran de Gracia, 135)",8012,grandegracia,21,8,26,E08584878.,,,7,1,2014-03-01,,2017-12-31 0:00:00,2019-06-21 10:32:13,
+23,Barcelona,,"Barcelona (Fabra i Puig, 129)",8016,fabra,62,8,26,E08618260.,,,218,0,2015-12-28,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+24,Barcelona,,"Barcelona (del Poblenou, 104)",8005,poblenou,22,8,26,E08603400.,,,158,0,2014-11-28,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+25,Barcelona,,"Barcelona (Rda. Sant Antoni, 17)",8011,santantoni,25,8,26,E08612719.,,,206,0,2015-06-19,,2017-12-31 0:00:00,2019-06-21 10:34:34,
+26,Barcelona,,"Barcelona (Rossello, 416)",8025,rosello,23,8,26,E08590247.,,,134,0,2014-07-30,,2017-12-31 0:00:00,2019-06-21 10:33:30,
+27,Barcelona,,"Barcelona (Sants, 8)",8014,sants,20,8,26,E08567135.,,,119,0,2014-06-10,,2017-12-31 0:00:00,2019-06-21 10:34:51,
+28,Basauri,,"Basauri (Begonako Andra Mari Kalea, 16)",48970,basauri,24,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,197,0,2015-05-28,,2017-12-31 0:00:00,2019-06-21 10:35:09,
+29,Benavente,,"Benavente (de los Herreros, 16)",49600,benavente,27,49,149,49-C251-0101,,,170,0,2015-05-06,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+30,Bermeo,,Bermeo (Lamera Ibilbidea 1),48370,bermeo,28,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,261,0,2016-09-19,,2017-12-31 0:00:00,2019-06-21 10:36:24,
+31,Bilbao,Santutxu,"Bilbao (Aita Esteban Pernet, 2)",48004,santutxu,176,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,216,0,2016-03-29,,2017-12-31 0:00:00,2019-06-21 10:37:13,
+32,Bilbao,,"Bilbao (Gran Via de Don Diego Lopez de Haro, 37)",48009,bilbao,29,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,135,0,2015-08-12,,2017-12-31 0:00:00,2019-06-21 10:36:50,
+33,Boadilla del Monte,,"Boadilla del Monte (Juan Carlos I, 53)",28660,boadilla,30,28,149,CS13317.,,,151,0,2014-09-29,,2017-12-31 0:00:00,2019-06-21 10:39:00,
+34,Burgos,,"Burgos (del Cid Campeador, 3)",9003,burgos,32,9,149,09-C251-0166.,,,36,0,2013-04-01,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+35,Cádiz,,"Cadiz (Doctor Fleming, 2)",11009,cadiz,35,11,149,42597.,,,149,0,2014-08-08,,2017-12-31 0:00:00,2019-07-18 17:41:45,
+36,Cambrils,,"Cambrils (de Pau Casals, 45)",43850,cambrils,36,43,26,E43625919.,,,259,0,2017-02-13,,2017-12-31 0:00:00,2019-06-21 10:40:18,
+37,Cartagena,,"Cartagena (Puertas de Murcia, 31-35)",30201,cartagena,38,30,149,4000539/Rmu. 30001223.,,,131,0,2014-12-22,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+38,Castelldefels,,"Castelldefels (Santa Maria, 11)",8860,castelldefels,39,8,26,E08591378.,,,125,0,2014-07-07,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+39,Castellón,,"Castellon (Puerta del Sol, 2)",12001,castellon,40,12,149,13609.,,,152,0,2014-10-22,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+40,Castro Urdiales,,"Castro Urdiales (La Ronda, 28)",39700,castrourdiales,,39,149,06/2016/02709.,,,237,0,2016-03-31,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+41,Ciudad Real,,"Ciudad Real (Postas, 2)",13001,ciudadreal,43,13,149,1307557/1311144.,,,242,0,2016-05-23,,2017-12-31 0:00:00,2019-06-21 10:42:33,
+42,Collado Villalba,,"Collado Villalba (Real, 45)",28400,villalba,45,28,149,CS13896.,,,132,0,2016-06-14,,2017-12-31 0:00:00,2019-06-21 10:42:48,
+43,Colmenar Viejo,,"Colmenar Viejo (Boteros, 3)",28770,colmenarviejo,46,28,149,13247.,,,181,0,2015-02-23,,2017-12-31 0:00:00,2019-06-21 10:43:05,
+44,Córdoba,,"Cordoba (Jose Cruz Conde, 12)",14003,cordoba,47,14,149,41042.,,,21,0,2013-11-01,,2017-12-31 0:00:00,2019-06-21 10:43:21,
+45,Cornellà de Llobregat,,"Cornella de Llobregat (de Josep Anselm Clave, 26)",8940,cornella,48,8,26,E08590335.,,,146,0,2014-07-18,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+46,Coslada,,"Coslada (Constitucion, 86)",28821,coslada,49,28,149,CS13203.,,,166,0,2015-02-04,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+47,Cuenca,,"Cuenca (Castilla La Mancha, 2)",16002,cuenca,50,16,149,1606933/1609641.,,,133,0,2014-08-30,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+48,Dénia,,"Denia (Marques de Campo, 64)",3700,denia,52,3,149,18219.,,,252,0,2016-07-18,,2017-12-31 0:00:00,2019-06-21 10:44:57,
+49,Dos Hermanas,,"Dos Hermanas (La Mina, 1)",41700,doshermanas,54,41,149,41371.,,,11,0,2014-03-24,,2017-12-31 0:00:00,2019-06-21 10:45:32,
+50,Durango,,"Durango (Andra Mari Kalea, 4)",48200,durango,55,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,224,0,2015-11-16,,2017-12-31 0:00:00,2019-06-21 10:45:56,
+51,El Ejido,,"El Ejido (Bulevar de El Ejido, 222)",4700,elejido,56,4,149,47851.,,,267,0,2017-02-13,,2017-12-31 0:00:00,2019-06-21 10:46:30,
+52,El Prat de Llobregat,,"El Prat de Llobregat (de la Verge de Montserrat, 105)",8820,elprat,58,8,26,E08626983.,,,269,0,2016-11-11,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+53,El Puerto de Santa María,,"El Puerto de Santa Maria (Virgen de los Milagros, 87)",11500,elpuerto,,11,149,45641.,,,190,0,2015-12-15,,2017-12-31 0:00:00,2019-06-21 10:47:13,
+54,Elche,,"Elche (de la Glorieta, 9)",3203,elche,59,3,149,12911.,,,5,0,2014-02-06,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+55,Elda,,"Elda (Principe de Asturias, 25)",3600,elda,60,3,149,18221.,,,268,0,2016-08-01,,2017-12-31 0:00:00,2019-06-21 10:48:10,
+56,Estepona,,"Estepona (Espana, 126)",29680,estepona,61,29,149,48558.,,,271,0,2017-06-05,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+57,Ferrol,,"Ferrol (Real, 78)",15402,ferrol,57,15,149,C-15-003548.,,,143,0,2014-02-06,,2017-12-31 0:00:00,2019-06-21 10:48:46,
+58,Figueres,,"Figueres (Pujada del Castell, 11)",17600,figueres,63,17,26,E17624961.,,,254,0,2016-11-02,,2017-12-31 0:00:00,2019-06-21 10:49:06,
+59,Fuengirola,,"Fuengirola (Condes de San Isidro, 15)",29640,fuengirola,65,29,149,46765.,,,248,0,2016-07-01,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+60,Fuenlabrada,,"Fuenlabrada (Malaga, 1)",28945,fuenlabrada2,67,28,149,CS15166,,,43,0,2011-12-01,,2017-12-31 0:00:00,2019-06-21 10:50:01,
+61,Fuenlabrada,,"Fuenlabrada (Portugal, 44)",28943,fuenlabrada1,66,28,149,11819.,,,51,0,2011-10-01,,2017-12-31 0:00:00,2019-06-21 10:49:39,
+62,Galdakao,,"Galdakao (Juan Bautista Uriarte Kalea, 18)",48960,galdakao,69,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,274,0,2016-11-28,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+63,Gandía,,"Gandia (Raco Pare Leandro Calvo, 1)",46701,gandia,70,46,149,17851.,,,136,0,2015-12-25,,2017-12-31 0:00:00,2019-06-21 10:50:51,
+64,Gavà,,"Gava (de Maria Casas, 78)",8850,gava,71,8,26,E08614314.,,,203,0,2015-07-30,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+65,Getafe,,"Getafe (Madrid, 58)",28902,getafe1,72,28,149,12695.,,,191,1,2014-07-01,2018-01-01,2017-12-31 0:00:00,2019-07-25 15:40:33,2018-01-01 0:00:00
+66,Getafe,,"Getafe (Madrid, 73)",28902,getafe,73,28,149,CS12695.,,,50,0,2011-02-01,,2017-12-31 0:00:00,2019-06-21 10:51:35,
+67,Getxo,,"Getxo (Mayor, 23)",48930,getxo,74,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,29,1,2014-04-25,,2017-12-31 0:00:00,2019-06-21 10:51:56,
+68,Getxo,,"Getxo (Mayor, 21)",48930,getxo,74,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,45,0,2013-01-01,2018-01-01,2017-12-31 0:00:00,2019-07-25 15:43:49,2019-07-25 15:43:49
+69,Gijón,,"Gijon (Corrida, 59)",33206,gijon,75,33,149,C.2.5.1/4132/4.,,,9,0,2014-03-13,,2017-12-31 0:00:00,2019-06-21 10:52:11,
+70,Girona,,"Girona (de Joan Maragall, 35)",17002,girona,76,17,26,E17565593.,,,117,0,2014-05-19,,2017-12-31 0:00:00,2019-06-21 10:52:27,
+71,Granada,,"Granada (Recogidas, 58)",18004,granadarecogidas,79,18,149,47835.,,,266,0,2017-02-06,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+72,Granada,,"Granada (Mesones, 17)",18001,granada,78,18,149,41819.,,,12,0,2014-03-21,,2017-12-31 0:00:00,2019-06-21 10:52:44,
+73,Granollers,,"Granollers (Lluis Perpinya, 8)",8401,granollers,80,8,26,E08617805.,,,209,0,2016-01-28,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+74,Guadalajara,,"Guadalajara (Virgen del Amparo, 9)",19001,guadalajara,81,19,149,1906840/1902949.,,,33,0,2013-10-01,,2017-12-31 0:00:00,2019-06-21 10:53:37,
+75,Huelva,,"Huelva (Concepcion, 1)",21001,huelva,84,21,149,47322.,,,247,0,2016-08-29,,2017-12-31 0:00:00,2019-06-21 10:54:39,
+76,Huelva,CC Holea,"Huelva (CC Holea, Ronda Exterior Zona Sur, s.n.)",21007,ccholea,83,21,149,45963.,,,189,0,2015-06-03,,2017-12-31 0:00:00,2019-07-12 14:09:19,
+77,Huesca,,"Huesca (Coso Bajo, 3)",22001,huesca,85,22,149,RAPS 50/348/18.,,,178,0,2015-05-18,,2017-12-31 0:00:00,2019-06-21 10:54:54,
+78,Ibiza,,"Ibiza (dIgnasi Wallis, 35)",7800,ibiza,86,7,149,4551.,,,273,0,2016-11-28,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+79,Inca,,"Inca (de Espana, 13)",7300,inca,87,7,149,4428.,,,204,0,2016-02-15,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+80,Irún,,"Irun (de Colon, 38)",20302,irun,91,20,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,137,0,2014-07-28,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+81,Jaén,,"Jaen (de la Madre Soledad Torres Acosta, 2)",23001,jaen,93,23,149,41798.,,,120,0,2014-06-24,,2017-12-31 0:00:00,2019-06-21 10:56:24,
+82,Jerez,CC Área Sur,"Jerez (CC Area Sur, Nacional IV, Km 639)",11408,ccareasur,95,11,149,45853.,,,207,0,2015-10-13,,2017-12-31 0:00:00,2019-07-12 14:09:34,
+83,Jerez,,"Jerez (Lanceria, 16)",11402,jerez,94,11,149,40991.,,,22,0,2013-11-01,,2017-12-31 0:00:00,2019-06-21 10:56:51,
+84,L'Hospitalet de Llobregat,,"L'Hospitalet de Llobregat (de la Marina, 542-546)",8901,hospitalet,82,8,26,E08581813.,,,25,0,2013-11-01,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+85,L'Hospitalet de Llobregat,,"L'Hospitalet de Llobregat (Just Oliveras, 37-39)",8901,hospitalet,82,8,26,E08618407.,,,235,1,2017-06-19,,2017-12-31 0:00:00,2019-08-30 11:17:49,
+86,La Línea de la Concepción,,"La Linea de la Concepcion (Real, 45)",11300,lalinea,96,11,149,46023.,,,219,0,2015-11-27,,2017-12-31 0:00:00,2019-06-21 10:58:27,
+87,Las Palmas,CC Las Arenas,"Las Palmas (CC Las Arenas, local A-41b.  del Rincon)",35010,cclasarenas,42,35,149,31063.,,,208,0,2015-08-24,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+88,Las Palmas,CC La Ballena,"Las Palmas (CC La Ballena, General del Norte 112 , local 0-29)",35013,ballena,33,35,149,31054.,,,185,0,2015-07-15,,2017-12-31 0:00:00,2019-07-12 14:09:54,
+89,Las Palmas,,"Las Palmas (Triana, 107)",35002,laspalmas,97,35,149,29957.,,,144,0,2014-11-24,,2017-12-31 0:00:00,2019-06-21 10:59:21,
+90,Leganés,,"Leganes (Jeromin, 2)",28911,leganes,98,28,149,CS13074.,,,156,0,2014-11-26,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+91,León,,"Leon (de Santo Domingo, 5)",24002,leon,99,24,149,24-C251-0261.,,,31,0,2013-03-01,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+92,Linares,,"Linares (Corredera de San Marcos, 23)",23700,linares,100,23,149,46014.,,,226,0,2015-11-23,,2017-12-31 0:00:00,2019-06-21 11:20:26,
+93,Lleida,,"Lleida (del Carme, 25)",25007,lerida,101,25,26,E25618608.,,,210,0,2015-12-18,,2017-12-31 0:00:00,2019-06-21 11:20:45,
+94,Logroño,,"Logrono (Jorge Vigon, 2)",26003,logrono,103,26,149,2558.,,,40,0,2013-08-01,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+95,Lorca,,"Lorca (Juan Carlos I, 28)",30800,lorca,104,30,149,4000536/Rmu. 18/00-2491.,,,179,0,2015-12-09,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+96,Lugo,,"Lugo (San Marcos, 4-6)",27001,lugo,105,27,149,C-27-001091.,,,,0,2017-10-02,,2017-12-31 0:00:00,2019-07-05 15:29:34,
+97,Madrid,,"Madrid (Alcala, 385)",28027,alcala385,4,28,149,12331.,,,42,0,2010-12-01,,2017-12-31 0:00:00,2019-06-21 11:22:08,
+98,Madrid,,"Madrid (Alcala, 386)",28027,alcala386,5,28,149,12095.,,,34,0,2013-09-01,,2017-12-31 0:00:00,2019-06-21 11:22:24,
+99,Madrid,CC Plenilunio,"Madrid (CC Plenilunio, Aracne s.n.)",28022,ccplenilunio,,28,149,13506.,,,201,0,2015-06-01,2018-10-01,2017-12-31 0:00:00,2019-07-26 12:59:46,2019-07-26 12:59:46
+100,Madrid,,"Madrid (de la Albufera, 105)",28038,albufera,3,28,149,12186.,,,16,0,2012-09-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+101,Madrid,Barajas,"Madrid (de Logrono, 112)",28042,barajas,19,28,149,13462.,,,195,0,2015-06-11,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+102,Madrid,Las Rosas,"Madrid (de Niza, 57)",28022,lasrosas,87,28,149,12956.,,,155,0,2014-11-14,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+103,Madrid,Moratalaz,"Madrid (Moratalaz, 127)",28030,moratalaz,139,28,149,13508.,,,217,0,2015-09-28,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+104,Madrid,,"Madrid (Bravo Murillo, 121)",28020,bravomurillo,31,28,149,12068.,,,17,0,2013-04-01,,2017-12-31 0:00:00,2019-06-21 11:23:14,
+105,Madrid,CC La Vaguada,"Madrid (CC La Vaguada, Monforte de Lemos, 36)",28029,vaguada2,219,28,149,CS13422.,,,175,0,2015-04-23,,2017-12-31 0:00:00,2019-07-12 14:10:41,
+106,Madrid,Quevedo,"Madrid (de Arapiles, 1)",28015,quevedo,159,28,149,CS12896.,,,150,0,2014-09-17,,2017-12-31 0:00:00,2019-06-21 11:28:03,
+107,Madrid,Carabanchel,"Madrid - Carabanchel (de la Laguna, 42)",28025,carabanchel,37,28,149,13615.,,,221,0,2015-09-28,,2017-12-31 0:00:00,2019-07-19 12:06:55,
+108,Madrid,,"Madrid (Ginzo de Limia, 39)",28029,vaguada,218,28,149,12070.,,,35,1,2013-04-01,2018-01-01,2017-12-31 0:00:00,2019-07-25 15:41:32,2018-01-01 0:00:00
+109,Madrid,,"Madrid (Goya, 58)",28001,madridgoya,125,28,149,CS14415.,,,257,0,2017-02-06,,2017-12-31 0:00:00,2019-06-21 11:24:40,
+110,Madrid,,"Madrid (Gran Via, 46)",28013,madridgranvia,96,28,149,CS14814.,,,,0,2017-11-02,2019-07-22,2017-12-31 0:00:00,2019-07-25 15:44:49,2019-07-25 15:44:49
+111,Madrid,,"Madrid (Lopez de Hoyos, 132)",28002,lopezdehoyos,126,28,149,CS14276.,,,223,0,2016-09-26,,2017-12-31 0:00:00,2019-06-21 11:26:34,
+112,Madrid,,"Madrid (Marcelo Usera, 134)",28026,usera134,215,28,149,11866.,,,14,0,2013-12-01,,2017-12-31 0:00:00,2019-06-21 11:29:10,
+113,Madrid,,"Madrid (Marcelo Usera, 139)",28026,usera139,216,28,149,11852.,,,1,0,2012-05-01,,2017-12-31 0:00:00,2019-06-21 11:28:58,
+114,Madrid,,"Madrid (de las Delicias, 44)",28045,delicias,51,28,149,5955.,,,48,1,2007-08-01,2018-01-01,2017-12-31 0:00:00,2019-07-25 15:41:42,2018-01-01 0:00:00
+115,Madrid,Vallecas,"Madrid (Federico Garcia Lorca, 3)",28031,vallecas2,225,28,149,13593.,,,200,0,2015-07-15,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+116,Madrid,,"Madrid (Palos de la Frontera, 42)",28045,delicias,51,28,149,CS13895.,,,48,0,2016-01-11,,2017-12-31 0:00:00,2019-06-21 11:27:35,
+118,Mahón,,"Mahon (de Ses Moreres, 48)",7703,mahon,127,7,149,4286.,,,171,0,2015-03-10,,2017-12-31 0:00:00,2019-06-21 11:32:03,
+119,Majadahonda,,"Majadahonda (Cristobal Colon, 11)",28220,majadahonda,128,28,149,13880.,,,138,0,2016-05-25,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+120,Málaga,,"Malaga (Cuarteles, 64)",29002,malaga2,130,29,149,44233.,,,57,0,2014-12-23,,2017-12-31 0:00:00,2019-06-21 11:33:04,
+121,Málaga,,"Malaga (Liborio Garcia, 1)",29005,malaga,129,29,149,39756.,,,23,0,2013-06-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+122,Málaga,,"Malaga (Puerta del Mar, 20)",29005,malaga,129,29,149,46648.,,,23,0,2016-03-29,,2017-12-31 0:00:00,2019-08-30 11:47:03,
+123,Málaga,CC Larios,"Malaga (CC Larios, de la Aurora, 25. Local A-813)",29002,larios,,29,149,,,,,0,1904-02-29,,2017-12-31 0:00:00,2019-07-12 14:10:54,
+124,Manacor,,"Manacor (dEn Jaume Domenge, 23)",7500,manacor,132,7,149,4462.,,,193,0,2016-04-25,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+125,Manresa,,"Manresa (Nou, 47)",8241,manresa,133,8,26,E08606659.,,,54,0,2014-12-15,,2017-12-31 0:00:00,2019-06-21 11:33:50,
+126,Marbella,,"Marbella (Ricardo Soriano, 2)",29601,marbella,134,29,149,45210.,,,182,0,2015-05-18,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+127,Mataró,,"Mataro (de la Riera, 31)",8302,mataro,135,8,26,E08623735.,,,139,0,2016-05-20,,2017-12-31 0:00:00,2019-06-21 11:34:24,
+128,Mérida,,"Merida (Santa Eulalia, 66)",6800,merida,136,6,149,06102489.,,,202,0,2015-08-10,,2017-12-31 0:00:00,2019-06-21 11:34:40,
+129,Molina de Segura,,"Molina de Segura (Rosales, 25)",30500,molina,137,30,149,4000541/Rmu. 30001248.,,,162,0,2015-02-16,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+130,Mollet del Vallès,,"Mollet del Valles (Nova, 12)",8100,mollet,138,8,26,E08606070.,,,55,0,2014-12-29,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+131,Móstoles,,"Mostoles (del Dos de Mayo, 2)",28931,mostoles,140,28,149,12005.,,,44,0,2010-12-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+132,Móstoles,,"Mostoles (de Goya, 5)",28932,mostoles2,141,28,149,CS13373.,,,192,0,2015-05-27,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+133,Motril,,"Motril (Nueva, esq.  Tejedores)",18600,motril,142,18,149,42287.,,,124,0,2014-06-30,,2017-12-31 0:00:00,2019-06-21 11:37:32,
+134,Murcia,,"Murcia (Gran Via Escultor Fco. Salzillo, 28)",30005,murcia,143,30,149,4000531/Rmu. 30001231.,,,229,0,2017-03-06,,2017-12-31 0:00:00,2019-08-14 11:22:26,
+135,Orihuela,,"Orihuela (Calderon de la Barca, 7)",3300,orihuela,144,3,149,40021.,,,157,0,2015-02-17,,2017-12-31 0:00:00,2019-06-21 11:38:29,
+136,Ourense,,"Ourense (do Paseo, 1)",32003,orense,145,32,149,C-32-000985.,,,128,0,2014-07-28,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+137,Oviedo,,"Oviedo (Uria, 1)",33003,oviedo,146,33,149,C.2.5.1/4195/2.,,,145,0,2014-08-20,,2017-12-31 0:00:00,2019-06-21 11:39:01,
+138,Palencia,,"Palencia (Bocaplaza, 3)",34001,palencia,147,34,149,34-C251-0084.,,,165,0,2015-05-05,,2017-12-31 0:00:00,2019-06-21 11:39:22,
+139,Palma,,"Palma (DAlexandre Rossello, 4)",7002,mallorca,148,7,149,3549.,,,26,0,2013-05-01,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+140,Palma,,"Palma (de Jaume III, 26)",7012,mallorca2,131,7,149,4358.,,,172,0,2015-08-17,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+141,Pamplona,,"Pamplona (de Carlos III el Noble, 1)",31002,pamplona,149,31,149,CPS-2833C/27-18-NA.,,,39,0,2013-11-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+142,Pamplona,,"Pamplona (de Carlos III el Noble, 28)",31003,pamplona2,150,31,149,CPS-2833C/27-18-NA.,,,231,0,2015-10-30,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+143,Parla,,"Parla (Real, 64)",28981,parla,151,28,149,CS14592.,,,187,0,2017-06-05,,2017-12-31 0:00:00,2019-06-21 11:40:34,
+144,Paterna,,"Paterna (Maestro Canos, 26)",46980,paterna,152,46,149,18179.,,,244,0,2016-08-01,,2017-12-31 0:00:00,2019-06-21 11:40:45,
+145,Plasencia,,"Plasencia (Pedro Isidro, 1)",10600,plasencia,153,10,149,10102588.,,,251,0,2016-09-19,,2017-12-31 0:00:00,2019-06-21 11:41:03,
+146,Ponferrada,,"Ponferrada (Camino de Santiago, 2)",24400,ponferrada,154,24,149,24-C251-0285.,,,130,0,2014-07-31,,2017-12-31 0:00:00,2019-06-21 11:41:20,
+147,Pontevedra,,"Pontevedra (Benito Corbal, 23)",36001,pontevedra,155,36,149,C-36-002415.,,,121,0,2014-06-19,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+148,Portugalete,,"Portugalete (Carlos VII, 2)",48920,portugalete,156,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,18,0,2014-03-28,,2017-12-31 0:00:00,2019-06-21 11:41:52,
+149,Portugalete,,"Portugalete (General Castanos, 31)",48920,portugalete,,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,18,0,2014-12-01,,2017-12-31 0:00:00,2019-08-30 11:59:43,
+150,Puerto del Rosario,Fuerteventura,"Puerto del Rosario (Ramon Penate, 6)",35600,fuerteventura,68,35,149,31091.,,,184,0,2015-08-24,,2017-12-31 0:00:00,2019-06-21 11:42:38,
+151,Puertollano,,"Puertollano (de San Gregorio, 11)",13500,puertollano,158,13,149,1307484/1310577.,,,198,0,2015-06-17,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+152,Reus,,"Reus (Prim, 14)",43201,reus,160,43,26,E43602968.,,,140,0,2014-12-29,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+153,Ronda,,"Ronda (Espinel esq.  Juan Jose de Puya, 2)",29400,ronda,161,29,149,46459.,,,225,0,2016-01-25,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+154,Roquetas de Mar,,"Roquetas de Mar (Tres Martires, 7)",4740,roquetas,162,4,149,47892.,,,264,0,2017-08-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+155,Rubí,,"Rubi (de Francesc Macia, 58-60)",8191,rubi,163,8,26,E08617890.,,,211,0,2015-11-02,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+156,Sabadell,,"Sabadell (Rambla, 84)",8201,sabadell,164,8,26,E08624898.,,,141,0,2016-07-01,,2017-12-31 0:00:00,2019-06-21 11:44:19,
+157,Sagunto,,"Sagunto (Nueve de Octubre, 71)",46520,sagunto,165,46,149,18204.,,,258,0,2016-07-26,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+158,Salamanca,,"Salamanca (Toro, 104)",37002,salamanca,166,37,149,37-C251-0190.,,,32,0,2013-04-01,,2017-12-31 0:00:00,2019-06-21 11:45:03,
+159,San Fernando,,"San Fernando (San Rafael, 21)",11100,sanfernando,168,11,149,46607.,,,234,0,2016-02-08,,2017-12-31 0:00:00,2019-06-21 11:45:19,
+160,San Sebastián,,"San Sebastian (Miracruz, 16)",20001,sansebastian2,170,20,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,168,0,2015-02-23,,2017-12-31 0:00:00,2019-06-21 11:46:51,
+161,San Sebastián,,"San Sebastian (San Marcial, 35)",20005,sansebastian,169,20,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,37,0,2013-09-01,,2017-12-31 0:00:00,2019-06-21 11:45:33,
+162,San Vicente del Raspeig,,"San Vicente del Raspeig (Pintor Picasso, 59)",3690,sanvicente,171,3,149,40599.,,,180,0,2015-06-08,,2017-12-31 0:00:00,2019-06-21 11:47:25,
+163,Sanlúcar de Barrameda,,"Sanlucar de Barrameda (Ancha, 21)",11540,sanlucar,172,11,149,45912.,,,199,0,2015-08-31,,2017-12-31 0:00:00,2019-06-21 11:47:38,
+164,Santa Cruz de Tenerife,,"Santa Cruz de Tenerife (Castillo, 65)",38003,tenerife,,38,149,31718.,,,,0,2017-12-01,,2017-12-31 0:00:00,2019-06-21 11:48:10,
+165,Santander,,"Santander (Calvo Sotelo, 6)",39002,santander,173,39,149,06/2013/01980.,,,30,0,2013-11-01,,2017-12-31 0:00:00,2019-06-21 11:48:23,
+166,Santiago de Compostela,,"Santiago de Compostela (Republica de El Salvador, 4)",15701,santiago,174,15,149,C-15-003191.,,,27,0,2013-12-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+167,Santurce,,"Santurce (Sabino Arana, 6)",48980,santurce,175,48,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,194,0,2015-07-09,,2017-12-31 0:00:00,2019-06-21 11:48:50,
+168,Segovia,,"Segovia (del Acueducto, 39)",40002,segovia,177,40,149,40-C251-0102.,,,38,0,2014-01-09,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+169,Sevilla,,"Sevilla (Asuncion, 58)",41011,sevilla3,182,41,149,46823.,,,249,0,2016-05-30,,2017-12-31 0:00:00,2019-06-21 11:49:52,
+170,Sevilla,,"Sevilla (Campana, 2)",41002,sevilla1,178,41,149,40971.,,,52,0,2014-05-14,,2017-12-31 0:00:00,2019-06-21 11:49:24,
+171,Sevilla,,"Sevilla (Luis de Morales, 32)",41018,sevillaluismorales,180,41,149,48118.,,,,0,2016-11-28,,2017-12-31 0:00:00,2019-06-21 11:50:09,
+172,Sevilla,,"Sevilla (Maria Auxiliadora, 18)",41008,sevilla2,182,41,149,44460.,,,163,0,2015-02-19,,2017-12-31 0:00:00,2019-06-21 11:49:38,
+173,Soria,,"Soria (El Collado, 43)",42002,soria,183,42,149,42-C251-0049.,,,148,0,2014-08-11,,2017-12-31 0:00:00,2019-06-21 11:50:24,
+174,Talavera de la Reina,,"Talavera de la Reina (San Francisco, 29)",45600,talavera,201,45,149,4507508/4512660.,,,142,0,2014-10-22,,2017-12-31 0:00:00,2019-06-21 11:50:40,
+175,Tarragona,,"Tarragona (Nova, 77)",43003,tarragona,202,43,26,E43622467.,,,227,0,2016-05-25,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+176,Telde,,"Telde (de la Constitucion, 43)",35200,telde,203,35,149,29956.,,,147,0,2014-10-22,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+177,Terrassa,,"Terrassa (dEgara, 162, cant.  dIscle Soler, 30)",8221,terrassa,205,8,26,E08582856.,,,4,0,2014-01-27,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+178,Teruel,,"Teruel (Ramon y Cajal, 14)",44001,teruel,206,44,149,RAPS 50/348/18.,,,205,0,2015-10-30,,2017-12-31 0:00:00,2019-06-21 11:51:42,
+179,Tomelloso,,"Tomelloso (Don Victor Penasco, 41)",13700,tomelloso,207,13,149,1307458/1310391.,,,56,0,2015-01-19,,2017-12-31 0:00:00,2019-06-21 11:52:13,
+180,Torrejón de Ardoz,,"Torrejon de Ardoz (Enmedio, 41)",28850,torrejon,208,28,149,11773.,,,15,0,2012-07-01,,2017-12-31 0:00:00,2019-06-21 11:52:29,
+181,Torrelavega,,"Torrelavega (Julian Ceballos, 15)",39300,torrelavega,,39,149,06/2017/02986.,,,,0,2017-10-16,,2017-12-31 0:00:00,2019-08-30 12:32:12,
+182,Torrelavega,,"Torrelavega (Serafin Escalante, 1)",39300,torrelavega,209,39,149,06/2014/02128.,,,118,0,2014-05-01,2017-10-16,2017-12-31 0:00:00,2019-07-26 13:02:05,
+183,Torremolinos,,"Torremolinos (San Miguel, 2)",29620,torremolinos,210,29,149,45207.,,,183,0,2015-03-25,,2017-12-31 0:00:00,2019-06-21 11:53:09,
+184,Torrent,,"Torrent (del Vedat, 101)",46900,torrent,211,46,149,40031.,,,153,0,2014-10-08,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+185,Torrevieja,,"Torrevieja (Maria Parodi, 21)",3181,torrevieja,212,3,149,40056.,,,174,0,2015-02-26,,2017-12-31 0:00:00,2019-06-21 11:53:40,
+186,Tudela,,"Tudela (de los Fueros, 1)",31500,tudela,213,31,149,CPS-2831C/27-18-NA.,,,176,0,2015-09-04,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+187,Úbeda,,"Ubeda (de Andalucia, 14)",23400,ubeda,214,23,149,45342.,,,177,0,2015-09-30,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+188,Utrera,,"Utrera (La Fuente Vieja, 22)",41710,utrera,,41,149,NICA-48335,,,,0,2017-12-01,,2017-12-31 0:00:00,2019-08-26 10:35:03,
+189,Valencia,,"Valencia (de Sant Vicent Martir, 55)",46002,valencia3,222,46,149,18178.,,,250,0,2016-08-16,,2017-12-31 0:00:00,2019-06-21 11:55:01,
+190,Valencia,,"Valencia (del Pintor Sorolla, 35)",46002,valencia2,221,46,149,14986.,,,123,0,2014-06-30,,2017-12-31 0:00:00,2019-06-21 11:54:41,
+191,Valencia,,"Valencia (Ruzafa, 29)",46005,valencia1,220,46,149,12018.,,,19,0,2013-07-01,,2017-12-31 0:00:00,2019-07-11 17:08:30,
+192,Valladolid,,"Valladolid (de Zorrilla, 110)",47008,valladolid2,224,47,149,47-C251-0267.,,,46,0,2014-04-21,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+193,Valladolid,,"Valladolid (de Espana, 8)",47001,valladolid1,223,47,149,47-C251-0251.,,,41,0,2012-09-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+194,Vecindario,,"Vecindario (Canarias, 259)",35110,vecindario,226,35,149,30992.,,,169,0,2015-03-26,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+195,Vélez-Málaga,,"Velez-Malaga (Canalejas, 44)",29700,velez-malaga,227,29,149,47448.,,,255,0,2016-07-18,,2017-12-31 0:00:00,2019-06-21 11:56:13,
+196,Vigo,,"Vigo (de Gran Via, 9)",36204,vigo2,229,36,149,C-36-002463.,,,164,0,2015-05-05,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+197,Vigo,,"Vigo (Pr. Porta do Sol, 6)",36202,vigo,228,36,149,C-36-002441.,,,10,0,2015-03-23,,2017-12-31 0:00:00,2019-06-21 11:56:28,
+198,Vilafranca del Penedès,,"Vilafranca del Penedes (de Barcelona, 1)",8720,vilafranca,230,8,26,E08622386.,,,232,0,2016-05-13,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+199,Vilagarcía de Arousa,,"Vilagarcia de Arousa (de Galicia, 1)",36600,arousa,232,36,149,C-36-002408.,,,126,0,2014-07-14,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+200,Vilanova i la Geltrú,,"Vilanova i la Geltru (Rambla Josep Tomas Ventosa, 25)",8800,vilanova,231,8,26,E08629180.,,,230,0,2017-05-22,,2017-12-31 0:00:00,2019-06-21 11:57:36,
+201,Vitoria,,"Vitoria (Eduardo Dato, 33)",1005,vitoria2,234,1,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,53,0,2015-02-04,,2017-12-31 0:00:00,2019-06-21 11:58:05,
+202,Vitoria,,"Vitoria (de la Florida, 1)",1005,vitoria,233,1,149,RPS 105/18 Responsable Asistencial Licenciado en Odontología.,,,28,0,2013-11-01,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+203,Zamora,,"Zamora (de Zorrilla, 5)",49003,zamora,235,49,149,49-C251-0095.,,,122,0,2014-06-27,,2017-12-31 0:00:00,2019-07-05 15:29:35,
+204,Zaragoza,,"Zaragoza (Alfonso I, 28)",50003,zaragoza4,238,50,149,RAPS 50/348/18.,,,228,0,2016-05-16,,2017-12-31 0:00:00,2019-06-21 11:59:04,
+205,Zaragoza,,"Zaragoza (Delicias, 6)",50017,zaragoza3,236,50,149,RAPS 50/348/18.,,,6,0,2014-09-19,,2017-12-31 0:00:00,2019-06-21 11:58:50,
+206,Zaragoza,,"Zaragoza (Jorge Jordana, 9)",50017,zaragoza2,237,50,149,RAPS 50/348/18.,,,6,1,2014-02-01,2018-01-01,2017-12-31 0:00:00,2019-07-25 15:41:52,2018-01-01 0:00:00
+207,Zaragoza,,"Zaragoza (San Miguel, 7)",50001,zaragoza1,236,50,149,RAPS 50/348/18.,,,8,0,2013-02-01,,2017-12-31 0:00:00,2019-06-21 11:58:37,
+208,Madrid,Hortaleza,"Madrid (de Canillas, 39)",28043,madridhortaleza,,28,149,CS15517,,,,0,2018-10-01,,2018-09-03 0:00:00,2019-07-05 15:29:35,
+209,Madrid,Vicálvaro,"Madrid (de San Cipriano, 13)",28032,vicalvaro,,28,149,CS15223.,,,,0,2018-04-02,,2018-09-03 20:41:56,2019-06-21 11:31:20,
+210,Ceuta,,"Ceuta (Delgado Serrano, 1)",51001,ceuta,,51,149,,,,,0,2018-07-02,,2018-09-03 21:55:04,2019-06-21 10:41:46,
+211,Cáceres,,"Caceres (Plaza America, 4)",10001,caceres,,10,149,10102811.,,,,0,2018-03-12,,2018-09-03 21:56:46,2019-06-21 10:39:42,
+212,Las Palmas,CC La Ballena,"Las Palmas (CC La Ballena, General del Norte 112 , local 13-14)",35013,ballena,33,35,149,31792.,,,,0,2018-01-15,,2018-09-03 22:10:52,2019-08-26 10:33:16,
+213,Chiclana de la Frontera,,"Chiclana de la Frontera (Artesano Pepe Marin, 2)",11130,chiclana,,11,149,51779,,,,0,2018-10-01,,2018-09-04 23:19:18,2019-06-21 10:42:04,
+214,Miranda de Ebro,,"Miranda de Ebro (Estacion, 1)",9200,mirandaebro,,9,149,09-C251-0211.,,,,0,2018-10-20,,2018-09-04 23:23:37,2019-06-21 11:36:21,
+215,El Vendrell,,"El Vendrell (La Rambla, 8)",43700,elvendrell,,43,26,,,,,0,2018-11-15,,2018-10-08 16:49:01,2019-06-21 10:47:31,
+216,Toledo,,"Toledo (Ecuador, 2)",45004,toledo,,45,149,4507942/4515241,,,,0,2018-11-24,,2018-10-08 16:53:15,2019-06-21 11:51:56,
+217,Benidorm,,"Benidorm (de Venus, 2)",3501,benidorm,,3,149,21003.,,,,0,2018-12-03,,2018-10-18 12:01:16,2019-06-21 10:36:01,
+218,Don Benito,,"Don Benito (Ramon y Cajal, 18)",6400,donbenito,,6,149,6102976,,,,0,2018-12-17,,2018-10-18 12:02:57,2019-08-26 10:31:40,
+219,Eibar,,"Eibar (Toribio Etxebarria Kalea, 13)",20600,eibar,,20,149,,,,,0,2018-12-03,,2018-10-18 12:03:57,2019-08-26 10:32:40,
+220,Rivas-Vaciamadrid,CC H2 Ocio,"Rivas-Vaciamadrid (CC H2 Ocio, Marie Curie, 4, Local 12A)",28521,cch2o,,28,149,CS15693,,,,0,2018-12-17,,2018-11-23 10:50:56,2019-07-12 14:11:08,
+221,Madrid,Villaverde,"Madrid (Alberto Palacios, 19)",28021,madridvillaverde,,28,149,CS15712.,,,,0,2019-01-18,,2018-11-29 10:06:56,2019-07-05 15:29:35,
+222,Olot,,"Olot (de lEscultor Miquel Blay, 1)",17800,olot,,17,26,,,,,0,2019-02-25,,2019-01-31 16:32:14,2019-07-11 17:08:30,
+223,Barakaldo,,"Barakaldo (Bide-Onera Plaza, 7)",48901,barakaldo,,48,149,,,,,0,2019-03-27,,2019-02-08 9:36:01,2019-06-21 10:31:27,
+224,Madrid,Tetuán,"Madrid (Bravo Murillo, 298)",28020,madridtetuan,,28,149,,,,,0,2019-04-03,,2019-03-05 11:24:05,2019-06-21 11:28:40,
+225,Igualada,,"Igualada (de Sant Isidre, 19)",8700,igualada,,8,26,,,,,0,2019-04-25,,2019-03-29 11:41:44,2019-07-05 15:29:35,
+226,Vila-real,,"Vila-real (Carrer Major Sant Jaume, 48)",12540,villarreal,,12,149,21397,,,,0,2019-05-27,,2019-06-11 16:00:19,2019-08-23 9:25:10,
+227,Sant Feliu de Llobregat,,"Sant Feliu de Llobregat (Bertrand, 2)",8980,santfeliu,,8,149,,,,,0,2019-06-24,,2019-06-11 16:02:42,2019-08-26 10:34:28,
+228,Almendralejo,,"Almendralejo (de la Constitucion, 1)",6200,almendralejo,,6,149,,,,,0,2019-07-31,,2019-07-02 14:36:32,2019-08-08 11:31:14,
+229,Blanes,,"Blanes (de Dintre, 13)",17300,blanes,,17,149,,,,,0,2019-08-19,,2019-07-12 13:16:06,2019-08-26 10:31:14,
+230,Écija,,"Ecija (Miguel de Cervantes, 10)",41400,ecija,,41,149,,,,,0,2019-08-23,,2019-07-12 13:17:46,2019-08-26 10:32:22,
+231,Alcalá de Guadaíra,,"Alcala de Guadaira (Mairena, 37)",41500,alcalaguadaira,,41,149,,,,,0,2019-08-28,,2019-07-12 13:19:14,2019-08-26 10:30:04,
+232,Aranda de Duero,,"Aranda de Duero (Isilla, 22)",9400,arandaduero,,9,149,,,,,0,2019-08-31,,2019-07-12 13:20:36,2019-08-26 10:30:47,
+233,Pinto,,"Pinto (de Dolores Soria, 1)",28320,pinto,,28,149,,,,,0,2019-09-14,,2019-08-21 14:32:33,2019-08-26 10:34:08,
+234,Alzira,,"Alzira (Major, 13)",46600,alzira,,46,149,,,,,0,2019-09-19,,2019-08-21 14:35:12,2019-08-26 10:30:32,
+235,Mieres,,"Mieres (Doce de Octubre, 22)",33600,mieres,,33,149,,,,,0,2019-09-13,,2019-08-21 14:36:52,2019-08-26 10:33:39,

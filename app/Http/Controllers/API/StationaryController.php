@@ -105,7 +105,7 @@ class StationaryController extends Controller
         }
 
         return response([
-            'updatedModel' => $stationary->fresh(),
+            'model' => $stationary->fresh(),
             ], 200);
     }
 

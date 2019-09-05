@@ -19,23 +19,19 @@ class CreateProfilesTable extends Migration
             $table->string('name');
             $table->string('lastname1');
             $table->string('lastname2')->nullable();
-            $table->string('email')->nullable()->unique();
-            $table->string('phone')->nullable();
-            $table->string('personal_id_number')->nullable();
+            $table->string('personal_id_number')->nullable()->unique();
             $table->string('gender')->nullable();
             $table->integer('country_id')->nullable();
             $table->integer('company_id')->nullable();
             $table->date('birth_date')->nullable();
             $table->date('hire_date')->nullable();
             $table->date('years_of_service')->nullable();
-            $table->integer('job_id')->nullable();
-            $table->integer('job_type_id')->nullable();
-            $table->string('license_number')->nullable();
+            $table->string('license_number')->nullable()->unique();
             $table->unsignedInteger('license_year')->nullable();
             $table->unsignedInteger('university_id')->nullable()->default(null);
             $table->unsignedInteger('tutorial_completed')->default(1);
-            // $table->string('experience_type');
-            // $table->unsignedInteger('experience_time');
+            $table->string('avatar_path')->nullable()->default(null);
+
             $table->timestamps();
         });
     }

@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
-use Carbon\Carbon;
 
 class ProfileCSVSeeder extends CsvSeeder
 {
@@ -25,14 +23,5 @@ class ProfileCSVSeeder extends CsvSeeder
 		// Uncomment the below to wipe the table clean before populating
 		DB::table($this->table)->truncate();
 		parent::run();
-
-		$profiles = \App\Profile::all();
-		foreach ($profiles as $profile) {
-			if (!$profile->email) {
-				$profile->email = $profile->personal_id_number . "@migabinete.com";
-			}
-			
-			$profile->save();
-		}
 	}
 }

@@ -20,7 +20,14 @@ class TableController extends Controller
             sort($models);
             $model = implode('_', [ucfirst($models[0]), ucfirst($models[1])]);
         } else {
-            $model = Str::singular(request('model')); 
+            $pos = strpos(request('model'), '_');
+            if ($pos) {
+                $models = explode('_', request('model'));
+                foreach ($models as $i => $model) {
+                    $models[$i] = ucfirst(Str::singular($models[$i]));
+                }
+                $model = implode('', $models);
+            } else $model = Str::singular(request('model'));
         }
 
         $model = 'App\\' . $model;

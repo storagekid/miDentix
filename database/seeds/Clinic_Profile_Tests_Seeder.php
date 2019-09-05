@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
 class ClinicProfileTestsSeeder extends CsvSeeder
 {
 	public function __construct()
 	{
-		$this->table = 'clinic_profile';
+		$this->table = 'clinic_profiles';
 		$this->csv_delimiter = ',';
 		$this->filename = base_path().'/database/seeds/csvs/clinic_profile_tests.csv';
 	}
@@ -22,7 +21,7 @@ class ClinicProfileTestsSeeder extends CsvSeeder
 		// DB::disableQueryLog();
 
 		// Uncomment the below to wipe the table clean before populating
-		// DB::table($this->table)->truncate();
+		DB::table($this->table)->truncate();
 
 		parent::run();
 	}

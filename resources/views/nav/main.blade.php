@@ -14,7 +14,7 @@
         <div class="fx fx-center text-center mr-10">
             <!-- Right Side Of Navbar -->
             <div class="visible-xs-block" id="left-nav-xs">
-                <main-menu :menu="{{auth()->user()->getMenu('gabinete', [session('user.group.0.name')], session('user.role') )}}" :user="$store.state.user"></main-menu>
+                <main-menu :menu="{{auth()->user()->getMenu('gabinete', ['Clinics'], 'admin' )}}" :user="$store.state.user"></main-menu>
             </div>
             <shopping-cart-nav-container>
                 <shopping-cart></shopping-cart>

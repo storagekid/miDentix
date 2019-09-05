@@ -1,0 +1,449 @@
+id,address_line_1,address_line_2,type,description,main,addressable_id,addressable_type,created_at,updated_at
+1,"Rúa Juana de Vega, 23",,Fiscal,Real Address from Meta 4,0,1,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+3,"C/ Concepción, 11",,Fiscal,Real Address from Meta 4,0,2,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+5,"Pl. de Atilano Casado, 3",,Fiscal,Real Address from Meta 4,0,3,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+7,"C/ Tinte, 13",,Fiscal,Real Address from Meta 4,0,4,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+9,"C/ Mayor, 127 A",,Fiscal,Real Address from Meta 4,0,5,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+11,"C/ Constitución, 37",,Fiscal,Real Address from Meta 4,0,6,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+13,"C/ Pablo Picasso, 76",,Fiscal,Real Address from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+14,"C/ Constitución, 69",,Comercial,Adv Address from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+15,"Av. L'Alameda, 13",,Fiscal,Real Address from Meta 4,0,8,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+17,"C/ Mayor, 10",,Fiscal,Real Address from Meta 4,0,9,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+19,"Av. America, 7-9",,Fiscal,Real Address from Meta 4,0,10,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+20,"C/ Regino Martínez, 2",,Fiscal,Real Address from Meta 4,0,11,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+22,"Av. Maisonnave, 27",,Fiscal,Real Address from Meta 4,0,12,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+24,"P.º de Almería, 41",,Fiscal,Real Address from Meta 4,0,13,App\Clinic,2019-03-22 15:40:21,2019-06-26 15:09:36
+25,"P.º de Almería, 41",esq. c/ Méndez Núñez,Comercial,Adv Address from Meta 4,0,13,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+26,"C/ Ollerías, 23",,Fiscal,Real Address from Meta 4,0,14,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+28,"C/ Duranes, 23",,Fiscal,Real Address from Meta 4,0,15,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+30,"C/ de San Antonio, 59",,Fiscal,Real Address from Meta 4,0,16,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+32,"C/ Manuel Saavedra Palmeiro, 12",,Fiscal,Real Address from Meta 4,0,17,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+34,"C/ del Mar, 67",,Fiscal,Real Address from Meta 4,0,18,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+36,"C/ del Mar, 73",,Fiscal,Real Address from Meta 4,0,19,App\Clinic,2019-03-22 15:40:21,2019-07-18 17:30:33
+38,"C/ Balmes, 284",,Fiscal,Real Address from Meta 4,0,20,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+40,"C/ del Llobregós, 161",,Fiscal,Real Address from Meta 4,0,21,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+42,"C/ Gran de Gràcia, 135",,Fiscal,Real Address from Meta 4,0,22,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+44,"Pg. Fabra i Puig, 129",,Fiscal,Real Address from Meta 4,0,23,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+46,"Rbla. del Poblenou, 104",,Fiscal,Real Address from Meta 4,0,24,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+48,"Rda. Sant Antoni, 17",,Fiscal,Real Address from Meta 4,0,25,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+50,"C/ Rosselló, 416",,Fiscal,Real Address from Meta 4,0,26,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+52,"C/ Sants, 8",,Fiscal,Real Address from Meta 4,0,27,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+54,"Begoñako Andra Mari Kalea, 16",,Fiscal,Real Address from Meta 4,0,28,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+56,"C/ de los Herreros, 16",,Fiscal,Real Address from Meta 4,0,29,App\Clinic,2019-03-22 15:40:21,2019-06-26 15:42:24
+58,Lamera Ibilbidea 1,esq. Lope Diaz de Haro Kalea,Fiscal,Real Address from Meta 4,0,30,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+60,"C/ Aita Esteban Pernet, 2",,Fiscal,Real Address from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+61,C/ Karmelo,"esq. c/ Aita Esteban Pernet, 2",Comercial,Adv Address from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+62,"C/ Gran Vía de Don Diego López de Haro, 37",,Fiscal,Real Address from Meta 4,0,32,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+63,C/ Gran Vía de Don Diego,"López de Haro, 37",Comercial,Adv Address from Meta 4,0,32,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+64,"C/ Juan Carlos I, 53",esq. ctra. de Majadahonda,Fiscal,Real Address from Meta 4,0,33,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+66,"Av. del Cid Campeador, 3",,Fiscal,Real Address from Meta 4,0,34,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+68,"C/ Doctor Fleming, 2",,Fiscal,Real Address from Meta 4,0,35,App\Clinic,2019-03-22 15:40:21,2019-07-18 17:39:51
+69,"C/ Doctor Fleming, 2","esq. av. Ana de Viya, 46",Comercial,Adv Address from Meta 4,0,35,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+70,"C/ de Pau Casals, 45",,Fiscal,Real Address from Meta 4,0,36,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+72,"C/ Puertas de Murcia, 31-35",,Fiscal,Real Address from Meta 4,0,37,App\Clinic,2019-03-22 15:40:21,2019-06-26 15:50:12
+73,"C/ Puertas de Murcia, 31-35",esq. pza. Castellini,Comercial,Adv Address from Meta 4,0,37,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+74,"Av. Santa Maria, 11",,Fiscal,Real Address from Meta 4,0,38,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+76,"Pl. Puerta del Sol, 2",,Fiscal,Real Address from Meta 4,0,39,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+78,"C/ La Ronda, 28",,Fiscal,Real Address from Meta 4,0,40,App\Clinic,2019-03-22 15:40:21,2019-06-26 15:54:01
+79,C/ La Ronda,esq. c/ de Pérez Galdós,Comercial,Adv Address from Meta 4,0,40,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+80,"C/ Postas, 2",,Fiscal,Real Address from Meta 4,0,41,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+82,"C/ Real, 45",,Fiscal,Real Address from Meta 4,0,42,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+84,"C/ Boteros, 3",,Fiscal,Real Address from Meta 4,0,43,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+86,"C/ José Cruz Conde, 12",,Fiscal,Real Address from Meta 4,0,44,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+88,"Rbla. de Josep Anselm Clavé, 26",,Fiscal,Real Address from Meta 4,0,45,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+90,"Av. Constitución, 86",,Fiscal,Real Address from Meta 4,0,46,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+92,"Av. Castilla La Mancha, 2",,Fiscal,Real Address from Meta 4,0,47,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+94,"C/ Marqués de Campo, 64",,Fiscal,Real Address from Meta 4,0,48,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+96,"C/ La Mina, 1",,Fiscal,Real Address from Meta 4,0,49,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+98,"Andra Mari Kalea, 4",,Fiscal,Real Address from Meta 4,0,50,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+100,"Bulevar de El Ejido, 222",,Fiscal,Real Address from Meta 4,0,51,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+102,"Av. de la Verge de Montserrat, 105",,Fiscal,Real Address from Meta 4,0,52,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+104,"C/ Virgen de los Milagros, 87",,Fiscal,Real Address from Meta 4,0,53,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+106,"Pl. de la Glorieta, 9",,Fiscal,Real Address from Meta 4,0,54,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+108,"C/ Príncipe de Asturias, 25",,Fiscal,Real Address from Meta 4,0,55,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+110,"Av. España, 126",,Fiscal,Real Address from Meta 4,0,56,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+112,"C/ Real, 78",,Fiscal,Real Address from Meta 4,0,57,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+114,"Pujada del Castell, 11",,Fiscal,Real Address from Meta 4,0,58,App\Clinic,2019-03-22 15:40:22,2019-06-26 16:10:31
+116,"Av. Condes de San Isidro, 15",,Fiscal,Real Address from Meta 4,0,59,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+118,"C/ Málaga, 1",,Fiscal,Real Address from Meta 4,0,60,App\Clinic,2019-03-22 15:40:22,2019-06-26 16:11:59
+120,"C/ Portugal, 44",,Fiscal,Real Address from Meta 4,0,61,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+122,"Juan Bautista Uriarte Kalea, 18",,Fiscal,Real Address from Meta 4,0,62,App\Clinic,2019-03-22 15:40:22,2019-06-27 11:04:36
+123,"Juan Bautista Uriarte Kalea, 18",esq. Lapurdi Kalea,Comercial,Adv Address from Meta 4,0,62,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+124,"Racó Pare Leandro Calvo, 1",,Fiscal,Real Address from Meta 4,0,63,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+126,"Rbla. de María Casas, 78",,Fiscal,Real Address from Meta 4,0,64,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+128,"C/ Madrid, 58",,Fiscal,Real Address from Meta 4,0,65,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+130,"C/ Madrid, 73",,Fiscal,Real Address from Meta 4,0,66,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+132,"C/ Mayor, 23",,Fiscal,Real Address from Meta 4,0,67,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+134,"C/ Mayor, 21",,Fiscal,Real Address from Meta 4,0,68,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+136,"C/ Corrida, 59",,Fiscal,Real Address from Meta 4,0,69,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+138,"C/ de Joan Maragall, 35",,Fiscal,Real Address from Meta 4,0,70,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+140,"C/ Recogidas, 58",,Fiscal,Real Address from Meta 4,0,71,App\Clinic,2019-03-22 15:40:22,2019-06-27 11:23:40
+142,"C/ Mesones, 17",,Fiscal,Real Address from Meta 4,0,72,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+144,"Pl. Lluís Perpinyà, 8",,Fiscal,Real Address from Meta 4,0,73,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+146,"C/ Virgen del Amparo, 9",,Fiscal,Real Address from Meta 4,0,74,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+148,"C/ Concepción, 1",,Fiscal,Real Address from Meta 4,0,75,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+150,"Ronda Exterior Zona Sur, s/n",,Fiscal,Real Address from Meta 4,0,76,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+151,CC Holea,"Ronda Exterior Zona Sur, s/n",Comercial,Adv Address from Meta 4,0,76,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+152,"C/ Coso Bajo, 3",,Fiscal,Real Address from Meta 4,0,77,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+154,"Av. d'Ignasi Wallis, 35",,Fiscal,Real Address from Meta 4,0,78,App\Clinic,2019-03-22 15:40:22,2019-06-27 11:29:33
+156,"Pl. de España, 13",,Fiscal,Real Address from Meta 4,0,79,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+158,"P.º de Colón, 38",,Fiscal,Real Address from Meta 4,0,80,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+160,"C/ de la Madre Soledad Torres Acosta, 2",,Fiscal,Real Address from Meta 4,0,81,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+161,C/ de la Madre Soledad,"Torres Acosta, 2",Comercial,Adv Address from Meta 4,0,81,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+162,"Ctra. Nacional IV, Km 639",,Fiscal,Real Address from Meta 4,0,82,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+163,CC Área Sur,"Ctra. Nacional IV, Km 639",Comercial,Adv Address from Meta 4,0,82,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+164,"C/ Lancería, 16",,Fiscal,Real Address from Meta 4,0,83,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+166,"Rbla. de la Marina, 542-546",,Fiscal,Real Address from Meta 4,0,84,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+168,"Rbla. Just Oliveras, 37-39",,Fiscal,Real Address from Meta 4,0,85,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+170,"C/ Real, 45",,Fiscal,Real Address from Meta 4,0,86,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+172,"CC Las Arenas, local A-41b. Ctra. del Rincón",,Fiscal,Real Address from Meta 4,0,87,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+173,CC Las Arenas. Ctra. del Rincón,,Comercial,Adv Address from Meta 4,0,87,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+174,"Ctra. General del Norte 112 , local 0-29",,Fiscal,Real Address from Meta 4,0,88,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+175,CC La Ballena.,Ctra. General del Norte 112,Comercial,Adv Address from Meta 4,0,88,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+176,"C/ Triana, 107",,Fiscal,Real Address from Meta 4,0,89,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+178,"C/ Jeromín, 2",,Fiscal,Real Address from Meta 4,0,90,App\Clinic,2019-03-22 15:40:23,2019-06-27 11:44:02
+179,"C/ Jeromín, 2, esq. Plaza de París",,Comercial,Adv Address from Meta 4,0,90,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+180,"Pl. de Santo Domingo, 5",,Fiscal,Real Address from Meta 4,0,91,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+182,"Corredera de San Marcos, 23",,Fiscal,Real Address from Meta 4,0,92,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+184,"C/ del Carme, 25",,Fiscal,Real Address from Meta 4,0,93,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+186,"Av. Jorge Vigón, 2",,Fiscal,Real Address from Meta 4,0,94,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+188,"Av. Juan Carlos I, 28",,Fiscal,Real Address from Meta 4,0,95,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+190,"Rúa San Marcos, 4-6",,Fiscal,Real Address from Meta 4,0,96,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+192,"C/ Alcalá, 385",,Fiscal,Real Address from Meta 4,0,97,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+194,"C/ Alcalá, 386",,Fiscal,Real Address from Meta 4,0,98,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+196,C/ Aracne s/n,,Fiscal,Real Address from Meta 4,0,99,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+197,CC Plenilunio. C/ Aracne s/n,,Comercial,Adv Address from Meta 4,0,99,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+198,"Av. de la Albufera, 105",,Fiscal,Real Address from Meta 4,0,100,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+200,"Av. de Logroño, 112",,Fiscal,Real Address from Meta 4,0,101,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+202,"Av. de Niza, 57",,Fiscal,Real Address from Meta 4,0,102,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+204,"Av. Moratalaz, 127",,Fiscal,Real Address from Meta 4,0,103,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+206,"C/ Bravo Murillo, 121",,Fiscal,Real Address from Meta 4,0,104,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+208,"Av. Monforte de Lemos, 36 CC La Vaguada",,Fiscal,Real Address from Meta 4,0,105,App\Clinic,2019-03-22 15:40:23,2019-06-27 11:53:08
+210,"C/ de Arapiles, 1",,Fiscal,Real Address from Meta 4,0,106,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+212,"C/ de la Laguna, 42",,Fiscal,Real Address from Meta 4,0,107,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+214,"C/ Ginzo de Limia, 39",,Fiscal,Real Address from Meta 4,0,108,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+216,"C/ Goya, 58",,Fiscal,Real Address from Meta 4,0,109,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+218,"C/ Gran Vía, 46",,Fiscal,Real Address from Meta 4,0,110,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+220,"C/ López de Hoyos, 132",,Fiscal,Real Address from Meta 4,0,111,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+222,"C/ Marcelo Usera, 134",,Fiscal,Real Address from Meta 4,0,112,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+224,"C/ Marcelo Usera, 139",,Fiscal,Real Address from Meta 4,0,113,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+226,"P.º de las Delicias, 44",,Fiscal,Real Address from Meta 4,0,114,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+228,"P.º Federico García Lorca, 3",,Fiscal,Real Address from Meta 4,0,115,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+230,"C/ Palos de la Frontera, 42",,Fiscal,Real Address from Meta 4,0,116,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+234,"C/ de Ses Moreres, 48",,Fiscal,Real Address from Meta 4,0,118,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+236,"Pl. Cristóbal Colón, 11",,Fiscal,Real Address from Meta 4,0,119,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+237,"C/ Gran Vía, 54","esq. pl. Cristóbal Colón, 11",Comercial,Adv Address from Meta 4,0,119,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+238,"C/ Cuarteles, 64",,Fiscal,Real Address from Meta 4,0,120,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+240,"C/ Liborio García, 1",,Fiscal,Real Address from Meta 4,0,121,App\Clinic,2019-03-22 15:40:23,2019-06-27 12:11:05
+241,C/ Nueva,"esq. c/ Liborio García, 1",Comercial,Adv Address from Meta 4,0,121,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+242,"C/ Puerta del Mar, 20",,Fiscal,Real Address from Meta 4,0,122,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+244,"Av. de la Aurora, 25. Local A-813",,Fiscal,Real Address from Meta 4,0,123,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+245,"C/ d'En Jaume Domenge, 23",,Fiscal,Real Address from Meta 4,0,124,App\Clinic,2019-03-22 15:40:23,2019-06-27 12:13:20
+246,"Pl. Ramón Llull, 7",,Comercial,Adv Address from Meta 4,0,124,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+247,"C/ Nou, 47",,Fiscal,Real Address from Meta 4,0,125,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+249,"Av. Ricardo Soriano, 2",,Fiscal,Real Address from Meta 4,0,126,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+251,"C/ de la Riera, 31",,Fiscal,Real Address from Meta 4,0,127,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+253,"C/ Santa Eulalia, 66",,Fiscal,Real Address from Meta 4,0,128,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+255,"P.º Rosales, 25",,Fiscal,Real Address from Meta 4,0,129,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+257,"Rbla. Nova, 12",,Fiscal,Real Address from Meta 4,0,130,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+259,"Av. del Dos de Mayo, 2",,Fiscal,Real Address from Meta 4,0,131,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+261,"P.º de Goya, 5",,Fiscal,Real Address from Meta 4,0,132,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+263,"C/ Nueva, esq. c/ Tejedores",,Fiscal,Real Address from Meta 4,0,133,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+265,"C/ Gran Vía Escultor Fco. Salzillo, 28",,Fiscal,Real Address from Meta 4,0,134,App\Clinic,2019-03-22 15:40:24,2019-06-27 12:29:19
+267,"C/ Calderón de la Barca, 7",,Fiscal,Real Address from Meta 4,0,135,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+269,"Rúa do Paseo, 1",,Fiscal,Real Address from Meta 4,0,136,App\Clinic,2019-03-22 15:40:24,2019-06-27 13:47:57
+271,"C/ Uría, 1",,Fiscal,Real Address from Meta 4,0,137,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+273,"C/ Bocaplaza, 3",,Fiscal,Real Address from Meta 4,0,138,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+274,C/ Mayor Principal,esq. c/ Bocaplaza,Comercial,Adv Address from Meta 4,0,138,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+275,"Av. D’Alexandre Rosselló, 4",,Fiscal,Real Address from Meta 4,0,139,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+277,"Av. de Jaume III, 26",,Fiscal,Real Address from Meta 4,0,140,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+279,"Av. de Carlos III el Noble, 1",,Fiscal,Real Address from Meta 4,0,141,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+281,"Av. de Carlos III el Noble, 28",,Fiscal,Real Address from Meta 4,0,142,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+282,"Av. de Carlos III el Noble, 1, 28",,Comercial,Adv Address from Meta 4,0,142,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+283,"C/ Real, 64",,Fiscal,Real Address from Meta 4,0,143,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+285,"C/ Maestro Canós, 26",,Fiscal,Real Address from Meta 4,0,144,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+287,"C/ Pedro Isidro, 1",,Fiscal,Real Address from Meta 4,0,145,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+288,"Plaza Mayor, 36-37",,Comercial,Adv Address from Meta 4,0,145,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+289,"C/ Camino de Santiago, 2",,Fiscal,Real Address from Meta 4,0,146,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+291,"Rúa Benito Corbal, 23",,Fiscal,Real Address from Meta 4,0,147,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+293,"C/ Carlos VII, 2",,Fiscal,Real Address from Meta 4,0,148,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+295,"C/ General Castaños, 31",,Fiscal,Real Address from Meta 4,0,149,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+297,"C/ Ramón Peñate, 6",,Fiscal,Real Address from Meta 4,0,150,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+298,"C/ Primero de Mayo, 50",,Comercial,Adv Address from Meta 4,0,150,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+299,"P.º de San Gregorio, 11",,Fiscal,Real Address from Meta 4,0,151,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+301,"Pl. Prim, 14",,Fiscal,Real Address from Meta 4,0,152,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+303,"C/ Juan José de Puya, 2",,Fiscal,Real Address from Meta 4,0,153,App\Clinic,2019-03-22 15:40:24,2019-07-19 17:32:58
+304,Carrera Espinel,"esq. c/ Juan José de Puya, 2",Comercial,Adv Address from Meta 4,0,153,App\Clinic,2019-03-22 15:40:24,2019-07-19 17:33:15
+305,"Pl. Tres Mártires, 7",,Fiscal,Real Address from Meta 4,0,154,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+307,"Pg. de Francesc Macià, 58-60",,Fiscal,Real Address from Meta 4,0,155,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+309,"C/ Rambla, 84",,Fiscal,Real Address from Meta 4,0,156,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+311,"Av. Nueve de Octubre, 71",,Fiscal,Real Address from Meta 4,0,157,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+313,"C/ Toro, 104",,Fiscal,Real Address from Meta 4,0,158,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+315,"C/ San Rafael, 21",,Fiscal,Real Address from Meta 4,0,159,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+317,"C/ Miracruz, 16",,Fiscal,Real Address from Meta 4,0,160,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+319,"C/ San Marcial, 35",,Fiscal,Real Address from Meta 4,0,161,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+321,"C/ Pintor Picasso, 59",,Fiscal,Real Address from Meta 4,0,162,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+323,"C/ Ancha, 21",,Fiscal,Real Address from Meta 4,0,163,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+324,"C/ Ancha, 21",esq. c/ Castelar,Comercial,Adv Address from Meta 4,0,163,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+325,"C/ Castillo, 65",,Fiscal,Real Address from Meta 4,0,164,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+327,"C/ Calvo Sotelo, 6",,Fiscal,Real Address from Meta 4,0,165,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+329,"Rúa República de El Salvador, 4",,Fiscal,Real Address from Meta 4,0,166,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+331,"C/ Sabino Arana, 6",,Fiscal,Real Address from Meta 4,0,167,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+333,"Av. del Acueducto, 39",,Fiscal,Real Address from Meta 4,0,168,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+335,"C/ Asunción, 58",,Fiscal,Real Address from Meta 4,0,169,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+337,"C/ Campana, 2",,Fiscal,Real Address from Meta 4,0,170,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+339,"C/ Luis de Morales, 32",,Fiscal,Real Address from Meta 4,0,171,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+341,"C/ María Auxiliadora, 18",,Fiscal,Real Address from Meta 4,0,172,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+343,"C/ El Collado, 43",,Fiscal,Real Address from Meta 4,0,173,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+345,"C/ San Francisco, 29",,Fiscal,Real Address from Meta 4,0,174,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+347,"Rbla. Nova, 77",,Fiscal,Real Address from Meta 4,0,175,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+349,"Av. de la Constitución, 43",,Fiscal,Real Address from Meta 4,0,176,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+351,"Rbla. d’Ègara, 162",,Fiscal,Real Address from Meta 4,0,177,App\Clinic,2019-03-22 15:40:25,2019-07-19 17:39:17
+353,"C/ Ramón y Cajal, 14",,Fiscal,Real Address from Meta 4,0,178,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+355,"C/ Don Víctor Peñasco, 41",,Fiscal,Real Address from Meta 4,0,179,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+357,"C/ Enmedio, 41",,Fiscal,Real Address from Meta 4,0,180,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+359,"C/ Julián Ceballos, 15",,Fiscal,Real Address from Meta 4,0,181,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+361,"C/ Serafín Escalante, 1",,Fiscal,Real Address from Meta 4,0,182,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+363,"C/ San Miguel, 2",,Fiscal,Real Address from Meta 4,0,183,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+365,"Av. del Vedat, 101",,Fiscal,Real Address from Meta 4,0,184,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+367,"C/ María Parodi, 21",,Fiscal,Real Address from Meta 4,0,185,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+368,"C/ Ramón Gallud, 57",,Comercial,Adv Address from Meta 4,0,185,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+369,"Pl. de los Fueros, 1",,Fiscal,Real Address from Meta 4,0,186,App\Clinic,2019-03-22 15:40:25,2019-07-01 10:39:27
+371,"Pl. de Andalucía, 14",,Fiscal,Real Address from Meta 4,0,187,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+373,"C/ La Fuente Vieja, 22",,Fiscal,Real Address from Meta 4,0,188,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+375,"C/ de Sant Vicent Màrtir, 55",,Fiscal,Real Address from Meta 4,0,189,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+377,"C/ del Pintor Sorolla, 35",,Fiscal,Real Address from Meta 4,0,190,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+379,"C/ Ruzafa, 29",,Fiscal,Real Address from Meta 4,0,191,App\Clinic,2019-03-22 15:40:25,2019-06-27 14:54:19
+380,"Gran Vía M. del Turia, 1","esq. c/ Ruzafa, 29",Comercial,Adv Address from Meta 4,0,191,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+381,"P.º de Zorrilla, 110",,Fiscal,Real Address from Meta 4,0,192,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+383,"Pl. de España, 8",,Fiscal,Real Address from Meta 4,0,193,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+385,"Av. Canarias, 259",,Fiscal,Real Address from Meta 4,0,194,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+387,"C/ Canalejas, 44",,Fiscal,Real Address from Meta 4,0,195,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+389,"Av. de Gran Vía, 9",,Fiscal,Real Address from Meta 4,0,196,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+391,"Pr. Porta do Sol, 6",,Fiscal,Real Address from Meta 4,0,197,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+393,"Av. de Barcelona, 1",,Fiscal,Real Address from Meta 4,0,198,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+394,"Av. de Barcelona, 3",,Comercial,Adv Address from Meta 4,0,198,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+395,"Pl. de Galicia, 1",,Fiscal,Real Address from Meta 4,0,199,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+397,"Rambla Josep Tomàs Ventosa, 25",,Fiscal,Real Address from Meta 4,0,200,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+399,"C/ Eduardo Dato, 33",,Fiscal,Real Address from Meta 4,0,201,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+401,"P.º de la Florida, 1",,Fiscal,Real Address from Meta 4,0,202,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+403,"Pl. de Zorrilla, 5",,Fiscal,Real Address from Meta 4,0,203,App\Clinic,2019-03-22 15:40:25,2019-06-27 15:10:05
+404,"Pl. de Zorrilla, 5",esq. c/ de Santa Clara,Comercial,Adv Address from Meta 4,0,203,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+405,"C/ Alfonso I, 28",,Fiscal,Real Address from Meta 4,0,204,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+407,"C/ Delicias, 6",,Fiscal,Real Address from Meta 4,0,205,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+409,"C/ Jorge Jordana, 9",,Fiscal,Real Address from Meta 4,0,206,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+411,"C/ San Miguel, 7",,Fiscal,Real Address from Meta 4,0,207,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+413,"Ctra. de Canillas, 39",,Fiscal,Real Address from Meta 4,0,208,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+415,"C/ de San Cipriano, 13",,Fiscal,Real Address from Meta 4,0,209,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+417,"C/ Delgado Serrano, 1",,Fiscal,Real Address from Meta 4,0,210,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+418,C/ Camoens,esq. c/ Delgado Serrano,Comercial,Adv Address from Meta 4,0,210,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+419,"Plaza América, 4",,Fiscal,Real Address from Meta 4,0,211,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+421,"Ctra. General del Norte 112 , local 13-14",,Fiscal,Real Address from Meta 4,0,212,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+422,CC La Ballena.,Ctra. General del Norte 112,Comercial,Adv Address from Meta 4,0,212,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+423,"C/ Artesano Pepe Marín, 2",,Fiscal,Real Address from Meta 4,0,213,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+425,"C/ Estación, 1",,Fiscal,Real Address from Meta 4,0,214,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+427,"La Rambla, 8",,Fiscal,Real Address from Meta 4,0,215,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+429,"C/ Ecuador, 2","esq. avenida de la Reconquista, 7",Fiscal,Real Address from Meta 4,0,216,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+430,"Av. de la Reconquista, 7",esq. c/ Ecuador,Comercial,Adv Address from Meta 4,0,216,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+431,"C/ de Venus, 2",,Fiscal,Real Address from Meta 4,0,217,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+433,"C/ Ramón y Cajal, 18",,Fiscal,Real Address from Meta 4,0,218,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+435,"Toribio Etxebarria Kalea, 13",,Fiscal,Real Address from Meta 4,0,219,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+437,"C/ Marie Curie, 4, Local 12A",,Fiscal,Real Address from Meta 4,0,220,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+438,CC H2O,"C/ Marie Curie, 4",Comercial,Adv Address from Meta 4,0,220,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+439,"P.º Alberto Palacios, 19",,Fiscal,Real Address from Meta 4,0,221,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+441,"Pg. de l´Escultor Miquel Blay, 1",,Fiscal,Real Address from Meta 4,0,222,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+442,Pl. del Rector Ferrer,cant. pg. de l'Escultor Miquel Blay,Comercial,Adv Address from Meta 4,0,222,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+443,"Bide-Onera Plaza, 7",,Fiscal,Real Address from Meta 4,0,223,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+445,"C/ Bravo Murillo, 298",,Fiscal,Real Address from Meta 4,0,224,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+449,"Rbla. de Sant Isidre, 19",,Fiscal,,0,225,App\Clinic,2019-03-29 11:42:26,2019-03-29 11:42:26
+451,"Carrer Major Sant Jaume, 48",,Fiscal,Dirección Principal,0,226,App\Clinic,2019-06-11 16:00:50,2019-06-11 16:00:50
+452,"Pg. Bertrand, 2",,Fiscal,Dirección Principal,0,227,App\Clinic,2019-06-11 16:03:04,2019-06-11 16:03:04
+453,Marqués de Molina,,Fiscal,Fachada Marqués de Molina,0,2,App\Clinic,2019-06-26 15:01:13,2019-06-26 15:01:13
+454,"Vía Complutense, 32",,Fiscal,Fachada Vía Complutense,0,3,App\Clinic,2019-06-26 15:02:42,2019-06-26 15:02:42
+455,C/ Lic. Cascales,,Fiscal,,0,5,App\Clinic,2019-06-26 15:04:48,2019-06-26 15:04:48
+456,Sant Isidre,,Fiscal,Fachada Sant Isidre,0,8,App\Clinic,2019-06-26 15:08:46,2019-06-26 15:08:46
+457,C/ Méndez Núñez,,Fiscal,Fachada Méndez Núñez,0,13,App\Clinic,2019-06-26 15:09:58,2019-06-26 15:09:58
+458,Pl Constitución,,Fiscal,Fachada Pl Constitución,0,14,App\Clinic,2019-06-26 15:10:49,2019-06-26 15:10:49
+459,C/ Santa Clara,,Fiscal,Fachada Santa Clara,0,15,App\Clinic,2019-06-26 15:11:38,2019-06-26 15:11:38
+460,Av. Villanueva,,Fiscal,Fachada Villanueva,0,17,App\Clinic,2019-06-26 15:12:19,2019-06-26 15:12:19
+461,"C/ de Guillem Tell,",,Fiscal,Fachada Guillem Tell,0,20,App\Clinic,2019-06-26 15:13:32,2019-06-26 15:13:32
+462,C/ de la Conca de Tremp,,Fiscal,Fachada Conca de Tremp,0,21,App\Clinic,2019-06-26 15:15:01,2019-06-26 15:15:01
+463,Rbla. del Prat,,Fiscal,Fachada Prat,0,22,App\Clinic,2019-06-26 15:19:53,2019-06-26 15:19:53
+464,C/ Vèlia,,Fiscal,Fachada Vèlia,0,23,App\Clinic,2019-06-26 15:20:46,2019-06-26 15:20:46
+465,C/ Pallars,,Fiscal,Fachada Pallars,0,24,App\Clinic,2019-06-26 15:21:29,2019-06-26 15:21:29
+466,C/ Villarroel,,Fiscal,Fachada Villarroel,0,25,App\Clinic,2019-06-26 15:39:39,2019-06-26 15:39:39
+467,C/ de Lepant,,Fiscal,Fachada de Lepant,0,26,App\Clinic,2019-06-26 15:40:23,2019-06-26 15:40:23
+468,C/ de l'Espanya Industrial,,Fiscal,Fachada de l'Espanya Industrial,0,27,App\Clinic,2019-06-26 15:41:32,2019-06-26 15:41:32
+469,Ronda del Progreso,,Fiscal,Fachada Ronda del Progreso,0,29,App\Clinic,2019-06-26 15:42:34,2019-06-26 15:42:34
+470,C/ de Tomás Ortuño,,Fiscal,Fachada de Tomás Ortuño,0,217,App\Clinic,2019-06-26 15:43:39,2019-06-26 15:43:39
+471,Karmelo Kalea,,Fiscal,Fachada Karmelo,0,31,App\Clinic,2019-06-26 15:45:25,2019-06-26 15:45:25
+472,Ctra. de Majadahonda,,Fiscal,Fachada Ctra. de Majadahonda,0,33,App\Clinic,2019-06-26 15:46:35,2019-06-26 15:46:35
+473,C/ Gral. Santocildes,,Fiscal,Fachada Gral. Santocildes,0,34,App\Clinic,2019-06-26 15:47:28,2019-06-26 15:47:28
+474,C/ Gil Cordero,,Fiscal,Fachada Gil Cordero,0,211,App\Clinic,2019-06-26 15:48:17,2019-06-26 15:48:17
+475,Pl. Castellini,,Fiscal,Fachada Castellini,0,37,App\Clinic,2019-06-26 15:50:28,2019-06-26 15:50:28
+476,C/ Gasset,,Fiscal,Fachada Gasset,0,39,App\Clinic,2019-06-26 15:51:27,2019-06-26 15:51:27
+477,C/ Falcó,,Fiscal,Fachada Falcó,0,39,App\Clinic,2019-06-26 15:51:51,2019-06-26 15:51:51
+478,C/ Pérez Galdós,,Fiscal,Fachada Pérez Galdós,0,40,App\Clinic,2019-06-26 15:54:28,2019-06-26 15:54:28
+479,C/ Camoens,,Fiscal,Fachada Camoens,0,210,App\Clinic,2019-06-26 15:56:05,2019-06-26 15:56:05
+480,C/ la Plaza,,Fiscal,Fachada la Plaza,0,213,App\Clinic,2019-06-26 15:57:05,2019-06-26 15:57:05
+481,C/ Prado,,Fiscal,Fachada Prado,0,41,App\Clinic,2019-06-26 15:57:43,2019-06-26 15:57:43
+482,C/ de la Feria,,Fiscal,Fachada de la Feria,0,43,App\Clinic,2019-06-26 15:58:28,2019-06-26 15:58:28
+483,C/ Góngora,,Fiscal,Fachada Góngora,0,44,App\Clinic,2019-06-26 15:59:09,2019-06-26 15:59:09
+484,Pl. del Dr. Marañón,,Fiscal,Fachada Dr. Marañón,0,46,App\Clinic,2019-06-26 16:01:01,2019-06-26 16:01:01
+485,C/ Garcia Espin,,Fiscal,Fachada Garcia Espin,0,51,App\Clinic,2019-06-26 16:02:14,2019-06-26 16:02:14
+486,C/ Ganado,,Fiscal,Fachada Ganado,0,53,App\Clinic,2019-06-26 16:05:11,2019-06-26 16:05:11
+487,C/ Ricardo Alcón,,Fiscal,Fachada Ricardo Alcón,0,53,App\Clinic,2019-06-26 16:05:37,2019-06-26 16:05:37
+488,C/ Sta. Ana,,Fiscal,Fachada Sta. Ana,0,56,App\Clinic,2019-06-26 16:06:35,2019-06-26 16:06:35
+489,Rúa Terra,,Fiscal,Fachada Terra,0,57,App\Clinic,2019-06-26 16:07:50,2019-06-26 16:07:50
+490,"C/ Pep Ventura, 1",,Fiscal,Fachada Pep Ventura,0,58,App\Clinic,2019-06-26 16:08:34,2019-06-26 16:08:34
+491,"Pujada del Castell, 11","cant. c/ Pep Ventura, 1",Comercial,,0,58,App\Clinic,2019-06-26 16:10:23,2019-06-26 16:10:23
+492,C/ de Leganés,,Fiscal,Fachada de Leganés,0,60,App\Clinic,2019-06-26 16:11:21,2019-06-26 16:11:21
+493,"C/ Málaga, 1",esq. c/ Leganés,Comercial,,0,60,App\Clinic,2019-06-26 16:11:51,2019-06-26 16:11:51
+494,Av. d'Alacant,,Fiscal,Fachada Av. d'Alacant,0,63,App\Clinic,2019-06-27 11:12:10,2019-06-27 11:12:54
+495,C/ de Sant Joan Bta. la Salle,,Fiscal,Fachada de Sant Joan Bta. la Salle,0,70,App\Clinic,2019-06-27 11:22:43,2019-06-27 11:22:43
+496,C.º de Ronda,"esq. c/ Recogidas, 58",Comercial,,0,71,App\Clinic,2019-06-27 11:23:18,2019-06-27 11:23:18
+497,Camino de Ronda,,Fiscal,Fachada Camino de Ronda,0,71,App\Clinic,2019-06-27 11:25:08,2019-06-27 11:25:08
+498,C/ Sierpe Baja,,Fiscal,Fachada Sierpe Baja,0,72,App\Clinic,2019-06-27 11:26:00,2019-06-27 11:26:00
+499,C/ Nuño Beltrán de Guzmán,,Fiscal,Fachada Nuño Beltrán de Guzmán,0,74,App\Clinic,2019-06-27 11:27:02,2019-06-27 11:27:02
+500,"C/ de Villahermosa, Duquesa",,Fiscal,"Fachada de Villahermosa, Duquesa",0,77,App\Clinic,2019-06-27 11:28:26,2019-06-27 11:28:26
+501,C/ de Vicent Serra i Orvay,,Fiscal,Fachada de Vicent Serra i Orvay,0,78,App\Clinic,2019-06-27 11:29:56,2019-06-27 11:29:56
+502,C/ Estrella,,Fiscal,Fachada Estrella,0,79,App\Clinic,2019-06-27 11:35:48,2019-06-27 11:35:48
+503,C/ Comerç,,Fiscal,Fachada Comerç,0,79,App\Clinic,2019-06-27 11:36:19,2019-06-27 11:36:19
+504,Pº de la Estación,,Fiscal,Fachada Pº de la Estación,0,81,App\Clinic,2019-06-27 11:37:21,2019-06-27 11:37:21
+505,Ptge. de la Pau,,Fiscal,Fachada Ptge. de la Pau,0,85,App\Clinic,2019-06-27 11:39:02,2019-06-27 11:39:02
+506,Pl. de la Iglesia,,Fiscal,Fachada de la Iglesia,0,86,App\Clinic,2019-06-27 11:41:18,2019-06-27 11:41:18
+507,"Ctra. General del Norte 112 , local 13-14",,Fiscal,Fachada local 13-14,0,88,App\Clinic,2019-06-27 11:42:39,2019-06-27 11:42:39
+508,C/ Buenos Aires,,Fiscal,C/ Buenos Aires,0,89,App\Clinic,2019-06-27 11:43:27,2019-06-27 11:43:27
+509,Pl. de París,,Fiscal,Fachada Pl. de París,0,90,App\Clinic,2019-06-27 11:44:20,2019-06-27 11:44:20
+510,Av. del Padre Isla,,Fiscal,Fachada Av. del Padre Isla,0,91,App\Clinic,2019-06-27 11:45:23,2019-06-27 11:45:23
+511,C/ Puente,,Fiscal,Fachada Puente,0,92,App\Clinic,2019-06-27 11:46:36,2019-06-27 11:46:36
+512,C/ Gral. Vara de Rey,,Fiscal,Fachada Gral. Vara de Rey,0,94,App\Clinic,2019-06-27 11:47:35,2019-06-27 11:47:35
+513,Canella da Deputación,,Fiscal,Fachada Canella da Deputación,0,96,App\Clinic,2019-06-27 11:48:20,2019-06-27 11:48:20
+514,C/ Dr. Vallejo,,Fiscal,Fachada Dr. Vallejo,0,97,App\Clinic,2019-06-27 11:48:57,2019-06-27 11:48:57
+515,C/ Vicente Espinel,,Fiscal,Fachada Vicente Espinel,0,98,App\Clinic,2019-06-27 11:49:33,2019-06-27 11:49:33
+516,C/ Planeta,,Fiscal,Fachada Planeta,0,101,App\Clinic,2019-06-27 11:50:44,2019-06-27 11:50:44
+517,C/ Balsaminas,,Fiscal,Fachada Balsaminas,0,224,App\Clinic,2019-06-27 11:51:26,2019-06-27 11:51:26
+518,CC La Vaguada - Local Interior,,Fiscal,Fachada CC La Vaguada - Local Interior,0,105,App\Clinic,2019-06-27 11:52:22,2019-06-27 11:52:22
+519,CC La Vaguada,"Av. Monforte de Lemos, 36",Comercial,,0,105,App\Clinic,2019-06-27 11:53:40,2019-06-27 11:53:40
+520,C/ Andrés Obispo,,Fiscal,Fachada Andrés Obispo,0,208,App\Clinic,2019-06-27 11:54:39,2019-06-27 11:54:39
+521,Glorieta de Quevedo,,Fiscal,Fachada Glorieta de Quevedo,0,106,App\Clinic,2019-06-27 11:55:24,2019-06-27 11:55:24
+522,C/ de San Bernardo,,Fiscal,Fachada de San Bernardo,0,106,App\Clinic,2019-06-27 11:55:51,2019-06-27 11:55:51
+523,C/ Villardondiego,,Fiscal,Fachada Villardondiego,0,209,App\Clinic,2019-06-27 11:56:32,2019-06-27 11:56:32
+524,C/ Francisca Moreno,,Fiscal,Fachada Francisca Moreno,0,109,App\Clinic,2019-06-27 11:57:22,2019-06-27 11:57:22
+525,"C/ de Eugenio Salazar, 4",,Fiscal,"Fachada de Eugenio Salazar, 4",0,111,App\Clinic,2019-06-27 12:00:53,2019-06-27 12:00:53
+526,C/ de la Aladierna,,Fiscal,Fachada de la Aladierna,0,221,App\Clinic,2019-06-27 12:01:41,2019-06-27 12:01:41
+527,Pº de las Delicias,,Fiscal,Fachada Pº de las Delicias,0,116,App\Clinic,2019-06-27 12:02:21,2019-06-27 12:02:21
+528,Sa Rovellada de Dalt,,Fiscal,Fachada Sa Rovellada de Dalt,0,118,App\Clinic,2019-06-27 12:03:00,2019-06-27 12:03:00
+529,C/ Gran Vía,,Fiscal,Fachada Gran Vía,0,119,App\Clinic,2019-06-27 12:08:25,2019-06-27 12:08:25
+530,C/ del Cristo,,Fiscal,Fachada del Cristo,0,119,App\Clinic,2019-06-27 12:09:00,2019-06-27 12:09:00
+531,C/ Jovellanos,,Fiscal,Fachada Jovellanos,0,120,App\Clinic,2019-06-27 12:09:44,2019-06-27 12:09:44
+532,C/ Nueva,,Fiscal,Fachada C/ Nueva,0,121,App\Clinic,2019-06-27 12:11:26,2019-06-27 12:11:26
+533,C/ Antoni Galmés,,Fiscal,Fachada Antoni Galmés,0,124,App\Clinic,2019-06-27 12:14:36,2019-06-27 12:14:36
+534,Pl. de Sant Domènec,,Fiscal,Fachada de Sant Domènec,0,125,App\Clinic,2019-06-27 12:18:29,2019-06-27 12:18:29
+535,C/ del Born,,Fiscal,Fachada Carrer del Born,0,125,App\Clinic,2019-06-27 12:19:44,2019-06-27 12:19:44
+536,C/ Huerta Chica,,Fiscal,Fachada Huerta Chica,0,126,App\Clinic,2019-06-27 12:21:04,2019-06-27 12:21:04
+537,C/ Ronda del Ferrocarril,,Fiscal,Fachada Ronda del Ferrocarril,0,214,App\Clinic,2019-06-27 12:21:59,2019-06-27 12:21:59
+538,C/ Sta. Teresa,,Fiscal,Fachada Sta. Teresa,0,129,App\Clinic,2019-06-27 12:24:51,2019-06-27 12:24:51
+539,"C/ d'Antònia Canet, 13",,Fiscal,"Fachada d'Antònia Canet, 13",0,130,App\Clinic,2019-06-27 12:25:40,2019-06-27 12:25:40
+540,C/ Fortuny,,Fiscal,Fachada Fortuny,0,132,App\Clinic,2019-06-27 12:26:20,2019-06-27 12:26:20
+541,Callejón del Teatro,,Fiscal,Fachada Callejón del Teatro,0,133,App\Clinic,2019-06-27 12:28:17,2019-06-27 12:28:17
+542,C/ José Antonio Ponzoa,,Fiscal,Fachada Calle José Antonio Ponzoa,0,134,App\Clinic,2019-06-27 12:29:34,2019-06-27 12:29:34
+543,Pl. del Rector Ferrer,,Fiscal,Fachada Pl. del Rector Ferrer,0,222,App\Clinic,2019-06-27 12:30:05,2019-06-27 12:30:05
+544,C/ Paradas,,Fiscal,Fachada Paradas,0,135,App\Clinic,2019-06-27 13:46:59,2019-06-27 13:46:59
+545,Pl. de Eugenio Montes,,Fiscal,Fachada de Eugenio Montes,0,136,App\Clinic,2019-06-27 13:48:18,2019-06-27 13:48:18
+546,C/ Mayor Principal,,Fiscal,Fachada Mayor Principal,0,138,App\Clinic,2019-06-27 13:49:48,2019-06-27 13:49:48
+547,C/ de Manacor,,Fiscal,Fachada C/ de Manacor,0,139,App\Clinic,2019-06-27 13:55:43,2019-06-27 13:55:43
+548,C/ de Tafalla,,Fiscal,Fachada Tafalla,0,142,App\Clinic,2019-06-27 13:56:56,2019-06-27 13:56:56
+549,Pl. Mayor,,Fiscal,Fachada Mayor,0,144,App\Clinic,2019-06-27 13:59:17,2019-06-27 13:59:17
+550,Pl. Mayor,,Fiscal,Fachada Pl. Mayor,0,145,App\Clinic,2019-06-27 14:00:33,2019-06-27 14:00:33
+551,Praza de Barcelos,,Fiscal,Fachada Praza de Barcelos,0,147,App\Clinic,2019-06-27 14:01:21,2019-06-27 14:01:21
+552,Rua Xenaro Perez de Villamil,,Fiscal,Fachada Rua Xenaro Perez de Villamil,0,147,App\Clinic,2019-06-27 14:01:43,2019-06-27 14:01:43
+553,"Av. de Carlos VII, 1",,Fiscal,"Fachada Av. de Carlos VII, 1",0,149,App\Clinic,2019-06-27 14:02:33,2019-06-27 14:02:33
+554,C/ Primero de Mayo,,Fiscal,Fachada Primero de Mayo,0,150,App\Clinic,2019-06-27 14:03:31,2019-06-27 14:03:31
+555,C/ Célia Viñas,,Fiscal,Fachada Célia Viñas,0,154,App\Clinic,2019-06-27 14:04:18,2019-06-27 14:04:18
+556,C/ de Montserrat,,Fiscal,Fachada de Montserrat,0,155,App\Clinic,2019-06-27 14:05:01,2019-06-27 14:05:01
+557,C/ de les Planes,,Fiscal,Fachada de les Planes,0,156,App\Clinic,2019-06-27 14:05:53,2019-06-27 14:05:53
+558,C/ Lope de Vega,,Fiscal,Fachada Lope de Vega,0,157,App\Clinic,2019-06-27 14:06:50,2019-06-27 14:06:50
+559,Av. de Mirat,,Fiscal,Fachada Av. de Mirat,0,158,App\Clinic,2019-06-27 14:11:07,2019-06-27 14:11:07
+560,C/ Cristo de los Milagros,,Fiscal,Fachada Cristo de los Milagros,0,158,App\Clinic,2019-06-27 14:11:36,2019-06-27 14:11:36
+561,C/ Sta. Teresa de Jesús,,Fiscal,Fachada Sta. Teresa de Jesús,0,159,App\Clinic,2019-06-27 14:12:27,2019-06-27 14:12:27
+562,Misericordia Kalea,,Fiscal,Fachada Misericordia Kalea,0,160,App\Clinic,2019-06-27 14:13:14,2019-06-27 14:13:14
+563,C/ Corta,,Fiscal,Fachada Corta,0,160,App\Clinic,2019-06-27 14:13:53,2019-06-27 14:13:53
+564,Urbieta Kalea,,Fiscal,Fachada Urbieta,0,161,App\Clinic,2019-06-27 14:14:38,2019-06-27 14:14:38
+565,Av. Ancha de Castelar,,Fiscal,Fachada Ancha de Castelar,0,162,App\Clinic,2019-06-27 14:15:28,2019-06-27 14:15:28
+566,C/ Castelar,,Fiscal,Fachada Castelar,0,163,App\Clinic,2019-06-27 14:16:15,2019-06-27 14:16:15
+567,C/ de Sant Llorenç,,Fiscal,Facahda de Sant Llorenç,0,227,App\Clinic,2019-06-27 14:17:02,2019-06-27 14:17:02
+568,C/ de San Lucas,,Fiscal,Fachada de San Lucas,0,164,App\Clinic,2019-06-27 14:18:02,2019-06-27 14:18:02
+569,Rúa do Doutor Teixeiro,,Fiscal,Fachada Rúa do Doutor Teixeiro,0,166,App\Clinic,2019-06-27 14:19:12,2019-06-27 14:19:12
+570,Vapor Habana Kalea,,Fiscal,Fachada Vapor Habana Kalea,0,167,App\Clinic,2019-06-27 14:22:19,2019-06-27 14:22:19
+571,C/ Juan XXIII,,Fiscal,Fachada Juan XXIII,0,167,App\Clinic,2019-06-27 14:22:56,2019-06-27 14:22:56
+572,C/ de los Jardinillos de San Roque,,Fiscal,Fachada de los Jardinillos de San Roque,0,168,App\Clinic,2019-06-27 14:23:40,2019-06-27 14:23:40
+573,C/ Capataz Rafael Franco,,Fiscal,Fachada Capataz Rafael Franco,0,170,App\Clinic,2019-06-27 14:24:26,2019-06-27 14:24:26
+574,C/ Luis Belmonte,,Fiscal,Fachada Luis Belmonte,0,171,App\Clinic,2019-06-27 14:25:15,2019-06-27 14:25:15
+575,C/ Salesianos,,Fiscal,Fachada Salesianos,0,172,App\Clinic,2019-06-27 14:26:10,2019-06-27 14:26:10
+576,Pl. San Esteban,,Fiscal,Fachada San Esteban,0,173,App\Clinic,2019-06-27 14:26:56,2019-06-27 14:26:56
+577,C/ Ramón y Cajal,,Fiscal,Fachada Ramón y Cajal,0,174,App\Clinic,2019-06-27 14:27:46,2019-06-27 14:27:46
+578,C/ de l'Assalt,,Fiscal,Fachada de l'Assalt,0,175,App\Clinic,2019-06-27 14:28:31,2019-06-27 14:28:31
+579,C/ Ruiz,,Fiscal,Fachada Ruiz,0,176,App\Clinic,2019-06-27 14:29:11,2019-06-27 14:29:11
+580,Av. de la Reconquista,,Fiscal,Fachada Av. de la Reconquista,0,216,App\Clinic,2019-06-27 14:29:50,2019-06-27 14:29:50
+581,C/ Azucena,,Fiscal,Fachada Azucena,0,179,App\Clinic,2019-06-27 14:30:24,2019-06-27 14:30:24
+582,C/ Ruiz Tagle,,Fiscal,Fachada Ruiz Tagle,0,181,App\Clinic,2019-06-27 14:31:07,2019-06-27 14:31:07
+583,C/ Cauce,,Fiscal,Fachada Cauce,0,183,App\Clinic,2019-06-27 14:31:51,2019-06-27 14:31:51
+584,Av. Palma de Mallorca,,Fiscal,Fachada Av. Palma de Mallorca,0,183,App\Clinic,2019-06-27 14:32:15,2019-06-27 14:32:15
+585,C/ Prof. Idilio Gimeno,,Fiscal,Fachada Prof. Idilio Gimeno,0,184,App\Clinic,2019-06-27 14:33:15,2019-06-27 14:33:15
+586,C/ Ramon Gallud,,Fiscal,Fachada Ramon Gallud,0,185,App\Clinic,2019-06-27 14:34:03,2019-06-27 14:34:03
+587,C/ Gaztambide Carrera,,Fiscal,Fachada Gaztambide Carrera,0,186,App\Clinic,2019-06-27 14:36:01,2019-06-27 14:36:01
+588,C/ Álvarez Quintero,,Fiscal,Fachada Álvarez Quintero,0,188,App\Clinic,2019-06-27 14:49:24,2019-06-27 14:49:24
+589,C/ del Fraile,,Fiscal,Fachada del Fraile,0,189,App\Clinic,2019-06-27 14:52:47,2019-06-27 14:52:47
+590,Pl. de Alfonso el Magnánimo,,Fiscal,Fachada de Alfonso el Magnánimo,0,190,App\Clinic,2019-06-27 14:53:27,2019-06-27 14:53:27
+591,Gran Vía M. del Turia,,Fiscal,Fachada  Gran Vía M. del Turia,0,191,App\Clinic,2019-06-27 14:54:36,2019-06-27 14:54:36
+592,Pl. Juan de Austria,,Fiscal,Fachada Juan de Austria,0,192,App\Clinic,2019-06-27 14:55:21,2019-06-27 14:55:21
+593,C/ de Jerónimo Falcón,,Fiscal,Fachada de Jerónimo Falcón,0,194,App\Clinic,2019-06-27 14:56:08,2019-06-27 14:56:08
+594,Rúa do Brasil,,Fiscal,Fachada Rúa do Brasil,0,196,App\Clinic,2019-06-27 14:56:49,2019-06-27 14:56:49
+595,Rúa do Doutor Cadaval,,Fiscal,Fachada Rúa do Doutor Cadaval,0,197,App\Clinic,2019-06-27 14:57:33,2019-06-27 14:57:33
+596,C/ Messeguer,,Fiscal,Facahda Messeguer,0,226,App\Clinic,2019-06-27 14:58:14,2019-06-27 14:58:14
+597,C/ de Santa Clara,,Fiscal,Facahda de Santa Clara,0,198,App\Clinic,2019-06-27 14:59:02,2019-06-27 14:59:02
+598,C/ de Magdalena Miró,,Fiscal,Fachada de Magdalena Miró,0,200,App\Clinic,2019-06-27 15:07:48,2019-06-27 15:07:48
+599,C/ Florida,,Fiscal,Fachada Florida,0,201,App\Clinic,2019-06-27 15:08:23,2019-06-27 15:08:23
+600,Becerro de Bengoa Kalea,,Fiscal,Fachada Becerro de Bengoa Kalea,0,202,App\Clinic,2019-06-27 15:09:07,2019-06-27 15:09:07
+601,C/ San Antonio,,Fiscal,Fachada San Antonio,0,202,App\Clinic,2019-06-27 15:09:33,2019-06-27 15:09:33
+602,C/ de Santa Clara,,Fiscal,Facahda de Santa Clara,0,203,App\Clinic,2019-06-27 15:10:23,2019-06-27 15:10:23
+603,C/ Jorge Jordana,,Fiscal,Fachada Jorge Jordana,0,205,App\Clinic,2019-06-27 15:11:00,2019-06-27 15:11:00
+604,C/ Josefa Amar y Borbón,,Fiscal,Fachada Josefa Amar y Borbón,0,207,App\Clinic,2019-06-27 15:11:46,2019-06-27 15:11:46
+605,"Pl. de la Constitución, 1",,Fiscal,Principal,0,228,App\Clinic,2019-07-09 9:17:18,2019-07-09 9:17:18
+606,C/ Méndez Núñez,,Fiscal,Fachada Méndez Núñez,0,228,App\Clinic,2019-07-09 11:15:18,2019-07-09 11:15:18
+607,Pl. de Espronceda,,Fiscal,Fachada de Espronceda,0,228,App\Clinic,2019-07-09 11:15:41,2019-07-09 11:15:41
+608,"Pg. de Dintre, 13",,Fiscal,Principal,0,229,App\Clinic,2019-07-12 13:16:30,2019-07-12 13:16:30
+609,"Av. Miguel de Cervantes, 10",,Fiscal,Principal,0,230,App\Clinic,2019-07-12 13:18:01,2019-07-12 13:18:01
+610,"C/ Mairena, 37",,Fiscal,Principal,0,231,App\Clinic,2019-07-12 13:19:28,2019-07-12 13:19:28
+611,"C/ Isilla, 22",,Fiscal,Principal,0,232,App\Clinic,2019-07-12 13:20:48,2019-07-12 13:20:48
+612,C/ Orense,,Fiscal,Fachada Orense,0,6,App\Clinic,2019-07-17 11:55:48,2019-07-17 11:55:48
+613,C/ Constitución,,Fiscal,Fachada Constitución,0,7,App\Clinic,2019-07-17 12:08:12,2019-07-17 12:08:12
+614,Av. Blas Infante,,Fiscal,Fachada Blas Infante,0,11,App\Clinic,2019-07-17 12:16:01,2019-07-17 12:16:01
+615,C/ Almibar,,Fiscal,Fachada Almibar,0,16,App\Clinic,2019-07-18 17:24:26,2019-07-18 17:24:26
+616,"Av. Ana de Viya, 46",,Fiscal,Fachada Ana de Viya,0,35,App\Clinic,2019-07-18 17:40:13,2019-07-18 17:40:13
+617,C/ Roger dde Llúrla,,Fiscal,Fachada Roger dde Llúrla,0,36,App\Clinic,2019-07-18 17:44:24,2019-07-18 17:44:24
+618,C/ Pompeu Fabra,,Fiscal,Fachada Pompeu Fabra,0,38,App\Clinic,2019-07-18 17:47:22,2019-07-18 17:47:22
+619,C/ Templo de Sant Telmo,,Fiscal,Fachada Templo de Sant Telmo,0,48,App\Clinic,2019-07-18 17:54:21,2019-07-18 17:54:21
+620,C/ Castella,,Fiscal,Fachada Castella,0,52,App\Clinic,2019-07-18 17:58:06,2019-07-18 17:58:06
+621,C/ Corredora,,Fiscal,Fachada Corredora,0,54,App\Clinic,2019-07-18 18:03:16,2019-07-18 18:03:16
+622,Callejón Peatonal,,Fiscal,Facada Callejón Peatonal,0,61,App\Clinic,2019-07-18 19:09:24,2019-07-18 19:09:24
+623,Zuberoa Kalea,,Fiscal,Fachada Zuberoa,0,62,App\Clinic,2019-07-18 19:12:40,2019-07-18 19:12:40
+624,Lapurdi Kalea,,Fiscal,Fachada Lapurdi,0,62,App\Clinic,2019-07-18 19:13:04,2019-07-18 19:13:04
+625,C/ Ramón y Cajal,,Fiscal,Fachada Ramón y Cajal,0,66,App\Clinic,2019-07-18 19:18:18,2019-07-18 19:18:18
+626,Bidearte Kalea,,Fiscal,Fachada Bidearte,0,67,App\Clinic,2019-07-18 19:23:55,2019-07-18 19:23:55
+627,C/ de los Moros,,Fiscal,Fachada de los Moros,0,69,App\Clinic,2019-07-18 19:27:39,2019-07-18 19:27:39
+628,C/ d'Enric Prat de la Riba,,Fiscal,Fachada d'Enric Prat de la Riba,0,84,App\Clinic,2019-07-18 19:32:08,2019-07-18 19:32:08
+629,C/ Sierra de Cazalla,,Fiscal,Fachada Sierra de Cazalla,0,100,App\Clinic,2019-07-18 19:35:56,2019-07-18 19:35:56
+630,C/ Mariano Vela,,Fiscal,Fachada Mariano Vela,0,112,App\Clinic,2019-07-19 12:11:57,2019-07-19 12:11:57
+631,C/ Rodrigo Uhagón,,Fiscal,Fachada Rodrigo Uhagón,0,113,App\Clinic,2019-07-19 12:18:01,2019-07-19 12:18:01
+632,Alameda Principal,,Fiscal,Facada Alameda Principal,0,122,App\Clinic,2019-07-19 12:24:47,2019-07-19 12:24:47
+633,C/ de los Órganos,,Fiscal,Fachada de los Órganos,0,131,App\Clinic,2019-07-19 16:59:56,2019-07-19 16:59:56
+634,Pl. Julio Lazurtegui,,Fiscal,Fachada Julio Lazurtegui,0,146,App\Clinic,2019-07-19 17:05:23,2019-07-19 17:05:23
+635,C/ del Gral. Castaños,,Fiscal,Fachada del Gral. Castaños,0,148,App\Clinic,2019-07-19 17:09:43,2019-07-19 17:09:43
+636,Carrera Espinel,,Fiscal,Fachada Carrera Espinel,0,153,App\Clinic,2019-07-19 17:13:28,2019-07-19 17:33:39
+637,"C/ d’Iscle Soler, 30",,Fiscal,"Fachada d’Iscle Soler, 30",0,177,App\Clinic,2019-07-19 17:39:39,2019-07-19 17:39:39
+638,C/ Alcalde José Herrera,,Fiscal,Fachada Alcalde José Herrera,0,195,App\Clinic,2019-07-19 17:48:33,2019-07-19 17:48:33
+639,Pl. de los Reyes Católicos,,Fiscal,Fachada de los Reyes Católicos,0,195,App\Clinic,2019-07-19 17:48:56,2019-07-19 17:48:56
+640,Rúa Arzobispo Lago,,Fiscal,Fachada Rúa Arzobispo Lago,0,199,App\Clinic,2019-07-19 17:52:54,2019-07-19 17:52:54
+641,Rúa Castelao,,Fiscal,Fachada Rúa Castelao,0,199,App\Clinic,2019-07-19 17:54:55,2019-07-19 17:54:55

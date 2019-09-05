@@ -1,0 +1,26 @@
+id,name,to,icon,order,menu_id,parent_id,created_at,updated_at
+1,posters,,photo_album,1,1,,2019-08-30 18:49:02,2019-08-30 18:49:02
+2,poster-distribution-dashboard,poster-distribution-dashboard,dashboard,1,1,1,2019-08-30 18:49:58,2019-08-30 18:56:24
+3,clinics,clinics,keyboard_backspace,1,2,,2019-08-30 20:03:49,2019-08-30 20:11:06
+4,admin-dashboard,admin-dashboard,dashboard,2,2,,2019-08-30 20:09:13,2019-08-30 20:11:17
+5,users,users,person,3,2,,2019-08-30 20:11:37,2019-08-30 20:11:37
+6,groups,groups,people,4,2,,2019-08-30 20:11:53,2019-08-30 20:11:53
+7,menus,menus,menu,5,2,,2019-08-30 20:12:11,2019-08-30 20:12:11
+8,menu-items,menu-items,menu_book,6,2,,2019-08-30 20:12:28,2019-08-30 20:12:28
+9,admin-dashboard,admin-dashboard,vpn_key,2,1,,2019-08-30 20:13:49,2019-08-30 20:13:49
+10,stationary,stationary,how_to_vote,3,1,,2019-08-30 20:14:29,2019-08-30 20:14:29
+11,orders,orders,compare_arrows,1,1,10,2019-08-30 20:14:52,2019-08-30 20:15:08
+12,materials,materials,file_copy,2,1,10,2019-08-30 20:20:41,2019-08-30 20:20:41
+13,personal-tags,personal-tags,more,3,1,10,2019-08-30 20:21:11,2019-08-30 20:21:11
+14,business-cards,business-cards,credit_card,4,1,10,2019-08-30 20:21:56,2019-08-30 20:21:56
+15,medical-chart,medical-chart,receipt,5,1,10,2019-08-30 20:22:30,2019-08-30 20:22:30
+16,marketing,,developer_board,4,1,,2019-08-30 20:23:01,2019-08-30 20:23:01
+17,clinics,clinics,store_mall_directory,1,1,16,2019-08-30 20:24:18,2019-08-30 20:24:18
+18,campaigns,campaigns,format_list_bulleted,2,1,16,2019-08-30 20:24:37,2019-08-30 20:24:37
+19,poster-distribution,poster-distribution,picture_in_picture,2,1,1,2019-08-30 20:25:22,2019-08-30 20:25:44
+20,clinic-posters,clinic-posters,list_alt,3,1,1,2019-08-30 20:26:09,2019-08-30 20:26:09
+21,clinic-poster-priorities,clinic-poster-priorities,list_alt,4,1,1,2019-08-30 20:26:44,2019-08-30 20:26:44
+22,poster-models,poster-models,insert_photo,5,1,1,2019-08-30 20:27:07,2019-08-30 20:27:07
+23,sanitary-codes,sanitary-codes,format_list_bulleted,3,1,16,2019-08-30 20:27:45,2019-08-30 20:27:45
+24,rrhh,rrhh,people,5,1,,2019-08-30 20:28:18,2019-08-30 20:28:18
+25,profiles,profiles,contact_mail,1,1,24,2019-08-30 20:28:37,2019-08-30 20:28:37

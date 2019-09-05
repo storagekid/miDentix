@@ -60,7 +60,7 @@ class ProviderController extends Controller
         $provider->update(request()->all());
 
         return response([
-            'updatedModel' => $provider->fresh(),
+            'model' => $provider->fresh(),
         ], 200);
     }
 

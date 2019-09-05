@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Clinic;
 use App\Profile;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProfile;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,9 @@ class ProfileController extends Controller
     public function index()
     {
         return response([
-            'model' => Profile::clinicsScoped('profile','name'),
+            'model' => Profile::fetch('profile', 'name'),
+            'quasarData' => Profile::getQuasarData(),
+            // 'model' => Profile::with('clinics.schedules')->get(),
             ], 200
         );
     }
@@ -28,33 +31,24 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProfile $request)
     {
-        // dd(request()->all());
+        $quasarData = Profile::getQuasarData();
         $profile = Profile::create(request()->all());
-        // dd($profile);
-        foreach ($profile->getRelations() as $key => $value) {
-            if (request()->has($key)) {
-                $relation = request($key);
-                if (is_string($relation)) {
-                    $relation = json_decode($relation, true);
-                    // $relation = json_decode(json_encode($relation), true);
-                }
-                $nRelation = count($relation); 
-                if ($nRelation > 0) {
-                    $profile->clinicProfiles()->delete();
-                    foreach($relation as $model) {
-                        // dd($model);
-                        $temp = $profile->clinicProfiles()->make($model);
-                        $profile->clinicProfiles()->save($temp);
-                    } 
+        foreach ($quasarData['relations'] as $name => $relation) {
+            if ($relation['type'] === 'BelongsToMany' && request()->has($name)) {
+                $models = json_decode((request($name)), true);
+                if (count($models)) {
+                    foreach ($models as $item) {
+                        $profile->$name()->attach($item['id']);
+                    }
                 }
             }
         }
 
         return response([
-            'newmodel' => $profile,
-            ], 200);
+            'model' => $profile->attachFull(),
+        ], 200);
     }
 
     /**
@@ -64,34 +58,15 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProfile $request, $id)
     {
         // dd(request()->all());
-        $profile = Profile::find($id);
-        $profile->update(request()->all());
-        // dd($profile);
-        foreach ($profile->getRelations() as $key => $value) {
-            if (request()->has($key)) {
-                $relation = request($key);
-                if (is_string($relation)) {
-                    $relation = json_decode($relation, true);
-                    // $relation = json_decode(json_encode($relation), true);
-                }
-                $nRelation = count($relation); 
-                if ($nRelation > 0) {
-                    $profile->clinicProfiles()->delete();
-                    foreach($relation as $model) {
-                        // dd($model);
-                        $temp = $profile->clinicProfiles()->make($model['pivot']);
-                        $profile->clinicProfiles()->save($temp);
-                    } 
-                }
-            }
-        }
+        $model = Profile::find($id);
+        $model->update(request()->all());
 
         return response([
-            'updatedModel' => $profile,
-            ], 200);
+            'model' => $model->attachFull(),
+        ], 200);
     }
 
     /**
@@ -103,10 +78,10 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         try {
-            $name = Profile::find($id)->fullName;
+            $model = Profile::find($id);
             Profile::destroy($id);
             return response([
-                'message' => 'Perfil de ' . $name . ' eliminado correctamente',
+                'message' => 'Perfil de ' . $model[$model->getKeyField()] . ' eliminado correctamente',
             ], 200);
         } catch (\Exception $e) {
             return response([
@@ -114,4 +89,20 @@ class ProfileController extends Controller
             ]);
         }
     }
+
+    // public function downloadTags (Request $request)
+    // {
+    //     $ids = $request->query('profiles');
+    //     $profiles = Profile::find($ids);
+    //     $clinic = \App\Clinic::find($request->query('clinic'));
+    //     $file = Profile::makeTags($profiles, $clinic);
+
+    //     $headers = [
+    //         'Content-Type' => 'application/pdf',
+    //         'Content-Disposition' => 'attachment; filename="myfile.txt"',
+    //     ];
+    //     // return response()->file(public_path('img/logo_mi.png'));
+    //     return response()->download($file, 'patata.pdf', $headers)->deleteFileAfterSend(true);
+    //     return response()->download($file)->deleteFileAfterSend(true);
+    // }
 }

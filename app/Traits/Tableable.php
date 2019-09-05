@@ -12,14 +12,20 @@ trait Tableable {
     }
 
     public function getColumns() {
-        return $this->columnBuilder($this->tableColumns);
+        return $this->columnBuilder();
     }
 
     public function getOptions() {
         return $this->optionsBuilder($this->tableOptions);
     }
 
-    public function columnBuilder($columns, $options=[]) {
+    public function columnBuilder($options=[]) {
+        $columns = $this->tableColumns;
+        if (request()->has('table')) {
+            if ($this->tableViews) {
+                if (array_key_exists(request('table'), $this->tableViews)) $columns = $this->tableViews[request('table')];
+            }
+        }
         $defColumns = [];
 
         foreach ($columns as $key => $column) {
@@ -40,7 +46,8 @@ trait Tableable {
             }
             
             $temp = [];
-            $temp['label'] = array_key_exists('label', $options) ? $options['label'] : ucfirst($name);;
+            $temp['label'] = array_key_exists('label', $options) ? $options['label'] : ucfirst($name);
+            $temp['field'] = array_key_exists('field', $options) ? $options['field'] : $name;
             $temp['name'] = $name;
             $temp['show'] = array_key_exists('show', $options) ? $options['show'] : true;
             $temp['linebreak'] = array_key_exists('linebreak', $options) ? $options['linebreak'] : false;
@@ -51,6 +58,9 @@ trait Tableable {
             // if (!in_array($name, $this->accesors)) {
             //     $temp['maxLengthId'] = $this::orderByRaw('CHAR_LENGTH('. $name .')')->first(['id']);
             // }
+            $temp['onGrid'] = array_key_exists('onGrid', $options) ? $options['onGrid'] : 'line';
+            $temp['align'] = array_key_exists('align', $options) ? $options['align'] : 'left';
+            $temp['sortable'] = array_key_exists('sortable', $options) ? $options['sortable'] : true;
             $temp['sorting'] = $this->sortingBuilder($sorting);
             $temp['filtering'] = $this->filteringBuilder($name, $filtering);
             $defColumns[] = $temp;
@@ -77,6 +87,7 @@ trait Tableable {
             'key' => $name,
             'options' => [
                 'noOptions' => in_array('noOptions', $options) ? true : false,
+                'select' => array_key_exists('select', $options) ? $options['select'] : false,
                 'search' => in_array('search', $options) ? [$name] : false,
                 'integer' => in_array('integer', $options) ? true : false,
                 'numeric' => in_array('numeric', $options) ? true : false,

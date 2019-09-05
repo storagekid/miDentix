@@ -2,14 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\Tableable;
-use App\Traits\Formable;
-
-class Clinic_Profile extends Model
+class Clinic_Profile extends Qmodel
 {
-    use Tableable;
-    use Formable;
 
     // TABLE
     protected $tableColumns = [
@@ -119,19 +113,19 @@ class Clinic_Profile extends Model
           ],
     ];
 
-    protected $formModels = ['countries','counties','states','clinics'];
+    // protected $formModels = ['countries','counties','states','clinics'];
 
 	protected $fillable = [
         'profile_id', 'clinic_id'
     ];
     protected $appends = ['fullName', 'countyName', 'stateName', 'countryName'];
-    protected $table = 'clinic_profile';
+    protected $table = 'clinic_profiles';
 
     public function profile() {
     	return $this->belongsTo(Profile::class);
     }
     public function clinic() {
-        return $this->belongsTo(Clinic::class);
+        return $this->belongsTo(Clinic::class)->withTrashed();
     }
     public function schedule() {
     	return \App\Schedule::where([

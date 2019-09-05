@@ -76,6 +76,7 @@ class StationaryOrder extends Mailable
             if (count($cardIds)) {
                 $profiles = \App\Profile::find($cardIds);
                 foreach ($profiles as $profile) {
+                    // $this->files['businessCards'][] = \App\Profile::makeBusinessCard($profile, $this->clinic);
                     $this->files['businessCards'][] = \App\Profile::makeBusinessCard($profile, $this->clinic);
                 }
             }

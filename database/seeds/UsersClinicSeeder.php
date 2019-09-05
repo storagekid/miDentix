@@ -11,51 +11,48 @@ class UsersClinicSeeder extends Seeder
      */
     public function run()
 	{
-		// $clinics = App\Clinic::all();
 		$group = \App\Group::where('name','Clinics')->first()->id;
+
 		$profiles = \App\Profile::get();
 		foreach ($profiles as $profile) {
-			if ($profile->job_type_id == 3) {
-				// var_dump($profile);
-				if (count($profile->clinics)) {
-					// var_dump($profile->clinics);
-					if ($profile->clinics[0]->email_ext) {
-						$user = \App\User::where('email','info.'.$profile->clinics[0]->email_ext.'@dentix.es')->first();
-						
-						if (!$user) {
-							$user = factory('App\User')->create([
-								'email' => 'info.'.$profile->clinics[0]->email_ext.'@dentix.es',
-							]);
-							$user->group()->attach($group);
+			if ($profile->user_id) continue;
+			if (!count($profile->clinics)) continue;
+			if (count($profile->clinic_schedules)) {
+				foreach ($profile->clinic_schedules as $schedule) {
+					if ($schedule->job_type_id === 8) {
+						if ($profile->clinics[0]->email_ext) {
+							$user = \App\User::where('name','subdirector.'.$profile->clinics[0]->email_ext.'@dentix.es')->first();
+							
+							if (!$user) {
+								$user = factory('App\User')->create([
+									'name' => 'subdirector.'.$profile->clinics[0]->email_ext.'@dentix.es',
+								]);
+								$user->groups()->attach($group, ['role' => 'editor']);
+							}
+							
+							$profile->user_id = $user->id;
+							$profile->tutorial_completed = 0;
+							$profile->save();
 						}
-						
-						$profile->user_id = $user->id;
-						$profile->tutorial_completed = 0;
-						$profile->save();
+					}
+					elseif ($schedule->job_type_id == 5) {
+						if ($profile->clinics[0]->email_ext) {
+							$user = \App\User::where('name','director.'.$profile->clinics[0]->email_ext.'@dentix.es')->first();
+							
+							if (!$user) {
+								$user = factory('App\User')->create([
+									'name' => 'director.'.$profile->clinics[0]->email_ext.'@dentix.es',
+								]);
+								$user->groups()->attach($group, ['role' => 'administrator']);
+							}
+							
+							$profile->user_id = $user->id;
+							$profile->tutorial_completed = 0;
+							$profile->save();
+						}
 					}
 				}
 			}
 		}
-		// foreach($clinics as $clinic) {
-		// 	if($clinic->email_ext && !$clinic->closed) {
-		// 		$user = factory('App\User')->create([
-		// 			'email' => 'info@'.$clinic->email_ext.'.es',
-		// 		]);
-		// 		$user->group()->attach($group);
-		// 		$profile = new App\Profile;
-		// 		$profile->name = 'Recepción Dentix';
-		// 		$profile->lastname1 = $clinic->fullName;
-		// 		$profile->lastname2 = null;
-		// 		$profile->email = $user->email;
-		// 		$profile->phone = $clinic->phone_real ? $clinic->phone_real : null;
-		// 		$profile->personal_id_number = null;
-		// 		$profile->license_number = null;
-		// 		$profile->license_year = null;
-		// 		$profile->tutorial_completed = 0;
-		// 		$profile->user_id = $user->id;
-		// 		$profile->save();
-		// 		$profile->clinics()->save($clinic);
-		// 	}
-		// }
 	}
 }

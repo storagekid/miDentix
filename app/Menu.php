@@ -2,117 +2,71 @@
 
 namespace App;
 
-class Menu
+class Menu extends Qmodel
 {
-    protected $items = [
-        'Profile' => [
-            'name' => 'Perfil',
-            'link' => '/profile',
-            'icon' => 'glyphicon glyphicon-user'
-        ],
-        'CPanel' => [
-            'name' => 'Panel de Control',
-            'link' => '/home',
-            'icon' => 'glyphicon glyphicon-dashboard'
-        ],
-        'Requests' => [
-            'name' => 'Necesidades',
-            'link' => '/requests',
-            'icon' => 'glyphicon glyphicon-bullhorn'
-        ],
-        'ExtraTime' => [
-            'name' => 'Bolsa de Horas',
-            'link' => '/extratime',
-            'icon' => 'glyphicon glyphicon-time'
-        ],
-        'Schedule' => [
-            'name' => 'Jornada',
-            'link' => '/schedule',
-            'icon' => 'glyphicon glyphicon-time'
-        ],
-        'Masters' => [
-            'name' => 'Cursos',
-            'link' => '#',
-            'icon' => 'glyphicon glyphicon-education'
-        ],
-        'Protocols' => [
-            'name' => 'Protocolos',
-            'link' => '#',
-            'icon' => 'glyphicon glyphicon-file'
-        ],
-        'Surveys' => [
-            'name' => 'Encuestas',
-            'link' => '#',
-            'icon' => 'glyphicon glyphicon-list-alt'
-        ],
-        'Clinics' => [
-            'name' => 'Clínicas',
-            'link' => '/clinics',
-            'icon' => 'glyphicon glyphicon-home'
-        ],
-        'Papers' => [
-            'name' => 'Informes',
-            'link' => '#',
-            'icon' => 'glyphicon glyphicon-file'
-        ],
-        'Users' => [
-            'name' => 'Usuarios',
-            'link' => '/users',
-            'icon' => 'glyphicon glyphicon-user'
-        ],
-        'Profiles' => [
-            'name' => 'Personal',
-            'link' => '/profiles',
-            'icon' => 'glyphicon glyphicon-user'
-        ],
-        'Dentists' => [
-            'name' => 'Odontólogos',
-            'link' => '/dentists',
-            'icon' => 'glyphicon glyphicon-user'
-        ],
-        'Tools' => [
-            'name' => 'Tools',
-            'link' => '/tools',
-            'icon' => 'glyphicon glyphicon-wrench'
-        ],
-        'Stationary' => [
-            'name' => 'Papeleria',
-            'link' => '/stationary',
-            'icon' => 'glyphicon glyphicon-duplicate'
-        ],
-        'PersonalTags' => [
-            'name' => 'Identificadores',
-            'link' => '/personal-tags',
-            'icon' => 'glyphicon glyphicon-tags'
-        ],
-        'BusinessCard' => [
-            'name' => 'Tarjeta de Visita',
-            'link' => '/business-card',
-            'icon' => 'glyphicon glyphicon-credit-card'
-        ],
-        'MedicalDirectory' => [
-            'name' => 'Cuadro Médico',
-            'link' => '/directory',
-            'icon' => 'glyphicon glyphicon-th-list'
-        ],
-        'Orders' => [
-            'name' => 'Pedidos',
-            'link' => '/orders',
-            'icon' => 'glyphicon glyphicon-transfer'
-        ],
-        'Providers' => [
-            'name' => 'Proveedores',
-            'link' => '/providers',
-            'icon' => 'glyphicon glyphicon-briefcase'
+    protected $fillable = ['name'];
+
+    // Quasar DATA
+    protected $relatedTo = ['menu_items'];
+
+    protected $quasarFormNewLayout = [
+        [
+            'title' => 'Información',
+            'subtitle' => 'General',
+            'fields' => [
+                ['name']
+            ],
         ],
     ];
+    protected $quasarFormUpdateLayout = [
+        [
+            'title' => 'Información',
+            'subtitle' => 'General',
+            'fields' => [
+                ['name']
+            ],
+        ],
+        [
+            'title' => 'Items',
+            'icon' => 'photo_album',
+            'fields' => [],
+            'relations' => ['menu_items']
+        ]
+    ];
+    protected $quasarFormFields = [
+        'name' => [
+            'label' =>'Nombre',
+        ]
+    ];
+    protected $listFields = [
+        'left' => [],
+        'main' => [
+            'name' => ['text'],
+        ]
+    ];
+    protected $keyField = 'name';
+    // END Quasar DATA
 
-    public function get($list)
-    {
-        $userMenu = [];
-        foreach ($list as $name) {
-            $userMenu[] = $this->items[$name];
-        };
-        return $userMenu;
+    // Tableable DATA
+    protected $tableColumns = [
+        'name' => [
+            'label' => 'Nombre',
+            'filtering' => ['search'],
+        ],
+        'menu_items_count' => [
+            'label' => 'Items',
+            'filtering' => ['select' => 'clinics'],
+        ]
+    ];
+    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
+    // END Table Data
+    protected $appends = ['shorted_items'];
+    protected static $full = ['menu_items'];
+
+    public function menu_items() {
+        return $this->hasMany(MenuItem::class);
+    }
+    public function getShortedItemsAttribute() {
+        return $this->menu_items()->where('parent_id', null)->orderBy('order')->get();
     }
 }

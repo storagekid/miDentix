@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Job extends Model
+class Job extends Qmodel
 {
+
     public function getNameAttribute($value)
     {
         return ucfirst(strtolower($value));

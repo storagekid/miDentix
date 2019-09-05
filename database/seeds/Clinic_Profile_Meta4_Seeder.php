@@ -1,13 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Flynsarmy\CsvSeeder\CsvSeeder;
 
 class ClinicProfileMeta4Seeder extends CsvSeeder
 {
 	public function __construct()
 	{
-		$this->table = 'clinic_profile';
+		$this->table = 'clinic_profiles';
 		$this->csv_delimiter = ',';
 		$this->filename = base_path().'/database/seeds/csvs/clinic_profile_meta4.csv';
 	}

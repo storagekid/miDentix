@@ -2,11 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class CostCenter extends Model
+class CostCenter extends Qmodel
 {
     public function clinics() {
-    	return $this->HasMany(Clinic::class);
+    	return $this->HasMany(Clinic::class)->withTrashed();
     }
 }

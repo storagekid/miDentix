@@ -1,0 +1,495 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use App\Traits\Tableable;
+use App\Traits\Formable;
+use App\Traits\Quasarable;
+use App\Traits\Scope;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Clinic extends Model
+{
+  use SoftDeletes;
+  use Scope;
+  use Tableable;
+  use Quasarable;
+  
+  public static function boot()
+  {
+    parent::boot();
+      Clinic::saving(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::saved(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::creating(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::created(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::updated(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::updating(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::deleted(function () {
+        Cache::forget('clinics');
+      });
+      Clinic::deleting(function () {
+        Cache::forget('clinics');
+      });
+  }
+
+  // Quasar DATA
+  protected $relations = ['addresses', 'phones'];
+  protected $relatedTo = ['addresses', 'phones'];
+
+  protected $quasarFormNewLayout = [
+      [
+          'title' => 'Información',
+          'subtitle' => 'General',
+          'fields' => [
+            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at']
+          ],
+          'relations' => []
+      ]
+  ];
+  protected $quasarFormUpdateLayout = [
+      [
+          'title' => 'Información',
+          'subtitle' => 'General',
+          'fields' => [
+            ['city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at', 'ends_at']
+          ],
+          'relations' => []
+      ],
+      [
+          'title' => 'Direcciones / Teléfonos',
+          'icon' => 'directions',
+          'fields' => [],
+          'relations' => ['addresses', 'phones']
+      ],
+      [
+          'title' => 'Managers',
+          'icon' => 'supervisor_account',
+          'fields' => [
+              ['clinic_manager_id', 'area_manager_id']
+          ],
+      ]
+  ];
+  protected $quasarFormFields = [
+    'county_id' => [
+      'label' =>'Provincia',
+      'type' => [
+        'name' =>'select',
+        'model' => 'counties',
+        'text' =>  'name',
+        'value' => 'id',
+        'default' => [
+          'text' => 'Selecciona una Provincia',
+        ],
+      ],
+    ],
+    'language_id' => [
+      'label' =>'Language',
+      'type' => [
+          'name' =>'select',
+          'model' => 'languages',
+          'default' => [
+              'text' => 'Selecciona un Idioma',
+          ],
+      ],
+    ],
+    'city' => [
+      'label' =>'Ciudad/Municipio',
+    ],
+    'district' => [
+      'label' =>'Distrito',
+    ],
+    'nickname' => [
+      'label' =>'Apodo',
+    ],
+    'postal_code' => [
+      'label' =>'CP',
+    ],
+    'sanitary_code' => [
+      'label' =>'Código Sanitario',
+      'batch' => true,
+    ],
+    'email_ext' => [
+      'label' =>'Extensión Email',
+    ],
+    'clinic_manager_id' => [
+      'label' =>'C. Manager',
+      'type' => [
+        'name' =>'select',
+        'model' => 'profiles',
+        'scope' => true,
+        'text' =>  'name',
+        'value' => 'id',
+        'default' => [
+          'text' => 'Selecciona un Clinic Manager',
+        ],
+      ],
+    ],
+    'area_manager_id' => [
+      'label' =>'A. Manager',
+      'type' => [
+        'name' =>'select',
+        'model' => 'profiles',
+        'scope' => true,
+        'text' =>  'name',
+        'value' => 'id',
+        'default' => [
+          'text' => 'Selecciona un Área Manager',
+        ],
+      ],
+    ],
+    'cost_center_id' => [
+      'label' =>'Centro de Coste',
+      'type' => [
+        'name' =>'select',
+        'model' => 'cost_centers',
+        'text' =>  'name',
+        'value' => 'id',
+        'default' => [
+          'text' => 'Selecciona un Centro de Coste',
+        ],
+      ],
+    ],
+    'starts_at' => [
+      'label' =>'Fecha Inicio',
+      'batch' => true,
+      'type' => [
+          'name' => 'date',
+      ],
+    ],
+    'ends_at' => [
+        'label' =>'Fecha Fin',
+        'batch' => true,
+        'type' => [
+            'name' => 'date',
+        ]
+    ]
+  ];
+  protected $listFields = [
+      'left' => [
+          'city' => ['chips'],
+      ],
+      'main' => [
+          'address_real_1' => ['text'],
+          'address_real_2' => ['text'],
+      ],
+      'right' => [
+          'county_id' => ['text'],
+      ],
+  ];
+  protected $keyField = 'nickname';
+  // END Quasar DATA
+
+  // Tableable DATA
+  protected $tableColumns = [
+    'nickname' => [
+      'label' => 'Clínica',
+      'filtering' => ['search'],
+      'linebreak' => [
+        'needles' => ['(', 'esq.'],
+        'options' => [
+          'small' => true
+        ]
+      ],
+    ],
+    'city' => [
+      'label' => 'Ciudad',
+      'filtering' => ['search'],
+    ],
+    'district' => [
+      'label' => 'Distrito/Zona',
+      'filtering' => ['search'],
+    ],
+    'addresses' => [
+      'label' => 'Direcciones',
+      'filtering' => ['search'],
+    ],
+    'phones' => [
+      'label' => 'Teléfonos',
+      'filtering' => ['search'],
+    ],
+    'postal_code' => [
+      'label' => 'CP',
+      'filtering' => ['search'],
+    ],
+    'language.label' => [
+      'label' => 'Language',
+      'filtering' => ['search'],
+    ],
+    'email_ext' => [
+      'label' => 'Email Ext.',
+      'filtering' => ['search'],
+    ],
+    'sanitary_code' => [
+      'label' => 'Código Sanitario',
+      'filtering' => ['search'],
+    ],
+    'area_manager.full_name' => [
+      'label' => 'Área Manager',
+      'filtering' => ['search'],
+      'show' => false
+    ],
+    'clinic_manager.full_name' => [
+      'label' => 'Clinic Manager',
+      'filtering' => ['search'],
+      'show' => false
+    ],
+    'costCenterName' => [
+      'label' => 'Centro de Coste',
+      'filtering' => ['search'],
+      'show' => false
+    ],
+    'county.name' => [
+      'label' => 'Provincia',
+      'filtering' => ['search'],
+    ],
+    'county.state.name' => [
+      'label' => 'CCAA',
+      'filtering' => ['search'],
+    ],
+    'county.state.country.name' => [
+      'label' => 'País',
+      'filtering' => ['search'],
+      'show' => false
+    ],
+    'starts_at' => [
+      'label' => 'Fecha Inicio',
+    ],
+    'ends_at' => [
+        'label' => 'Fecha Fin',
+    ],
+    // 'actions' => [
+    //   'label' => 'Actions'
+    // ]
+  ];
+  protected $tableViews = [
+    'PosterDistributionDashBoard' => [
+      'nickname' => [
+        'label' => 'Clínica',
+        'filtering' => ['search'],
+      ],
+      'deleted_at' => [
+        'label' => 'Abierta',
+        'filtering' => ['select' => 'clinics'],
+      ],
+      'clinic_posters_count' => [
+        'label' => 'Carteles'
+      ],
+      'clinic_distributions_by_campaign' => [
+        'label' => 'Distribuciones'
+      ],
+      'actions' => [
+        'label' => 'Actions'
+      ]
+    ]
+  ];
+  protected $tableOptions = [['show','edit','delete'], true, true];
+
+  // END Tableable Data
+
+  protected $fillable = ['city', 'language_id', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'clinic_manager_id', 'area_manager_id', 'cost_center_id', 'starts_at', 'ends_at'];
+  protected static $full = ['county', 'costCenter', 'addresses', 'phones', 'area_manager', 'clinic_manager', 'language'];
+  protected static $show = [
+    'county',
+    'costCenter',
+    'addresses',
+    'phones',
+    'area_manager',
+    'clinic_manager',
+    'clinic_poster_priorities',
+    'poster_distributions'
+  ];
+  // protected $with = ['county', 'costCenter', 'addresses', 'phones', 'area_manager', 'clinic_manager'];
+  // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
+  protected $appends = ['label', 'value'];
+  // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName', 'label', 'value'];
+  protected $casts = ['postal_code' => 'string'];
+  protected $stationary = [];
+
+  // public function posters()
+  // {
+  //   return $this->belongsToMany(Poster::class, 'clinic_posters');
+  // }
+
+  public function getShowView($view=null) {
+    $views = [
+      'distributions' => [
+        'county',
+        'costCenter',
+        'addresses',
+        'phones',
+        'area_manager',
+        'clinic_manager',
+        'clinic_poster_priorities',
+        'poster_distributions' => function ($q) { return $q->with(['original_facade']); }
+      ],
+      'default' => self::$show
+    ];
+    if (!$view) $view = 'default';
+    else if (!array_key_exists($view, $views)) $view = 'default';
+    return $views[$view];
+  }
+  public function clinic_posters () {
+      return $this->hasMany(ClinicPoster::class);
+  }
+  public function clinic_poster_priorities() {
+    return $this->hasManyThrough(ClinicPosterPriority::class, ClinicPoster::class);
+  }
+  public function poster_distributions () {
+    return $this->hasMany(ClinicPosterDistribution::class);
+}
+  public function costCenter()
+  {
+      return $this->belongsTo(CostCenter::class);
+  }
+  public function language() {
+    return $this->belongsTo(Language::class);
+  }
+  public function county()
+  {
+      return $this->belongsTo(County::class);
+  }
+
+  public function area_manager()
+  {
+      return $this->belongsTo(Profile::class, 'area_manager_id');
+  }
+
+  public function clinic_manager()
+  {
+      return $this->belongsTo(Profile::class, 'clinic_manager_id');
+  }
+
+  public function profiles()
+  {
+      return $this->belongsToMany(Profile::class, 'clinic_profiles');
+  }
+  public function addresses()
+  {
+      return $this->morphMany(Address::class, 'addressable');
+  }
+  public function phones()
+  {
+      return $this->morphMany(Phone::class, 'phoneable');
+  }
+  public function schedules() {
+    return $this->hasManyThrough(ClinicSchedule::class, ClinicProfile::class);
+}
+
+  public function orders()
+  {
+      return $this->hasMany(Order::class);
+  }
+
+  public function clinicStationaries()
+  {
+      return $this->HasMany(ClinicStationary::class);
+  }
+
+  public function stationaries()
+  {
+      return $this->belongsToMany(Stationary::class)
+          ->withPivot(['id', 'file', 'thumbnail']);
+  }
+
+  public static function cacheClinics() {
+    return Cache::rememberForever('clinics', function() {
+      return Clinic::with(['county', 'costCenter'])
+                  ->orderBy('city')
+                  ->orderBy('address_real_1')
+                  ->get()
+                  ->each
+                  ->append(['countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName']);
+    });
+  }
+
+  public function getClinicPostersCountAttribute () {
+    return $this->clinic_posters()->count();
+  }
+
+  public function getClinicDistributionsByCampaignAttribute () {
+    return $this->poster_distributions()->get()->groupBy('campaign_id');
+  }
+
+  public function getFullNameAttribute()
+  {
+      $street = $this->cleanStreet;
+      if ($street === '') $street = '#' . $this->id;
+      return $this->city . ' (' . $street . ')';
+  }
+
+  public function getCleanNameAttribute() {
+    $cleanName = cleanString($this->fullName);
+    return $cleanName;
+  }
+
+  public function getCleanStreetAttribute() {
+    // return 'patata';
+    $street = '';
+    if ($this->addresses) {
+        if (count($this->addresses) > 0) {
+            $street = $this->addresses[0]->cleanStreet;
+        }
+    }
+    return $street;
+    // $street = str_replace(['C/', 'c/', 'Rúa', 'Pl.', 'Pl ', 'Av.', 'P.º', 'Pg.', 'Rbla.', 'C.º', 'Ctra.', 'Ptge.'], '', $street);
+    // $street = str_replace(['s/n', '/'], ['s.n.', '-'], $street);
+    // return trim($street);
+    // return trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $street));
+  }
+
+  public function getCostCenterNameAttribute()
+  {
+      return $this->costCenter ? $this->costCenter->name : '-';
+  }
+
+  public function getCountyNameAttribute()
+  {
+      return $this->county ? $this->county->name : '-';
+  }
+
+  public function getStateIdAttribute()
+  {
+      return $this->county ? $this->county->state->id : null;
+  }
+  
+  public function getStateNameAttribute()
+  {
+      return $this->county ? $this->county->state->name : '-';
+  }
+
+  public function getCountryIdAttribute()
+  {
+      return $this->county ? $this->county->state->country->id : null;
+  }
+  
+  public function getCountryNameAttribute()
+  {
+      return $this->county ? $this->county->state->country->name : '-';
+  }
+
+  public function getPostalCodeAttribute($value)
+  {
+      while (strlen($value) < 5) {
+          $value = '0' . $value;
+      }
+      return $value;
+  }
+  public function getPostersAttribute()
+  {
+      return $this->clinic_poster_priorities->load(['clinic_poster' => function($q) { return $q->with(['poster']);}])->groupBy('campaign_id');
+  }
+}

@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class County extends Model
+class County extends Qmodel
 {
     protected $with = ['state'];
 

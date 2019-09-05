@@ -1,0 +1,463 @@
+id,number,type,description,main,phoneable_id,phoneable_type,created_at,updated_at
+1,981 216 261,Oficina,Real Phone from Meta 4,0,1,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+2,881 241 631,Virtual,Virtual Phone from Meta 4,0,1,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+3,967 810 835,Oficina,Real Phone from Meta 4,0,2,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+4,967 961 470,Virtual,Virtual Phone from Meta 4,0,2,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+5,91 071 41 34,Oficina,Real Phone from Meta 4,0,3,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+6,91 116 54 01,Virtual,Virtual Phone from Meta 4,0,3,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+7,91 877 52 92,Oficina,Real Phone from Meta 4,0,4,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+8,91 116 54 01,Virtual,Virtual Phone from Meta 4,0,4,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+9,868 129 970,Oficina,Real Phone from Meta 4,0,5,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+10,968 978 790,Virtual,Virtual Phone from Meta 4,0,5,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+11,91 651 58 76,Oficina,Real Phone from Meta 4,0,6,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+12,91 116 54 02,Virtual,Virtual Phone from Meta 4,0,6,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+13,91 021 05 70,Oficina,Real Phone from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+14,91 116 54 02,Virtual,Virtual Phone from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+15,865 604 117,Oficina,Real Phone from Meta 4,0,8,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+16,865 602 354,Virtual,Virtual Phone from Meta 4,0,8,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+17,91 610 51 50,Oficina,Real Phone from Meta 4,0,9,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+18,91 116 54 03,Virtual,Virtual Phone from Meta 4,0,9,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+19,956 923 140,Oficina,Real Phone from Meta 4,0,11,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+20,856 927 982,Virtual,Virtual Phone from Meta 4,0,11,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+21,965 134 549,Oficina,Real Phone from Meta 4,0,12,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+22,965 063 641,Virtual,Virtual Phone from Meta 4,0,12,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+23,950 958 653,Oficina,Real Phone from Meta 4,0,13,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+24,950 951 180,Virtual,Virtual Phone from Meta 4,0,13,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+25,953 899 829,Oficina,Real Phone from Meta 4,0,14,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+26,953 890 788,Virtual,Virtual Phone from Meta 4,0,14,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+27,951 23 73 85,Oficina,Real Phone from Meta 4,0,15,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+28,951 247 378,Virtual,Virtual Phone from Meta 4,0,15,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+29,91 061 11 81,Oficina,Real Phone from Meta 4,0,16,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+30,91 119 99 96,Virtual,Virtual Phone from Meta 4,0,16,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+31,924 200 834,Oficina,Real Phone from Meta 4,0,17,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+32,924 980 671,Virtual,Virtual Phone from Meta 4,0,17,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+33,93 170 63 11,Oficina,Real Phone from Meta 4,0,18,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+34,93 380 72 95,Virtual,Virtual Phone from Meta 4,0,18,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+35,93 389 96 50,Oficina,Real Phone from Meta 4,0,19,App\Clinic,2019-03-22 15:40:21,2019-07-18 17:30:58
+36,93 380 72 95,Virtual,Virtual Phone from Meta 4,0,19,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+37,93 189 55 74,Oficina,Real Phone from Meta 4,0,20,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+38,93 393 77 96,Virtual,Virtual Phone from Meta 4,0,20,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+39,93 164 01 13,Oficina,Real Phone from Meta 4,0,21,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+40,93 380 50 98,Virtual,Virtual Phone from Meta 4,0,21,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+41,932 174 182,Oficina,Real Phone from Meta 4,0,22,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+42,93 380 72 96,Virtual,Virtual Phone from Meta 4,0,22,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+43,93 018 12 12,Oficina,Real Phone from Meta 4,0,23,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+44,93 394 70 73,Virtual,Virtual Phone from Meta 4,0,23,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+45,93 189 55 82,Oficina,Real Phone from Meta 4,0,24,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+46,93 393 77 97,Virtual,Virtual Phone from Meta 4,0,24,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+47,93 172 73 75,Oficina,Real Phone from Meta 4,0,25,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+48,93 393 77 99,Virtual,Virtual Phone from Meta 4,0,25,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+49,93 173 98 73,Oficina,Real Phone from Meta 4,0,26,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+50,93 380 72 97,Virtual,Virtual Phone from Meta 4,0,26,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+51,93 432 76 39,Oficina,Real Phone from Meta 4,0,27,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+52,93 380 72 98,Virtual,Virtual Phone from Meta 4,0,27,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+53,94 434 97 47,Oficina,Real Phone from Meta 4,0,28,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+54,944 342 273,Virtual,Virtual Phone from Meta 4,0,28,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+55,980 981 192,Oficina,Real Phone from Meta 4,0,29,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+56,980 983 258,Virtual,Virtual Phone from Meta 4,0,29,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+57,946 532 908,Oficina,Real Phone from Meta 4,0,30,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+58,944 349 915,Virtual,Virtual Phone from Meta 4,0,30,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+59,94 694 81 52,Oficina,Real Phone from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+60,944 349 914,Virtual,Virtual Phone from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+61,94 434 97 81,Oficina,Real Phone from Meta 4,0,32,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+62,944 342 275,Virtual,Virtual Phone from Meta 4,0,32,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+63,91 290 97 50,Oficina,Real Phone from Meta 4,0,33,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+64,91 116 54 04,Virtual,Virtual Phone from Meta 4,0,33,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+65,947 257 884,Oficina,Real Phone from Meta 4,0,34,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+66,947 651 035,Virtual,Virtual Phone from Meta 4,0,34,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+67,856 913 257,Oficina,Real Phone from Meta 4,0,35,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+68,856 927 978,Virtual,Virtual Phone from Meta 4,0,35,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+69,877 066 422,Oficina,Real Phone from Meta 4,0,36,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+70,977 271 618,Virtual,Virtual Phone from Meta 4,0,36,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+71,868 123 758,Oficina,Real Phone from Meta 4,0,37,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+72,968 978 789,Virtual,Virtual Phone from Meta 4,0,37,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+73,93 636 07 78,Oficina,Real Phone from Meta 4,0,38,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+74,93 380 72 99,Virtual,Virtual Phone from Meta 4,0,38,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+75,964 868 924,Oficina,Real Phone from Meta 4,0,39,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+76,964 784 017,Virtual,Virtual Phone from Meta 4,0,39,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+77,942 941 462,Oficina,Real Phone from Meta 4,0,40,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+78,942 940 745,Virtual,Virtual Phone from Meta 4,0,40,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+79,926 677 935,Oficina,Real Phone from Meta 4,0,41,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+80,926 670 695,Virtual,Virtual Phone from Meta 4,0,41,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+81,91 189 83 75,Oficina,Real Phone from Meta 4,0,42,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+82,91 071 45 95,Virtual,Virtual Phone from Meta 4,0,42,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+83,91 071 68 02,Oficina,Real Phone from Meta 4,0,43,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+84,91 116 54 21,Virtual,Virtual Phone from Meta 4,0,43,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+85,957 497 979,Oficina,Real Phone from Meta 4,0,44,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+86,857 800 158,Virtual,Virtual Phone from Meta 4,0,44,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+87,933 776 787,Oficina,Real Phone from Meta 4,0,45,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+88,93 393 77 93,Virtual,Virtual Phone from Meta 4,0,45,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+89,91 085 19 83,Oficina,Real Phone from Meta 4,0,46,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+90,91 116 54 20,Virtual,Virtual Phone from Meta 4,0,46,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+91,969 871 138,Oficina,Real Phone from Meta 4,0,47,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+92,969 870 713,Virtual,Virtual Phone from Meta 4,0,47,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+93,865 600 110,Oficina,Real Phone from Meta 4,0,48,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+94,865 602 352,Virtual,Virtual Phone from Meta 4,0,48,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+95,955 675 761,Oficina,Real Phone from Meta 4,0,49,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+96,954 328 513,Virtual,Virtual Phone from Meta 4,0,49,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+97,94 694 81 11,Oficina,Real Phone from Meta 4,0,50,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+98,944 349 913,Virtual,Virtual Phone from Meta 4,0,50,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+99,950 927 343,Oficina,Real Phone from Meta 4,0,51,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+100,950 951 181,Virtual,Virtual Phone from Meta 4,0,51,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+101,93 019 04 37,Oficina,Real Phone from Meta 4,0,52,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+102,93 380 72 96,Virtual,Virtual Phone from Meta 4,0,52,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+103,956 923 133,Oficina,Real Phone from Meta 4,0,53,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+104,856 927 988,Virtual,Virtual Phone from Meta 4,0,53,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+105,96 661 34 75,Oficina,Real Phone from Meta 4,0,54,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+106,965 063 642,Virtual,Virtual Phone from Meta 4,0,54,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+107,865 600 175,Oficina,Real Phone from Meta 4,0,55,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+108,865 602 353,Virtual,Virtual Phone from Meta 4,0,55,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+109,951 497 149,Oficina,Real Phone from Meta 4,0,56,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+110,951 255 075,Virtual,Virtual Phone from Meta 4,0,56,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+111,881 246 630,Oficina,Real Phone from Meta 4,0,57,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+112,881 241 633,Virtual,Virtual Phone from Meta 4,0,57,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+113,872 984 920,Oficina,Real Phone from Meta 4,0,58,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+114,972 982 442,Virtual,Virtual Phone from Meta 4,0,58,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+115,951 491 686,Oficina,Real Phone from Meta 4,0,59,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+116,951 255 073,Virtual,Virtual Phone from Meta 4,0,59,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+117,91 498 92 90,Oficina,Real Phone from Meta 4,0,60,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+118,91 116 54 06,Virtual,Virtual Phone from Meta 4,0,60,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+119,91 608 12 16,Oficina,Real Phone from Meta 4,0,61,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+120,91 116 54 05,Virtual,Virtual Phone from Meta 4,0,61,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+121,945 569 409,Oficina,Real Phone from Meta 4,0,62,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+122,944 349 916,Virtual,Virtual Phone from Meta 4,0,62,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+123,960 623 039,Oficina,Real Phone from Meta 4,0,63,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+124,961 125 273,Virtual,Virtual Phone from Meta 4,0,63,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+125,93 172 73 63,Oficina,Real Phone from Meta 4,0,64,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+126,93 394 70 71,Virtual,Virtual Phone from Meta 4,0,64,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+127,91 085 19 32,Oficina,Real Phone from Meta 4,0,65,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+128,91 683 45 45,Oficina,Real Phone from Meta 4,0,66,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+129,91 116 54 07,Virtual,Virtual Phone from Meta 4,0,66,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+130,94 481 03 56,Oficina,Real Phone from Meta 4,0,67,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+131,944 342 271,Virtual,Virtual Phone from Meta 4,0,67,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+132,94 480 87 21,Oficina,Real Phone from Meta 4,0,68,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+133,944 342 271,Virtual,Virtual Phone from Meta 4,0,68,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+134,985 176 057,Oficina,Real Phone from Meta 4,0,69,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+135,984 242 512,Virtual,Virtual Phone from Meta 4,0,69,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+136,972 487 367,Oficina,Real Phone from Meta 4,0,70,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+137,972 982 441,Virtual,Virtual Phone from Meta 4,0,70,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+138,958 998 406,Oficina,Real Phone from Meta 4,0,71,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+139,958 991 561,Virtual,Virtual Phone from Meta 4,0,71,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+140,958 536 991,Oficina,Real Phone from Meta 4,0,72,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+141,958 991 559,Virtual,Virtual Phone from Meta 4,0,72,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+142,93 018 22 65,Oficina,Real Phone from Meta 4,0,73,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+143,93 394 70 74,Virtual,Virtual Phone from Meta 4,0,73,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+144,949 215 055,Oficina,Real Phone from Meta 4,0,74,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+145,949 870 924,Virtual,Virtual Phone from Meta 4,0,74,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+146,959 876 955,Oficina,Real Phone from Meta 4,0,75,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+147,959 870 840,Virtual,Virtual Phone from Meta 4,0,75,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+148,959 876 917,Oficina,Real Phone from Meta 4,0,76,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+149,959 870 839,Virtual,Virtual Phone from Meta 4,0,76,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+150,974 561 162,Oficina,Real Phone from Meta 4,0,77,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+151,974 560 773,Virtual,Virtual Phone from Meta 4,0,77,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+152,871 520 123,Oficina,Real Phone from Meta 4,0,78,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+153,971 571 485,Virtual,Virtual Phone from Meta 4,0,78,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+154,871 579 858,Oficina,Real Phone from Meta 4,0,79,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+155,971 571 484,Virtual,Virtual Phone from Meta 4,0,79,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+156,94 366 03 54,Oficina,Real Phone from Meta 4,0,80,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+157,843 980 982,Virtual,Virtual Phone from Meta 4,0,80,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+158,953 276 098,Oficina,Real Phone from Meta 4,0,81,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+159,953 890 784,Virtual,Virtual Phone from Meta 4,0,81,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+160,956 921 159,Oficina,Real Phone from Meta 4,0,82,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+161,856 927 980,Virtual,Virtual Phone from Meta 4,0,82,App\Clinic,2019-03-22 15:40:22,2019-03-22 15:40:22
+162,956 351 851,Oficina,Real Phone from Meta 4,0,83,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+163,856 927 979,Virtual,Virtual Phone from Meta 4,0,83,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+164,932 605 328,Oficina,Real Phone from Meta 4,0,84,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+165,93 393 77 94,Virtual,Virtual Phone from Meta 4,0,84,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+166,93 018 20 30,Oficina,Real Phone from Meta 4,0,85,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+167,93 396 49 99,Virtual,Virtual Phone from Meta 4,0,85,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+168,956 921 182,Oficina,Real Phone from Meta 4,0,86,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+169,856 927 986,Virtual,Virtual Phone from Meta 4,0,86,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+170,828 121 732,Oficina,Real Phone from Meta 4,0,87,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+171,928 987 552,Virtual,Virtual Phone from Meta 4,0,87,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+172,828 121 703,Oficina,Real Phone from Meta 4,0,88,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+173,928 987 551,Virtual,Virtual Phone from Meta 4,0,88,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+174,928 986 821,Oficina,Real Phone from Meta 4,0,89,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+175,928 987 548,Virtual,Virtual Phone from Meta 4,0,89,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+176,91 086 69 68,Oficina,Real Phone from Meta 4,0,90,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+177,91 116 54 19,Virtual,Virtual Phone from Meta 4,0,90,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+178,987 876 340,Oficina,Real Phone from Meta 4,0,91,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+179,987 795 159,Virtual,Virtual Phone from Meta 4,0,91,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+180,953 893 160,Oficina,Real Phone from Meta 4,0,92,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+181,953 890 787,Virtual,Virtual Phone from Meta 4,0,92,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+182,873 499 987,Oficina,Real Phone from Meta 4,0,93,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+183,973 982 021,Virtual,Virtual Phone from Meta 4,0,93,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+184,941 263 228,Oficina,Real Phone from Meta 4,0,94,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+185,941 890 650,Virtual,Virtual Phone from Meta 4,0,94,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+186,868 129 961,Oficina,Real Phone from Meta 4,0,95,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+187,968 978 791,Virtual,Virtual Phone from Meta 4,0,95,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+188,982 981 117,Oficina,Real Phone from Meta 4,0,96,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+189,982 980 705,Virtual,Virtual Phone from Meta 4,0,96,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+190,91 368 41 82,Oficina,Real Phone from Meta 4,0,97,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+191,91 116 54 10,Virtual,Virtual Phone from Meta 4,0,97,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+192,91 406 31 72,Oficina,Real Phone from Meta 4,0,98,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+193,91 116 54 10,Virtual,Virtual Phone from Meta 4,0,98,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+194,91 061 65 34,Oficina,Real Phone from Meta 4,0,99,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+195,91 119 99 92,Virtual,Virtual Phone from Meta 4,0,99,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+196,91 430 89 81,Oficina,Real Phone from Meta 4,0,100,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+197,91 116 54 08,Virtual,Virtual Phone from Meta 4,0,100,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+198,91 061 63 45,Oficina,Real Phone from Meta 4,0,101,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+199,91 116 54 24,Virtual,Virtual Phone from Meta 4,0,101,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+200,91 085 53 97,Oficina,Real Phone from Meta 4,0,102,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+201,91 116 54 18,Virtual,Virtual Phone from Meta 4,0,102,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+202,91 071 41 66,Oficina,Real Phone from Meta 4,0,103,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+203,91 119 99 94,Virtual,Virtual Phone from Meta 4,0,103,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+204,91 535 62 64,Oficina,Real Phone from Meta 4,0,104,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+205,91 116 54 09,Virtual,Virtual Phone from Meta 4,0,104,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+206,910 716 795,Oficina,Real Phone from Meta 4,0,105,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+207,91 116 54 14,Virtual,Virtual Phone from Meta 4,0,105,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+208,91 189 52 81,Oficina,Real Phone from Meta 4,0,106,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+209,91 116 54 12,Virtual,Virtual Phone from Meta 4,0,106,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+210,91 119 14 70,Oficina,Real Phone from Meta 4,0,107,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+211,91 119 99 95,Virtual,Virtual Phone from Meta 4,0,107,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+212,91 378 29 83,Oficina,Real Phone from Meta 4,0,108,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+213,91 116 54 14,Virtual,Virtual Phone from Meta 4,0,108,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+214,91 021 14 08,Oficina,Real Phone from Meta 4,0,109,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+215,91 021 09 54,Virtual,Virtual Phone from Meta 4,0,109,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+216,91 083 77 50,Oficina,Real Phone from Meta 4,0,110,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+217,91 130 09 70,Virtual,Virtual Phone from Meta 4,0,110,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+218,91 083 77 08,Oficina,Real Phone from Meta 4,0,111,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+219,91 021 09 53,Virtual,Virtual Phone from Meta 4,0,111,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+220,91 569 05 89,Oficina,Real Phone from Meta 4,0,112,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+221,91 116 54 13,Virtual,Virtual Phone from Meta 4,0,112,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+222,91 460 90 46,Oficina,Real Phone from Meta 4,0,113,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+223,91 116 54 13,Virtual,Virtual Phone from Meta 4,0,113,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+224,91 527 95 69,Oficina,Real Phone from Meta 4,0,114,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+225,91 116 54 11,Virtual,Virtual Phone from Meta 4,0,114,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+226,91 061 01 55,Oficina,Real Phone from Meta 4,0,115,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+227,91 119 99 93,Virtual,Virtual Phone from Meta 4,0,115,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+228,91 168 19 17,Oficina,Real Phone from Meta 4,0,116,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+229,91 116 54 11,Virtual,Virtual Phone from Meta 4,0,116,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+232,871 518 832,Oficina,Real Phone from Meta 4,0,118,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+233,971 571 479,Virtual,Virtual Phone from Meta 4,0,118,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+234,91 085 10 10,Oficina,Real Phone from Meta 4,0,119,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+235,91 071 45 97,Virtual,Virtual Phone from Meta 4,0,119,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+236,951 350 822,Oficina,Real Phone from Meta 4,0,120,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+237,951 247 379,Virtual,Virtual Phone from Meta 4,0,120,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+238,952 061 687,Oficina,Real Phone from Meta 4,0,121,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+239,951 247 377,Virtual,Virtual Phone from Meta 4,0,121,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+240,951 491 693,Oficina,Real Phone from Meta 4,0,122,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+241,951 247 377,Virtual,Virtual Phone from Meta 4,0,122,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+242,871 579 865,Oficina,Real Phone from Meta 4,0,124,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+243,971 571 482,Virtual,Virtual Phone from Meta 4,0,124,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+244,93 170 62 97,Oficina,Real Phone from Meta 4,0,125,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+245,93 393 77 98,Virtual,Virtual Phone from Meta 4,0,125,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+246,951 358 670,Oficina,Real Phone from Meta 4,0,126,App\Clinic,2019-03-22 15:40:23,2019-03-22 15:40:23
+247,951 247 380,Virtual,Virtual Phone from Meta 4,0,126,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+248,93 018 80 86,Oficina,Real Phone from Meta 4,0,127,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+249,93 380 50 99,Virtual,Virtual Phone from Meta 4,0,127,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+250,924 956 934,Oficina,Real Phone from Meta 4,0,128,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+251,924 980 672,Virtual,Virtual Phone from Meta 4,0,128,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+252,868 12 99 06,Oficina,Real Phone from Meta 4,0,129,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+253,968 978 788,Virtual,Virtual Phone from Meta 4,0,129,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+254,93 170 63 04,Oficina,Real Phone from Meta 4,0,130,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+255,93 394 70 70,Virtual,Virtual Phone from Meta 4,0,130,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+256,91 618 78 22,Oficina,Real Phone from Meta 4,0,131,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+257,91 116 54 15,Virtual,Virtual Phone from Meta 4,0,131,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+258,91 071 46 99,Oficina,Real Phone from Meta 4,0,132,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+259,91 021 09 59,Virtual,Virtual Phone from Meta 4,0,132,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+260,958 823 226,Oficina,Real Phone from Meta 4,0,133,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+261,958 991 560,Virtual,Virtual Phone from Meta 4,0,133,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+262,868 611 466,Oficina,Real Phone from Meta 4,0,134,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+263,968 978 792,Virtual,Virtual Phone from Meta 4,0,134,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+264,966 23 95 61,Oficina,Real Phone from Meta 4,0,135,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+265,965 063 643,Virtual,Virtual Phone from Meta 4,0,135,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+266,988 366 542,Oficina,Real Phone from Meta 4,0,136,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+267,988 980 660,Virtual,Virtual Phone from Meta 4,0,136,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+268,98 424 13 47,Oficina,Real Phone from Meta 4,0,137,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+269,984 242 513,Virtual,Virtual Phone from Meta 4,0,137,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+270,979 699 705,Oficina,Real Phone from Meta 4,0,138,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+271,979 690 786,Virtual,Virtual Phone from Meta 4,0,138,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+272,971 463 440,Oficina,Real Phone from Meta 4,0,139,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+273,971 571 478,Virtual,Virtual Phone from Meta 4,0,139,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+274,871 518 825,Oficina,Real Phone from Meta 4,0,140,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+275,971 571 480,Virtual,Virtual Phone from Meta 4,0,140,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+276,948 203 450,Oficina,Real Phone from Meta 4,0,141,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+277,948 980 672,Virtual,Virtual Phone from Meta 4,0,141,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+278,848 479 965,Oficina,Real Phone from Meta 4,0,142,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+279,948 980 672,Virtual,Virtual Phone from Meta 4,0,142,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+280,91 021 21 75,Oficina,Real Phone from Meta 4,0,143,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+281,91 021 09 58,Virtual,Virtual Phone from Meta 4,0,143,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+282,960 630 173,Oficina,Real Phone from Meta 4,0,144,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+283,961 125 274,Virtual,Virtual Phone from Meta 4,0,144,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+284,927 774 975,Oficina,Real Phone from Meta 4,0,145,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+285,927 770 823,Virtual,Virtual Phone from Meta 4,0,145,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+286,987 456 782,Oficina,Real Phone from Meta 4,0,146,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+287,987 795 160,Virtual,Virtual Phone from Meta 4,0,146,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+288,986 869 417,Oficina,Real Phone from Meta 4,0,147,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+289,886 318 111,Virtual,Virtual Phone from Meta 4,0,147,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+290,94 483 10 91,Oficina,Real Phone from Meta 4,0,148,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+291,944 342 272,Virtual,Virtual Phone from Meta 4,0,148,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+292,94 654 69 47,Oficina,Real Phone from Meta 4,0,149,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+293,944 342 272,Virtual,Virtual Phone from Meta 4,0,149,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+294,828 121 710,Oficina,Real Phone from Meta 4,0,150,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+295,928 987 553,Virtual,Virtual Phone from Meta 4,0,150,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+296,926 673 468,Oficina,Real Phone from Meta 4,0,151,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+297,926 670 694,Virtual,Virtual Phone from Meta 4,0,151,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+298,877 055 944,Oficina,Real Phone from Meta 4,0,152,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+299,977 271 616,Virtual,Virtual Phone from Meta 4,0,152,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+300,951 491 609,Oficina,Real Phone from Meta 4,0,153,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+301,951 255 072,Virtual,Virtual Phone from Meta 4,0,153,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+302,950 924 712,Oficina,Real Phone from Meta 4,0,154,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+303,950 951 182,Virtual,Virtual Phone from Meta 4,0,154,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+304,93 018 11 78,Oficina,Real Phone from Meta 4,0,155,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+305,93 394 70 75,Virtual,Virtual Phone from Meta 4,0,155,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+306,93 021 69 77,Oficina,Real Phone from Meta 4,0,156,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+307,93 390 50 59,Virtual,Virtual Phone from Meta 4,0,156,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+308,960 630 166,Oficina,Real Phone from Meta 4,0,157,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+309,961 125 300,Virtual,Virtual Phone from Meta 4,0,157,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+310,923 280 613,Oficina,Real Phone from Meta 4,0,158,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+311,923 992 501,Virtual,Virtual Phone from Meta 4,0,158,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+312,956 923 147,Oficina,Real Phone from Meta 4,0,159,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+313,856 927 990,Virtual,Virtual Phone from Meta 4,0,159,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+314,84 398 91 53,Oficina,Real Phone from Meta 4,0,160,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+315,843 980 984,Virtual,Virtual Phone from Meta 4,0,160,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+316,94 344 08 21,Oficina,Real Phone from Meta 4,0,161,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+317,843 980 983,Virtual,Virtual Phone from Meta 4,0,161,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+318,865 608 859,Oficina,Real Phone from Meta 4,0,162,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+319,965 063 645,Virtual,Virtual Phone from Meta 4,0,162,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+320,956 921 152,Oficina,Real Phone from Meta 4,0,163,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+321,856 927 981,Virtual,Virtual Phone from Meta 4,0,163,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+322,922 980 420,Oficina,Real Phone from Meta 4,0,164,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+323,922 980 159,Virtual,Virtual Phone from Meta 4,0,164,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+324,942 318 867,Oficina,Real Phone from Meta 4,0,165,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+325,942 940 743,Virtual,Virtual Phone from Meta 4,0,165,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+326,981 555 066,Oficina,Real Phone from Meta 4,0,166,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+327,881 241 632,Virtual,Virtual Phone from Meta 4,0,166,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+328,94 434 97 40,Oficina,Real Phone from Meta 4,0,167,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+329,944 342 274,Virtual,Virtual Phone from Meta 4,0,167,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+330,921 413 102,Oficina,Real Phone from Meta 4,0,168,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+331,921 920 636,Virtual,Virtual Phone from Meta 4,0,168,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+332,854 552 119,Oficina,Real Phone from Meta 4,0,169,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+333,954 328 516,Virtual,Virtual Phone from Meta 4,0,169,App\Clinic,2019-03-22 15:40:24,2019-03-22 15:40:24
+334,954 293 083,Oficina,Real Phone from Meta 4,0,170,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+335,954 328 514,Virtual,Virtual Phone from Meta 4,0,170,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+336,854 552 780,Oficina,Real Phone from Meta 4,0,171,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+337,954 328 517,Virtual,Virtual Phone from Meta 4,0,171,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+338,955 29 85 27,Oficina,Real Phone from Meta 4,0,172,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+339,954 328 515,Virtual,Virtual Phone from Meta 4,0,172,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+340,975 671 123,Oficina,Real Phone from Meta 4,0,173,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+341,975 670 638,Virtual,Virtual Phone from Meta 4,0,173,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+342,925 675 144,Oficina,Real Phone from Meta 4,0,174,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+343,925 673 781,Virtual,Virtual Phone from Meta 4,0,174,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+344,877 065 917,Oficina,Real Phone from Meta 4,0,175,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+345,977 271 617,Virtual,Virtual Phone from Meta 4,0,175,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+346,928 984 790,Oficina,Real Phone from Meta 4,0,176,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+347,928 987 550,Virtual,Virtual Phone from Meta 4,0,176,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+348,93 736 86 23,Oficina,Real Phone from Meta 4,0,177,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+349,93 393 77 95,Virtual,Virtual Phone from Meta 4,0,177,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+350,978 081 135,Oficina,Real Phone from Meta 4,0,178,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+351,978 080 575,Virtual,Virtual Phone from Meta 4,0,178,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+352,926 673 428,Oficina,Real Phone from Meta 4,0,179,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+353,926 670 693,Virtual,Virtual Phone from Meta 4,0,179,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+354,91 660 08 23,Oficina,Real Phone from Meta 4,0,180,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+355,91 116 54 17,Virtual,Virtual Phone from Meta 4,0,180,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+356,942 880 245,Oficina,Real Phone from Meta 4,0,181,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+357,942 940 744,Virtual,Virtual Phone from Meta 4,0,181,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+358,942 880 245,Oficina,Real Phone from Meta 4,0,182,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+359,942 940 744,Virtual,Virtual Phone from Meta 4,0,182,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+360,951 358 677,Oficina,Real Phone from Meta 4,0,183,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+361,951 247 381,Virtual,Virtual Phone from Meta 4,0,183,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+362,961 126 666,Oficina,Real Phone from Meta 4,0,184,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+363,961 125 272,Virtual,Virtual Phone from Meta 4,0,184,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+364,865 672 807,Oficina,Real Phone from Meta 4,0,185,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+365,965 063 644,Virtual,Virtual Phone from Meta 4,0,185,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+366,848 479 925,Oficina,Real Phone from Meta 4,0,186,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+367,948 980 673,Virtual,Virtual Phone from Meta 4,0,186,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+368,953 827 687,Oficina,Real Phone from Meta 4,0,187,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+369,953 890 786,Virtual,Virtual Phone from Meta 4,0,187,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+370,854 552 985,Oficina,Real Phone from Meta 4,0,188,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+371,954 328 560,Virtual,Virtual Phone from Meta 4,0,188,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+372,961 194 766,Oficina,Real Phone from Meta 4,0,189,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+373,96 112 53 01,Virtual,Virtual Phone from Meta 4,0,189,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+374,96 352 88 70,Oficina,Real Phone from Meta 4,0,190,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+375,961 125 271,Virtual,Virtual Phone from Meta 4,0,190,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+376,96 352 69 86,Oficina,Real Phone from Meta 4,0,191,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+377,961 125 270,Virtual,Virtual Phone from Meta 4,0,191,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+378,983 457 882,Oficina,Real Phone from Meta 4,0,192,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+379,983 070 590,Virtual,Virtual Phone from Meta 4,0,192,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+380,983 214 476,Oficina,Real Phone from Meta 4,0,193,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+381,983 070 589,Virtual,Virtual Phone from Meta 4,0,193,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+382,928 987 393,Oficina,Real Phone from Meta 4,0,194,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+383,928 987 554,Virtual,Virtual Phone from Meta 4,0,194,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+384,951 493 274,Oficina,Real Phone from Meta 4,0,195,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+385,951 255 074,Virtual,Virtual Phone from Meta 4,0,195,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+386,886 311 366,Oficina,Real Phone from Meta 4,0,196,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+387,886 318 113,Virtual,Virtual Phone from Meta 4,0,196,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+388,886 311 391,Oficina,Real Phone from Meta 4,0,197,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+389,886 318 114,Virtual,Virtual Phone from Meta 4,0,197,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+390,93 171 12 03,Oficina,Real Phone from Meta 4,0,198,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+391,93 390 50 58,Virtual,Virtual Phone from Meta 4,0,198,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+392,986 566 956,Oficina,Real Phone from Meta 4,0,199,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+393,886 318 112,Virtual,Virtual Phone from Meta 4,0,199,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+394,93 021 55 43,Oficina,Real Phone from Meta 4,0,200,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+395,93 396 49 97,Virtual,Virtual Phone from Meta 4,0,200,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+396,94 556 95 26,Oficina,Real Phone from Meta 4,0,201,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+397,945 560 584,Virtual,Virtual Phone from Meta 4,0,201,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+398,94 513 99 86,Oficina,Real Phone from Meta 4,0,202,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+399,945 560 583,Virtual,Virtual Phone from Meta 4,0,202,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+400,980 508 024,Oficina,Real Phone from Meta 4,0,203,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+401,980 983 257,Virtual,Virtual Phone from Meta 4,0,203,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+402,876 017 563,Oficina,Real Phone from Meta 4,0,204,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+403,976 361 631,Virtual,Virtual Phone from Meta 4,0,204,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+404,876 015 919,Oficina,Real Phone from Meta 4,0,205,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+405,976 361 630,Virtual,Virtual Phone from Meta 4,0,205,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+406,976 759 642,Oficina,Real Phone from Meta 4,0,206,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+407,976 361 630,Virtual,Virtual Phone from Meta 4,0,206,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+408,976 796 281,Oficina,Real Phone from Meta 4,0,207,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+409,976 361 629,Virtual,Virtual Phone from Meta 4,0,207,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+410,91 072 60 00,Oficina,Real Phone from Meta 4,0,208,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+411,91 141 16 47,Virtual,Virtual Phone from Meta 4,0,208,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+412,91 021 61 41,Oficina,Real Phone from Meta 4,0,209,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+413,91 130 09 74,Virtual,Virtual Phone from Meta 4,0,209,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+414,956 92 62 79,Oficina,Real Phone from Meta 4,0,210,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+415,95 692 66 59,Virtual,Virtual Phone from Meta 4,0,210,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+416,927 776 440,Oficina,Real Phone from Meta 4,0,211,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+417,927 770 824,Virtual,Virtual Phone from Meta 4,0,211,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+418,828 121 703,Oficina,Real Phone from Meta 4,0,212,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+419,928 987 551,Virtual,Virtual Phone from Meta 4,0,212,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+420,856 91 77 06,Oficina,Real Phone from Meta 4,0,213,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+421,856 92 79 91,Virtual,Virtual Phone from Meta 4,0,213,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+422,94 764 84 21,Oficina,Real Phone from Meta 4,0,214,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+423,947 65 10 36,Virtual,Virtual Phone from Meta 4,0,214,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+424,877 21 01 44,Oficina,Real Phone from Meta 4,0,215,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+425,977 27 16 19,Virtual,Virtual Phone from Meta 4,0,215,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+426,925 91 20 17,Oficina,Real Phone from Meta 4,0,216,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+427,925 67 37 82,Virtual,Virtual Phone from Meta 4,0,216,App\Clinic,2019-03-22 15:40:25,2019-03-22 15:40:25
+428,865 59 06 32,Oficina,Real Phone from Meta 4,0,217,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+429,865 60 23 55,Virtual,Virtual Phone from Meta 4,0,217,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+430,924 91 05 98,Oficina,Real Phone from Meta 4,0,218,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+431,924 98 06 73,Virtual,Virtual Phone from Meta 4,0,218,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+432,943 56 51 86,Oficina,Real Phone from Meta 4,0,219,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+433,843 98 09 85,Virtual,Virtual Phone from Meta 4,0,219,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+434,91 925 04 22,Oficina,Real Phone from Meta 4,0,220,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+435,91 141 16 49,Virtual,Virtual Phone from Meta 4,0,220,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+436,91 073 63 51,Oficina,Real Phone from Meta 4,0,221,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+437,91 141 16 50,Virtual,Virtual Phone from Meta 4,0,221,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+438,872 508 718,Oficina,Real Phone from Meta 4,0,222,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+439,972 982 443,Virtual,Virtual Phone from Meta 4,0,222,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+440,944 34 78 43,Oficina,Real Phone from Meta 4,0,223,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+441,944 34 99 28,Virtual,Virtual Phone from Meta 4,0,223,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+442,91 096 00 60,Oficina,Real Phone from Meta 4,0,224,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+443,91 141 16 52,Virtual,Virtual Phone from Meta 4,0,224,App\Clinic,2019-03-22 15:40:26,2019-03-22 15:40:26
+447,93 018 12 19,Oficina,,0,225,App\Clinic,2019-03-29 11:43:35,2019-03-29 11:43:35
+448,93 176 96 19,Virtual,,0,225,App\Clinic,2019-03-29 11:43:48,2019-03-29 11:43:48
+449,964 786 977,Comercial,Teléfono Real,0,226,App\Clinic,2019-06-11 16:01:14,2019-06-11 16:01:14
+450,964 784 026,Virtual,Buzoneo,0,226,App\Clinic,2019-06-11 16:01:36,2019-06-11 16:01:36
+451,930 18 19 76,Comercial,Real,0,227,App\Clinic,2019-06-11 16:03:21,2019-06-11 16:03:21
+452,931 76 96 18,Virtual,Buzoneo,0,227,App\Clinic,2019-06-11 16:03:35,2019-06-11 16:03:35
+453,924 910 556,Oficina,Real,0,228,App\Clinic,2019-07-09 9:17:31,2019-07-09 9:17:31
+454,924 980 683,Virtual,Buzoneo,0,228,App\Clinic,2019-07-09 9:17:44,2019-07-09 9:17:44
+455,872 506 389,Oficina,Real,0,229,App\Clinic,2019-07-12 13:16:42,2019-07-12 13:16:42
+456,972 987 545,Virtual,Buzoneo,0,229,App\Clinic,2019-07-12 13:16:50,2019-07-12 13:16:50
+457,854 553 360,Oficina,Real,0,230,App\Clinic,2019-07-12 13:18:12,2019-07-12 13:18:12
+458,955 328 210,Virtual,Buzoneo,0,230,App\Clinic,2019-07-12 13:18:21,2019-07-12 13:18:21
+459,854 553 105,Oficina,Real,0,231,App\Clinic,2019-07-12 13:19:41,2019-07-12 13:19:41
+460,955 328 211,Virtual,Buzoneo,0,231,App\Clinic,2019-07-12 13:19:54,2019-07-12 13:19:54
+461,947 648 471,Oficina,Real,0,232,App\Clinic,2019-07-12 13:20:59,2019-07-12 13:20:59
+462,947 651 039,Virtual,Buzoneo,0,232,App\Clinic,2019-07-12 13:21:09,2019-07-12 13:21:09
+463,91 080 37 00,Virtual,Buzoneo,0,233,App\Clinic,2019-08-21 14:34:00,2019-08-21 14:34:00
+464,91 070 06 80,Oficina,Real,0,233,App\Clinic,2019-08-21 14:34:11,2019-08-21 14:34:11
+465,961 129 535,Virtual,Buzoneo,0,234,App\Clinic,2019-08-21 14:35:58,2019-08-21 14:35:58
+466,984 244 481,Virtual,Buzoneo,0,235,App\Clinic,2019-08-21 14:37:30,2019-08-21 14:37:30
+467,984 207 703,Oficina,Real,0,235,App\Clinic,2019-08-21 14:37:41,2019-08-21 14:37:41

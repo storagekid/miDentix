@@ -1,13 +1,9 @@
 <?php
 
 namespace App;
-use App\Traits\Scope;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ClinicStationary extends Model
+class ClinicStationary extends Qmodel
 {
-    use Scope;
 
     protected $table = 'clinic_stationary';
 
@@ -15,7 +11,7 @@ class ClinicStationary extends Model
 
     public function clinic()
     {
-        return $this->belongsTo(Clinic::class);
+        return $this->belongsTo(Clinic::class)->withTrashed();
     }
     public function stationary()
     {

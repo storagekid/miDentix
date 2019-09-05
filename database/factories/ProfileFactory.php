@@ -25,11 +25,11 @@ $factory->define(App\Profile::class, function (Faker $faker) {
         'name' => $faker->firstName,
         'lastname1' => $faker->lastName,
         'lastname2' => !$tutorial ? $faker->lastName : null,
-        'email' => $user->email,
-        'phone' => !$tutorial ? $faker->e164PhoneNumber : null,
+        // 'email' => $user->email,
+        // 'phone' => !$tutorial ? $faker->e164PhoneNumber : null,
         'personal_id_number' => !$tutorial ? $user->personal_id_number : null,
-        'license_number' => $faker->swiftBicNumber,
-        'license_year' => $faker->year($max = 'now'),
+        // 'license_number' => $faker->swiftBicNumber,
+        // 'license_year' => $faker->year($max = 'now'),
         'tutorial_completed' => $tutorial,
     ];
 });

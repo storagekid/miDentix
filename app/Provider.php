@@ -2,15 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\Tableable;
-use App\Traits\Formable;
-
-class Provider extends Model
+class Provider extends Qmodel
 {
-
-    use Tableable;
-    use Formable;
 
     protected $fillable = [
         'name', 'email', 'address', 'phone', 'CIF'

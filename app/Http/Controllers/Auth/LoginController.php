@@ -50,6 +50,11 @@ class LoginController extends Controller
         $this->setUserSession($user);
     }
 
+    public function username()
+    {
+        return 'name';
+    }
+
     protected function setUserSession($user)
     {
         session(

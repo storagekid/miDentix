@@ -10,13 +10,23 @@ use Illuminate\Support\Facades\Cache;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/auth/login', 'Api\AuthController@login')->middleware('guest:web');
+
+Route::prefix('rest')->namespace('api')->group(function() {
+    Route::prefix('auth')->group(function () {
+        Route::post('/login', 'AuthController@login');
+    });
+});
+
 Auth::routes();
 
 // CRM Subdomain
-Route::prefix('landings')->group(function () {
-    Route::get('grpd', function () {
-        return view('landings.rgpd-landing');
-    });
+Route::prefix('CRM')->group(function () {
+	Route::prefix('landings')->group(function () {
+			Route::get('grpd', function () {
+					return view('landings.rgpd-landing');
+			});
+	});
 });
 
 Route::middleware(['auth'])->group(function() {
@@ -121,6 +131,7 @@ Route::middleware(['auth', 'profile-count'])->group(function() {
 	Route::post('/order/{clinic}', 'OrderController@store');
 	Route::get('/order/{shoppingbag}/{provider}', 'ShoppingBagController@download');
 	
+	Route::get('/test', 'TestController@index');
 });
 
 

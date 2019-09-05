@@ -41,7 +41,11 @@ const routes = [
         component: require('./components/orders/index'),
         // beforeEnter: (to, from, next) => {
         // }
-    }
+    },
+    {
+        path: '/passport',
+        component: require('./components/passport/index'),
+    },
 ];
 
 const router = new VueRouter({

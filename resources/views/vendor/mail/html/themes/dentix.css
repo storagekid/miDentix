@@ -18,8 +18,7 @@ body {
     -webkit-hyphens: auto;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
-    word-break: break-all;
-    word-break: break-word;
+    word-break: keep-all;
 }
 
 p,
@@ -109,12 +108,11 @@ img {
     background-color: #873173;
 }
 
-.header a {
+.header a, div {
     color: #FFF;
     font-size: 24px;
     font-weight: 100;
     text-decoration: none;
-    /* text-shadow: 0 1px 0 white; */
 }
 
 /* Body */
@@ -139,6 +137,7 @@ img {
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 570px;
+    word-break: keep-all !important;
 }
 
 /* Subcopy */
@@ -193,10 +192,14 @@ img {
     line-height: 18px;
     padding: 10px 0;
     margin: 0;
+    word-break: keep-all !important;
 }
 
 .content-cell {
     padding: 35px;
+    word-wrap: normal !important;
+    word-break: keep-all !important; 
+    word-break: keep-all !important;
 }
 
 /* Buttons */
