@@ -8,7 +8,7 @@ class UserSeeder extends CsvSeeder
 	{
 			$this->table = 'users';
 			$this->csv_delimiter = ',';
-			$this->filename = base_path() . '/database/seeds/csvs/users_short.csv';
+			$this->filename = base_path() . '/database/seeds/csvs/users.csv';
 	}
 
 	/**

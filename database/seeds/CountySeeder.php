@@ -8,7 +8,7 @@ class CountySeeder extends CsvSeeder
 	{
 		$this->table = 'counties';
 		$this->csv_delimiter = ',';
-		$this->filename = base_path().'/database/seeds/csvs/provincias.csv';
+		$this->filename = base_path().'/database/seeds/csvs/counties.csv';
 	}
     /**
      * Run the database seeds.

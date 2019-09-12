@@ -8,7 +8,7 @@ class CostCenterSeeder extends CsvSeeder
 	{
 		$this->table = 'cost_centers';
 		$this->csv_delimiter = ',';
-		$this->filename = base_path().'/database/seeds/csvs/cost_centers_cc.csv';
+		$this->filename = base_path().'/database/seeds/csvs/cost_centers.csv';
 	}
     /**
      * Run the database seeds.

@@ -8,7 +8,7 @@ class ClinicProfileMeta4Seeder extends CsvSeeder
 	{
 		$this->table = 'clinic_profiles';
 		$this->csv_delimiter = ',';
-		$this->filename = base_path().'/database/seeds/csvs/clinic_profile_meta4.csv';
+		$this->filename = base_path().'/database/seeds/csvs/clinic_profiles.csv';
 	}
     /**
      * Run the database seeds.

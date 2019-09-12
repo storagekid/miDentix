@@ -13,7 +13,7 @@ class CreateClinicStationaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('clinic_stationary', function (Blueprint $table) {
+        Schema::create('clinic_stationaries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('clinic_id');
             $table->unsignedInteger('stationary_id');
@@ -31,6 +31,6 @@ class CreateClinicStationaryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinic_stationary');
+        Schema::dropIfExists('clinic_stationaries');
     }
 }

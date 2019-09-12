@@ -6,7 +6,7 @@ class ClinicStationarySeeder extends CsvSeeder
 {
 	public function __construct()
 	{
-		$this->table = 'clinic_stationary';
+		$this->table = 'clinic_stationaries';
 		$this->csv_delimiter = ',';
 		$this->filename = base_path().'/database/seeds/csvs/clinic_stationaries.csv';
 	}
