@@ -66,7 +66,6 @@ class ClinicController extends Controller
      */
     public function show($id)
     {
-        // $model = Clinic::with(['county', 'costCenter', 'addresses', 'phones', 'area_manager', 'clinic_manager','clinic_poster_priorities', 'poster_distributions' ])->find($id);
         $model = Clinic::withTrashed()->find($id);
         $model->getShowRelations(request()->has('view') ? request('view') : null);
         $model->append('posters');
