@@ -1,0 +1,4 @@
+id,user_id,"name","email","address","phone","CIF","created_at","updated_at"
+1,,"GesArtes Gráficas","fernando@ges-artes.com","C/ Ficticia, 1","91 467 82 98","B82476302","2019-09-04 12:59:26","2019-09-04 12:59:26"
+2,,"Litografia San José","info@litografiasanjose.com","C/ Pintor, nave 12","928 337 325","B82476302","2019-09-04 12:59:26","2019-09-04 12:59:26"
+3,,"Rotulos Identidad","info@rotulosidentidad.com","C/ Pintor, nave 12","928 337 325","B82476302","2019-09-04 12:59:26","2019-09-04 12:59:26"

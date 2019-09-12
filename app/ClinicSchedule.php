@@ -6,8 +6,20 @@ use App\Printers\PersonalTagsPrinter;
 
 class ClinicSchedule extends Qmodel
 {
+    protected $fillable = [
+        'clinic_profile_id', 'job_id', 'job_type_id', 'schedule'
+    ];
+    protected $casts = [
+        'schedule' => 'array',
+    ];
+    // protected $appends = ['clinic_id', 'clinicFullName', 'job_name', 'job_type_name'];
+    // protected $with = ['clinic_profile', 'job', 'job_type'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
-
     protected $quasarFormNewLayout = [
         [
             'title' => 'Horarios',
@@ -68,16 +80,7 @@ class ClinicSchedule extends Qmodel
         'right' => [],
     ];
     protected $keyField = 'job_type_name';
-  // END Quasar DATA
-
-    protected $fillable = [
-        'clinic_profile_id', 'job_id', 'job_type_id', 'schedule'
-    ];
-    protected $casts = [
-        'schedule' => 'array',
-    ];
-    // protected $appends = ['clinic_id', 'clinicFullName', 'job_name', 'job_type_name'];
-    // protected $with = ['clinic_profile', 'job', 'job_type'];
+    // END Quasar DATA
 
     public function clinic_profile() {
         return $this->belongsTo(ClinicProfile::class);

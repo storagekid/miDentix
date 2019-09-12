@@ -8,6 +8,11 @@ class Email extends Qmodel
 
     protected $fillable = ['email','type','description','main'];
     protected $casts = ['main' => 'boolean'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
 
     protected $quasarFormNewLayout = [

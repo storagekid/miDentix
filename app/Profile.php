@@ -16,7 +16,11 @@ class Profile extends Qmodel
     protected $appends = ['full_name', 'value', 'label'];
 
     protected static $full = ['clinic_schedules', 'phones', 'emails', 'country', 'company', 'stores', 'clinic_profiles', 'store_profiles', 'user'];
-
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $relatedTo = ['emails', 'phones', 'stores', 'clinic_schedules', 'clinic_profiles', 'clinics', 'store_profiles'];
 

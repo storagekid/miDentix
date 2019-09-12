@@ -146,7 +146,10 @@ class ClinicController extends Controller
         // dump($startDate);
         // dump($endDate);
         $model = $clinic;
-        foreach ($clinic->poster_distributions as $clinicposterdistribution) {
+        $clinicDistributions = $clinic->poster_distributions()->find(request('designs'));
+        // dump(count($clinicDistributions));
+        // dd($clinicDistributions->toArray());
+        foreach ($clinicDistributions as $clinicposterdistribution) {
             // dump('Original ID: ' . $clinicposterdistribution->id);
             $distribution = json_decode($clinicposterdistribution['distributions'],true);
             $ppIds = $distribution['posterIds'];
@@ -155,7 +158,11 @@ class ClinicController extends Controller
                 foreach ($posterPriorities as $pp) {
                     $newPP = \App\ClinicPosterPriority::create($pp->toArray());
                     $newPP->starts_at = $startDate;
-                    if (request('campaign')) $newPP->ends_at = $endDate;
+                    if (request('campaign')) {
+                        $campaign = json_decode(request('campaign'), true);
+                        $newPP->ends_at = $endDate;
+                        $newPP->campaign_id = $campaign['id'];
+                    }
                     else {
                         $pp->ends_at = $endDate;
                         $pp->save();
@@ -180,6 +187,7 @@ class ClinicController extends Controller
             } else {
                 $campaign = json_decode(request('campaign'), true);
                 $newDist->ends_at = $campaign['ends_at'];
+                $newDist->campaign_id = $campaign['id'];
                 $newDist->save();
             }
             $newDist->distributions = json_encode($distribution);

@@ -1,6 +1,7 @@
-id,name,description,created_at,updated_at
-1,Implantology,Implantology Poster,2019-01-23 17:23:00,2019-01-23 17:23:00
-2,Financing,Financing Poster,2019-01-23 17:23:00,2019-01-23 17:23:00
-3,Orthodontic,Orthodontic Poster,2019-01-24 17:23:00,2019-01-24 17:23:00
-4,Recalls,Recalls Poster,2019-01-25 17:23:00,2019-01-25 17:23:00
-5,Benefits,Benefits Poster,2019-01-26 17:23:00,2019-01-26 17:23:00
+id,"name","description","created_at","updated_at"
+1,"Implantology","Implantology Poster","2019-01-23 17:23:00","2019-01-23 17:23:00"
+2,"Financing","Financing Poster","2019-01-23 17:23:00","2019-01-23 17:23:00"
+3,"Orthodontic","Orthodontic Poster","2019-01-24 17:23:00","2019-01-24 17:23:00"
+4,"Recalls","Recalls Poster","2019-01-25 17:23:00","2019-01-25 17:23:00"
+5,"Benefits","Benefits Poster","2019-01-26 17:23:00","2019-01-26 17:23:00"
+6,"Volver-Promo-10-40","Promoción Especial Abril 2019 (40 meses y 10%)","2019-09-09 16:56:50","2019-09-09 16:56:50"

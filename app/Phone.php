@@ -8,8 +8,12 @@ class Phone extends Qmodel
 
     protected $fillable = ['number','type','description','main'];
     protected $casts = ['main' => 'boolean'];
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
-
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',

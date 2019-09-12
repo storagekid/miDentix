@@ -5,7 +5,9 @@ namespace App;
 
 class Group extends Qmodel
 {
-
+    protected static $permissions = [
+        'view' => ['*']
+    ];
     // Quasar DATA
 
     protected $quasarFormNewLayout = [

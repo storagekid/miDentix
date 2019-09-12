@@ -11,6 +11,10 @@ trait Scope {
         return $this->load(static::$full);
     }
 
+    public static function getFullModels() {
+        return static::$full;
+    }
+
     public function getShowRelations($view=null) {
         return $this->load($this->getShowView($view));
     }

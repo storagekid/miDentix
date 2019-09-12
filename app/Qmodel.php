@@ -6,31 +6,58 @@ use Illuminate\Database\Eloquent\Model;
 use App\Traits\Quasarable;
 use App\Traits\Tableable;
 use App\Traits\Scope;
+use Illuminate\Support\Facades\Cache;
 
 class Qmodel extends Model
 {
     use Quasarable, Tableable, Scope;
 
+    public static function boot()
+    {
+        parent::boot();
+        static::retrieved(function () {
+          if (request()->route()->uri === 'api/rest/auth/login') return true;
+          else {
+            static::authorize('view');
+          }
+        });
+        static::saving(function () {
+        });
+        static::saved(function () {
+          Cache::forget('clinics');
+        });
+        static::creating(function () {
+            static::authorize('create');
+        });
+        static::created(function () {
+        });
+        static::updated(function () {
+        });
+        static::updating(function () {
+          static::authorize('update');
+        });
+        static::deleted(function () {
+          Cache::forget('clinics');
+        });
+        static::deleting(function () {
+          static::authorize('destroy');
+        });
+    }
+
     // Quasar DATA
-    // protected $relatedTo = array();
-    // protected $onRelationMode = array();
-    // protected $quasarFormNewLayout = array();
-    // protected $quasarFormUpdateLayout = array();
-    // protected $quasarFormFields = array();
-    // protected $listFields = array();
-    // protected $keyField = 'id';
     protected $appends = ['label', 'value'];
-    protected $permissions = [];
+    protected static $permissions = [
+        'view' => [
+          ],
+        'create' => [
+          ],
+        'update' => [
+          ],
+        'destroy' => [
+          ],
+    ];
     // END Quasar DATA
 
-    // Tableable DATA
-    // protected $tableColumns = array();
-    // protected $tableViews = array();
-    // protected $tableOptions = [['show','edit','delete'], true, true];
-    // END Tableable Data
-
-    // protected static $full = array();
-    // protected static $show = array();
 
     public function getShowView($view=null) {
       $views = [
@@ -49,5 +76,45 @@ class Qmodel extends Model
       if (!$view) $view = 'default';
       else if (!array_key_exists($view, $views)) $view = 'default';
       return $views[$view];
+    }
+    protected static function authorize($method) {
+      // dump('Authorizing');
+      // dump(static::class);
+      // return false;
+      // if (static::class === 'App\Group') return true;
+      // if (static::class === 'App\GroupUser') return true;
+      if(!array_key_exists($method, static::$permissions)) return false;
+      if (in_array('*', static::$permissions[$method])) return true;
+      $user = auth()->guard('api')->user();
+      if ($user->isRoot()) return true;
+      $userGroups = array_keys($user->groupsInfo);
+      // if (count($this->permissions)) {
+      //   foreach ($userGroups as $group) {
+      //     if ($this->permissions[$group]) {
+      //       $role = $user->groupsInfo[$group];
+      //       if (arra_key_exists($role, $this->permissions[$group])) {
+      //         if (in_array($this->permissions[$group][$role], $method)) return true;
+      //       }
+      //     }
+      //   }
+      // }
+      // dump($userGroups);
+      // dump($method);
+      // dump(static::$permissions);
+      foreach ($userGroups as $group) {
+        // dump('Here');
+        if (array_key_exists($group, static::$permissions[$method])) {
+          if (in_array('*', static::$permissions[$method][$group])) return true;
+          $role = $user->groupsInfo[$group];
+          // dump('THere');
+          // dump($role);
+          // dump(in_array($role, static::$permissions[$method][$group]));
+          if (in_array($role, static::$permissions[$method][$group])) return true;
+        }
+      }
+      // return response([
+      //   'message' => 'Unauthorized action.',
+      // ], 403);
+      abort(403, 'Unauthorized action.');
     }
 }

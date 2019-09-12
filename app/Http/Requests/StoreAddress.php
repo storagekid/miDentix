@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Validation\Rule;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreAddress extends FormRequest
 {
@@ -24,6 +24,9 @@ class StoreAddress extends FormRequest
      */
     public function rules()
     {
+        // $class = '\App\\' . substr(static::class, strlen("App\Http\Requests\Store"));
+        // dump(strpos(static::class, strlen("App\Http\Requests\Store")));
+        // dd((new $class)::authorize());
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
             'address_line_1' => [$required->condition ? 'required' : '', 'min:3', 'max:255'],
@@ -31,8 +34,6 @@ class StoreAddress extends FormRequest
             'type' => [$required->condition ? 'required' : ''],
             'description' => ['nullable','min:3','max:255'],
             'main' => ['nullable'],
-            // SHOULD BE REMOVED
-            // 'full_address' => ['nullable']
         ];
     }
 }

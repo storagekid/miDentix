@@ -6,7 +6,11 @@ class PosterModel extends Qmodel
 {
 
     protected $fillable = ['name', 'description'];
-
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['user', 'editor', 'administrator', 'overseeker'],
+        ]
+    ];
     // Quasar DATA
     protected $relatedTo = ['sanitary_codes'];
 

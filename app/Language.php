@@ -4,7 +4,9 @@ namespace App;
 
 class Language extends Qmodel
 {
-
+    protected static $permissions = [
+        'view' => ['*']
+    ];
 
     // Quasar DATA
     protected $quasarFormNewLayout = [

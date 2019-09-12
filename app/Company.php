@@ -5,37 +5,12 @@ namespace App;
 
 class Company extends Qmodel
 {
-
-    public static function boot()
-  {
-    parent::boot();
-      Company::saving(function () {
-        Cache::forget('companies');
-      });
-      Company::saved(function () {
-        Cache::forget('companies');
-      });
-      Company::creating(function () {
-        Cache::forget('companies');
-      });
-      Company::created(function () {
-        Cache::forget('companies');
-      });
-      Company::updated(function () {
-        Cache::forget('companies');
-      });
-      Company::updating(function () {
-        Cache::forget('companies');
-      });
-      Company::deleted(function () {
-        Cache::forget('companies');
-      });
-      Company::deleting(function () {
-        Cache::forget('companies');
-      });
-  }
-
     protected $with = ['stores'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
 
     // Quasar DATA
 

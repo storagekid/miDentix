@@ -11,36 +11,27 @@ use App\Printers\CampaignFacadeDistributionPrinter;
 class Clinic extends Qmodel
 {
   use SoftDeletes;
-  
-  public static function boot()
-  {
-    parent::boot();
-      Clinic::saving(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::saved(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::creating(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::created(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::updated(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::updating(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::deleted(function () {
-        Cache::forget('clinics');
-      });
-      Clinic::deleting(function () {
-        Cache::forget('clinics');
-      });
-  }
 
+  protected $fillable = ['city', 'language_id', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'clinic_manager_id', 'area_manager_id', 'cost_center_id', 'starts_at', 'ends_at'];
+  protected static $full = ['county', 'cost_center', 'addresses', 'phones', 'area_manager', 'clinic_manager', 'language'];
+  protected static $show = [
+    'county',
+    'cost_center',
+    'addresses',
+    'phones',
+    'area_manager',
+    'clinic_manager',
+    'clinic_poster_priorities',
+    'poster_distributions'
+  ];
+  protected $appends = ['label', 'value', 'open', 'active'];
+  protected $casts = ['postal_code' => 'string'];
+  protected $stationary = [];
+  protected static $permissions = [
+      'view' => [
+        'Marketing' => ['*'],
+      ]
+  ];
   // Quasar DATA
   protected $relatedTo = ['addresses', 'phones'];
 
@@ -249,7 +240,7 @@ class Clinic extends Qmodel
       'filtering' => ['search'],
       'show' => false
     ],
-    'costCenterName' => [
+    'cost_center.name' => [
       'label' => 'Centro de Coste',
       'filtering' => ['search'],
       'show' => false
@@ -315,27 +306,7 @@ class Clinic extends Qmodel
     ]
   ];
   protected $tableOptions = [['show','edit','delete'], true, true];
-
   // END Tableable Data
-
-  protected $fillable = ['city', 'language_id', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'clinic_manager_id', 'area_manager_id', 'cost_center_id', 'starts_at', 'ends_at'];
-  protected static $full = ['county', 'costCenter', 'addresses', 'phones', 'area_manager', 'clinic_manager', 'language'];
-  protected static $show = [
-    'county',
-    'costCenter',
-    'addresses',
-    'phones',
-    'area_manager',
-    'clinic_manager',
-    'clinic_poster_priorities',
-    'poster_distributions'
-  ];
-  // protected $with = ['county', 'costCenter', 'addresses', 'phones', 'area_manager', 'clinic_manager'];
-  // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName'];
-  protected $appends = ['label', 'value', 'open', 'active'];
-  // protected $appends = ['fullName', 'cleanName', 'countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName', 'label', 'value'];
-  protected $casts = ['postal_code' => 'string'];
-  protected $stationary = [];
 
   public function clinic_posters () {
       return $this->hasMany(ClinicPoster::class);
@@ -349,7 +320,7 @@ class Clinic extends Qmodel
   public function poster_distributions () {
     return $this->hasMany(ClinicPosterDistribution::class);
 }
-  public function costCenter()
+  public function cost_center()
   {
       return $this->belongsTo(CostCenter::class);
   }
@@ -405,7 +376,7 @@ class Clinic extends Qmodel
 
   public static function cacheClinics() {
     return Cache::rememberForever('clinics', function() {
-      return Clinic::with(['county', 'costCenter'])
+      return Clinic::with(['county', 'cost_center'])
                   ->orderBy('city')
                   ->orderBy('address_real_1')
                   ->get()
@@ -473,7 +444,7 @@ class Clinic extends Qmodel
 
   public function getCostCenterNameAttribute()
   {
-      return $this->costCenter ? $this->costCenter->name : '-';
+      return $this->cost_center ? $this->cost_center->name : '-';
   }
 
   public function getCountyNameAttribute()

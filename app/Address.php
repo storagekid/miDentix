@@ -6,6 +6,11 @@ class Address extends Qmodel
 {
     protected $fillable = ['address_line_1', 'address_line_2', 'type','description','main'];
     protected $casts = ['main' => 'boolean'];
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
 
     // Quasar DATA
 

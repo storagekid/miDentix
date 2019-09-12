@@ -14,6 +14,11 @@ class CampaignPoster extends Qmodel
     protected $fillable = [
         'campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'file', 'link', 'thumbnail'
     ];
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
 
     // Table Data
     protected $tableColumns = [

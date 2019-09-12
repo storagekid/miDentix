@@ -24,7 +24,11 @@ class File extends Model
     protected $fillable = ['name', 'path', 'url', 'type', 'thumbnail', 'extension', 'permissions', 'is_public', 'user_id', 'group_id', 'fileable_id', 'fileable_type'];
     protected $guarded = [];
     protected $casts = ['is_public' => 'boolean'];
-
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // public function setIsPublicAttribute($value)
     // {
     //     $this->attributes['is_public'] = (boolean) $value;

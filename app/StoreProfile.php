@@ -4,6 +4,17 @@ namespace App;
 
 class StoreProfile extends Qmodel
 {
+    protected $fillable = [
+        'profile_id', 'store_id'
+    ];
+    protected $with = ['store'];
+    protected $appends = ['fullName', 'label', 'value'];
+    protected $table = 'store_profiles';
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $quasarFormNewLayout = [
         [
@@ -51,13 +62,6 @@ class StoreProfile extends Qmodel
     ];
     protected $keyField = 'fullName';
     // END Quasar DATA
-
-    protected $fillable = [
-        'profile_id', 'store_id'
-    ];
-    protected $with = ['store'];
-    protected $appends = ['fullName', 'label', 'value'];
-    protected $table = 'store_profiles';
 
     public function profile() {
     	return $this->belongsTo(Profile::class, 'profile_id');

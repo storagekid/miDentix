@@ -5,10 +5,12 @@ namespace App;
 class Menu extends Qmodel
 {
     protected $fillable = ['name'];
-
+    protected static $permissions = [
+        'view' => ['*']
+    ];
+    
     // Quasar DATA
     protected $relatedTo = ['menu_items'];
-
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',

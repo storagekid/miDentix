@@ -10,7 +10,11 @@ class ClinicPosterDistribution extends Qmodel
     use Fileable;
     
     protected $fillable = ['original_facade_file_id', 'composed_facade_file_id', 'complete_facade_file_id', 'address_id', 'clinic_id', 'distributions', 'starts_at', 'ends_at'];
-
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     public function clinic () {
         return $this->belongsTo(Clinic::class)->withTrashed();
     }

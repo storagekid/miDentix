@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Address;
+use App\Http\Requests\StoreAddress;
 
 class AddressController extends Controller
 {
@@ -24,8 +25,10 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAddress $request)
     {
+        Address::authorize('create');
+        
         $parent = request('nameSpace')::withTrashed()->find(request('relatedId'));
         $model = $parent->addresses()->create(request()->all());
 
@@ -52,7 +55,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAddress $request, $id)
     {
         $model = Address::find($id);
         $model->update(request()->all());
@@ -68,8 +71,10 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(StoreAddress $request, $id)
     {
+        // dump(__FUNCTION__);
+        // return false;
         try {
             $text = Address::find($id)->address_line_1;
             Address::destroy($id);

@@ -6,8 +6,13 @@ namespace App;
 class MenuItemGroup extends Qmodel
 {
     protected $fillable = ['menu_item_id', 'group_id'];
+    protected $with = ['group', 'menu_item'];
+    protected $appends = ['full_name'];
+    protected static $full = ['group', 'menu_item'];
+    protected static $permissions = [
+        'view' => ['*']
+    ];
     // Quasar DATA
-
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',
@@ -72,9 +77,6 @@ class MenuItemGroup extends Qmodel
     ];
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
-    protected $with = ['group', 'menu_item'];
-    protected $appends = ['full_name'];
-    protected static $full = ['group', 'menu_item'];
 
     public function group() {
         return $this->belongsTo(Group::class);

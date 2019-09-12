@@ -1,41 +1,28 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class ProvidersSeeder extends Seeder
+class ProvidersSeeder extends CsvSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-	{
-        DB::table('providers')->truncate();
-        
-        $provider = new \App\Provider;
-        $provider->name = "GesArtes Gráficas";
-        $provider->email = 'fernando@ges-artes.com';
-        $provider->address = 'C/ Ficticia, 1';
-        $provider->phone = '91 467 82 98';
-        $provider->CIF = 'B82476302';
-        $provider->save();
-        
-        $provider = new \App\Provider;
-        $provider->name = "Litografia San José";
-        $provider->email = 'info@litografiasanjose.com';
-        $provider->address = 'C/ Pintor, nave 12';
-        $provider->phone = '928 337 325';
-        $provider->CIF = 'B82476302';
-        $provider->save();
+    public function __construct()
+    {
+        $this->table = 'providers';
+        $this->csv_delimiter = ',';
+        $this->filename = base_path().'/database/seeds/csvs/providers.csv';
+    }
+        /**
+         * Run the database seeds.
+         *
+         * @return void
+         */
+        public function run()
+    {
+        // Recommended when importing larger CSVs
+        // DB::disableQueryLog();
 
-        $provider = new \App\Provider;
-        $provider->name = "Rotulos Identidad";
-        $provider->email = 'info@rotulosidentidad.com';
-        $provider->address = 'C/ Pintor, nave 12';
-        $provider->phone = '928 337 325';
-        $provider->CIF = 'B82476302';
-        $provider->save();
-	}
+        // Uncomment the below to wipe the table clean before populating
+        DB::table($this->table)->truncate();
+
+        parent::run();
+    }
 }

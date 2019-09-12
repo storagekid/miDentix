@@ -5,7 +5,13 @@ namespace App;
 
 class ClinicPoster extends Qmodel
 {
-
+    protected $fillable = ['clinic_id', 'poster_id', 'type', 'starts_at', 'ends_at'];
+    public static $full = ['clinic.county', 'poster', 'clinic_poster_priorities.campaign'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $relatedTo = ['clinic_poster_priorities'];
 
@@ -33,7 +39,6 @@ class ClinicPoster extends Qmodel
         'clinic_id' => [
             'label' =>'Clínica',
             'batch' => true,
-            // 'onObject' => 'clinic_poster',
             'type' => [
               'name' =>'select',
               'model' => 'clinics',
@@ -60,7 +65,6 @@ class ClinicPoster extends Qmodel
         ],
         'type' => [
             'label' =>'Tipo',
-            // 'onObject' => 'clinic_poster',
             'type' => [
                 'name' =>'array',
                 'array' => ['Int', 'Ext', 'Office', 'Office Int'],
@@ -69,22 +73,9 @@ class ClinicPoster extends Qmodel
                 ],
             ],
         ],
-        // 'priority' => [
-        //     'ignoreTable' => true,
-        //     'label' =>'Priority',
-        //     'batch' => true,
-        //     'type' => [
-        //         'name' =>'array',
-        //         'array' => [1,2,3,4,5,6,7,8],
-        //         'default' => [
-        //             'text' => 'Selecciona una Prioridad',
-        //         ],
-        //     ],
-        // ],
         'starts_at' => [
             'label' =>'Fecha Inicio',
             'batch' => true,
-            // 'onObject' => 'clinic_poster',
             'type' => [
                 'name' => 'date',
             ]
@@ -92,7 +83,6 @@ class ClinicPoster extends Qmodel
         'ends_at' => [
             'label' =>'Fecha Fin',
             'batch' => true,
-            // 'onObject' => 'clinic_poster',
             'type' => [
                 'name' => 'date',
             ]
@@ -105,17 +95,15 @@ class ClinicPoster extends Qmodel
         ],
         'right' => [],
     ];
-    // protected $keyField = 'id';
 
-    public static $full = ['clinic.county', 'poster', 'clinic_poster_priorities.campaign'];
     // END Quasar DATA
     
 
     // Tableable DATA
     protected $tableColumns = [
-        'id' => [
-            'label' => 'ID',
-        ],
+        // 'id' => [
+        //     'label' => 'ID',
+        // ],
         'clinic.nickname' => [
             'label' => 'Clínica',
             'filtering' => ['select' => 'clinics'],
@@ -155,7 +143,6 @@ class ClinicPoster extends Qmodel
     ];
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
-    protected $fillable = ['clinic_id', 'poster_id', 'type', 'starts_at', 'ends_at'];
 
     public function clinic() {
         return $this->belongsTo(Clinic::class)->withTrashed();

@@ -6,7 +6,12 @@ class ClinicPosterPriority extends Qmodel
 {
 
     protected $fillable = ['campaign_id', 'clinic_poster_id', 'priority', 'starts_at', 'ends_at'];
-
+    public static $full = ['clinic_poster.clinic.county', 'clinic_poster.poster', 'campaign'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $onRelationMode = ['table'];
     
@@ -95,9 +100,9 @@ class ClinicPosterPriority extends Qmodel
     // END Quasar DATA
     // Tableable DATA
     protected $tableColumns = [
-        'clinic_poster_id' => [
-            'label' => 'Poster ID',
-        ],
+        // 'clinic_poster_id' => [
+        //     'label' => 'Poster ID',
+        // ],
         'clinic_poster.clinic.nickname' => [
             'label' => 'Clínica',
         ],
@@ -142,7 +147,6 @@ class ClinicPosterPriority extends Qmodel
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
-    public static $full = ['clinic_poster.clinic.county', 'clinic_poster.poster', 'campaign'];
 
     public function clinic_poster () {
         return $this->belongsTo(ClinicPoster::class, 'clinic_poster_id');

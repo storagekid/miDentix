@@ -7,7 +7,11 @@ class SanitaryCode extends Qmodel
 
     protected $fillable = ['code', 'description', 'clinic_id', 'county_id', 'state_id', 'country_id', 'campaign_id'];
     protected static $full = ['clinic', 'county', 'state', 'country', 'campaign', 'sanitizable'];
-
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $quasarFormNewLayout = [
         [

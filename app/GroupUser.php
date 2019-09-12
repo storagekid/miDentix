@@ -8,7 +8,9 @@ class GroupUser extends Qmodel
         'user_id', 'group_id', 'role'
     ];
     protected $appends = ['groupName'];
-
+    protected static $permissions = [
+        'view' => ['*']
+    ];
     // Quasar DATA
 
     protected $quasarFormNewLayout = [
@@ -51,7 +53,7 @@ class GroupUser extends Qmodel
             'label' =>'Role',
             'type' => [
                 'name' =>'array',
-                'array' => ['guest', 'user', 'editor', 'administrator', 'overseeker', 'root'],
+                'array' => ['guest', 'user', 'editor', 'administrator', 'overseeker'],
                 'default' => [
                     'text' => 'Selecciona un Role',
                 ],

@@ -10,4 +10,9 @@ class ClinicPosterDistributionFacade extends Qmodel
     use Fileable;
 
     protected $fillable = ['campaign_id', 'complete_facade_file_id'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
 }

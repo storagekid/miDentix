@@ -100,10 +100,29 @@ trait Tableable {
     }
 
     public function optionsBuilder($options) {
+        // dump(static::class);
         return [
-                'actions' => $options[0],
+                'actions' => [
+                    'view' => static::authorize('view'),
+                    'create' => static::authorize('create'),
+                    'update' => static::authorize('update'),
+                    'destroy' => static::authorize('destroy')
+                ],
+                'exports' => [
+                    'excel' => $this->getExcelBlueprints()
+                ],
                 'counterColumn' => $options[1],
                 'showNew' => $options[2],
         ];
+    }
+    public function getExcelBlueprints() {
+        $shortClass = substr(static::class, stripos(static::class, '\\')+1);
+        // dump($shortClass);
+        $className = '\App\Exports\\' . $shortClass . 'Exports';
+        // dump($className);
+        $blueprints = [];
+        if (static::authorize('view')) $blueprints[] = 'Wildcard';
+        if (class_exists($className)) array_merge($blueprints, (new $className)::$blueprints);
+        return $blueprints;
     }
 }

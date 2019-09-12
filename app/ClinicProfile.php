@@ -6,6 +6,17 @@ use App\ClinicSchedule;
 
 class ClinicProfile extends Qmodel
 {
+    protected $fillable = [
+        'profile_id', 'clinic_id'
+    ];
+    protected $with = ['clinic'];
+    protected $appends = ['fullName', 'label', 'value'];
+    protected $table = 'clinic_profiles';
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
     // TABLE
     protected $tableColumns = [
         'fullName' => [
@@ -76,13 +87,6 @@ class ClinicProfile extends Qmodel
     ];
     protected $keyField = 'fullName';
     // END Quasar DATA
-
-    protected $fillable = [
-        'profile_id', 'clinic_id'
-    ];
-    protected $with = ['clinic'];
-    protected $appends = ['fullName', 'label', 'value'];
-    protected $table = 'clinic_profiles';
 
     public function profile() {
     	return $this->belongsTo(Profile::class, 'profile_id');

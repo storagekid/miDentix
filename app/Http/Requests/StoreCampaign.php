@@ -28,6 +28,7 @@ class StoreCampaign extends FormRequest
         return [
             'name' =>[$required->condition ? 'required' : '', Rule::unique('campaigns')->ignore($this->id), 'max:255'],
             'description' =>[$required->condition ? 'required' : '','max:255'],
+            'parent_id' => ['nullable'],
             'starts_at' =>[$required->condition ? 'required' : '', 'date'],
             'ends_at' =>['nullable', 'date'],
             'poster_starts_at' =>['nullable', 'date'],

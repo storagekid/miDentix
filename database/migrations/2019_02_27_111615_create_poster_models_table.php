@@ -16,7 +16,7 @@ class CreatePosterModelsTable extends Migration
         Schema::create('poster_models', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullalbe();
             $table->timestamps();
         });
     }

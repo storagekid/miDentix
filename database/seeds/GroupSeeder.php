@@ -1,34 +1,28 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Flynsarmy\CsvSeeder\CsvSeeder;
 
-class GroupSeeder extends Seeder
+class GroupSeeder extends CsvSeeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
+	public function __construct()
 	{
-		$profile = factory('App\Group')->create([
-			'name' => 'Administrators',
-		]);
-		$profile = factory('App\Group')->create([
-			'name' => 'Dentists',
-		]);
-		$profile = factory('App\Group')->create([
-			'name' => 'Users',
-		]);
-		$profile = factory('App\Group')->create([
-			'name' => 'RRHH',
-		]);
-		$profile = factory('App\Group')->create([
-			'name' => 'Marketing',
-		]);
-		$profile = factory('App\Group')->create([
-			'name' => 'Clinics',
-		]);
+		$this->table = 'groups';
+		$this->csv_delimiter = ',';
+		$this->filename = base_path().'/database/seeds/csvs/groups.csv';
+	}
+		/**
+		 * Run the database seeds.
+		 *
+		 * @return void
+		 */
+		public function run()
+	{
+		// Recommended when importing larger CSVs
+		// DB::disableQueryLog();
+
+		// Uncomment the below to wipe the table clean before populating
+		DB::table($this->table)->truncate();
+
+		parent::run();
 	}
 }

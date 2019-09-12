@@ -5,6 +5,11 @@ namespace App;
 
 class Store extends Qmodel
 {
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $quasarFormNewLayout = [
         [

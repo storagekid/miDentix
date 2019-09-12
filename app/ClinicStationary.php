@@ -6,8 +6,12 @@ class ClinicStationary extends Qmodel
 {
 
     protected $table = 'clinic_stationary';
-
     protected $with = ['stationary'];
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+        ]
+    ];
 
     public function clinic()
     {

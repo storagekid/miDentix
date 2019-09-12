@@ -9,8 +9,9 @@ use App\Http\Controllers\Controller;
 
 class ExportController extends Controller
 {
-    public function export() 
+    public function exportExcel() 
     {
+        if (!request()->has('blueprint')) abort(403, 'A blueprint is needed');
         if (strpos(request('model'), '_')) {
             $array = explode('_', request('model'));
             $array[count($array) - 1] = Str::singular($array[count($array) - 1]);
@@ -18,8 +19,15 @@ class ExportController extends Controller
                 $array[$key] = ucfirst($name);
             }
             $name = implode('', $array);
+        } else {
+            $name = ucfirst(Str::singular(request('model')));
         }
-        $class = '\App\Exports\\' . $name . 'Exports';
-        return Excel::download(new $class, $name . '.xlsx');
+        if (request('blueprint') === 'Wildcard') {
+            $modelClass = '\App\\' . $name;
+            return Excel::download(new \App\Exports\WildCardViewExports($modelClass), $name . '.xlsx');
+        }
+        $exportClass = '\App\Exports\\' . $name . 'Exports';
+        if (!in_array(request('blueprint'), (new $exportClass)::$blueprints)) abort(403, 'Blueprint doesn\'t exists.');
+        return Excel::download(new $exportClass, $name . '.xlsx');
     }
 }

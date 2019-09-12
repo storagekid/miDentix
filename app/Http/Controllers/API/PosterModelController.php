@@ -30,6 +30,8 @@ class PosterModelController extends Controller
      */
     public function store(StorePosterModel $request)
     {
+        // PosterModel::authorize('create');
+
         $model = PosterModel::create(request()->all());
         $model->load(['sanitary_codes']);
 

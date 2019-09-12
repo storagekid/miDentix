@@ -9,8 +9,13 @@ class Campaign extends Qmodel
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'description', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at'];
+    protected $fillable = ['name', 'description', 'parent_id', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at'];
     // protected $with = ['campaign_posters', 'campaign_poster_priorities'];
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
 
     // Quasar DATA
     protected $relatedTo = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes'];
@@ -20,7 +25,7 @@ class Campaign extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name','description', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at']
+                ['name','description', 'parent_id', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at']
             ],
         ],
     ];
@@ -29,7 +34,7 @@ class Campaign extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at']
+                ['name', 'description', 'parent_id', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at']
             ],
         ],
         [
@@ -57,6 +62,19 @@ class Campaign extends Qmodel
         ],
         'description' => [
             'label' =>'Descripción',
+        ],
+        'parent_id' => [
+            'label' =>'Campaña Origen',
+            'type' => [
+                'name' =>'select',
+                'model' => 'campaigns',
+                'hasFamily' => true,
+                'text' =>  'name',
+                'value' => 'id',
+                'default' => [
+                    'text' => 'Selecciona una Campaña de Origen',
+                ],
+            ],
         ],
         'starts_at' => [
             'label' =>'Fecha Inicio',
@@ -114,6 +132,9 @@ class Campaign extends Qmodel
             'filtering' => ['search'],
             'show' => false
         ],
+        'parent.name' => [
+            'label' => 'Campaña Origen',
+        ],
         'starts_at' => [
             'label' => 'Fecha Inicio',
         ],
@@ -146,7 +167,7 @@ class Campaign extends Qmodel
     ];
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
-    protected static $full = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes'];
+    protected static $full = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes', 'parent', 'children'];
     protected $appends = ['label', 'value', 'open', 'active'];
 
     // STATICS
@@ -183,10 +204,10 @@ class Campaign extends Qmodel
     // END STATICS
 
     public function children() {
-        return $this->hasMany(Campaign,'parent_id');
+        return $this->hasMany(Campaign::class,'parent_id');
     }
     public function parent() {
-        return $this->belongsTo(Campaign,'parent_id');
+        return $this->belongsTo(Campaign::class,'parent_id');
     }
     public function campaign_poster_priorities () {
         return $this->hasMany(CampaignPosterPriority::class);

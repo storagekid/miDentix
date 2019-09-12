@@ -8,7 +8,11 @@ class CampaignPosterPriority extends Qmodel
     protected $fillable = ['campaign_id', 'poster_model_id', 'priority'];
     protected $appends = ['poster_model_name'];
     protected $with = ['poster'];
-
+    protected static $permissions = [
+        'view' => [
+            'Marketing' => ['*'],
+        ]
+    ];
     // Quasar DATA
     protected $onRelationMode = ['table'];
     

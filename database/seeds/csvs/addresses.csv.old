@@ -5,8 +5,7 @@ id,address_line_1,address_line_2,type,description,main,addressable_id,addressabl
 7,"C/ Tinte, 13",,Fiscal,Real Address from Meta 4,0,4,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 9,"C/ Mayor, 127 A",,Fiscal,Real Address from Meta 4,0,5,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 11,"C/ Constitución, 37",,Fiscal,Real Address from Meta 4,0,6,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
-13,"C/ Pablo Picasso, 76",,Fiscal,Real Address from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
-14,"C/ Constitución, 69",,Comercial,Adv Address from Meta 4,0,7,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+13,"C/ Pablo Picasso, 76",,Fiscal,Fachada Pablo Picaso,0,7,App\Clinic,2019-03-22 15:40:21,2019-08-21 13:09:33
 15,"Av. L'Alameda, 13",,Fiscal,Real Address from Meta 4,0,8,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 17,"C/ Mayor, 10",,Fiscal,Real Address from Meta 4,0,9,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 19,"Av. America, 7-9",,Fiscal,Real Address from Meta 4,0,10,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
@@ -30,7 +29,7 @@ id,address_line_1,address_line_2,type,description,main,addressable_id,addressabl
 52,"C/ Sants, 8",,Fiscal,Real Address from Meta 4,0,27,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 54,"Begoñako Andra Mari Kalea, 16",,Fiscal,Real Address from Meta 4,0,28,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 56,"C/ de los Herreros, 16",,Fiscal,Real Address from Meta 4,0,29,App\Clinic,2019-03-22 15:40:21,2019-06-26 15:42:24
-58,Lamera Ibilbidea 1,esq. Lope Diaz de Haro Kalea,Fiscal,Real Address from Meta 4,0,30,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
+58,Lamera Ibilbidea 1,,Fiscal,Real Address from Meta 4,0,30,App\Clinic,2019-03-22 15:40:21,2019-08-21 10:57:54
 60,"C/ Aita Esteban Pernet, 2",,Fiscal,Real Address from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 61,C/ Karmelo,"esq. c/ Aita Esteban Pernet, 2",Comercial,Adv Address from Meta 4,0,31,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
 62,"C/ Gran Vía de Don Diego López de Haro, 37",,Fiscal,Real Address from Meta 4,0,32,App\Clinic,2019-03-22 15:40:21,2019-03-22 15:40:21
@@ -418,7 +417,7 @@ id,address_line_1,address_line_2,type,description,main,addressable_id,addressabl
 610,"C/ Mairena, 37",,Fiscal,Principal,0,231,App\Clinic,2019-07-12 13:19:28,2019-07-12 13:19:28
 611,"C/ Isilla, 22",,Fiscal,Principal,0,232,App\Clinic,2019-07-12 13:20:48,2019-07-12 13:20:48
 612,C/ Orense,,Fiscal,Fachada Orense,0,6,App\Clinic,2019-07-17 11:55:48,2019-07-17 11:55:48
-613,C/ Constitución,,Fiscal,Fachada Constitución,0,7,App\Clinic,2019-07-17 12:08:12,2019-07-17 12:08:12
+613,"C/ Constitución, 69",,Fiscal,Fachada Constitución,0,7,App\Clinic,2019-07-17 12:08:12,2019-08-21 13:09:50
 614,Av. Blas Infante,,Fiscal,Fachada Blas Infante,0,11,App\Clinic,2019-07-17 12:16:01,2019-07-17 12:16:01
 615,C/ Almibar,,Fiscal,Fachada Almibar,0,16,App\Clinic,2019-07-18 17:24:26,2019-07-18 17:24:26
 616,"Av. Ana de Viya, 46",,Fiscal,Fachada Ana de Viya,0,35,App\Clinic,2019-07-18 17:40:13,2019-07-18 17:40:13
@@ -447,3 +446,24 @@ id,address_line_1,address_line_2,type,description,main,addressable_id,addressabl
 639,Pl. de los Reyes Católicos,,Fiscal,Fachada de los Reyes Católicos,0,195,App\Clinic,2019-07-19 17:48:56,2019-07-19 17:48:56
 640,Rúa Arzobispo Lago,,Fiscal,Fachada Rúa Arzobispo Lago,0,199,App\Clinic,2019-07-19 17:52:54,2019-07-19 17:52:54
 641,Rúa Castelao,,Fiscal,Fachada Rúa Castelao,0,199,App\Clinic,2019-07-19 17:54:55,2019-07-19 17:54:55
+642,Lope Diaz de Haro Kalea,,Fiscal,Fachada Lope Diaz de Haro Kalea,0,30,App\Clinic,2019-08-21 10:57:16,2019-08-21 10:57:16
+643,Lamera Ibilbidea 1,esq. Lope Diaz de Haro Kalea,Comercial,Buzoneo,0,30,App\Clinic,2019-08-21 10:57:48,2019-08-21 10:57:48
+644,C/ Antonio Torrero,,Fiscal,Fachada Antonio Torrero,0,231,App\Clinic,2019-08-21 12:42:31,2019-08-21 12:42:31
+645,Pl. Constitución,,Fiscal,Facahda Constitución,0,232,App\Clinic,2019-08-21 12:54:06,2019-08-21 12:54:06
+646,C/ Aragón,,Fiscal,Fachada Aragón,0,9,App\Clinic,2019-08-21 12:59:35,2019-08-21 12:59:35
+647,C/ de l'Hospital,,Fiscal,Fachada de l'Hospital,0,229,App\Clinic,2019-08-21 13:59:34,2019-08-21 13:59:34
+648,C/ Fray Carlos Amigo Vall,,Fiscal,Fachada Fray Carlos Amigo Vall,0,230,App\Clinic,2019-08-21 14:24:31,2019-08-21 14:27:35
+649,"P.º de Dolores Soria, 1",,Fiscal,Real,0,233,App\Clinic,2019-08-21 14:33:46,2019-08-21 14:33:46
+650,"Pl. Major, 13",,Fiscal,Real,0,234,App\Clinic,2019-08-21 14:35:38,2019-08-21 14:35:38
+651,"C/ Doce de Octubre, 22",,Fiscal,Real,0,235,App\Clinic,2019-08-21 14:37:11,2019-08-21 14:37:11
+652,C/ de Francia,,Fiscal,Fachada de Francia,0,61,App\Clinic,2019-08-22 11:31:15,2019-08-22 11:31:15
+653,Pl. Constitución,,Fiscal,Fachada Constitución,0,49,App\Clinic,2019-08-22 13:26:36,2019-08-22 13:26:36
+654,C/ Amargura,,Fiscal,Fachada Amargura,0,178,App\Clinic,2019-08-22 13:49:37,2019-08-22 13:49:37
+655,C/ Joaquín Arnau,,Fiscal,Fachada Joaquín Arnau,0,178,App\Clinic,2019-08-22 13:49:51,2019-08-22 13:49:51
+656,C/ del Canonge Baranera,,Fiscal,Fachada del Canonge Baranera,0,18,App\Clinic,2019-08-22 14:22:57,2019-08-22 14:22:57
+657,Galeria Comercial,,Fiscal,Fachada Galeria Comercial,0,104,App\Clinic,2019-08-22 15:13:47,2019-08-22 15:13:47
+658,C/ del Duque de Ahumada,,Fiscal,Fachada del Duque de Ahumada,0,141,App\Clinic,2019-08-22 15:31:42,2019-08-22 15:31:42
+659,C/ Cuesta,,Fiscal,Facahda Cuesta,0,165,App\Clinic,2019-08-23 9:36:57,2019-08-23 9:36:57
+660,Pl. Esteve,,Fiscal,Fachada Esteve,0,83,App\Clinic,2019-08-23 10:19:01,2019-08-23 10:19:01
+661,C/ Julian Ceballos,,Fiscal,Fachada Julian Ceballos,0,182,App\Clinic,2019-08-23 10:55:35,2019-08-23 10:55:35
+662,C/ Ruiz Tagle,,Fiscal,Fachada Ruiz Tagle,0,182,App\Clinic,2019-08-23 10:56:04,2019-08-23 10:56:04

@@ -93,7 +93,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('/table', 'TableController@index');
         Route::get('/quasar', 'QuasarController@index');
         Route::get('/form', 'FormController@index');
-        Route::post('/exports', 'ExportController@export');
+        Route::post('/exportExcel', 'ExportController@exportExcel');
         // Route::get('/form', 'FormController@index');
         Route::get('/images/thumbnail', 'ImageController@fetchThumbnail');
         Route::post('/images/thumbnails', 'ImageController@fetchThumbnails');
