@@ -32,13 +32,6 @@ class CreateClinicsTable extends Migration
             $table->date('ends_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            // SHOULD BE DELETED
-            // $table->string('address_real_1')->nullable();
-            // $table->string('address_real_2')->nullable();
-            // $table->string('address_adv_1')->nullable();
-            // $table->string('address_adv_2')->nullable();
-            // $table->string('phone_real')->nullable();
-            // $table->string('phone_adv')->nullable();
         });
     }
 
