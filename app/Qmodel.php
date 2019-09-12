@@ -60,7 +60,7 @@ class Qmodel extends Model
 
     public function getShowView($view=null) {
       if (!$view) {
-        $view = static::$show ? static::$show : [];
+        $view = isset(static::$show) ? static::$show : isset(static::$full) ? static::$full : [];
         return $view;
       }
       else if (!array_key_exists($view, static::$views)) return [];
