@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 use TCPDF;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Profile extends Qmodel
 {
+    use SoftDeletes;
+
     protected $fillable = ['name','lastname1','lastname2','personal_id_number','tutorial_completed','gender','birth_date','country_id','company_id','user_id'];
     protected $guarded = [];
     protected $hidden = [];

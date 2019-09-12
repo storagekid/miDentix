@@ -31,7 +31,8 @@ class CreateProfilesTable extends Migration
             $table->unsignedInteger('university_id')->nullable()->default(null);
             $table->unsignedInteger('tutorial_completed')->default(1);
             $table->string('avatar_path')->nullable()->default(null);
-
+            
+            $table->softDeletes();
             $table->timestamps();
         });
     }
