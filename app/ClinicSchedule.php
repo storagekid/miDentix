@@ -12,7 +12,7 @@ class ClinicSchedule extends Qmodel
     protected $casts = [
         'schedule' => 'array',
     ];
-    // protected $appends = ['clinic_id', 'clinicFullName', 'job_name', 'job_type_name'];
+    protected $appends = ['key_name'];
     // protected $with = ['clinic_profile', 'job', 'job_type'];
     protected static $permissions = [
         'view' => [
@@ -71,7 +71,7 @@ class ClinicSchedule extends Qmodel
     ];
     protected $listFields = [
         'left' => [
-            'clinicFullName' => ['chips'],
+            'key_name' => ['chips'],
         ],
         'main' => [
             'job_name' => ['text'],
@@ -79,7 +79,7 @@ class ClinicSchedule extends Qmodel
         ],
         'right' => [],
     ];
-    protected $keyField = 'job_type_name';
+    protected $keyField = 'key_name';
     // END Quasar DATA
 
     public function clinic_profile() {
@@ -92,18 +92,18 @@ class ClinicSchedule extends Qmodel
         return $this->belongsTo(JobType::class);
     }
     public function getClinicIdAttribute() {
-        // return $this->job ? $this->job->name : 'undefined';
         return $this->clinicProfile->clinic_id;
     }
     public function getClinicFullNameAttribute() {
         return $this->clinicProfile->clinic->fullName;
     }
     public function getJobNameAttribute() {
-        // return $this->job ? $this->job->name : 'undefined';
         return $this->job->name;
     }
     public function getJobTypeNameAttribute() {
-        // return $this->job_type ? $this->job_type->name : 'undefined';
         return $this->job_type->name;
+    }
+    public function getKeyNameAttribute() {
+        return $this->clinic_profile->clinic->cleanName . ' - ' . $this->JobTypeName;
     }
 }
