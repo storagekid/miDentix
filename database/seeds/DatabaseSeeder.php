@@ -27,15 +27,9 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             JobSeeder::class,
             JobTypeSeeder::class,
-            // EspecialtiesSeeder::class,
-            // MastersSeeder::class,
-            // ExperiencesSeeder::class,
             // MunicipioSeeder::class,
             CountySeeder::class,
-            // UniversitySeeder::class,
-            // LaboratoriesSeeder::class,
             // UsersSeeder::class,
-            // Master_UniversitySeeder::class,
             GroupSeeder::class,
             ProvidersSeeder::class,
             FileSeeder::class,
@@ -56,16 +50,6 @@ class DatabaseSeeder extends Seeder
         ]);
         if (!$this->profileCSV) {
             $this->call([
-                // ProfilesDentistsSeeder::class,
-                // ProfilesAdminSeeder::class,
-                // SchedulesSeeder::class,
-                // Especialty_ScheduleSeeder::class,
-                // Especialty_ProfileSeeder::class,
-                // Experience_ProfileSeeder::class,
-                // Master_University_ProfileSeeder::class,
-                // RequestsSeeder::class,
-                // ExtratimesSeeder::class,
-                // Especialty_ExtratimeSeeder::class,
             ]);
         } else {
             $this->call([

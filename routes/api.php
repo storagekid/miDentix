@@ -45,7 +45,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('cost_centers', 'CostCenterController');
         Route::resource('jobs', 'JobController');
 		Route::resource('job_types', 'JobTypeController');
-        Route::resource('universities', 'UniversityController');
         Route::resource('companies', 'CompanyController');
         Route::resource('countries', 'CountryController');
         Route::resource('stores', 'StoreController');
@@ -75,7 +74,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('poster_distributions/{clinicposterdistribution}/complete', 'ClinicPosterDistributionController@completeFacade');
         Route::get('poster_distributions/{clinicposterdistribution}/compose', 'ClinicPosterDistributionController@composeFacade');
         Route::get('poster_distributions/{clinicposterdistribution}/removeFacade', 'ClinicPosterDistributionController@removeFacade');
-        // Route::get('poster_distributions/{clinicposterdistribution}/compose', 'ClinicPosterDistributionController@composeFacade');
         Route::resource('languages', 'LanguageController');
         Route::resource('posters', 'PosterController');
         Route::resource('poster_models', 'PosterModelController');
@@ -94,7 +92,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('/quasar', 'QuasarController@index');
         Route::get('/form', 'FormController@index');
         Route::post('/exportExcel', 'ExportController@exportExcel');
-        // Route::get('/form', 'FormController@index');
         Route::get('/images/thumbnail', 'ImageController@fetchThumbnail');
         Route::post('/images/thumbnails', 'ImageController@fetchThumbnails');
     });
