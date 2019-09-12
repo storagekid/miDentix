@@ -32,8 +32,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    protected $with = ['groups', 'group_users'];
-    protected $appends = ['groupsInfo', 'value', 'label'];
+    protected $with = [];
+    protected $appends = ['value', 'label'];
 
     // Quasar DATA
     protected $relatedTo = ['group_users'];
@@ -149,13 +149,6 @@ class User extends Authenticatable
             }
         }
         return $groups;
-    }
-
-    public function getPermissionsAttribute()
-    {
-        return [
-            'clinics' => ['show', 'create', 'edit', 'delete']
-        ];
     }
 
     public function getMenu($domain, $groups, $role)
