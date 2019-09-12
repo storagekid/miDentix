@@ -11,6 +11,7 @@ class PosterModel extends Qmodel
             'Marketing' => ['user', 'editor', 'administrator', 'overseeker'],
         ]
     ];
+    protected static $full = ['sanitary_codes'];
     // Quasar DATA
     protected $relatedTo = ['sanitary_codes'];
 
