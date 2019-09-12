@@ -27,8 +27,8 @@ class AuthController extends Controller
             $user = Auth::user();
             $token = $user->createToken($user->name . '-token')->accessToken;
 
-            $user->load('profiles');
-            $user->append('permissions');
+            $user->load('profiles', 'groups', 'group_users');
+            $user->append('groupsInfo');
             if (count($user->profiles) === 1) {
                 $user['profile'] = \App\Profile::with('clinics', 'stores')->find($user->profiles[0]->id)->append('clinicScope', 'storeScope');
             }
@@ -71,23 +71,6 @@ class AuthController extends Controller
                 return response()->json(['message' => 'User has no Accesses Granted'], 403);
             }
             return response()->json(['access_token' => $token, 'user' => $user, 'menus' => $menus, 'routes' => $routes], 200);
-
-            // $http = new \GuzzleHttp\Client;
-
-            // $response = $http->post('http://migabinete.test/oauth/token', [
-            //     'form_params' => [
-            //         'grant_type' => 'password',
-            //         'client_id' => 1,
-            //         'client_secret' => 'bpCmaN2o7sVPsu8gtZ3HSgT97YYWuOGw5Pf2WpCk',
-            //         'username' => $request->name,
-            //         'password' => $request->password,
-            //         'scope' => ''
-            //     ],
-            // ]);
-
-            // return response(
-            //     json_decode((string) $response->getBody(), true), 200
-            // );
 
         } else {
             return response('Usuario o contraseña incorrectos', 403);
