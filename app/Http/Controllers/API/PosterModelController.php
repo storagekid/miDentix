@@ -17,7 +17,7 @@ class PosterModelController extends Controller
     public function index()
     {
         return response([
-            'model' => PosterModel::with(['sanitary_codes'])->get(),
+            'model' => PosterModel::fetch(),
             'quasarData' => PosterModel::getQuasarData(),
         ], 200);
     }
