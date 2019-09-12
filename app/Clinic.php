@@ -307,6 +307,21 @@ class Clinic extends Qmodel
   ];
   protected $tableOptions = [['show','edit','delete'], true, true];
   // END Tableable Data
+  // Model Views
+  protected static $views = [
+    'distributions' => [
+      'county',
+      'cost_center',
+      'addresses',
+      'phones',
+      'area_manager',
+      'clinic_manager',
+      'clinic_poster_priorities',
+      'poster_distributions.complete_facades',
+      'poster_distributions.original_facade'
+    ],
+  ];
+  // END Model Views
 
   public function clinic_posters () {
       return $this->hasMany(ClinicPoster::class);

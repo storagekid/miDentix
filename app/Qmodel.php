@@ -59,23 +59,31 @@ class Qmodel extends Model
     // END Quasar DATA
 
 
+    // public function getShowView($view=null) {
+    //   $views = [
+    //     'distributions' => [
+    //       'county',
+    //       'cost_center',
+    //       'addresses',
+    //       'phones',
+    //       'area_manager',
+    //       'clinic_manager',
+    //       'clinic_poster_priorities',
+    //       'poster_distributions' => function ($q) { return $q->with(['original_facade', 'complete_facades']); }
+    //     ],
+    //     'default' => static::$show ? static::$show : []
+    //   ];
+    //   if (!$view) $view = 'default';
+    //   else if (!array_key_exists($view, $views)) $view = 'default';
+    //   return $views[$view];
+    // }
     public function getShowView($view=null) {
-      $views = [
-        'distributions' => [
-          'county',
-          'costCenter',
-          'addresses',
-          'phones',
-          'area_manager',
-          'clinic_manager',
-          'clinic_poster_priorities',
-          'poster_distributions' => function ($q) { return $q->with(['original_facade', 'complete_facades']); }
-        ],
-        'default' => static::$show ? static::$show : []
-      ];
-      if (!$view) $view = 'default';
-      else if (!array_key_exists($view, $views)) $view = 'default';
-      return $views[$view];
+      if (!$view) {
+        $view = static::$show ? static::$show : [];
+        return $view;
+      }
+      else if (!array_key_exists($view, static::$views)) return [];
+      return static::$views[$view];
     }
     protected static function authorize($method) {
       // dump('Authorizing');
