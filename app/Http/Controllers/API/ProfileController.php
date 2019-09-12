@@ -26,6 +26,23 @@ class ProfileController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $model = Profile::withTrashed()->find($id);
+        $model->getShowRelations(request()->has('view') ? request('view') : null);
+        
+        return response([
+            'model' => $model,
+            'quasarData' => Profile::getQuasarData(),
+        ], 200);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -89,20 +106,4 @@ class ProfileController extends Controller
             ]);
         }
     }
-
-    // public function downloadTags (Request $request)
-    // {
-    //     $ids = $request->query('profiles');
-    //     $profiles = Profile::find($ids);
-    //     $clinic = \App\Clinic::find($request->query('clinic'));
-    //     $file = Profile::makeTags($profiles, $clinic);
-
-    //     $headers = [
-    //         'Content-Type' => 'application/pdf',
-    //         'Content-Disposition' => 'attachment; filename="myfile.txt"',
-    //     ];
-    //     // return response()->file(public_path('img/logo_mi.png'));
-    //     return response()->download($file, 'patata.pdf', $headers)->deleteFileAfterSend(true);
-    //     return response()->download($file)->deleteFileAfterSend(true);
-    // }
 }
