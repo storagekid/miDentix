@@ -105,7 +105,7 @@ class User extends Authenticatable
         'name' => [
             'label' => 'Nombre'
         ], 
-        'groups' => [
+        'group_users' => [
             'label' => 'Groups',
         ],
     ];
