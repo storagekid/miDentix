@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Cache;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,129 +9,8 @@ use Illuminate\Support\Facades\Cache;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/auth/login', 'Api\AuthController@login')->middleware('guest:web');
 
-Route::prefix('rest')->namespace('api')->group(function() {
-    Route::prefix('auth')->group(function () {
-        Route::post('/login', 'AuthController@login');
-    });
-});
-
-Auth::routes();
-
-// CRM Subdomain
-Route::prefix('CRM')->group(function () {
-	Route::prefix('landings')->group(function () {
-			Route::get('grpd', function () {
-					return view('landings.rgpd-landing');
-			});
-	});
-});
-
-Route::middleware(['auth'])->group(function() {
-
-	Route::get('/profile-selector', function() {
-		return view('profile-selector');
-	})->name('profile-selector');
-	Route::post('/profile-choice', function() {
-		// session(['selectedProfile'=> auth()->user()->profiles[request('profile-index')]->id]);
-		$profile = auth()->user()->profiles[request('profile-index')];
-		session([
-			'selectedProfile'=> $profile->id,
-			'user_profile' => $profile->toArray(),
-			'clinicsScope' => $profile->clinicIdsScope->toArray()
-		]);
-		return redirect()->route('home');
-	})->name('profile-choice');
-
-	Route::get('/api/profile', 'ProfileController@indexApi');
-	Route::get('/api/profile/{profile}', 'ProfileController@indexApiById');
-	Route::patch('/profile/{profile}', 'ProfileController@update');
-
-	Route::patch('/api/user/passreset', 'UserController@resetPassApi');
-	Route::get('/api/users', 'UserController@indexApi');
-	Route::get('/api/user', function (Request $request) {
-		// Cache approach - brokes profile selection
-		// $user = Cache::rememberForever('user_' . session('user.email'), function() {
-		// 	$user = auth()->user();
-		// 	$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
-		// 	$user['profile'] = $profile;
-		// 	return $user;
-		// });
-
-		// Without Cache - Old functionality
-		$user = auth()->user();
-		$profile = \App\Profile::find(session('selectedProfile'))->append('clinicScope', 'clinicIdsScope', 'countryIdsScope', 'stateIdsScope', 'countyIdsScope');
-		$user['profile'] = $profile;
-
-		return $user;
-    });
-
-	Route::post('/export-excel', 'ExcelController@export');
-
-	Route::namespace('API')->prefix('api')->group(function () {
-
-		Route::get('/clinics/table', 'ClinicController@table');
-		Route::resource('clinics', 'ClinicController');
-
-		Route::resource('profiles', 'ProfileController');
-		Route::resource('cost_centers', 'CostCenterController');
-
-		Route::get('/providers/table', 'ProviderController@table');
-		Route::get('/providers/form', 'ProviderController@form');
-		Route::resource('providers', 'ProviderController');
-
-		Route::resource('jobs', 'JobController');
-		Route::resource('job_types', 'JobTypeController');
-		Route::resource('orders', 'OrderController');
-		Route::resource('shoppingBags', 'ShoppingBagController');
-
-		Route::get('/stationaries/table', 'StationaryController@table');
-		Route::get('/stationaries/form', 'StationaryController@form');
-		Route::resource('stationaries', 'StationaryController');
-
-		Route::resource('counties', 'CountyController');
-		Route::resource('states', 'StateController');
-		Route::resource('countries', 'CountryController');
-	
-		Route::resource('clinic_stationaries', 'ClinicStationaryController');
-
-		Route::get('/table', 'TableController@index');
-		Route::get('/form', 'FormController@index');
-		Route::resource('relations', 'RelationController');
-		
-	});
-});
-
-Route::middleware(['auth', 'profile-count'])->group(function() {
-	Route::get('/', function () {
-	    return view('layouts.app');
-	    // return redirect()->route('home');
-	})->name('home');
-
-	Route::get('/profile/{user}/create', 'ProfileController@create');
-	Route::get('/profile', 'ProfileController@index');
-	Route::get('/profiles/download-tags', 'ProfileController@downloadTags');
-	Route::get('/profiles/download-business-cards', 'ProfileController@downloadBusinessCard');
-	Route::get('/profiles/download-charts', 'ProfileController@downloadCharts');
-	Route::get('/profiles/download-jobcharts', 'ProfileController@downloadJobCharts');
-	Route::get('/profiles/{profile}', 'ProfileController@show');
-
-	Route::get('/users', 'UserController@index');
-
-	Route::get('/stationary', 'StationaryController@index');
-	Route::get('/stationary/download', 'StationaryController@download');
-	Route::get('/stationary/download-all', 'StationaryController@downloadAll');
-	Route::get('/stationary/download/{clinic}', 'StationaryController@downloadClinic');
-	Route::post('/stationary/regen', 'StationaryController@regen');
-	Route::post('/stationary/{clinic}', 'StationaryController@store');
-
-	Route::get('/orders', 'OrderController@index');
-	Route::post('/order/{clinic}', 'OrderController@store');
-	Route::get('/order/{shoppingbag}/{provider}', 'ShoppingBagController@download');
-	
-	Route::get('/test', 'TestController@index');
-});
+// Auth::routes();
 
 
 
