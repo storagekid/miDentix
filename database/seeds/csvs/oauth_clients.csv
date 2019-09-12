@@ -1,0 +1,2 @@
+id,user_id,"name","secret","redirect",personal_access_client,password_client,revoked,"created_at","updated_at"
+1,,"Dentix Personal Access Client","AOTLgwtkjDTAuC1IaAbhz52bmpLSiIgtlmnLf083","http://localhost",1,0,0,"2019-09-10 16:45:10","2019-09-10 16:45:10"

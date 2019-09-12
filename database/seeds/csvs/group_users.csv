@@ -1,4 +1,4 @@
-"id","group_id","user_id","role","created_at","updated_at"
+id,group_id,user_id,"role","created_at","updated_at"
 1,1,1,"overseeker","2019-01-22 16:18:03","2019-01-23 16:18:03"
 2,5,2,"overseeker","2019-01-23 16:18:03","2019-01-24 16:18:03"
 3,5,3,"user","2019-01-24 16:18:03","2019-01-25 16:18:03"

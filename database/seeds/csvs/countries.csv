@@ -1,6 +1,6 @@
-"id","name","code","currency","language","created_at","updated_at"
-"1","España","ES","euro","esES",2017-12-31,2017-12-31
-"2","Italia","IT","euro","itIT",2017-12-31,2017-12-31
-"3","Colombia","CO","peso","esCO",2017-12-31,2017-12-31
-"4","México","MX","peso","esMX",2017-12-31,2017-12-31
-"6","Chile","CL","peso","esCL",2017-12-31,2017-12-31
+id,"name","code","currency","language","created_at","updated_at"
+1,"España","ES","euro","esES","2017-12-31 00:00:00","2017-12-31 00:00:00"
+2,"Italia","IT","euro","itIT","2017-12-31 00:00:00","2017-12-31 00:00:00"
+3,"Colombia","CO","peso","esCO","2017-12-31 00:00:00","2017-12-31 00:00:00"
+4,"México","MX","peso","esMX","2017-12-31 00:00:00","2017-12-31 00:00:00"
+6,"Chile","CL","peso","esCL","2017-12-31 00:00:00","2017-12-31 00:00:00"

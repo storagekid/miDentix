@@ -1,11 +1,11 @@
-id,name,password,remember_token,last_access,created_at,updated_at
-1,jgvillalba@dentix.es,$2y$10$qdyCpEgxyW/87TDd8DQXouSWNFVmBZ3QYlw9qu3.HCHYhx7O3kZNu,PB8x1sUQsQ,,2019-01-22 12:51:10,2019-08-29 12:45:48
-2,dhernandez@dentix.es,$2y$10$ATXeSCh/2MUd87MZcHOJJuO4rzYQCH/ZwOBGQP9qdL7r03nZwHdW6,MJhGLr88B0,,2019-01-22 12:51:10,2019-08-29 12:45:48
-3,acruz@dentix.es,$2y$10$hOJVVxpSfgUdGqTNQQCQB.JP2dkMcov2w.oQ0Sz/n/bS2m2NHuqBK,URnOZyRqEe,,2019-01-22 12:51:10,2019-08-29 12:45:48
-4,bbarragan@dentix.es,$2y$10$FYXcXbhB.rxvC/JD9ukGF.BV3CtdI8lDgr1xB/wHW/rzAfPm5/Yuu,mMzBTsMrew,2019-01-22 12:51:10,2019-01-22 12:51:10,2019-08-29 12:45:48
-5,info.rubi@dentix.es,$2y$10$fXk6OzDNbhezU8mQKHis4uAgonrIfafvdazOT.0I5DAX53yZnr5S.,4ppqHLn0bW,,2019-01-22 12:51:12,2019-08-29 12:45:48
-6,info.coruna@dentix.es,$2y$10$pZEPxKp2olDAInNvxGrnDuSVHdrLWAsMYb.wABFwByS/ocqasb0yS,Xv8hQt0zY8,,2019-01-22 12:51:12,2019-08-29 12:45:48
-7,info.albacete@dentix.es,$2y$10$y9Ml5F1gkgnqhh2pBT8qWen4q5sSQs3eLq.RkVXWk9TX9YZBWmCUW,HCLwV9LqAq,,2019-01-22 12:51:12,2019-08-29 12:45:48
-8,info.albufera@dentix.es,$2y$10$hACj7WF8MEq8qaSvIXdQ5O8evSe1A41mBCIOgjae..LG.6jOMAi/6,zPPytuHttK,,2019-01-22 12:51:12,2019-08-29 12:45:48
-9,info.alcala385@dentix.es,$2y$10$HuOMVG9vm/p1A5bFraJ1KuQ/rLgzKdLRGpvjyE6iKTN7zND5zyttq,j6Ws0h66wC,,2019-01-22 12:51:13,2019-08-29 12:45:48
-10,info.alcala386@dentix.es,$2y$10$MpnzHjGPUCqOo1Z3DMuqpOdBpLBvUrxTWaYCbQkyTshK8PmQGvl.G,n96u2fZjXb,,2019-01-22 12:51:13,2019-08-29 12:45:48
+id,"name","password","remember_token","last_access","created_at","updated_at"
+1,"jgvillalba@dentix.es","$2y$10$PlEYETeabHWi7KWjllJC9eZt2OIXBh8G7ELI64rid7K4sP.lYId42","PB8x1sUQsQ",,"2019-01-22 12:51:10","2019-09-10 16:45:05"
+2,"dhernandez@dentix.es","$2y$10$Rex7n3kftF2KzZ/7T5YFuu4sqaj77KNMv1fTWjjNyphi6JpB3wB8S","MJhGLr88B0",,"2019-01-22 12:51:10","2019-09-10 16:45:05"
+3,"acruz@dentix.es","$2y$10$HyY.hTurNfj.cKzKRmeDAuCPK4bgGsfAAmb7cwtO40t9V19ennbI.","URnOZyRqEe",,"2019-01-22 12:51:10","2019-09-10 16:45:05"
+4,"bbarragan@dentix.es","$2y$10$f.UNnLuk26c8.ZAyw3V1lOJo10cWdh9Zv7sPCb2EeGWVWWXi9pTBS","mMzBTsMrew","2019-01-22 12:51:10","2019-01-22 12:51:10","2019-09-10 16:45:05"
+5,"info.rubi@dentix.es","$2y$10$rnd4AN8GgAoYil7QgI1toee3w8GaBFFCe4jV.QsaQCk8Ro0i1cEXO","4ppqHLn0bW",,"2019-01-22 12:51:12","2019-09-10 16:45:05"
+6,"info.coruna@dentix.es","$2y$10$sPFnSithVKkiFF3UgRSpyeseZfZNbfphhsWcMPKhkmTazOEcu.Qfy","Xv8hQt0zY8",,"2019-01-22 12:51:12","2019-09-10 16:45:05"
+7,"info.albacete@dentix.es","$2y$10$YhPukr/lEDZXflLCfO1MP.klYClt.AnYzScAacU9NSFNUMrVvV.Vm","HCLwV9LqAq",,"2019-01-22 12:51:12","2019-09-10 16:45:05"
+8,"info.albufera@dentix.es","$2y$10$4Ey4PXXi0KjuBr87He9ot.i.YiOLgP31DjCMslvDijANExibLYnZK","zPPytuHttK",,"2019-01-22 12:51:12","2019-09-10 16:45:05"
+9,"info.alcala385@dentix.es","$2y$10$6G6kuWW16Oej3hTD2AIU3.FjFUqboaNAqdwDFgXc1.iPWlynktvee","j6Ws0h66wC",,"2019-01-22 12:51:13","2019-09-10 16:45:05"
+10,"info.alcala386@dentix.es","$2y$10$2mjv9W4aF34kwocGtXDqmO.JX.6.mNG4rNA8B.7UIn0i9Q2RPfYkm","n96u2fZjXb",,"2019-01-22 12:51:13","2019-09-10 16:45:05"

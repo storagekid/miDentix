@@ -1,16 +1,16 @@
-id,name,description,details,price,customizable,file,link,created_at,updated_at
-1,a4sheet,Hoja A4,85 g,1.00,1,,,2017-11-15 16:50:36,2018-08-28 14:23:11
-2,recepi,Recetario,100 g,0.50,1,,,2017-11-15 16:50:36,2018-08-28 14:23:11
-3,envelope,Sobre Americano 225x115,125 g,0.25,1,,,2017-11-15 16:50:36,2018-08-28 14:23:11
-4,envelopeBig,Sobre Bolsa 324x229,126 g,0.30,1,,,2017-11-16 16:50:36,2018-08-28 14:23:11
-5,anamnesis,Anamnesis,127 g,0.27,0,,,2017-11-17 16:50:36,2018-08-28 14:22:52
-6,complaintForm,Hoja de Reclamaciones,128 g,0.28,0,Hoja de reclamaciones A4_Grises.pdf,stationary/España/generic/Hoja de reclamaciones A4_Grises.pdf,2017-11-18 16:50:36,2018-08-28 14:41:19
-7,labSchedule,Agenda de Laboratorio,129 g,0.29,0,,,2017-11-19 16:50:36,2018-08-28 14:22:52
-8,medicalRecord,Historia Clínica,130 g,0.30,0,,,2017-11-20 16:50:36,2018-08-28 14:22:53
-9,survey,Encuesta de Satisfacción,131 g,0.31,0,,,2017-11-21 16:50:36,2018-08-28 14:22:53
-10,warrantyBookletFixed,Talonario de Garantías (P. Removibles),132 g,0.32,0,,,2017-11-22 16:50:36,2018-08-28 14:22:53
-11,warrantyBooklet,Talonario de Garantías (P. Fijas),133 g,0.33,0,,,2017-11-23 16:50:36,2018-08-28 14:22:54
-12,medicalChart,Tiras de Cuadro Médico,Cuado médico análogico,1.00,0,,,2018-08-27 14:01:05,2018-08-28 14:47:51
-13,businessCard,Tarjeta de Visita,Tarjetas de visita personalizadas,2.50,0,,,2018-08-27 14:01:05,2018-08-28 14:22:54
-14,businessCardClinic,Tarjeta de Visita Genérica,Tarjetas de visita Genéricas para Recepción,2.50,0,,,2018-08-27 14:01:05,2018-08-28 14:22:54
-15,medicalChartJob,Tira de Especialidad de Cuadro Médico,400 g,1.50,0,,,2018-08-29 10:20:37,2018-08-29 10:21:45
+id,"name","description","details",price,customizable,"file","link","created_at","updated_at"
+1,"a4sheet","Hoja A4","85 g",1.00,1,,,"2017-11-15 16:50:36","2018-08-28 14:23:11"
+2,"recepi","Recetario","100 g",0.50,1,,,"2017-11-15 16:50:36","2018-08-28 14:23:11"
+3,"envelope","Sobre Americano 225x115","125 g",0.25,1,,,"2017-11-15 16:50:36","2018-08-28 14:23:11"
+4,"envelopeBig","Sobre Bolsa 324x229","126 g",0.30,1,,,"2017-11-16 16:50:36","2018-08-28 14:23:11"
+5,"anamnesis","Anamnesis","127 g",0.27,0,,,"2017-11-17 16:50:36","2018-08-28 14:22:52"
+6,"complaintForm","Hoja de Reclamaciones","128 g",0.28,0,"Hoja de reclamaciones A4_Grises.pdf","stationary/España/generic/Hoja de reclamaciones A4_Grises.pdf","2017-11-18 16:50:36","2018-08-28 14:41:19"
+7,"labSchedule","Agenda de Laboratorio","129 g",0.29,0,,,"2017-11-19 16:50:36","2018-08-28 14:22:52"
+8,"medicalRecord","Historia Clínica","130 g",0.30,0,,,"2017-11-20 16:50:36","2018-08-28 14:22:53"
+9,"survey","Encuesta de Satisfacción","131 g",0.31,0,,,"2017-11-21 16:50:36","2018-08-28 14:22:53"
+10,"warrantyBookletFixed","Talonario de Garantías (P. Removibles)","132 g",0.32,0,,,"2017-11-22 16:50:36","2018-08-28 14:22:53"
+11,"warrantyBooklet","Talonario de Garantías (P. Fijas)","133 g",0.33,0,,,"2017-11-23 16:50:36","2018-08-28 14:22:54"
+12,"medicalChart","Tiras de Cuadro Médico","Cuado médico análogico",1.00,0,,,"2018-08-27 14:01:05","2018-08-28 14:47:51"
+13,"businessCard","Tarjeta de Visita","Tarjetas de visita personalizadas",2.50,0,,,"2018-08-27 14:01:05","2018-08-28 14:22:54"
+14,"businessCardClinic","Tarjeta de Visita Genérica","Tarjetas de visita Genéricas para Recepción",2.50,0,,,"2018-08-27 14:01:05","2018-08-28 14:22:54"
+15,"medicalChartJob","Tira de Especialidad de Cuadro Médico","400 g",1.50,0,,,"2018-08-29 10:20:37","2018-08-29 10:21:45"
