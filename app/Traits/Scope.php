@@ -17,7 +17,7 @@ trait Scope {
         return $this->load($this->getShowView($view));
     }
 
-    public static function fetch($model=null, $orderBy=null, $with=null, $withTrashed=false) {
+    public static function fetch($model=null, $orderBy=null, $with=null, $withTrashed=false, $ids=null) {
         // if (!$model) $model = get_called_class();
         if(request()->has('with')) $with = request('with');
         if(request()->has('orderBy')) $orderBy = request('orderBy');
@@ -39,6 +39,7 @@ trait Scope {
                 $models = $models->orderBy($orderBy, request()->has('orderDesc') ? 'desc' : 'asc');
             }
             if (request()->has('ids')) $models = $models->find(request('ids'));
+            else if ($ids) $models = $models->find($ids);
             else $models = $models->get();
         }
         if (request()->has('full')) $models->load(static::$full);
