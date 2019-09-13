@@ -30,6 +30,7 @@ class Clinic extends Qmodel
   protected static $permissions = [
       'view' => [
         'Marketing' => ['*'],
+        'Clinics' => ['*'],
       ]
   ];
   // Quasar DATA

@@ -22,6 +22,7 @@ class Profile extends Qmodel
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],
+            'Clinics' => ['*']
         ]
     ];
     // Quasar DATA
@@ -379,7 +380,7 @@ class Profile extends Qmodel
         if (request()->user()->isRoot()) return Clinic::fetch('clinic', 'city', ['county'], true);
         // var_dump($this->id);
         if ($this->clinicsCount) {
-            return $this->clinics;
+            return $this->clinics()->with('county')->get();
         } elseif (array_key_exists('Marketing', $this->user->groupsInfo)) {
             // Get Madrid County Clinics as a Test
             // if ($this->user->groupsInfo['Clinics'] === 'user') return \App\Clinic::where('county_id', 28)->get();
@@ -440,10 +441,8 @@ class Profile extends Qmodel
     public function getStoreScopeAttribute() {
         // var_dump($this->id);
         if (request()->user()->isRoot()) return \App\Store::with('country')->get();
-        if (array_key_exists('Administrators', $this->user->groupsInfo)) {
-        }
         if ($this->storesCount) {
-            return $this->stores;
+            return $this->stores()->with('county')->get();
         } elseif (array_key_exists('Administrators', $this->user->groupsInfo)) {
             // Get Madrid County Clinics as a Test
             if ($this->user->groupsInfo['Administrators'] === 'user') {
