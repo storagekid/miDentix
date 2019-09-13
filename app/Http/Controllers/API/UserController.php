@@ -10,41 +10,20 @@ use App\Http\Requests\StoreUser;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        // $user = request()->user()->load('profiles');
-
-        // return response([
-        //     'model' => 'Clinic::fetch()',
-        //     'quasarData' => 'Clinic::getQuasarData()',
-        //     ], 200
-        // );
-        $user = request()->user()->load('profiles');
-        $user->append('permissions');
-        if (count($user->profiles) === 1) {
-            $user['profile'] = \App\Profile::with('clinics', 'stores')->find($user->profiles[0]->id)->append('clinicScope', 'storeScope');
-        }
-        return $user;
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function indexAll()
-    {
-        return response([
-            'model' => User::fetch(),
-            'quasarData' => User::getQuasarData(),
-            ], 200
-        );
-    }
+    // /**
+    //  * Display a listing of the resource.
+    //  *
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function index()
+    // {
+    //     $user = request()->user()->load('profiles');
+    //     $user->append('permissions');
+    //     if (count($user->profiles) === 1) {
+    //         $user['profile'] = \App\Profile::with('clinics', 'stores')->find($user->profiles[0]->id)->append('clinicScope', 'storeScope');
+    //     }
+    //     return $user;
+    // }
 
     /**
      * Show the form for creating a new resource.

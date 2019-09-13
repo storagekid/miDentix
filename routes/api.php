@@ -22,7 +22,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('/user', 'UserController@index');
         
         Route::resource('/users', 'UserController');
-        Route::get('/users', 'UserController@indexAll');
 
         Route::resource('menus', 'MenuController');
         Route::resource('menus/{menu}/menu_items', 'MenuItemController');
