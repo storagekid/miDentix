@@ -38,7 +38,8 @@ trait Scope {
             if ($orderBy) {
                 $models = $models->orderBy($orderBy, request()->has('orderDesc') ? 'desc' : 'asc');
             }
-            $models = $models->get();
+            if (request()->has('ids')) $models = $models->find(request('ids'));
+            else $models = $models->get();
         }
         if (request()->has('full')) $models->load(static::$full);
         else if ($with) {
