@@ -2,9 +2,7 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Facades\Cache;
 use App\Clinic;
-use App\Order;
 
 trait Scope {
     public function attachFull() {
@@ -28,7 +26,7 @@ trait Scope {
         } else if (request()->has('clinic_id')){
             $models = self::clinicsScoped($model, $orderBy);
         } else {
-            $modelName = !$model ? get_called_class() : '\\App\\' . ucfirst($model);
+            $modelName = '\\' . static::class;
             if (request()->has('withTrashed') || $withTrashed) {
                 $models = $modelName::withTrashed();
             } else {
@@ -53,8 +51,7 @@ trait Scope {
 
     public static function clinicScoped($model, $orderBy=null) {
         $clinics = self::getScope();
-        $model = '\\App\\' . ucfirst($model);
-
+        $model = '\\' . static::class;
         $items = $model::whereHas('clinic', function($query) use ($clinics) {
             $query->whereIn('id', $clinics);
         });
@@ -69,33 +66,23 @@ trait Scope {
     }
     public static function clinicsScoped($model, $orderBy=null, $with=null) {
         $clinics = self::getScope();
-
-        $model = '\\App\\' . ucfirst($model);
+        $model = '\\' . static::class;
 
         $items = $model::whereHas('clinics', function($query) use ($clinics) {
             $query->whereIn('clinic_id', $clinics);
         });
-        // if ($with) {
-        //     foreach ($with as $item) {
-        //         $items->with([$item => function($query) use ($clinics) {
-        //             $query->whereIn('clinic_id', $clinics);
-        //         }]);
-        //     }
-        // }
 
         if ($orderBy) {
             $items->orderBy($orderBy);
         }
-
+        
         $items = $items->get();
-
         return $items;
     }
 
     public static function storesScoped($model, $orderBy=null, $with=null) {
         $clinics = self::getScope();
-        // $model = '\\App\\' . ucfirst(strtolower($model));
-        $model = '\\App\\' . ucfirst($model);
+        $model = '\\' . static::class;
 
         $items = $model::whereHas('stores', function($query) use ($clinics) {
             $query->whereIn('store_id', $clinics);
