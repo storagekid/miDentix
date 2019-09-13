@@ -62,7 +62,7 @@ class Menu extends Qmodel
     ];
     protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
-    protected $appends = ['shorted_items'];
+    protected $appends = ['shorted_items', 'label', 'value'];
     protected static $full = ['menu_items'];
 
     public function menu_items() {

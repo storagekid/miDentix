@@ -7,7 +7,7 @@ class MenuItem extends Qmodel
 {
     protected $fillable = ['name', 'to', 'icon', 'order', 'parent_id', 'menu_id'];
     protected $with = ['groups'];
-    protected $appends = ['children'];
+    protected $appends = ['children', 'label', 'value'];
     protected static $full = ['menu', 'parent', 'children'];
     protected static $permissions = [
         'view' => ['*']
