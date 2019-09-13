@@ -54,27 +54,4 @@ class AddressController extends Controller
             'model' => $model->fresh(),
         ], 200);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(StoreAddress $request, $id)
-    {
-        // dump(__FUNCTION__);
-        // return false;
-        try {
-            $text = Address::find($id)->address_line_1;
-            Address::destroy($id);
-            return response([
-                'message' => 'Address ' . $text . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
 }
