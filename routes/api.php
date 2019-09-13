@@ -30,8 +30,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
 
         Route::resource('groups', 'GroupController');
 
-        Route::get('/scope/{profile}', 'ScopeController@index');
-
         Route::resource('orders', 'OrderController');
 
         Route::resource('profiles', 'ProfileController');
@@ -89,7 +87,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::post('/belongstomany', 'BelongsToManyController@store');
         Route::delete('/belongstomany', 'BelongsToManyController@destroy');
         Route::get('/table', 'TableController@index');
-        Route::get('/quasar', 'QuasarController@index');
         Route::get('/form', 'FormController@index');
         Route::post('/exportExcel', 'ExportController@exportExcel');
         Route::get('/images/thumbnail', 'ImageController@fetchThumbnail');
