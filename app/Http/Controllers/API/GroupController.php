@@ -9,20 +9,6 @@ use App\Group;
 class GroupController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Group::fetch(),
-            'quasarData' => Group::getQuasarData(),
-            ], 200
-        );
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

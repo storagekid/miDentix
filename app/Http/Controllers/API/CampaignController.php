@@ -11,20 +11,6 @@ use App\Notifications\CampaignCreated;
 class CampaignController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Campaign::fetch(),
-            'quasarData' => Campaign::getQuasarData(),
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

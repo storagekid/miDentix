@@ -10,22 +10,6 @@ use App\ClinicPosterPriority;
 class ClinicPosterPriorityController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $model = ClinicPosterPriority::fetch();
-
-        return response([
-            'model' => $model,
-            'quasarData' => ClinicPosterPriority::getQuasarData(),
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

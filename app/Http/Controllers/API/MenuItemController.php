@@ -15,20 +15,6 @@ class MenuItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return response([
-            'model' => MenuItem::fetch(),
-            'quasarData' => MenuItem::getQuasarData(),
-        ], 200);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreMenuItem $request)
     {
         $model = MenuItem::create(request()->all());

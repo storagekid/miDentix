@@ -10,8 +10,19 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $modelName = substr(static::class, strlen('App\Http\Controllers\API\\'));
+        $modelName = '\App\\' . substr($modelName, 0, strlen($modelName) - strlen('Controller'));
+        return response([
+            'model' => $modelName::fetch(),
+            'quasarData' => $modelName::getQuasarData(),
+        ], 200);
+    }
 }

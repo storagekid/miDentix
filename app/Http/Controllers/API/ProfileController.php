@@ -11,21 +11,6 @@ use App\Http\Requests\StoreProfile;
 class ProfileController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Profile::fetch('profile', 'name'),
-            'quasarData' => Profile::getQuasarData(),
-            // 'model' => Profile::with('clinics.schedules')->get(),
-            ], 200
-        );
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id

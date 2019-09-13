@@ -10,30 +10,6 @@ use App\County;
 class CountyController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        if (request()->has('ids')) {
-            if (request('ids')) {
-                $models = County::find(request('ids'));
-            }
-        } else {
-            $models = Cache::rememberForever('counties', function() {
-                return County::get();
-            });
-            // $models = County::get();
-        }
-
-        return response([
-            'model' => $models,
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

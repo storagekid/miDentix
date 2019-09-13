@@ -10,19 +10,6 @@ use App\Menu;
 class MenuController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Menu::fetch(),
-            'quasarData' => Menu::getQuasarData(),
-        ], 200);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

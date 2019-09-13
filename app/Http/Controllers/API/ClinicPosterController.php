@@ -11,24 +11,6 @@ use App\ClinicPosterPriority;
 class ClinicPosterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        if (request()->has('fake')) {
-            $model = \App\ClinicPosterPriority::with(['clinic_poster' => function ($q) { return $q->with(['clinic' => function ($q) { return $q->with('county'); }, 'poster']); }])->get();
-        } else $model = ClinicPoster::fetch();
-
-        return response([
-            'model' => $model,
-            'quasarData' => ClinicPoster::getQuasarData(),
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

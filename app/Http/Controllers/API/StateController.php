@@ -10,30 +10,6 @@ use App\State;
 class StateController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        if (request()->has('ids')) {
-            if (request('ids')) {
-                $models = State::find(request('ids'));
-            }
-        } else {
-            $models = Cache::rememberForever('states', function() {
-                return State::get();
-            });
-            // $models = State::get();
-        }
-
-        return response([
-            'model' => $models,
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

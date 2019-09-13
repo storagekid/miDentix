@@ -9,27 +9,6 @@ use App\CostCenter;
 class CostCenterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        if (request('ids')) {
-            $cc = CostCenter::find(request('ids'));
-        } else {
-            $cc = CostCenter::get();
-        }
-        // $clinics->map(function ($clinic) {
-        //     return $clinic->getStationaryFilesUrl();
-        // });
-        return response([
-            'model' => $cc,
-            ], 200
-        );
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
