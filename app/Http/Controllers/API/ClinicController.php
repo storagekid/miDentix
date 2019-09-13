@@ -4,31 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Clinic;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendCampaignDistribution;
-use App\Printers\CampaignFacadeDistributionPrinter;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Mail;
 
 class ClinicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Clinic::fetch('clinic', 'city'),
-            'quasarData' => Clinic::getQuasarData(),
-            ], 200
-        );
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +18,6 @@ class ClinicController extends Controller
      */
     public function store(Request $request)
     {
-        // dd(request()->all());
         $quasarData = Clinic::getQuasarData();
         $clinic = Clinic::create(request()->all());
         $clinic->nickname = $clinic->fullName;
@@ -68,8 +48,7 @@ class ClinicController extends Controller
     {
         $model = Clinic::withTrashed()->find($id);
         $model->getShowRelations(request()->has('view') ? request('view') : null);
-        $model->append('posters');
-        
+
         return response([
             'model' => $model,
             'quasarData' => Clinic::getQuasarData(),
@@ -91,21 +70,6 @@ class ClinicController extends Controller
 
         return response([
             'model' => $model->attachFull(),
-        ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        $model = Clinic::find($id);
-        Clinic::destroy($id);
-
-        return response([
-            'model' => $model->fresh()->attachFull(),
         ], 200);
     }
 
