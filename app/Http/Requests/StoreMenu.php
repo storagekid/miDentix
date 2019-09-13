@@ -13,7 +13,7 @@ class StoreMenu extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user()->isRoot;
+        return true;
     }
 
     /**
