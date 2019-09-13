@@ -28,9 +28,9 @@ class StoreMenuItem extends FormRequest
 
         return [
             'name' => ['required','min:3','max:32'],
-            'to' => ['nullalbe','min:3','max:64'],
-            'icon' => ['nullalbe'],
-            'order' => ['nullalbe', 'integer', 'min:1', 'max:255'],
+            'to' => ['nullable','min:3','max:64'],
+            'icon' => ['nullable'],
+            'order' => ['nullable', 'integer', 'min:1', 'max:255'],
             'menu_id' => [$required->condition ? 'required' : ''],
             'parent_id' => ['nullable'],
         ];
