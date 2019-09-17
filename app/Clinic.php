@@ -311,15 +311,18 @@ class Clinic extends Qmodel
   // Model Views
   protected static $views = [
     'distributions' => [
-      'county',
-      'cost_center',
-      'addresses',
-      'phones',
-      'area_manager',
-      'clinic_manager',
-      'clinic_poster_priorities',
-      'poster_distributions.complete_facades',
-      'poster_distributions.original_facade'
+      'with' => [
+        'county',
+        'cost_center',
+        'addresses',
+        'phones',
+        'area_manager',
+        'clinic_manager',
+        'clinic_poster_priorities',
+        'poster_distributions.complete_facades',
+        'poster_distributions.original_facade'
+      ],
+      'append' => ['posters']
     ],
   ];
   // END Model Views
