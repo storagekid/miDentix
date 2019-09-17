@@ -39,23 +39,6 @@ class ClinicController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $model = Clinic::withTrashed()->find($id);
-        $model->getShowRelations(request()->has('view') ? request('view') : null);
-
-        return response([
-            'model' => $model,
-            'quasarData' => Clinic::getQuasarData(),
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
