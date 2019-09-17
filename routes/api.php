@@ -85,10 +85,12 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::patch('model/{id}/restore', 'RestoreModelController@restore');
         Route::post('/belongstomany', 'BelongsToManyController@store');
         Route::delete('/belongstomany', 'BelongsToManyController@destroy');
-        Route::get('/table', 'TableController@index');
-        Route::get('/form', 'FormController@index');
         Route::post('/exportExcel', 'ExportController@exportExcel');
         Route::get('/images/thumbnail', 'ImageController@fetchThumbnail');
         Route::post('/images/thumbnails', 'ImageController@fetchThumbnails');
+
+        Route::get('/quasar', 'QuasarController@index');
+        Route::get('/table', 'TableController@index');
+        Route::get('/form', 'FormController@index');
     });
 });
