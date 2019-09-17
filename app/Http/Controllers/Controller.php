@@ -11,6 +11,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    protected function getModelName()
+    {
+        $modelName = substr(static::class, strlen('App\Http\Controllers\API\\'));
+        $modelName = '\App\\' . substr($modelName, 0, strlen($modelName) - strlen('Controller'));
+        return $modelName;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +33,20 @@ class Controller extends BaseController
         ], 200);
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return response([
+            'model' => $this->getModelName()::withTrashed()->find($id)->getView(request()->has('view') ? request('view') : null),
+            'quasarData' => $this->getModelName()::getQuasarData(),
+        ], 200);
+    }
+    
         /**
      * Remove the specified resource from storage.
      *

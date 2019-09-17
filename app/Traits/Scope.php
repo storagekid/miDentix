@@ -13,8 +13,19 @@ trait Scope {
         return static::$full;
     }
 
+    public function getView($view=null) {
+        $view = $this->getShowView($view);
+        if (array_key_exists('with', $view)) $this->getShowRelations($view);
+        if (array_key_exists('append', $view))$this->appendShowRelations($view);
+        return $this;
+    }
+
     public function getShowRelations($view=null) {
-        return $this->load($this->getShowView($view));
+        return $this->load($view['with']);
+    }
+
+    public function appendShowRelations($view=null) {
+        return $this->append($view['append']);
     }
 
     public static function fetch($model=null, $orderBy=null, $with=null, $withTrashed=false, $ids=null) {
