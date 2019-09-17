@@ -35,7 +35,7 @@ class CampaignController extends Controller
     {
         $model = Campaign::find($id);
         $model->attachFull();
-        
+
         return response([
             'model' => $model,
         ], 200);
@@ -55,22 +55,6 @@ class CampaignController extends Controller
 
         return response([
             'model' => $model->fresh()->attachFull(),
-        ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $model = Campaign::find($id);
-        Campaign::destroy($id);
-        return response([
-            'model' => $model->fresh()->attachFull(),
-            'message' => 'Campaign ' . $model[$model->getKeyField()] . ' eliminado correctamente',
         ], 200);
     }
 }

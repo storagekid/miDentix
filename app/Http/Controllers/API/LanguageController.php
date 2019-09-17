@@ -9,19 +9,6 @@ use App\Language;
 class LanguageController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return response([
-            'model' => Language::whereIn('639-2/T', ['eng', 'ita', 'fra', 'deu', 'spa', 'cat', 'eus'])->get(),
-            ], 200
-        );
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -51,17 +38,6 @@ class LanguageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }
