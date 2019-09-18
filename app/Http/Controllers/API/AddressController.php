@@ -17,8 +17,6 @@ class AddressController extends Controller
      */
     public function store(StoreAddress $request)
     {
-        Address::authorize('create');
-        
         $parent = request('nameSpace')::withTrashed()->find(request('relatedId'));
         $model = $parent->addresses()->create(request()->all());
 
