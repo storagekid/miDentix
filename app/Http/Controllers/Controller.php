@@ -41,8 +41,10 @@ class Controller extends BaseController
      */
     public function show($id)
     {
+        $model = $this->getModelName()::useSoftDeleting() ? $this->getModelName()::withTrashed()->find($id) : $this->getModelName()::find($id);
+        $model->getView(request()->has('view') ? request('view') : null);
         return response([
-            'model' => $this->getModelName()::withTrashed()->find($id)->getView(request()->has('view') ? request('view') : null)
+            'model' => $model
             // 'quasarData' => $this->getModelName()::getQuasarData(),
         ], 200);
     }
