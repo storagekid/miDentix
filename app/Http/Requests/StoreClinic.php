@@ -30,8 +30,6 @@ class StoreClinic extends FormRequest
             'district' => ['nullable'],
             'nickname' => ['nullable'],
             'postal_code' => [$required->condition ? 'required' : ''],
-            'phone_real' => [$required->condition ? 'required' : ''],
-            'phone_adv' => ['nullable'],
             'email_ext' => ['nullable'],
             'sanitary_code' => ['nullable'],
             'county_id' => [$required->condition ? 'required' : ''],
