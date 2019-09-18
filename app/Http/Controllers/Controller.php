@@ -42,8 +42,8 @@ class Controller extends BaseController
     public function show($id)
     {
         return response([
-            'model' => $this->getModelName()::withTrashed()->find($id)->getView(request()->has('view') ? request('view') : null),
-            'quasarData' => $this->getModelName()::getQuasarData(),
+            'model' => $this->getModelName()::withTrashed()->find($id)->getView(request()->has('view') ? request('view') : null)
+            // 'quasarData' => $this->getModelName()::getQuasarData(),
         ], 200);
     }
     
