@@ -13,7 +13,6 @@ class ClinicSchedule extends Qmodel
         'schedule' => 'array',
     ];
     protected $appends = ['key_name'];
-    // protected $with = ['clinic_profile', 'job', 'job_type'];
     protected static $permissions = [
         'view' => [
           'Marketing' => ['*'],
