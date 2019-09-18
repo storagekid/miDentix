@@ -26,9 +26,13 @@ class StorePosterModel extends FormRequest
     {
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
-            'name' => [$required->condition ? $required->condition ? 'required' : '' : '','min:3','max:255'],
-            // 'name' => [$required->condition ? 'required' : '','min:3','max:255'],
-            'description' => ['nullable', 'min:3','max:255'],
+            'name' => [
+                $required->condition ? $required->condition ? 'required' : '' : '',
+                Rule::unique('poster_models')->ignore($this->id),
+                'min:3',
+                'max:255'
+            ],
+            'description' => ['required','min:3','max:255'],
         ];
     }
 }
