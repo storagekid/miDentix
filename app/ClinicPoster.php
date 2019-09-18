@@ -12,6 +12,7 @@ class ClinicPoster extends Qmodel
           'Marketing' => ['*'],
         ]
     ];
+    public static $cascade = ['clinic_poster_priorities'];
     // Quasar DATA
     protected $relatedTo = ['clinic_poster_priorities'];
 
