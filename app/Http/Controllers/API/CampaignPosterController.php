@@ -81,25 +81,4 @@ class CampaignPosterController extends Controller
             'model' => $model->fresh(),
         ], 200);
     }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  int  $id
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy($id)
-    // {
-    //     try {
-    //         $model = CampaignPoster::findOrFail($id);
-    //         CampaignPoster::destroy($id);
-    //         return response([
-    //             'message' => 'CampaignPoster ' . $model[$model->getKeyField()] . ' eliminado correctamente',
-    //         ], 200);
-    //     } catch (\Exception $e) {
-    //         return response([
-    //             'message' => $e->getMessage(),
-    //         ]);
-    //     }
-    // }
 }
