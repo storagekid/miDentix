@@ -61,7 +61,7 @@ class Controller extends BaseController
         $modelName = '\App\\' . substr($modelName, 0, strlen($modelName) - strlen('Controller'));
 
         $model = $modelName::fetch(null, null, null, false, [$id])[0];
-        if ($this->getModelName()::$cascade) {
+        if (isset($this->getModelName()::$cascade)) {
             foreach ($this->getModelName()::$cascade as $relation) $model->$relation()->delete();
         }
         $modelName::destroy($id);
