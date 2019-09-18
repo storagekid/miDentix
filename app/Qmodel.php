@@ -57,7 +57,11 @@ class Qmodel extends Model
           ],
     ];
     // END Quasar DATA
-
+    public static function useSoftDeleting()
+    {
+      // ... check if 'this' model uses the soft deletes trait
+      return in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(static::make()));
+    }
     public function getShowView($view=null) {
       if (!$view) {
         $view = [];
