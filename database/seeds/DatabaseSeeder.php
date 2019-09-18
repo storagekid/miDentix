@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 ProfileSeeder::class,
                 ClinicProfileMeta4Seeder::class,
-                ClinicProfileScheduleSeeder::class,
+                ClinicScheduleSeeder::class,
                 // ClinicProfileTestsSeeder::class,
                 // ProfilesAdminSeeder::class,
                 AddressSeeder::class,
