@@ -41,21 +41,6 @@ class ClinicPosterController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $model = ClinicPoster::with(ClinicPoster::$full)->find($id);
-        
-        return response([
-            'model' => $model,
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,29 +56,5 @@ class ClinicPosterController extends Controller
         return response([
             'model' => $model->attachFull(),
         ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $model = ClinicPoster::find($id);
-            $model->clinic_poster_priorities()->delete();
-
-            $model->delete();
-
-            return response([
-                'message' => 'Perfil de ' . $model[$model->getKeyField()] . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
     }
 }

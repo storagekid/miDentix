@@ -52,25 +52,4 @@ class ClinicPosterPriorityController extends Controller
             'model' => $model->fresh()->attachFull(),
         ], 200);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $model = ClinicPosterPriority::find($id);
-            ClinicPosterPriority::destroy($id);
-            return response([
-                'message' => 'Clinic Poster Priority ' . $model[$model->getKeyField()] . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
 }

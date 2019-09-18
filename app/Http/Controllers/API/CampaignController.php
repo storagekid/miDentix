@@ -26,22 +26,6 @@ class CampaignController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $model = Campaign::find($id);
-        $model->attachFull();
-
-        return response([
-            'model' => $model,
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

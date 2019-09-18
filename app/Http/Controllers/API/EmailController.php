@@ -10,16 +10,6 @@ use App\Email;
 class EmailController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -33,17 +23,6 @@ class EmailController extends Controller
         return response([
             'model' => $model->fresh(),
         ], 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -61,26 +40,5 @@ class EmailController extends Controller
         return response([
             'model' => $model->fresh(),
         ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $email = Email::find($id)->email;
-            Email::destroy($id);
-            return response([
-                'message' => 'Email ' . $email . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
     }
 }

@@ -11,23 +11,6 @@ use App\Http\Requests\StoreProfile;
 class ProfileController extends Controller
 {
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $model = Profile::withTrashed()->find($id);
-        $model->getShowRelations(request()->has('view') ? request('view') : null);
-        
-        return response([
-            'model' => $model,
-            'quasarData' => Profile::getQuasarData(),
-        ], 200);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -69,26 +52,5 @@ class ProfileController extends Controller
         return response([
             'model' => $model->attachFull(),
         ], 200);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $model = Profile::find($id);
-            Profile::destroy($id);
-            return response([
-                'message' => 'Perfil de ' . $model[$model->getKeyField()] . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
     }
 }

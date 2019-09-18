@@ -41,25 +41,4 @@ class SanitaryCodeController extends Controller
             'model' => $model->fresh(),
         ], 200);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $text = SanitaryCode::find($id)->label;
-            SanitaryCode::destroy($id);
-            return response([
-                'message' => 'CS ' . $text . ' eliminado correctamente',
-            ], 200);
-        } catch (\Exception $e) {
-            return response([
-                'message' => $e->getMessage(),
-            ]);
-        }
-    }
 }
