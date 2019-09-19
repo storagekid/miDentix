@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Traits;
+
+use App\Http\Requests\QStore;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
@@ -254,9 +257,8 @@ trait Quasarable {
       return $this->id;
   }
   public function formRules() {
-    $requestForm = '\App\Http\Requests\Store' . $this->get_short_class(get_class($this));
-    if (!class_exists($requestForm)) return [];
-    return (new $requestForm)->rules();
+    $model = new QStore($this->get_short_class(get_class($this)));
+    return $model->getChildRules();
   }
 
   // HELPERS
