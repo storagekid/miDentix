@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreMenuItem;
+use App\Http\Requests\QStore;
 use App\MenuItem;
 
 class MenuItemController extends Controller
@@ -15,7 +14,7 @@ class MenuItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMenuItem $request)
+    public function store(QStore $request)
     {
         $model = MenuItem::create(request()->all());
 
@@ -31,7 +30,7 @@ class MenuItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreMenuItem $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = MenuItem::find($id);
         $model->update(request()->all());

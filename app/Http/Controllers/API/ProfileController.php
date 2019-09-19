@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Clinic;
+use App\Http\Requests\QStore;
 use App\Profile;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreProfile;
 
 class ProfileController extends Controller
 {
@@ -16,7 +14,7 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfile $request)
+    public function store(QStore $request)
     {
         $quasarData = Profile::getQuasarData();
         $profile = Profile::create(request()->all());
@@ -43,7 +41,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProfile $request, $id)
+    public function update(QStore $request, $id)
     {
         // dd(request()->all());
         $model = Profile::find($id);

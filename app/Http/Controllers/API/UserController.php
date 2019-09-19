@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QStore;
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\StoreUser;
 
 class UserController extends Controller
 {
@@ -16,7 +15,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUser $request)
+    public function store(QStore $request)
     {
         $request['password'] = Hash::make($request['password']);
         $user = User::create($request->toArray());
@@ -38,7 +37,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         $user = User::find($id);
 

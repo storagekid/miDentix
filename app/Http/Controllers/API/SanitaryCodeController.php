@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreSanitaryCode;
+use App\Http\Requests\QStore;
 use App\SanitaryCode;
 
 class SanitaryCodeController extends Controller
@@ -15,7 +14,7 @@ class SanitaryCodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSanitaryCode $request)
+    public function store(QStore $request)
     {
         $parent = request('nameSpace')::find(request('relatedId'));
         $model = $parent->sanitary_codes()->create(request()->all());
@@ -32,7 +31,7 @@ class SanitaryCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreSanitaryCode $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = SanitaryCode::find($id);
         $model->update(request()->all());

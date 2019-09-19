@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Address;
-use App\Http\Requests\StoreAddress;
+use App\Http\Requests\QStore;
 
 class AddressController extends Controller
 {
@@ -15,7 +14,7 @@ class AddressController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAddress $request)
+    public function store(QStore $request)
     {
         $parent = request('nameSpace')::withTrashed()->find(request('relatedId'));
         $model = $parent->addresses()->create(request()->all());
@@ -32,7 +31,7 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreAddress $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = Address::find($id);
         $model->update(request()->all());

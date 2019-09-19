@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Poster;
+use App\Http\Requests\QStore;
 
 class PosterController extends Controller
 {
@@ -14,7 +13,7 @@ class PosterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QStore $request)
     {
         //
     }
@@ -26,7 +25,7 @@ class PosterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

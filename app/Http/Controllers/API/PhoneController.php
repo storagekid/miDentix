@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QStore;
 use App\Phone;
-use App\Http\Requests\StorePhone;
 
 class PhoneController extends Controller
 {
@@ -15,7 +14,7 @@ class PhoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePhone $request)
+    public function store(QStore $request)
     {
         $parent = request('nameSpace')::find(request('relatedId'));
         $model = $parent->phones()->create(request()->all());
@@ -32,7 +31,7 @@ class PhoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePhone $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = Phone::find($id);
         $model->update(request()->all());

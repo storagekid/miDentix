@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCampaignPosterPriority;
 use App\Campaign;
 use App\CampaignPosterPriority;
+use App\Http\Requests\QStore;
 
 class CampaignPosterPriorityController extends Controller
 {
@@ -16,7 +15,7 @@ class CampaignPosterPriorityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CampaignPosterPriority $request, Campaign $campaign)
+    public function store(QStore $request, Campaign $campaign)
     {
         $model = $campaign->campaign_poster_priorities()->create(request()->all());
 
@@ -32,7 +31,7 @@ class CampaignPosterPriorityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCampaignPosterPriority $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = CampaignPosterPriority::find($id);
         $model->update(request()->all());

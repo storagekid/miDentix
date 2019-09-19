@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClinicProfile;
 use App\Profile;
-use App\ClinicProfile;
+use App\Http\Requests\QStore;
 
 class ClinicProfileController extends Controller
 {
@@ -16,7 +14,7 @@ class ClinicProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClinicProfile $request, Profile $profile)
+    public function store(QStore $request, Profile $profile)
     {
         $model = $profile->clinic_profiles()->create(request()->all());
 
@@ -32,7 +30,7 @@ class ClinicProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

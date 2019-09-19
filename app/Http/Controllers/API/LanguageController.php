@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Language;
+use App\Http\Requests\QStore;
 
 class LanguageController extends Controller
 {
@@ -14,7 +13,7 @@ class LanguageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QStore $request)
     {
         //
     }
@@ -26,7 +25,7 @@ class LanguageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

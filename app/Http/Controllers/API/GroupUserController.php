@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreGroupUser;
+use App\Http\Requests\QStore;
 use App\User;
 
 class GroupUserController extends Controller
@@ -15,7 +14,7 @@ class GroupUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGroupUser $request, User $user)
+    public function store(QStore $request, User $user)
     {
         $model = $user->group_users()->create(request()->all());
 
@@ -31,7 +30,7 @@ class GroupUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

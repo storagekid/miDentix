@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreEmail;
 use App\Email;
+use App\Http\Requests\QStore;
 
 class EmailController extends Controller
 {
@@ -15,7 +14,7 @@ class EmailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEmail $request)
+    public function store(QStore $request)
     {
         $parent = request('nameSpace')::find(request('relatedId'));
         $model = $parent->emails()->create(request()->all());
@@ -32,7 +31,7 @@ class EmailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreEmail $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = Email::find($id);
         $model->update(request()->all());

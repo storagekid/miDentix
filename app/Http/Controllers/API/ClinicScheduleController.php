@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ClinicSchedule;
-use App\Http\Requests\StoreClinicSchedule;
+use App\Http\Requests\QStore;
 use App\Printers\PersonalTagsPrinter;
 
 class ClinicScheduleController extends Controller
@@ -16,7 +16,7 @@ class ClinicScheduleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClinicSchedule $request)
+    public function store(QStore $request)
     {
         $model = ClinicSchedule::create(request()->all());
 
@@ -32,7 +32,7 @@ class ClinicScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = ClinicSchedule::find($id);
         $model->update(request()->all());

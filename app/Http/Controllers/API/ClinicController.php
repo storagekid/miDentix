@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Clinic;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClinic;
+use App\Http\Requests\QStore;
 use App\Jobs\SendCampaignDistribution;
 use Carbon\Carbon;
 
@@ -17,7 +16,7 @@ class ClinicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClinic $request)
+    public function store(QStore $request)
     {
         $quasarData = Clinic::getQuasarData();
         $clinic = Clinic::create(request()->all());
@@ -46,7 +45,7 @@ class ClinicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreClinic $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = Clinic::withTrashed()->find($id);
 

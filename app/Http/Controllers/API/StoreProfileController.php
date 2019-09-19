@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStoreProfile;
+use App\Http\Requests\QStore;
 use App\Profile;
-use App\StoreProfile;
 
 class StoreProfileController extends Controller
 {
@@ -16,7 +14,7 @@ class StoreProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStoreProfile $request, Profile $profile)
+    public function store(QStore $request, Profile $profile)
     {
         $model = $profile->store_profiles()->create(request()->all());
 
@@ -32,7 +30,7 @@ class StoreProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

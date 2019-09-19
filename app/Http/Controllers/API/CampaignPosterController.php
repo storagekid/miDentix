@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\CampaignPoster;
-use App\Http\Requests\StoreCampaignPoster;
 use App\Campaign;
+use App\Http\Requests\QStore;
 
 class CampaignPosterController extends Controller
 {
@@ -17,7 +15,7 @@ class CampaignPosterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCampaignPoster $request, Campaign $campaign)
+    public function store(QStore $request, Campaign $campaign)
     {
         $model = $campaign->campaign_posters()->create([
             'campaign_id' => request('campaign_id'),
@@ -51,7 +49,7 @@ class CampaignPosterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCampaignPoster $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = CampaignPoster::find($id);
 

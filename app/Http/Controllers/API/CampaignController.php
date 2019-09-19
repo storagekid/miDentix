@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Campaign;
-use App\Http\Requests\StoreCampaign;
-use App\Notifications\CampaignCreated;
+use App\Http\Requests\QStore;
 
 class CampaignController extends Controller
 {
@@ -16,7 +14,7 @@ class CampaignController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCampaign $request)
+    public function store(QStore $request)
     {
         $models = Campaign::create(request()->all());
 
@@ -32,7 +30,7 @@ class CampaignController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCampaign $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = Campaign::find($id);
         $model->update(request()->all());

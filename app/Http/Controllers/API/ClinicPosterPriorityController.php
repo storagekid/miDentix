@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClinicPosterPriority;
 use App\ClinicPosterPriority;
+use App\Http\Requests\QStore;
 
 class ClinicPosterPriorityController extends Controller
 {
@@ -15,7 +14,7 @@ class ClinicPosterPriorityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClinicPosterPriority $request)
+    public function store(QStore $request)
     {
         $model = ClinicPosterPriority::create(request()->all());
 
@@ -42,7 +41,7 @@ class ClinicPosterPriorityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreClinicPosterPriority $request, $id)
+    public function update(QStore $request, $id)
     {
         // dd('Updating PP');
         $model = ClinicPosterPriority::find($id);

@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
-use App\Store;
+use App\Http\Requests\QStore;
 
 class StoreController extends Controller
 {
@@ -15,7 +13,7 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QStore $request)
     {
         //
     }
@@ -27,7 +25,7 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QStore $request, $id)
     {
         //
     }

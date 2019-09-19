@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClinicPosterDistribution;
 use App\ClinicPosterDistribution;
 use App\Clinic;
-use App\Mail\PosterDistributionForClinic;
-use Illuminate\Support\Facades\Mail;
-// use function GuzzleHttp\json_decode;
+use App\Http\Requests\QStore;
 
 class ClinicPosterDistributionController extends Controller
 {
@@ -36,7 +32,7 @@ class ClinicPosterDistributionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreClinicPosterDistribution $request)
+    public function store(QStore $request)
     {
         $clinic = Clinic::withTrashed()->find(request('clinic_id'));
         $address = \App\Address::find(request('address_id'));
@@ -77,7 +73,7 @@ class ClinicPosterDistributionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreClinicPosterDistribution $request, $id)
+    public function update(QStore $request, $id)
     {
         $model = ClinicPosterDistribution::find($id);
 
