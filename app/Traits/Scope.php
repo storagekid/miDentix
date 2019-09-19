@@ -28,58 +28,40 @@ trait Scope {
         return $this->append($view['append']);
     }
 
-    public static function fetch($model=null, $orderBy=null, $with=null, $withTrashed=false, $ids=null) {
-        // if (!$model) $model = get_called_class();
-        if(request()->has('with')) $with = is_array(request('with')) ?: json_decode(request('with'));
-        if(request()->has('orderBy')) $orderBy = request('orderBy');
-        if (request()->has('store_id')) {
-            $models = self::storesScoped($model, $orderBy);
-        } else if (request()->has('clinic_id')){
-            $models = self::clinicsScoped($model, $orderBy);
-        } else {
+    public static function fetch($options = []) {
+
+        $options = self::filterOptions($options);
+
+        if (request()->has('store_id')) $models = self::storesScoped();
+        else if (request()->has('clinic_id')) $models = self::clinicsScoped();
+        else {
             $modelName = '\\' . static::class;
-            if (request()->has('withTrashed') || $withTrashed) {
-                $models = $modelName::withTrashed();
-            } else {
-                $models = $modelName::select();
-            }
-            if (request()->has('withCount')) {
-                $counted = request('withCount');
-                if (!is_array($counted)) $counted = json_decode($counted);
-                $models = $models->withCount($counted);
-            }
-            if ($orderBy) {
-                $models = $models->orderBy($orderBy, request()->has('orderDesc') ? 'desc' : 'asc');
-            }
-            if (request()->has('ids')) $models = $models->find(request('ids'));
-            else if ($ids) $models = $models->find($ids);
+            if (array_key_exists('withTrashed', $options)) $models = $modelName::withTrashed();
+            else $models = $modelName::select();
+
+            if (array_key_exists('withCount', $options)) $models = $modelName::withCount($options['withCount']);
+            if (array_key_exists('orderBy', $options)) $models = $models->orderBy($options['orderBy'], request()->has('orderDesc') ? 'desc' : 'asc');
+            if (array_key_exists('ids', $options)) $models = $models->find($options['ids']);
             else $models = $models->get();
         }
         if (request()->has('full')) $models->load(static::$full);
-        else if ($with) {
-            if (is_array($with)) $models->load($with);
-            else if (is_string($with) && $with === 'full') $models->load(static::$full);
-        }
-        if (request()->has('appends')) $models->each(function ($i) { $i->append(request('appends')); });
+        else if (array_key_exists('with', $options)) $models->load($options['with']);
+
+        if (array_key_exists('appends', $options)) $models->each(function ($i) use ($options) { $i->append($options['appends']); });
         return $models;
     }
 
-    public static function clinicScoped($model, $orderBy=null) {
-        $clinics = self::getScope();
-        $model = '\\' . static::class;
-        $items = $model::whereHas('clinic', function($query) use ($clinics) {
-            $query->whereIn('id', $clinics);
-        });
-
-        if ($orderBy) {
-            $items->orderBy($orderBy);
-        }
-
-        $items = $items->get();
-
-        return $items;
+    public static function filterOptions($options) {
+        if(request()->has('with')) $options['with'] = is_array(request('with')) ? request('with') : json_decode(request('with'));
+        if(request()->has('withTrashed')) $options['withTrashed'] = is_array(request('withTrashed')) ? request('withTrashed') : json_decode(request('withTrashed'));
+        if(request()->has('withCount')) $options['withCount'] = is_array(request('withCount')) ? request('withCount') : json_decode(request('withCount'));
+        if(request()->has('appends')) $options['appends'] = is_array(request('appends')) ? request('appends') : json_decode(request('appends'));
+        if(request()->has('orderBy')) $options['orderBy'] = request('orderBy');
+        if(request()->has('ids')) $options['ids'] = is_array(request('ids')) ? request('ids') : json_decode(request('ids'));
+        return $options;
     }
-    public static function clinicsScoped($model, $orderBy=null, $with=null) {
+
+    public static function clinicsScoped() {
         $clinics = self::getScope();
         $model = '\\' . static::class;
 
@@ -87,32 +69,18 @@ trait Scope {
             $query->whereIn('clinic_id', $clinics);
         });
 
-        if ($orderBy) {
-            $items->orderBy($orderBy);
-        }
-        
         $items = $items->get();
         return $items;
     }
 
-    public static function storesScoped($model, $orderBy=null, $with=null) {
+    public static function storesScoped() {
         $clinics = self::getScope();
         $model = '\\' . static::class;
 
         $items = $model::whereHas('stores', function($query) use ($clinics) {
             $query->whereIn('store_id', $clinics);
         });
-        if ($with) {
-            foreach ($with as $item) {
-                $items->with([$item => function($query) use ($clinics) {
-                    $query->whereIn('store_id', $clinics);
-                }]);
-            }
-        }
 
-        if ($orderBy) {
-            $items->orderBy($orderBy);
-        }
         $items = $items->get();
 
         return $items;
