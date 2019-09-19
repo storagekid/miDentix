@@ -30,7 +30,7 @@ trait Scope {
 
     public static function fetch($model=null, $orderBy=null, $with=null, $withTrashed=false, $ids=null) {
         // if (!$model) $model = get_called_class();
-        if(request()->has('with')) $with = request('with');
+        if(request()->has('with')) $with = is_array(request('with')) ?: json_decode(request('with'));
         if(request()->has('orderBy')) $orderBy = request('orderBy');
         if (request()->has('store_id')) {
             $models = self::storesScoped($model, $orderBy);
@@ -44,7 +44,9 @@ trait Scope {
                 $models = $modelName::select();
             }
             if (request()->has('withCount')) {
-                $models = $models->withCount(request('withCount'));
+                $counted = request('withCount');
+                if (!is_array($counted)) $counted = json_decode($counted);
+                $models = $models->withCount($counted);
             }
             if ($orderBy) {
                 $models = $models->orderBy($orderBy, request()->has('orderDesc') ? 'desc' : 'asc');
