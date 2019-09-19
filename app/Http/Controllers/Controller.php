@@ -80,17 +80,27 @@ class Controller extends BaseController
      */
     public function store(QStore $request)
     {
-        // $requestName = $this->getRequestModelName();
-        // $rules = (new $requestName)->rules();
-        // $validated = request()->validate($rules);
-
-        // $id = $this->getModelName()::create($validated)->id;
-        $id = $this->getModelName()::create(request()->all())->id;
-        $model = $this->getModelName()::fetch(null, null, null, false, [$id])[0];
+        if (request()->has('relatedId')) $id = $this->storeRelation();
+        else $id = $this->getModelName()::create(request()->all())->id;
+        $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
 
         return response([
             'model' => $model,
         ], 200);
+    }
+
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeRelation()
+    {
+        $parent = request('nameSpace')::withTrashed()->find(request('relatedId'));
+        $relation = request('relation');
+        $id = $parent->$relation()->create(request()->all())->id;
+        return $id;
     }
     
         /**
@@ -102,7 +112,7 @@ class Controller extends BaseController
     public function destroy($id) {
         $name = $this->getModelName();
 
-        $model = $name::fetch(null, null, null, false, [$id])[0];
+        $model = $name::fetch(['ids'=>[$id]])[0];
         if (isset($name::$cascade)) {
             foreach ($name::$cascade as $relation) $model->$relation()->delete();
         }
