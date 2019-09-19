@@ -375,33 +375,6 @@ class Clinic extends Qmodel
   }
   public function schedules() {
     return $this->hasManyThrough(ClinicSchedule::class, ClinicProfile::class);
-}
-
-  public function orders()
-  {
-      return $this->hasMany(Order::class);
-  }
-
-  public function clinicStationaries()
-  {
-      return $this->HasMany(ClinicStationary::class);
-  }
-
-  public function stationaries()
-  {
-      return $this->belongsToMany(Stationary::class)
-          ->withPivot(['id', 'file', 'thumbnail']);
-  }
-
-  public static function cacheClinics() {
-    return Cache::rememberForever('clinics', function() {
-      return Clinic::with(['county', 'cost_center'])
-                  ->orderBy('city')
-                  ->orderBy('address_real_1')
-                  ->get()
-                  ->each
-                  ->append(['countyName', 'state_id', 'stateName', 'country_id', 'countryName', 'costCenterName']);
-    });
   }
 
   public function getClinicPostersCountAttribute () {
@@ -447,18 +420,9 @@ class Clinic extends Qmodel
   }
 
   public function getCleanStreetAttribute() {
-    // return 'patata';
     $street = '';
-    if ($this->addresses) {
-        if (count($this->addresses) > 0) {
-            $street = $this->addresses[0]->cleanStreet;
-        }
-    }
+    if ($this->addresses) if (count($this->addresses) > 0) $street = $this->addresses[0]->cleanStreet;
     return $street;
-    // $street = str_replace(['C/', 'c/', 'Rúa', 'Pl.', 'Pl ', 'Av.', 'P.º', 'Pg.', 'Rbla.', 'C.º', 'Ctra.', 'Ptge.'], '', $street);
-    // $street = str_replace(['s/n', '/'], ['s.n.', '-'], $street);
-    // return trim($street);
-    // return trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $street));
   }
 
   public function getCostCenterNameAttribute()
@@ -505,8 +469,8 @@ class Clinic extends Qmodel
   public function getActivePostersAttribute()
   {
       return $this->clinic_posters()->where('ends_at', null)->get();
-      // return $this->clinic_posters->filter(function($i) { return !$i->ends_at; });
   }
+  
   public function getOpenAttribute()
   {
       if (!$this->ends_at) return true;
