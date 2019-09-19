@@ -432,7 +432,7 @@ class Profile extends Qmodel
     }
     public function getStoreScopeAttribute() {
         if (request()->user()->isRoot()) return Store::fetch(['with'=>['country'], 'orderBy'=>'name', 'withTrashed'=>true]);
-        if ($this->storesCount) {
+        if ($this->storeCount) {
             return $this->stores()->withTrashed()->with('country')->get();
         } elseif (array_key_exists('Marketing', $this->user->groupsInfo)) {
             return Store::fetch(['with'=>['country'], 'orderBy'=>'name', 'withTrashed'=>true]);
