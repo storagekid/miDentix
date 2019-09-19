@@ -377,19 +377,11 @@ class Profile extends Qmodel
         return $this->clinics ? $this->clinics->count() : 0;
     }
     public function getClinicScopeAttribute() {
-        if (request()->user()->isRoot()) return Clinic::fetch('clinic', 'city', ['county'], true);
-        // var_dump($this->id);
+        if (request()->user()->isRoot()) return Clinic::fetch(['with'=>['county'], 'orderBy'=>'city', 'withTrashed'=>true]);
         if ($this->clinicsCount) {
             return $this->clinics()->with('county')->get();
         } elseif (array_key_exists('Marketing', $this->user->groupsInfo)) {
-            // Get Madrid County Clinics as a Test
-            // if ($this->user->groupsInfo['Clinics'] === 'user') return \App\Clinic::where('county_id', 28)->get();
-            // else {
-                return Clinic::fetch('clinic', 'city', ['county'], true);
-                // return Cache::rememberForever('clinics', function() {
-                //     return \App\Clinic::get();
-                // });
-            // }
+            return Clinic::fetch(['with'=>['county'], 'orderBy'=>'city', 'withTrashed'=>true]);
         }
     }
     public function getClinicIdsScopeAttribute() {
@@ -439,22 +431,11 @@ class Profile extends Qmodel
         return $this->stores ? $this->stores->count() : 0;
     }
     public function getStoreScopeAttribute() {
-        // var_dump($this->id);
-        if (request()->user()->isRoot()) return \App\Store::with('country')->get();
+        if (request()->user()->isRoot()) return Store::fetch(['with'=>['country'], 'orderBy'=>'name', 'withTrashed'=>true]);
         if ($this->storesCount) {
-            return $this->stores()->with('county')->get();
-        } elseif (array_key_exists('Administrators', $this->user->groupsInfo)) {
-            // Get Madrid County Clinics as a Test
-            if ($this->user->groupsInfo['Administrators'] === 'user') {
-                return Cache::rememberForever('stores', function() {
-                    return \App\Store::with('country')->get();
-                });
-            }
-            else {
-                return \App\Store::with('country')->get();
-            }
-        } else {
-            return [];
+            return $this->stores()->withTrashed()->with('country')->get();
+        } elseif (array_key_exists('Marketing', $this->user->groupsInfo)) {
+            return Store::fetch(['with'=>['country'], 'orderBy'=>'name', 'withTrashed'=>true]);
         }
     }
     public function getStoreIdsScopeAttribute() {
