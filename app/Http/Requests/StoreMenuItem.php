@@ -27,9 +27,14 @@ class StoreMenuItem extends FormRequest
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
 
         return [
-            'name' => ['required','min:3','max:32'],
+            'name' => [
+                'required',
+                Rule::unique('menu_items')->ignore($this->id),
+                'min:3',
+                'max:32'
+            ],
             'to' => ['nullable','min:3','max:64'],
-            'icon' => ['nullable'],
+            'icon' => [$required->condition ? 'required' : ''],
             'order' => ['nullable', 'integer', 'min:1', 'max:255'],
             'menu_id' => [$required->condition ? 'required' : ''],
             'parent_id' => ['nullable'],
