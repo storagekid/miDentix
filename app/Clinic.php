@@ -517,39 +517,29 @@ class Clinic extends Qmodel
     return (!$this->deleted_at);
   }
 
+  // MUTATORS
+  public function setNicknameAttribute($value) {
+    if ($value === null) $this->attributes['nickname'] = $this->fullName;
+  }
+  // END MUTATORS
+
   public function createCampaignFacades() {
-    // $campaign = \App\Campaign::findOrDefault(request('campaign'));
-    // $pdf = new CampaignFacadeDistributionPrinter($clinic, $campaign);
-    // $pdf->makePdf();
 
     if (request('force') == 'true') {
-      // dd('WTF');
       $campaignFacades = $this->campaign_facades()->where('campaign_id', request('campaign'))->first();
       if ($campaignFacades) $campaignFacades->delete();
     }
     $campaign = \App\Campaign::findOrActive(request('campaign'));
-    // dd($campaign);
-    // $campaign = request('campaign') ? \App\Campaign::with(['sanitary_codes'])->find(request('campaign')) : '';
     $pdf = new CampaignFacadeDistributionPrinter($this, $campaign);
-    // $pdf = new FacadeDistributionPrinter($this, $campaign);
     $pdfFile = $pdf->makePdf();
 
-    // $file = $this->original_facade()->first();
-    // $path = $file->url;
-    // if ($file->is_public) $path = 'public/' . $path;
-
-    // $fileName = $file->getBaseName() . '-facade-complete.pdf';
-    // $filePath = $file->path;
-    // if ($file->is_public) $filePath = 'public/' . $filePath;
-    // $cleanFacade->writeImage(storage_path('app/' . $filePath . '/' . $fileName));
-    // $file = $this::storeFile($file->path . '/' . $fileName, $file->path,$fileName,null,1,6,true); // TEST WITH USER AND GROUP HARDCODED
     $path = 'clinics/' . $this->cleanName . '/facadesByCampaign//';
     $file = ClinicCampaignFacade::storeFile($pdfFile->directory . $pdfFile->fileName, $path, $pdfFile->fileName,null,null,null,false,true);
     $completeFacades = $this->campaign_facades()->save(new ClinicCampaignFacade([
         'campaign_id' => $campaign->id,
         'facades_file_id' => $file->id
     ]));
-    // $completeFacade->complete_facade_file_id = $file->id;
+
     $completeFacades->files()->save($file);
     return $completeFacades;
   }
