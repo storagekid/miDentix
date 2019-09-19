@@ -2,9 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Store extends Qmodel
 {
+    use SoftDeletes;
+    
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],
