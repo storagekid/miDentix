@@ -2,8 +2,6 @@
 
 namespace App\Traits;
 
-use App\Clinic;
-
 trait Scope {
     public function attachFull() {
         return $this->load(static::$full);
@@ -38,14 +36,13 @@ trait Scope {
             $modelName = '\\' . static::class;
             if (array_key_exists('withTrashed', $options)) $models = $modelName::withTrashed();
             else $models = $modelName::select();
-
-            if (array_key_exists('withCount', $options)) $models = $modelName::withCount($options['withCount']);
-            if (array_key_exists('orderBy', $options)) $models = $models->orderBy($options['orderBy'], request()->has('orderDesc') ? 'desc' : 'asc');
-            if (array_key_exists('ids', $options)) $models = $models->find($options['ids']);
-            else $models = $models->get();
         }
-        if (request()->has('full')) $models->load(static::$full);
-        else if (array_key_exists('with', $options)) $models->load($options['with']);
+        if (array_key_exists('withCount', $options)) $models = $modelName::withCount($options['withCount']);
+        if (request()->has('full')) $models->with(static::$full);
+        else if (array_key_exists('with', $options)) $models->with($options['with']);
+        if (array_key_exists('orderBy', $options)) $models = $models->orderBy($options['orderBy'], request()->has('orderDesc') ? 'desc' : 'asc');
+        if (array_key_exists('ids', $options)) $models = $models->find($options['ids']);
+        else $models = $models->get();
 
         if (array_key_exists('appends', $options)) $models->each(function ($i) use ($options) { $i->append($options['appends']); });
         return $models;
@@ -69,7 +66,6 @@ trait Scope {
             $query->whereIn('clinic_id', $clinics);
         });
 
-        $items = $items->get();
         return $items;
     }
 
@@ -81,8 +77,6 @@ trait Scope {
             $query->whereIn('store_id', $clinics);
         });
 
-        $items = $items->get();
-
         return $items;
     }
 
@@ -90,15 +84,12 @@ trait Scope {
         $clinics = null;
         switch (true) {
             case request()->has('country_id') :
-                $clinics = Clinic::cacheClinics();
                 $clinics = $clinics->where('country_id', request('country_id'))->pluck('id')->toArray();
                 break;
             case request()->has('state_id') :
-                $clinics = Clinic::cacheClinics();
                 $clinics = $clinics->where('state_id', request('state_id'))->pluck('id')->toArray();
                 break;
             case request()->has('county_id') :
-                $clinics = Clinic::cacheClinics();
                 $clinics = $clinics->where('county_id', request('county_id'))->pluck('id')->toArray();
                 break;
             case request()->has('clinic_id') :
