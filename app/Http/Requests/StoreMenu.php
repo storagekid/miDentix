@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreMenu extends FormRequest
 {
@@ -24,7 +25,12 @@ class StoreMenu extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required','min:3','max:32']
+            'name' => [
+                'required',
+                Rule::unique('menus')->ignore($this->id),
+                'min:3',
+                'max:32'
+                ]
         ];
     }
 }
