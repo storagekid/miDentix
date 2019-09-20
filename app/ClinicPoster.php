@@ -22,8 +22,7 @@ class ClinicPoster extends Qmodel
             'subtitle' => 'General',
             'fields' => [
                 ['clinic_id', 'poster_id', 'type', 'starts_at', 'ends_at']
-            ],
-            'relations' => ['clinic_poster_priorities']
+            ]
         ],
     ];
     protected $quasarFormUpdateLayout = [
