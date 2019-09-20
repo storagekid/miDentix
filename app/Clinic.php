@@ -51,7 +51,7 @@ class Clinic extends Qmodel
           'title' => 'Información',
           'subtitle' => 'General',
           'fields' => [
-            ['city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at', 'ends_at']
+            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at', 'ends_at']
           ],
           'relations' => []
       ],
@@ -484,6 +484,7 @@ class Clinic extends Qmodel
   // MUTATORS
   public function setNicknameAttribute($value) {
     if ($value === null) $this->attributes['nickname'] = $this->fullName;
+    else $this->attributes['nickname'] = $value;
   }
   // END MUTATORS
 
