@@ -22,7 +22,7 @@ class StoreProfile extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
@@ -30,7 +30,7 @@ class StoreProfile extends FormRequest
             'lastname1' => [$required->condition ? 'required' : '','min:2','max:64'],
             'lastname2' => ['nullable', 'min:3','max:64'],
             'gender' => [$required->condition ? 'required' : ''],
-            'personal_id_number' => ['nullable', Rule::unique('profiles')->ignore($this->id),'min:3','max:16'],
+            'personal_id_number' => ['nullable', Rule::unique('profiles')->ignore($model->id),'min:3','max:16'],
             'country_id' => [$required->condition ? 'required' : ''],
             'user_id' => ['nullable'],
             'company_id' => [$required->condition ? 'required' : ''],

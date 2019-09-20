@@ -22,11 +22,11 @@ class StoreEmail extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
-            'email' => [$required->condition ? 'required' : '', 'email', Rule::unique('emails')->ignore($this->id), 'min:6', 'max:255'],
+            'email' => [$required->condition ? 'required' : '', 'email', Rule::unique('emails')->ignore($model->id), 'min:6', 'max:255'],
             'type' => [$required->condition ? 'required' : ''],
             'description' => ['nullable','min:3','max:255'],
             'main' => ['nullable'],

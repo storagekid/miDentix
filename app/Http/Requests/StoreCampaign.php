@@ -22,11 +22,12 @@ class StoreCampaign extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
+        // dump($model->id);
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
-            'name' =>[$required->condition ? 'required' : '', Rule::unique('campaigns')->ignore($this->id), 'max:255'],
+            'name' =>[$required->condition ? 'required' : '', Rule::unique('campaigns')->ignore($model->id), 'max:255'],
             'description' =>[$required->condition ? 'required' : '','max:255'],
             'parent_id' => ['nullable'],
             'starts_at' =>[$required->condition ? 'required' : '', 'date'],

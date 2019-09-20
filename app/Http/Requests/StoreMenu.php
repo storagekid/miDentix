@@ -22,12 +22,12 @@ class StoreMenu extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
         return [
             'name' => [
                 'required',
-                Rule::unique('menus')->ignore($this->id),
+                Rule::unique('menus')->ignore($model->id),
                 'min:3',
                 'max:32'
                 ]

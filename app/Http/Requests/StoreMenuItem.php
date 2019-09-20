@@ -22,14 +22,14 @@ class StoreMenuItem extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
 
         return [
             'name' => [
                 'required',
-                Rule::unique('menu_items')->ignore($this->id),
+                Rule::unique('menu_items')->ignore($model->id),
                 'min:3',
                 'max:32'
             ],

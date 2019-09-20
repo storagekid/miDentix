@@ -22,13 +22,13 @@ class StorePosterModel extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules($model)
     {
         $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
             'name' => [
                 $required->condition ? $required->condition ? 'required' : '' : '',
-                Rule::unique('poster_models')->ignore($this->id),
+                Rule::unique('poster_models')->ignore($model->id),
                 'min:3',
                 'max:255'
             ],

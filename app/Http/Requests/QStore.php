@@ -36,7 +36,7 @@ class QStore extends FormRequest
         $name = $this->name ?: $route->getController()->requestName;
         if (class_exists($name)) {
             $request = new $name;
-            return $request->rules();
+            return $request->rules($this);
         } else return [];
     }
 
@@ -44,7 +44,7 @@ class QStore extends FormRequest
         if ($this->name) {
             if (class_exists($this->name)) {
                 $request = new $this->name;
-                return $request->rules();
+                return $request->rules($this);
             } else return [];
         } else return [];
     }
