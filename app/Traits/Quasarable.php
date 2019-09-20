@@ -19,6 +19,18 @@ trait Quasarable {
     // return $model::make()->quasarData();
   }
 
+  protected function getQuasarFormFields() {
+    return property_exists($this, 'quasarFormFields') ? $this->quasarFormFields : [];
+  }
+
+  protected function getQuasarNewFormLayout() {
+    return property_exists($this, 'quasarFormNewLayout') ? $this->quasarFormNewLayout : [];
+  }
+
+  protected function getQuasarUpdateFormLayout() {
+    return property_exists($this, 'quasarFormUpdateLayout') ? $this->quasarFormUpdateLayout : [];
+  }
+
   public function quasarData() {
     $this->fields = $this->getFields();
     $relations = $this->getRelations();
@@ -35,8 +47,8 @@ trait Quasarable {
       'rules' => $rules,
       'keyField' => $this->getKeyField(),
       'modelsNeeded' => $this->modelsNeeded,
-      'newLayout' => $this->quasarFormNewLayout,
-      'updateLayout' => $this->quasarFormUpdateLayout,
+      'newLayout' => $this->getQuasarNewFormLayout(),
+      'updateLayout' => $this->getQuasarUpdateFormLayout(),
       'onRelationMode' => $this->onRelationMode ? $this->onRelationMode : []
     ];
   }
@@ -60,7 +72,7 @@ trait Quasarable {
     $formFields = [];
     foreach ($this->getFields() as $key => $field) {
       if ($field === 'id') continue;
-      if (array_key_exists($field, $this->quasarFormFields)) {
+      if (array_key_exists($field, $this->getQuasarFormFields())) {
         $key = $field;
         $field = $this->quasarFormFields[$field];
       } else continue;
@@ -93,7 +105,7 @@ trait Quasarable {
       $formFields[$name] = $temp;
     }
     // Compose UNREAL (NON PERSISTABLE) FIELDS
-    foreach ($this->quasarFormFields as $key => $field) {
+    foreach ($this->getQuasarFormFields() as $key => $field) {
       if (!array_key_exists('unreal', $field)) continue;
       if (!$field['unreal']) continue;
       $options = [];
@@ -124,7 +136,7 @@ trait Quasarable {
       $formFields[$name] = $temp;
     }
     // Compose GHOST FIELDS (NOT PRESENT IN TABLE) FIELDS
-    foreach ($this->quasarFormFields as $key => $field) {
+    foreach ($this->getQuasarFormFields() as $key => $field) {
       if (!array_key_exists('ignoreTable', $field)) continue;
       if (!$field['ignoreTable']) continue;
       $options = [];
@@ -266,7 +278,7 @@ trait Quasarable {
     return (new \ReflectionClass($obj))->getShortName();
   }
   public function layoutComposer($formFields){
-    foreach ($this->quasarFormNewLayout as $stepKey => $step) {
+    foreach ($this->getQuasarNewFormLayout() as $stepKey => $step) {
       foreach ($step['fields'] as $rowKey => $row) {
         foreach ($row as $fieldKey => $field) {
           // dd($step['fields'][$row][$field]);
@@ -278,7 +290,7 @@ trait Quasarable {
         }
       }
     }
-    if ($this->quasarFormUpdateLayout) {
+    if (count($this->getQuasarUpdateFormLayout())) {
       foreach ($this->quasarFormUpdateLayout as $stepKey => $step) {
         foreach ($step['fields'] as $rowKey => $row) {
           foreach ($row as $fieldKey => $field) {
