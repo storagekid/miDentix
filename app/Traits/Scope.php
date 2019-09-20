@@ -37,7 +37,7 @@ trait Scope {
             if (array_key_exists('withTrashed', $options)) $models = $modelName::withTrashed();
             else $models = $modelName::select();
         }
-        if (array_key_exists('withCount', $options)) $models = $modelName::withCount($options['withCount']);
+        if (array_key_exists('withCount', $options)) $models = $models->withCount($options['withCount']);
         if (request()->has('full')) $models->with(static::$full);
         else if (array_key_exists('with', $options)) $models->with($options['with']);
         if (array_key_exists('orderBy', $options)) $models = $models->orderBy($options['orderBy'], request()->has('orderDesc') ? 'desc' : 'asc');
@@ -61,8 +61,9 @@ trait Scope {
     public static function clinicsScoped() {
         $clinics = self::getScope();
         $model = '\\' . static::class;
-
-        $items = $model::whereHas('clinics', function($query) use ($clinics) {
+        $method = method_exists($model, 'clinics') ? 'clinics' : 'clinic';
+        
+        $items = $model::whereHas($method, function($query) use ($clinics) {
             $query->whereIn('clinic_id', $clinics);
         });
 
@@ -73,7 +74,7 @@ trait Scope {
         $clinics = self::getScope();
         $model = '\\' . static::class;
 
-        $items = $model::whereHas('stores', function($query) use ($clinics) {
+        $items = $model::whereHas(count($clinics) === 1 ? 'store' : 'stores', function($query) use ($clinics) {
             $query->whereIn('store_id', $clinics);
         });
 
