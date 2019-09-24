@@ -75,9 +75,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('posters', 'PosterController');
         Route::resource('poster_models', 'PosterModelController');
         Route::resource('files', 'FileController');
-        // Route::resource('clinicSchedule', 'ClinicScheduleController');
-        // Route::post('profiles/{profile}/{clinic}/schedules', 'ClinicScheduleController@store');
-        // Route::post('profiles/{profile}/clinic_schedules', 'ClinicScheduleController@store');
+
         Route::post('users/{user}/group_users', 'GroupUserController@store');
         Route::post('profiles/{profile}/clinic_profiles', 'ClinicProfileController@store');
         Route::post('profiles/{profile}/store_profiles', 'StoreProfileController@store');
