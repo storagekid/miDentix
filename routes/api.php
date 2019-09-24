@@ -85,7 +85,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::patch('model/{id}/restore', 'RestoreModelController@restore');
         Route::delete('model/{id}/forceDelete', 'RestoreModelController@destroy');
         Route::post('/belongstomany', 'BelongsToManyController@store');
-        Route::delete('/belongstomany', 'BelongsToManyController@destroy');
+        Route::delete('/belongstomany/{id}', 'BelongsToManyController@destroy');
         Route::post('/exportExcel', 'ExportController@exportExcel');
         Route::get('/images/thumbnail', 'ImageController@fetchThumbnail');
         Route::post('/images/thumbnails', 'ImageController@fetchThumbnails');
