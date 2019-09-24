@@ -155,4 +155,10 @@ class User extends Authenticatable
     {
         return auth()->user()->name === 'jgvillalba@dentix.es';
     }
+
+    public static function useSoftDeleting()
+    {
+      // ... check if 'this' model uses the soft deletes trait
+      return in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(static::make()));
+    }
 }
