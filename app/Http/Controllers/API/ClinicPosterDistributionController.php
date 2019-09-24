@@ -124,55 +124,7 @@ class ClinicPosterDistributionController extends Controller
             ]);
         }
     }
-    // public function launch()
-    // {
-    //     // Backup your default mailer
-    //     $backup = Mail::getSwiftMailer();
 
-    //     // Setup your gmail mailer
-    //     $transport = new \Swift_SmtpTransport('mail.storagekid.com', 587, null);
-    //     $transport->setUsername('jgvillalba@storagekid.com');
-    //     $transport->setPassword('Gomez%01');
-    //     // Any other mailer configuration stuff needed...
-
-    //     $gmail = new \Swift_Mailer($transport);
-
-    //     // Setup your office365 mailer
-    //     $transport = new \Swift_SmtpTransport('smtp.office365.com', 587, 'TLS');
-    //     $transport->setUsername('jgvillalba@dentix.es');
-    //     $transport->setPassword('Outlook%01');
-    //     // Any other mailer configuration stuff needed...
-
-    //     $office365 = new \Swift_Mailer($transport);
-
-    //     // Set the mailer as gmail
-    //     // Mail::setSwiftMailer($gmail);
-
-    //     // Set the mailer as office365
-    //     Mail::setSwiftMailer($office365);
-    //     // dd(request('campaign'));
-    //     // Send your message
-    //     // Mail::send();
-    //     // Mail::to($event->user)->cc(['jgvillalba@dentix.es','estudiodentix@outlook.com'])->send(new PleaseConfirmYourEmail($event->user));
-    //     // ->cc(['jgvillalba@dentix.es', 'estudiodentix@outlook.com', 'miriam.gonzalez@dentix.es', 'miriamglezplez@gmail.com', 'bbarragan@dentix.es', 'albacv11@gmail.com', 'mcaliz@dentix.es'])
-    //     $clinics = request('clinics');
-    //     // dd($clinics[0]);
-    //     foreach ($clinics as $clinic) {
-    //         $clinic = \App\Clinic::with(['poster_distributions' => function($q) { return $q->with(['address']); }])->find($clinic['id']);
-    //         // dd($clinic['poster_distributions'][0]['facade64']);
-    //         $mail = Mail::to('jgvillalba@mozodealmacen.com')
-    //         // ->cc(['jgvillalba@dentix.es', 'estudiodentix@outlook.com', 'miriam.gonzalez@dentix.es', 'miriamglezplez@gmail.com', 'bbarragan@dentix.es', 'albacv11@gmail.com'])
-    //         ->cc(['jgvillalba@dentix.es', 'estudiodentix@outlook.com'])
-    //         ->send(new PosterDistributionForClinic(request('campaign'), $clinic));
-    //     }
-
-    //     // Restore your original mailer
-    //     Mail::setSwiftMailer($backup);
-        
-    //     return response([
-    //         'model' => $mail,
-    //     ], 200);
-    // }
     public function composeFacade(Request $request, ClinicPosterDistribution $clinicposterdistribution)
     {
         if (!$clinicposterdistribution->composed_facade()->first() || request('force')) {
