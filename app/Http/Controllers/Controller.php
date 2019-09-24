@@ -82,7 +82,8 @@ class Controller extends BaseController
     {
         if (request()->has('quasarData')) {
             $quasarData =  json_decode(request('quasarData'), true);
-            if ($quasarData['relatedId']) $id = $this->storeRelation($quasarData);
+            if (array_key_exists('relatedId', $quasarData)) $id = $this->storeRelation($quasarData);
+            else if (array_key_exists('relatedToID', $quasarData)) return $this->storeBelongsToManyRelation($quasarData);
         }
         else $id = $this->getModelName()::create(request()->all())->id;
         $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
@@ -104,6 +105,24 @@ class Controller extends BaseController
         $relation = $quasarData['relation'];
         $id = $parent->$relation()->create(request()->all())->id;
         return $id;
+    }
+
+            /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeBelongsToManyRelation($quasarData)
+    {
+        // dump('storeBelongsToManyRelation');
+        $parent = $quasarData['parentNameSpace']::find($quasarData['parentID']);
+        $relation = $quasarData['relation'];
+        $model = $quasarData['relatedTo']::find($quasarData['relatedToID']);
+        $parent->$relation()->attach($model);
+        return response([
+            'model' => $model,
+        ], 200);
     }
     
         /**
