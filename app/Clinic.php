@@ -26,13 +26,13 @@ class Clinic extends Qmodel
   ];
   protected $appends = ['label', 'value', 'open', 'active'];
   protected $casts = ['postal_code' => 'string'];
-  protected $stationary = [];
   protected static $permissions = [
       'view' => [
         'Marketing' => ['*'],
         'Clinics' => ['*'],
       ]
   ];
+  public static $cascade = ['addresses', 'phones'];
   // Quasar DATA
   protected $relatedTo = ['addresses', 'phones'];
 
