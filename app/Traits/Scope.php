@@ -55,7 +55,6 @@ trait Scope {
         $requestOptions = collect(json_decode(request('options'), true));
         if($requestOptions->has('scopedThrough')) $options['scopedThrough'] = $requestOptions['scopedThrough'];
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
-        // if($requestOptions->has('full')) $options['full'] = is_array($requestOptions['full']) ? $requestOptions['full'] : json_decode($requestOptions['full']);
         if($requestOptions->has('with')) $options['with'] = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
         if($requestOptions->has('withTrashed')) $options['withTrashed'] = is_array($requestOptions['withTrashed']) ? $requestOptions['withTrashed'] : json_decode($requestOptions['withTrashed']);
         if($requestOptions->has('withCount')) $options['withCount'] = is_array($requestOptions['withCount']) ? $requestOptions['withCount'] : json_decode($requestOptions['withCount']);
