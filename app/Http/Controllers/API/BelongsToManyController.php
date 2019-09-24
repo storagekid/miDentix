@@ -26,7 +26,7 @@ class BelongsToManyController extends Controller
     public function store(Request $request)
     {
         // dd(request()->all());
-        $parent = request('sourceModel')::find(request('sourceModelId'));
+        $parent = request('parentNameSpace')::find(request('parentId'));
         $relation = request('relation');
         $model = request('relatedTo')::find(request('relatedToID'));
         $parent->$relation()->attach($model);
