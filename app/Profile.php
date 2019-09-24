@@ -36,12 +36,6 @@ class Profile extends Qmodel
                 ['name','lastname1','lastname2','gender','personal_id_number','country_id','birth_date','company_id']
             ],
             'relations' => []
-        ],
-        [
-            'title' => 'Clinicas / Oficinas',
-            'icon' => 'store_mall_directory',
-            'fields' => [],
-            'relations' => ['clinics', 'stores']
         ]
     ];
     protected $quasarFormUpdateLayout = [
