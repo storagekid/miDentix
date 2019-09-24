@@ -80,7 +80,10 @@ class Controller extends BaseController
      */
     public function store(QStore $request)
     {
-        if (request()->has('relatedId')) $id = $this->storeRelation();
+        if (request()->has('quasarData')) {
+            $quasarData =  json_decode(request('quasarData'), true);
+            if ($quasarData['relatedId']) $id = $this->storeRelation($quasarData);
+        }
         else $id = $this->getModelName()::create(request()->all())->id;
         $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
 
@@ -95,10 +98,10 @@ class Controller extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storeRelation()
+    public function storeRelation($quasarData)
     {
-        $parent = request('nameSpace')::withTrashed()->find(request('relatedId'));
-        $relation = request('relation');
+        $parent = $quasarData['parentNameSpace']::useSoftDeleting() ? $quasarData['parentNameSpace']::withTrashed()->find($quasarData['relatedId']) : $quasarData['parentNameSpace']::find($quasarData['relatedId']);
+        $relation = $quasarData['relation'];
         $id = $parent->$relation()->create(request()->all())->id;
         return $id;
     }
@@ -113,7 +116,7 @@ class Controller extends BaseController
         $name = $this->getModelName();
 
         $model = $name::fetch(['ids'=>[$id]])[0];
-        if (isset($name::$cascade)) {
+        if (isset($name::$cascade) && !$name::useSoftDeleting()) {
             foreach ($name::$cascade as $relation) $model->$relation()->delete();
         }
         $name::destroy($id);
