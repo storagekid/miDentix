@@ -17,6 +17,7 @@ class ClinicProfile extends Qmodel
           'Marketing' => ['*'],
         ]
     ];
+    public static $cascade = ['schedules'];
     // TABLE
     protected $tableColumns = [
         'fullName' => [
