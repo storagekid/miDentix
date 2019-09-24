@@ -24,4 +24,26 @@ class RestoreModelController extends Controller
             'model' => $model->fresh(),
         ], 200);
     }
+
+    /**
+     * Permanently deletes the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        if (!auth()->user()->isRoot()) abort(403);
+        $name = request('nameSpace');
+        $model = $name::onlyTrashed()->findOrFail($id);
+        if (isset($name::$cascade)) {
+            foreach ($name::$cascade as $relation) $model->$relation()->delete();
+        }
+        $model->forceDelete($id);
+
+        return response([
+            'model' => $model,
+        ], 200);
+    }
 }

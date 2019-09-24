@@ -83,6 +83,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::post('profiles/{profile}/store_profiles', 'StoreProfileController@store');
         
         Route::patch('model/{id}/restore', 'RestoreModelController@restore');
+        Route::delete('model/{id}/forceDelete', 'RestoreModelController@destroy');
         Route::post('/belongstomany', 'BelongsToManyController@store');
         Route::delete('/belongstomany', 'BelongsToManyController@destroy');
         Route::post('/exportExcel', 'ExportController@exportExcel');
