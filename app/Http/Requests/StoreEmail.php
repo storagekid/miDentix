@@ -8,23 +8,12 @@ use Illuminate\Validation\Rule;
 class StoreEmail extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules($model)
+    public function rules($model, $required)
     {
-        $required = Rule::requiredIf($this->isMethod('POST') || $this->isMethod('GET'));
         return [
             'email' => [$required->condition ? 'required' : '', 'email', Rule::unique('emails')->ignore($model->id), 'min:6', 'max:255'],
             'type' => [$required->condition ? 'required' : ''],

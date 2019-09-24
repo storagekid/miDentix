@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Routing\Route;
+use Illuminate\Validation\Rule;
 
 class QStore extends FormRequest
 {
@@ -36,7 +37,7 @@ class QStore extends FormRequest
         $name = $this->name ?: $route->getController()->requestName;
         if (class_exists($name)) {
             $request = new $name;
-            return $request->rules($this);
+            return $request->rules($this, $this->getRequiredFromMethod());
         } else return [];
     }
 
@@ -44,8 +45,12 @@ class QStore extends FormRequest
         if ($this->name) {
             if (class_exists($this->name)) {
                 $request = new $this->name;
-                return $request->rules($this);
+                return $request->rules($this, $this->getRequiredFromMethod());
             } else return [];
         } else return [];
+    }
+
+    public function getRequiredFromMethod() {
+        return Rule::requiredIf(request()->isMethod('POST') || request()->isMethod('GET'));
     }
 }
