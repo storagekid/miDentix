@@ -9,32 +9,6 @@ use App\Http\Requests\QStore;
 class ClinicPosterPriorityController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $model = ClinicPosterPriority::create(request()->all());
-
-        return response([
-            'model' => $model->attachFull(),
-        ], 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

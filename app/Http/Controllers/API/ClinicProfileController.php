@@ -2,27 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
+use App\ClinicProfile;
 use App\Http\Controllers\Controller;
-use App\Profile;
 use App\Http\Requests\QStore;
 
 class ClinicProfileController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request, Profile $profile)
-    {
-        $model = $profile->clinic_profiles()->create(request()->all());
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -32,6 +17,12 @@ class ClinicProfileController extends Controller
      */
     public function update(QStore $request, $id)
     {
-        //
+        $model = ClinicProfile::useSoftDeleting() ? ClinicProfile::withTrashed()->find($id) : ClinicProfile::find($id);
+
+        $model->update(request()->all());
+
+        return response([
+            'model' => ClinicProfile::fetch(['ids'=>[$id]])[0],
+        ], 200);
     }
 }

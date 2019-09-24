@@ -9,22 +9,6 @@ use App\SanitaryCode;
 class SanitaryCodeController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $parent = request('nameSpace')::find(request('relatedId'));
-        $model = $parent->sanitary_codes()->create(request()->all());
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -9,21 +9,6 @@ use App\Menu;
 class MenuController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $model = Menu::create(request()->all());
-
-        return response([
-            'model' => $model->attachFull(),
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

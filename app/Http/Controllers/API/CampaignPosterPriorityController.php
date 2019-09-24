@@ -10,21 +10,6 @@ use App\Http\Requests\QStore;
 class CampaignPosterPriorityController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request, Campaign $campaign)
-    {
-        $model = $campaign->campaign_poster_priorities()->create(request()->all());
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

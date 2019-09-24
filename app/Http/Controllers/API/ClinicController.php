@@ -10,33 +10,6 @@ use Carbon\Carbon;
 
 class ClinicController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $quasarData = Clinic::getQuasarData();
-        $clinic = Clinic::create(request()->all());
-        $clinic->nickname = $clinic->fullName;
-        $clinic->save();
-        foreach ($quasarData['relations'] as $name => $relation) {
-            if ($relation['type'] === 'BelongsToMany' && request()->has($name)) {
-                $models = json_decode((request($name)), true);
-                if (count($models)) {
-                    foreach ($models as $item) {
-                        $clinic->$name()->attach($item['id']);
-                    }
-                }
-            }
-        }
-
-        return response([
-            'model' => $clinic->attachFull(),
-        ], 200);
-    }
 
     /**
      * Update the specified resource in storage.

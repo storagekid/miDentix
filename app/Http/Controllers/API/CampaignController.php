@@ -9,21 +9,6 @@ use App\Http\Requests\QStore;
 class CampaignController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $models = Campaign::create(request()->all());
-
-        return response([
-            'model' => $models->fresh()->attachFull(),
-        ], 200);
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

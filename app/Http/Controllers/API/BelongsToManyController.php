@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QStore;
 
 class BelongsToManyController extends Controller
 {
@@ -17,24 +18,24 @@ class BelongsToManyController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // dd(request()->all());
-        $parent = request('parentNameSpace')::find(request('parentId'));
-        $relation = request('relation');
-        $model = request('relatedTo')::find(request('relatedToID'));
-        $parent->$relation()->attach($model);
+    // /**
+    //  * Store a newly created resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function store(QStore $request)
+    // {
+    //     // dd(request()->all());
+    //     $parent = request('parentNameSpace')::find(request('parentId'));
+    //     $relation = request('relation');
+    //     $model = request('relatedTo')::find(request('relatedToID'));
+    //     $parent->$relation()->attach($model);
 
-        return response([
-            'model' => $model,
-        ], 200);
-    }
+    //     return response([
+    //         'model' => $model,
+    //     ], 200);
+    // }
 
     /**
      * Display the specified resource.
@@ -65,7 +66,7 @@ class BelongsToManyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy($id)
     {
         // dd(request()->all());
         $parent = request('sourceModel')::find(request('sourceModelId'));
