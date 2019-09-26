@@ -16,8 +16,9 @@ class Qmodel extends Model
     {
         parent::boot();
         static::retrieved(function () {
-          if (request()->route()->uri === 'api/rest/auth/login') return true;
-          else {
+          if (request()->route()) {
+            if (request()->route()->uri === 'api/rest/auth/login') return true;
+          } else {
             static::authorize('view');
           }
         });
