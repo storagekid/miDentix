@@ -15,8 +15,9 @@ class CampaignPosterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QStore $request, Campaign $campaign)
+    public function store(QStore $request)
     {
+        $campaign = \App\Campaign::find(request('campaign_id'));
         $model = $campaign->campaign_posters()->create([
             'campaign_id' => request('campaign_id'),
             'poster_id' => request('poster_id'),
