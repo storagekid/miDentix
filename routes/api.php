@@ -60,6 +60,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('campaigns', 'CampaignController');
         Route::resource('campaigns/{campaign}/campaign_posters', 'CampaignPosterController');
         Route::resource('campaigns/{campaign}/campaign_poster_priorities', 'CampaignPosterPriorityController');
+        Route::post('campaigns/{campaign}/sanitary_codes', 'SanitaryCodeController@store');
         Route::resource('campaign_posters', 'CampaignPosterController');
         Route::get('campaign_posters/{campaignposter}/download', 'CampaignPosterController@download');
         Route::resource('campaign_poster_priorities', 'CampaignPosterPriorityController');
