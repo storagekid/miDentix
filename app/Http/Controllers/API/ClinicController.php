@@ -43,8 +43,9 @@ class ClinicController extends Controller
         ], 200);
     }
 
-    public function posterDistributionByCampaignComposer(Clinic $clinic) {
-        $campaignFacades = $clinic->createCampaignFacades();
+    public function posterDistributionByCampaignComposer($clinic) {
+        $model = \App\Clinic::withTrashed()->find($clinic);
+        $campaignFacades = $model->createCampaignFacades();
 
         return response([
             'model' => $campaignFacades,
