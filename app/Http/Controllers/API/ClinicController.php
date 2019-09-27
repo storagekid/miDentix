@@ -29,8 +29,9 @@ class ClinicController extends Controller
         ], 200);
     }
 
-    public function posterDistributionComposer(Clinic $clinic) {
-        foreach ($clinic->poster_distributions as $clinicposterdistribution) {
+    public function posterDistributionComposer($clinic) {
+        $model = \App\Clinic::withTrashed()->find($clinic);
+        foreach ($model->poster_distributions as $clinicposterdistribution) {
             $clinicposterdistribution->load(['clinic', 'address']);
             if (!$clinicposterdistribution->composed_facade()->first() || request('force')) $clinicposterdistribution->composeFacadeBuilder();
             if (!$clinicposterdistribution->complete_facade()->first() || request('force')) {
@@ -38,7 +39,7 @@ class ClinicController extends Controller
             }
         }
         return response([
-            'model' => $clinic->fresh()->load(['poster_distributions']),
+            'model' => $model->fresh()->load(['poster_distributions']),
             'message' => 'Facade Complete Successfully',
         ], 200);
     }
@@ -52,7 +53,8 @@ class ClinicController extends Controller
             'message' => 'Facade Complete Successfully',
         ], 200);
     }
-    public function posterDistributionClone(Clinic $clinic) {
+    public function posterDistributionClone($clinic) {
+        $model = \App\Clinic::withTrashed()->find($clinic);
         if (!request('campaign')) {
             $startDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
             $endDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
@@ -65,8 +67,8 @@ class ClinicController extends Controller
         }
         // dump($startDate);
         // dump($endDate);
-        $model = $clinic;
-        $clinicDistributions = $clinic->poster_distributions()->find(request('designs'));
+        // $model = $clinic;
+        $clinicDistributions = $model->poster_distributions()->find(request('designs'));
         // dump(count($clinicDistributions));
         // dd($clinicDistributions->toArray());
         foreach ($clinicDistributions as $clinicposterdistribution) {
@@ -118,12 +120,14 @@ class ClinicController extends Controller
             'message' => 'Distributions Clone Successfully',
         ], 200);
     }
-    public function launchCampaignDistribution(Clinic $clinic)
+    public function launchCampaignDistribution($clinic)
     {
+        $model = \App\Clinic::withTrashed()->find($clinic);
+
         $fake = request('fake') === 'false' ? false : true;
         $campaign = \App\Campaign::find(request('campaign'));
 
-        $email = SendCampaignDistribution::dispatch($clinic, $campaign, $fake);
+        $email = SendCampaignDistribution::dispatch($model, $campaign, $fake);
         
         return response([
             'model' => $email,
