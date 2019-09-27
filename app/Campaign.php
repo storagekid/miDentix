@@ -225,7 +225,7 @@ class Campaign extends Qmodel
         return $this->hasMany(ClinicPosterDistribution::class);
     }
     public function sanitary_codes () {
-        return $this->hasMany(SanitaryCode::class);
+        return $this->morphMany(SanitaryCode::class, 'sanitizable');
     }
     public function getCampaignPostersCountAttribute () {
         return $this->campaign_posters()->count();
