@@ -47,25 +47,16 @@ class FacadeDistributionPrinter extends DentixPdfPrinter
         $this->pdf->AddPage('P', $size);
 
         $distribution = json_decode($this->design->distributions, true);
-        // dd($distribution['posterIds']);
         $clinicPostersPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
-        // dd($clinicPostersPriorities[0]->clinic_poster);
         $clinicPosters = collect();
         foreach ($clinicPostersPriorities as $item) {
             $temp = $item->clinic_poster;
             $temp['priority'] = $item->priority;
             $clinicPosters[] = $temp;
         }
-        // $clinicPostersPriorities->each(function ($i) { $clinicPosters[] = $i->clinic_poster; });
-        // dd($clinicPosters->toArray());
 
-        // foreach ($clinicPosters as $clinicPoster) {
-        //     $clinicPoster->campaignPriority = $clinicPoster->getCampaignPriority($this->campaign !== '' ? $this->campaign->id : null);
-        // }
         $clinicPosterIds = $clinicPosters->groupBy('poster_id')->keys()->toArray();
-        // $clinicPosterIds = $distribution['posterIds'];
-        // dd($clinicPosterIds);
-        
+
         $posters =
             \App\CampaignPoster::where('campaign_id', $this->campaign->id)
             ->where('language_id', $this->design->clinic->language_id)
@@ -78,22 +69,14 @@ class FacadeDistributionPrinter extends DentixPdfPrinter
                     \App\CampaignPoster::where('campaign_id', $this->campaign->id)
                     ->where('poster_model_id', $posterModel)
                     ->get();
-                // dump('Poster Model: ' . \App\PosterModel::find($posterModel)->name);
                 if (!count($campaignPosters)) {
                     $parentPosters = \App\CampaignPoster::where('campaign_id', $this->campaign->parent_id)
                     ->where('poster_model_id', $posterModel)
                     ->whereIn('poster_id', $clinicPosterIds)
                     ->get();
                     $posters = $posters->merge($parentPosters);
-                    // dump('No Posters in this Campaign for Model: ' . \App\PosterModel::find($posterModel)->name);
                 }
             }
-            // dd('Testing');
-            // $parentPosters =
-            // \App\CampaignPoster::where('campaign_id', $this->campaign->parent_id)
-            // ->where('language_id', $this->design->clinic->language_id)
-            // ->whereIn('poster_id', $clinicPosterIds)
-            // ->get();
         }
         foreach ($posters as $poster) {
             $poster->append('priority');
@@ -101,19 +84,6 @@ class FacadeDistributionPrinter extends DentixPdfPrinter
         }
         $postersGrouped = $posters->groupBy(['poster_id', 'type', 'priority']);
 
-        // if ($this->campaign->parent_id) {
-        //     $parentPosters =
-        //     \App\CampaignPoster::where('campaign_id', $this->campaign->parent_id)
-        //     ->where('language_id', $this->design->clinic->language_id)
-        //     ->whereIn('poster_id', $clinicPosterIds)
-        //     ->get();
-        //     foreach ($parentPosters as $poster) {
-        //         $poster->append('priority');
-        //         $poster->load('poster_af');
-        //     }
-        //     $parentPostersGrouped = $parentPosters->groupBy(['poster_id', 'type', 'priority']);
-        // }
-        // dd($clinicPosters->toArray());
         $defPosters = [];
         // dd($postersGrouped->toArray());
         foreach ($clinicPosters as $clinicPoster) {
