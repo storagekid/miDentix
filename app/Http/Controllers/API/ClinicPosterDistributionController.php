@@ -86,7 +86,8 @@ class ClinicPosterDistributionController extends Controller
         ]);
 
         if (request()->hasFile('file')) {
-            \App\File::destroy($model->original_facade_file_id);
+            $fileUses = \App\ClinicPosterDistribution::where('original_facade_file_id', $model->original_facade_file_id)->get();
+            if (count($fileUses) === 1) \App\File::destroy($model->original_facade_file_id);
             
             $clinic = Clinic::withTrashed()->find(request('clinic_id'));
             $address = \App\Address::find(request('address_id'));
