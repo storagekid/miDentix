@@ -382,29 +382,46 @@ class Clinic extends Qmodel
   }
 
   public function getClinicDistributionsByCampaignAttribute () {
-    $activePosters = $this->active_posters;
-    // $dists = $this->poster_distributions()->get();
-    // $filtered = $dists->filter(function ($i) {
-    //   if (!$i->ends_at) {
-    //     $design = json_decode($i->distributions, true);
-    //     if(count($design['posterIds']) > 0) {
-    //       return $i;
-    //     }
-    //   }
-    // });
     $filtered = collect();
-    $postersUsed = 0;
+    // $postersUsed = 0;
     foreach ($this->poster_distributions AS $dist) {
-      if ($dist->ends_at) continue;
+      // if ($dist->ends_at) continue;
       $design = json_decode($dist->distributions, true);
       if (count($design['posterIds']) < 1) continue;
       // $dist['distributions_array'] = $design;
       $filtered->add($dist);
-      $postersUsed += count($design['posterIds']);
+      // $postersUsed += count($design['posterIds']);
     }
     return $filtered->groupBy('campaign_id');
-    if ($postersUsed === count($activePosters)) return $filtered->groupBy('campaign_id');
-    return [];
+  }
+
+  public function active_distributions ($campaign = null) {
+    $dists = $this->clinic_distributions_by_campaign;
+
+    if ($campaign) {
+      if (array_key_exists($campaign->id, $dists)) $defDists = $dists[$campaign->id];
+      else {
+        $noCampaignDists = $dists[''];
+        $defDists = [];
+        $endDate = [];
+        $noEndDate = [];
+        foreach ($noCampaignDists as $dist) {
+          if ($dist->starts_at < $campaign->ends_at) {
+            if (!$dist->ends_at) $noEndDate[] = $dist;
+            else if ($dist->ends_at >= $campaign->ends_at) $endDate[] = $dist;
+          }
+          if (count($endDate)) $defDists = $endDate;
+          else $defDists = $noEndDate;
+        }
+      }
+    } else {
+      $defDists = [];
+      foreach ($dists as $dist) {
+        if (!$dist->ends_at) $defDists[] = $dist;
+      }
+    }
+
+    return $defDists;
   }
 
   public function getFullNameAttribute()
