@@ -5,6 +5,12 @@ namespace App;
 
 class JobType extends Qmodel
 {
+    protected static $permissions = [
+        'view' => [
+          'Marketing' => ['*'],
+          'Clinics' => ['*']
+        ]
+    ];
     
     public function getNameAttribute($value)
     {

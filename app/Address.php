@@ -9,6 +9,7 @@ class Address extends Qmodel
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],
+            'Clinics' => ['*']
         ]
     ];
 

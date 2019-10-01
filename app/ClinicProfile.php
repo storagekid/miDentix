@@ -15,6 +15,7 @@ class ClinicProfile extends Qmodel
     protected static $permissions = [
         'view' => [
           'Marketing' => ['*'],
+          'Clinics' => ['*']
         ]
     ];
     public static $cascade = ['schedules'];

@@ -383,14 +383,10 @@ class Clinic extends Qmodel
 
   public function getClinicDistributionsByCampaignAttribute () {
     $filtered = collect();
-    // $postersUsed = 0;
     foreach ($this->poster_distributions AS $dist) {
-      // if ($dist->ends_at) continue;
       $design = json_decode($dist->distributions, true);
       if (count($design['posterIds']) < 1) continue;
-      // $dist['distributions_array'] = $design;
       $filtered->add($dist);
-      // $postersUsed += count($design['posterIds']);
     }
     return $filtered->groupBy('campaign_id');
   }
