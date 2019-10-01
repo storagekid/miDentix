@@ -31,7 +31,6 @@ trait Scope {
     public static function fetch($options = []) {
 
         self::filterOptions($options);
-        // dd($options);
         if (request()->has('store_id')) $models = self::storesScoped();
         else if (request()->has('clinic_id')) $models = self::clinicsScoped();
         else {
@@ -53,6 +52,7 @@ trait Scope {
     public static function filterOptions($options) {
         if (!request()->has('options')) static::$options = $options;
         $requestOptions = collect(json_decode(request('options'), true));
+        if($requestOptions->has('scoped')) $options['scoped'] = $requestOptions['scoped'];
         if($requestOptions->has('scopedThrough')) $options['scopedThrough'] = $requestOptions['scopedThrough'];
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
         if($requestOptions->has('with')) $options['with'] = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
