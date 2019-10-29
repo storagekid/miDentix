@@ -4,13 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreClinic extends FormRequest
+class StoreStand extends FormRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules($model, $required)
     {
         return [
@@ -22,7 +17,6 @@ class StoreClinic extends FormRequest
             'sanitary_code' => ['nullable'],
             'county_id' => [$required->condition ? 'required' : ''],
             'language_id' => [$required->condition ? 'required' : ''],
-            'parent_id' => ['nullable'],
             'clinic_cloud_id' => ['nullable'],
             'oracle_id' => ['nullable'],
             'clinic_manager_id' => ['nullable'],
