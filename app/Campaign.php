@@ -10,7 +10,6 @@ class Campaign extends Qmodel
     use SoftDeletes;
 
     protected $fillable = ['name', 'description', 'parent_id', 'starts_at', 'ends_at', 'poster_starts_at', 'poster_ends_at'];
-    // protected $with = ['campaign_posters', 'campaign_poster_priorities'];
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],
@@ -117,19 +116,15 @@ class Campaign extends Qmodel
     protected $tableColumns = [
         'name' => [
             'label' => 'Nombre',
-            'filtering' => ['search'],
         ],
         'open' => [
             'label' => 'Abierta',
-            'filtering' => ['select' => 'clinics'],
         ],
-            'active' => [
+        'active' => [
             'label' => 'Activa',
-            'filtering' => ['select' => 'clinics'],
         ],
         'description' => [
             'label' => 'Descripción',
-            'filtering' => ['search'],
             'show' => false
         ],
         'parent.name' => [
@@ -165,7 +160,6 @@ class Campaign extends Qmodel
             'label' => 'Actions'
         ]
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
     protected static $full = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes', 'parent', 'children'];
     protected $appends = ['label', 'value', 'open', 'active'];
