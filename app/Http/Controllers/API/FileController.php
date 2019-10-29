@@ -37,7 +37,26 @@ class FileController extends Controller
      */
     public function store(Qstore $request)
     {
-        //
+        $modelNameSpace = request('nameSpace');
+        $model = $modelNameSpace::find(request('modelId'));
+        if ($model[request('fieldName')]) {
+            \App\File::destroy($model[request('fieldName')]);
+        }
+        $file = $modelNameSpace::storeFile(
+            request()->file('file'),
+            request('fileDir'),
+            request('fileName'),
+            request('thumbnail'),
+            auth()->user()->id,
+            5,
+            false);
+        $model[request('fieldName')] = $file->id;
+        $model->save();
+        $model->files()->save($file);
+
+        return response([
+            'message' => 'File saved'
+        ], 200);
     }
 
     /**

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\CampaignPoster;
-use App\Campaign;
 use App\Http\Requests\QStore;
 
 class CampaignPosterController extends Controller

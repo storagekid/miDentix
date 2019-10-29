@@ -69,6 +69,6 @@ class Menu extends Qmodel
         return $this->hasMany(MenuItem::class);
     }
     public function getShortedItemsAttribute() {
-        return $this->menu_items()->where('parent_id', null)->orderBy('order')->get();
+        return $this->menu_items()->where('parent_id', null)->with('groups')->orderBy('order')->get()->each->append('children');
     }
 }

@@ -33,7 +33,7 @@ class PosterModel extends Qmodel
             ],
         ],
         [
-            'title' => 'Información',
+            'title' => 'Códigos Sanitarios',
             'subtitle' => 'General',
             'icon' => 'spellcheck',
             'fields' => [],
@@ -62,18 +62,14 @@ class PosterModel extends Qmodel
     protected $tableColumns = [
         'name' => [
             'label' => 'Nombre',
-            'filtering' => ['select' => 'clinics'],
         ],
         'description' => [
             'label' => 'Descripción',
-            'filtering' => ['search'],
         ],
         'sanitary_codes' => [
             'label' => 'CS Especiales',
-            'filtering' => ['search'],
-          ],
+        ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
     public function sanitary_codes()

@@ -113,7 +113,6 @@ class MenuItem extends Qmodel
             'label' => 'Permisos',
         ]
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
     public function menu() {
@@ -123,28 +122,13 @@ class MenuItem extends Qmodel
         return $this->belongsTo(MenuItem::class, 'parent_id');
     }
     public function children() {
-        return $this->hasMany(MenuItem::class, 'parent_id');
+        return $this->hasMany(MenuItem::class, 'parent_id')->orderBy('order');
     }
     public function groups() {
         return $this->belongsToMany(Group::class, 'menu_item_groups');
     }
     public static function getSortedMenu () {
         $model = static::where('parent_id', null)->with('children')->orderBy('order')->get();
-        // foreach ($model as $menuItem) {
-        //     if (!$menuItem['parent']) {
-        //         $level = 1;
-        //     } else {
-        //         $level = 2;
-        //         $item = $menuItem['parent'];
-        //         while ($item !== null) {
-        //             $level++;
-        //             $item = $item['parent'];
-        //         }
-        //     }
-        //     $menuItem['level'] = $level;
-        // }
-        // $sortedMenu = $model->sortByDesc(['level', 'order']);
-        // $groupedMenu = $sortedMenu->groupBy(['level', 'order']);
         return $model;
     }
     public function getChildrenAttribute() {

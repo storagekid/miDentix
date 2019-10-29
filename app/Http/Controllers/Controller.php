@@ -94,6 +94,24 @@ class Controller extends BaseController
     }
 
         /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(QStore $request, $id)
+    {
+        $model = $this->getModelName()::find($id);
+        $model->update(request()->all());
+        $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
+
+        return response([
+            'model' => $model
+        ], 200);
+    }
+
+        /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
