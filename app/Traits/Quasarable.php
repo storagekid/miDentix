@@ -34,6 +34,7 @@ trait Quasarable {
   public function quasarData() {
     $this->fields = $this->getFields();
     $relations = $this->getRelations();
+    $relationOptions = $this->getRelationOptions();
     $formFields = $this->getFormFields();
     $rules = $this->formRules();
     $listFields = $this->getListFields();
@@ -42,6 +43,7 @@ trait Quasarable {
       'nameSpace' => '\\' . get_class($this),
       'fields' => $this->fields,
       'relations' => $relations,
+      'relationOptions' => $relationOptions,
       'formFields' => $formFields,
       'listFields' => $listFields,
       'rules' => $rules,
@@ -253,6 +255,10 @@ trait Quasarable {
     }
     return $relatedTo;
   }
+  public function getRelationOptions() {
+    if (isset($this->relationOptions)) return $this->relationOptions;
+    return [];
+  }
   public function getKeyField () {
     if ($this->keyField) return $this->keyField;
     // else if ($this->fullName) return 'name';
@@ -341,6 +347,7 @@ trait Quasarable {
     }
     return [
         'name' => array_key_exists('name', $type) ? $type['name'] : 'inputText',
+        'thumbnail' => array_key_exists('thumbnail', $type) ? $type['thumbnail'] : false,
         'array' => array_key_exists('array', $type) ? $type['array'] : null,
         // 'array' => array_key_exists('array', $type) ? $quasarArray : null,
         'filterKey' => array_key_exists('filterKey', $type) ? $type['filterKey'] : null,
