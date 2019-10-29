@@ -17,10 +17,13 @@ class CreateProvidersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->string('name');
-            $table->string('email');
-            $table->string('address');
-            $table->string('phone');
+            $table->string('description')->nullable();
+            $table->string('legal_name')->nullable();
+            $table->string('CNAE')->nullable();
             $table->string('CIF');
+            // $table->string('email');
+            // $table->string('address');
+            // $table->string('phone');
             $table->timestamps();
         });
     }

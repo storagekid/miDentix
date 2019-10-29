@@ -25,9 +25,6 @@ class CreateCampaignPostersTable extends Migration
             $table->unsignedInteger('clinic_id')->nullable();
             $table->unsignedInteger('poster_af_file_id')->nullable();
             $table->string('type', 16);
-            // $table->string('file');
-            // $table->string('link');
-            // $table->string('thumbnail');
             $table->timestamps();
 
             $table->unique(['campaign_id','poster_id','poster_model_id','language_id','country_id','state_id','county_id','clinic_id','type'], 'campaign_poster_unique');

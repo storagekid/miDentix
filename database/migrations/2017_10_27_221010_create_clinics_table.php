@@ -21,12 +21,14 @@ class CreateClinicsTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('email_ext')->nullable();
             $table->unsignedInteger('cost_center_id')->nullable();
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->unsignedInteger('county_id')->nullable();
             $table->unsignedInteger('language_id');
             $table->string('sanitary_code')->nullable();
             $table->unsignedInteger('clinic_manager_id')->nullable();
             $table->unsignedInteger('area_manager_id')->nullable();
-            $table->unsignedInteger('clinic-cloud_id')->nullable();
+            $table->unsignedInteger('clinic_cloud_id')->nullable();
+            $table->string('oracle_id')->nullable();
             $table->unsignedInteger('closed')->default(0);
             $table->date('starts_at');
             $table->date('ends_at')->nullable();

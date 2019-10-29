@@ -1,4 +1,4 @@
-id,"name","description",company_id,country_id,"created_at","updated_at"
-1,"Dentix HQ - España","Central Dentix en Madrid",1,1,"2019-01-23 17:20:56","2019-01-23 17:20:56"
-2,"NeoTech HQ - España","Central Neotech en Madrid",2,1,"2019-01-23 17:20:56","2019-01-23 17:20:56"
-3,"Dentix HQ - Italia","Central Dentix en Italia",1,2,"2019-01-23 17:20:56","2019-01-23 17:20:56"
+id,"name","description",company_id,country_id,"deleted_at","created_at","updated_at"
+1,"Dentix HQ - España","Central Dentix en Madrid",1,1,,"2019-01-23 17:20:56","2019-01-23 17:20:56"
+2,"NeoTech HQ - España","Central Neotech en Madrid",2,1,,"2019-01-23 17:20:56","2019-01-23 17:20:56"
+3,"Dentix HQ - Italia","Central Dentix en Italia",1,2,,"2019-01-23 17:20:56","2019-01-23 17:20:56"
