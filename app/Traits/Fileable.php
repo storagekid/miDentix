@@ -136,37 +136,10 @@ trait Fileable {
       'group_id' => $group_id
     ]);
     if ($thumbnail) {
-      $model->storeThumbnail();
+      $model->storeThumbnail($thumbnail);
     }
     // dd($model->getRealPaths());
     // dd($model->toArray());
     return $model;
-  }
-
-  public static function storeThumbnail ($path, $name, $url, $public) {
-    // Create Thumbnail
-    $thumbnailName = $name;
-    $imagick = new \Imagick();
-    // Reads image from PDF
-    $imagick->readImage(storage_path('app/' . $url));
-    // $imagick->transformImageColorspace(\Imagick::COLORSPACE_CMYK);
-    $extension = pathinfo(storage_path('app/' . $url), PATHINFO_EXTENSION);
-    $baseName = str_replace('.' . $extension,'',$thumbnailName);
-    $thumbnailName = $baseName . '_thumbnail.jpg';
-    // if ($extension !== 'jpg') $thumbnailName = str_replace('.' . $extension, '.jpg', $name);
-    $thumbnailPath = $path . '/' . $thumbnailName;
-    // $thumbnailFile = str_replace('.pdf', '.jpg', $name);
-    // $thumbnailDirectory = 'campaigns/' . $campaign->id . '/posters';
-    // $thumbnailPath = 'campaigns/' . $campaign->id . '/posters//' . $thumbnailFile;
-    // if (!Storage::exists('public/' . $thumbnailDirectory)) {
-    //     Storage::makeDirectory('public/' . $thumbnailDirectory);
-    // }
-    // Resize Image
-    $imagick->resizeImage (400, 400 , \Imagick::FILTER_CATROM , 1, true);
-    // Writes an image
-    $storeDir = $public ? 'public/' . $path : $path;
-    $imagick->writeImage(storage_path('app/' . $storeDir . '/' .$thumbnailName));
-
-    return $thumbnailPath;
   }
  }
