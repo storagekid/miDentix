@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use function GuzzleHttp\json_decode;
@@ -12,8 +11,8 @@ class Clinic extends Qmodel
 {
   use SoftDeletes;
 
-  protected $fillable = ['city', 'language_id', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'clinic_manager_id', 'area_manager_id', 'cost_center_id', 'starts_at', 'ends_at'];
-  protected static $full = ['county', 'cost_center', 'addresses', 'phones', 'area_manager', 'clinic_manager', 'language'];
+  protected $fillable = ['city', 'language_id', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'parent_id', 'clinic_manager_id', 'area_manager_id', 'clinic_cloud_id', 'oracle_id', 'cost_center_id', 'starts_at', 'ends_at'];
+  protected static $full = ['county', 'cost_center', 'clinic_siblings', 'addresses', 'phones', 'area_manager', 'clinic_manager', 'language', 'parent', 'children'];
   protected static $show = [
     'county',
     'cost_center',
@@ -34,14 +33,14 @@ class Clinic extends Qmodel
   ];
   public static $cascade = ['addresses', 'phones'];
   // Quasar DATA
-  protected $relatedTo = ['addresses', 'phones'];
+  protected $relatedTo = ['addresses', 'phones', 'clinic_siblings'];
 
   protected $quasarFormNewLayout = [
       [
           'title' => 'Información',
           'subtitle' => 'General',
           'fields' => [
-            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at']
+            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'parent_id', 'starts_at', 'clinic_cloud_id', 'oracle_id',]
           ],
           'relations' => []
       ]
@@ -51,7 +50,7 @@ class Clinic extends Qmodel
           'title' => 'Información',
           'subtitle' => 'General',
           'fields' => [
-            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'starts_at', 'ends_at']
+            ['language_id', 'city', 'district', 'nickname', 'postal_code', 'email_ext', 'sanitary_code', 'county_id', 'parent_id', 'starts_at', 'ends_at', 'clinic_cloud_id', 'oracle_id',]
           ],
           'relations' => []
       ],
@@ -60,6 +59,12 @@ class Clinic extends Qmodel
           'icon' => 'directions',
           'fields' => [],
           'relations' => ['addresses', 'phones']
+      ],
+      [
+        'title' => 'Hermanas',
+        'icon' => 'device_hub',
+        'fields' => [],
+        'relations' => ['clinic_siblings']
       ],
       [
           'title' => 'Managers',
@@ -111,6 +116,12 @@ class Clinic extends Qmodel
     'email_ext' => [
       'label' =>'Extensión Email',
     ],
+    'clinic_cloud_id' => [
+      'label' =>'Clinic Cloud ID',
+    ],
+    'oracle_id' => [
+      'label' =>'Oracle ID',
+    ],
     'clinic_manager_id' => [
       'label' =>'C. Manager',
       'type' => [
@@ -148,6 +159,19 @@ class Clinic extends Qmodel
           'text' => 'Selecciona un Centro de Coste',
         ],
       ],
+    ],
+    'parent_id' => [
+        'label' =>'Pertenece a la Clínica',
+        'type' => [
+            'name' =>'select',
+            'model' => 'clinics',
+            'hasFamily' => true,
+            'text' =>  'nickname',
+            'value' => 'id',
+            'default' => [
+                'text' => 'Selecciona una Clínica Madre',
+            ],
+        ],
     ],
     'starts_at' => [
       'label' =>'Fecha Inicio',
@@ -219,6 +243,13 @@ class Clinic extends Qmodel
       'label' => 'CP',
       'filtering' => ['search'],
     ],
+    'parent.nickname' => [
+      'label' => 'Pertenece a',
+    ],
+    'clinic_siblings' => [
+      'label' => 'Hermanas',
+      'filtering' => ['search'],
+    ],
     'language.label' => [
       'label' => 'Language',
       'filtering' => ['search'],
@@ -239,6 +270,14 @@ class Clinic extends Qmodel
     'clinic_manager.full_name' => [
       'label' => 'Clinic Manager',
       'filtering' => ['search'],
+      'show' => false
+    ],
+    'clinic_cloud_id' => [
+      'label' => 'Clinic Cloud ID',
+      'show' => false
+    ],
+    'oracle_id' => [
+      'label' => 'Oracle ID',
       'show' => false
     ],
     'cost_center.name' => [
@@ -306,7 +345,6 @@ class Clinic extends Qmodel
       ]
     ]
   ];
-  protected $tableOptions = [['show','edit','delete'], true, true];
   // END Tableable Data
   // Model Views
   protected static $views = [
@@ -326,7 +364,12 @@ class Clinic extends Qmodel
     ],
   ];
   // END Model Views
-
+  public function parent() {
+    return $this->belongsTo(Clinic::class, 'parent_id');
+  }
+  public function children() {
+      return $this->hasMany(Clinic::class, 'parent_id');
+  }
   public function clinic_posters () {
       return $this->hasMany(ClinicPoster::class);
   }
@@ -338,10 +381,16 @@ class Clinic extends Qmodel
   }
   public function poster_distributions () {
     return $this->hasMany(ClinicPosterDistribution::class);
-}
+  }
   public function cost_center()
   {
       return $this->belongsTo(CostCenter::class);
+  }
+  public function siblings () {
+    return $this->belongsToMany(Clinic::class, 'clinic_siblings', 'clinic_id', 'sibling_id');
+  }
+  public function clinic_siblings () {
+    return $this->hasMany(ClinicSibling::class);
   }
   public function language() {
     return $this->belongsTo(Language::class);
@@ -375,6 +424,10 @@ class Clinic extends Qmodel
   }
   public function schedules() {
     return $this->hasManyThrough(ClinicSchedule::class, ClinicProfile::class);
+  }
+
+  public function getSharesClinicCloudId() {
+    if (!$this->siblings()->count()) return false;
   }
 
   public function getClinicPostersCountAttribute () {
@@ -486,12 +539,16 @@ class Clinic extends Qmodel
   
   public function getOpenAttribute()
   {
-      if (!$this->ends_at) return true;
+      if (!$this->ends_at && Carbon::parse($this->starts_at)->lessThan(Carbon::now())) return true;
       return (Carbon::parse($this->ends_at))->greaterThan(Carbon::now());
   }
   public function getActiveAttribute()
   {
     return (!$this->deleted_at);
+  }
+
+  public function getShareSiblingsAttribute() {
+    return $this->shareSiblings();
   }
 
   // MUTATORS
@@ -520,5 +577,73 @@ class Clinic extends Qmodel
 
     $completeFacades->files()->save($file);
     return $completeFacades;
+  }
+
+  public static function cleanSiblings ($clinics) {
+    $clinicsToCheck = [];
+    foreach ($clinics as $clinic) {
+        if ($clinic->siblings->count()) {
+            foreach ($clinic->siblings as $sibling) {
+                if (!array_key_exists($sibling->id, $clinicsToCheck)) $clinicsToCheck[$sibling->id] = [$clinic->id];
+                else $clinicsToCheck[$sibling->id][] = $clinic->id;
+            }
+        }
+    }
+    foreach ($clinics as $key => $clinic) {
+        if (array_key_exists($clinic->id, $clinicsToCheck)) {
+            $siblingsIds = $clinic->siblings->pluck('id')->all();
+            foreach ($clinicsToCheck[$clinic->id] as $siblingId) {
+                if (!in_array($siblingId, $siblingsIds)) {
+                    $clinics->forget($key);
+                    break;
+                }
+            }
+        }
+    }
+    return $clinics;
+  }
+
+  public function shareSiblings () {
+    if (!$this->siblings()->count()) return false;
+    $clinicsToCheck = [];
+      foreach ($this->siblings as $sibling) {
+        if (!$sibling->siblings()->count()) return false;
+          if (!array_key_exists($sibling->id, $clinicsToCheck)) $clinicsToCheck[$sibling->id] = [$this->id];
+          else $clinicsToCheck[$sibling->id][] = $this->id;
+          foreach ($sibling->siblings as $relatedSibling) {
+            if (!in_array($relatedSibling->id, $clinicsToCheck[$sibling->id])) $clinicsToCheck[$sibling->id][] = $relatedSibling->id;
+          }
+      }
+    foreach ($this->siblings as $sibling) {
+        if (array_key_exists($sibling->id, $clinicsToCheck)) {
+            $siblingsIds = $sibling->siblings->pluck('id')->all();
+            foreach ($clinicsToCheck[$sibling->id] as $siblingId) {
+                if (!in_array($siblingId, $siblingsIds)) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+  }
+
+  // Helpers
+  public function filterScope($modelsToScope) {
+    foreach ($modelsToScope as $source) {
+      if (!$source->clinic_id) continue;
+      if ($source->clinic_id === $this->id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->county_id || $source->clinic_id) continue;
+      if ($source->county_id === $this->county_id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->state_id || $source->county_id || $source->clinic_id) continue;
+      if ($source->state_id === $this->county->state_id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->country_id || $source->state_id || $source->county_id || $source->clinic_id) continue;
+      if ($source->stcountry_idte_id === $this->county->state->country_id) return $source;
+    }
   }
 }
