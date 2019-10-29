@@ -115,7 +115,7 @@ class File extends Model
         //   'url' => $url
         // ]);
     }
-    public function storeThumbnail () {
+    public function storeThumbnail ($thumbnail=true) {
         // Create Thumbnail
         $imagick = new \Imagick();
         // Reads image from PDF
@@ -130,6 +130,10 @@ class File extends Model
         }
 
         $imagick->readImage(storage_path('app/' . $file));
+        if ($thumbnail === 'multi') {
+            $imagick->resetIterator();
+            $imagick = $imagick->appendImages(false);
+        }
         $thumbnailName = $this->getBaseName() . '_thumbnail.jpg';
         $thumbnailPath = $path . '/' . $thumbnailName;
         // Resize Image
