@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Storage;
 use App\Traits\Fileable;
 
 class CampaignPoster extends Qmodel
@@ -24,48 +23,37 @@ class CampaignPoster extends Qmodel
     protected $tableColumns = [
         'campaign_id' => [
             'label' => 'Camapaña',
-            'filtering' => ['search'],
             'onGrid' => 'hide'
         ],
         'poster.name' => [
             'label' => 'Poster Size',
-            'filtering' => ['search'],
         ],
         'poster_model.name' => [
             'label' => 'Poster Model',
-            'filtering' => ['search'],
         ],
         'language.native_name' => [
             'label' => 'Language',
-            'filtering' => ['search'],
         ],
         'country.name' => [
             'label' => 'País',
-            'filtering' => ['search'],
         ],
         'state.name' => [
             'label' => 'CCAA',
-            'filtering' => ['search'],
         ],
         'county.name' => [
             'label' => 'Provincia',
-            'filtering' => ['search'],
         ],
         'clinic.nickname' => [
             'label' => 'Clínica',
-            'filtering' => ['search'],
         ],
         'type' => [
             'label' => 'Type',
-            'filtering' => ['search'],
         ],
         'poster_af.thumbnail' => [
             'label' => 'Poster AF',
-            'filtering' => ['search'],
             'onGrid' => 'footer'
         ]
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
     // Quasar DATA
