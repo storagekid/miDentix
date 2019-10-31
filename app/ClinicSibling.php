@@ -117,9 +117,9 @@ class ClinicSibling extends Qmodel
     // END Table Data
 
     public function clinic() {
-        return $this->belongsTo(Clinic::class);
+        return $this->belongsTo(Clinic::class)->withTrashed();
     }
     public function sibling () {
-        return $this->belongsTo(Clinic::class, 'sibling_id');
+        return $this->belongsTo(Clinic::class, 'sibling_id')->withTrashed();
     }
 }
