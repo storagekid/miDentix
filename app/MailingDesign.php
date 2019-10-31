@@ -252,7 +252,12 @@ class MailingDesign extends Qmodel
     public function getFilteredClinicsAttribute () {
         return \App\Clinic::withTrashed()
             ->where([['starts_at', '<', $this->mailing->ends_at], ['ends_at', '=', null]])
-            ->with('clinic_siblings')
+            // ->orWhere([['starts_at', '<', $this->mailing->ends_at], ['ends_at', '>', $this->mailing->ends_at]])
+            // ->with('clinic_siblings')
+            ->with(['clinic_siblings' => function ($q) {
+                $q->with('sibling')->where([['starts_at', '<', $this->mailing->ends_at], ['ends_at', '>', $this->mailing->starts_at]])
+                    ->orWhere([['starts_at', '<', $this->mailing->ends_at], ['ends_at', '=', null]]);
+                }])
             ->withCount('clinic_siblings', 'children')
             ->orderBy('city')
             ->find(request('ids'));
@@ -329,6 +334,8 @@ class MailingDesign extends Qmodel
         $columnsInfo = ['columnIndexes' => [], 'columns' => []];
 
         $clinics = $this->filteredClinics;
+        // dd($clinics->toArray());
+        // dd($clinics->filter(function ($i) { return $i->id === 6; })->first()->toArray());
         $maxSiblings = $clinics->count() ? $clinics->sortByDesc('clinic_siblings_count')->first()->clinic_siblings_count : 0;
         if ($maxSiblings) $clinics = \App\Clinic::cleanSiblings($clinics);
         $maxChildren = $clinics->count() ? $clinics->sortByDesc('children_count')->first()->children_count : 0;
@@ -411,9 +418,10 @@ class MailingDesign extends Qmodel
                 }
             }
             $CliniDirRound = 3;
-            if ($clinic->siblings->count()) {
+            if ($clinic->clinic_siblings->count()) {
                 $clinic['separator'] = '.....................';
-                foreach ($clinic->siblings as $sibling) {
+                foreach ($clinic->clinic_siblings as $clinic_sibling) {
+                    $sibling = $clinic_sibling->sibling;
                     // Find Sibling Address
                     $address = $sibling->addresses()->where('type', 'Comercial')->first();
                     if (!$address) $address = $sibling->addresses()->where('type', 'Fiscal')->first();
