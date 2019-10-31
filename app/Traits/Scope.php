@@ -117,7 +117,11 @@ trait Scope {
                 }
                 break;
             case request()->has('store_id') :
-                $clinics = explode(',',request('store_id'));
+                if (is_array(request('store_id'))) {
+                    $clinics = request('store_id');
+                } else {
+                    $clinics = [request('store_id')];
+                }
                 break;
         }
         if (!$clinics) {
