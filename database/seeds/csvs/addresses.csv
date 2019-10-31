@@ -415,7 +415,7 @@ id,"address_line_1","address_line_2","type","description",main,addressable_id,"a
 610,"C/ Mairena, 37",,"Fiscal","Principal",0,231,"App\Clinic","2019-07-12 13:19:28","2019-07-12 13:19:28"
 611,"C/ Isilla, 22",,"Fiscal","Principal",0,232,"App\Clinic","2019-07-12 13:20:48","2019-07-12 13:20:48"
 612,"C/ Orense",,"Fiscal","Fachada Orense",0,6,"App\Clinic","2019-07-17 11:55:48","2019-07-17 11:55:48"
-613,"C/ Constitución, 69",,"Fiscal","Fachada Constitución",0,7,"App\Clinic","2019-07-17 12:08:12","2019-08-21 13:09:50"
+613,"C/ Constitución, 69",,"Comercial","Fachada Constitución",0,7,"App\Clinic","2019-07-17 12:08:12","2019-10-31 10:39:25"
 614,"Av. Blas Infante",,"Fiscal","Fachada Blas Infante",0,11,"App\Clinic","2019-07-17 12:16:01","2019-07-17 12:16:01"
 615,"C/ Almibar",,"Fiscal","Fachada Almibar",0,16,"App\Clinic","2019-07-18 17:24:26","2019-07-18 17:24:26"
 616,"Av. Ana de Viya, 46",,"Fiscal","Fachada Ana de Viya",0,35,"App\Clinic","2019-07-18 17:40:13","2019-07-18 17:40:13"
@@ -474,3 +474,4 @@ id,"address_line_1","address_line_2","type","description",main,addressable_id,"a
 669,"Av. Juan Carlos I, Rey, 15",,"Fiscal",,0,236,"App\Clinic","2019-10-23 09:43:58","2019-10-23 09:43:58"
 670,"C/ de los Hornos Caleros, 2",,"Fiscal",,0,237,"App\Clinic","2019-10-23 09:46:57","2019-10-23 09:46:57"
 671,"C/ de los Hornos Caleros, 2","esq. pº. de la Estación","Comercial",,0,237,"App\Clinic","2019-10-23 09:47:22","2019-10-23 09:47:22"
+672,"C/ Juan Carlos I, 31",,"Comercial","Buzoneo",0,55,"App\Clinic","2019-10-31 10:42:28","2019-10-31 10:42:28"
