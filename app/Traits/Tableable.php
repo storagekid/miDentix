@@ -124,7 +124,7 @@ trait Tableable {
         $blueprints = [];
         $authorized = self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot() ? true : false;
         if ($authorized) $blueprints[] = 'Wildcard';
-        if (class_exists($className)) array_merge($blueprints, (new $className)::$blueprints);
+        if (class_exists($className)) $blueprints = array_merge($blueprints, (new $className)::$blueprints);
         return $blueprints;
     }
 }
