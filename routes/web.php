@@ -10,7 +10,7 @@
 |
 */
 
-// Auth::routes();
+Auth::routes();
 
 
 
