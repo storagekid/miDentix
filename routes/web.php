@@ -12,5 +12,8 @@
 
 Auth::routes();
 
+Route::get('/', function () {
+  return view('landings.rgpd-landing');
+})->middleware('guest');
 
 
