@@ -6,7 +6,7 @@ use App\ClinicMailing;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QStore;
 
-class ClinicMailingController extends Controller
+class ClinicMailingDesignController extends Controller
 {
         /**
      * Store a newly created resource in storage.
