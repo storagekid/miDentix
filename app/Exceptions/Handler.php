@@ -19,7 +19,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        //
+        PosterDistributionException::class
     ];
 
     /**
@@ -43,9 +43,7 @@ class Handler extends ExceptionHandler
     public function report(Exception $exception)
     {
         if ($this->shouldReport($exception)) {
-
             $this->sendEmail($exception); // sends an email
-
         }
 
         return parent::report($exception);
