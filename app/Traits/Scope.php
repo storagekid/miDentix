@@ -31,8 +31,8 @@ trait Scope {
     public static function fetch($options = []) {
 
         self::filterOptions($options);
-        if (request()->has('store_id')) $models = self::storesScoped();
-        else if (request()->has('clinic_id')) $models = self::clinicsScoped();
+        if (request()->has('scope_store_id')) $models = self::storesScoped();
+        else if (request()->has('scope_clinic_id')) $models = self::clinicsScoped();
         else {
             $modelName = '\\' . static::class;
             if (array_key_exists('withTrashed', static::$options)) $models = $modelName::withTrashed();
@@ -100,27 +100,27 @@ trait Scope {
     public static function getScope() {
         $clinics = null;
         switch (true) {
-            case request()->has('country_id') :
+            case request()->has('scope_country_id') :
                 $clinics = $clinics->where('country_id', request('country_id'))->pluck('id')->toArray();
                 break;
-            case request()->has('state_id') :
+            case request()->has('scope_state_id') :
                 $clinics = $clinics->where('state_id', request('state_id'))->pluck('id')->toArray();
                 break;
-            case request()->has('county_id') :
+            case request()->has('scope_county_id') :
                 $clinics = $clinics->where('county_id', request('county_id'))->pluck('id')->toArray();
                 break;
-            case request()->has('clinic_id') :
-                if (is_array(request('clinic_id'))) {
-                    $clinics = request('clinic_id');
+            case request()->has('scope_clinic_id') :
+                if (is_array(request('scope_clinic_id'))) {
+                    $clinics = request('scope_clinic_id');
                 } else {
-                    $clinics = [request('clinic_id')];
+                    $clinics = [request('scope_clinic_id')];
                 }
                 break;
-            case request()->has('store_id') :
-                if (is_array(request('store_id'))) {
-                    $clinics = request('store_id');
+            case request()->has('scope_store_id') :
+                if (is_array(request('scope_store_id'))) {
+                    $clinics = request('scope_store_id');
                 } else {
-                    $clinics = [request('store_id')];
+                    $clinics = [request('scope_store_id')];
                 }
                 break;
         }
