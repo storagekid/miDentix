@@ -19,7 +19,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        PosterDistributionException::class
+        PosterDistributionException::classAdd
     ];
 
     /**
