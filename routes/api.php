@@ -81,6 +81,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('poster_distributions/{clinicposterdistribution}/complete', 'ClinicPosterDistributionController@completeFacade');
         Route::get('poster_distributions/{clinicposterdistribution}/compose', 'ClinicPosterDistributionController@composeFacade');
         Route::get('poster_distributions/{clinicposterdistribution}/removeFacade', 'ClinicPosterDistributionController@removeFacade');
+        Route::patch('poster_distributions/{clinicposterdistribution}/removeComposedFacade', 'ClinicPosterDistributionController@removeComposedFacade');
         Route::resource('posters', 'PosterController');
         Route::resource('poster_models', 'PosterModelController');
 
@@ -122,4 +123,9 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('/table', 'TableController@index');
         Route::get('/form', 'FormController@index');
     });
+});
+
+Route::fallback(function(){
+    return response()->json([
+        'message' => 'Page Not Found. If error persists, contact jgvillalba@dentix.es'], 404);
 });
