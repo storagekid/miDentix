@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Exceptions\PosterDistributionException;
 use App\Traits\Fileable;
 use App\Printers\FacadeDistributionPrinter;
+use ErrorException;
 
 class ClinicPosterDistribution extends Qmodel
 {
@@ -27,7 +29,97 @@ class ClinicPosterDistribution extends Qmodel
     public function complete_facades () {
         return $this->hasMany(ClinicPosterDistributionFacade::class);
     }
+    public function getCampaignPostersGrouped($campaign) {
+        $distribution = json_decode($this->distributions, true);
+        $clinicPostersPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
+        $clinicPosters = collect();
+        foreach ($clinicPostersPriorities as $item) {
+            $temp = $item->clinic_poster;
+            $temp['priority'] = $item->priority;
+            $clinicPosters[] = $temp;
+        }
 
+        $clinicPosterIds = $clinicPosters->groupBy('poster_id')->keys()->toArray();
+
+        $posters =
+            \App\CampaignPoster::where('campaign_id', $campaign->id)
+            ->where('language_id', $this->clinic->language_id)
+            ->whereIn('poster_id', $clinicPosterIds)
+            ->get();
+        foreach ($posters as $poster) {
+            $poster->append('priority');
+            $poster->load('poster_af');
+        }
+        if ($campaign->parent_id) {
+            $campaignPosterPriorities = $campaign->campaign_poster_priorities->pluck('poster_model_id')->all();
+            foreach ($campaignPosterPriorities as $key => $posterModel) {
+                $campaignPosters =
+                    \App\CampaignPoster::where('campaign_id', $campaign->id)
+                    ->where('poster_model_id', $posterModel)
+                    ->get();
+                if (!count($campaignPosters)) {
+                    $parentPosters = \App\CampaignPoster::where('campaign_id', $campaign->parent_id)
+                    ->where('poster_model_id', $posterModel)
+                    ->where('language_id', $this->clinic->language_id)
+                    ->whereIn('poster_id', $clinicPosterIds)
+                    ->get();
+                    foreach ($parentPosters as $poster) {
+                        $poster->append('priority');
+                        $poster->load('poster_af');
+                    }
+                    $posters = $posters->merge($parentPosters);
+                }
+            }
+        }
+        $postersGrouped = $posters->groupBy(['poster_id', 'type', function ($item) {
+            return $item['priority'];
+        }]);
+
+        $defPosters = [];
+
+        foreach ($clinicPosters as $clinicPoster) {
+            $type = $clinicPoster->type;
+            if ($type === 'Office' && $clinicPoster->poster->material === 'Translight') {
+                $type = 'Ext';
+            }
+            else if ($type === 'Int' && !$postersGrouped[$clinicPoster->poster_id]->has('Int')) $type = 'Ext';
+            else if ($type === 'Office Int' && $clinicPoster->priority !== 5) {
+                $type = $clinicPoster->poster->material === 'FOAM' ? 'Office' : 'Ext';
+            }
+
+            try {
+                $posterCandidates =
+                    $postersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority) ?
+                    $postersGrouped[$clinicPoster->poster_id][$type][$clinicPoster->priority] :
+                    $postersGrouped[$clinicPoster->poster_id][$type === 'Office Int' ? 'Office' : 'Ext'][$clinicPoster->priority];
+            } catch (ErrorException $ex) {
+                throw new PosterDistributionException($campaign, $this->clinic, $clinicPoster, $type);
+            }
+
+            if (count($posterCandidates) > 1) {
+                $grouped = $posterCandidates->groupBy(['clinic_id', 'county_id', 'state_id']);
+
+                if ($grouped->has($this->clinic_id)) {
+                    $defPosters[] = $grouped[$this->clinic_id][0];
+                } elseif ($grouped['']->has($this->clinic->county_id)) {
+                    $defPosters[] = $grouped[''][$this->clinic->county_id][0];
+                } elseif ($grouped['']['']->has($this->clinic->county->state_id)) {
+                    $defPosters[] = $grouped[''][''][$this->clinic->county->state_id][0];
+                } else {
+                    $defPosters[] = $grouped[''][''][''][0];
+                }
+            } else {
+                $defPosters[] = $posterCandidates[0];
+            }
+        }
+        foreach ($defPosters as $poster) {
+            $poster['codes'] = $poster->satinaryCodesByCampaign();
+        }
+
+        $ultimatePosters = collect($defPosters);
+
+        return $ultimatePosters;
+    }
     public function composeFacadeBuilder() {
         if (request('force') === true) {
             $oldComposedFacade = File::find($this->composed_facade_file_id);
@@ -163,9 +255,14 @@ class ClinicPosterDistribution extends Qmodel
     public function findHolderPoster($holder, $campaignPosters) {
         // dd($campaignPosters);
         // dump($campaignPosters->toArray());
-        $def = \App\ClinicPosterPriority::with('clinic_poster.poster')->find($holder)->toArray();
+        $clinicPosterPriority = \App\ClinicPosterPriority::with('clinic_poster.poster')->find($holder);
+        $def = $clinicPosterPriority->toArray();
         $candidates = $campaignPosters->filter(function($i) use ($def) {
-            if ($i->poster_id === $def['clinic_poster']['poster_id'] && $i->priority === $def['priority']) return $i;
+            // dump($i->priority);
+            if (is_array($i->priority)) {
+                if ($i->poster_id === $def['clinic_poster']['poster_id'] && in_array($def['priority'], $i->priority)) return $i;
+            }
+            else if ($i->poster_id === $def['clinic_poster']['poster_id'] && $i->priority === $def['priority']) return $i;
         });
         $def['blur'] = false;
         if ($def['clinic_poster']['type'] === 'Office' || $def['clinic_poster']['type'] === 'Office Int') {
@@ -184,9 +281,18 @@ class ClinicPosterDistribution extends Qmodel
         $image = $candidates->filter(function($i) use ($def) {
             if ($i->type === $def['clinic_poster']['type']) return $i;
         })->first();
-        // dd($image->toArray()['poster_af']);
+        // dump($image->toArray());
+        // dump($image->toArray()['poster_af']);
         $completeSide = $def;
-        $completeSide['image'] = $image->poster_af->thumbnail;
+        try {
+            $completeSide['image'] = $image->poster_af->thumbnail;
+        } catch (ErrorException $ex) {
+            $clinicPoster = $clinicPosterPriority->clinic_poster;
+            $clinicPoster['priority'] = $clinicPosterPriority->priority;
+            throw new PosterDistributionException($campaignPosters->first()->campaign, $this->clinic, $clinicPosterPriority->clinic_poster, $def['clinic_poster']['type']);
+        }
+        // $completeSide['image'] = $image->poster_af->thumbnail;
+        // dump($completeSide['image']);
         $code = null;
         // dd($holder['ext']);
         foreach ($image->codes as $tempCode) {
