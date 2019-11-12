@@ -154,6 +154,18 @@ class ClinicPosterDistributionController extends Controller
         ], 200);
     }
 
+    public function removeComposedFacade(Request $request, ClinicPosterDistribution $clinicposterdistribution)
+    {
+        $clinicposterdistribution->composed_facade_file_id = null;
+        $clinicposterdistribution->save();
+        // $model = $this->getModelName()::fetch(['ids'=>[$clinicposterdistribution->id]])[0];
+        // $completeFacade->delete();
+        return response([
+            'model' => $clinicposterdistribution->fresh()->load(['complete_facade', 'composed_facade', 'original_facade', 'complete_facades']),
+            'message' => 'Composed Facade Remove Successfully',
+        ], 200);
+    }
+
     public function removeFacade(Request $request, ClinicPosterDistribution $clinicposterdistribution)
     {
         $completeFacade = $clinicposterdistribution->complete_facades()->where('campaign_id', request('campaign'))->first();
