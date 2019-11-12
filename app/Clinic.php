@@ -446,9 +446,13 @@ class Clinic extends Qmodel
 
   public function active_distributions ($campaign = null) {
     $dists = $this->clinic_distributions_by_campaign;
-
+    // dump($dists->toArray());
     if ($campaign) {
-      if (array_key_exists($campaign->id, $dists)) $defDists = $dists[$campaign->id];
+      // dump($campaign->id);
+      if ($dists->has($campaign->id)) {
+        // dump('HERE');
+        $defDists = $dists[$campaign->id];
+      }
       else {
         $noCampaignDists = $dists[''];
         $defDists = [];
