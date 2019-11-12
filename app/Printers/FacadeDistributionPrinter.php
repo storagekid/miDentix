@@ -46,105 +46,11 @@ class FacadeDistributionPrinter extends DentixPdfPrinter
 
         $this->pdf->AddPage('P', $size);
 
+        $ultimatePosters = $this->design->getCampaignPostersGrouped($this->campaign);
         $distribution = json_decode($this->design->distributions, true);
-        $clinicPostersPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
-        $clinicPosters = collect();
-        foreach ($clinicPostersPriorities as $item) {
-            $temp = $item->clinic_poster;
-            $temp['priority'] = $item->priority;
-            $clinicPosters[] = $temp;
-        }
 
-        $clinicPosterIds = $clinicPosters->groupBy('poster_id')->keys()->toArray();
-
-        $posters =
-            \App\CampaignPoster::where('campaign_id', $this->campaign->id)
-            ->where('language_id', $this->design->clinic->language_id)
-            ->whereIn('poster_id', $clinicPosterIds)
-            ->get();
-        if ($this->campaign->parent_id) {
-            $campaignPosterPriorities = $this->campaign->campaign_poster_priorities->pluck('poster_model_id')->all();
-            foreach ($campaignPosterPriorities as $key => $posterModel) {
-                $campaignPosters =
-                    \App\CampaignPoster::where('campaign_id', $this->campaign->id)
-                    ->where('poster_model_id', $posterModel)
-                    ->get();
-                if (!count($campaignPosters)) {
-                    $parentPosters = \App\CampaignPoster::where('campaign_id', $this->campaign->parent_id)
-                    ->where('poster_model_id', $posterModel)
-                    ->whereIn('poster_id', $clinicPosterIds)
-                    ->get();
-                    $posters = $posters->merge($parentPosters);
-                }
-            }
-        }
-        foreach ($posters as $poster) {
-            $poster->append('priority');
-            $poster->load('poster_af');
-        }
-        $postersGrouped = $posters->groupBy(['poster_id', 'type', 'priority']);
-
-        $defPosters = [];
-        // dd($postersGrouped->toArray());
-        foreach ($clinicPosters as $clinicPoster) {
-            $type = $clinicPoster->type;
-            // dump($type);
-            if ($type === 'Office' && $clinicPoster->poster->material === 'Translight') {
-                $type = 'Ext';
-                // dump('Office Translight Found');
-            }
-            else if ($type === 'Int' && !$postersGrouped[$clinicPoster->poster_id]->has('Int')) $type = 'Ext';
-            else if ($type === 'Office Int' && $clinicPoster->priority !== 5) {
-                // dump('HEre');
-                $type = $clinicPoster->poster->material === 'FOAM' ? 'Office' : 'Ext';
-            }
-            // dump($type);
-            // dump($clinicPoster->priority);
-            $posterCandidates =
-                $postersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority) ?
-                $postersGrouped[$clinicPoster->poster_id][$type][$clinicPoster->priority] :
-                $postersGrouped[$clinicPoster->poster_id][$type === 'Office Int' ? 'Office' : 'Ext'][$clinicPoster->priority];
-            // if (!$posterCandidates && $this->campaign->parent_id) {
-            //     $posterCandidates = $parentPostersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority) ? $parentPostersGrouped[$clinicPoster->poster_id][$type][$clinicPoster->priority] : $parentPostersGrouped[$clinicPoster->poster_id][$type === 'Office Int' ? 'Office' : 'Ext'][$clinicPoster->priority];
-            // }
-            // dump($type);
-            // dump($clinicPoster->priority);
-            // dump($postersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority));
-            // dump($parentPostersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority));
-            // dd($this->campaign->parent_id);
-            // dd($postersGrouped[10]['Office'][2]->toArray());
-            // $posterCandidates = array_key_exists($clinicPoster->priority, $postersGrouped[$clinicPoster->poster_id][$type]->toArray()) ? $postersGrouped[$clinicPoster->poster_id][$type][$clinicPoster->priority] : $postersGrouped[$clinicPoster->poster_id][$type === 'Int' ? 'Ext' : 'Office'][$clinicPoster->priority];
-            if (count($posterCandidates) > 1) {
-                $grouped = $posterCandidates->groupBy(['clinic_id', 'county_id', 'state_id']);
-
-                if ($grouped->has($this->design->clinic_id)) {
-                    $defPosters[] = $grouped[$this->design->clinic_id][0];
-                } elseif ($grouped['']->has($this->design->clinic->county_id)) {
-                    $defPosters[] = $grouped[''][$this->design->clinic->county_id][0];
-                } elseif ($grouped['']['']->has($this->design->clinic->county->state_id)) {
-                    $defPosters[] = $grouped[''][''][$this->design->clinic->county->state_id][0];
-                } else {
-                    $defPosters[] = $grouped[''][''][''][0];
-                }
-            } else {
-                $defPosters[] = $posterCandidates[0];
-            }
-        }
-        foreach ($defPosters as $poster) {
-            $poster['codes'] = $poster->satinaryCodesByCampaign();
-        }
-
-        $ultimatePosters = collect($defPosters);
-        // foreach ($ultimatePosters as $poster) dump($poster->toArray()['poster_af']['name']);
-        // dd('Exit');
-        // dd($ultimatePosters->toArray());
         $holders = $this->design->findDistributionsPosters($ultimatePosters);
-        // $holders = $distribution['holders'];
-        // dd('Checking');
-        // dd($holders);
 
-        // $campaign = \App\Campaign::with(['sanitary_codes'])->find(12);
-        // dump(public_path('storage/' . $this->composedFacade->url));
         if (count($holders) < 6) {
             $html = (string)View::make('exports.facadePdf', ['campaign' => $this->campaign, 'design' => $this->design, 'distribution' => $distribution, 'holders' => $holders, 'composed' => $this->composedFacade, 'hasFoam' => $this->hasFoam]);
             $this->pdf->setY(11, true);
