@@ -171,13 +171,17 @@ class Campaign extends Qmodel
             if ($campaign) return $campaign;
         }
         $campaigns = static::get();
-        $campaigns->map(function($i) {
-            $i->append('campaign_posters_count');
-        });
         $filtered = $campaigns->filter(function($i) {
-            if ($i->open && $i->campaign_posters_count > 1) return $i;
+            if ($i->open) return $i;
             return false;
         });
+        // $campaigns->map(function($i) {
+        //     $i->append('campaign_posters_count');
+        // });
+        // $filtered = $campaigns->filter(function($i) {
+        //     if ($i->open && $i->campaign_posters_count > 1) return $i;
+        //     return false;
+        // });
         $sorted = $filtered->sortByDesc('starts_at');
         return $sorted->first();
     }
