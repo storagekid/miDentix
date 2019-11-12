@@ -82,7 +82,7 @@ class ClinicController extends Controller
                     $newPP->starts_at = $startDate;
                     if (request('campaign')) {
                         $campaign = json_decode(request('campaign'), true);
-                        $newPP->ends_at = $endDate;
+                        $newPP->ends_at = $campaign['ends_at'];
                         $newPP->campaign_id = $campaign['id'];
                     }
                     else {
