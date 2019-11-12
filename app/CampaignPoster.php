@@ -226,9 +226,15 @@ class CampaignPoster extends Qmodel
     }
     public function getPriorityAttribute () {
         $priorities = $this->campaign->campaign_poster_priorities;
+        $candidates = [];
         foreach ($priorities as $priority) {
-            if ($priority->poster_model_id === $this->poster_model_id) return $priority->priority;
+            if ($priority->poster_model_id === $this->poster_model_id) {
+                $candidates[] = $priority->priority;
+                // return $priority->priority;
+            }
         }
+        if (count($candidates) === 1) return $candidates[0];
+        return $candidates;
     }
     public function satinaryCodesByCampaign () {
         $codes = $this->posterModel->sanitary_codes()->where(["campaign_id" => $this->campaign_id])->get();
@@ -258,7 +264,7 @@ class CampaignPoster extends Qmodel
     public function getFileName() {
         $posterModel = \App\PosterModel::find(request('poster_model_id'))->name;
         $size = \App\Poster::find(request('poster_id'))->name;
-        $country = \App\Country::find(request('country_id'))->code;
+        $country = \App\Country::find(request('country_id'))->code_a2;
         $lang = strtoupper(\App\Language::find(request('language_id'))['639-1']);
         // $pos = strpos($lang, ',');
         // if ($pos) $lang = substr($lang, 0, $pos);
