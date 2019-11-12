@@ -2,6 +2,7 @@
     <thead>
     <tr>
         <th style="background-color:#873173; color:#FFFFFF; font-size: 16px">Clínica</th>
+        <th style="background-color:#873173; color:#FFFFFF; font-size: 16px">CCAA</th>
         <th style="background-color:#873173; color:#FFFFFF; font-size: 16px">Modelo</th>
         <th style="background-color:#873173; color:#FFFFFF; font-size: 16px">Tamaño</th>
         <th style="background-color:#873173; color:#FFFFFF; font-size: 16px">Tipo</th>
@@ -15,6 +16,7 @@
           @foreach($types as $type => $layers)
             <tr>
               <td style="font-size: 12px">{{ $layers[0]['clinic_poster']['clinic']['nickname'] ? $layers[0]['clinic_poster']['clinic']['nickname'] : $clinicId }}</td>
+              <td style="font-size: 12px">{{ $layers[0]['clinic_poster']['clinic']['county']['state'] ? $layers[0]['clinic_poster']['clinic']['county']['state']['name'] : $clinicId }}</td>
               <td style="font-size: 12px">
                 @switch($priority)
                     @case(1)
