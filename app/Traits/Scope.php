@@ -61,13 +61,13 @@ trait Scope {
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
         if($requestOptions->has('with')) {
             $requestWith = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
-            $options['with'] = in_array('with', $options) ? array_merge($options['with'], $requestWith) : $requestWith;
+            $options['with'] = array_key_exists('with', $options) ? array_merge($options['with'], $requestWith) : $requestWith;
         }
         if($requestOptions->has('withTrashed')) $options['withTrashed'] = is_array($requestOptions['withTrashed']) ? $requestOptions['withTrashed'] : json_decode($requestOptions['withTrashed']);
         if($requestOptions->has('withCount')) $options['withCount'] = is_array($requestOptions['withCount']) ? $requestOptions['withCount'] : json_decode($requestOptions['withCount']);
         if($requestOptions->has('appends')) {
             $requestAppends = is_array($requestOptions['appends']) ? $requestOptions['appends'] : json_decode($requestOptions['appends']);
-            $options['appends'] = in_array('appends', $options) ? array_merge($options['appends'], $requestAppends) : $requestAppends;
+            $options['appends'] = array_key_exists('appends', $options) ? array_merge($options['appends'], $requestAppends) : $requestAppends;
         }
         if($requestOptions->has('orderBy')) $options['orderBy'] = $requestOptions['orderBy'];
         if($requestOptions->has('orderDesc')) $options['orderDesc'] = $requestOptions['orderDesc'];
