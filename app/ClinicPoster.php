@@ -141,7 +141,35 @@ class ClinicPoster extends Qmodel
             'filtering' => ['search'],
         ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
+    protected $tableViews = [
+        'marketingUserHome' => [
+            'clinic.nickname' => [
+                'label' => 'Clínica',
+                'model' => 'clinic'
+            ],
+            'poster.name' => [
+                'label' => 'Soporte',
+                'model' => 'poster'
+            ],
+            'poster.material' => [
+                'label' => 'Material',
+                'model' => 'poster'
+            ],
+            'type' => [
+                'label' => 'Tipo',
+            ],
+            'default_priority' => [
+                'label' => 'Prioridad',
+                'append' => 'default_priority'
+            ],
+            'starts_at' => [
+                'label' => 'Inicio'
+            ],
+            'ends_at' => [
+                'label' => 'Fin'
+            ]
+        ]
+      ];
     // END Table Data
 
     public function clinic() {
@@ -167,8 +195,11 @@ class ClinicPoster extends Qmodel
         if (!$priority) $priority = $this->clinic_poster_priorities()->where('campaign_id', null)->value('priority');
         return $priority;
     }
-    public function getDefaultPriorityAttribute($campaignId) {
+    public function getDefaultPriorityAttribute($campaignId = null) {
         return $this->clinic_poster_priorities()->where('campaign_id', $campaignId ? $campaignId : null)->value('priority');
+    }
+    public function getClinicActiveAttribute() {
+        return $this->clinic->active;
     }
     public static function postersNeededByCampaign ($campaign) {
         // return ()->greaterThan(Carbon::now());
