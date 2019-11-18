@@ -66,6 +66,7 @@ class AuthController extends Controller
             $routes = array_values(array_filter($routes, function($i) {
                 return $i !== null;
             }));
+            $routes = array_merge($routes, $user->getHomeRoutes());
 
             if (!count($routes)) {
                 return response()->json(['message' => 'User has no Accesses Granted'], 403);

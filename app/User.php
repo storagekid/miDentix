@@ -151,6 +151,19 @@ class User extends Authenticatable
         return $groups;
     }
 
+    public function getHomeRoutes()
+    {
+        $homes = [];
+        if (count($this->groups)) {
+            foreach ($this->groups as $group) {
+                $routeName = ucfirst($group->name) . ucfirst($group->role->role) . 'Home';
+                $homes[] = $routeName;
+                // $groups[$group->name] = $group->role->role;
+            }
+        }
+        return $homes;
+    }
+
     public function isRoot()
     {
         return auth()->user()->name === 'jgvillalba@dentix.es';
