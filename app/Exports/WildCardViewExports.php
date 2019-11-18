@@ -16,8 +16,16 @@ class WildCardViewExports implements FromView
     public function view(): View
     {
         $tempModel = $this->model::make();
-        $columns = collect($tempModel->getColumns())->pluck('name')->all();
-        // dd($columns);
+        $fullColumns = collect($tempModel->getColumns());
+        $columnsWith = [];
+        $columnsAppends = [];
+        foreach ($fullColumns as $fullColumn) {
+            if ($fullColumn['model'] && !in_array($fullColumn['model'], $columnsWith)) $columnsWith[] = $fullColumn['model'];
+            if ($fullColumn['append'] && !in_array($fullColumn['append'], $columnsAppends)) $columnsAppends[] = $fullColumn['append'];
+        }
+        // dd(request('options'));
+        $columns = $fullColumns->pluck('name')->all();
+        // dd($columnsWith);
         $badColumns = [];
         foreach ($columns as $column) {
             if (strpos($column, '.') > 0) {
@@ -26,16 +34,11 @@ class WildCardViewExports implements FromView
         }
         if (in_array('actions', $columns)) array_splice($columns, array_search('actions', $columns));
         // dd($columns);
-        $with = [];
-        if (request()->has('modelOptions')) {
-            if (request('modelOptions')['full']) $models = $this->model::with($this->model::getFullModels());
-            else if (request('modelOptions')['with']) $models = $this->model::with(request('modelOptions')['with']);
-            if (request('modelOptions')['withCount']) $models = $models->withCount(request('modelOptions')['withCount']);
-        }
         // dump(request('modelOptions')['withCount']);
         // $models = $this->model::with($this->model::getFullModels());
-        if (count(request('ids')) > 0) $models = $models->find(request('ids'));
-        else $models = $models->get();
+        // if (count(request('ids')) > 0) $models = $models->find(request('ids'));
+        if (count(request('ids')) > 0) $models = $this->model::fetch(['ids'=>request('ids'), 'with'=>$columnsWith, 'appends'=>$columnsAppends]);
+        else $models = $this->model::get();
         $models = $models->toArray();
         foreach ($models as $key => $model) {
             if (count($badColumns) > 0) {
