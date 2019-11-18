@@ -36,6 +36,5 @@ class PosterDistributionExceptionMail extends Mailable
         return $this->from(['address' => 'jgvillalba@dentix.es', 'name' => 'Marketing Development'])
             ->markdown('emails.exceptions.posterDistributionException')
             ->subject('Poster Distribution Error');
-        // return $this->markdown('emails.exceptions.posterDistributionException');
     }
 }

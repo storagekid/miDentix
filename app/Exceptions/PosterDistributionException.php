@@ -12,6 +12,7 @@ class PosterDistributionException extends Exception
 
     public function __construct($campaign, $clinic, $clinicPoster, $computedType)
     {
+        parent::__construct();
         $this->campaign = $campaign;
         $this->clinic = $clinic;
         $this->clinicPoster = $clinicPoster;
@@ -22,10 +23,6 @@ class PosterDistributionException extends Exception
     public function render()
     {
         try {
-            // $e = FlattenException::create($e);
-            // $handler = new SymfonyExceptionHandler();
-            // $html = $handler->getHtml($e);
-
             // Backup your default mailer
             $backup = Mail::getSwiftMailer();
             // Setup your office365 mailer
