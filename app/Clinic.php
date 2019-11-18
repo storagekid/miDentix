@@ -331,9 +331,9 @@ class Clinic extends Qmodel
       'active_posters_count' => [
         'label' => 'Nº Carteles'
       ],
-      'clinic_posters' => [
-        'label' => 'Carteles'
-      ],
+      // 'clinic_posters' => [
+      //   'label' => 'Carteles'
+      // ],
       'clinic_distributions_by_campaign' => [
         'label' => 'Distribuciones'
       ],
