@@ -21,9 +21,9 @@ trait Tableable {
 
     public function columnBuilder($options=[]) {
         $columns = $this->tableColumns;
-        if (request()->has('table')) {
+        if (request()->has('tableView')) {
             if ($this->tableViews) {
-                if (array_key_exists(request('table'), $this->tableViews)) $columns = $this->tableViews[request('table')];
+                if (array_key_exists(request('tableView'), $this->tableViews)) $columns = $this->tableViews[request('tableView')];
             }
         }
         $defColumns = [];
@@ -54,10 +54,9 @@ trait Tableable {
             $temp['boolean'] = array_key_exists('boolean', $options) ? $options['boolean'] : false;
             $temp['parse'] = array_key_exists('parse', $options) ? true : false;
             $temp['multiEdit'] = array_key_exists('multiEdit', $options) ? true : false;
+            $temp['model'] = array_key_exists('model', $options) ? $options['model'] : false;
+            $temp['append'] = array_key_exists('append', $options) ? $options['append'] : false;
             $temp['width'] = "";
-            // if (!in_array($name, $this->accesors)) {
-            //     $temp['maxLengthId'] = $this::orderByRaw('CHAR_LENGTH('. $name .')')->first(['id']);
-            // }
             $temp['onGrid'] = array_key_exists('onGrid', $options) ? $options['onGrid'] : 'line';
             $temp['align'] = array_key_exists('align', $options) ? $options['align'] : 'left';
             $temp['sortable'] = array_key_exists('sortable', $options) ? $options['sortable'] : true;
