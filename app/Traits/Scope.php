@@ -31,6 +31,7 @@ trait Scope {
     public static function fetch($options = []) {
 
         self::filterOptions($options);
+        // dump(self::$options);
         if (request()->has('scope_store_id')) $models = self::storesScoped();
         else if (request()->has('scope_clinic_id')) $models = self::clinicsScoped();
         else {
@@ -41,6 +42,7 @@ trait Scope {
         if (array_key_exists('withCount', static::$options)) $models = $models->withCount(static::$options['withCount']);
         if (array_key_exists('full', static::$options)) $models->with(static::$full);
         else if (array_key_exists('with', static::$options)) $models->with(static::$options['with']);
+        if (array_key_exists('where', static::$options)) $models->where(static::$options['where']);
         if (array_key_exists('orderBy', static::$options)) $models = $models->orderBy(static::$options['orderBy'], array_key_exists('orderDesc', static::$options) ? 'desc' : 'asc');
         if (array_key_exists('ids', static::$options)) $models = $models->find(static::$options['ids']);
         else $models = $models->get();
@@ -50,15 +52,23 @@ trait Scope {
     }
 
     public static function filterOptions($options) {
+        // dump($options);
         if (!request()->has('options')) static::$options = $options;
-        $requestOptions = collect(json_decode(request('options'), true));
+        $requestOptions = is_array(request('options')) ? collect(request('options')) : collect(json_decode(request('options'), true));
         if($requestOptions->has('scoped')) $options['scoped'] = $requestOptions['scoped'];
         if($requestOptions->has('scopedThrough')) $options['scopedThrough'] = $requestOptions['scopedThrough'];
+        if($requestOptions->has('where')) $options['where'] = is_array($requestOptions['where']) ? $requestOptions['where'] : json_decode($requestOptions['where']);
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
-        if($requestOptions->has('with')) $options['with'] = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
+        if($requestOptions->has('with')) {
+            $requestWith = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
+            $options['with'] = in_array('with', $options) ? array_merge($options['with'], $requestWith) : $requestWith;
+        }
         if($requestOptions->has('withTrashed')) $options['withTrashed'] = is_array($requestOptions['withTrashed']) ? $requestOptions['withTrashed'] : json_decode($requestOptions['withTrashed']);
         if($requestOptions->has('withCount')) $options['withCount'] = is_array($requestOptions['withCount']) ? $requestOptions['withCount'] : json_decode($requestOptions['withCount']);
-        if($requestOptions->has('appends')) $options['appends'] = is_array($requestOptions['appends']) ? $requestOptions['appends'] : json_decode($requestOptions['appends']);
+        if($requestOptions->has('appends')) {
+            $requestAppends = is_array($requestOptions['appends']) ? $requestOptions['appends'] : json_decode($requestOptions['appends']);
+            $options['appends'] = in_array('appends', $options) ? array_merge($options['appends'], $requestAppends) : $requestAppends;
+        }
         if($requestOptions->has('orderBy')) $options['orderBy'] = $requestOptions['orderBy'];
         if($requestOptions->has('orderDesc')) $options['orderDesc'] = $requestOptions['orderDesc'];
         if($requestOptions->has('ids')) $options['ids'] = is_array($requestOptions['ids']) ? $requestOptions['ids'] : json_decode($requestOptions['ids']);
