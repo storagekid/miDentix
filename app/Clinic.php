@@ -321,27 +321,62 @@ class Clinic extends Qmodel
     'PosterDistributionDashBoard' => [
       'nickname' => [
         'label' => 'Clínica',
-        'filtering' => ['search'],
       ],
       'deleted_at' => [
         'label' => 'Activa',
-        'filtering' => ['select' => 'clinics'],
       ],
       'open' => [
         'label' => 'Abierta',
-        'filtering' => ['select' => 'clinics'],
+      ],
+      'active_posters_count' => [
+        'label' => 'Nº Carteles'
       ],
       'clinic_posters' => [
         'label' => 'Carteles'
       ],
-      // 'poster_distributions' => [
-      //   'label' => 'Distribuciones'
-      // ],
       'clinic_distributions_by_campaign' => [
         'label' => 'Distribuciones'
       ],
       'actions' => [
         'label' => 'Actions'
+      ]
+    ],
+    'marketingUserHome' => [
+      'nickname' => [
+        'label' => 'Clínica',
+      ],
+      'deleted_at' => [
+        'label' => 'Activa',
+      ],
+      'open' => [
+        'label' => 'Abierta',
+      ],
+      'city' => [
+        'label' => 'Ciudad'
+      ],
+      'district' => [
+        'label' => 'Zona'
+      ],
+      'postal_code' => [
+        'label' => 'Código Postal'
+      ],
+      'sanitary_code' => [
+        'label' => 'Cód. Sanitario'
+      ],
+      'email_ext' => [
+        'label' => 'Ext. Email'
+      ],
+      'clinic_cloud_id' => [
+        'label' => 'CC ID'
+      ],
+      'parent_id' => [
+        'label' => 'Parent ID'
+      ],
+      'starts_at' => [
+        'label' => 'Inicio'
+      ],
+      'ends_at' => [
+        'label' => 'Fin'
       ]
     ]
   ];
@@ -539,6 +574,10 @@ class Clinic extends Qmodel
   public function getActivePostersAttribute()
   {
       return $this->clinic_posters()->where('ends_at', null)->get();
+  }
+  public function getActivePostersCountAttribute()
+  {
+      return $this->clinic_posters()->where('ends_at', null)->count();
   }
   
   public function getOpenAttribute()
