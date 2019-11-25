@@ -153,7 +153,7 @@ class User extends Authenticatable
 
     public function getHomeRoutes()
     {
-        $homes = [];
+        $homes = ['ProfileHome'];
         if (count($this->groups)) {
             foreach ($this->groups as $group) {
                 $routeName = ucfirst($group->name) . ucfirst($group->role->role) . 'Home';
