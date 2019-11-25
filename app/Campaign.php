@@ -230,6 +230,7 @@ class Campaign extends Qmodel
     }
     public function getOpenAttribute()
     {
+        if ((Carbon::parse($this->starts_at))->greaterThan(Carbon::now())) return false;
         if (!$this->ends_at) return true;
         return (Carbon::parse($this->ends_at))->greaterThan(Carbon::now());
     }
