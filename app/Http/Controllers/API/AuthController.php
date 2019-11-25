@@ -30,7 +30,8 @@ class AuthController extends Controller
             $user->load('profiles', 'groups', 'group_users');
             $user->append('groupsInfo');
             if (count($user->profiles) === 1) {
-                $user['profile'] = \App\Profile::with('clinics', 'stores')->find($user->profiles[0]->id)->append('clinicScope', 'storeScope');
+                $user['profile'] = \App\Profile::fetch(['full' => true, 'ids' => [$user->profiles[0]->id], 'appends' => ['clinicScope', 'storeScope']])[0];
+                // $user['profile'] = \App\Profile::with('clinics', 'stores')->find($user->profiles[0]->id)->append('clinicScope', 'storeScope');
             }
             $menus = \App\Menu::get()->toArray();
             if (!$user->isRoot()) {
