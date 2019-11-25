@@ -417,6 +417,9 @@ class Clinic extends Qmodel
   public function poster_distributions () {
     return $this->hasMany(ClinicPosterDistribution::class);
   }
+  public function poster_distributions_active () {
+    return $this->hasMany(ClinicPosterDistribution::class)->where([['ends_at', null], ['campaign_id', null]]);
+  }
   public function cost_center()
   {
       return $this->belongsTo(CostCenter::class);
