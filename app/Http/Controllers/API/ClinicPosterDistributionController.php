@@ -80,7 +80,7 @@ class ClinicPosterDistributionController extends Controller
         $model->update([
             'distributions' => request('distributions'),
             'starts_at' => request('starts_at'),
-            'ends_at' => request('ends_at'),
+            'ends_at' => request('ends_at') ? request('ends_at') : null,
             'address_id' => request('address_id')
             
         ]);
@@ -115,6 +115,7 @@ class ClinicPosterDistributionController extends Controller
     {
         try {
             $model = ClinicPosterDistribution::find($id);
+            $model->removePriorities();
             ClinicPosterDistribution::destroy($id);
             return response([
                 'message' => 'Clinic Poster Distribution ' . $model[$model->getKeyField()] . ' eliminado correctamente',
