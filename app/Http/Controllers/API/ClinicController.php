@@ -55,66 +55,8 @@ class ClinicController extends Controller
     }
     public function posterDistributionClone($clinic) {
         $model = \App\Clinic::withTrashed()->find($clinic);
-        if (!request('campaign')) {
-            $startDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
-            $endDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
-            $endDate = $endDate->subDays(1);
-        } else {
-            $campaign = json_decode(request('campaign'), true);
-            $startDate = $campaign['starts_at'] ? $campaign['starts_at'] : Carbon::parse(Carbon::now());
-            $endDate = $campaign['ends_at'] ? $campaign['ends_at'] : $campaign['starts_at'] ? Carbon::parse($campaign['starts_at'])->addMonths(3) : Carbon::parse(Carbon::now())->addMonths(3);
-            $endDate = $endDate->subDays(1);
-        }
-        // dump($startDate);
-        // dump($endDate);
-        // $model = $clinic;
-        $clinicDistributions = $model->poster_distributions()->find(request('designs'));
-        // dump(count($clinicDistributions));
-        // dd($clinicDistributions->toArray());
-        foreach ($clinicDistributions as $clinicposterdistribution) {
-            // dump('Original ID: ' . $clinicposterdistribution->id);
-            $distribution = json_decode($clinicposterdistribution['distributions'],true);
-            $ppIds = $distribution['posterIds'];
-            if (count($ppIds)) {
-                $posterPriorities = \App\ClinicPosterPriority::find($ppIds);
-                foreach ($posterPriorities as $pp) {
-                    $newPP = \App\ClinicPosterPriority::create($pp->toArray());
-                    $newPP->starts_at = $startDate;
-                    if (request('campaign')) {
-                        $campaign = json_decode(request('campaign'), true);
-                        $newPP->ends_at = $campaign['ends_at'];
-                        $newPP->campaign_id = $campaign['id'];
-                    }
-                    else {
-                        $pp->ends_at = $endDate;
-                        $pp->save();
-                    }
-                    $newPP->save();
-                }
-                // dump(count($posterPriorities));
-            }
-            if (count($distribution['holders'])) {
-                foreach ($distribution['holders'] as $i => $holder ) {
-                    $distribution['holders'][$i]['ext'] = [];
-                    $distribution['holders'][$i]['int'] = [];
-                    $distribution['posterIds'] = [];
-                }
-            }
-            $newDist = \App\ClinicPosterDistribution::create($clinicposterdistribution->toArray());
-            $newDist->starts_at = $startDate;
-            $newDist->save();
-            if (!request('campaign')) {
-                $clinicposterdistribution->ends_at = $endDate;
-                $clinicposterdistribution->save();
-            } else {
-                $campaign = json_decode(request('campaign'), true);
-                $newDist->ends_at = $campaign['ends_at'];
-                $newDist->campaign_id = $campaign['id'];
-                $newDist->save();
-            }
-            $newDist->distributions = json_encode($distribution);
-            $newDist->save();
-        }
+        $placePriorities = request()->has('placePriorities');
+        $model->cloneDistributions($placePriorities);
         return response([
             'model' => $model->fresh()->load('poster_distributions'),
             'message' => 'Distributions Clone Successfully',
@@ -131,6 +73,76 @@ class ClinicController extends Controller
         
         return response([
             'model' => $email,
+        ], 200);
+    }
+    public function newDistributionCriterion($clinic) {
+        // dump ('newDistributionCriterion');
+        // dump ('starts_at');
+        $model = \App\Clinic::withTrashed()->find($clinic);
+        $placePriorities = request()->has('placePriorities');
+        $models = $model->cloneDistributions($placePriorities);
+        // foreach ($newDists as $newDistribution) $newDistribution->newPrioritiesCriterion(request('newPriorities'));
+        // dump ('newPrioritiesCriterion');
+        $newPrioritiesArray = [];
+        foreach (request('newPriorities') as $newPriority) {
+            // dump(json_decode($newPriority, true));
+            $newPrioritiesArray[] = json_decode($newPriority, true);
+        }
+        dump ($newPrioritiesArray);
+        // $distribution = json_decode($this->distributions, true);
+        $posterPriorities = $models['newPPs'];
+        $posterPrioritiesEnhanced = $models['newPPsEnhanced'];
+        dump ('HERE????');
+        dump ($posterPrioritiesEnhanced);
+
+        foreach ($posterPrioritiesEnhanced as $pp) {
+            // dump ((int) $pp->priority);
+            // dump ($pp->clinic_poster->type);
+            foreach ($newPrioritiesArray as $newPriority) {
+                if (
+                    $pp['oldTypeA'] === $newPriority['oldTypeA']
+                    && $pp['oldTypeB'] === $newPriority['oldTypeB']
+                    && (int) $pp['oldPriorityA'] === (int) $newPriority['oldPriorityA']
+                    && (int) $pp['oldPriorityB'] === (int) $newPriority['oldPriorityB']
+                    && $pp['model']->clinic_poster->type === $newPriority['newType']
+                    )
+                {
+                    $pp['model']->priority = $newPriority['newPriority'];
+                    $pp['model']->save();
+                    break;
+                }
+            }
+        }
+
+        // foreach ($posterPriorities as $pp) {
+        //     // dump ((int) $pp->priority);
+        //     // dump ($pp->clinic_poster->type);
+        //     foreach ($newPrioritiesArray as $newPriority) {
+        //         if ($pp->clinic_poster->type === $newPriority['oldType'] && (int) $pp->priority === (int) $newPriority['oldPriority']) {
+        //             $pp->priority = $newPriority['newPriority'];
+        //             $pp->save();
+        //         }
+        //     }
+        // }
+
+        return response([
+            'message' => 'New Criterion Builded',
+        ], 200);
+    }
+    public function setDefaultDistributions($clinic) {
+        $model = \App\Clinic::withTrashed()->find($clinic);
+        $model->setDefaultDistributions(request('designs'));
+        return response([
+            'model' => $model->fresh()->load('poster_distributions'),
+            'message' => 'Distributions Clone Successfully',
+        ], 200);
+    }
+    public function posterPrioritiesFixer($clinic) {
+        $model = \App\Clinic::withTrashed()->find($clinic);
+        $model->posterPrioritiesFixer();
+        return response([
+            'model' => $model->fresh()->load('poster_distributions'),
+            'message' => 'Distributions Clone Successfully',
         ], 200);
     }
 }
