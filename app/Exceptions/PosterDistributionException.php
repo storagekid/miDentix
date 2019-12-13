@@ -13,6 +13,7 @@ class PosterDistributionException extends Exception
     public function __construct($campaign, $clinic, $clinicPoster, $computedType)
     {
         parent::__construct();
+        // dump($computedType);
         $this->campaign = $campaign;
         $this->clinic = $clinic;
         $this->clinicPoster = $clinicPoster;
@@ -28,7 +29,7 @@ class PosterDistributionException extends Exception
             // Setup your office365 mailer
             $transport = new \Swift_SmtpTransport('smtp.office365.com', 587, 'TLS');
             $transport->setUsername('jgvillalba@dentix.es');
-            $transport->setPassword('Gomez%01');
+            $transport->setPassword('Dentix%30');
             // Any other mailer configuration stuff needed...
             $office365 = new \Swift_Mailer($transport);
             // Set the mailer as office365

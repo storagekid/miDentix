@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
             // Setup your office365 mailer
             $transport = new \Swift_SmtpTransport('smtp.office365.com', 587, 'TLS');
             $transport->setUsername('jgvillalba@dentix.es');
-            $transport->setPassword('Dentix%29');
+            $transport->setPassword('Dentix%30');
             // Any other mailer configuration stuff needed...
             $office365 = new \Swift_Mailer($transport);
             // Set the mailer as office365
