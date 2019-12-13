@@ -329,27 +329,27 @@ class ClinicPosterDistribution extends Qmodel
             }
         }
     }
-    public function newPrioritiesCriterion($newPriorities) {
-        dump ('newPrioritiesCriterion');
-        $newPrioritiesArray = [];
-        foreach ($newPriorities as $newPriority) {
-            // dump(json_decode($newPriority, true));
-            $newPrioritiesArray[] = json_decode($newPriority, true);
-        }
-        dump ($newPrioritiesArray);
-        $distribution = json_decode($this->distributions, true);
-        $posterPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
-        dump ($posterPriorities);
+    // public function newPrioritiesCriterion($newPriorities) {
+    //     dump ('newPrioritiesCriterion');
+    //     $newPrioritiesArray = [];
+    //     foreach ($newPriorities as $newPriority) {
+    //         // dump(json_decode($newPriority, true));
+    //         $newPrioritiesArray[] = json_decode($newPriority, true);
+    //     }
+    //     dump ($newPrioritiesArray);
+    //     $distribution = json_decode($this->distributions, true);
+    //     $posterPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
+    //     dump ($posterPriorities);
 
-        foreach ($posterPriorities as $pp) {
-            dump ((int) $pp->priority);
-            dump ($pp->clinic_poster->type);
-            foreach ($newPrioritiesArray as $newPriority) {
-                if ($pp->clinic_poster->type === $newPriority['oldType'] && (int) $pp->priority === (int) $newPriority['oldPriority']) {
-                    $pp->priority = $newPriority['newPriority'];
-                    $pp->save();
-                }
-            }
-        }
-    }
+    //     foreach ($posterPriorities as $pp) {
+    //         dump ((int) $pp->priority);
+    //         dump ($pp->clinic_poster->type);
+    //         foreach ($newPrioritiesArray as $newPriority) {
+    //             if ($pp->clinic_poster->type === $newPriority['oldType'] && (int) $pp->priority === (int) $newPriority['oldPriority']) {
+    //                 $pp->priority = $newPriority['newPriority'];
+    //                 $pp->save();
+    //             }
+    //         }
+    //     }
+    // }
 }
