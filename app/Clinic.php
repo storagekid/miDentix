@@ -497,7 +497,7 @@ class Clinic extends Qmodel
         $endDate = [];
         $noEndDate = [];
         foreach ($noCampaignDists as $dist) {
-          if ($dist->starts_at < $campaign->ends_at) {
+          if ($dist->starts_at < $campaign->ends_at || ($dist->starts_at >= $campaign->starts_at && !$campaign->ends_at)) {
             if (!$dist->ends_at) $noEndDate[] = $dist;
             else if ($dist->ends_at >= $campaign->ends_at) $endDate[] = $dist;
           }
@@ -671,6 +671,155 @@ class Clinic extends Qmodel
         }
     }
     return true;
+  }
+
+  public function cloneDistributions ($placePriorities = false) {
+    // dump('cloneDistributions');
+    // dump($placePriorities);
+    $newDistributions = [];
+    $newPPs = [];
+    $newPPsEnhanced = [];
+    $prioritiesRelation = [];
+    if (!request('campaign')) {
+      $startDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
+      $endDate = request('starts_at') ? Carbon::parse(request('starts_at')) : Carbon::parse(Carbon::now());
+      $endDate = $endDate->subDays(1);
+    } else {
+        $campaign = json_decode(request('campaign'), true);
+        $startDate = $campaign['starts_at'] ? $campaign['starts_at'] : Carbon::parse(Carbon::now());
+        $endDate = $campaign['ends_at'] ? $campaign['ends_at'] : $campaign['starts_at'] ? Carbon::parse($campaign['starts_at'])->addMonths(3) : Carbon::parse(Carbon::now())->addMonths(3);
+        $endDate = $endDate->subDays(1);
+    }
+    // dump($startDate);
+    // dump($endDate);
+    // $model = $clinic;
+    // if (request()->has('designs')) dump('Request Has Designs');
+    // else dump('Finding Active Designs');
+    $clinicDistributions = request()->has('designs') ? $this->poster_distributions()->find(request('designs')) : $this->poster_distributions_active;
+    // dump(count($clinicDistributions));
+    // dd($clinicDistributions->toArray());
+    foreach ($clinicDistributions as $clinicposterdistribution) {
+        // dump('Original ID: ' . $clinicposterdistribution->id);
+        $distribution = json_decode($clinicposterdistribution['distributions'],true);
+        $holders = collect($distribution['holders']);
+        $ppIds = $distribution['posterIds'];
+        // dump($distribution['posterIds']);
+        if (count($ppIds)) {
+            $posterPriorities = \App\ClinicPosterPriority::find($ppIds);
+            foreach ($posterPriorities as $pp) {
+                $holder = $holders->filter(function ($i) use ($pp) {
+                  return $i['ext'] === $pp->id || $i['int'] === $pp->id;
+                })->first();
+                $holderExt = $posterPriorities->filter(function ($i) use ($holder) {
+                  return $i['id'] === $holder['ext'];
+                })->first();
+                $holderInt = $posterPriorities->filter(function ($i) use ($holder) {
+                  return $i['id'] === $holder['int'];
+                })->first();
+                // dump($holderExt->priority);
+                // dump($holderExt->clinic_poster->type);
+                // dump($holderInt->priority);
+                // dump($holderInt->clinic_poster->type);
+                $newPP = \App\ClinicPosterPriority::create($pp->toArray());
+                $newPP->starts_at = $startDate;
+                $prioritiesRelation[$pp->id] = $newPP->id;
+                if (request('campaign')) {
+                    $campaign = json_decode(request('campaign'), true);
+                    $newPP->ends_at = $campaign['ends_at'];
+                    $newPP->campaign_id = $campaign['id'];
+                }
+                else {
+                    $pp->ends_at = $endDate;
+                    $pp->save();
+                }
+                $newPP->save();
+                $newPPs[] = $newPP;
+                $newPPEnhanced = [
+                  'oldTypeA' => $holderExt ? $holderExt->clinic_poster->type : null,
+                  'oldTypeB' => $holderInt ? $holderInt->clinic_poster->type : null,
+                  'oldPriorityA' => $holderExt ? $holderExt->priority : null,
+                  'oldPriorityB' => $holderInt ? $holderInt->priority : null,
+                  'newType' => $newPP ? $newPP->clinic_poster->type : null,
+                  'newPriority' => $newPP ? $newPP->priority : null,
+                  'model' => $newPP
+                ];
+                $newPPsEnhanced[] = $newPPEnhanced;
+            }
+            // dump(count($posterPriorities));
+        }
+        if (count($distribution['holders'])) {
+          if (!$placePriorities) {
+            foreach ($distribution['holders'] as $i => $holder ) {
+              $distribution['holders'][$i]['ext'] = [];
+              $distribution['holders'][$i]['int'] = [];
+              $distribution['posterIds'] = [];
+            }
+          } else {
+            foreach ($distribution['holders'] as $i => $holder ) {
+              $distribution['holders'][$i]['ext'] = $prioritiesRelation[$distribution['holders'][$i]['ext']];
+              $distribution['holders'][$i]['int'] = array_key_exists((int) $distribution['holders'][$i]['int'], $prioritiesRelation) ? $prioritiesRelation[$distribution['holders'][$i]['int']] : [];
+            }
+            $distribution['posterIds'] = [];
+            foreach ($prioritiesRelation as $old => $new) $distribution['posterIds'][] = $new;
+          }
+        }
+        $newDist = \App\ClinicPosterDistribution::create($clinicposterdistribution->toArray());
+        $newDist->starts_at = $startDate;
+        $newDist->save();
+        if (!request('campaign')) {
+            $clinicposterdistribution->ends_at = $endDate;
+            $clinicposterdistribution->save();
+        } else {
+            $campaign = json_decode(request('campaign'), true);
+            $newDist->ends_at = $campaign['ends_at'];
+            $newDist->campaign_id = $campaign['id'];
+            $newDist->save();
+        }
+        $newDist->distributions = json_encode($distribution);
+        $newDist->save();
+        $newDistributions[] = $newDist;
+    }
+    return ['newDistributions' => $newDistributions, 'newPPs' => $newPPs, 'newPPsEnhanced' => $newPPsEnhanced];
+  }
+
+  public function setDefaultDistributions($dists) {
+    $clinicDistributions = $this->poster_distributions()->find($dists);
+
+    foreach ($clinicDistributions as $dist) {
+      $distribution = json_decode($dist['distributions'],true);
+      $dist->ends_at = null;
+      $posterPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
+      foreach ($posterPriorities as $pp) {
+        $pp->ends_at = null;
+        $pp->save();
+      }
+      $dist->save();
+    }
+  }
+
+  public function posterPrioritiesFixer() {
+    $clinicDistributions = request()->has('designs') ? $this->poster_distributions()->find(request('designs')) : $this->poster_distributions_active;
+    foreach ($clinicDistributions as $key => $clinicposterdistribution) {
+      dump('Clinic Poster Distribution');
+      dump($clinicposterdistribution->id);
+      $distribution = json_decode($clinicposterdistribution['distributions'],true);
+      $holders = collect($distribution['holders']);
+      $ppIds = $distribution['posterIds'];
+      $newPPIds = [];
+      foreach ($holders as $holder) {
+        if ($holder['ext']) $newPPIds[] = $holder['ext'];
+        if ($holder['int']) $newPPIds[] = $holder['int'];
+      }
+      if (count($ppIds) !== count($newPPIds)) {
+        dump('Dont Match!!!!');
+        $distribution['posterIds'] = $newPPIds;
+        $clinicDistributions[$key]['distributions'] = json_encode($distribution);
+        $clinicposterdistribution->save();
+      } else {
+        dump('It is a Match. Doing Nothing : )');
+      }
+    }
+    return $clinicDistributions;
   }
 
   // Helpers
