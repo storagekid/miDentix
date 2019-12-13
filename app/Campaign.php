@@ -242,4 +242,29 @@ class Campaign extends Qmodel
     {
         return (!$this->deleted_at);
     }
+
+    public function legalsCSVFileBuilder($language) {
+        $legals = \App\Legal::where([['language_id', $language->id], ['ends_at', null]])->get();
+        $content = null;
+        $fileName = $this->name . ' legals-' . strtoupper($language['639-1']) . '.txt';
+        $file = fopen(storage_path('app/temp/') . $fileName,"w");
+        
+        foreach ($legals as $legal) {
+            fwrite($file,iconv("UTF-8","UTF-16LE",$legal->name));
+	      	fwrite($file,iconv("UTF-8","UTF-16LE","\t"));
+            $content .= iconv("UTF-8","UTF-16LE",$legal->name);
+            $content .= iconv("UTF-8","UTF-16LE","\t");
+        }
+        fwrite($file,iconv("UTF-8","UTF-16LE","\n"));
+        $content .= "\n";
+        foreach ($legals as $legal) {
+            fwrite($file,iconv("UTF-8","UTF-16LE",$legal->text));
+	      	fwrite($file,iconv("UTF-8","UTF-16LE","\t"));
+            $content .= iconv("UTF-8","UTF-16LE",$legal->text);
+            $content .= iconv("UTF-8","UTF-16LE","\t");
+        }
+        fwrite($file,iconv("UTF-8","UTF-16LE","\n"));
+        fclose($file);
+        return $fileName;
+    }
 }
