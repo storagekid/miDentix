@@ -83,16 +83,25 @@ class ClinicPosterDistribution extends Qmodel
                 $type = 'Ext';
             }
             else if ($type === 'Int' && !$postersGrouped[$clinicPoster->poster_id]->has('Int')) $type = 'Ext';
-            else if ($type === 'Office Int' && $clinicPoster->priority !== 5) {
-                $type = $clinicPoster->poster->material === 'FOAM' ? 'Office' : 'Ext';
+            else if ($type === 'Office Int') {
+                // dump('Office Int');
+                $type = 'Ext';
             }
+            // dump($type);
+            // else if ($type === 'Office Int' && $clinicPoster->priority !== 5) {
+            //     $type = $clinicPoster->poster->material === 'FOAM' ? 'Office' : 'Ext';
+            // }
 
             try {
+                // dump('Trying');
+                // dump($type);
+                // dump($postersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority));
                 $posterCandidates =
                     $postersGrouped[$clinicPoster->poster_id][$type]->has($clinicPoster->priority) ?
                     $postersGrouped[$clinicPoster->poster_id][$type][$clinicPoster->priority] :
                     $postersGrouped[$clinicPoster->poster_id][$type === 'Office Int' ? 'Office' : 'Ext'][$clinicPoster->priority];
             } catch (ErrorException $ex) {
+                // dump($type);
                 throw new PosterDistributionException($campaign, $this->clinic, $clinicPoster, $type);
             }
 
@@ -272,7 +281,7 @@ class ClinicPosterDistribution extends Qmodel
         // dump(in_array($def['clinic_poster']['type'], $types));
         if (!in_array($def['clinic_poster']['type'], $types)) {
             if ($def['clinic_poster']['poster']['material'] === 'FOAM') {
-                if ($def['clinic_poster']['type'] === 'Office Int') $def['clinic_poster']['type'] = 'Office';
+                if ($def['clinic_poster']['type'] === 'Office Int') $def['clinic_poster']['type'] = 'Ext';
                 else if ($def['clinic_poster']['type'] === 'Int') $def['clinic_poster']['type'] = 'Ext';
             } else {
                 $def['clinic_poster']['type'] = 'Ext';
@@ -310,5 +319,37 @@ class ClinicPosterDistribution extends Qmodel
         // if (!$code) $code = $this->clinic->sanitary_code;
         $completeSide['code'] = $code;
         return $completeSide;
+    }
+    public function removePriorities() {
+        $clinicPostersPriorities = $this->clinic->clinic_poster_priorities;
+        foreach ($clinicPostersPriorities as $pp) {
+            if ($pp->starts_at === $this->starts_at && $pp->ends_at === $this->ends_at) {
+                // dump($pp->toArray());
+                $pp->delete();
+            }
+        }
+    }
+    public function newPrioritiesCriterion($newPriorities) {
+        dump ('newPrioritiesCriterion');
+        $newPrioritiesArray = [];
+        foreach ($newPriorities as $newPriority) {
+            // dump(json_decode($newPriority, true));
+            $newPrioritiesArray[] = json_decode($newPriority, true);
+        }
+        dump ($newPrioritiesArray);
+        $distribution = json_decode($this->distributions, true);
+        $posterPriorities = \App\ClinicPosterPriority::find($distribution['posterIds']);
+        dump ($posterPriorities);
+
+        foreach ($posterPriorities as $pp) {
+            dump ((int) $pp->priority);
+            dump ($pp->clinic_poster->type);
+            foreach ($newPrioritiesArray as $newPriority) {
+                if ($pp->clinic_poster->type === $newPriority['oldType'] && (int) $pp->priority === (int) $newPriority['oldPriority']) {
+                    $pp->priority = $newPriority['newPriority'];
+                    $pp->save();
+                }
+            }
+        }
     }
 }
