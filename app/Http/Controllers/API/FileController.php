@@ -5,7 +5,9 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QStore;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
+use ZipArchive;
 
 class FileController extends Controller
 {
@@ -123,5 +125,30 @@ class FileController extends Controller
         return response([
             'message' => 'File Deleted Successfully',
         ], 200);
+    }
+
+    public function downloads()
+    {
+        $files = \App\File::find(request('ids'));
+        // dump($files->cowunt());
+        if ($files->count() === 1) {
+            $url = $files[0]->url;
+            if ($files[0]->is_public) $url = 'public/' . $url;
+            return response()->download(storage_path('app/' . $url), $files[0]->name);
+        } else {
+            $name = 'Denitx-Q-' . Carbon::now() . '.zip';
+            $zip = new ZipArchive();
+            $filename = storage_path('app/temp/' . $name);
+            if ($zip->open($filename, ZipArchive::CREATE)===TRUE) {
+                foreach ($files as $file) {
+                    $url = $file->url;
+                    if ($file->is_public) $url = 'public/' . $url;
+                    // dump(file_exists(storage_path('app/' . $url)));
+                    $zip->addFile(storage_path('app/' . $url), $file->name);
+                }
+            }
+            $zip->close();
+            return response()->download($filename, $name)->deleteFileAfterSend(true);
+        }
     }
 }

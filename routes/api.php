@@ -60,6 +60,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::get('legals/downloadCSV', 'LegalController@downloadCSV');
         Route::resource('legals', 'LegalController');
         Route::resource('files', 'FileController');
+        Route::post('files/downloads', 'FileController@downloads');
         Route::resource('languages', 'LanguageController');
         Route::resource('currencies', 'CurrencyController');
 
