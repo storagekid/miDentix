@@ -24,11 +24,18 @@ class ExportController extends Controller
         }
         if (request('blueprint') === 'Wildcard') {
             $modelClass = '\App\\' . $name;
+            if (request('storeExcel')) return Excel::store(new \App\Exports\WildCardViewExports($modelClass), '\temp\\' . $name . '.xlsx');
             return Excel::download(new \App\Exports\WildCardViewExports($modelClass), $name . '.xlsx');
         }
         $exportClass = '\App\Exports\\' . $name . 'Exports';
         if (!class_exists($exportClass)) abort(403, 'This Model is not exportable.');
         if (!in_array(request('blueprint'), (new $exportClass)::$blueprints)) abort(403, 'Blueprint doesn\'t exists.');
+        if (request('blueprint') === 'TPA (Janire)') {
+            // dump('Writing to: ');
+            // dump(storage_path('app/temp/') . $name);
+            set_time_limit(120);
+            return Excel::store(new $exportClass, '/temp//' . $name . '.xlsx');
+        }
         return Excel::download(new $exportClass, $name . '.xlsx');
     }
 }
