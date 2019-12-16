@@ -478,9 +478,18 @@ class MailingDesign extends Qmodel
     public function getFileName() {
         $mailing = \App\Mailing::find(request('mailing_id'))->name;
         $country = \App\Country::find(request('country_id'))->code;
-        $state = request()->has('state_id') ? \App\State::find(request('state_id'))->name : null;
-        $county = request()->has('county_id') ? \App\County::find(request('county_id'))->name : null;
-        $clinic = request()->has('clinic_id') ? \App\Clinic::find(request('clinic_id'))->cleanName : null;
+        $state = null;
+        if (request()->has('state_id')) {
+            $state = request('state_id') ? \App\State::find(request('state_id'))->name : null;
+        }
+        $county = null;
+        if (request()->has('county_id')) {
+            $county = request('county_id') ? \App\County::find(request('county_id'))->name : null;
+        }
+        $clinic = null;
+        if (request()->has('clinic_id')) {
+            $clinic = request('clinic_id') ? \App\Clinic::find(request('clinic_id'))->cleanName : null;
+        }
         $lang = strtoupper(\App\Language::find(request('language_id'))['639-1']);
         // $pos = strpos($lang, ',');
         // if ($pos) $lang = substr($lang, 0, $pos);
