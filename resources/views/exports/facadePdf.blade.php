@@ -56,10 +56,14 @@
             <tr>
               <td class="first" valign="middle" style="vertical-align: middle">
                 <span style="font-size: 20px; font-weight: bold; line-height: 75px">{{ $holder['name'] }}</span>
-                @if($holder['ext']['blur'])
-                  <br><span style="font-size: 10px; font-weight: bold; color: darkgreen; line-height: 18px">Cristal vinilado</span>
-                @elseif($holder['int']['blur'])
-                  <br><span style="font-size: 10px; font-weight: bold; color: darkgreen; line-height: 18px">Cristal vinilado</span>
+                @if($holder['ext'])
+                  @if($holder['ext']['blur'])
+                    <br><span style="font-size: 10px; font-weight: bold; color: darkgreen; line-height: 18px">Cristal vinilado</span>
+                  @endif
+                @elseif($holder['int'])
+                  @if($holder['int']['blur'])
+                    <br><span style="font-size: 10px; font-weight: bold; color: darkgreen; line-height: 18px">Cristal vinilado</span>
+                  @endif
                 @endif
               </td>
               <td>
