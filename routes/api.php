@@ -38,6 +38,9 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::post('clinics/{clinic}/posterDistributionByCampaing', 'ClinicController@posterDistributionByCampaignComposer');
         Route::post('clinics/{clinic}/posterDistributionClone', 'ClinicController@posterDistributionClone');
         Route::post('clinics/{clinic}/posterDistributionLauncher', 'ClinicController@launchCampaignDistribution');
+        Route::post('clinics/{clinic}/newDistributionCriterion', 'ClinicController@newDistributionCriterion');
+        Route::post('clinics/{clinic}/posterPrioritiesFixer', 'ClinicController@posterPrioritiesFixer');
+        Route::post('clinics/{clinic}/setDefaultDistributions', 'ClinicController@setDefaultDistributions');
         Route::resource('clinic_siblings', 'ClinicSiblingController');
 
 
@@ -54,6 +57,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('phones', 'PhoneController');
         Route::resource('addresses', 'AddressController');
         Route::resource('sanitary_codes', 'SanitaryCodeController');
+        Route::get('legals/downloadCSV', 'LegalController@downloadCSV');
         Route::resource('legals', 'LegalController');
         Route::resource('files', 'FileController');
         Route::resource('languages', 'LanguageController');
