@@ -36,7 +36,7 @@ trait Scope {
         else if (request()->has('scope_clinic_id')) $models = self::clinicsScoped();
         else {
             $modelName = '\\' . static::class;
-            if (array_key_exists('withTrashed', static::$options)) $models = $modelName::withTrashed();
+            if (array_key_exists('withTrashed', static::$options) || ($modelName::useSoftDeleting() && auth()->guard('api')->user()->isRoot())) $models = $modelName::withTrashed();
             else $models = $modelName::select();
         }
         if (array_key_exists('withCount', static::$options)) $models = $models->withCount(static::$options['withCount']);
