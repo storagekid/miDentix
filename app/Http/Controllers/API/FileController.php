@@ -130,7 +130,6 @@ class FileController extends Controller
     public function downloads()
     {
         $files = \App\File::find(request('ids'));
-        // dump($files->cowunt());
         if ($files->count() === 1) {
             $url = $files[0]->url;
             if ($files[0]->is_public) $url = 'public/' . $url;
@@ -143,7 +142,6 @@ class FileController extends Controller
                 foreach ($files as $file) {
                     $url = $file->url;
                     if ($file->is_public) $url = 'public/' . $url;
-                    // dump(file_exists(storage_path('app/' . $url)));
                     $zip->addFile(storage_path('app/' . $url), $file->name);
                 }
             }
