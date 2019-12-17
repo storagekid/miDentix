@@ -91,7 +91,12 @@ class Handler extends ExceptionHandler
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
-    {   
+    {
+        if ($request->expectsJson()) {
+            return response()->json([
+                "message" => $exception->getMessage()
+            ], 400);
+        }
         if ($exception instanceOf \Illuminate\Session\TokenMismatchException) {
             return redirect()->route('login')->with('status','Sorry, your session seems to have expired. Please try again.');
         }
