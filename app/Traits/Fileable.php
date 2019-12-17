@@ -74,6 +74,13 @@ trait Fileable {
     } else {
       if (gettype($file) !== 'string') {
         $extension = $file->getClientOriginalExtension();
+        if (!$extension) {
+          $extension = $file->extension();
+          // dump($file->path());
+          // dump($file->extension());
+          // dump($file->clientExtension());
+          // abort(301, 'File Has No Extension.');
+        }
         $name = $name . '.' . $extension;
       } else {
         $extension = substr($file, strrpos($file,'.')+1);
