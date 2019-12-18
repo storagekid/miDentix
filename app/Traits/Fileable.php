@@ -47,6 +47,21 @@ trait Fileable {
       return $this->morphMany(FileClass::class, 'fileable');
   }
 
+  public static function getFileColumns() {
+    $columns = [];
+    foreach (self::$columns as $column) if (strpos($column, 'file_id')) $columns[] = $column;
+    return $columns;
+  }
+
+  public function getFileFields() {
+    $fileFields = [];
+    $modelFields = property_exists($this, 'quasarFormFields') ? $this->quasarFormFields : [];
+    foreach ($modelFields as $name => $field) {
+      if (array_key_exists('type', $field)) if ($field['type']['name'] === 'file') $fileFields[$name] = $field;
+    }
+    return $fileFields;
+  }
+
   public static function storeFile (
     $file,
     $path,
@@ -148,5 +163,12 @@ trait Fileable {
     // dd($model->getRealPaths());
     // dd($model->toArray());
     return $model;
+  }
+
+  public function getFileNames($field) {
+    abort(301, 'Campo de archivo erróneo');
+  }
+  public function getFilePaths($field) {
+    abort(301, 'Campo de archivo erróneo');
   }
  }
