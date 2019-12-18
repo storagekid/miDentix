@@ -23,6 +23,16 @@ trait Quasarable {
     return property_exists($this, 'quasarFormFields') ? $this->quasarFormFields : [];
   }
 
+  public function getFields($fields) {
+    $fileFields = [];
+    $modelFields = property_exists($this, 'quasarFormFields') ? $this->quasarFormFields : [];
+    if (is_string($fields)) return $modelFields[$fields];
+    foreach ($modelFields as $name => $field) {
+      if (is_array($fields)) if (in_array($name, $fields)) $fileFields[$name] = $field;
+    }
+    return $fileFields;
+  }
+
   protected function getQuasarNewFormLayout() {
     return property_exists($this, 'quasarFormNewLayout') ? $this->quasarFormNewLayout : [];
   }
@@ -32,7 +42,7 @@ trait Quasarable {
   }
 
   public function quasarData() {
-    $this->fields = $this->getFields();
+    $this->fields = $this->getDBColumns();
     $relations = $this->getRelations();
     $relationOptions = $this->getRelationOptions();
     $formFields = $this->getFormFields();
@@ -54,7 +64,7 @@ trait Quasarable {
       'onRelationMode' => $this->onRelationMode ? $this->onRelationMode : []
     ];
   }
-  public function getFields () {
+  public function getDBColumns () {
     return Schema::getColumnListing($this->getTable());
   }
   public function getListFields () {
@@ -72,7 +82,7 @@ trait Quasarable {
   }
   public function getFormFields () {
     $formFields = [];
-    foreach ($this->getFields() as $key => $field) {
+    foreach ($this->getDBColumns() as $key => $field) {
       if ($field === 'id') continue;
       if (array_key_exists($field, $this->getQuasarFormFields())) {
         $key = $field;
@@ -275,8 +285,9 @@ trait Quasarable {
       return $this->id;
   }
   public function formRules() {
+    $modelName = '\\' . get_class($this);
     $model = new QStore($this->get_short_class(get_class($this)));
-    return $model->getChildRules();
+    return $model->getChildRules($modelName);
   }
 
   // HELPERS
@@ -345,7 +356,7 @@ trait Quasarable {
         $type['array'] = $quasarArray;
       }
     }
-    return [
+    $return = [
         'name' => array_key_exists('name', $type) ? $type['name'] : 'inputText',
         'thumbnail' => array_key_exists('thumbnail', $type) ? $type['thumbnail'] : false,
         'array' => array_key_exists('array', $type) ? $type['array'] : null,
@@ -361,6 +372,11 @@ trait Quasarable {
             'disabled' => array_key_exists('disabled', $default) ? $default['disabled'] : false,
         ],
     ];
+    // if ($return['name'] === 'file') {
+    //   $return['public'] = array_key_exists('public', $type) ? $type['public'] : false;
+    //   $return['permissions'] = array_key_exists('permissions', $type) ? $type['permissions'] : '740';
+    // }
+    return $return;
   }
   public function getPossibleEnumValues($name){
     // $instance = new static; // create an instance of the model to be able to get the table name
