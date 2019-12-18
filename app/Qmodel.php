@@ -64,6 +64,11 @@ class Qmodel extends Model
       // ... check if 'this' model uses the soft deletes trait
       return in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(static::make()));
     }
+    public static function useFileable()
+    {
+      // ... check if 'this' model uses the Fileable trait
+      return in_array('App\Traits\Fileable', class_uses(static::make()));
+    }
     public function getShowView($view=null) {
       if (!$view) {
         $view = [];
