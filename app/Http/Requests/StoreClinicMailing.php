@@ -11,7 +11,7 @@ class StoreClinicMailing extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'mailing_design_id' => [$required->condition ? 'required' : ''],

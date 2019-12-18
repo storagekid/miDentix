@@ -11,7 +11,7 @@ class StoreStoreProfile extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'store_id' => [$required->condition ? 'required' : ''],

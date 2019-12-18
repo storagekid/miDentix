@@ -12,7 +12,7 @@ class StoreLanguage extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'iso_name' =>[$required->condition ? 'required' : '', Rule::unique('languages')->ignore($model->id), 'max:32'],

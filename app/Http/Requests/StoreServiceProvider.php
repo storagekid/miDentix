@@ -11,7 +11,7 @@ class StoreServiceProvider extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'service_id' => [$required->condition ? 'required' : ''],

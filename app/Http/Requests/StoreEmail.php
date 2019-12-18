@@ -12,7 +12,7 @@ class StoreEmail extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'email' => [$required->condition ? 'required' : '', 'email', Rule::unique('emails')->ignore($model->id), 'min:6', 'max:255'],

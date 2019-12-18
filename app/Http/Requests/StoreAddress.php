@@ -11,7 +11,7 @@ class StoreAddress extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'address_line_1' => [$required->condition ? 'required' : '', 'min:3', 'max:255'],

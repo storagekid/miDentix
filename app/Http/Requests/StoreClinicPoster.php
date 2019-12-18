@@ -11,7 +11,7 @@ class StoreClinicPoster extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'poster_id' => [$required->condition ? 'required' : ''],

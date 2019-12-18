@@ -12,7 +12,7 @@ class StoreCountry extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'name' =>[$required->condition ? 'required' : '', Rule::unique('countries')->ignore($model->id), 'max:255'],

@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class QStore extends FormRequest
 {
-    protected $name;
+    protected $name, $modelName;
 
     public function __construct($model = null)
     {
@@ -35,17 +35,18 @@ class QStore extends FormRequest
     public function rules(Route $route)
     {
         $name = $this->name ?: $route->getController()->requestName;
+        $this->modelName = $route->getController()->requestModelName;
         if (class_exists($name)) {
             $request = new $name;
-            return $request->rules($this, $this->getRequiredFromMethod());
+            return $request->rules($this, $this->getRequiredFromMethod(), $this->modelName);
         } else return [];
     }
 
-    public function getChildRules() {
+    public function getChildRules($modelName) {
         if ($this->name) {
             if (class_exists($this->name)) {
                 $request = new $this->name;
-                return $request->rules($this, $this->getRequiredFromMethod());
+                return $request->rules($this, $this->getRequiredFromMethod(), $modelName);
             } else return [];
         } else return [];
     }

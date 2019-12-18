@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreStand extends FormRequest
 {
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'city' => [$required->condition ? 'required' : ''],

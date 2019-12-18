@@ -12,7 +12,7 @@ class StoreMailing extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'name' =>[$required->condition ? 'required' : '', Rule::unique('mailings')->ignore($model->id), 'max:255'],

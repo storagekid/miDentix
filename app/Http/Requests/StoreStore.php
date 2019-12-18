@@ -11,7 +11,7 @@ class StoreStore extends FormRequest
      *
      * @return array
      */
-    public function rules($model, $required)
+    public function rules($model, $required, $modelName)
     {
         return [
             'name' => [$required->condition ? 'required' : '', 'min:9', 'max:255'],
