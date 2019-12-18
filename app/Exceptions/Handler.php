@@ -92,10 +92,17 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        // dd($exception);
         if ($request->expectsJson()) {
-            return response()->json([
-                "message" => $exception->getMessage()
-            ], 400);
+            if (auth()->guard('api')->user()->isRoot() || !$this->shouldReport($exception)) {
+                return response()->json([
+                    "message" => $exception->getMessage()
+                ], 400);
+            } else {
+                return response()->json([
+                    "message" => 'Error en la aplicación. Contacte con el administrador.'
+                ], 400);
+            }
         }
         if ($exception instanceOf \Illuminate\Session\TokenMismatchException) {
             return redirect()->route('login')->with('status','Sorry, your session seems to have expired. Please try again.');
