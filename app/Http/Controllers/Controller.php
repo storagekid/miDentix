@@ -13,12 +13,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public $requestName, $requestBaseName;
+    public $requestName, $requestBaseName, $requestModelName;
 
     public function __construct()
     {
         $this->requestBaseName = $this->getbaseRequestModelName();
         $this->requestName = $this->getRequestModelName();
+        $this->requestModelName = $this->getModelName();
     }
 
     protected function getBaseModelName()
@@ -102,8 +103,39 @@ class Controller extends BaseController
      */
     public function update(QStore $request, $id)
     {
-        $model = $this->getModelName()::find($id);
+        $modelName = $this->getModelName();
+        $model = $modelName::find($id);
         $model->update(request()->all());
+
+        if (request()->has('files')) {
+            if ($modelName::useFileable()) {
+                $columns = $modelName::getFileColumns();
+                $formFields = $model->getFileFields();
+                // dd($formFields);
+                foreach (request('files') as $field => $file) {
+                    if (in_array($field, $columns) && array_key_exists($field, $formFields)) {
+                        try {
+                            $name = $model->getFileNames($field);
+                            $path = $model->getFilePaths($field);
+                            $thumbnail = $formFields[$field]['type']['thumbnail'];
+                            $public = $formFields[$field]['type']['public'];
+                            $permissions = $formFields[$field]['type']['permissions'];
+                        } catch (\Exception $e) {
+                            abort(301, 'Incomplete File Data.');
+                        }
+                        // $name = $model->clean_name . '-avatar';
+                        $file = $modelName::storeFile($file, $path, $name, $thumbnail, auth()->user()->id, auth()->user()->group_users()->first()->group_id, $public, false, $permissions);
+                        if ($model[$field]) {
+                            $model->$field()->first()->delete();
+                        }
+                        $model[$field] = $file->id;
+                        $model->save();
+                        $model->files()->save($file);
+                    }
+                }
+            }
+        }
+
         $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
 
         return response([
