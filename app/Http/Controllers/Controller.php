@@ -104,7 +104,7 @@ class Controller extends BaseController
     public function update(QStore $request, $id)
     {
         $modelName = $this->getModelName();
-        $model = $modelName::find($id);
+        $model = $modelName::useSoftDeleting() ? $modelName::withTrashed()->find($id) : $modelName::find($id);
         $model->update(request()->all());
 
         if (request()->has('files')) {
