@@ -25,11 +25,11 @@ Sobre el dibujo de la fachada vienen indicados con un rectángulo morado cada un
               <li>Tamaño: debajo del nombre del @if($hasFoam) hueco @else soporte @endif aparece el tamaño del cartel que debes colocar en ese @if($hasFoam) hueco. @else soporte. @endif</li>
               <li>Cara visible: hemos indicado con imágenes qué cara debe verse en cada @if($hasFoam) hueco @else soporte @endif desde la calle (Cara Exterior) o desde el interior de la clínica (Cara Interior).</li>
               <li>Cristal vinilado: En caso de que tengáis cristales vinilados en la fachada, este tipo de @if($hasFoam) hueco @else soporte @endif irá marcado en la tabla con el indicador: “Cristal vinilado”.</li>
-              <li>Código: El adhesivo que debe colocarse en cada cara de cada @if($hasFoam) cartel. @else soporte. @endif Recordad que es imprescindible que todos los @if($hasFoam) carteles @else soportes @endif lleven el código asignado y que ésta es la colocación óptima de los adhesivos:</li>
+              <li>Código: El adhesivo que debe colocarse en cada cara de cada @if($hasFoam) cartel. @else soporte. @endif Recordad que es imprescindible que todos los @if($hasFoam) carteles @else soportes @endif lleven el código asignado y que esta es la colocación óptima de los adhesivos:</li>
             </ul>
             <img width="350" src="{{ $image }}" alt="" style="text-align: center">
           </p>
-          <p><span class="dest">IMPORTANTE:</span> Comprueba que los carteles que has recibido en tu clínica coinciden exactamente con los @if($hasFoam) huecos @else soportes @endif que aparecen en el dibujo del dossier y las especificaciones correspondientes de la tabla y que, además, ambos coinciden con el número de @if($hasFoam) huecos @else soportes @endif reales que tu tienes en clínica.</p>
+          <p><span class="dest">IMPORTANTE:</span> Comprueba que los carteles que has recibido en tu clínica coinciden exactamente con los @if($hasFoam) huecos @else soportes @endif que aparecen en el dibujo del dossier y las especificaciones correspondientes de la tabla y que, además, ambos coinciden con el número de @if($hasFoam) huecos @else soportes @endif reales que tú tienes en clínica.</p>
           <p class="dest">Si algo no cuadra: sobran o faltan, o tenéis alguna duda, escribid cuanto antes un email explicando las diferencias a <a href="mailto:marketing@dentix.es" class="email">marketing@dentix.es.</a></p>
           <br>
           <p>Muchas gracias por vuestra colaboración.</p>

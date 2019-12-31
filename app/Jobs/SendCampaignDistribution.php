@@ -46,7 +46,7 @@ class SendCampaignDistribution implements ShouldQueue
         $mailCC = ['jgvillalba@dentix.es'];
         if ($this->fake === false) {
             // $mailTo = 'jgvillalba@mozodealmacen.com';
-            // $mailCC = ['jgvillalba@dentix.es', 'acruz@dentix.es', 'dhernandez@dentix.es'];
+            // $mailCC = ['jgvillalba@dentix.es', 'bbarragan@dentix.es'];
             $mailTo = ['director.' . $this->clinic->email_ext . '@dentix.es', 'subdirector.' . $this->clinic->email_ext . '@dentix.es', 'info.' . $this->clinic->email_ext . '@dentix.es'];
             $mailCC = [];
             // dump('HERE');
