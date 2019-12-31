@@ -7,15 +7,4 @@ use App\Http\Requests\QStore;
 
 class CostCenterController extends Controller
 {
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(QStore $request, $id)
-    {
-        //
-    }
 }

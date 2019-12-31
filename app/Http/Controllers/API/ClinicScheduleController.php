@@ -11,23 +11,6 @@ use App\Printers\PersonalTagsPrinter;
 class ClinicScheduleController extends Controller
 {
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(QStore $request, $id)
-    {
-        $model = ClinicSchedule::find($id);
-        $model->update(request()->all());
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
-
-    /**
      * Send Personal Tags For Downloading.
      *
      * @param  int  $id

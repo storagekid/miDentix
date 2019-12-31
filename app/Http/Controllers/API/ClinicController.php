@@ -11,24 +11,6 @@ use Carbon\Carbon;
 class ClinicController extends Controller
 {
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(QStore $request, $id)
-    {
-        $model = Clinic::withTrashed()->find($id);
-
-        $model->update(request()->all());
-
-        return response([
-            'model' => $model->attachFull(),
-        ], 200);
-    }
-
     public function posterDistributionComposer($clinic) {
         $model = \App\Clinic::withTrashed()->find($clinic);
         foreach ($model->poster_distributions as $clinicposterdistribution) {
