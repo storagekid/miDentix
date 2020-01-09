@@ -30,7 +30,7 @@ class MailingDataImport implements OnEachRow, WithHeadingRow, WithCalculatedForm
         $rowIndex = $row->getIndex();
         $row      = $row->toArray();
         // dd($this->calculateFormulas);
-        if (!$row['cantidad_octavillas_uds']) return;
+        if (!$row['cantidad_octavillas_uds'] && !$row['cantidad_dipticos_uds']) return;
         // dd($row);
         $clinics = \App\Clinic::where('clinic_cloud_id', (int) $row['id_clinic_cloud'])->get();
         if ($clinics->count() === 1) {
@@ -106,25 +106,25 @@ class MailingDataImport implements OnEachRow, WithHeadingRow, WithCalculatedForm
             $printed_qty = $distributed_doordrop_qty + $distributed_stand_qty;
             if ($share) {
                 if ($distributed_doordrop_qty%2) {
-                    dump('Odd DoorDrop');
-                    dump($distributed_doordrop_qty);
-                    dump($clinic->nickname);
+                    // dump('Odd DoorDrop');
+                    // dump($distributed_doordrop_qty);
+                    // dump($clinic->nickname);
                     if ($round === 1) {
-                        dump('Round 1');
+                        // dump('Round 1');
                         $addDoordrop = 1;
                     }
                 }
                 if ($distributed_stand_qty%2) {
-                    dump('Odd Stand');
+                    // dump('Odd Stand');
                     if ($round === 1) {
-                        dump('Round 1');
+                        // dump('Round 1');
                         $addStand = 1;
                     }
                 }
                 if ($printed_qty%2) {
-                    dump('Odd Printed');
+                    // dump('Odd Printed');
                     if ($round === 1) {
-                        dump('Round 1');
+                        // dump('Round 1');
                         $addPrinted = 1;
                     }
                 }
