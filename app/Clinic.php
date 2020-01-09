@@ -391,6 +391,8 @@ class Clinic extends Qmodel
         'phones',
         'area_manager',
         'clinic_manager',
+        'clinic_posters.poster',
+        'clinic_posters.clinic_poster_priorities',
         'clinic_poster_priorities',
         'poster_distributions.complete_facades',
         'poster_distributions.original_facade'
