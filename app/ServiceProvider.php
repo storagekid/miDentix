@@ -61,6 +61,7 @@ class ServiceProvider extends Qmodel
             'label' =>'Precio',
             'type' => [
                 'name' =>'number',
+                'step' => 0.0000000000000001
             ],
         ],
         'starts_at' => [
@@ -140,7 +141,7 @@ class ServiceProvider extends Qmodel
             'service_id' => ['text']
         ],
     ];
-    protected $keyField = 'name';
+    protected $keyField = 'description';
     // END Quasar DATA
 
     // Tableable DATA
