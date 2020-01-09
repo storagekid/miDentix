@@ -1,5 +1,5 @@
 id,"address_line_1","address_line_2","type","description",main,addressable_id,"addressable_type","created_at","updated_at"
-1,"Rúa Juana de Vega, 23",,"Fiscal","Real Address from Meta 4",0,1,"App\Clinic","2019-03-22 15:40:21","2019-03-22 15:40:21"
+1,"Rúa Juana de Vega, 23",,"Fiscal","Real Address from Meta 4",0,1,"App\Clinic","2019-03-22 15:40:21","2019-12-31 10:45:46"
 3,"C/ Concepción, 11",,"Fiscal","Real Address from Meta 4",0,2,"App\Clinic","2019-03-22 15:40:21","2019-03-22 15:40:21"
 5,"Pl. de Atilano Casado, 3",,"Fiscal","Real Address from Meta 4",0,3,"App\Clinic","2019-03-22 15:40:21","2019-03-22 15:40:21"
 7,"C/ Tinte, 13",,"Fiscal","Real Address from Meta 4",0,4,"App\Clinic","2019-03-22 15:40:21","2019-03-22 15:40:21"

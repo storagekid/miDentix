@@ -54,6 +54,8 @@ class DatabaseSeeder extends Seeder
             MailingDesignPromotionSeeder::class,
             MailingDesignClaimSeeder::class,
             MailingDesignClinicSeeder::class,
+            MailingDesignCountySeeder::class,
+            MailingDesignStateSeeder::class,
             ClinicMailingSeeder::class,
             ClaimSeeder::class,
             PromotionSeeder::class,
