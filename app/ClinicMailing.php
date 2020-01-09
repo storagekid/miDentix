@@ -10,8 +10,8 @@ class ClinicMailing extends Qmodel
     use SoftDeletes;
 
     protected $fillable = ['mailing_design_id', 'clinic_id', 'clinic_af_file_id', 'printer_id', 'printer_product_id', 'printed_qty', 'distributor_id', 'distributor_service_id', 'distributed_stand_qty', 'distributed_doordrop_qty'];
-    protected static $full = ['mailing_design', 'clinic', 'clinic_af', 'printer', 'product', 'distributor', 'service'];
-    // protected $appends = ['value', 'label', 'distributed_total_qty'];
+    protected static $full = ['mailing_design', 'clinic', 'clinic_af', 'printer', 'printer_product', 'distributor', 'distributor_service'];
+    protected $appends = ['value', 'label', 'name'];
     // protected $with = ['clinic', 'clinic_af'];
 
     protected static $permissions = [
@@ -26,7 +26,7 @@ class ClinicMailing extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['mailing_design_id', 'clinic_id', 'file', 'multiFile']
+                ['mailing_design_id', 'clinic_id', 'clinic_af_file_id', 'printer_id', 'printer_product_id', 'printed_qty', 'distributor_id', 'distributor_service_id', 'distributed_stand_qty', 'distributed_doordrop_qty']
             ],
         ],
     ];
@@ -35,7 +35,7 @@ class ClinicMailing extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['mailing_design_id', 'clinic_id', 'printer_id', 'file', 'multiFile']
+                ['mailing_design_id', 'clinic_id', 'clinic_af_file_id', 'printer_id', 'printer_product_id', 'printed_qty', 'distributor_id', 'distributor_service_id', 'distributed_stand_qty', 'distributed_doordrop_qty']
             ],
         ]
     ];
@@ -67,22 +67,68 @@ class ClinicMailing extends Qmodel
                 'name' =>'select',
                 'model' => 'providers',
                 'default' => [
-                    'text' => 'Selecciona un Proveedor',
+                    'text' => 'Selecciona un Impresor',
                 ],
             ],
         ],
-        'file' => [
-          'label' =>'Diseño',
-          'unreal' => true,
-          'type' => [
-            'name' => 'file',
-          ],
-        ],
-        'multiFile' => [
-            'unreal' => true,
-            'label' =>'Diseño',
+        'printer_product_id' => [
+            'label' =>'Material Impresor',
+            'batch' => true,
             'type' => [
-              'name' => 'multiFile',
+                'name' =>'select',
+                'model' => 'product_providers',
+                'default' => [
+                    'text' => 'Selecciona un Producto',
+                ],
+            ],
+        ],
+        'clinic_af_file_id' => [
+            'label' =>'Arte Final',
+            'type' => [
+                'name' => 'file',
+                'thumbnail' => true,
+                'public' => true,
+                'permissions' => '740'
+            ],
+        ],
+        'printed_qty' => [
+            'label' =>'Cantidad Impresa',
+            'type' => [
+                'name' => 'number',
+            ],
+        ],
+        'distributor_id' => [
+            'label' =>'Distribuidor',
+            'batch' => true,
+            'type' => [
+                'name' =>'select',
+                'model' => 'providers',
+                'default' => [
+                    'text' => 'Selecciona un Distribuidor',
+                ],
+            ],
+        ],
+        'distributor_service_id' => [
+            'label' =>'Servicio Distribuidor',
+            'batch' => true,
+            'type' => [
+                'name' =>'select',
+                'model' => 'services',
+                'default' => [
+                    'text' => 'Selecciona un Servicio',
+                ],
+            ],
+        ],
+        'distributed_stand_qty' => [
+            'label' =>'Distribución Stand',
+            'type' => [
+                'name' => 'number',
+            ],
+        ],
+        'distributed_doordrop_qty' => [
+            'label' =>'Distribución Calle',
+            'type' => [
+                'name' => 'number',
             ],
         ],
     ];
@@ -97,7 +143,7 @@ class ClinicMailing extends Qmodel
             'file' => ['text']
         ],
     ];
-    protected $keyField = 'keyField';
+    protected $keyField = 'name';
     // END Quasar DATA
 
     // Tableable DATA
@@ -172,10 +218,10 @@ class ClinicMailing extends Qmodel
     public function distributor() {
         return $this->belongsTo(Provider::class, 'distributor_id');
     }
-    public function product() {
+    public function printer_product() {
         return $this->belongsTo(ProductProvider::class, 'printer_product_id');
     }
-    public function service() {
+    public function distributor_service() {
         return $this->belongsTo(ServiceProvider::class, 'distributor_service_id');
     }
 
@@ -183,13 +229,23 @@ class ClinicMailing extends Qmodel
         return round($this->distributed_stand_qty + $this->distributed_doordrop_qty, 2);
     }
     public function getPrinterTotalPriceAttribute() {
-        return $this->product ? round($this->product->price * $this->printed_qty, 2) : null;
+        return $this->printer_product ? round($this->printer_product->price * $this->printed_qty, 2) : null;
     }
     public function getDistributorTotalPriceAttribute() {
-        return $this->service ? round($this->service->price * $this->distributed_doordrop_qty, 2) : null;
+        return $this->distributor_service ? round($this->distributor_service->price * $this->distributed_doordrop_qty, 2) : null;
     }
     public function getTotalPriceAttribute() {
         return round($this->printer_total_price + $this->distributor_total_price, 2);
+    }
+    public function getNameAttribute() {
+        $mailingName = $this->mailing_design->mailing->name;
+        $type = $this->mailing_design->type;
+        $clinic = $this->clinic->cleanName;
+        $lang = $this->mailing_design->language['639-1'];
+
+        $name = $mailingName . ' ' . $type . ' ' . $clinic . ' ' . $lang;
+
+        return $name;
     }
 
     public function getFileName() {
