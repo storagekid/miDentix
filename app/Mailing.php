@@ -142,11 +142,18 @@ class Mailing extends Qmodel
         $ignoredClinics = [];
         $usedCounties = [];
         $usedStates = [];
-        // $designs = \App\MailingDesign::withCount('clinics')->get();
-        $designs = $this->mailing_designs()->withCount('clinics')->orderBy('type', 'desc')->orderBy('clinic_id', 'desc')->orderBy('clinics_count', 'desc')->orderBy('county_id', 'desc')->orderBy('state_id', 'desc')->orderBy('country_id', 'desc')->get();
-        // $designs = $this->mailing_designs()->withCount('clinics')->get();
-        // $sortedDesigns = $designs->groupBy(['clinic_id', 'clinics_count', 'county_id', 'state_id']);
-        // return $sortedDesigns->toArray();
+
+        $designs = $this->mailing_designs()
+            ->withCount(['clinics', 'counties', 'states'])
+            ->orderBy('type', 'desc')
+            ->orderBy('clinic_id', 'desc')
+            ->orderBy('clinics_count', 'desc')
+            ->orderBy('county_id', 'desc')
+            ->orderBy('counties_count', 'desc')
+            ->orderBy('state_id', 'desc')
+            ->orderBy('states_count', 'desc')
+            ->orderBy('country_id', 'desc')
+            ->get();
         foreach ($designs as $key => $design) {
             $groupedDesigns[$design->id] = [];
             if ($design->clinic_id) {
@@ -169,6 +176,21 @@ class Mailing extends Qmodel
                 $clinics = $this->countyOpenActiveClinics($design->county, $usedClinics);
                 $groupedDesigns[$design->id][] = $clinics;
                 $usedCounties[] = $design->county_id;
+            } else if ($design->counties_count) {
+                $counties = $design->counties;
+                foreach($counties as $county) {
+                    $clinics = $county->clinics;
+                    foreach ($clinics as $clinic) {
+                        if (in_array($clinic->id, $usedClinics)) {
+                            continue;
+                        } elseif ($clinic->parent_id) {
+                            $usedClinics[] = $clinic->id;
+                        } else {
+                            $groupedDesigns[$design->id][] = $clinic->id;
+                            $usedClinics[] = $clinic->id;
+                        }
+                    }
+                }
             } else if ($design->state_id) {
                 // dump('HERE');
                 $groupedDesigns[$design->id] = [];
@@ -181,6 +203,24 @@ class Mailing extends Qmodel
                     $groupedDesigns[$design->id] = array_merge($groupedDesigns[$design->id], $clinics);
                 }
                 $usedClinics = array_merge($usedClinics, $groupedDesigns[$design->id]);
+            } else if ($design->states_count) {
+                $states = $design->states;
+                foreach ($states as $state) {
+                    $counties = $state->counties;
+                    foreach ($counties as $county) {
+                        $clinics = $county->clinics;
+                        foreach ($clinics as $clinic) {
+                            if (in_array($clinic->id, $usedClinics)) {
+                                continue;
+                            } elseif ($clinic->parent_id) {
+                                $usedClinics[] = $clinic->id;
+                            } else {
+                                $groupedDesigns[$design->id][] = $clinic->id;
+                                $usedClinics[] = $clinic->id;
+                            }
+                        }
+                    }
+                }
             } else if ($design->country_id) {
                 $groupedDesigns[$design->id] = [];
                 $states = count($usedStates) ? $design->country->states()->whereNotIn('id', $usedStates)->get() : $design->country->states;
