@@ -10,7 +10,7 @@ class MailingDesign extends Qmodel
     use Fileable;
 
     protected $fillable = ['name', 'description', 'mailing_id', 'type', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'base_af_file_id'];
-    protected static $full = ['mailing', 'language', 'country', 'state', 'county', 'clinic', 'clinics', 'promotions', 'claims', 'base_af', 'clinic_mailings'];
+    protected static $full = ['mailing', 'language', 'country', 'state', 'county', 'clinic', 'clinics', 'counties', 'states', 'promotions', 'claims', 'base_af', 'clinic_mailings'];
     // protected $with = ['language', 'country', 'state', 'county', 'clinic', 'base_af', 'promotions', 'clinic_mailings'];
 
     protected static $permissions = [
@@ -20,7 +20,7 @@ class MailingDesign extends Qmodel
     ];
 
     // Quasar DATA
-    protected $relatedTo = ['clinics', 'promotions', 'claims', 'clinic_mailings'];
+    protected $relatedTo = ['clinics', 'counties', 'states', 'promotions', 'claims', 'clinic_mailings'];
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',
@@ -39,11 +39,11 @@ class MailingDesign extends Qmodel
             ],
         ],
         [
-            'title' => 'Clinicas',
+            'title' => 'Clinicas/Provincias/CCAA',
             'subtitle' => 'General',
             'icon' => 'store_mall_directory',
             'fields' => [],
-            'relations' => ['clinics']
+            'relations' => ['clinics', 'counties', 'states']
         ],
         [
             'title' => 'Promociones',
@@ -238,6 +238,12 @@ class MailingDesign extends Qmodel
     }
     public function clinics() {
         return $this->belongsToMany(Clinic::class, 'mailing_design_clinics')->withTrashed();
+    }
+    public function counties() {
+        return $this->belongsToMany(County::class, 'mailing_design_counties');
+    }
+    public function states() {
+        return $this->belongsToMany(State::class, 'mailing_design_states');
     }
     public function promotions () {
         return $this->BelongsToMany(Promotion::class);
