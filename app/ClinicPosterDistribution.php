@@ -149,6 +149,7 @@ class ClinicPosterDistribution extends Qmodel
 
         $whiteLayer = new \Imagick();
         $whiteLayer->newImage($width, $height, new \ImagickPixel('white'), 'png');
+        error_reporting(E_ALL ^ E_DEPRECATED);
         $whiteLayer->setImageOpacity(0.6);
 
         $cleanFacade->compositeImage($whiteLayer, \Imagick::COMPOSITE_OVER, 0, 0);
