@@ -1,16 +1,16 @@
 id,"name","description","starts_at","ends_at",language_id,country_id,v_design_file_id,h_design_file_id,"v_design_index_coords","h_design_index_coords","created_at","updated_at","deleted_at"
-1,"Ortodoncia_31_95","Ortodoncia 31,95 al mes","2019-04-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-10-09 10:17:23","2019-10-09 10:17:23",NULL
-2,"Revisiones_gratis","Revisiones y Radiografía gratis cada 6 meses para toda la vida","2019-01-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-10-09 10:18:53","2019-10-09 10:18:53",NULL
-3,"Ortodoncia_31_95_CAT","Ortodoncia 31,95 al mes Catalán","2019-04-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-10-09 10:35:19","2019-10-09 10:35:19",NULL
-4,"Revisions_gratis_CAT","Revisions y Radiografies gratis cada 6 mesos per a tota la vida","2019-01-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-10-09 10:36:47","2019-10-09 10:53:53",NULL
-5,"Implante_Corona_18_65","Implante + Corona 18,65 al mes","2019-04-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-10-10 11:13:47","2019-10-10 11:13:47",NULL
-6,"Dentiflex","Dentiflex Financiación","2018-01-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-10-10 11:14:28","2019-10-10 11:14:28",NULL
-7,"25%_navidad_2019","25% de Descuento Hasta el 31 de Diciembre","2019-11-18","2019-12-31",149,1,NULL,NULL,NULL,NULL,"2019-10-29 13:09:47","2019-10-29 13:09:47",NULL
-8,"25%_navidad_2019_CAT","25% de Descompte Fins a 31 de Decembre","2019-11-18","2019-12-31",26,1,NULL,NULL,NULL,NULL,"2019-10-29 13:11:34","2019-10-29 13:11:34",NULL
-9,"Implante_zirconio_19_95","Implante con corona de Zirconio Monolítico por 19,95 € al mes","2020-01-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-12-04 09:57:23","2019-12-04 09:57:23",NULL
-10,"Ortodoncia_31_40","Ortodoncia desde 31,40 € al mes","2020-01-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-12-04 09:58:47","2019-12-04 09:58:47",NULL
-11,"Plan_amigo","Plan Amigo 10% de Descuento","2020-01-01",NULL,149,1,NULL,NULL,NULL,NULL,"2019-12-04 10:00:01","2019-12-04 10:00:01",NULL
-12,"Ortodoncia_31_40 CAT","Ortodoncia desde 31,40 € al mes","2020-01-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-12-05 10:45:12","2019-12-05 10:45:12",NULL
-13,"Plan Amigo CAT","Plan Amigo 10% de Descuento CAT","2020-01-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-12-05 10:49:01","2019-12-05 10:49:01",NULL
-14,"Dentiflex CAT","Dentiflex CAT","2018-01-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-12-05 11:22:05","2019-12-05 11:22:05",NULL
-15,"Implante_zirconio_19_95 CAT","Implante con corona de Zirconio Monolítico por 19,95 € al mes CAT","2020-01-01",NULL,26,1,NULL,NULL,NULL,NULL,"2019-12-05 11:24:06","2019-12-05 11:24:06",NULL
+1,"Ortodoncia_31_95","Ortodoncia 31,95 al mes","2019-04-01",,149,1,,,,,"2019-10-09 10:17:23","2019-10-09 10:17:23",
+2,"Revisiones_gratis","Revisiones y Radiografía gratis cada 6 meses para toda la vida","2019-01-01",,149,1,,,,,"2019-10-09 10:18:53","2019-10-09 10:18:53",
+3,"Ortodoncia_31_95_CAT","Ortodoncia 31,95 al mes Catalán","2019-04-01",,26,1,,,,,"2019-10-09 10:35:19","2019-10-09 10:35:19",
+4,"Revisions_gratis_CAT","Revisions y Radiografies gratis cada 6 mesos per a tota la vida","2019-01-01",,26,1,,,,,"2019-10-09 10:36:47","2019-10-09 10:53:53",
+5,"Implante_Corona_18_65","Implante + Corona 18,65 al mes","2019-04-01",,149,1,,,,,"2019-10-10 11:13:47","2019-10-10 11:13:47",
+6,"Dentiflex","Dentiflex Financiación","2018-01-01",,149,1,,,,,"2019-10-10 11:14:28","2019-10-10 11:14:28",
+7,"25%_navidad_2019","25% de Descuento Hasta el 31 de Diciembre","2019-11-18","2019-12-31",149,1,,,,,"2019-10-29 13:09:47","2019-10-29 13:09:47",
+8,"25%_navidad_2019_CAT","25% de Descompte Fins a 31 de Decembre","2019-11-18","2019-12-31",26,1,,,,,"2019-10-29 13:11:34","2019-10-29 13:11:34",
+9,"Implante_zirconio_19_95","Implante con corona de Zirconio Monolítico por 19,95 € al mes","2020-01-01",,149,1,,,,,"2019-12-04 09:57:23","2019-12-04 09:57:23",
+10,"Ortodoncia_31_40","Ortodoncia desde 31,40 € al mes","2020-01-01",,149,1,,,,,"2019-12-04 09:58:47","2019-12-04 09:58:47",
+11,"Plan_amigo","Plan Amigo 10% de Descuento","2020-01-01",,149,1,,,,,"2019-12-04 10:00:01","2019-12-04 10:00:01",
+12,"Ortodoncia_31_40 CAT","Ortodoncia desde 31,40 € al mes","2020-01-01",,26,1,,,,,"2019-12-05 10:45:12","2019-12-05 10:45:12",
+13,"Plan Amigo CAT","Plan Amigo 10% de Descuento CAT","2020-01-01",,26,1,,,,,"2019-12-05 10:49:01","2019-12-05 10:49:01",
+14,"Dentiflex CAT","Dentiflex CAT","2018-01-01",,26,1,,,,,"2019-12-05 11:22:05","2019-12-05 11:22:05",
+15,"Implante_zirconio_19_95 CAT","Implante con corona de Zirconio Monolítico por 19,95 € al mes CAT","2020-01-01",,26,1,,,,,"2019-12-05 11:24:06","2019-12-05 11:24:06",

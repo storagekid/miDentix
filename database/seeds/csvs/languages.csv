@@ -1,8 +1,8 @@
 id,"iso_name","native_name","639-1","639-2/T","639-2/B","639-3","notes","created_at","updated_at"
-17,"Basque","euskara, euskera","eu","eus","baq","eus",NULL,NULL,NULL
-26,"Catalan, Valencian","català, valencià","ca","cat","cat","cat",NULL,NULL,NULL
-41,"English","English","en","eng","eng","eng",NULL,NULL,NULL
-48,"French","français, langue française","fr","fra","fre","fra",NULL,NULL,NULL
-52,"German","Deutsch","de","deu","ger","deu",NULL,NULL,NULL
-71,"Italian","Italiano","it","ita","ita","ita",NULL,NULL,NULL
-149,"Spanish, Castilian","Español","es","spa","spa","spa",NULL,NULL,NULL
+17,"Basque","euskara, euskera","eu","eus","baq","eus",,,
+26,"Catalan, Valencian","català, valencià","ca","cat","cat","cat",,,
+41,"English","English","en","eng","eng","eng",,,
+48,"French","français, langue française","fr","fra","fre","fra",,,
+52,"German","Deutsch","de","deu","ger","deu",,,
+71,"Italian","Italiano","it","ita","ita","ita",,,
+149,"Spanish, Castilian","Español","es","spa","spa","spa",,,

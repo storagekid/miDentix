@@ -1,5 +1,5 @@
 id,"name","type","description","CIF","created_at","updated_at"
-1,"Dentix","Matrix",NULL,"B82476302","2019-01-23 17:23:00","2019-01-23 17:23:00"
+1,"Dentix","Matrix",,"B82476302","2019-01-23 17:23:00","2019-01-23 17:23:00"
 2,"NeoTech","Subsidiary","NeoTech","B82476303","2019-01-23 17:23:00","2019-10-12 13:51:56"
 3,"GesArtes Gráficas","Provider","Proveedor de papelería corporativa para España","B82476304","2019-01-24 17:23:00","2019-01-24 17:23:00"
 4,"Litografia San José","Provider","Proveedor de papelería corporativa para Canarias","B82476305","2019-01-25 17:23:00","2019-01-25 17:23:00"

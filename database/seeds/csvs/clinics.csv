@@ -1,235 +1,235 @@
 id,"city","district","nickname","postal_code","email_ext",cost_center_id,parent_id,county_id,language_id,"sanitary_code",clinic_manager_id,area_manager_id,clinic_cloud_id,"oracle_id",closed,"starts_at","ends_at","created_at","updated_at","deleted_at"
-1,"A Coruña",NULL,"A Coruna (Juana de Vega, 23)","15004","coruna",1,NULL,15,149,"C-15-003280.",2269,1522,47,"47 A Coruña",0,"2014-05-05",NULL,"2017-12-31 00:00:00","2019-12-31 10:50:49",NULL
-2,"Albacete",NULL,"Albacete (Concepcion, 11)","2006","albacete",2,NULL,2,149,"0207459/0211461.",2122,947,233,"233 Albacete - Concepcion",0,"2016-07-01",NULL,"2017-12-31 00:00:00","2019-10-10 10:29:22",NULL
-3,"Alcalá de Henares",NULL,"Alcala de Henares (de Atilano Casado, 3)","28801","alcalahenares",6,NULL,28,149,"CS13911.",NULL,NULL,13,"13 Alcalá de Henares",0,"2016-05-23",NULL,"2017-12-31 00:00:00","2019-10-17 10:37:22",NULL
-4,"Alcalá de Henares",NULL,"Alcala de Henares (Tinte, 13)","28801","alcalahenares",6,NULL,28,149,"CS11741.",NULL,NULL,13,"13 Alcalá de Henares",1,"2012-08-01","2018-01-01","2017-12-31 00:00:00","2019-12-31 10:52:35","2019-07-26 12:02:22"
-5,"Alcantarilla",NULL,"Alcantarilla (Mayor, 127 A)","30820","alcantarilla",7,NULL,30,149,"40001700.",NULL,NULL,173,"173 Alcantarilla",0,"2015-05-01",NULL,"2017-12-31 00:00:00","2019-10-17 09:57:37",NULL
-6,"Alcobendas",NULL,"Alcobendas (Constitucion, 37)","28100","alcobendas",8,NULL,28,149,"CS11703.",NULL,NULL,20,"20 Alcobendas",0,"2012-08-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:38:01",NULL
-7,"Alcobendas",NULL,"Alcobendas (Constitución, 69)","28100","alcobendas",8,NULL,28,149,"CS14256.",NULL,NULL,20,"20 Alcobendas",0,"2016-06-27",NULL,"2017-12-31 00:00:00","2019-10-17 10:38:09",NULL
-8,"Alcoi",NULL,"Alcoi (Alameda, 13)","3803","alcoy",10,NULL,3,149,"19117.",NULL,NULL,272,"272 Alcoy",0,"2017-06-05",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-9,"Alcorcón",NULL,"Alcorcon (Mayor, 10)","28921","alcorcon",9,NULL,28,149,"CS11769.",NULL,NULL,49,"49 Alcorcon",0,"2011-12-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:38:19",NULL
-11,"Algeciras",NULL,"Algeciras (Regino Martinez, 2)","11201","algeciras",11,NULL,11,149,"46190.",NULL,NULL,196,"196 Algeciras",0,"2015-12-16",NULL,"2017-12-31 00:00:00","2019-06-21 09:15:35",NULL
-12,"Alicante",NULL,"Alicante (Maisonnave, 27)","3003","alicante",12,NULL,3,149,"12382.",NULL,NULL,3,"3 Alicante",0,"2014-01-23",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-13,"Almería",NULL,"Almeria (de Almeria, 41)","4001","almeria",13,NULL,4,149,"42241.",NULL,NULL,129,"129 Almería",0,"2014-08-27",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-14,"Andújar",NULL,"Andujar (Ollerias, 23)","23740","andujar",14,NULL,23,149,"49426.",NULL,NULL,281,"281 Andújar",0,"2017-09-12",NULL,"2017-12-31 00:00:00","2019-10-10 10:33:51",NULL
-15,"Antequera",NULL,"Antequera (Duranes, 23)","29200","antequera",15,NULL,29,149,"43897.",NULL,NULL,160,"160 Antequera - Malaga",0,"2014-11-24",NULL,"2017-12-31 00:00:00","2019-06-21 09:17:17",NULL
-16,"Aranjuez",NULL,"Aranjuez (de San Antonio, 59)","28300","aranjuez",16,NULL,28,149,"CS13948.",NULL,NULL,215,"215 Aranjuez",0,"2016-05-31",NULL,"2017-12-31 00:00:00","2019-06-21 09:17:50",NULL
-17,"Badajoz",NULL,"Badajoz (Manuel Saavedra Palmeiro, 12)","6004","badajoz",17,NULL,6,149,"06101210.",NULL,NULL,127,"127 Badajoz",0,"2014-07-15",NULL,"2017-12-31 00:00:00","2019-06-21 09:18:07",NULL
-18,"Badalona",NULL,"Badalona (del Mar, 67)","8911","badalona",18,NULL,8,26,"E08607469.",NULL,NULL,24,"24 Badalona",0,"2013-09-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:31:03",NULL
-19,"Badalona",NULL,"Badalona (del Mar, 73)","8911","badalona",18,NULL,8,26,"E08581490.",NULL,NULL,24,"24 Badalona",1,"2015-01-01","2017-07-20","2017-12-31 00:00:00","2019-07-18 17:36:55","2018-01-01 00:00:00"
-20,"Barcelona",NULL,"Barcelona (Balmes, 284)","8006","balmes",26,NULL,8,26,"E08603418.",NULL,NULL,159,NULL,0,"2014-11-01","2019-06-01","2017-12-31 00:00:00","2019-07-25 15:42:54","2019-07-25 15:42:54"
-21,"Barcelona",NULL,"Barcelona (del Llobregos, 161)","8032","llobregos",102,NULL,8,26,"E08617918.",NULL,NULL,236,"236 Barcelona - Llobregos",0,"2016-01-04",NULL,"2017-12-31 00:00:00","2019-06-21 10:32:32",NULL
-22,"Barcelona",NULL,"Barcelona (Gran de Gracia, 135)","8012","grandegracia",21,NULL,8,26,"E08584878.",NULL,NULL,7,"7 Barcelona Gran de Gracia",1,"2014-03-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:32:13",NULL
-23,"Barcelona",NULL,"Barcelona (Fabra i Puig, 129)","8016","fabra",62,NULL,8,26,"E08618260.",NULL,NULL,218,"218 Barcelona Fabra",0,"2015-12-28",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-24,"Barcelona",NULL,"Barcelona (del Poblenou, 104)","8005","poblenou",22,NULL,8,26,"E08603400.",NULL,NULL,158,"158 Poblenou-Barcelona",0,"2014-11-28",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-25,"Barcelona",NULL,"Barcelona (Rda. Sant Antoni, 17)","8011","santantoni",25,NULL,8,26,"E08612719.",NULL,NULL,206,"206 Barcelona Sant Antoni",0,"2015-06-19",NULL,"2017-12-31 00:00:00","2019-06-21 10:34:34",NULL
-26,"Barcelona",NULL,"Barcelona (Rossello, 416)","8025","rosello",23,NULL,8,26,"E08590247.",NULL,NULL,134,"134 Barcelona Sagrada Familia",0,"2014-07-30",NULL,"2017-12-31 00:00:00","2019-06-21 10:33:30",NULL
-27,"Barcelona",NULL,"Barcelona (Sants, 8)","8014","sants",20,NULL,8,26,"E08567135.",NULL,NULL,119,"119 Barcelona Sants",0,"2014-06-10",NULL,"2017-12-31 00:00:00","2019-06-21 10:34:51",NULL
-28,"Basauri",NULL,"Basauri (Begonako Andra Mari Kalea, 16)","48970","basauri",24,NULL,48,149,"48 C.2.5.1. 10886.",NULL,NULL,197,"197 Basauri",0,"2015-05-28",NULL,"2017-12-31 00:00:00","2019-10-17 09:58:51",NULL
-29,"Benavente",NULL,"Benavente (de los Herreros, 16)","49600","benavente",27,NULL,49,149,"49-C251-0101",NULL,NULL,170,"170 Benavente",0,"2015-05-06",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-30,"Bermeo",NULL,"Bermeo (Lamera Ibilbidea 1)","48370","bermeo",28,NULL,48,149,"48 C.2.5.1. 11302",NULL,NULL,261,"261 Bermeo",0,"2016-09-19",NULL,"2017-12-31 00:00:00","2019-10-17 09:59:10",NULL
-31,"Bilbao","Santutxu","Bilbao (Aita Esteban Pernet, 2)","48004","santutxu",176,NULL,48,149,"48 C.2.5.1. 11181.",NULL,NULL,216,"216 Santutxu - Bilbao",0,"2016-03-29",NULL,"2017-12-31 00:00:00","2019-10-17 10:16:48",NULL
-32,"Bilbao",NULL,"Bilbao (Gran Via de Don Diego Lopez de Haro, 37)","48009","bilbao",29,NULL,48,149,"48 C.2.5.1. 10995.",NULL,NULL,135,"135 Bilbao",0,"2015-08-12",NULL,"2017-12-31 00:00:00","2019-10-17 09:59:30",NULL
-33,"Boadilla del Monte",NULL,"Boadilla del Monte (Juan Carlos I, 53)","28660","boadilla",30,NULL,28,149,"CS13317.",NULL,NULL,151,"151 Boadilla del Monte",0,"2014-09-29",NULL,"2017-12-31 00:00:00","2019-06-21 10:39:00",NULL
-34,"Burgos",NULL,"Burgos (del Cid Campeador, 3)","9003","burgos",32,NULL,9,149,"09-C251-0166.",NULL,NULL,36,"36 Burgos",0,"2013-04-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-35,"Cádiz",NULL,"Cadiz (Doctor Fleming, 2)","11009","cadiz",35,NULL,11,149,"42597.",NULL,NULL,149,"149 Cádiz",0,"2014-08-08",NULL,"2017-12-31 00:00:00","2019-07-18 17:41:45",NULL
-36,"Cambrils",NULL,"Cambrils (de Pau Casals, 45)","43850","cambrils",36,NULL,43,26,"E43625919.",NULL,NULL,259,"259 Cambrils",0,"2017-02-13",NULL,"2017-12-31 00:00:00","2019-06-21 10:40:18",NULL
-37,"Cartagena",NULL,"Cartagena (Puertas de Murcia, 31-35)","30201","cartagena",38,NULL,30,149,"40001401.",NULL,NULL,131,"131 Cartagena",0,"2014-12-22",NULL,"2017-12-31 00:00:00","2019-10-17 09:59:53",NULL
-38,"Castelldefels",NULL,"Castelldefels (Santa Maria, 11)","8860","castelldefels",39,NULL,8,26,"E08591378.",NULL,NULL,125,"125 Castelldefels",0,"2014-07-07",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-39,"Castellón",NULL,"Castellon (Puerta del Sol, 2)","12001","castellon",40,NULL,12,149,"13609.",NULL,NULL,152,"152 Castellón",0,"2014-10-22",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-40,"Castro Urdiales",NULL,"Castro Urdiales (La Ronda, 28)","39700","castrourdiales",NULL,NULL,39,149,"06/2016/02709.",NULL,NULL,237,"237 Castro Urdiales",0,"2016-03-31",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-41,"Ciudad Real",NULL,"Ciudad Real (Postas, 2)","13001","ciudadreal",43,NULL,13,149,"1307557/1311144.",NULL,NULL,242,"242 Ciudad Real - Postas",0,"2016-05-23",NULL,"2017-12-31 00:00:00","2019-06-21 10:42:33",NULL
-42,"Collado Villalba",NULL,"Collado Villalba (Real, 45)","28400","villalba",45,NULL,28,149,"CS13896.",NULL,NULL,132,"132 Collado Villalba",0,"2016-06-14",NULL,"2017-12-31 00:00:00","2019-06-21 10:42:48",NULL
-43,"Colmenar Viejo",NULL,"Colmenar Viejo (Boteros, 3)","28770","colmenarviejo",46,NULL,28,149,"CS13247.",NULL,NULL,181,"181 Colmenar Viejo",0,"2015-02-23",NULL,"2017-12-31 00:00:00","2019-10-17 10:38:27",NULL
-44,"Córdoba",NULL,"Cordoba (Jose Cruz Conde, 12)","14003","cordoba",47,NULL,14,149,"41042.",NULL,NULL,21,"21 Córdoba",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:43:21",NULL
-45,"Cornellà de Llobregat",NULL,"Cornella de Llobregat (de Josep Anselm Clave, 26)","8940","cornella",48,NULL,8,26,"E08590335.",NULL,NULL,146,"146 Cornellá",0,"2014-07-18",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-46,"Coslada",NULL,"Coslada (Constitucion, 86)","28821","coslada",49,NULL,28,149,"CS13203.",NULL,NULL,166,"166 Coslada",0,"2015-02-04",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-47,"Cuenca",NULL,"Cuenca (Castilla La Mancha, 2)","16002","cuenca",50,NULL,16,149,"1606933/1609641.",NULL,NULL,133,"133 Cuenca",0,"2014-08-30",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-48,"Dénia",NULL,"Denia (Marques de Campo, 64)","3700","denia",52,NULL,3,149,"18219.",NULL,NULL,252,"252 Denia",0,"2016-07-18",NULL,"2017-12-31 00:00:00","2019-06-21 10:44:57",NULL
-49,"Dos Hermanas",NULL,"Dos Hermanas (La Mina, 1)","41700","doshermanas",54,NULL,41,149,"41371.",NULL,NULL,11,"11 Dos Hermanas",0,"2014-03-24",NULL,"2017-12-31 00:00:00","2019-06-21 10:45:32",NULL
-50,"Durango",NULL,"Durango (Andra Mari Kalea, 4)","48200","durango",55,NULL,48,149,"48 C.2.5.1. 11056.",NULL,NULL,224,"224 Durango",0,"2015-11-16",NULL,"2017-12-31 00:00:00","2019-10-17 10:00:18",NULL
-51,"El Ejido",NULL,"El Ejido (Bulevar de El Ejido, 222)","4700","elejido",56,NULL,4,149,"47851.",NULL,NULL,267,"267 El Ejido",0,"2017-02-13",NULL,"2017-12-31 00:00:00","2019-06-21 10:46:30",NULL
-52,"El Prat de Llobregat",NULL,"El Prat de Llobregat (de la Verge de Montserrat, 105)","8820","elprat",58,NULL,8,26,"E08626983.",NULL,NULL,269,"269 El Prat De Llobregat",0,"2016-11-11",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-53,"El Puerto de Santa María",NULL,"El Puerto de Santa Maria (Virgen de los Milagros, 87)","11500","elpuerto",NULL,NULL,11,149,"45641.",NULL,NULL,190,"190 Puerto De Santa Maria",0,"2015-12-15",NULL,"2017-12-31 00:00:00","2019-06-21 10:47:13",NULL
-54,"Elche",NULL,"Elche (de la Glorieta, 9)","3203","elche",59,NULL,3,149,"12911.",NULL,NULL,5,"5 Elche",0,"2014-02-06",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-55,"Elda",NULL,"Elda (Principe de Asturias, 25)","3600","elda",60,NULL,3,149,"18221.",NULL,NULL,268,"268 Elda",0,"2016-08-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:48:10",NULL
-56,"Estepona",NULL,"Estepona (Espana, 126)","29680","estepona",61,NULL,29,149,"48558.",NULL,NULL,271,"271 Estepona",0,"2017-06-05",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-57,"Ferrol",NULL,"Ferrol (Real, 78)","15402","ferrol",57,NULL,15,149,"C-15-003548.",NULL,NULL,143,"143 El Ferrol",0,"2014-02-06",NULL,"2017-12-31 00:00:00","2019-06-21 10:48:46",NULL
-58,"Figueres",NULL,"Figueres (Pujada del Castell, 11)","17600","figueres",63,NULL,17,26,"E17624961.",NULL,NULL,254,"254 Figueras",0,"2016-11-02",NULL,"2017-12-31 00:00:00","2019-06-21 10:49:06",NULL
-59,"Fuengirola",NULL,"Fuengirola (Condes de San Isidro, 15)","29640","fuengirola",65,NULL,29,149,"46765.",NULL,NULL,248,"248 Fuengirola Avenida Condes",0,"2016-07-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-60,"Fuenlabrada",NULL,"Fuenlabrada (Malaga, 1)","28945","fuenlabrada2",67,NULL,28,149,"CS15166",NULL,NULL,43,"43 Fuenlabrada 2",0,"2011-12-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:50:01",NULL
-61,"Fuenlabrada",NULL,"Fuenlabrada (Portugal, 44)","28943","fuenlabrada1",66,NULL,28,149,"CS11819.",NULL,NULL,51,"51 Fuenlabrada 1",0,"2011-10-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:38:36",NULL
-62,"Galdakao",NULL,"Galdakao (Juan Bautista Uriarte Kalea, 18)","48960","galdakao",69,NULL,48,149,"48 C.2.5.1. 11367.",NULL,NULL,274,"274 Galdakao",0,"2016-11-28",NULL,"2017-12-31 00:00:00","2019-10-17 10:01:01",NULL
-63,"Gandía",NULL,"Gandia (Raco Pare Leandro Calvo, 1)","46701","gandia",70,NULL,46,149,"17851.",NULL,NULL,136,"136 Gandia",0,"2015-12-25",NULL,"2017-12-31 00:00:00","2019-06-21 10:50:51",NULL
-64,"Gavà",NULL,"Gava (de Maria Casas, 78)","8850","gava",71,NULL,8,26,"E08614314.",NULL,NULL,203,"203 Barcelona Gavá",0,"2015-07-30",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-65,"Getafe",NULL,"Getafe (Madrid, 58)","28902","getafe1",72,NULL,28,149,"CS12695.",NULL,NULL,191,NULL,1,"2014-07-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:38:46","2018-01-01 00:00:00"
-66,"Getafe",NULL,"Getafe (Madrid, 73)","28902","getafe",73,NULL,28,149,"CS12695.",NULL,NULL,50,"50 Getafe 73",0,"2011-02-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:51:35",NULL
-67,"Getxo",NULL,"Getxo (Mayor, 23)","48930","getxo",74,NULL,48,149,"RPS 105/18 Responsable Asistencial Licenciado en Odontología.",NULL,NULL,29,"29 Getxo",1,"2014-04-25",NULL,"2017-12-31 00:00:00","2019-06-21 10:51:56",NULL
-68,"Getxo",NULL,"Getxo (Mayor, 21)","48930","getxo",74,NULL,48,149,"RPS 105/18 Responsable Asistencial Licenciado en Odontología.",NULL,NULL,45,NULL,0,"2013-01-01","2018-01-01","2017-12-31 00:00:00","2019-07-25 15:43:49","2019-07-25 15:43:49"
-69,"Gijón",NULL,"Gijon (Corrida, 59)","33206","gijon",75,NULL,33,149,"C.2.5.1./4132.",NULL,NULL,9,"9 Gijón",0,"2014-03-13",NULL,"2017-12-31 00:00:00","2019-10-17 10:09:46",NULL
-70,"Girona",NULL,"Girona (de Joan Maragall, 35)","17002","girona",76,NULL,17,26,"E17565593.",NULL,NULL,117,"117 Girona",0,"2014-05-19",NULL,"2017-12-31 00:00:00","2019-06-21 10:52:27",NULL
-71,"Granada",NULL,"Granada (Recogidas, 58)","18004","granadarecogidas",79,NULL,18,149,"47835.",NULL,NULL,266,"266 Granada 2 - Recogidas",0,"2017-02-06",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-72,"Granada",NULL,"Granada (Mesones, 17)","18001","granada",78,NULL,18,149,"41819.",NULL,NULL,12,"12 Granada",0,"2014-03-21",NULL,"2017-12-31 00:00:00","2019-06-21 10:52:44",NULL
-73,"Granollers",NULL,"Granollers (Lluis Perpinya, 8)","8401","granollers",80,NULL,8,26,"E08617805.",NULL,NULL,209,"209 Granollers",0,"2016-01-28",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-74,"Guadalajara",NULL,"Guadalajara (Virgen del Amparo, 9)","19001","guadalajara",81,NULL,19,149,"1906840/1902949.",NULL,NULL,33,"33 Guadalajara",0,"2013-10-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:53:37",NULL
-75,"Huelva",NULL,"Huelva (Concepcion, 1)","21001","huelva",84,NULL,21,149,"47322.",NULL,NULL,247,"247 Huelva - Concepción",0,"2016-08-29",NULL,"2017-12-31 00:00:00","2019-06-21 10:54:39",NULL
-76,"Huelva","CC Holea","Huelva (CC Holea, Ronda Exterior Zona Sur, s.n.)","21007","ccholea",83,NULL,21,149,"45963.",NULL,NULL,189,"189 Huelva Holea",0,"2015-06-03",NULL,"2017-12-31 00:00:00","2019-07-12 14:09:19",NULL
-77,"Huesca",NULL,"Huesca (Coso Bajo, 3)","22001","huesca",85,NULL,22,149,"2220903.",NULL,NULL,178,"178 Huesca",0,"2015-05-18",NULL,"2017-12-31 00:00:00","2019-10-17 10:04:08",NULL
-78,"Ibiza",NULL,"Ibiza (dIgnasi Wallis, 35)","7800","ibiza",86,NULL,7,149,"4551.",NULL,NULL,273,"273 Ibiza",0,"2016-11-28",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-79,"Inca",NULL,"Inca (de Espana, 13)","7300","inca",87,NULL,7,149,"4428.",NULL,NULL,204,"204 Inca",0,"2016-02-15",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-80,"Irún",NULL,"Irun (de Colon, 38)","20302","irun",91,NULL,20,149,"20 C.2.5.1. 9622.",NULL,NULL,137,"137 Irún",0,"2014-07-28",NULL,"2017-12-31 00:00:00","2019-10-17 10:04:33",NULL
-81,"Jaén",NULL,"Jaen (de la Madre Soledad Torres Acosta, 2)","23001","jaen",93,NULL,23,149,"41798.",NULL,NULL,120,"120 Jaén",0,"2014-06-24",NULL,"2017-12-31 00:00:00","2019-06-21 10:56:24",NULL
-82,"Jerez","CC Área Sur","Jerez (CC Area Sur, Nacional IV, Km 639)","11408","ccareasur",95,NULL,11,149,"45853.",NULL,NULL,207,"207 Jerez C.C. Área Sur",0,"2015-10-13",NULL,"2017-12-31 00:00:00","2019-07-12 14:09:34",NULL
-83,"Jerez",NULL,"Jerez (Lanceria, 16)","11402","jerez",94,NULL,11,149,"40991.",NULL,NULL,22,"22 Jerez",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-06-21 10:56:51",NULL
-84,"L'Hospitalet de Llobregat",NULL,"L'Hospitalet de Llobregat (de la Marina, 542-546)","8901","hospitalet",82,NULL,8,26,"E08581813.",NULL,NULL,25,"25 Hospitalet",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-85,"L'Hospitalet de Llobregat",NULL,"L'Hospitalet de Llobregat (Just Oliveras, 37-39)","8901","hospitalet",82,NULL,8,26,"E08618407.",NULL,NULL,25,"25 Hospitalet",1,"2017-06-19",NULL,"2017-12-31 00:00:00","2019-10-10 10:22:35",NULL
-86,"La Línea de la Concepción",NULL,"La Linea de la Concepcion (Real, 45)","11300","lalinea",96,NULL,11,149,"46023.",NULL,NULL,219,"219 La Línea De La Concepción",0,"2015-11-27",NULL,"2017-12-31 00:00:00","2019-06-21 10:58:27",NULL
-87,"Las Palmas","CC Las Arenas","Las Palmas (CC Las Arenas, local A-41b.  del Rincon)","35010","cclasarenas",42,NULL,35,149,"31063.",NULL,NULL,208,"208 C.C. Las Arenas Las Palmas",0,"2015-08-24",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-88,"Las Palmas","CC La Ballena","Las Palmas (CC La Ballena, General del Norte 112 , local 0-29)","35013","ballena",33,NULL,35,149,"31054.",NULL,NULL,185,"185 Las Palmas -  C.C. La Ballena",0,"2015-07-15",NULL,"2017-12-31 00:00:00","2019-07-12 14:09:54",NULL
-89,"Las Palmas",NULL,"Las Palmas (Triana, 107)","35002","laspalmas",97,NULL,35,149,"29957.",NULL,NULL,144,"144 Las Palmas",0,"2014-11-24",NULL,"2017-12-31 00:00:00","2019-06-21 10:59:21",NULL
-90,"Leganés",NULL,"Leganes (Jeromin, 2)","28911","leganes",98,NULL,28,149,"CS13074.",NULL,NULL,156,"156 Leganes",0,"2014-11-26",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-91,"León",NULL,"Leon (de Santo Domingo, 5)","24002","leon",99,NULL,24,149,"24-C251-0261.",NULL,NULL,31,"31 León",0,"2013-03-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-92,"Linares",NULL,"Linares (Corredera de San Marcos, 23)","23700","linares",100,NULL,23,149,"46014.",NULL,NULL,226,"226 Linares",0,"2015-11-23",NULL,"2017-12-31 00:00:00","2019-06-21 11:20:26",NULL
-93,"Lleida",NULL,"Lleida (del Carme, 25)","25007","lerida",101,NULL,25,26,"E25618608.",NULL,NULL,210,"210 Lleida",0,"2015-12-18",NULL,"2017-12-31 00:00:00","2019-06-21 11:20:45",NULL
-94,"Logroño",NULL,"Logrono (Jorge Vigon, 2)","26003","logrono",103,NULL,26,149,"2558.",NULL,NULL,40,"40 Logroño",0,"2013-08-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:34",NULL
-95,"Lorca",NULL,"Lorca (Juan Carlos I, 28)","30800","lorca",104,NULL,30,149,"40001811.",NULL,NULL,179,"179 Lorca",0,"2015-12-09",NULL,"2017-12-31 00:00:00","2019-10-17 10:06:29",NULL
-96,"Lugo",NULL,"Lugo (San Marcos, 4-6)","27001","lugo",105,NULL,27,149,"C-27-001091.",NULL,NULL,214,"214 Lugo",0,"2017-10-02",NULL,"2017-12-31 00:00:00","2019-10-10 10:30:56",NULL
-97,"Madrid",NULL,"Madrid (Alcala, 385)","28027","alcala385",4,NULL,28,149,"CS12331.",NULL,NULL,42,"42 Alcalá 385",0,"2010-12-01",NULL,"2017-12-31 00:00:00","2019-10-22 18:07:36",NULL
-98,"Madrid",NULL,"Madrid (Alcala, 386)","28027","alcala386",5,NULL,28,149,"CS12095.",NULL,NULL,34,"34 Alcalá 386",0,"2013-09-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:39:02",NULL
-99,"Madrid","CC Plenilunio","Madrid (CC Plenilunio, Aracne s.n.)","28022","ccplenilunio",NULL,NULL,28,149,"CS13506.",NULL,NULL,201,NULL,0,"2015-06-01","2018-10-01","2017-12-31 00:00:00","2019-10-17 10:39:09","2019-07-26 12:59:46"
-100,"Madrid",NULL,"Madrid (de la Albufera, 105)","28038","albufera",3,NULL,28,149,"CS12186.",NULL,NULL,16,"16 Albufera",0,"2012-09-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:25:13",NULL
-101,"Madrid","Barajas","Madrid (de Logrono, 112)","28042","barajas",19,NULL,28,149,"CS13462.",NULL,NULL,195,"195 Barajas",0,"2015-06-11",NULL,"2017-12-31 00:00:00","2019-10-17 10:39:17",NULL
-102,"Madrid","Las Rosas","Madrid (de Niza, 57)","28022","lasrosas",87,NULL,28,149,"CS12956.",NULL,NULL,155,"155 San Blas",0,"2014-11-14",NULL,"2017-12-31 00:00:00","2019-10-17 10:05:11",NULL
-103,"Madrid","Moratalaz","Madrid (Moratalaz, 127)","28030","moratalaz",139,NULL,28,149,"CS13508.",NULL,NULL,217,"217 Moratalaz",0,"2015-09-28",NULL,"2017-12-31 00:00:00","2019-10-17 10:08:13",NULL
-104,"Madrid",NULL,"Madrid (Bravo Murillo, 121)","28020","bravomurillo",31,NULL,28,149,"CS12068.",NULL,NULL,17,"17 Bravo Murillo",0,"2013-04-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:39:29",NULL
-105,"Madrid","CC La Vaguada","Madrid (CC La Vaguada, Monforte de Lemos, 36)","28029","vaguada2",219,NULL,28,149,"CS13422.",NULL,NULL,175,"175 Vaguada 2",0,"2015-04-23",NULL,"2017-12-31 00:00:00","2019-07-12 14:10:41",NULL
-106,"Madrid","Quevedo","Madrid (de Arapiles, 1)","28015","quevedo",159,NULL,28,149,"CS12896.",NULL,NULL,150,"150 Madrid Quevedo",0,"2014-09-17",NULL,"2017-12-31 00:00:00","2019-06-21 11:28:03",NULL
-107,"Madrid","Carabanchel","Madrid - Carabanchel (de la Laguna, 42)","28025","carabanchel",37,NULL,28,149,"CS13615.",NULL,NULL,221,"221 Carabanchel",0,"2015-09-28",NULL,"2017-12-31 00:00:00","2019-10-17 10:39:43",NULL
-108,"Madrid",NULL,"Madrid (Ginzo de Limia, 39)","28029","vaguada",218,NULL,28,149,"CS12070.",NULL,NULL,35,NULL,1,"2013-04-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:39:36","2018-01-01 00:00:00"
-109,"Madrid",NULL,"Madrid (Goya, 58)","28001","madridgoya",125,NULL,28,149,"CS14415.",NULL,NULL,257,"257 Madrid - Goya 58",0,"2017-02-06",NULL,"2017-12-31 00:00:00","2019-06-21 11:24:40",NULL
-110,"Madrid",NULL,"Madrid (Gran Via, 46)","28013","madridgranvia",96,NULL,28,149,"CS14814.",NULL,NULL,262,NULL,0,"2017-11-02","2019-07-22","2017-12-31 00:00:00","2019-10-10 10:36:15","2019-07-25 15:44:49"
-111,"Madrid",NULL,"Madrid (Lopez de Hoyos, 132)","28002","lopezdehoyos",126,NULL,28,149,"CS14276.",NULL,NULL,223,"223 Madrid - Lopez De Hoyos",0,"2016-09-26",NULL,"2017-12-31 00:00:00","2019-06-21 11:26:34",NULL
-112,"Madrid",NULL,"Madrid (Marcelo Usera, 134)","28026","usera134",215,NULL,28,149,"CS11866.",NULL,NULL,14,"14 Marcelo Usera 134 (usera 2)",0,"2013-12-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:19:36",NULL
-113,"Madrid",NULL,"Madrid (Marcelo Usera, 139)","28026","usera139",216,NULL,28,149,"CS11852.",NULL,NULL,1,"1 Marcelo Usera 139 (usera 1)",0,"2012-05-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:19:48",NULL
-114,"Madrid",NULL,"Madrid (de las Delicias, 44)","28045","delicias",51,NULL,28,149,"CS5955.",NULL,NULL,48,"48 Delicias",1,"2007-08-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:39:52","2018-01-01 00:00:00"
-115,"Madrid","Vallecas","Madrid (Federico Garcia Lorca, 3)","28031","vallecas2",225,NULL,28,149,"CS13593.",NULL,NULL,200,"200 Vallecas",0,"2015-07-15",NULL,"2017-12-31 00:00:00","2019-10-17 10:25:27",NULL
-116,"Madrid",NULL,"Madrid (Palos de la Frontera, 42)","28045","delicias",51,NULL,28,149,"CS13895.",NULL,NULL,48,"48 Delicias",0,"2016-01-11",NULL,"2017-12-31 00:00:00","2019-06-21 11:27:35",NULL
-118,"Mahón",NULL,"Mahon (de Ses Moreres, 48)","7703","mahon",127,NULL,7,149,"4286.",NULL,NULL,171,"171 Mahón",0,"2015-03-10",NULL,"2017-12-31 00:00:00","2019-06-21 11:32:03",NULL
-119,"Majadahonda",NULL,"Majadahonda (Cristobal Colon, 11)","28220","majadahonda",128,NULL,28,149,"CS13880.",NULL,NULL,138,"138 Majadahonda",0,"2016-05-25",NULL,"2017-12-31 00:00:00","2019-10-17 10:06:56",NULL
-120,"Málaga",NULL,"Malaga (Cuarteles, 64)","29002","malaga2",130,NULL,29,149,"44233.",NULL,NULL,57,"57 Málaga 2",0,"2014-12-23",NULL,"2017-12-31 00:00:00","2019-06-21 11:33:04",NULL
-121,"Málaga",NULL,"Malaga (Liborio Garcia, 1)","29005","malaga",129,NULL,29,149,"39756.",NULL,NULL,23,"23 Málaga",0,"2013-06-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-122,"Málaga",NULL,"Malaga (Puerta del Mar, 20)","29005","malaga",129,NULL,29,149,"46648.",NULL,NULL,23,"23 Málaga",0,"2016-03-29",NULL,"2017-12-31 00:00:00","2019-08-30 11:47:03",NULL
-124,"Manacor",NULL,"Manacor (dEn Jaume Domenge, 23)","7500","manacor",132,NULL,7,149,"4462.",NULL,NULL,193,"193 Manacor",0,"2016-04-25",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-125,"Manresa",NULL,"Manresa (Nou, 47)","8241","manresa",133,NULL,8,26,"E08606659.",NULL,NULL,54,"54 Manresa",0,"2014-12-15",NULL,"2017-12-31 00:00:00","2019-06-21 11:33:50",NULL
-126,"Marbella",NULL,"Marbella (Ricardo Soriano, 2)","29601","marbella",134,NULL,29,149,"45210.",NULL,NULL,182,"182 Marbella",0,"2015-05-18",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-127,"Mataró",NULL,"Mataro (de la Riera, 31)","8302","mataro",135,NULL,8,26,"E08623735.",NULL,NULL,139,"139 Mataró",0,"2016-05-20",NULL,"2017-12-31 00:00:00","2019-06-21 11:34:24",NULL
-128,"Mérida",NULL,"Merida (Santa Eulalia, 66)","6800","merida",136,NULL,6,149,"06102489.",NULL,NULL,202,"202 Mérida",0,"2015-08-10",NULL,"2017-12-31 00:00:00","2019-06-21 11:34:40",NULL
-129,"Molina de Segura",NULL,"Molina de Segura (Rosales, 25)","30500","molina",137,NULL,30,149,"40001510.",NULL,NULL,162,"162 Molina de Segura",0,"2015-02-16",NULL,"2017-12-31 00:00:00","2019-10-17 10:07:51",NULL
-130,"Mollet del Vallès",NULL,"Mollet del Valles (Nova, 12)","8100","mollet",138,NULL,8,26,"E08606070.",NULL,NULL,55,"55 Mollet del Vallés",0,"2014-12-29",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-131,"Móstoles",NULL,"Mostoles (del Dos de Mayo, 2)","28931","mostoles",140,NULL,28,149,"CS12005.",NULL,NULL,44,"44 Móstoles",0,"2010-12-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:08:33",NULL
-132,"Móstoles",NULL,"Mostoles (de Goya, 5)","28932","mostoles2",141,NULL,28,149,"CS13373.",NULL,NULL,192,"192 Móstoles 2",0,"2015-05-27",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-133,"Motril",NULL,"Motril (Nueva, esq.  Tejedores)","18600","motril",142,NULL,18,149,"42287.",NULL,NULL,124,"124 Motril",0,"2014-06-30",NULL,"2017-12-31 00:00:00","2019-06-21 11:37:32",NULL
-134,"Murcia",NULL,"Murcia (Gran Via Escultor Fco. Salzillo, 28)","30005","murcia",143,NULL,30,149,"40002092",NULL,NULL,229,"229 Murcia",0,"2017-03-06",NULL,"2017-12-31 00:00:00","2019-10-17 10:08:51",NULL
-135,"Orihuela",NULL,"Orihuela (Calderon de la Barca, 7)","3300","orihuela",144,NULL,3,149,"40021.",NULL,NULL,157,"157 Orihuela-Alicante",0,"2015-02-17",NULL,"2017-12-31 00:00:00","2019-06-21 11:38:29",NULL
-136,"Ourense",NULL,"Ourense (do Paseo, 1)","32003","orense",145,NULL,32,149,"C-32-000985.",NULL,NULL,128,"128 Ourense",0,"2014-07-28",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-137,"Oviedo",NULL,"Oviedo (Uria, 1)","33003","oviedo",146,NULL,33,149,"C.2.5.1./4195",NULL,NULL,145,"145 Oviedo",0,"2014-08-20",NULL,"2017-12-31 00:00:00","2019-10-17 10:09:21",NULL
-138,"Palencia",NULL,"Palencia (Bocaplaza, 3)","34001","palencia",147,NULL,34,149,"34-C251-0084.",NULL,NULL,165,"165 Palencia",0,"2015-05-05",NULL,"2017-12-31 00:00:00","2019-06-21 11:39:22",NULL
-139,"Palma",NULL,"Palma (DAlexandre Rossello, 4)","7002","mallorca",148,NULL,7,149,"3549.",NULL,NULL,26,"26 Palma de Mallorca",0,"2013-05-01",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-140,"Palma",NULL,"Palma (de Jaume III, 26)","7012","mallorca2",131,NULL,7,149,"4358.",NULL,NULL,172,"172 Mallorca 2",0,"2015-08-17",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-141,"Pamplona",NULL,"Pamplona (de Carlos III el Noble, 1)","31002","pamplona",149,NULL,31,149,"C02454.",NULL,NULL,39,"39 Pamplona",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:10:18",NULL
-142,"Pamplona",NULL,"Pamplona (de Carlos III el Noble, 28)","31003","pamplona2",150,NULL,31,149,"C02833.",NULL,NULL,231,"231 Pamplona 2",0,"2015-10-30",NULL,"2017-12-31 00:00:00","2019-10-17 10:10:29",NULL
-143,"Parla",NULL,"Parla (Real, 64)","28981","parla",151,NULL,28,149,"CS14592.",NULL,NULL,187,"187 Parla",0,"2017-06-05",NULL,"2017-12-31 00:00:00","2019-06-21 11:40:34",NULL
-144,"Paterna",NULL,"Paterna (Maestro Canos, 26)","46980","paterna",152,NULL,46,149,"18179.",NULL,NULL,244,"244 Paterna",0,"2016-08-01",NULL,"2017-12-31 00:00:00","2019-06-21 11:40:45",NULL
-145,"Plasencia",NULL,"Plasencia (Pedro Isidro, 1)","10600","plasencia",153,NULL,10,149,"10102588.",NULL,NULL,251,"251 Plasencia",0,"2016-09-19",NULL,"2017-12-31 00:00:00","2019-06-21 11:41:03",NULL
-146,"Ponferrada",NULL,"Ponferrada (Camino de Santiago, 2)","24400","ponferrada",154,NULL,24,149,"24-C251-0285.",NULL,NULL,130,"130 Ponferrada",0,"2014-07-31",NULL,"2017-12-31 00:00:00","2019-06-21 11:41:20",NULL
-147,"Pontevedra",NULL,"Pontevedra (Benito Corbal, 23)","36001","pontevedra",155,NULL,36,149,"C-36-002415.",NULL,NULL,121,"121 Pontevedra",0,"2014-06-19",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-148,"Portugalete",NULL,"Portugalete (Carlos VII, 2)","48920","portugalete",156,NULL,48,149,"48 C.2.5.1. 9213.",NULL,NULL,18,"18 Portugalete",0,"2014-03-28",NULL,"2017-12-31 00:00:00","2019-10-17 10:11:59",NULL
-149,"Portugalete",NULL,"Portugalete (General Castanos, 31)","48920","portugalete",NULL,NULL,48,149,"48 C.2.5.1. 10010.",NULL,NULL,18,"18 Portugalete",0,"2014-12-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:12:13",NULL
-150,"Puerto del Rosario","Fuerteventura","Puerto del Rosario (Ramon Penate, 6)","35600","fuerteventura",68,NULL,35,149,"31091.",NULL,NULL,184,"184 Fuerteventura",0,"2015-08-24",NULL,"2017-12-31 00:00:00","2019-06-21 11:42:38",NULL
-151,"Puertollano",NULL,"Puertollano (de San Gregorio, 11)","13500","puertollano",158,NULL,13,149,"1307484/1310577.",NULL,NULL,198,"198 Puertollano",0,"2015-06-17",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-152,"Reus",NULL,"Reus (Prim, 14)","43201","reus",160,NULL,43,26,"E43602968.",NULL,NULL,140,"140 Reus",0,"2014-12-29",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-153,"Ronda",NULL,"Ronda (Espinel esq.  Juan Jose de Puya, 2)","29400","ronda",161,NULL,29,149,"46459.",NULL,NULL,225,"225 Ronda",0,"2016-01-25",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-154,"Roquetas de Mar",NULL,"Roquetas de Mar (Tres Martires, 7)","4740","roquetas",162,NULL,4,149,"47892.",NULL,NULL,264,"264 Roquetas De Mar",0,"2017-08-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-155,"Rubí",NULL,"Rubi (de Francesc Macia, 58-60)","8191","rubi",163,NULL,8,26,"E08617890.",NULL,NULL,211,"211 Rubí",0,"2015-11-02",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-156,"Sabadell",NULL,"Sabadell (Rambla, 84)","8201","sabadell",164,NULL,8,26,"E08624898.",NULL,NULL,141,"141 Sabadell",0,"2016-07-01",NULL,"2017-12-31 00:00:00","2019-06-21 11:44:19",NULL
-157,"Sagunto",NULL,"Sagunto (Nueve de Octubre, 71)","46520","sagunto",165,NULL,46,149,"18204.",NULL,NULL,258,"258 Sagunto",0,"2016-07-26",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-158,"Salamanca",NULL,"Salamanca (Toro, 104)","37002","salamanca",166,NULL,37,149,"37-C251-0190.",NULL,NULL,32,"32 Salamanca",0,"2013-04-01",NULL,"2017-12-31 00:00:00","2019-06-21 11:45:03",NULL
-159,"San Fernando",NULL,"San Fernando (San Rafael, 21)","11100","sanfernando",168,NULL,11,149,"46607.",NULL,NULL,234,"234 San Fernando",0,"2016-02-08",NULL,"2017-12-31 00:00:00","2019-06-21 11:45:19",NULL
-160,"San Sebastián",NULL,"San Sebastian (Miracruz, 16)","20001","sansebastian2",170,NULL,20,149,"20 C.2.5.1. 10773.",NULL,NULL,168,"168 San Sebastián 2",0,"2015-02-23",NULL,"2017-12-31 00:00:00","2019-10-17 10:15:28",NULL
-161,"San Sebastián",NULL,"San Sebastian (San Marcial, 35)","20005","sansebastian",169,NULL,20,149,"20 C.2.5.1. 9119.",NULL,NULL,37,"37 San Sebastián",0,"2013-09-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:15:11",NULL
-162,"San Vicente del Raspeig",NULL,"San Vicente del Raspeig (Pintor Picasso, 59)","3690","sanvicente",171,NULL,3,149,"40599.",NULL,NULL,180,"180 San Vicente Raspeig",0,"2015-06-08",NULL,"2017-12-31 00:00:00","2019-06-21 11:47:25",NULL
-163,"Sanlúcar de Barrameda",NULL,"Sanlucar de Barrameda (Ancha, 21)","11540","sanlucar",172,NULL,11,149,"45912.",NULL,NULL,199,"199 Sanlúcar",0,"2015-08-31",NULL,"2017-12-31 00:00:00","2019-06-21 11:47:38",NULL
-164,"Santa Cruz de Tenerife",NULL,"Santa Cruz de Tenerife (Castillo, 65)","38003","tenerife",NULL,NULL,38,149,"31718.",NULL,NULL,297,"297 Santa Cruz De Tenerife",0,"2017-12-01",NULL,"2017-12-31 00:00:00","2019-10-10 10:38:10",NULL
-165,"Santander",NULL,"Santander (Calvo Sotelo, 6)","39002","santander",173,NULL,39,149,"06/2013/01980.",NULL,NULL,30,"30 Santander",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-06-21 11:48:23",NULL
-166,"Santiago de Compostela",NULL,"Santiago de Compostela (Republica de El Salvador, 4)","15701","santiago",174,NULL,15,149,"C-15-003191.",NULL,NULL,27,"27 Santiago",0,"2013-12-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-167,"Santurce",NULL,"Santurce (Sabino Arana, 6)","48980","santurce",175,NULL,48,149,"48 C.2.5.1. 11004.",NULL,NULL,194,"194 Santurce",0,"2015-07-09",NULL,"2017-12-31 00:00:00","2019-10-17 10:16:30",NULL
-168,"Segovia",NULL,"Segovia (del Acueducto, 39)","40002","segovia",177,NULL,40,149,"40-C251-0102.",NULL,NULL,38,"38 Segovia",0,"2014-01-09",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-169,"Sevilla",NULL,"Sevilla (Asuncion, 58)","41011","sevilla3",182,NULL,41,149,"46823.",NULL,NULL,249,"249 Sevilla 3 - Calle Asunción",0,"2016-05-30",NULL,"2017-12-31 00:00:00","2019-06-21 11:49:52",NULL
-170,"Sevilla",NULL,"Sevilla (Campana, 2)","41002","sevilla1",178,NULL,41,149,"40971.",NULL,NULL,52,"52 Sevilla",0,"2014-05-14",NULL,"2017-12-31 00:00:00","2019-06-21 11:49:24",NULL
-171,"Sevilla",NULL,"Sevilla (Luis de Morales, 32)","41018","sevillaluismorales",180,NULL,41,149,"48118.",NULL,NULL,270,"270 Sevilla Luis De Morales",0,"2016-11-28",NULL,"2017-12-31 00:00:00","2019-10-10 10:32:40",NULL
-172,"Sevilla",NULL,"Sevilla (Maria Auxiliadora, 18)","41008","sevilla2",182,NULL,41,149,"44460.",NULL,NULL,163,"163 Sevilla 2 - Macarena",0,"2015-02-19",NULL,"2017-12-31 00:00:00","2019-06-21 11:49:38",NULL
-173,"Soria",NULL,"Soria (El Collado, 43)","42002","soria",183,NULL,42,149,"42-C251-0049.",NULL,NULL,148,"148 Soria",0,"2014-08-11",NULL,"2017-12-31 00:00:00","2019-06-21 11:50:24",NULL
-174,"Talavera de la Reina",NULL,"Talavera de la Reina (San Francisco, 29)","45600","talavera",201,NULL,45,149,"4507508/4512660.",NULL,NULL,142,"142 Talavera",0,"2014-10-22",NULL,"2017-12-31 00:00:00","2019-06-21 11:50:40",NULL
-175,"Tarragona",NULL,"Tarragona (Nova, 77)","43003","tarragona",202,NULL,43,26,"E43622467.",NULL,NULL,227,"227 Tarragona",0,"2016-05-25",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-176,"Telde",NULL,"Telde (de la Constitucion, 43)","35200","telde",203,NULL,35,149,"29956.",NULL,NULL,147,"147 Telde",0,"2014-10-22",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-177,"Terrassa",NULL,"Terrassa (dEgara, 162, cant.  dIscle Soler, 30)","8221","terrassa",205,NULL,8,26,"E08582856.",NULL,NULL,4,"4 Terrassa",0,"2014-01-27",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-178,"Teruel",NULL,"Teruel (Ramon y Cajal, 14)","44001","teruel",206,NULL,44,149,"4420568.",NULL,NULL,205,"205 Teruel",0,"2015-10-30",NULL,"2017-12-31 00:00:00","2019-10-17 10:18:11",NULL
-179,"Tomelloso",NULL,"Tomelloso (Don Victor Penasco, 41)","13700","tomelloso",207,NULL,13,149,"1307458/1310391.",NULL,NULL,56,"56 Tomelloso",0,"2015-01-19",NULL,"2017-12-31 00:00:00","2019-06-21 11:52:13",NULL
-180,"Torrejón de Ardoz",NULL,"Torrejon de Ardoz (Enmedio, 41)","28850","torrejon",208,NULL,28,149,"CS11773.",NULL,NULL,15,"15 Torrejón",0,"2012-07-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:18:36",NULL
-181,"Torrelavega",NULL,"Torrelavega (Julian Ceballos, 15)","39300","torrelavega",NULL,NULL,39,149,"06/2017/02986.",NULL,NULL,118,"118 Torrelavega",0,"2017-10-16",NULL,"2017-12-31 00:00:00","2019-10-10 10:24:54",NULL
-182,"Torrelavega",NULL,"Torrelavega (Serafin Escalante, 1)","39300","torrelavega",209,NULL,39,149,"06/2014/02128.",NULL,NULL,118,"118 Torrelavega",0,"2014-05-01","2017-10-16","2017-12-31 00:00:00","2019-07-26 13:02:05",NULL
-183,"Torremolinos",NULL,"Torremolinos (San Miguel, 2)","29620","torremolinos",210,NULL,29,149,"45207.",NULL,NULL,183,"183 Torremolinos",0,"2015-03-25",NULL,"2017-12-31 00:00:00","2019-06-21 11:53:09",NULL
-184,"Torrent",NULL,"Torrent (del Vedat, 101)","46900","torrent",211,NULL,46,149,"40031.",NULL,NULL,153,"153 Torrent",0,"2014-10-08",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-185,"Torrevieja",NULL,"Torrevieja (Maria Parodi, 21)","3181","torrevieja",212,NULL,3,149,"40056.",NULL,NULL,174,"174 Torrevieja",0,"2015-02-26",NULL,"2017-12-31 00:00:00","2019-06-21 11:53:40",NULL
-186,"Tudela",NULL,"Tudela (de los Fueros, 1)","31500","tudela",213,NULL,31,149,"C02831.",NULL,NULL,176,"176 Tudela",0,"2015-09-04",NULL,"2017-12-31 00:00:00","2019-10-17 10:19:12",NULL
-187,"Úbeda",NULL,"Ubeda (de Andalucia, 14)","23400","ubeda",214,NULL,23,149,"45342.",NULL,NULL,177,"177 Úbeda",0,"2015-09-30",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-188,"Utrera",NULL,"Utrera (La Fuente Vieja, 22)","41710","utrera",NULL,NULL,41,149,"48335.",NULL,NULL,275,"275 Utrera",0,"2017-12-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:20:52",NULL
-189,"Valencia",NULL,"Valencia (de Sant Vicent Martir, 55)","46002","valencia3",222,NULL,46,149,"18178.",NULL,NULL,250,"250 Valencia 3 - Carrer De Sant Vicent",0,"2016-08-16",NULL,"2017-12-31 00:00:00","2019-06-21 11:55:01",NULL
-190,"Valencia",NULL,"Valencia (del Pintor Sorolla, 35)","46002","valencia2",221,NULL,46,149,"14986.",NULL,NULL,123,"123 Valencia 2",0,"2014-06-30",NULL,"2017-12-31 00:00:00","2019-06-21 11:54:41",NULL
-191,"Valencia",NULL,"Valencia (Ruzafa, 29)","46005","valencia1",220,NULL,46,149,"12018.",NULL,NULL,19,"19 Valencia",0,"2013-07-01",NULL,"2017-12-31 00:00:00","2019-07-11 17:08:30",NULL
-192,"Valladolid",NULL,"Valladolid (de Zorrilla, 110)","47008","valladolid2",224,NULL,47,149,"47-C251-0267.",NULL,NULL,46,"46 Valladolid 2",0,"2014-04-21",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-193,"Valladolid",NULL,"Valladolid (de Espana, 8)","47001","valladolid1",223,NULL,47,149,"47-C251-0251.",NULL,NULL,41,"41 Valladolid",0,"2012-09-01",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-194,"Vecindario",NULL,"Vecindario (Canarias, 259)","35110","vecindario",226,NULL,35,149,"30992.",NULL,NULL,169,"169 Vecindario",0,"2015-03-26",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-195,"Vélez-Málaga",NULL,"Velez-Malaga (Canalejas, 44)","29700","velez-malaga",227,NULL,29,149,"47448.",NULL,NULL,255,"255 Vélez Málaga",0,"2016-07-18",NULL,"2017-12-31 00:00:00","2019-06-21 11:56:13",NULL
-196,"Vigo",NULL,"Vigo (de Gran Via, 9)","36204","vigo2",229,NULL,36,149,"C-36-002463.",NULL,NULL,164,"164 Vigo 2",0,"2015-05-05","2019-12-01","2017-12-31 00:00:00","2019-10-31 11:16:55",NULL
-197,"Vigo",NULL,"Vigo (Pr. Porta do Sol, 6)","36202","vigo",228,NULL,36,149,"C-36-002441.",NULL,NULL,10,"10 Vigo",0,"2015-03-23",NULL,"2017-12-31 00:00:00","2019-06-21 11:56:28",NULL
-198,"Vilafranca del Penedès",NULL,"Vilafranca del Penedes (de Barcelona, 1)","8720","vilafranca",230,NULL,8,26,"E08622386.",NULL,NULL,232,"232 Vilafranca Del Penedes",0,"2016-05-13",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-199,"Vilagarcía de Arousa",NULL,"Vilagarcia de Arousa (de Galicia, 1)","36600","arousa",232,NULL,36,149,"C-36-002408.",NULL,NULL,126,"126 Vilagarcía de Arousa",0,"2014-07-14",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-200,"Vilanova i la Geltrú",NULL,"Vilanova i la Geltru (Rambla Josep Tomas Ventosa, 25)","8800","vilanova",231,NULL,8,26,"E08629180.",NULL,NULL,230,"230 Vilanova i La Geltrú",0,"2017-05-22",NULL,"2017-12-31 00:00:00","2019-06-21 11:57:36",NULL
-201,"Vitoria",NULL,"Vitoria (Eduardo Dato, 33)","1005","vitoria2",234,NULL,1,149,"01 C.2.5.1. 10074.",NULL,NULL,53,"53 Vitoria 2",0,"2015-02-04",NULL,"2017-12-31 00:00:00","2019-10-17 10:27:23",NULL
-202,"Vitoria",NULL,"Vitoria (de la Florida, 1)","1005","vitoria",233,NULL,1,149,"01 C.2.5.1. 9075.",NULL,NULL,28,"28 Vitoria",0,"2013-11-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:27:04",NULL
-203,"Zamora",NULL,"Zamora (de Zorrilla, 5)","49003","zamora",235,NULL,49,149,"49-C251-0095.",NULL,NULL,122,"122 Zamora",0,"2014-06-27",NULL,"2017-12-31 00:00:00","2019-07-05 15:29:35",NULL
-204,"Zaragoza",NULL,"Zaragoza (Alfonso I, 28)","50003","zaragoza4",238,NULL,50,149,"5024364.",NULL,NULL,228,"228 Zaragoza 4",0,"2016-05-16",NULL,"2017-12-31 00:00:00","2019-10-17 10:28:22",NULL
-205,"Zaragoza",NULL,"Zaragoza (Delicias, 6)","50017","zaragoza3",236,NULL,50,149,"5024031.",NULL,NULL,6,"6 Zaragoza 3 Delicias",0,"2014-09-19",NULL,"2017-12-31 00:00:00","2019-10-17 10:28:09",NULL
-206,"Zaragoza",NULL,"Zaragoza (Jorge Jordana, 9)","50017","zaragoza2",237,NULL,50,149,"5023908.",NULL,NULL,6,"6 Zaragoza 3 Delicias",1,"2014-02-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 13:23:39","2018-01-01 00:00:00"
-207,"Zaragoza",NULL,"Zaragoza (San Miguel, 7)","50001","zaragoza1",236,NULL,50,149,"5023731.",NULL,NULL,8,"8 Zaragoza",0,"2013-02-01",NULL,"2017-12-31 00:00:00","2019-10-17 10:27:57",NULL
-208,"Madrid","Hortaleza","Madrid (de Canillas, 39)","28043","madridhortaleza",NULL,NULL,28,149,"CS15517",NULL,NULL,305,"305 Madrid - Hortaleza",0,"2018-10-01",NULL,"2018-09-03 00:00:00","2019-10-10 10:36:23",NULL
-209,"Madrid","Vicálvaro","Madrid (de San Cipriano, 13)","28032","vicalvaro",NULL,NULL,28,149,"CS15223.",NULL,NULL,293,"293 Vicálvaro",0,"2018-04-02",NULL,"2018-09-03 20:41:56","2019-10-10 10:36:31",NULL
-210,"Ceuta",NULL,"Ceuta (Delgado Serrano, 1)","51001","ceuta",NULL,NULL,51,149,NULL,NULL,NULL,306,"306 Ceuta - Camoens",0,"2018-07-02",NULL,"2018-09-03 21:55:04","2019-10-10 10:34:38",NULL
-211,"Cáceres",NULL,"Caceres (Plaza America, 4)","10001","caceres",NULL,NULL,10,149,"10102811.",NULL,NULL,288,"288 Cáceres - Plaza América",0,"2018-03-12",NULL,"2018-09-03 21:56:46","2019-10-10 10:34:30",NULL
-212,"Las Palmas","CC La Ballena","Las Palmas (CC La Ballena, General del Norte 112 , local 13-14)","35013","ballena",33,88,35,149,"31792.",NULL,NULL,185,"185 Las Palmas -  C.C. La Ballena",0,"2018-01-15",NULL,"2018-09-03 22:10:52","2019-10-21 14:14:12",NULL
-213,"Chiclana de la Frontera",NULL,"Chiclana de la Frontera (Artesano Pepe Marin, 2)","11130","chiclana",NULL,NULL,11,149,"51779",NULL,NULL,300,"300 Chiclana De La Frontera - Artesano Pepe Marín",0,"2018-10-01",NULL,"2018-09-04 23:19:18","2019-10-10 10:34:45",NULL
-214,"Miranda de Ebro",NULL,"Miranda de Ebro (Estacion, 1)","9200","mirandaebro",NULL,NULL,9,149,"09-C251-0211.",NULL,NULL,282,"282 Miranda De Ebro",0,"2018-10-20",NULL,"2018-09-04 23:23:37","2019-10-10 10:37:17",NULL
-215,"El Vendrell",NULL,"El Vendrell (La Rambla, 8)","43700","elvendrell",NULL,NULL,43,26,NULL,NULL,NULL,317,"317 El Vendrell",0,"2018-11-15",NULL,"2018-10-08 16:49:01","2019-10-10 10:35:21",NULL
-216,"Toledo",NULL,"Toledo (Ecuador, 2)","45004","toledo",NULL,NULL,45,149,"4507942/4515241",NULL,NULL,303,"303 Toledo - Avda De La Reconquista",0,"2018-11-24",NULL,"2018-10-08 16:53:15","2019-10-10 10:38:16",NULL
-217,"Benidorm",NULL,"Benidorm (de Venus, 2)","3501","benidorm",NULL,NULL,3,149,"21003.",NULL,NULL,283,"283 Benidorm",0,"2018-12-03",NULL,"2018-10-18 12:01:16","2019-10-10 10:34:13",NULL
-218,"Don Benito",NULL,"Don Benito (Ramon y Cajal, 18)","6400","donbenito",NULL,NULL,6,149,"6102976",NULL,NULL,309,"309 Don Benito",0,"2018-12-17",NULL,"2018-10-18 12:02:57","2019-10-10 10:34:53",NULL
-219,"Eibar",NULL,"Eibar (Toribio Etxebarria Kalea, 13)","20600","eibar",NULL,NULL,20,149,"20 C.2.5.1. 12262.",NULL,NULL,320,"320 Eibar",0,"2018-12-03",NULL,"2018-10-18 12:03:57","2019-10-17 10:30:59",NULL
-220,"Rivas-Vaciamadrid","CC H2 Ocio","Rivas-Vaciamadrid (CC H2 Ocio, Marie Curie, 4, Local 12A)","28521","cch2o",NULL,NULL,28,149,"CS15693.",NULL,NULL,308,"308 Rivas Vaciamadrid - CC H2O",0,"2018-12-17",NULL,"2018-11-23 10:50:56","2019-10-17 10:13:16",NULL
-221,"Madrid","Villaverde","Madrid (Alberto Palacios, 19)","28021","madridvillaverde",NULL,NULL,28,149,"CS15712.",NULL,NULL,284,"284 Madrid Villaverde",0,"2019-01-18",NULL,"2018-11-29 10:06:56","2019-10-10 10:36:39",NULL
-222,"Olot",NULL,"Olot (de lEscultor Miquel Blay, 1)","17800","olot",NULL,NULL,17,26,NULL,NULL,NULL,307,"307 Olot",0,"2019-02-25",NULL,"2019-01-31 16:32:14","2019-10-10 10:37:34",NULL
-223,"Barakaldo",NULL,"Barakaldo (Bide-Onera Plaza, 7)","48901","barakaldo",NULL,NULL,48,149,NULL,NULL,NULL,313,"313 Barakaldo",0,"2019-03-27",NULL,"2019-02-08 09:36:01","2019-10-10 10:34:06",NULL
-224,"Madrid","Tetuán","Madrid (Bravo Murillo, 298)","28020","madridtetuan",NULL,NULL,28,149,NULL,NULL,NULL,310,"310 Madrid - Tetuán",0,"2019-04-03",NULL,"2019-03-05 11:24:05","2019-10-10 10:36:48",NULL
-225,"Igualada",NULL,"Igualada (de Sant Isidre, 19)","8700","igualada",NULL,NULL,8,26,NULL,NULL,NULL,323,"323 Igualada",0,"2019-04-25",NULL,"2019-03-29 11:41:44","2019-10-10 10:35:32",NULL
-226,"Vila-real",NULL,"Vila-real (Carrer Major Sant Jaume, 48)","12540","villarreal",NULL,NULL,12,149,"21397",NULL,NULL,327,"327 Villarreal",0,"2019-05-27",NULL,"2019-06-11 16:00:19","2019-10-10 10:38:31",NULL
-227,"Sant Feliu de Llobregat",NULL,"Sant Feliu de Llobregat (Bertrand, 2)","8980","santfeliu",NULL,NULL,8,149,NULL,NULL,NULL,330,"330 Sant Feliú de Llobregat",0,"2019-06-24",NULL,"2019-06-11 16:02:42","2019-10-10 10:38:03",NULL
-228,"Almendralejo",NULL,"Almendralejo (de la Constitucion, 1)","6200","almendralejo",NULL,NULL,6,149,NULL,NULL,NULL,332,"332 Almendralejo",0,"2019-07-31",NULL,"2019-07-02 14:36:32","2019-10-10 10:33:34",NULL
-229,"Blanes",NULL,"Blanes (de Dintre, 13)","17300","blanes",NULL,NULL,17,149,NULL,NULL,NULL,302,"302 Blanes",0,"2019-08-19",NULL,"2019-07-12 13:16:06","2019-10-10 10:34:23",NULL
-230,"Écija",NULL,"Ecija (Miguel de Cervantes, 10)","41400","ecija",NULL,NULL,41,149,"53270.",NULL,NULL,315,"315 Écija",0,"2019-08-23",NULL,"2019-07-12 13:17:46","2019-10-21 10:19:05",NULL
-231,"Alcalá de Guadaíra",NULL,"Alcala de Guadaira (Mairena, 37)","41500","alcalaguadaira",NULL,NULL,41,149,NULL,NULL,NULL,316,"316 Alcalá de Guadaira",0,"2019-08-28",NULL,"2019-07-12 13:19:14","2019-10-10 10:33:21",NULL
-232,"Aranda de Duero",NULL,"Aranda de Duero (Isilla, 22)","9400","arandaduero",NULL,NULL,9,149,"09-C251-0215",NULL,NULL,325,"325 Aranda de Duero",0,"2019-08-31",NULL,"2019-07-12 13:20:36","2019-10-10 10:38:43",NULL
-233,"Pinto",NULL,"Pinto (de Dolores Soria, 1)","28320","pinto",NULL,NULL,28,149,"CS16287.",NULL,NULL,321,"321 Pinto",0,"2019-09-14",NULL,"2019-08-21 14:32:33","2019-11-07 11:43:07",NULL
-234,"Alzira",NULL,"Alzira (Major, 13)","46600","alzira",NULL,NULL,46,149,"21631.",NULL,NULL,276,"276 Alzira",0,"2019-09-19",NULL,"2019-08-21 14:35:12","2019-11-12 17:50:33",NULL
-235,"Mieres",NULL,"Mieres (Doce de Octubre, 22)","33600","mieres",NULL,NULL,33,149,"C.2.5.1. 6235.",NULL,NULL,319,"319 Mieres",0,"2019-09-13",NULL,"2019-08-21 14:36:52","2019-10-17 10:35:28",NULL
-236,"Melilla",NULL,"Melilla (Juan Carlos I, Rey, 15)","52001","melilla",NULL,NULL,52,149,NULL,NULL,NULL,291,"291 Melilla",0,"2019-12-18",NULL,"2019-10-23 09:43:09","2019-10-25 10:32:16",NULL
-237,"Ávila",NULL,"Avila (de los Hornos Caleros, 2)","05001","avila",NULL,NULL,5,149,NULL,NULL,NULL,294,"294 Ávila",0,"2019-12-31",NULL,"2019-10-23 09:46:08","2019-10-25 10:32:01",NULL
+1,"A Coruña",,"A Coruna (Juana de Vega, 23)","15004","coruna",1,,15,149,"C-15-003280.",2269,1522,47,"47 A Coruña",0,"2014-05-05",,"2017-12-31 00:00:00","2019-12-31 10:50:49",
+2,"Albacete",,"Albacete (Concepcion, 11)","2006","albacete",2,,2,149,"0207459/0211461.",2122,947,233,"233 Albacete - Concepcion",0,"2016-07-01",,"2017-12-31 00:00:00","2019-10-10 10:29:22",
+3,"Alcalá de Henares",,"Alcala de Henares (de Atilano Casado, 3)","28801","alcalahenares",6,,28,149,"CS13911.",,,13,"13 Alcalá de Henares",0,"2016-05-23",,"2017-12-31 00:00:00","2019-10-17 10:37:22",
+4,"Alcalá de Henares",,"Alcala de Henares (Tinte, 13)","28801","alcalahenares",6,,28,149,"CS11741.",,,13,"13 Alcalá de Henares",1,"2012-08-01","2018-01-01","2017-12-31 00:00:00","2019-12-31 10:52:35","2019-07-26 12:02:22"
+5,"Alcantarilla",,"Alcantarilla (Mayor, 127 A)","30820","alcantarilla",7,,30,149,"40001700.",,,173,"173 Alcantarilla",0,"2015-05-01",,"2017-12-31 00:00:00","2019-10-17 09:57:37",
+6,"Alcobendas",,"Alcobendas (Constitucion, 37)","28100","alcobendas",8,,28,149,"CS11703.",,,20,"20 Alcobendas",0,"2012-08-01",,"2017-12-31 00:00:00","2019-10-17 10:38:01",
+7,"Alcobendas",,"Alcobendas (Constitución, 69)","28100","alcobendas",8,,28,149,"CS14256.",,,20,"20 Alcobendas",0,"2016-06-27",,"2017-12-31 00:00:00","2019-10-17 10:38:09",
+8,"Alcoi",,"Alcoi (Alameda, 13)","3803","alcoy",10,,3,149,"19117.",,,272,"272 Alcoy",0,"2017-06-05",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+9,"Alcorcón",,"Alcorcon (Mayor, 10)","28921","alcorcon",9,,28,149,"CS11769.",,,49,"49 Alcorcon",0,"2011-12-01",,"2017-12-31 00:00:00","2019-10-17 10:38:19",
+11,"Algeciras",,"Algeciras (Regino Martinez, 2)","11201","algeciras",11,,11,149,"46190.",,,196,"196 Algeciras",0,"2015-12-16",,"2017-12-31 00:00:00","2019-06-21 09:15:35",
+12,"Alicante",,"Alicante (Maisonnave, 27)","3003","alicante",12,,3,149,"12382.",,,3,"3 Alicante",0,"2014-01-23",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+13,"Almería",,"Almeria (de Almeria, 41)","4001","almeria",13,,4,149,"42241.",,,129,"129 Almería",0,"2014-08-27",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+14,"Andújar",,"Andujar (Ollerias, 23)","23740","andujar",14,,23,149,"49426.",,,281,"281 Andújar",0,"2017-09-12",,"2017-12-31 00:00:00","2019-10-10 10:33:51",
+15,"Antequera",,"Antequera (Duranes, 23)","29200","antequera",15,,29,149,"43897.",,,160,"160 Antequera - Malaga",0,"2014-11-24",,"2017-12-31 00:00:00","2019-06-21 09:17:17",
+16,"Aranjuez",,"Aranjuez (de San Antonio, 59)","28300","aranjuez",16,,28,149,"CS13948.",,,215,"215 Aranjuez",0,"2016-05-31",,"2017-12-31 00:00:00","2019-06-21 09:17:50",
+17,"Badajoz",,"Badajoz (Manuel Saavedra Palmeiro, 12)","6004","badajoz",17,,6,149,"06101210.",,,127,"127 Badajoz",0,"2014-07-15",,"2017-12-31 00:00:00","2019-06-21 09:18:07",
+18,"Badalona",,"Badalona (del Mar, 67)","8911","badalona",18,,8,26,"E08607469.",,,24,"24 Badalona",0,"2013-09-01",,"2017-12-31 00:00:00","2019-06-21 10:31:03",
+19,"Badalona",,"Badalona (del Mar, 73)","8911","badalona",18,,8,26,"E08581490.",,,24,"24 Badalona",1,"2015-01-01","2017-07-20","2017-12-31 00:00:00","2019-07-18 17:36:55","2018-01-01 00:00:00"
+20,"Barcelona",,"Barcelona (Balmes, 284)","8006","balmes",26,,8,26,"E08603418.",,,159,,0,"2014-11-01","2019-06-01","2017-12-31 00:00:00","2019-07-25 15:42:54","2019-07-25 15:42:54"
+21,"Barcelona",,"Barcelona (del Llobregos, 161)","8032","llobregos",102,,8,26,"E08617918.",,,236,"236 Barcelona - Llobregos",0,"2016-01-04",,"2017-12-31 00:00:00","2019-06-21 10:32:32",
+22,"Barcelona",,"Barcelona (Gran de Gracia, 135)","8012","grandegracia",21,,8,26,"E08584878.",,,7,"7 Barcelona Gran de Gracia",1,"2014-03-01",,"2017-12-31 00:00:00","2019-06-21 10:32:13",
+23,"Barcelona",,"Barcelona (Fabra i Puig, 129)","8016","fabra",62,,8,26,"E08618260.",,,218,"218 Barcelona Fabra",0,"2015-12-28",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+24,"Barcelona",,"Barcelona (del Poblenou, 104)","8005","poblenou",22,,8,26,"E08603400.",,,158,"158 Poblenou-Barcelona",0,"2014-11-28",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+25,"Barcelona",,"Barcelona (Rda. Sant Antoni, 17)","8011","santantoni",25,,8,26,"E08612719.",,,206,"206 Barcelona Sant Antoni",0,"2015-06-19",,"2017-12-31 00:00:00","2019-06-21 10:34:34",
+26,"Barcelona",,"Barcelona (Rossello, 416)","8025","rosello",23,,8,26,"E08590247.",,,134,"134 Barcelona Sagrada Familia",0,"2014-07-30",,"2017-12-31 00:00:00","2019-06-21 10:33:30",
+27,"Barcelona",,"Barcelona (Sants, 8)","8014","sants",20,,8,26,"E08567135.",,,119,"119 Barcelona Sants",0,"2014-06-10",,"2017-12-31 00:00:00","2019-06-21 10:34:51",
+28,"Basauri",,"Basauri (Begonako Andra Mari Kalea, 16)","48970","basauri",24,,48,149,"48 C.2.5.1. 10886.",,,197,"197 Basauri",0,"2015-05-28",,"2017-12-31 00:00:00","2019-10-17 09:58:51",
+29,"Benavente",,"Benavente (de los Herreros, 16)","49600","benavente",27,,49,149,"49-C251-0101",,,170,"170 Benavente",0,"2015-05-06",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+30,"Bermeo",,"Bermeo (Lamera Ibilbidea 1)","48370","bermeo",28,,48,149,"48 C.2.5.1. 11302",,,261,"261 Bermeo",0,"2016-09-19",,"2017-12-31 00:00:00","2019-10-17 09:59:10",
+31,"Bilbao","Santutxu","Bilbao (Aita Esteban Pernet, 2)","48004","santutxu",176,,48,149,"48 C.2.5.1. 11181.",,,216,"216 Santutxu - Bilbao",0,"2016-03-29",,"2017-12-31 00:00:00","2019-10-17 10:16:48",
+32,"Bilbao",,"Bilbao (Gran Via de Don Diego Lopez de Haro, 37)","48009","bilbao",29,,48,149,"48 C.2.5.1. 10995.",,,135,"135 Bilbao",0,"2015-08-12",,"2017-12-31 00:00:00","2019-10-17 09:59:30",
+33,"Boadilla del Monte",,"Boadilla del Monte (Juan Carlos I, 53)","28660","boadilla",30,,28,149,"CS13317.",,,151,"151 Boadilla del Monte",0,"2014-09-29",,"2017-12-31 00:00:00","2019-06-21 10:39:00",
+34,"Burgos",,"Burgos (del Cid Campeador, 3)","9003","burgos",32,,9,149,"09-C251-0166.",,,36,"36 Burgos",0,"2013-04-01",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+35,"Cádiz",,"Cadiz (Doctor Fleming, 2)","11009","cadiz",35,,11,149,"42597.",,,149,"149 Cádiz",0,"2014-08-08",,"2017-12-31 00:00:00","2019-07-18 17:41:45",
+36,"Cambrils",,"Cambrils (de Pau Casals, 45)","43850","cambrils",36,,43,26,"E43625919.",,,259,"259 Cambrils",0,"2017-02-13",,"2017-12-31 00:00:00","2019-06-21 10:40:18",
+37,"Cartagena",,"Cartagena (Puertas de Murcia, 31-35)","30201","cartagena",38,,30,149,"40001401.",,,131,"131 Cartagena",0,"2014-12-22",,"2017-12-31 00:00:00","2019-10-17 09:59:53",
+38,"Castelldefels",,"Castelldefels (Santa Maria, 11)","8860","castelldefels",39,,8,26,"E08591378.",,,125,"125 Castelldefels",0,"2014-07-07",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+39,"Castellón",,"Castellon (Puerta del Sol, 2)","12001","castellon",40,,12,149,"13609.",,,152,"152 Castellón",0,"2014-10-22",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+40,"Castro Urdiales",,"Castro Urdiales (La Ronda, 28)","39700","castrourdiales",,,39,149,"06/2016/02709.",,,237,"237 Castro Urdiales",0,"2016-03-31",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+41,"Ciudad Real",,"Ciudad Real (Postas, 2)","13001","ciudadreal",43,,13,149,"1307557/1311144.",,,242,"242 Ciudad Real - Postas",0,"2016-05-23",,"2017-12-31 00:00:00","2019-06-21 10:42:33",
+42,"Collado Villalba",,"Collado Villalba (Real, 45)","28400","villalba",45,,28,149,"CS13896.",,,132,"132 Collado Villalba",0,"2016-06-14",,"2017-12-31 00:00:00","2019-06-21 10:42:48",
+43,"Colmenar Viejo",,"Colmenar Viejo (Boteros, 3)","28770","colmenarviejo",46,,28,149,"CS13247.",,,181,"181 Colmenar Viejo",0,"2015-02-23",,"2017-12-31 00:00:00","2019-10-17 10:38:27",
+44,"Córdoba",,"Cordoba (Jose Cruz Conde, 12)","14003","cordoba",47,,14,149,"41042.",,,21,"21 Córdoba",0,"2013-11-01",,"2017-12-31 00:00:00","2019-06-21 10:43:21",
+45,"Cornellà de Llobregat",,"Cornella de Llobregat (de Josep Anselm Clave, 26)","8940","cornella",48,,8,26,"E08590335.",,,146,"146 Cornellá",0,"2014-07-18",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+46,"Coslada",,"Coslada (Constitucion, 86)","28821","coslada",49,,28,149,"CS13203.",,,166,"166 Coslada",0,"2015-02-04",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+47,"Cuenca",,"Cuenca (Castilla La Mancha, 2)","16002","cuenca",50,,16,149,"1606933/1609641.",,,133,"133 Cuenca",0,"2014-08-30",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+48,"Dénia",,"Denia (Marques de Campo, 64)","3700","denia",52,,3,149,"18219.",,,252,"252 Denia",0,"2016-07-18",,"2017-12-31 00:00:00","2019-06-21 10:44:57",
+49,"Dos Hermanas",,"Dos Hermanas (La Mina, 1)","41700","doshermanas",54,,41,149,"41371.",,,11,"11 Dos Hermanas",0,"2014-03-24",,"2017-12-31 00:00:00","2019-06-21 10:45:32",
+50,"Durango",,"Durango (Andra Mari Kalea, 4)","48200","durango",55,,48,149,"48 C.2.5.1. 11056.",,,224,"224 Durango",0,"2015-11-16",,"2017-12-31 00:00:00","2019-10-17 10:00:18",
+51,"El Ejido",,"El Ejido (Bulevar de El Ejido, 222)","4700","elejido",56,,4,149,"47851.",,,267,"267 El Ejido",0,"2017-02-13",,"2017-12-31 00:00:00","2019-06-21 10:46:30",
+52,"El Prat de Llobregat",,"El Prat de Llobregat (de la Verge de Montserrat, 105)","8820","elprat",58,,8,26,"E08626983.",,,269,"269 El Prat De Llobregat",0,"2016-11-11",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+53,"El Puerto de Santa María",,"El Puerto de Santa Maria (Virgen de los Milagros, 87)","11500","elpuerto",,,11,149,"45641.",,,190,"190 Puerto De Santa Maria",0,"2015-12-15",,"2017-12-31 00:00:00","2019-06-21 10:47:13",
+54,"Elche",,"Elche (de la Glorieta, 9)","3203","elche",59,,3,149,"12911.",,,5,"5 Elche",0,"2014-02-06",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+55,"Elda",,"Elda (Principe de Asturias, 25)","3600","elda",60,,3,149,"18221.",,,268,"268 Elda",0,"2016-08-01",,"2017-12-31 00:00:00","2019-06-21 10:48:10",
+56,"Estepona",,"Estepona (Espana, 126)","29680","estepona",61,,29,149,"48558.",,,271,"271 Estepona",0,"2017-06-05",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+57,"Ferrol",,"Ferrol (Real, 78)","15402","ferrol",57,,15,149,"C-15-003548.",,,143,"143 El Ferrol",0,"2014-02-06",,"2017-12-31 00:00:00","2019-06-21 10:48:46",
+58,"Figueres",,"Figueres (Pujada del Castell, 11)","17600","figueres",63,,17,26,"E17624961.",,,254,"254 Figueras",0,"2016-11-02",,"2017-12-31 00:00:00","2019-06-21 10:49:06",
+59,"Fuengirola",,"Fuengirola (Condes de San Isidro, 15)","29640","fuengirola",65,,29,149,"46765.",,,248,"248 Fuengirola Avenida Condes",0,"2016-07-01",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+60,"Fuenlabrada",,"Fuenlabrada (Malaga, 1)","28945","fuenlabrada2",67,,28,149,"CS15166",,,43,"43 Fuenlabrada 2",0,"2011-12-01",,"2017-12-31 00:00:00","2019-06-21 10:50:01",
+61,"Fuenlabrada",,"Fuenlabrada (Portugal, 44)","28943","fuenlabrada1",66,,28,149,"CS11819.",,,51,"51 Fuenlabrada 1",0,"2011-10-01",,"2017-12-31 00:00:00","2019-10-17 10:38:36",
+62,"Galdakao",,"Galdakao (Juan Bautista Uriarte Kalea, 18)","48960","galdakao",69,,48,149,"48 C.2.5.1. 11367.",,,274,"274 Galdakao",0,"2016-11-28",,"2017-12-31 00:00:00","2019-10-17 10:01:01",
+63,"Gandía",,"Gandia (Raco Pare Leandro Calvo, 1)","46701","gandia",70,,46,149,"17851.",,,136,"136 Gandia",0,"2015-12-25",,"2017-12-31 00:00:00","2019-06-21 10:50:51",
+64,"Gavà",,"Gava (de Maria Casas, 78)","8850","gava",71,,8,26,"E08614314.",,,203,"203 Barcelona Gavá",0,"2015-07-30",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+65,"Getafe",,"Getafe (Madrid, 58)","28902","getafe1",72,,28,149,"CS12695.",,,191,,1,"2014-07-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:38:46","2018-01-01 00:00:00"
+66,"Getafe",,"Getafe (Madrid, 73)","28902","getafe",73,,28,149,"CS12695.",,,50,"50 Getafe 73",0,"2011-02-01",,"2017-12-31 00:00:00","2019-06-21 10:51:35",
+67,"Getxo",,"Getxo (Mayor, 23)","48930","getxo",74,,48,149,"RPS 105/18 Responsable Asistencial Licenciado en Odontología.",,,29,"29 Getxo",1,"2014-04-25",,"2017-12-31 00:00:00","2019-06-21 10:51:56",
+68,"Getxo",,"Getxo (Mayor, 21)","48930","getxo",74,,48,149,"RPS 105/18 Responsable Asistencial Licenciado en Odontología.",,,45,,0,"2013-01-01","2018-01-01","2017-12-31 00:00:00","2019-07-25 15:43:49","2019-07-25 15:43:49"
+69,"Gijón",,"Gijon (Corrida, 59)","33206","gijon",75,,33,149,"C.2.5.1./4132.",,,9,"9 Gijón",0,"2014-03-13",,"2017-12-31 00:00:00","2019-10-17 10:09:46",
+70,"Girona",,"Girona (de Joan Maragall, 35)","17002","girona",76,,17,26,"E17565593.",,,117,"117 Girona",0,"2014-05-19",,"2017-12-31 00:00:00","2019-06-21 10:52:27",
+71,"Granada",,"Granada (Recogidas, 58)","18004","granadarecogidas",79,,18,149,"47835.",,,266,"266 Granada 2 - Recogidas",0,"2017-02-06",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+72,"Granada",,"Granada (Mesones, 17)","18001","granada",78,,18,149,"41819.",,,12,"12 Granada",0,"2014-03-21",,"2017-12-31 00:00:00","2019-06-21 10:52:44",
+73,"Granollers",,"Granollers (Lluis Perpinya, 8)","8401","granollers",80,,8,26,"E08617805.",,,209,"209 Granollers",0,"2016-01-28",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+74,"Guadalajara",,"Guadalajara (Virgen del Amparo, 9)","19001","guadalajara",81,,19,149,"1906840/1902949.",,,33,"33 Guadalajara",0,"2013-10-01",,"2017-12-31 00:00:00","2019-06-21 10:53:37",
+75,"Huelva",,"Huelva (Concepcion, 1)","21001","huelva",84,,21,149,"47322.",,,247,"247 Huelva - Concepción",0,"2016-08-29",,"2017-12-31 00:00:00","2019-06-21 10:54:39",
+76,"Huelva","CC Holea","Huelva (CC Holea, Ronda Exterior Zona Sur, s.n.)","21007","ccholea",83,,21,149,"45963.",,,189,"189 Huelva Holea",0,"2015-06-03",,"2017-12-31 00:00:00","2019-07-12 14:09:19",
+77,"Huesca",,"Huesca (Coso Bajo, 3)","22001","huesca",85,,22,149,"2220903.",,,178,"178 Huesca",0,"2015-05-18",,"2017-12-31 00:00:00","2019-10-17 10:04:08",
+78,"Ibiza",,"Ibiza (dIgnasi Wallis, 35)","7800","ibiza",86,,7,149,"4551.",,,273,"273 Ibiza",0,"2016-11-28",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+79,"Inca",,"Inca (de Espana, 13)","7300","inca",87,,7,149,"4428.",,,204,"204 Inca",0,"2016-02-15",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+80,"Irún",,"Irun (de Colon, 38)","20302","irun",91,,20,149,"20 C.2.5.1. 9622.",,,137,"137 Irún",0,"2014-07-28",,"2017-12-31 00:00:00","2019-10-17 10:04:33",
+81,"Jaén",,"Jaen (de la Madre Soledad Torres Acosta, 2)","23001","jaen",93,,23,149,"41798.",,,120,"120 Jaén",0,"2014-06-24",,"2017-12-31 00:00:00","2019-06-21 10:56:24",
+82,"Jerez","CC Área Sur","Jerez (CC Area Sur, Nacional IV, Km 639)","11408","ccareasur",95,,11,149,"45853.",,,207,"207 Jerez C.C. Área Sur",0,"2015-10-13",,"2017-12-31 00:00:00","2019-07-12 14:09:34",
+83,"Jerez",,"Jerez (Lanceria, 16)","11402","jerez",94,,11,149,"40991.",,,22,"22 Jerez",0,"2013-11-01",,"2017-12-31 00:00:00","2019-06-21 10:56:51",
+84,"L'Hospitalet de Llobregat",,"L'Hospitalet de Llobregat (de la Marina, 542-546)","8901","hospitalet",82,,8,26,"E08581813.",,,25,"25 Hospitalet",0,"2013-11-01",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+85,"L'Hospitalet de Llobregat",,"L'Hospitalet de Llobregat (Just Oliveras, 37-39)","8901","hospitalet",82,,8,26,"E08618407.",,,25,"25 Hospitalet",1,"2017-06-19",,"2017-12-31 00:00:00","2019-10-10 10:22:35",
+86,"La Línea de la Concepción",,"La Linea de la Concepcion (Real, 45)","11300","lalinea",96,,11,149,"46023.",,,219,"219 La Línea De La Concepción",0,"2015-11-27",,"2017-12-31 00:00:00","2019-06-21 10:58:27",
+87,"Las Palmas","CC Las Arenas","Las Palmas (CC Las Arenas, local A-41b.  del Rincon)","35010","cclasarenas",42,,35,149,"31063.",,,208,"208 C.C. Las Arenas Las Palmas",0,"2015-08-24",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+88,"Las Palmas","CC La Ballena","Las Palmas (CC La Ballena, General del Norte 112 , local 0-29)","35013","ballena",33,,35,149,"31054.",,,185,"185 Las Palmas -  C.C. La Ballena",0,"2015-07-15",,"2017-12-31 00:00:00","2019-07-12 14:09:54",
+89,"Las Palmas",,"Las Palmas (Triana, 107)","35002","laspalmas",97,,35,149,"29957.",,,144,"144 Las Palmas",0,"2014-11-24",,"2017-12-31 00:00:00","2019-06-21 10:59:21",
+90,"Leganés",,"Leganes (Jeromin, 2)","28911","leganes",98,,28,149,"CS13074.",,,156,"156 Leganes",0,"2014-11-26",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+91,"León",,"Leon (de Santo Domingo, 5)","24002","leon",99,,24,149,"24-C251-0261.",,,31,"31 León",0,"2013-03-01",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+92,"Linares",,"Linares (Corredera de San Marcos, 23)","23700","linares",100,,23,149,"46014.",,,226,"226 Linares",0,"2015-11-23",,"2017-12-31 00:00:00","2019-06-21 11:20:26",
+93,"Lleida",,"Lleida (del Carme, 25)","25007","lerida",101,,25,26,"E25618608.",,,210,"210 Lleida",0,"2015-12-18",,"2017-12-31 00:00:00","2019-06-21 11:20:45",
+94,"Logroño",,"Logrono (Jorge Vigon, 2)","26003","logrono",103,,26,149,"2558.",,,40,"40 Logroño",0,"2013-08-01",,"2017-12-31 00:00:00","2019-07-05 15:29:34",
+95,"Lorca",,"Lorca (Juan Carlos I, 28)","30800","lorca",104,,30,149,"40001811.",,,179,"179 Lorca",0,"2015-12-09",,"2017-12-31 00:00:00","2019-10-17 10:06:29",
+96,"Lugo",,"Lugo (San Marcos, 4-6)","27001","lugo",105,,27,149,"C-27-001091.",,,214,"214 Lugo",0,"2017-10-02",,"2017-12-31 00:00:00","2019-10-10 10:30:56",
+97,"Madrid",,"Madrid (Alcala, 385)","28027","alcala385",4,,28,149,"CS12331.",,,42,"42 Alcalá 385",0,"2010-12-01",,"2017-12-31 00:00:00","2019-10-22 18:07:36",
+98,"Madrid",,"Madrid (Alcala, 386)","28027","alcala386",5,,28,149,"CS12095.",,,34,"34 Alcalá 386",0,"2013-09-01",,"2017-12-31 00:00:00","2019-10-17 10:39:02",
+99,"Madrid","CC Plenilunio","Madrid (CC Plenilunio, Aracne s.n.)","28022","ccplenilunio",,,28,149,"CS13506.",,,201,,0,"2015-06-01","2018-10-01","2017-12-31 00:00:00","2019-10-17 10:39:09","2019-07-26 12:59:46"
+100,"Madrid",,"Madrid (de la Albufera, 105)","28038","albufera",3,,28,149,"CS12186.",,,16,"16 Albufera",0,"2012-09-01",,"2017-12-31 00:00:00","2019-10-17 10:25:13",
+101,"Madrid","Barajas","Madrid (de Logrono, 112)","28042","barajas",19,,28,149,"CS13462.",,,195,"195 Barajas",0,"2015-06-11",,"2017-12-31 00:00:00","2019-10-17 10:39:17",
+102,"Madrid","Las Rosas","Madrid (de Niza, 57)","28022","lasrosas",87,,28,149,"CS12956.",,,155,"155 San Blas",0,"2014-11-14",,"2017-12-31 00:00:00","2019-10-17 10:05:11",
+103,"Madrid","Moratalaz","Madrid (Moratalaz, 127)","28030","moratalaz",139,,28,149,"CS13508.",,,217,"217 Moratalaz",0,"2015-09-28",,"2017-12-31 00:00:00","2019-10-17 10:08:13",
+104,"Madrid",,"Madrid (Bravo Murillo, 121)","28020","bravomurillo",31,,28,149,"CS12068.",,,17,"17 Bravo Murillo",0,"2013-04-01",,"2017-12-31 00:00:00","2019-10-17 10:39:29",
+105,"Madrid","CC La Vaguada","Madrid (CC La Vaguada, Monforte de Lemos, 36)","28029","vaguada2",219,,28,149,"CS13422.",,,175,"175 Vaguada 2",0,"2015-04-23",,"2017-12-31 00:00:00","2019-07-12 14:10:41",
+106,"Madrid","Quevedo","Madrid (de Arapiles, 1)","28015","quevedo",159,,28,149,"CS12896.",,,150,"150 Madrid Quevedo",0,"2014-09-17",,"2017-12-31 00:00:00","2019-06-21 11:28:03",
+107,"Madrid","Carabanchel","Madrid - Carabanchel (de la Laguna, 42)","28025","carabanchel",37,,28,149,"CS13615.",,,221,"221 Carabanchel",0,"2015-09-28",,"2017-12-31 00:00:00","2019-10-17 10:39:43",
+108,"Madrid",,"Madrid (Ginzo de Limia, 39)","28029","vaguada",218,,28,149,"CS12070.",,,35,,1,"2013-04-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:39:36","2018-01-01 00:00:00"
+109,"Madrid",,"Madrid (Goya, 58)","28001","madridgoya",125,,28,149,"CS14415.",,,257,"257 Madrid - Goya 58",0,"2017-02-06",,"2017-12-31 00:00:00","2019-06-21 11:24:40",
+110,"Madrid",,"Madrid (Gran Via, 46)","28013","madridgranvia",96,,28,149,"CS14814.",,,262,,0,"2017-11-02","2019-07-22","2017-12-31 00:00:00","2019-10-10 10:36:15","2019-07-25 15:44:49"
+111,"Madrid",,"Madrid (Lopez de Hoyos, 132)","28002","lopezdehoyos",126,,28,149,"CS14276.",,,223,"223 Madrid - Lopez De Hoyos",0,"2016-09-26",,"2017-12-31 00:00:00","2019-06-21 11:26:34",
+112,"Madrid",,"Madrid (Marcelo Usera, 134)","28026","usera134",215,,28,149,"CS11866.",,,14,"14 Marcelo Usera 134 (usera 2)",0,"2013-12-01",,"2017-12-31 00:00:00","2019-10-17 10:19:36",
+113,"Madrid",,"Madrid (Marcelo Usera, 139)","28026","usera139",216,,28,149,"CS11852.",,,1,"1 Marcelo Usera 139 (usera 1)",0,"2012-05-01",,"2017-12-31 00:00:00","2019-10-17 10:19:48",
+114,"Madrid",,"Madrid (de las Delicias, 44)","28045","delicias",51,,28,149,"CS5955.",,,48,"48 Delicias",1,"2007-08-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 10:39:52","2018-01-01 00:00:00"
+115,"Madrid","Vallecas","Madrid (Federico Garcia Lorca, 3)","28031","vallecas2",225,,28,149,"CS13593.",,,200,"200 Vallecas",0,"2015-07-15",,"2017-12-31 00:00:00","2019-10-17 10:25:27",
+116,"Madrid",,"Madrid (Palos de la Frontera, 42)","28045","delicias",51,,28,149,"CS13895.",,,48,"48 Delicias",0,"2016-01-11",,"2017-12-31 00:00:00","2019-06-21 11:27:35",
+118,"Mahón",,"Mahon (de Ses Moreres, 48)","7703","mahon",127,,7,149,"4286.",,,171,"171 Mahón",0,"2015-03-10",,"2017-12-31 00:00:00","2019-06-21 11:32:03",
+119,"Majadahonda",,"Majadahonda (Cristobal Colon, 11)","28220","majadahonda",128,,28,149,"CS13880.",,,138,"138 Majadahonda",0,"2016-05-25",,"2017-12-31 00:00:00","2019-10-17 10:06:56",
+120,"Málaga",,"Malaga (Cuarteles, 64)","29002","malaga2",130,,29,149,"44233.",,,57,"57 Málaga 2",0,"2014-12-23",,"2017-12-31 00:00:00","2019-06-21 11:33:04",
+121,"Málaga",,"Malaga (Liborio Garcia, 1)","29005","malaga",129,,29,149,"39756.",,,23,"23 Málaga",0,"2013-06-01",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+122,"Málaga",,"Malaga (Puerta del Mar, 20)","29005","malaga",129,,29,149,"46648.",,,23,"23 Málaga",0,"2016-03-29",,"2017-12-31 00:00:00","2019-08-30 11:47:03",
+124,"Manacor",,"Manacor (dEn Jaume Domenge, 23)","7500","manacor",132,,7,149,"4462.",,,193,"193 Manacor",0,"2016-04-25",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+125,"Manresa",,"Manresa (Nou, 47)","8241","manresa",133,,8,26,"E08606659.",,,54,"54 Manresa",0,"2014-12-15",,"2017-12-31 00:00:00","2019-06-21 11:33:50",
+126,"Marbella",,"Marbella (Ricardo Soriano, 2)","29601","marbella",134,,29,149,"45210.",,,182,"182 Marbella",0,"2015-05-18",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+127,"Mataró",,"Mataro (de la Riera, 31)","8302","mataro",135,,8,26,"E08623735.",,,139,"139 Mataró",0,"2016-05-20",,"2017-12-31 00:00:00","2019-06-21 11:34:24",
+128,"Mérida",,"Merida (Santa Eulalia, 66)","6800","merida",136,,6,149,"06102489.",,,202,"202 Mérida",0,"2015-08-10",,"2017-12-31 00:00:00","2019-06-21 11:34:40",
+129,"Molina de Segura",,"Molina de Segura (Rosales, 25)","30500","molina",137,,30,149,"40001510.",,,162,"162 Molina de Segura",0,"2015-02-16",,"2017-12-31 00:00:00","2019-10-17 10:07:51",
+130,"Mollet del Vallès",,"Mollet del Valles (Nova, 12)","8100","mollet",138,,8,26,"E08606070.",,,55,"55 Mollet del Vallés",0,"2014-12-29",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+131,"Móstoles",,"Mostoles (del Dos de Mayo, 2)","28931","mostoles",140,,28,149,"CS12005.",,,44,"44 Móstoles",0,"2010-12-01",,"2017-12-31 00:00:00","2019-10-17 10:08:33",
+132,"Móstoles",,"Mostoles (de Goya, 5)","28932","mostoles2",141,,28,149,"CS13373.",,,192,"192 Móstoles 2",0,"2015-05-27",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+133,"Motril",,"Motril (Nueva, esq.  Tejedores)","18600","motril",142,,18,149,"42287.",,,124,"124 Motril",0,"2014-06-30",,"2017-12-31 00:00:00","2019-06-21 11:37:32",
+134,"Murcia",,"Murcia (Gran Via Escultor Fco. Salzillo, 28)","30005","murcia",143,,30,149,"40002092",,,229,"229 Murcia",0,"2017-03-06",,"2017-12-31 00:00:00","2019-10-17 10:08:51",
+135,"Orihuela",,"Orihuela (Calderon de la Barca, 7)","3300","orihuela",144,,3,149,"40021.",,,157,"157 Orihuela-Alicante",0,"2015-02-17",,"2017-12-31 00:00:00","2019-06-21 11:38:29",
+136,"Ourense",,"Ourense (do Paseo, 1)","32003","orense",145,,32,149,"C-32-000985.",,,128,"128 Ourense",0,"2014-07-28",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+137,"Oviedo",,"Oviedo (Uria, 1)","33003","oviedo",146,,33,149,"C.2.5.1./4195",,,145,"145 Oviedo",0,"2014-08-20",,"2017-12-31 00:00:00","2019-10-17 10:09:21",
+138,"Palencia",,"Palencia (Bocaplaza, 3)","34001","palencia",147,,34,149,"34-C251-0084.",,,165,"165 Palencia",0,"2015-05-05",,"2017-12-31 00:00:00","2019-06-21 11:39:22",
+139,"Palma",,"Palma (DAlexandre Rossello, 4)","7002","mallorca",148,,7,149,"3549.",,,26,"26 Palma de Mallorca",0,"2013-05-01",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+140,"Palma",,"Palma (de Jaume III, 26)","7012","mallorca2",131,,7,149,"4358.",,,172,"172 Mallorca 2",0,"2015-08-17",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+141,"Pamplona",,"Pamplona (de Carlos III el Noble, 1)","31002","pamplona",149,,31,149,"C02454.",,,39,"39 Pamplona",0,"2013-11-01",,"2017-12-31 00:00:00","2019-10-17 10:10:18",
+142,"Pamplona",,"Pamplona (de Carlos III el Noble, 28)","31003","pamplona2",150,,31,149,"C02833.",,,231,"231 Pamplona 2",0,"2015-10-30",,"2017-12-31 00:00:00","2019-10-17 10:10:29",
+143,"Parla",,"Parla (Real, 64)","28981","parla",151,,28,149,"CS14592.",,,187,"187 Parla",0,"2017-06-05",,"2017-12-31 00:00:00","2019-06-21 11:40:34",
+144,"Paterna",,"Paterna (Maestro Canos, 26)","46980","paterna",152,,46,149,"18179.",,,244,"244 Paterna",0,"2016-08-01",,"2017-12-31 00:00:00","2019-06-21 11:40:45",
+145,"Plasencia",,"Plasencia (Pedro Isidro, 1)","10600","plasencia",153,,10,149,"10102588.",,,251,"251 Plasencia",0,"2016-09-19",,"2017-12-31 00:00:00","2019-06-21 11:41:03",
+146,"Ponferrada",,"Ponferrada (Camino de Santiago, 2)","24400","ponferrada",154,,24,149,"24-C251-0285.",,,130,"130 Ponferrada",0,"2014-07-31",,"2017-12-31 00:00:00","2019-06-21 11:41:20",
+147,"Pontevedra",,"Pontevedra (Benito Corbal, 23)","36001","pontevedra",155,,36,149,"C-36-002415.",,,121,"121 Pontevedra",0,"2014-06-19",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+148,"Portugalete",,"Portugalete (Carlos VII, 2)","48920","portugalete",156,,48,149,"48 C.2.5.1. 9213.",,,18,"18 Portugalete",0,"2014-03-28",,"2017-12-31 00:00:00","2019-10-17 10:11:59",
+149,"Portugalete",,"Portugalete (General Castanos, 31)","48920","portugalete",,,48,149,"48 C.2.5.1. 10010.",,,18,"18 Portugalete",0,"2014-12-01",,"2017-12-31 00:00:00","2019-10-17 10:12:13",
+150,"Puerto del Rosario","Fuerteventura","Puerto del Rosario (Ramon Penate, 6)","35600","fuerteventura",68,,35,149,"31091.",,,184,"184 Fuerteventura",0,"2015-08-24",,"2017-12-31 00:00:00","2019-06-21 11:42:38",
+151,"Puertollano",,"Puertollano (de San Gregorio, 11)","13500","puertollano",158,,13,149,"1307484/1310577.",,,198,"198 Puertollano",0,"2015-06-17",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+152,"Reus",,"Reus (Prim, 14)","43201","reus",160,,43,26,"E43602968.",,,140,"140 Reus",0,"2014-12-29",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+153,"Ronda",,"Ronda (Espinel esq.  Juan Jose de Puya, 2)","29400","ronda",161,,29,149,"46459.",,,225,"225 Ronda",0,"2016-01-25",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+154,"Roquetas de Mar",,"Roquetas de Mar (Tres Martires, 7)","4740","roquetas",162,,4,149,"47892.",,,264,"264 Roquetas De Mar",0,"2017-08-01",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+155,"Rubí",,"Rubi (de Francesc Macia, 58-60)","8191","rubi",163,,8,26,"E08617890.",,,211,"211 Rubí",0,"2015-11-02",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+156,"Sabadell",,"Sabadell (Rambla, 84)","8201","sabadell",164,,8,26,"E08624898.",,,141,"141 Sabadell",0,"2016-07-01",,"2017-12-31 00:00:00","2019-06-21 11:44:19",
+157,"Sagunto",,"Sagunto (Nueve de Octubre, 71)","46520","sagunto",165,,46,149,"18204.",,,258,"258 Sagunto",0,"2016-07-26",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+158,"Salamanca",,"Salamanca (Toro, 104)","37002","salamanca",166,,37,149,"37-C251-0190.",,,32,"32 Salamanca",0,"2013-04-01",,"2017-12-31 00:00:00","2019-06-21 11:45:03",
+159,"San Fernando",,"San Fernando (San Rafael, 21)","11100","sanfernando",168,,11,149,"46607.",,,234,"234 San Fernando",0,"2016-02-08",,"2017-12-31 00:00:00","2019-06-21 11:45:19",
+160,"San Sebastián",,"San Sebastian (Miracruz, 16)","20001","sansebastian2",170,,20,149,"20 C.2.5.1. 10773.",,,168,"168 San Sebastián 2",0,"2015-02-23",,"2017-12-31 00:00:00","2019-10-17 10:15:28",
+161,"San Sebastián",,"San Sebastian (San Marcial, 35)","20005","sansebastian",169,,20,149,"20 C.2.5.1. 9119.",,,37,"37 San Sebastián",0,"2013-09-01",,"2017-12-31 00:00:00","2019-10-17 10:15:11",
+162,"San Vicente del Raspeig",,"San Vicente del Raspeig (Pintor Picasso, 59)","3690","sanvicente",171,,3,149,"40599.",,,180,"180 San Vicente Raspeig",0,"2015-06-08",,"2017-12-31 00:00:00","2019-06-21 11:47:25",
+163,"Sanlúcar de Barrameda",,"Sanlucar de Barrameda (Ancha, 21)","11540","sanlucar",172,,11,149,"45912.",,,199,"199 Sanlúcar",0,"2015-08-31",,"2017-12-31 00:00:00","2019-06-21 11:47:38",
+164,"Santa Cruz de Tenerife",,"Santa Cruz de Tenerife (Castillo, 65)","38003","tenerife",,,38,149,"31718.",,,297,"297 Santa Cruz De Tenerife",0,"2017-12-01",,"2017-12-31 00:00:00","2019-10-10 10:38:10",
+165,"Santander",,"Santander (Calvo Sotelo, 6)","39002","santander",173,,39,149,"06/2013/01980.",,,30,"30 Santander",0,"2013-11-01",,"2017-12-31 00:00:00","2019-06-21 11:48:23",
+166,"Santiago de Compostela",,"Santiago de Compostela (Republica de El Salvador, 4)","15701","santiago",174,,15,149,"C-15-003191.",,,27,"27 Santiago",0,"2013-12-01",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+167,"Santurce",,"Santurce (Sabino Arana, 6)","48980","santurce",175,,48,149,"48 C.2.5.1. 11004.",,,194,"194 Santurce",0,"2015-07-09",,"2017-12-31 00:00:00","2019-10-17 10:16:30",
+168,"Segovia",,"Segovia (del Acueducto, 39)","40002","segovia",177,,40,149,"40-C251-0102.",,,38,"38 Segovia",0,"2014-01-09",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+169,"Sevilla",,"Sevilla (Asuncion, 58)","41011","sevilla3",182,,41,149,"46823.",,,249,"249 Sevilla 3 - Calle Asunción",0,"2016-05-30",,"2017-12-31 00:00:00","2019-06-21 11:49:52",
+170,"Sevilla",,"Sevilla (Campana, 2)","41002","sevilla1",178,,41,149,"40971.",,,52,"52 Sevilla",0,"2014-05-14",,"2017-12-31 00:00:00","2019-06-21 11:49:24",
+171,"Sevilla",,"Sevilla (Luis de Morales, 32)","41018","sevillaluismorales",180,,41,149,"48118.",,,270,"270 Sevilla Luis De Morales",0,"2016-11-28",,"2017-12-31 00:00:00","2019-10-10 10:32:40",
+172,"Sevilla",,"Sevilla (Maria Auxiliadora, 18)","41008","sevilla2",182,,41,149,"44460.",,,163,"163 Sevilla 2 - Macarena",0,"2015-02-19",,"2017-12-31 00:00:00","2019-06-21 11:49:38",
+173,"Soria",,"Soria (El Collado, 43)","42002","soria",183,,42,149,"42-C251-0049.",,,148,"148 Soria",0,"2014-08-11",,"2017-12-31 00:00:00","2019-06-21 11:50:24",
+174,"Talavera de la Reina",,"Talavera de la Reina (San Francisco, 29)","45600","talavera",201,,45,149,"4507508/4512660.",,,142,"142 Talavera",0,"2014-10-22",,"2017-12-31 00:00:00","2019-06-21 11:50:40",
+175,"Tarragona",,"Tarragona (Nova, 77)","43003","tarragona",202,,43,26,"E43622467.",,,227,"227 Tarragona",0,"2016-05-25",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+176,"Telde",,"Telde (de la Constitucion, 43)","35200","telde",203,,35,149,"29956.",,,147,"147 Telde",0,"2014-10-22",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+177,"Terrassa",,"Terrassa (dEgara, 162, cant.  dIscle Soler, 30)","8221","terrassa",205,,8,26,"E08582856.",,,4,"4 Terrassa",0,"2014-01-27",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+178,"Teruel",,"Teruel (Ramon y Cajal, 14)","44001","teruel",206,,44,149,"4420568.",,,205,"205 Teruel",0,"2015-10-30",,"2017-12-31 00:00:00","2019-10-17 10:18:11",
+179,"Tomelloso",,"Tomelloso (Don Victor Penasco, 41)","13700","tomelloso",207,,13,149,"1307458/1310391.",,,56,"56 Tomelloso",0,"2015-01-19",,"2017-12-31 00:00:00","2019-06-21 11:52:13",
+180,"Torrejón de Ardoz",,"Torrejon de Ardoz (Enmedio, 41)","28850","torrejon",208,,28,149,"CS11773.",,,15,"15 Torrejón",0,"2012-07-01",,"2017-12-31 00:00:00","2019-10-17 10:18:36",
+181,"Torrelavega",,"Torrelavega (Julian Ceballos, 15)","39300","torrelavega",,,39,149,"06/2017/02986.",,,118,"118 Torrelavega",0,"2017-10-16",,"2017-12-31 00:00:00","2019-10-10 10:24:54",
+182,"Torrelavega",,"Torrelavega (Serafin Escalante, 1)","39300","torrelavega",209,,39,149,"06/2014/02128.",,,118,"118 Torrelavega",0,"2014-05-01","2017-10-16","2017-12-31 00:00:00","2019-07-26 13:02:05",
+183,"Torremolinos",,"Torremolinos (San Miguel, 2)","29620","torremolinos",210,,29,149,"45207.",,,183,"183 Torremolinos",0,"2015-03-25",,"2017-12-31 00:00:00","2019-06-21 11:53:09",
+184,"Torrent",,"Torrent (del Vedat, 101)","46900","torrent",211,,46,149,"40031.",,,153,"153 Torrent",0,"2014-10-08",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+185,"Torrevieja",,"Torrevieja (Maria Parodi, 21)","3181","torrevieja",212,,3,149,"40056.",,,174,"174 Torrevieja",0,"2015-02-26",,"2017-12-31 00:00:00","2019-06-21 11:53:40",
+186,"Tudela",,"Tudela (de los Fueros, 1)","31500","tudela",213,,31,149,"C02831.",,,176,"176 Tudela",0,"2015-09-04",,"2017-12-31 00:00:00","2019-10-17 10:19:12",
+187,"Úbeda",,"Ubeda (de Andalucia, 14)","23400","ubeda",214,,23,149,"45342.",,,177,"177 Úbeda",0,"2015-09-30",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+188,"Utrera",,"Utrera (La Fuente Vieja, 22)","41710","utrera",,,41,149,"48335.",,,275,"275 Utrera",0,"2017-12-01",,"2017-12-31 00:00:00","2019-10-17 10:20:52",
+189,"Valencia",,"Valencia (de Sant Vicent Martir, 55)","46002","valencia3",222,,46,149,"18178.",,,250,"250 Valencia 3 - Carrer De Sant Vicent",0,"2016-08-16",,"2017-12-31 00:00:00","2019-06-21 11:55:01",
+190,"Valencia",,"Valencia (del Pintor Sorolla, 35)","46002","valencia2",221,,46,149,"14986.",,,123,"123 Valencia 2",0,"2014-06-30",,"2017-12-31 00:00:00","2019-06-21 11:54:41",
+191,"Valencia",,"Valencia (Ruzafa, 29)","46005","valencia1",220,,46,149,"12018.",,,19,"19 Valencia",0,"2013-07-01",,"2017-12-31 00:00:00","2019-07-11 17:08:30",
+192,"Valladolid",,"Valladolid (de Zorrilla, 110)","47008","valladolid2",224,,47,149,"47-C251-0267.",,,46,"46 Valladolid 2",0,"2014-04-21",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+193,"Valladolid",,"Valladolid (de Espana, 8)","47001","valladolid1",223,,47,149,"47-C251-0251.",,,41,"41 Valladolid",0,"2012-09-01",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+194,"Vecindario",,"Vecindario (Canarias, 259)","35110","vecindario",226,,35,149,"30992.",,,169,"169 Vecindario",0,"2015-03-26",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+195,"Vélez-Málaga",,"Velez-Malaga (Canalejas, 44)","29700","velez-malaga",227,,29,149,"47448.",,,255,"255 Vélez Málaga",0,"2016-07-18",,"2017-12-31 00:00:00","2019-06-21 11:56:13",
+196,"Vigo",,"Vigo (de Gran Via, 9)","36204","vigo2",229,,36,149,"C-36-002463.",,,164,"164 Vigo 2",0,"2015-05-05","2019-12-01","2017-12-31 00:00:00","2019-10-31 11:16:55",
+197,"Vigo",,"Vigo (Pr. Porta do Sol, 6)","36202","vigo",228,,36,149,"C-36-002441.",,,10,"10 Vigo",0,"2015-03-23",,"2017-12-31 00:00:00","2019-06-21 11:56:28",
+198,"Vilafranca del Penedès",,"Vilafranca del Penedes (de Barcelona, 1)","8720","vilafranca",230,,8,26,"E08622386.",,,232,"232 Vilafranca Del Penedes",0,"2016-05-13",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+199,"Vilagarcía de Arousa",,"Vilagarcia de Arousa (de Galicia, 1)","36600","arousa",232,,36,149,"C-36-002408.",,,126,"126 Vilagarcía de Arousa",0,"2014-07-14",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+200,"Vilanova i la Geltrú",,"Vilanova i la Geltru (Rambla Josep Tomas Ventosa, 25)","8800","vilanova",231,,8,26,"E08629180.",,,230,"230 Vilanova i La Geltrú",0,"2017-05-22",,"2017-12-31 00:00:00","2019-06-21 11:57:36",
+201,"Vitoria",,"Vitoria (Eduardo Dato, 33)","1005","vitoria2",234,,1,149,"01 C.2.5.1. 10074.",,,53,"53 Vitoria 2",0,"2015-02-04",,"2017-12-31 00:00:00","2019-10-17 10:27:23",
+202,"Vitoria",,"Vitoria (de la Florida, 1)","1005","vitoria",233,,1,149,"01 C.2.5.1. 9075.",,,28,"28 Vitoria",0,"2013-11-01",,"2017-12-31 00:00:00","2019-10-17 10:27:04",
+203,"Zamora",,"Zamora (de Zorrilla, 5)","49003","zamora",235,,49,149,"49-C251-0095.",,,122,"122 Zamora",0,"2014-06-27",,"2017-12-31 00:00:00","2019-07-05 15:29:35",
+204,"Zaragoza",,"Zaragoza (Alfonso I, 28)","50003","zaragoza4",238,,50,149,"5024364.",,,228,"228 Zaragoza 4",0,"2016-05-16",,"2017-12-31 00:00:00","2019-10-17 10:28:22",
+205,"Zaragoza",,"Zaragoza (Delicias, 6)","50017","zaragoza3",236,,50,149,"5024031.",,,6,"6 Zaragoza 3 Delicias",0,"2014-09-19",,"2017-12-31 00:00:00","2019-10-17 10:28:09",
+206,"Zaragoza",,"Zaragoza (Jorge Jordana, 9)","50017","zaragoza2",237,,50,149,"5023908.",,,6,"6 Zaragoza 3 Delicias",1,"2014-02-01","2018-01-01","2017-12-31 00:00:00","2019-10-17 13:23:39","2018-01-01 00:00:00"
+207,"Zaragoza",,"Zaragoza (San Miguel, 7)","50001","zaragoza1",236,,50,149,"5023731.",,,8,"8 Zaragoza",0,"2013-02-01",,"2017-12-31 00:00:00","2019-10-17 10:27:57",
+208,"Madrid","Hortaleza","Madrid (de Canillas, 39)","28043","madridhortaleza",,,28,149,"CS15517",,,305,"305 Madrid - Hortaleza",0,"2018-10-01",,"2018-09-03 00:00:00","2019-10-10 10:36:23",
+209,"Madrid","Vicálvaro","Madrid (de San Cipriano, 13)","28032","vicalvaro",,,28,149,"CS15223.",,,293,"293 Vicálvaro",0,"2018-04-02",,"2018-09-03 20:41:56","2019-10-10 10:36:31",
+210,"Ceuta",,"Ceuta (Delgado Serrano, 1)","51001","ceuta",,,51,149,,,,306,"306 Ceuta - Camoens",0,"2018-07-02",,"2018-09-03 21:55:04","2019-10-10 10:34:38",
+211,"Cáceres",,"Caceres (Plaza America, 4)","10001","caceres",,,10,149,"10102811.",,,288,"288 Cáceres - Plaza América",0,"2018-03-12",,"2018-09-03 21:56:46","2019-10-10 10:34:30",
+212,"Las Palmas","CC La Ballena","Las Palmas (CC La Ballena, General del Norte 112 , local 13-14)","35013","ballena",33,88,35,149,"31792.",,,185,"185 Las Palmas -  C.C. La Ballena",0,"2018-01-15",,"2018-09-03 22:10:52","2019-10-21 14:14:12",
+213,"Chiclana de la Frontera",,"Chiclana de la Frontera (Artesano Pepe Marin, 2)","11130","chiclana",,,11,149,"51779",,,300,"300 Chiclana De La Frontera - Artesano Pepe Marín",0,"2018-10-01",,"2018-09-04 23:19:18","2019-10-10 10:34:45",
+214,"Miranda de Ebro",,"Miranda de Ebro (Estacion, 1)","9200","mirandaebro",,,9,149,"09-C251-0211.",,,282,"282 Miranda De Ebro",0,"2018-10-20",,"2018-09-04 23:23:37","2019-10-10 10:37:17",
+215,"El Vendrell",,"El Vendrell (La Rambla, 8)","43700","elvendrell",,,43,26,,,,317,"317 El Vendrell",0,"2018-11-15",,"2018-10-08 16:49:01","2019-10-10 10:35:21",
+216,"Toledo",,"Toledo (Ecuador, 2)","45004","toledo",,,45,149,"4507942/4515241",,,303,"303 Toledo - Avda De La Reconquista",0,"2018-11-24",,"2018-10-08 16:53:15","2019-10-10 10:38:16",
+217,"Benidorm",,"Benidorm (de Venus, 2)","3501","benidorm",,,3,149,"21003.",,,283,"283 Benidorm",0,"2018-12-03",,"2018-10-18 12:01:16","2019-10-10 10:34:13",
+218,"Don Benito",,"Don Benito (Ramon y Cajal, 18)","6400","donbenito",,,6,149,"6102976",,,309,"309 Don Benito",0,"2018-12-17",,"2018-10-18 12:02:57","2019-10-10 10:34:53",
+219,"Eibar",,"Eibar (Toribio Etxebarria Kalea, 13)","20600","eibar",,,20,149,"20 C.2.5.1. 12262.",,,320,"320 Eibar",0,"2018-12-03",,"2018-10-18 12:03:57","2019-10-17 10:30:59",
+220,"Rivas-Vaciamadrid","CC H2 Ocio","Rivas-Vaciamadrid (CC H2 Ocio, Marie Curie, 4, Local 12A)","28521","cch2o",,,28,149,"CS15693.",,,308,"308 Rivas Vaciamadrid - CC H2O",0,"2018-12-17",,"2018-11-23 10:50:56","2019-10-17 10:13:16",
+221,"Madrid","Villaverde","Madrid (Alberto Palacios, 19)","28021","madridvillaverde",,,28,149,"CS15712.",,,284,"284 Madrid Villaverde",0,"2019-01-18",,"2018-11-29 10:06:56","2019-10-10 10:36:39",
+222,"Olot",,"Olot (de lEscultor Miquel Blay, 1)","17800","olot",,,17,26,,,,307,"307 Olot",0,"2019-02-25",,"2019-01-31 16:32:14","2019-10-10 10:37:34",
+223,"Barakaldo",,"Barakaldo (Bide-Onera Plaza, 7)","48901","barakaldo",,,48,149,,,,313,"313 Barakaldo",0,"2019-03-27",,"2019-02-08 09:36:01","2019-10-10 10:34:06",
+224,"Madrid","Tetuán","Madrid (Bravo Murillo, 298)","28020","madridtetuan",,,28,149,,,,310,"310 Madrid - Tetuán",0,"2019-04-03",,"2019-03-05 11:24:05","2019-10-10 10:36:48",
+225,"Igualada",,"Igualada (de Sant Isidre, 19)","8700","igualada",,,8,26,,,,323,"323 Igualada",0,"2019-04-25",,"2019-03-29 11:41:44","2019-10-10 10:35:32",
+226,"Vila-real",,"Vila-real (Carrer Major Sant Jaume, 48)","12540","villarreal",,,12,149,"21397",,,327,"327 Villarreal",0,"2019-05-27",,"2019-06-11 16:00:19","2019-10-10 10:38:31",
+227,"Sant Feliu de Llobregat",,"Sant Feliu de Llobregat (Bertrand, 2)","8980","santfeliu",,,8,149,,,,330,"330 Sant Feliú de Llobregat",0,"2019-06-24",,"2019-06-11 16:02:42","2019-10-10 10:38:03",
+228,"Almendralejo",,"Almendralejo (de la Constitucion, 1)","6200","almendralejo",,,6,149,,,,332,"332 Almendralejo",0,"2019-07-31",,"2019-07-02 14:36:32","2019-10-10 10:33:34",
+229,"Blanes",,"Blanes (de Dintre, 13)","17300","blanes",,,17,149,,,,302,"302 Blanes",0,"2019-08-19",,"2019-07-12 13:16:06","2019-10-10 10:34:23",
+230,"Écija",,"Ecija (Miguel de Cervantes, 10)","41400","ecija",,,41,149,"53270.",,,315,"315 Écija",0,"2019-08-23",,"2019-07-12 13:17:46","2019-10-21 10:19:05",
+231,"Alcalá de Guadaíra",,"Alcala de Guadaira (Mairena, 37)","41500","alcalaguadaira",,,41,149,,,,316,"316 Alcalá de Guadaira",0,"2019-08-28",,"2019-07-12 13:19:14","2019-10-10 10:33:21",
+232,"Aranda de Duero",,"Aranda de Duero (Isilla, 22)","9400","arandaduero",,,9,149,"09-C251-0215",,,325,"325 Aranda de Duero",0,"2019-08-31",,"2019-07-12 13:20:36","2019-10-10 10:38:43",
+233,"Pinto",,"Pinto (de Dolores Soria, 1)","28320","pinto",,,28,149,"CS16287.",,,321,"321 Pinto",0,"2019-09-14",,"2019-08-21 14:32:33","2019-11-07 11:43:07",
+234,"Alzira",,"Alzira (Major, 13)","46600","alzira",,,46,149,"21631.",,,276,"276 Alzira",0,"2019-09-19",,"2019-08-21 14:35:12","2019-11-12 17:50:33",
+235,"Mieres",,"Mieres (Doce de Octubre, 22)","33600","mieres",,,33,149,"C.2.5.1. 6235.",,,319,"319 Mieres",0,"2019-09-13",,"2019-08-21 14:36:52","2019-10-17 10:35:28",
+236,"Melilla",,"Melilla (Juan Carlos I, Rey, 15)","52001","melilla",,,52,149,,,,291,"291 Melilla",0,"2019-12-18",,"2019-10-23 09:43:09","2019-10-25 10:32:16",
+237,"Ávila",,"Avila (de los Hornos Caleros, 2)","05001","avila",,,5,149,,,,294,"294 Ávila",0,"2019-12-31",,"2019-10-23 09:46:08","2019-10-25 10:32:01",
