@@ -393,11 +393,11 @@ class Clinic extends Qmodel
         'clinic_manager',
         'clinic_posters.poster',
         'clinic_posters.clinic_poster_priorities',
-        'clinic_poster_priorities',
+        'clinic_poster_priorities.clinic_poster.poster',
         'poster_distributions.complete_facades',
         'poster_distributions.original_facade'
-      ],
-      'append' => ['posters']
+      ]
+      // 'append' => ['posters']
     ],
   ];
   // END Model Views

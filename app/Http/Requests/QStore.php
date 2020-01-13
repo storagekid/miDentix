@@ -46,7 +46,11 @@ class QStore extends FormRequest
         if ($this->name) {
             if (class_exists($this->name)) {
                 $request = new $this->name;
-                return $request->rules($this, $this->getRequiredFromMethod(), $modelName);
+                $rules = $request->rules($this, $this->getRequiredFromMethod(), $modelName);
+                foreach ($rules as $field => $rulesArray) {
+                    foreach ($rulesArray as $index => $rule) if ($rule instanceof \Illuminate\Validation\Rules\Unique) $rules[$field][$index] = 'unique';
+                }
+                return $rules;
             } else return [];
         } else return [];
     }

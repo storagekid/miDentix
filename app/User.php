@@ -166,7 +166,9 @@ class User extends Authenticatable
 
     public function isRoot()
     {
-        return auth()->user()->name === 'jgvillalba@dentix.es';
+        // dd(auth()->user() instanceof \App\User);
+        $user = auth()->user() instanceof \App\User ? auth()->user() : auth()->guard('api')->user();
+        return $user->name === 'jgvillalba@dentix.es';
     }
 
     public static function useSoftDeleting()

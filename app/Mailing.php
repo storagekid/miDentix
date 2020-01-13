@@ -5,6 +5,7 @@ namespace App;
 class Mailing extends Qmodel
 {
     protected $fillable = ['name', 'description', 'starts_at', 'ends_at', 'campaign_id'];
+    // protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
     protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
 
     protected static $permissions = [
@@ -17,7 +18,7 @@ class Mailing extends Qmodel
     protected $relatedTo = ['mailing_designs', 'sanitary_codes'];
     protected $relationOptions = [
         'mailing_designs' => [
-            'with' => ['language', 'country', 'state', 'county', 'clinic', 'clinics', 'base_af', 'clinic_mailings']
+            'with' => ['language', 'country', 'state', 'county', 'clinic', 'clinics', 'base_af']
         ]
     ];
     protected $quasarFormNewLayout = [
@@ -153,8 +154,8 @@ class Mailing extends Qmodel
             ->orderBy('state_id', 'desc')
             ->orderBy('states_count', 'desc')
             ->orderBy('country_id', 'desc')
-            ->get();
-        foreach ($designs as $key => $design) {
+            ->cursor()
+            ->each(function ($design, $key) use ($groupedDesigns, $usedClinics, $ignoredClinics, $usedCounties, $usedStates) {
             $groupedDesigns[$design->id] = [];
             if ($design->clinic_id) {
                 if ($design->clinic->parent_id) $usedClinics[] = $design->clinic_id;
@@ -233,7 +234,7 @@ class Mailing extends Qmodel
                 }
                 $usedClinics = array_merge($usedClinics, $groupedDesigns[$design->id]);
             }
-        }
+        });
         return $groupedDesigns;
     }
     public function countyOpenActiveClinics($county, $usedClinics) {

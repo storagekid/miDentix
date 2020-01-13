@@ -103,10 +103,10 @@ trait Tableable {
         // dump(self::class);
         return [
                 'actions' => [
-                    'view' => self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot() ? true : false,
-                    'create' => self::class === 'App\Qmodel' ? static::authorize('create') : auth()->guard('api')->user()->isRoot() ? true : false,
-                    'update' => self::class === 'App\Qmodel' ? static::authorize('update') : auth()->guard('api')->user()->isRoot() ? true : false,
-                    'destroy' => self::class === 'App\Qmodel' ? static::authorize('destroy') : auth()->guard('api')->user()->isRoot() ? true : false
+                    'view' => (self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot()) ? true : false,
+                    'create' => (self::class === 'App\Qmodel' ? static::authorize('create') : auth()->guard('api')->user()->isRoot()) ? true : false,
+                    'update' => (self::class === 'App\Qmodel' ? static::authorize('update') : auth()->guard('api')->user()->isRoot()) ? true : false,
+                    'destroy' => (self::class === 'App\Qmodel' ? static::authorize('destroy') : auth()->guard('api')->user()->isRoot()) ? true : false
                 ],
                 'exports' => [
                     'excel' => $this->getExcelBlueprints()
@@ -121,7 +121,7 @@ trait Tableable {
         $className = '\App\Exports\\' . $shortClass . 'Exports';
         // dump($className);
         $blueprints = [];
-        $authorized = self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot() ? true : false;
+        $authorized = (self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot()) ? true : false;
         if ($authorized) $blueprints[] = 'Wildcard';
         if (class_exists($className)) $blueprints = array_merge($blueprints, (new $className)::$blueprints);
         return $blueprints;

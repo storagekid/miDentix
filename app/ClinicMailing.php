@@ -11,7 +11,7 @@ class ClinicMailing extends Qmodel
 
     protected $fillable = ['mailing_design_id', 'clinic_id', 'clinic_af_file_id', 'printer_id', 'printer_product_id', 'printed_qty', 'distributor_id', 'distributor_service_id', 'distributed_stand_qty', 'distributed_doordrop_qty'];
     protected static $full = ['mailing_design', 'clinic', 'clinic_af', 'printer', 'printer_product', 'distributor', 'distributor_service'];
-    protected $appends = ['value', 'label', 'name'];
+    // protected $appends = ['value', 'label', 'name'];
     // protected $with = ['clinic', 'clinic_af'];
 
     protected static $permissions = [
@@ -143,7 +143,7 @@ class ClinicMailing extends Qmodel
             'file' => ['text']
         ],
     ];
-    protected $keyField = 'name';
+    protected $keyField = 'id';
     // END Quasar DATA
 
     // Tableable DATA
