@@ -1,2 +1,2 @@
 id,"name","description","category",parent_id,"deleted_at","created_at","updated_at"
-1,"Mailing_Doordrop","Distribución Buzoneo","Mailing",,,"2019-10-14 17:54:41","2019-10-14 17:54:41"
+1,"Mailing_Doordrop","Distribución Buzoneo","Mailing",NULL,NULL,"2019-10-14 17:54:41","2019-10-14 17:54:41"
