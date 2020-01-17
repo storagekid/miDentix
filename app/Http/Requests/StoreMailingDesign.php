@@ -24,7 +24,7 @@ class StoreMailingDesign extends FormRequest
             'county_id' => ['nullable'],
             'clinic_id' => ['nullable'],
             'type' => [$required->condition ? 'required' : ''],
-            'file' => ['nullable'],
+            'base_af_file_id' => ['nullable'],
         ];
     }
 }
