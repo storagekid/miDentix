@@ -11,79 +11,6 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class MailingDesignController extends Controller
 {
-        /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(QStore $request)
-    {
-        $mailing = \App\Mailing::find(request('mailing_id'));
-        $model = $mailing->mailing_designs()->create([
-            'name' => request('name'),
-            'description' => request('description'),
-            'mailing_id' => request('mailing_id'),
-            'language_id' => request('language_id'),
-            'country_id' => request('country_id'),
-            'state_id' => request('state_id'),
-            'county_id' => request('county_id'),
-            'clinic_id' => request('clinic_id'),
-            'type' => request('type'),
-        ]);
-        
-        $name = $model->getFileName();
-
-        if (request()->file('file')) {
-            $file = MailingDesign::storeFile(request()->file('file'), 'mailing/' . $mailing->id . '/designs', $name, 'multi', auth()->user()->id, 5, false);
-            $model->base_af_file_id = $file->id;
-            $model->save();
-            $model->files()->save($file);
-        }
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
-
-        /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(QStore $request, $id)
-    {
-        $model = MailingDesign::find($id);
-
-        $model->update([
-            'name' => request('name'),
-            'description' => request('description'),
-            'mailing_id' => request('mailing_id'),
-            'language_id' => request('language_id'),
-            'country_id' => request('country_id'),
-            'state_id' => request('state_id'),
-            'county_id' => request('county_id'),
-            'clinic_id' => request('clinic_id'),
-            'type' => request('type'),
-        ]);
-
-        if (request('file')) {
-            $base_af = $model->base_af()->first()->delete();
-
-            $name = $model->getFileName();
-            $file = MailingDesign::storeFile(request()->file('file'), 'mailing/' . $model->mailing->id . '/designs', $name, 'multi', auth()->user()->id, 5, false);
-
-            $model->base_af_file_id = $file->id;
-            $model->save();
-            $model->files()->save($file);
-        }
-
-        return response([
-            'model' => $model->fresh(),
-        ], 200);
-    }
 
     public function clinicMailingGenerator(MailingDesign $mailing_design) {
         foreach(request('ids') as $clinic) {
@@ -129,15 +56,7 @@ class MailingDesignController extends Controller
         ], 200);
     }
     public function indesignCSVGenerator(MailingDesign $mailing_design) {
-        // return Excel::download(new \App\Exports\IndesignCSVExports($mailing_design), $mailing_design->name . ' ' . $mailing_design->date_string . '.csv');
         $file = $mailing_design->indesignFileBuilder();
-        // $date = $mailing_design->date_string;
-        // $fileName = $mailing_design->name . ' ' . $date . '.txt';
-        // if (!Storage::exists('temp')) {
-        //     Storage::makeDirectory('temp');
-        // }
-        // Storage::put('temp/'.$fileName, $content);
-        // Storage::put('public/'.$fileName, $content);
         return response()->download(storage_path('app/temp/'.$file))->deleteFileAfterSend(true);
     }
     public function indesignRenameGenerator(MailingDesign $mailing_design) {
@@ -150,4 +69,5 @@ class MailingDesignController extends Controller
         Storage::put('temp/'.$fileName, $content);
         return response()->download(storage_path('app/temp/'.$fileName))->deleteFileAfterSend(true);
     }
+
 }
