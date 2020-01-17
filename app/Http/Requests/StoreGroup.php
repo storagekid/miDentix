@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreGroup extends FormRequest
@@ -14,7 +15,7 @@ class StoreGroup extends FormRequest
     public function rules($model, $required, $modelName)
     {
         return [
-            'name' =>[$required->condition ? 'required' : '','unique:groups','max:255'],
+            'name' =>[$required->condition ? 'required' : '', Rule::unique('groups')->ignore($model->id),'max:255'],
         ];
     }
 }

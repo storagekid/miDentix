@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreClinic extends FormRequest
@@ -16,7 +17,7 @@ class StoreClinic extends FormRequest
         return [
             'city' => [$required->condition ? 'required' : ''],
             'district' => ['nullable'],
-            'nickname' => ['nullable'],
+            'nickname' => ['nullable', Rule::unique('clinics')->ignore($model->id)],
             'postal_code' => [$required->condition ? 'required' : ''],
             'email_ext' => ['nullable'],
             'sanitary_code' => ['nullable'],

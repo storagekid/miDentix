@@ -15,7 +15,7 @@ class StoreProvider extends FormRequest
     public function rules($model, $required, $modelName)
     {
         return [
-            'name' =>[$required->condition ? 'required' : '', Rule::unique('promotions')->ignore($model->id), 'max:255'],
+            'name' =>[$required->condition ? 'required' : '', Rule::unique('providers')->ignore($model->id), 'max:255'],
             'description' =>[$required->condition ? 'required' : '','max:255'],
             'legal_name' =>['nullable'],
             'CNAE' =>['nullable'],

@@ -15,7 +15,7 @@ class StoreCompany extends FormRequest
     public function rules($model, $required, $modelName)
     {
         return [
-            'name' =>[$required->condition ? 'required' : '', Rule::unique('countries')->ignore($model->id), 'max:255'],
+            'name' =>[$required->condition ? 'required' : '', Rule::unique('companies')->ignore($model->id), 'max:255'],
             'description' =>['nullable'],
             'type' =>[$required->condition ? 'required' : ''],
             'CIF' => [$required->condition ? 'required' : ''],
