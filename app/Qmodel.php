@@ -26,7 +26,7 @@ class Qmodel extends Model
         static::saving(function () {
         });
         static::saved(function () {
-          Cache::forget('clinics');
+          // Cache::forget('clinics');
         });
         static::creating(function () {
             static::authorize('create');
