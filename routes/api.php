@@ -116,7 +116,6 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::post('profiles/{profile}/clinic_profiles', 'ClinicProfileController@store');
         Route::post('profiles/{profile}/store_profiles', 'StoreProfileController@store');
         
-        Route::post('model/clone', 'CloneController@cloneModel');
         Route::patch('model/{id}/restore', 'RestoreModelController@restore');
         Route::delete('model/{id}/forceDelete', 'RestoreModelController@destroy');
         Route::post('/belongstomany', 'BelongsToManyController@store');
