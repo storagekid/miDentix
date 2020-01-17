@@ -187,27 +187,13 @@ trait Quasarable {
     $relatedTo = [];
     $relationsWithRequiredModels = ['BelongsToMany'];
     foreach ($this->relatedTo as $relation) {
-      // TINKER APPROACH
-      // echo $relation;
-      // $rel = call_user_func(array($this, $relation),'');
-      // $related = $this->$rel();
-      // $nameSpace = '\\' . get_class($rel->getRelated());
-      // END TINKER APPROACH
-      // PRODUCTION APPROACH
-      // $nameSpace = '\\' . get_class($this->$relation()->getRelated());
-      // $method = call_user_func($relation);
-      // dd($method);
       $model = new static;
       if (gettype($relation) !== 'string') {
         dump($relation);
         dd(gettype($relation));
       }
       $rel = $model->{$relation}();
-      // dd($rel);
-      // dd(get_class($rel->getRelated()));
       $nameSpace = '\\' . get_class($rel->getRelated());
-      // $nameSpace = '\\' . get_class($this->$relation()->getRelated());
-      // END PRODUCTION APPROACH
       $model = $nameSpace::make();
       $type = $this->get_short_class($this->{$relation}());
       if (in_array($type, $relationsWithRequiredModels) && !in_array($relation, $this->appModels)) {
