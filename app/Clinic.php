@@ -689,7 +689,7 @@ class Clinic extends Qmodel
     } else {
         $campaign = json_decode(request('campaign'), true);
         $startDate = $campaign['starts_at'] ? $campaign['starts_at'] : Carbon::parse(Carbon::now());
-        $endDate = $campaign['ends_at'] ? $campaign['ends_at'] : $campaign['starts_at'] ? Carbon::parse($campaign['starts_at'])->addMonths(3) : Carbon::parse(Carbon::now())->addMonths(3);
+        $endDate = ($campaign['ends_at'] ? $campaign['ends_at'] : $campaign['starts_at']) ? Carbon::parse($campaign['starts_at'])->addMonths(3) : Carbon::parse(Carbon::now())->addMonths(3);
         $endDate = $endDate->subDays(1);
     }
     // dump($startDate);

@@ -186,7 +186,7 @@ class ClinicPosterPriorityExports implements FromView
         if ($holder['int']) $posterInt = \App\ClinicPosterPriority::with('clinic_poster.clinic')->find($holder['int']);
         $isFOAM = $posterExt->clinic_poster->poster->material === 'FOAM';
         if ($isFOAM) {
-            $model = ($holder['ext'] ? $campaignPriorities[$posterExt->priority] : 'Vacio' ). '/' . ($holder['int'] ? $campaignPriorities[$posterInt->priority] : 'Vacio');
+            $model = (($holder['ext'] ? $campaignPriorities[$posterExt->priority] : 'Vacio' ). '/' . ($holder['int']) ? $campaignPriorities[$posterInt->priority] : 'Vacio');
             $posterDef = [
                 'Clínica' => $posterExt->clinic_poster->clinic->nickname,
                 'CCAA' => $posterExt->clinic_poster->clinic->county->state->name,
