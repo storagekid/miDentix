@@ -26,7 +26,7 @@ class MailingDesign extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'mailing_id', 'type', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'file']
+                ['name', 'description', 'mailing_id', 'type', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'base_af_file_id']
             ],
         ],
     ];
@@ -35,7 +35,7 @@ class MailingDesign extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'mailing_id', 'type', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'file']
+                ['name', 'description', 'mailing_id', 'type', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'base_af_file_id']
             ],
         ],
         [
@@ -144,12 +144,13 @@ class MailingDesign extends Qmodel
                 ],
             ],
         ],
-        'file' => [
+        'base_af_file_id' => [
             'label' =>'Diseño',
-            'unreal' => true,
             'type' => [
-              'name' => 'file',
-              'thumbnail' => 'multi'
+                'name' => 'file',
+                'thumbnail' => 'multi',
+                'public' => false,
+                'permissions' => '740'
             ],
         ],
     ];
@@ -482,24 +483,15 @@ class MailingDesign extends Qmodel
 
 
     public function getFileName() {
-        $mailing = \App\Mailing::find(request('mailing_id'))->name;
-        $country = \App\Country::find(request('country_id'))->code;
-        $state = null;
-        if (request()->has('state_id')) {
-            $state = request('state_id') ? \App\State::find(request('state_id'))->name : null;
-        }
-        $county = null;
-        if (request()->has('county_id')) {
-            $county = request('county_id') ? \App\County::find(request('county_id'))->name : null;
-        }
-        $clinic = null;
-        if (request()->has('clinic_id')) {
-            $clinic = request('clinic_id') ? \App\Clinic::find(request('clinic_id'))->cleanName : null;
-        }
-        $lang = strtoupper(\App\Language::find(request('language_id'))['639-1']);
-        // $pos = strpos($lang, ',');
-        // if ($pos) $lang = substr($lang, 0, $pos);
-        $name = $mailing . ' ' . request('type') . ' ';
+        $mailing = \App\Mailing::find($this->mailing_id)->name;
+        $country = \App\Country::find($this->country_id)->code;
+        $state = $this->state_id ? \App\State::find($this->state_id)->name : null;
+        $county = $this->county_id ? \App\County::find($this->county_id)->name : null;
+        $clinic = $this->clinic_id ? \App\Clinic::find($this->clinic_id)->cleanName : null;
+
+        $lang = strtoupper(\App\Language::find($this->language_id)['639-1']);
+
+        $name = $mailing . ' ' . $this->type . ' ';
         if ($clinic) $name .= $clinic . ' ';
         elseif ($state) $name .= $state . ' ';
         elseif ($county) $name .= $county . ' ';
@@ -507,6 +499,26 @@ class MailingDesign extends Qmodel
         $name .= $lang;
 
         return $name;
+    }
+    public function getFileNames($field) {
+        switch ($field) {
+            case 'base_af_file_id':
+                return $this->getFileName();
+                break;
+            default:
+                abort(301, 'Campo de archivo erróneo');
+                break;
+        }
+    }
+    public function getFilePaths($field) {
+        switch ($field) {
+            case 'base_af_file_id':
+                return 'mailing/' . $this->mailing->id . '/designs';
+                break;
+            default:
+                abort(301, 'Campo de archivo erróneo');
+                break;
+        }
     }
 
     // Helpers
