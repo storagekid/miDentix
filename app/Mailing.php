@@ -2,8 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Mailing extends Qmodel
 {
+    use SoftDeletes;
+
     protected $fillable = ['name', 'description', 'starts_at', 'ends_at', 'campaign_id'];
     // protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
     protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
@@ -15,6 +19,7 @@ class Mailing extends Qmodel
     ];
 
     // Quasar DATA
+    public static $cascade = ['sanitary_codes', 'mailing_designs'];
     protected $relatedTo = ['mailing_designs', 'sanitary_codes'];
     protected $relationOptions = [
         'mailing_designs' => [
