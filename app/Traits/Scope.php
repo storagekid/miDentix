@@ -52,12 +52,17 @@ trait Scope {
     }
 
     public static function filterOptions($options) {
-        // dump($options);
-        if (!request()->has('options')) static::$options = $options;
+        // dd($options);
+        if (!request()->has('options')) {
+            static::$options = $options;
+            return true;
+        }
         $requestOptions = is_array(request('options')) ? collect(request('options')) : collect(json_decode(request('options'), true));
         if($requestOptions->has('scoped')) $options['scoped'] = $requestOptions['scoped'];
         if($requestOptions->has('scopedThrough')) $options['scopedThrough'] = $requestOptions['scopedThrough'];
-        if($requestOptions->has('where')) $options['where'] = is_array($requestOptions['where']) ? $requestOptions['where'] : json_decode($requestOptions['where']);
+        if (!array_key_exists('where', $options)) {
+            if($requestOptions->has('where')) $options['where'] = is_array($requestOptions['where']) ? $requestOptions['where'] : json_decode($requestOptions['where']);
+        }
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
         if($requestOptions->has('with')) {
             $requestWith = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
