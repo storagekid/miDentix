@@ -10,6 +10,7 @@ use Mail;
 use Symfony\Component\Debug\Exception\FlattenException;
 use Symfony\Component\Debug\ExceptionHandler as SymfonyExceptionHandler;
 use App\Mail\ExceptionOccured;
+use League\OAuth2\Server\Exception\OAuthServerException;
 
 class Handler extends ExceptionHandler
 {
@@ -93,8 +94,15 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         // dd($exception);
+
         if ($request->expectsJson()) {
-            if (auth()->guard('api')->user()->isRoot() || !$this->shouldReport($exception)) {
+            if ($exception instanceOf \Illuminate\Auth\AuthenticationException) {
+                return response()->json([
+                    "message" => 'Sorry, your session seems to have expired. Please try again.'
+                ], 401);
+            }
+            $user = auth()->user() instanceof \App\User ? auth()->user() : auth()->guard('api')->user();
+            if ($user->isRoot() || !$this->shouldReport($exception)) {
                 return response()->json([
                     "message" => $exception->getMessage()
                 ], 400);
