@@ -17,7 +17,7 @@ trait Fileable {
       $class = static::class;
       self::$columns = Schema::getColumnListing(with(new $class)->getTable());
       // $class = static::class;
-      self::deleting(function ($model) {
+          self::deleting(function ($model) {
           // dump('Deleting Parent Class from Fileable');
           $archives = $model->files;
           // dump($archives);

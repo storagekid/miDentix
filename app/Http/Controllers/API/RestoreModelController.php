@@ -38,7 +38,11 @@ class RestoreModelController extends Controller
         $name = request('nameSpace');
         $model = $name::onlyTrashed()->findOrFail($id);
         if (isset($name::$cascade)) {
-            foreach ($name::$cascade as $relation) $model->$relation()->delete();
+            foreach ($name::$cascade as $relation) {
+                foreach ($model->$relation as $relatedModel) {
+                    $relatedModel->delete();
+                }
+            }
         }
         $model->forceDelete($id);
 

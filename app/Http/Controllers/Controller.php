@@ -87,10 +87,21 @@ class Controller extends BaseController
             else if (array_key_exists('relatedToID', $quasarData)) return $this->storeBelongsToManyRelation($quasarData);
         }
         else $id = $this->getModelName()::create(request()->all())->id;
-        $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
+        $model = $this->getModelName()::fetch(['ids'=>[$id], 'where' => []])[0];
+
+        if (request()->has('files')) {
+            // dump('HERE');
+            $modelName = $this->getModelName();
+            $this->saveFiles($modelName, $model);
+        }
+
+        if (request()->has('options')) {
+            $options = json_decode(request('options'), true);
+            if (array_key_exists('relationsToClone', $options)) $model = $this->cloneRelations($model, $options['relationsToClone'], $options['sourceModel']);
+        }
 
         return response([
-            'model' => $model,
+            'model' => $model = $this->getModelName()::fetch(['ids'=>[$id], 'where' => []])[0],
         ], 200);
     }
 
@@ -108,39 +119,49 @@ class Controller extends BaseController
         $model->update(request()->all());
 
         if (request()->has('files')) {
-            if ($modelName::useFileable()) {
-                $columns = $modelName::getFileColumns();
-                $formFields = $model->getFileFields();
-                // dd($formFields);
-                foreach (request('files') as $field => $file) {
-                    if (in_array($field, $columns) && array_key_exists($field, $formFields)) {
-                        try {
-                            $name = $model->getFileNames($field);
-                            $path = $model->getFilePaths($field);
-                            $thumbnail = $formFields[$field]['type']['thumbnail'];
-                            $public = $formFields[$field]['type']['public'];
-                            $permissions = $formFields[$field]['type']['permissions'];
-                        } catch (\Exception $e) {
-                            abort(301, 'Incomplete File Data.');
-                        }
-                        // $name = $model->clean_name . '-avatar';
-                        $file = $modelName::storeFile($file, $path, $name, $thumbnail, auth()->user()->id, auth()->user()->group_users()->first()->group_id, $public, false, $permissions);
-                        if ($model[$field]) {
-                            $model->$field()->first()->delete();
-                        }
-                        $model[$field] = $file->id;
-                        $model->save();
-                        $model->files()->save($file);
-                    }
-                }
-            }
+            $this->saveFiles($modelName, $model);
         }
 
-        $model = $this->getModelName()::fetch(['ids'=>[$id]])[0];
+        $model = $this->getModelName()::fetch(['ids'=>[$id], 'where' => []])[0];
 
         return response([
             'model' => $model
         ], 200);
+    }
+
+            /**
+     * Store Files from Request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function saveFiles($modelName, $model) {
+        if ($modelName::useFileable()) {
+            $columns = $modelName::getFileColumns();
+            $formFields = $model->getFileFields();
+            // dd($formFields);
+            foreach (request('files') as $field => $file) {
+                if (in_array($field, $columns) && array_key_exists($field, $formFields)) {
+                    try {
+                        $name = $model->getFileNames($field);
+                        $path = $model->getFilePaths($field);
+                        $thumbnail = $formFields[$field]['type']['thumbnail'];
+                        $public = $formFields[$field]['type']['public'];
+                        $permissions = $formFields[$field]['type']['permissions'];
+                    } catch (\Exception $e) {
+                        abort(301, 'Incomplete File Data.');
+                    }
+                    // $name = $model->clean_name . '-avatar';
+                    $file = $modelName::storeFile($file, $path, $name, $thumbnail, auth()->user()->id, auth()->user()->group_users()->first()->group_id, $public, false, $permissions);
+                    if ($model[$field]) {
+                        $model->$field()->first()->delete();
+                    }
+                    $model[$field] = $file->id;
+                    $model->save();
+                    $model->files()->save($file);
+                }
+            }
+        }
     }
 
         /**
@@ -174,6 +195,7 @@ class Controller extends BaseController
             'model' => $model,
         ], 200);
     }
+
     
         /**
      * Remove the specified resource from storage.
@@ -185,13 +207,69 @@ class Controller extends BaseController
         $name = $this->getModelName();
 
         $model = $name::fetch(['ids'=>[$id]])[0];
+
         if (isset($name::$cascade) && !$name::useSoftDeleting()) {
-            foreach ($name::$cascade as $relation) $model->$relation()->delete();
+            foreach ($name::$cascade as $relation) {
+                foreach ($model->$relation as $relatedModel) {
+                    $relatedModel->delete();
+                }
+            }
         }
         $name::destroy($id);
-
         return response([
             'model' => array_key_exists('deleted_at', $model->toArray()) ? $model->fresh() : $model,
         ], 200);
+    }
+
+    public function cloneRelations($model, $relations, $sourceId) {
+        $oldModel = $this->getModelName()::with($relations)->find($sourceId);
+        // $oldModel->relations = [];w
+        // $oldModel->load($relations);
+        // dd($oldModel->toArray());
+        // dump($relations);
+        // dump($oldModel->getRelations());
+        foreach ($oldModel->getRelations() as $relationName => $values) {
+            if (in_array($relationName, $relations)) {
+                switch ($values['type']) {
+                    case 'HasMany':
+                        $model->{$relationName}()->createMany($oldModel[$relationName]->toArray());
+                        if ($values['nameSpace']::useFileable()) {
+                            foreach ($oldModel[$relationName] as $relatedModel) {
+                                foreach ($relatedModel->files as $file) {
+                                    // dump($file->name);
+                                    $fieldFields = $relatedModel->getFileFields();
+                                    foreach ($fieldFields as $field => $data) {
+                                        $newRelatedModel = $model->{$relationName}()->where($field, $relatedModel[$field])->get()[0];
+                                        // dump($field);
+                                        try {
+                                            $name = $newRelatedModel->getFileNames($field);
+                                            $path = $newRelatedModel->getFilePaths($field);
+                                            $thumbnail = $fieldFields[$field]['type']['thumbnail'];
+                                            $public = $fieldFields[$field]['type']['public'];
+                                            $permissions = $fieldFields[$field]['type']['permissions'];
+                                        } catch (\Exception $e) {
+                                            abort(301, 'Incomplete File Data.');
+                                        }
+                                        // $name = $model->clean_name . '-avatar';
+                                        $file = $values['nameSpace']::storeFile($file->url, $path, $name, $thumbnail, auth()->user()->id, auth()->user()->group_users()->first()->group_id, $public, false, $permissions);
+                                        // if ($model[$field]) {
+                                        //     $model->$field()->first()->delete();
+                                        // }
+                                        $newRelatedModel[$field] = $file->id;
+                                        $newRelatedModel->save();
+                                        $newRelatedModel->files()->save($file);
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case 'MorphMany':
+                        $model->{$relationName}()->createMany($oldModel[$relationName]->toArray());
+                        break;
+                }
+            }
+        }
+        $model->load($relations);
+        return $model;
     }
 }
