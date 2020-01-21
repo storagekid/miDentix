@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -12,11 +13,34 @@ class File extends Model
     {
       parent::boot();
         self::deleting(function (File $file) {
+            $dirs = $file->getRealDirectories();
+            $fileSystem = new Filesystem;
             $files = $file->getDeletingPaths();
-            // dump($files);
             if (count($files)) {
                 foreach ($files as $archive) {
                     Storage::delete($archive);
+                }
+            }
+            if (count($dirs['directories'])) {
+                foreach ($dirs['directories'] as $dir) {
+                    if ($fileSystem->exists($dir)) {
+                        $files = $fileSystem->files($dir);
+                        $folders = $fileSystem->directories($dir);
+                        if (empty($files) && empty($folders)) {
+                            $fileSystem->deleteDirectory($dir);
+                            $levels = (int) $dirs['levels'];
+                            while ($levels > 0) {
+                                $levels--;
+                                $dir = substr($dir, 0, strrpos($dir, '/'));
+                                if ($fileSystem->exists($dir)) {
+                                    $files = $fileSystem->files($dir);
+                                    $folders = $fileSystem->directories($dir);
+                                    if (empty($files) && empty($folders)) $fileSystem->deleteDirectory($dir);
+                                    else break;
+                                } else break;
+                            }
+                        }
+                    }
                 }
             }
         });
@@ -48,19 +72,40 @@ class File extends Model
         if ($this->is_public) {
             $url .= ('app/public/' . $this->url);
         } else {
-            $url .= $this->url;
+            $url .= 'app/' . $this->url;
         }
         $thumbnail = '';
         if ($this->is_public) {
             $thumbnail .= ('app/public/' . $this->thumbnail);
         } else {
-            $thumbnail .= $this->thumbnail;
+            $thumbnail .= 'app/public/' . $this->thumbnail;
         }
         $paths = [
           'url' => storage_path($url),
         ];
         if ($this->thumbnail) $paths['thumbnail'] = storage_path($thumbnail);
         return $paths;
+    }
+    public function getRealDirectories() {
+        $url = '';
+        $dirs = [
+            'directories' => [],
+            'levels' => substr_count($this->path, '/')
+        ];
+        if ($this->is_public) {
+            $url .= ('app/public/' . $this->path);
+        } else {
+            $url .= 'app/' . $this->path;
+        }
+        $thumbnail = '';
+        if ($this->is_public) {
+            $thumbnail .= ('app/public/' . $this->path);
+        } else {
+            $thumbnail .= 'app/public/' . $this->path;
+        }
+        $dirs['directories']['url'] = storage_path($url);
+        if ($this->thumbnail) $dirs['directories']['thumbnail'] = storage_path($thumbnail);
+        return $dirs;
     }
     public function getDeletingPaths() {
         $url = $this->is_public ? 'public/' : '';
