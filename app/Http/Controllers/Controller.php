@@ -288,7 +288,7 @@ class Controller extends BaseController
                 }
             }
         }
-        $model->load($relations);
+        // $model->load($relations);
         return $model;
     }
 }
