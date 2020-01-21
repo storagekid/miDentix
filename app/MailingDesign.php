@@ -21,6 +21,7 @@ class MailingDesign extends Qmodel
 
     // Quasar DATA
     protected $relatedTo = ['clinics', 'counties', 'states', 'promotions', 'claims', 'clinic_mailings'];
+    public static $cascade = ['clinics', 'counties', 'states', 'promotions', 'claims', 'clinic_mailings'];
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',
@@ -486,15 +487,38 @@ class MailingDesign extends Qmodel
         $mailing = \App\Mailing::find($this->mailing_id)->name;
         $country = \App\Country::find($this->country_id)->code;
         $state = $this->state_id ? \App\State::find($this->state_id)->name : null;
+        $states = $this->states;
+        // dump($this->states);
         $county = $this->county_id ? \App\County::find($this->county_id)->name : null;
+        $counties = $this->counties;
         $clinic = $this->clinic_id ? \App\Clinic::find($this->clinic_id)->cleanName : null;
+        $clinics = $this->clinics;
 
         $lang = strtoupper(\App\Language::find($this->language_id)['639-1']);
 
         $name = $mailing . ' ' . $this->type . ' ';
         if ($clinic) $name .= $clinic . ' ';
+        elseif (count($clinics) && $this->type === 'Flyer') {
+            // dump('trying CLinics');
+            $statesClinics = [];
+            foreach ($clinics as $clinic) {
+                if (!array_key_exists($clinic->county_id, $statesClinics)) {
+                    $statesClinics[$clinic->county_id] = ['name' => $clinic->county->name, 'clinics' => 1];
+                } else {
+                    $statesClinics[$clinic->county_id]['clinics']++;
+                }
+            }
+            foreach ($statesClinics as $id => $data) $name .= $data['name'] . '(' . $data['clinics'] . ')' . ' ';
+        }
         elseif ($state) $name .= $state . ' ';
+        elseif (count($states)) {
+            foreach ($states as $state) {
+                // dump($state->name);
+                $name .= $state->name . ' ';
+            }
+        }
         elseif ($county) $name .= $county . ' ';
+        elseif (count($counties)) foreach ($counties as $county) $name .= $county->name . ' ';
         else $name .= $country . ' ';
         $name .= $lang;
 
@@ -519,6 +543,9 @@ class MailingDesign extends Qmodel
                 abort(301, 'Campo de archivo erróneo');
                 break;
         }
+    }
+    public function buildName() {
+        return $this->getFileName();
     }
 
     // Helpers
