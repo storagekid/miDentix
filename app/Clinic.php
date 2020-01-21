@@ -802,8 +802,8 @@ class Clinic extends Qmodel
   public function posterPrioritiesFixer() {
     $clinicDistributions = request()->has('designs') ? $this->poster_distributions()->find(request('designs')) : $this->poster_distributions_active;
     foreach ($clinicDistributions as $key => $clinicposterdistribution) {
-      dump('Clinic Poster Distribution');
-      dump($clinicposterdistribution->id);
+      // dump('Clinic Poster Distribution');
+      // dump($clinicposterdistribution->id);
       $distribution = json_decode($clinicposterdistribution['distributions'],true);
       $holders = collect($distribution['holders']);
       $ppIds = $distribution['posterIds'];
@@ -813,12 +813,12 @@ class Clinic extends Qmodel
         if ($holder['int']) $newPPIds[] = $holder['int'];
       }
       if (count($ppIds) !== count($newPPIds)) {
-        dump('Dont Match!!!!');
+        // dump('Dont Match!!!!');
         $distribution['posterIds'] = $newPPIds;
         $clinicDistributions[$key]['distributions'] = json_encode($distribution);
         $clinicposterdistribution->save();
       } else {
-        dump('It is a Match. Doing Nothing : )');
+        // dump('It is a Match. Doing Nothing : )');
       }
     }
     return $clinicDistributions;
