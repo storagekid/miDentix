@@ -32,18 +32,14 @@ class RestoreModelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function forceDestroy($id)
     {
         if (!auth()->user()->isRoot()) abort(403);
         $name = request('nameSpace');
         $model = $name::onlyTrashed()->findOrFail($id);
-        if (isset($name::$cascade)) {
-            foreach ($name::$cascade as $relation) {
-                foreach ($model->$relation as $relatedModel) {
-                    $relatedModel->delete();
-                }
-            }
-        }
+
+        if (isset($name::$cascade)) $this->cascadeDeletions($name, $model);
+
         $model->forceDelete($id);
 
         return response([
