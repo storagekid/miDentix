@@ -97,7 +97,9 @@ class Controller extends BaseController
 
         if (request()->has('options')) {
             $options = json_decode(request('options'), true);
-            if (array_key_exists('relationsToClone', $options)) $model = $this->cloneRelations($model, $options['relationsToClone'], $options['sourceModel']);
+            if (array_key_exists('relationsToClone', $options)) {
+                $model = $this->cloneRelations($model, $options['relationsToClone'], $this->getModelName()::with($options['relationsToClone'])->find($options['sourceModel']), 2);
+            }
         }
 
         return response([
@@ -205,42 +207,60 @@ class Controller extends BaseController
      */
     public function destroy($id) {
         $name = $this->getModelName();
-
         $model = $name::fetch(['ids'=>[$id]])[0];
 
-        if (isset($name::$cascade) && !$name::useSoftDeleting()) {
-            foreach ($name::$cascade as $relation) {
-                foreach ($model->$relation as $relatedModel) {
-                    $relatedModel->delete();
-                }
-            }
-        }
+        if (isset($name::$cascade) && !$name::useSoftDeleting()) $this->cascadeDeletions($name, $model);
+
         $name::destroy($id);
         return response([
             'model' => array_key_exists('deleted_at', $model->toArray()) ? $model->fresh() : $model,
         ], 200);
     }
 
-    public function cloneRelations($model, $relations, $sourceId) {
-        $oldModel = $this->getModelName()::with($relations)->find($sourceId);
-        // $oldModel->relations = [];w
-        // $oldModel->load($relations);
-        // dd($oldModel->toArray());
-        // dump($relations);
-        // dump($oldModel->getRelations());
+    public function cascadeDeletions ($name, $model) {
+        $relations = $model->getRelations();
+        foreach ($name::$cascade as $relation) {
+            if (in_array($relations[$relation]['type'], ['HasMany', 'MorphMany'])) {
+                foreach ($model->$relation as $relatedModel) {
+                    $subRelations = $relatedModel->getRelations();
+                    foreach ($subRelations as $subRelationName => $values) {
+                        if ($values['type'] === 'BelongsToMany') {
+                            $relatedModel->{$subRelationName}()->detach();
+                        }
+                    }
+                    $relatedModel->delete();
+                }
+            }
+            else if ($relations[$relation]['type'] === 'BelongsToMany') $model->{$relation}()->detach();
+        }
+    }
+
+    public function cloneRelations($model, $relations, $oldModel, $levels = null) {
+        set_time_limit(120);
+        if (isset($this->cloneLevels) && $levels === null) $levels = $this->cloneLevels;
+        if (!$levels) return $model;
+        $levels--;
         foreach ($oldModel->getRelations() as $relationName => $values) {
-            if (in_array($relationName, $relations)) {
-                switch ($values['type']) {
-                    case 'HasMany':
-                        $model->{$relationName}()->createMany($oldModel[$relationName]->toArray());
-                        if ($values['nameSpace']::useFileable()) {
-                            foreach ($oldModel[$relationName] as $relatedModel) {
+            $go = false;
+            if ($relations === '*') {
+                $relations = collect($oldModel->getRelations())->keys()->toArray();
+                $go = true;
+            }
+            else if (is_array($relations)) if (in_array($relationName, $relations)) $go = true;
+            if ($go) {
+                switch (true) {
+                    case in_array($values['type'], ['HasMany', 'MorphMany']):
+                        foreach ($oldModel[$relationName] as $relatedModel) {
+                            $newRelation = $model->{$relationName}()->create($relatedModel->toArray());
+                            if ($levels) {
+                                $newSubelation = $this->cloneRelations($newRelation, '*', $relatedModel, $levels);
+                            }
+                            if ($values['nameSpace']::useFileable()) {
                                 foreach ($relatedModel->files as $file) {
-                                    // dump($file->name);
                                     $fieldFields = $relatedModel->getFileFields();
                                     foreach ($fieldFields as $field => $data) {
                                         $newRelatedModel = $model->{$relationName}()->where($field, $relatedModel[$field])->get()[0];
-                                        // dump($field);
+
                                         try {
                                             $name = $newRelatedModel->getFileNames($field);
                                             $path = $newRelatedModel->getFilePaths($field);
@@ -250,21 +270,20 @@ class Controller extends BaseController
                                         } catch (\Exception $e) {
                                             abort(301, 'Incomplete File Data.');
                                         }
-                                        // $name = $model->clean_name . '-avatar';
+
                                         $file = $values['nameSpace']::storeFile($file->url, $path, $name, $thumbnail, auth()->user()->id, auth()->user()->group_users()->first()->group_id, $public, false, $permissions);
-                                        // if ($model[$field]) {
-                                        //     $model->$field()->first()->delete();
-                                        // }
+
                                         $newRelatedModel[$field] = $file->id;
                                         $newRelatedModel->save();
                                         $newRelatedModel->files()->save($file);
                                     }
                                 }
                             }
+                            $newRelation->fixRelationUniqueFields($model);
                         }
                         break;
-                    case 'MorphMany':
-                        $model->{$relationName}()->createMany($oldModel[$relationName]->toArray());
+                    case 'BelongsToMany':
+                        $model->{$relationName}()->sync($oldModel[$relationName]->map(function($i) { return $i->id; }));
                         break;
                 }
             }
