@@ -72,15 +72,18 @@ class Qmodel extends Model
     public function getShowView($view=null) {
       if (!$view) {
         $view = [];
-        isset(static::$show) ? $view['with'] = static::$show : isset(static::$full) ? $view['with'] = static::$full : $view['with'] = [];
+        (isset(static::$show) ? $view['with'] = static::$show : isset(static::$full)) ? $view['with'] = static::$full : $view['with'] = [];
         isset(static::$appends) ? $view['append'] = static::$appends : $view['append'] = [];
         return $view;
       }
       else if (!array_key_exists($view, static::$views)) return [];
       return static::$views[$view];
     }
+    public function buildName() {
+      return null;
+    }
     protected static function authorize($method) {
-      $user = auth()->guard('api')->user();
+      $user = auth()->user() instanceof \App\User ? auth()->user() : auth()->guard('api')->user();
       if ($user->isRoot()) return true;
 
       if(!array_key_exists($method, static::$permissions)) return false;
@@ -96,5 +99,18 @@ class Qmodel extends Model
         }
       }
       abort(403, 'Unauthorized action.');
+    }
+    public function fixRelationUniqueFields($parent) {
+      $formRules = $this->formRules();
+      // dump($parent->toArray());
+      // dump($parent[$parent->getKeyField()]);
+      foreach ($formRules as $field => $rules) {
+        if (in_array('unique', $rules)) {
+          $name = $this->buildName();
+          if ($name) $this[$field] = $name;
+          else $this[$field] .= $parent[$parent->getKeyField()];
+          $this->save();
+        }
+      }
     }
 }
