@@ -122,10 +122,11 @@ trait Fileable {
       // dump($name);
       // dump($extension);
       // dd('Checking');
-      $fullPath = $storeDir . '/' . $name;
+      $fullPath = $storeDir . '/' . $name . '.' . $extension;;
       if (!Storage::exists($fullPath)) {
         // dump($fullPath);
         // dd('Dont Exists');
+        $name = $name . '.' . $extension;
         $move ? Storage::move($file, $storeDir . '/' . $name) : Storage::copy($file, $storeDir . '/' . $name);
       } else {
         $model = FileClass::where('url', $path . '/' . $name)->first();
