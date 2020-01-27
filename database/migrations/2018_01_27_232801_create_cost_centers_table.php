@@ -18,6 +18,8 @@ class CreateCostCentersTable extends Migration
             $table->string('name');
             $table->string('cc_id')->nullable();
             $table->timestamps();
+
+            $table->index('cc_id');
         });
     }
 

@@ -23,6 +23,9 @@ class CreateClinicPostersTable extends Migration
             // $table->integer('qty')->nullable(); // SHOULD BE DELETE
             // $table->integer('priority')->nullable(); // SHOULD BE DELETE
             $table->timestamps();
+
+            $table->index('clinic_id');
+            $table->index('poster_id');
         });
     }
 

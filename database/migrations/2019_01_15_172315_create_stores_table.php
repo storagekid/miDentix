@@ -21,6 +21,9 @@ class CreateStoresTable extends Migration
             $table->unsignedInteger('country_id');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index('company_id');
+            $table->index('country_id');
         });
     }
 

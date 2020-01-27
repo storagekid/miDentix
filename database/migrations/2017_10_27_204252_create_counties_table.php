@@ -18,6 +18,8 @@ class CreateCountiesTable extends Migration
             $table->string('name');
             $table->unsignedInteger('state_id');
             $table->timestamps();
+
+            $table->index('state_id');
         });
     }
 

@@ -28,6 +28,14 @@ class CreateProductProvidersTable extends Migration
             $table->unsignedInteger('clinic_id')->nullable();
             $table->unsignedInteger('store_id')->nullable();
             $table->timestamps();
+
+            $table->index('product_id');
+            $table->index('provider_id');
+            $table->index('country_id');
+            $table->index('state_id');
+            $table->index('county_id');
+            $table->index('clinic_id');
+            $table->index('store_id');
         });
     }
 

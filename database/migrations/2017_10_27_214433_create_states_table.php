@@ -18,6 +18,8 @@ class CreateStatesTable extends Migration
             $table->string('name');
             $table->unsignedInteger('country_id');
             $table->timestamps();
+
+            $table->index('country_id');
         });
     }
 

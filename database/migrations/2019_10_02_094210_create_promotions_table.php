@@ -27,6 +27,9 @@ class CreatePromotionsTable extends Migration
             $table->json('h_design_index_coords')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('language_id');
+            $table->index('country_id');
         });
     }
 

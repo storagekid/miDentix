@@ -20,6 +20,8 @@ class CreateMunicipiosTable extends Migration
             $table->string('name');
             $table->unsignedInteger('county_id');
             $table->timestamps();
+
+            $table->index('county_id');
         });
     }
 

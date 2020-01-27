@@ -18,6 +18,9 @@ class CreateMailingDesignCountiesTable extends Migration
             $table->unsignedBigInteger('mailing_design_id');
             $table->unsignedBigInteger('county_id');
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('county_id');
         });
     }
 

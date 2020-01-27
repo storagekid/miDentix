@@ -20,6 +20,8 @@ class CreateGroupUserTable extends Migration
             $table->string('role')->default('user');
             $table->timestamps();
 
+            $table->index('group_id');
+            $table->index('user_id');
             // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             // $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });

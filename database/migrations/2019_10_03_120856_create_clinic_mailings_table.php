@@ -27,6 +27,14 @@ class CreateClinicMailingsTable extends Migration
             $table->integer('distributed_doordrop_qty')->nullable();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('clinic_id');
+            $table->index('clinic_af_file_id');
+            $table->index('printer_id');
+            $table->index('printer_product_id');
+            $table->index('distributor_id');
+            $table->index('distributor_service_id');
         });
     }
 

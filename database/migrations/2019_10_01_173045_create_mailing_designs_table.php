@@ -26,6 +26,14 @@ class CreateMailingDesignsTable extends Migration
             $table->unsignedInteger('clinic_id')->nullable();
             $table->unsignedInteger('base_af_file_id')->nullable();
             $table->timestamps();
+
+            $table->index('mailing_id');
+            $table->index('language_id');
+            $table->index('country_id');
+            $table->index('state_id');
+            $table->index('county_id');
+            $table->index('clinic_id');
+            $table->index('base_af_file_id');
         });
     }
 

@@ -29,6 +29,14 @@ class CreateLegalsTable extends Migration
             $table->string('legalizable_type');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('language_id');
+            $table->index('country_id');
+            $table->index('state_id');
+            $table->index('county_id');
+            $table->index('clinic_id');
+            $table->index('legalizable_id');
+            $table->index('legalizable_type');
         });
     }
 

@@ -22,6 +22,9 @@ class CreatePhonesTable extends Migration
             $table->unsignedInteger('phoneable_id');
             $table->string('phoneable_type');
             $table->timestamps();
+
+            $table->index('phoneable_id');
+            $table->index('phoneable_type');
         });
     }
 

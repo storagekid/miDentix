@@ -25,6 +25,14 @@ class CreateSanitaryCodesTable extends Migration
             $table->unsignedInteger('sanitizable_id');
             $table->string('sanitizable_type');
             $table->timestamps();
+
+            $table->index('clinic_id');
+            $table->index('county_id');
+            $table->index('state_id');
+            $table->index('country_id');
+            $table->index('campaign_id');
+            $table->index('sanitizable_id');
+            $table->index('sanitizable_type');
         });
     }
 

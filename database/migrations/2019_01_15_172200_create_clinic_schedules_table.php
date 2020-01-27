@@ -22,6 +22,7 @@ class CreateClinicSchedulesTable extends Migration
             $table->timestamps();
 
             $table->unique(['clinic_profile_id','job_type_id']);
+            $table->index('job_id');
         });
     }
 

@@ -23,6 +23,7 @@ class CreateStoreSchedulesTable extends Migration
             $table->timestamps();
 
             $table->unique(['store_id','profile_id','job_type_id']);
+            $table->index('job_id');
         });
     }
 

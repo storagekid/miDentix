@@ -28,6 +28,11 @@ class CreateFilesTable extends Migration
             $table->unsignedInteger('fileable_id')->nullable();
             $table->string('fileable_type')->nullable();
             $table->timestamps();
+
+            $table->index('user_id');
+            $table->index('group_id');
+            $table->index('fileable_id');
+            $table->index('fileable_type');
         });
     }
 

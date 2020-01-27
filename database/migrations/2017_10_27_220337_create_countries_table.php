@@ -22,6 +22,10 @@ class CreateCountriesTable extends Migration
             $table->unsignedInteger('currency_id');
             $table->unsignedInteger('language_id');
             $table->timestamps();
+
+            $table->index('currency_id');
+            $table->index('language_id');
+
         });
     }
 

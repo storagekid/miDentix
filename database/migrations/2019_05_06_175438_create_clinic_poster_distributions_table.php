@@ -26,6 +26,10 @@ class CreateClinicPosterDistributionsTable extends Migration
             $table->date('ends_at')->nullable();
             $table->json('distributions');
             $table->timestamps();
+
+            $table->index('clinic_id');
+            $table->index('address_id');
+            $table->index('campaign_id');
         });
     }
 

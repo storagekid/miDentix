@@ -22,6 +22,8 @@ class CreateMailingsTable extends Migration
             $table->unsignedInteger('campaign_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('campaign_id');
         });
     }
 

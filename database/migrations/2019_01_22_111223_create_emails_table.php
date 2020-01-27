@@ -22,6 +22,9 @@ class CreateEmailsTable extends Migration
             $table->unsignedInteger('emailable_id');
             $table->string('emailable_type');
             $table->timestamps();
+
+            $table->index('emailable_id');
+            $table->index('emailable_type');
         });
     }
 

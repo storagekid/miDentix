@@ -19,6 +19,9 @@ class CreateCampaignPosterPrioritiesTable extends Migration
             $table->unsignedInteger('poster_model_id');
             $table->unsignedInteger('priority');
             $table->timestamps();
+
+            $table->index('campaign_id');
+            $table->index('poster_model_id');
         });
     }
 

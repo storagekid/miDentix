@@ -22,6 +22,9 @@ class CreateClinicSiblingsTable extends Migration
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index('clinic_id');
+            $table->index('sibling_id');
         });
     }
 

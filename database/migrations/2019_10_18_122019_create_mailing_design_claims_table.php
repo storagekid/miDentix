@@ -18,6 +18,9 @@ class CreateMailingDesignClaimsTable extends Migration
             $table->unsignedInteger('mailing_design_id');
             $table->unsignedInteger('claim_id');
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('claim_id');
         });
     }
 

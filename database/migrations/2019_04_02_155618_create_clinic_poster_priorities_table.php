@@ -21,6 +21,9 @@ class CreateClinicPosterPrioritiesTable extends Migration
             $table->date('starts_at');
             $table->date('ends_at')->nullable();
             $table->timestamps();
+
+            $table->index('campaign_id');
+            $table->index('clinic_poster_id');
         });
     }
 

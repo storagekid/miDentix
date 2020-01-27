@@ -24,6 +24,8 @@ class CreateCampaignsTable extends Migration
             $table->unsignedInteger('parent_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('parent_id');
         });
     }
 

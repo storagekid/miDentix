@@ -18,6 +18,9 @@ class CreateMenuItemGroupsTable extends Migration
             $table->unsignedBigInteger('menu_item_id');
             $table->unsignedBigInteger('group_id');
             $table->timestamps();
+
+            $table->index('menu_item_id');
+            $table->index('group_id');
         });
     }
 

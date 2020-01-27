@@ -23,6 +23,9 @@ class CreateClaimsTable extends Migration
             $table->unsignedInteger('country_id');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('country_id');
+            $table->index('language_id');
         });
     }
 

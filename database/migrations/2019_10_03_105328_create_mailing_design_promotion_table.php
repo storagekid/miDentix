@@ -18,6 +18,9 @@ class CreateMailingDesignPromotionTable extends Migration
             $table->unsignedInteger('mailing_design_id');
             $table->unsignedInteger('promotion_id');
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('promotion_id');
         });
     }
 

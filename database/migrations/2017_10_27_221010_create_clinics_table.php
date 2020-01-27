@@ -34,6 +34,15 @@ class CreateClinicsTable extends Migration
             $table->date('ends_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('cost_center_id');
+            $table->index('parent_id');
+            $table->index('county_id');
+            $table->index('language_id');
+            $table->index('clinic_manager_id');
+            $table->index('area_manager_id');
+            $table->index('clinic_cloud_id');
+            $table->index('oracle_id');
         });
     }
 

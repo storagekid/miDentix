@@ -25,6 +25,8 @@ class CreateProvidersTable extends Migration
             // $table->string('address');
             // $table->string('phone');
             $table->timestamps();
+
+            $table->index('user_id');
         });
     }
 

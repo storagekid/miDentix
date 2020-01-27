@@ -35,6 +35,9 @@ class CreateProfilesTable extends Migration
             
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index('country_id');
+            $table->index('company_id');
         });
     }
 

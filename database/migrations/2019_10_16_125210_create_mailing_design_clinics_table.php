@@ -18,6 +18,9 @@ class CreateMailingDesignClinicsTable extends Migration
             $table->unsignedBigInteger('mailing_design_id');
             $table->unsignedBigInteger('clinic_id');
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('clinic_id');
         });
     }
 

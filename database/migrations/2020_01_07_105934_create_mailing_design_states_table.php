@@ -18,6 +18,9 @@ class CreateMailingDesignStatesTable extends Migration
             $table->unsignedBigInteger('mailing_design_id');
             $table->unsignedBigInteger('state_id');
             $table->timestamps();
+
+            $table->index('mailing_design_id');
+            $table->index('state_id');
         });
     }
 
