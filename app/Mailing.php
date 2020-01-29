@@ -136,7 +136,7 @@ class Mailing extends Qmodel
     }
     public function clinic_mailings() {
         return $this->hasManyThrough(ClinicMailing::class, MailingDesign::class);
-      }
+    }
     public function sanitary_codes()
     {
         return $this->morphMany(SanitaryCode::class, 'sanitizable');
