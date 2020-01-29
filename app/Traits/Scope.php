@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Traits;
+use Illuminate\Support\Str;
 
 trait Scope {
     protected static $options = [];
@@ -43,6 +44,34 @@ trait Scope {
         if (array_key_exists('full', static::$options)) $models->with(static::$full);
         else if (array_key_exists('with', static::$options)) $models->with(static::$options['with']);
         if (array_key_exists('where', static::$options)) $models->where(static::$options['where']);
+        if (array_key_exists('whereIn', static::$options)) {
+            if (count(static::$options['whereIn'])) {
+                foreach (static::$options['whereIn'] as $filter) {
+                    $found = strpos($filter[0], '.');
+                    if (!$found) $models->whereIn($filter[0], $filter[1]);
+                    else {
+                        $words = explode('.', $filter[0]);
+                        foreach ($filter[1] as $key => $value) {
+                            if (is_string($value)) {
+                                if ($value[0] === '#') {
+                                    $pos = strpos($value, 'lastId');
+                                    if ($pos) {
+                                        $model = substr(strrchr($value, ':'), 1);
+                                        $model = ucfirst(Str::singular($model));
+                                        $nameSpace = '\App\\' . $model;
+                                        $filter[1][$key] = $nameSpace::orderBy('starts_at', 'desc')->first()->id;
+                                    }
+                                }
+                            }
+                        }
+                        $models->whereHas($words[0], function($q) use ($words, $filter) {
+                            $q->whereIn($words[1], $filter[1]);
+                        });
+                    }
+                }
+            }
+            // $models->whereIn(static::$options['whereIn']);
+        }
         if (array_key_exists('orderBy', static::$options)) $models = $models->orderBy(static::$options['orderBy'], array_key_exists('orderDesc', static::$options) ? 'desc' : 'asc');
         if (array_key_exists('ids', static::$options)) $models = $models->find(static::$options['ids']);
         else $models = $models->get();
@@ -62,6 +91,9 @@ trait Scope {
         if($requestOptions->has('scopedThrough')) $options['scopedThrough'] = $requestOptions['scopedThrough'];
         if (!array_key_exists('where', $options)) {
             if($requestOptions->has('where')) $options['where'] = is_array($requestOptions['where']) ? $requestOptions['where'] : json_decode($requestOptions['where']);
+        }
+        if (!array_key_exists('whereIn', $options)) {
+            if($requestOptions->has('whereIn')) $options['whereIn'] = is_array($requestOptions['whereIn']) ? $requestOptions['whereIn'] : json_decode($requestOptions['whereIn']);
         }
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
         if($requestOptions->has('with')) {
