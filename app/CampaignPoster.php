@@ -11,7 +11,7 @@ class CampaignPoster extends Qmodel
     protected $with = ['poster', 'posterModel', 'language', 'country', 'state', 'poster_af'];
     protected $appends = ['name'];
     protected $fillable = [
-        'campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'file', 'link', 'thumbnail'
+        'campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'poster_af_file_id', 'link', 'thumbnail'
     ];
     protected static $permissions = [
         'view' => [
@@ -64,7 +64,7 @@ class CampaignPoster extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'file', 'multiFile']
+                ['campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'poster_af_file_id', 'multiFile']
             ],
         ],
     ];
@@ -73,7 +73,7 @@ class CampaignPoster extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name','description']
+                ['campaign_id', 'poster_id', 'poster_model_id', 'language_id', 'country_id', 'state_id', 'county_id', 'clinic_id', 'type', 'poster_af_file_id']
             ],
         ]
     ];
@@ -169,12 +169,15 @@ class CampaignPoster extends Qmodel
                 ],
             ],
         ],
-        'file' => [
+        'poster_af_file_id' => [
           'label' =>'Diseño',
           'unreal' => true,
           'type' => [
             'name' => 'file',
-          ],
+            'thumbnail' => true,
+            'public' => false,
+            'permissions' => '740'
+        ],
         ],
         'multiFile' => [
             'unreal' => true,
