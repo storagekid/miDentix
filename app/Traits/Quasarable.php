@@ -6,6 +6,7 @@ use App\Http\Requests\QStore;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 trait Quasarable {
 
@@ -39,6 +40,37 @@ trait Quasarable {
 
   protected function getQuasarUpdateFormLayout() {
     return property_exists($this, 'quasarFormUpdateLayout') ? $this->quasarFormUpdateLayout : [];
+  }
+
+  public static function getFullRelations() {
+    return static::$full;
+  }
+
+  public static function getRelationsOptions() {
+    return static::$relationOptions;
+  }
+
+  public static function parseRelationOptions($relation) {
+    if (!isset(static::$relationOptions)) return [];
+    if (!array_key_exists($relation, static::$relationOptions)) return [];
+    if (!array_key_exists('with', static::$relationOptions[$relation])) return [];
+    if (static::$relationOptions[$relation]['with'] === 'full') {
+      $parent = get_called_class();
+      $parent = substr(strrchr($parent, '\\'), 1);
+      $parent = Str::snake($parent);
+      $parents = $parent . 's';
+      $class = Str::studly(Str::singular($relation));
+      $class = 'App\\' . $class;
+      $relations = $class::getFullRelations();
+      if (($key = array_search($parent, $relations)) !== false) {
+        unset($relations[$key]);
+      }
+      if (($key = array_search($parents, $relations)) !== false) {
+        unset($relations[$key]);
+      }
+      return $relations;
+    }
+    return static::$relationOptions[$relation]['with'];
   }
 
   public function quasarData() {
