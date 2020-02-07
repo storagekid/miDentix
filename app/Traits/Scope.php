@@ -83,6 +83,13 @@ trait Scope {
     public static function filterOptions($options) {
         // dd($options);
         if (!request()->has('options')) {
+            if (request()->has('quasarData')) {
+                $quasarData =  json_decode(request('quasarData'), true);
+                if (array_key_exists('parentNameSpace', $quasarData)) {
+                    $with = $quasarData['parentNameSpace']::parseRelationOptions($quasarData['relation']);
+                    $options['with'] = array_key_exists('with', $options) ? array_merge($options['with'], $with) : $with;
+                }
+            }
             static::$options = $options;
             return true;
         }
@@ -96,7 +103,7 @@ trait Scope {
             if($requestOptions->has('whereIn')) $options['whereIn'] = is_array($requestOptions['whereIn']) ? $requestOptions['whereIn'] : json_decode($requestOptions['whereIn']);
         }
         if($requestOptions->has('full')) $options['full'] = $requestOptions['full'];
-        if($requestOptions->has('with')) {
+        else if($requestOptions->has('with')) {
             $requestWith = is_array($requestOptions['with']) ? $requestOptions['with'] : json_decode($requestOptions['with']);
             $options['with'] = array_key_exists('with', $options) ? array_merge($options['with'], $requestWith) : $requestWith;
         }
