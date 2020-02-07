@@ -24,7 +24,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('orderable_id');
             $table->string('orderable_type');
             $table->unsignedInteger('quantity');
-            $table->unsignedInteger('urgent')->default(0);
+            $table->unsignedInteger('priority')->default(3);
+            $table->unsignedInteger('state')->default(1); // (1) Placed, (2) Recieve, (3) Production, (4) Sent, (5) Delivered, (6) Canceled
             $table->timestamps();
         });
     }
