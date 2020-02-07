@@ -17,6 +17,14 @@ class Product extends Qmodel
     ];
     // Quasar DATA
     protected $relatedTo = ['product_providers'];
+    protected static $relationOptions = [
+        'product_providers' => [
+            'with' => 'full'
+        ]
+        // 'ProductProvider' => [
+        //     'with' => 'full'
+        // ]
+    ];
     protected $quasarFormNewLayout = [
         [
             'title' => 'Información',
@@ -110,7 +118,8 @@ class Product extends Qmodel
         return $this->belongsToMany(Provider::class, 'product_providers');
     }
     public function product_providers() {
-        return $this->hasMany(ProductProvider::class)->with(['provider']);
+        // return $this->hasMany(ProductProvider::class)->with($this->relationOptions['product_providers']['with']);
+        return $this->hasMany(ProductProvider::class)->with(static::parseRelationOptions('product_providers'));
     }
     public function parent() {
         return $this->belongsTo(Product::class, 'parent_id');

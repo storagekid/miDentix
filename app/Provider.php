@@ -6,7 +6,7 @@ namespace App;
 class Provider extends Qmodel
 {
     protected $fillable = ['name', 'legal_name', 'user_id', 'description', 'CIF', 'CNAE'];
-    protected static $full = ['products'];
+    protected static $full = ['products', 'user'];
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],

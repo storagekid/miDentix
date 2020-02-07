@@ -21,7 +21,7 @@ class Mailing extends Qmodel
     // Quasar DATA
     public static $cascade = ['sanitary_codes', 'mailing_designs'];
     protected $relatedTo = ['mailing_designs', 'sanitary_codes'];
-    protected $relationOptions = [
+    protected static $relationOptions = [
         'mailing_designs' => [
             'with' => ['language', 'country', 'state', 'county', 'clinic', 'clinics', 'base_af']
         ]
@@ -132,7 +132,7 @@ class Mailing extends Qmodel
         return $this->belongsTo(Campaign::class);
     }
     public function mailing_designs () {
-        return $this->hasMany(MailingDesign::class)->with($this->relationOptions['mailing_designs']['with']);
+        return $this->hasMany(MailingDesign::class)->with(static::parseRelationOptions('mailing_designs'));
     }
     public function clinic_mailings() {
         return $this->hasManyThrough(ClinicMailing::class, MailingDesign::class);
@@ -148,7 +148,6 @@ class Mailing extends Qmodel
         $ignoredClinics = [];
         $usedCounties = [];
         $usedStates = [];
-
         $designs = $this->mailing_designs()
             ->withCount(['clinics', 'counties', 'states'])
             ->orderBy('type', 'desc')
@@ -159,8 +158,8 @@ class Mailing extends Qmodel
             ->orderBy('state_id', 'desc')
             ->orderBy('states_count', 'desc')
             ->orderBy('country_id', 'desc')
-            ->cursor()
-            ->each(function ($design, $key) use ($groupedDesigns, $usedClinics, $ignoredClinics, $usedCounties, $usedStates) {
+            ->get();
+        foreach ($designs as $design) {
             $groupedDesigns[$design->id] = [];
             if ($design->clinic_id) {
                 if ($design->clinic->parent_id) $usedClinics[] = $design->clinic_id;
@@ -239,7 +238,7 @@ class Mailing extends Qmodel
                 }
                 $usedClinics = array_merge($usedClinics, $groupedDesigns[$design->id]);
             }
-        });
+        }
         return $groupedDesigns;
     }
     public function countyOpenActiveClinics($county, $usedClinics) {
