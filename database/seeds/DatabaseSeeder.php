@@ -61,6 +61,7 @@ class DatabaseSeeder extends Seeder
             PromotionSeeder::class,
             LegalSeeder::class,
             SanitaryCodeSeeder::class,
+            ProductCategorySeeder::class,
             ProductSeeder::class,
             ServiceSeeder::class,
             ProviderSeeder::class,

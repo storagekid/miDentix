@@ -17,12 +17,15 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
-            $table->string('category');
+            $table->boolean('storeable')->default(0);
+            $table->boolean('profileable')->default(0);
+            $table->unsignedBigInteger('product_category_id');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
             $table->index('parent_id');
+            $table->index('product_category_id');
         });
     }
 

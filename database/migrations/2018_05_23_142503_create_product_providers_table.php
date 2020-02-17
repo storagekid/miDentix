@@ -19,6 +19,11 @@ class CreateProductProvidersTable extends Migration
             $table->unsignedInteger('provider_id');
             $table->string('description')->nullable();
             $table->decimal('price', 26, 16)->nullable();
+            $table->unsignedInteger('min_quantity')->default(1);
+            $table->unsignedInteger('max_quantity')->nullable()->default(1000000);
+            $table->unsignedInteger('default_quantity')->default(1);
+            $table->unsignedInteger('quantity_steps')->default(1);
+            $table->unsignedInteger('delivery_time')->default(7); // days
             $table->date('starts_at')->nullable();
             $table->date('ends_at')->nullable();
             $table->string('details')->nullable();

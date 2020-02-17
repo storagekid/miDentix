@@ -1,1 +1,1 @@
-id,shopping_bag_id,user_id,clinic_id,provider_id,profile_id,"details",orderable_id,"orderable_type",quantity,urgent,"created_at","updated_at"
+id,shopping_bag_id,user_id,clinic_id,provider_id,profile_id,"details",orderable_id,"orderable_type",quantity,priority,state,"created_at","updated_at"
