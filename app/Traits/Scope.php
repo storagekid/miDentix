@@ -41,7 +41,7 @@ trait Scope {
             else $models = $modelName::select();
         }
         if (array_key_exists('withCount', static::$options)) $models = $models->withCount(static::$options['withCount']);
-        if (array_key_exists('full', static::$options)) $models->with(static::$full);
+        if (array_key_exists('full', static::$options)) $models->with(isset(static::$full) ? static::$full : []);
         else if (array_key_exists('with', static::$options)) $models->with(static::$options['with']);
         if (array_key_exists('where', static::$options)) $models->where(static::$options['where']);
         if (array_key_exists('whereIn', static::$options)) {
