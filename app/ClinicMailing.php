@@ -156,6 +156,9 @@ class ClinicMailing extends Qmodel
         ],
         'clinic_af.thumbnail' => [
             'label' => 'Clinic AF',
+            'type' => [
+                'name' => 'file'
+            ],
             'onGrid' => 'footer',
             'show' => false
         ],
@@ -176,6 +179,9 @@ class ClinicMailing extends Qmodel
         ],
         'printer_total_price' => [
             'label' => 'Precio Impresión',
+            'type' => [
+                'name' => 'currency'
+            ]
         ],
         'distributor.name' => [
             'label' => 'Distribuidor',
@@ -187,6 +193,9 @@ class ClinicMailing extends Qmodel
         ],
         'service.price' => [
             'label' => 'Tarifa Distribuidor',
+            'type' => [
+                'name' => 'currency'
+            ]
         ],
         'distributed_stand_qty' => [
             'label' => 'Distribuido Stand',
@@ -199,9 +208,15 @@ class ClinicMailing extends Qmodel
         ],
         'distributor_total_price' => [
             'label' => 'Precio Distribución',
+            'type' => [
+                'name' => 'currency'
+            ]
         ],
         'total_price' => [
             'label' => 'Precio Total',
+            'type' => [
+                'name' => 'currency'
+            ]
         ],
     ];
     // END Table Data

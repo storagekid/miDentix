@@ -119,9 +119,15 @@ class Campaign extends Qmodel
         ],
         'open' => [
             'label' => 'Abierta',
+            'type' => [
+                'name' => 'boolean'
+            ]
         ],
         'active' => [
             'label' => 'Activa',
+            'type' => [
+                'name' => 'boolean'
+            ]
         ],
         'description' => [
             'label' => 'Descripción',

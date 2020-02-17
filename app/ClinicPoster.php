@@ -110,6 +110,9 @@ class ClinicPoster extends Qmodel
         ],
         'clinic.active' => [
             'label' => 'Activa',
+            'type' => [
+                'name' => 'boolean'
+            ],
             'filtering' => ['select' => 'clinics'],
         ],
         'poster.description' => [

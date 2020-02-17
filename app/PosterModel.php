@@ -68,6 +68,10 @@ class PosterModel extends Qmodel
         ],
         'sanitary_codes' => [
             'label' => 'CS Especiales',
+            'type' => [
+                'name' => 'array',
+                'options' => ['mode' => 'count']
+              ]
         ],
     ];
     // END Table Data

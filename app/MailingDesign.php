@@ -215,6 +215,9 @@ class MailingDesign extends Qmodel
         ],
         'base_af.thumbnail' => [
             'label' => 'Mailing AF',
+            'type' => [
+                'name' => 'file'
+            ],
             'onGrid' => 'footer'
         ]
     ];

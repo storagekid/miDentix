@@ -217,10 +217,16 @@ class Clinic extends Qmodel
     ],
     'open' => [
       'label' => 'Abierta',
+      'type' => [
+        'name' => 'boolean'
+      ],
       'filtering' => ['select' => 'clinics'],
     ],
     'active' => [
       'label' => 'Activa',
+      'type' => [
+        'name' => 'boolean'
+      ],
       'filtering' => ['select' => 'clinics'],
     ],
     'city' => [
@@ -323,17 +329,22 @@ class Clinic extends Qmodel
         'label' => 'Clínica',
       ],
       'deleted_at' => [
-        'label' => 'Activa',
+        'label' => 'Abierta',
+        'type' => [
+          'name' => 'boolean',
+          'options' => ['mode' => 'invert']
+        ]
       ],
       'open' => [
-        'label' => 'Abierta',
+        'label' => 'Activa',
+        'type' => [
+          'name' => 'boolean',
+          'options' => ['mode' => 'invert']
+        ]
       ],
       'active_posters_count' => [
         'label' => 'Nº Carteles'
       ],
-      // 'clinic_posters' => [
-      //   'label' => 'Carteles'
-      // ],
       'clinic_distributions_by_campaign' => [
         'label' => 'Distribuciones'
       ],

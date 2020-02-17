@@ -108,6 +108,9 @@ class ClinicPosterPriority extends Qmodel
         ],
         'clinic_poster.clinic.active' => [
             'label' => 'Activa',
+            'type' => [
+                'name' => 'boolean'
+            ]
         ],
         'clinic_poster.poster.description' => [
             'label' => 'Descripción',
