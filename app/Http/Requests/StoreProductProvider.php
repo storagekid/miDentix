@@ -19,6 +19,11 @@ class StoreProductProvider extends FormRequest
             'country_id' => [$required->condition ? 'required' : ''],
             'description' => [$required->condition ? 'required' : ''],
             'price' => [$required->condition ? 'required' : '', 'numeric'],
+            'min_quantity' => ['min:1','max:7'],
+            'max_quantity' => ['min:1','max:7'],
+            'default_quantity' => ['min:1','max:7'],
+            'quantity_steps' => ['min:1','max:6'],
+            'delivery_time' => ['min:1','max:2'], // days
             'starts_at' =>[$required->condition ? 'required' : '', 'date'],
             'ends_at' =>['nullable', 'date'],
             'details' => ['nullable'],

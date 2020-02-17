@@ -16,13 +16,15 @@ class StoreProduct extends FormRequest
     {
         return [
             'name' => [
-                'required',
+                [$required->condition ? 'required' : ''],
                 Rule::unique('products')->ignore($model->id),
                 'min:3',
                 'max:32'
             ],
             'description' => ['nullable','min:3','max:255'],
-            'category' => [$required->condition ? 'required' : ''],
+            'storeable' => [$required->condition ? 'required' : ''],
+            'profileable' => [$required->condition ? 'required' : ''],
+            'product_category_id' => [$required->condition ? 'required' : ''],
             'parent_id' => ['nullable'],
         ];
     }

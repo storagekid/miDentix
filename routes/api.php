@@ -105,6 +105,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('claims', 'ClaimController');
 
         Route::resource('providers', 'ProviderController');
+        Route::resource('product_categories', 'ProductCategoryController');
         Route::resource('products', 'ProductController');
         Route::resource('services', 'ServiceController');
         Route::resource('product_providers', 'ProductProviderController');

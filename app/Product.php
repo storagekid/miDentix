@@ -8,8 +8,8 @@ class Product extends Qmodel
 {
     use SoftDeletes;
     
-    protected $fillable = ['name', 'description', 'category', 'parent_id'];
-    protected static $full = ['product_providers', 'parent', 'children'];
+    protected $fillable = ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id'];
+    protected static $full = ['product_providers', 'product_category', 'parent', 'children'];
     protected static $permissions = [
         'view' => [
             'Marketing' => ['*'],
@@ -30,7 +30,7 @@ class Product extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'category', 'parent_id']
+                ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id']
             ],
         ],
     ];
@@ -39,7 +39,7 @@ class Product extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'category', 'parent_id']
+                ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id']
             ],
         ],
         [
@@ -56,20 +56,36 @@ class Product extends Qmodel
         'description' => [
             'label' =>'Descripción',
         ],
-        'category' => [
-            'label' =>'Categoría',
+        'storeable' => [
+            'label' =>'Personalizable (Clínica/Oficina)',
+            'batch' => true,
             'type' => [
-                'name' =>'array',
-                'array' => ['Stationary', 'Mailing'],
+                'name' =>'boolean',
+            ],
+        ],
+        'profileable' => [
+            'label' =>'Personalizable (Empleado)',
+            'batch' => true,
+            'type' => [
+                'name' =>'boolean',
+            ],
+        ],
+        'product_category_id' => [
+            'label' =>'Categoría',
+            'batch' => true,
+            'type' => [
+                'name' =>'select',
+                'model' => 'product_categories',
+                'text' =>  'name',
+                'value' => 'id',
                 'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona un Tipo',
-                    'disabled' => true,
+                    'text' => 'Selecciona una Categoria',
                 ],
             ],
         ],
         'parent_id' => [
             'label' =>'Producto Superior',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'products',
@@ -99,8 +115,20 @@ class Product extends Qmodel
         'description' => [
             'label' => 'Descripción',
         ],
-        'category' => [
-            'label' =>'Category',
+        'storeable' => [
+            'label' => 'Personalizable (Clínica/Oficina)',
+            'type' => [
+                'name' => 'boolean'
+            ]
+        ],
+        'profileable' => [
+            'label' => 'Personalizable (Empleado)',
+            'type' => [
+                'name' => 'boolean'
+            ]
+        ],
+        'product_category.name' => [
+            'label' =>'Product Category',
         ],
         'parent.name' => [
             'label' => 'Padre',
@@ -120,6 +148,9 @@ class Product extends Qmodel
     public function product_providers() {
         // return $this->hasMany(ProductProvider::class)->with($this->relationOptions['product_providers']['with']);
         return $this->hasMany(ProductProvider::class)->with(static::parseRelationOptions('product_providers'));
+    }
+    public function product_category() {
+        return $this->belongsTo(ProductCategory::class);
     }
     public function parent() {
         return $this->belongsTo(Product::class, 'parent_id');

@@ -5,7 +5,25 @@ namespace App;
 
 class ProductProvider extends Qmodel
 {
-    protected $fillable = ['product_id', 'provider_id', 'description', 'price', 'starts_at', 'ends_at', 'details', 'country_id', 'state_id', 'county_id', 'clinic_id', 'store_id'];
+    protected $fillable = [
+        'product_id',
+        'provider_id',
+        'description',
+        'price',
+        'min_quantity',
+        'max_quantity',
+        'default_quantity',
+        'quantity_steps',
+        'delivery_time', // days
+        'starts_at',
+        'ends_at',
+        'details',
+        'country_id',
+        'state_id',
+        'county_id',
+        'clinic_id',
+        'store_id'
+    ];
     protected static $full = ['product', 'provider', 'country', 'state', 'county', 'clinic', 'store'];
     protected $table = 'product_providers';
 
@@ -21,7 +39,25 @@ class ProductProvider extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['product_id', 'provider_id', 'description', 'price', 'starts_at', 'ends_at', 'details', 'country_id', 'state_id', 'county_id', 'clinic_id', 'store_id']
+                [
+                    'product_id',
+                    'provider_id',
+                    'description',
+                    'price',
+                    'min_quantity',
+                    'max_quantity',
+                    'default_quantity',
+                    'quantity_steps',
+                    'delivery_time',
+                    'starts_at',
+                    'ends_at',
+                    'details',
+                    'country_id',
+                    'state_id',
+                    'county_id',
+                    'clinic_id',
+                    'store_id'
+                ]
             ],
         ],
     ];
@@ -30,7 +66,25 @@ class ProductProvider extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['product_id', 'provider_id', 'description', 'price', 'starts_at', 'ends_at', 'details', 'country_id', 'state_id', 'county_id', 'clinic_id', 'store_id']
+                [
+                    'product_id',
+                    'provider_id',
+                    'description',
+                    'price',
+                    'min_quantity',
+                    'max_quantity',
+                    'default_quantity',
+                    'quantity_steps',
+                    'delivery_time',
+                    'starts_at',
+                    'ends_at',
+                    'details',
+                    'country_id',
+                    'state_id',
+                    'county_id',
+                    'clinic_id',
+                    'store_id'
+                ]
             ],
         ]
     ];
@@ -57,28 +111,73 @@ class ProductProvider extends Qmodel
         ],
         'description' => [
             'label' =>'Descripción',
+            'batch' => true,
         ],
         'price' => [
             'label' =>'Precio',
+            'batch' => true,
             'type' => [
                 'name' =>'number',
                 'step' => 0.0000000000000001
             ],
         ],
+        'min_quantity' => [
+            'label' =>'Cantidad Mínima',
+            'batch' => true,
+            'type' => [
+                'name' =>'number',
+                'step' => 1
+            ],
+        ],
+        'max_quantity' => [
+            'label' =>'Cantidad Máxima',
+            'batch' => true,
+            'type' => [
+                'name' =>'number',
+                'step' => 1
+            ],
+        ],
+        'default_quantity' => [
+            'label' =>'Cantidad por Defecto',
+            'batch' => true,
+            'type' => [
+                'name' =>'number',
+                'step' => 1
+            ],
+        ],
+        'quantity_steps' => [
+            'label' =>'Incrementos',
+            'batch' => true,
+            'type' => [
+                'name' =>'number',
+                'step' => 1
+            ],
+        ],
+        'delivery_time' => [
+            'label' =>'Tiempo de Entrege Estimado (días)',
+            'batch' => true,
+            'type' => [
+                'name' =>'number',
+                'step' => 1
+            ],
+        ],
         'starts_at' => [
             'label' =>'Fecha Inicio',
+            'batch' => true,
             'type' => [
                 'name' => 'date',
             ]
         ],
         'ends_at' => [
             'label' =>'Fecha Fin',
+            'batch' => true,
             'type' => [
                 'name' => 'date',
             ]
         ],
         'details' => [
             'label' =>'Detalles',
+            'batch' => true,
         ],
         'country_id' => [
             'label' =>'País',
@@ -160,6 +259,30 @@ class ProductProvider extends Qmodel
         ],
         'price' => [
             'label' =>'Precio',
+            'type' => [
+                'name' => 'currency',
+                'options' => []
+            ],
+            'show' => 'relation'
+        ],
+        'min_quantity' => [
+            'label' =>'Cantidad Mínima',
+            'show' => 'relation'
+        ],
+        'max_quantity' => [
+            'label' =>'Cantidad Máxima',
+            'show' => 'relation'
+        ],
+        'default_quantity' => [
+            'label' =>'Cantidad por Defecto',
+            'show' => 'relation'
+        ],
+        'quantity_steps' => [
+            'label' =>'Incrementos',
+            'show' => 'relation'
+        ],
+        'delivery_time' => [
+            'label' =>'Tiempo Entrega (días)',
             'show' => 'relation'
         ],
         'starts_at' => [
