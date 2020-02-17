@@ -108,43 +108,33 @@ class SanitaryCode extends Qmodel
     // Tableable DATA
     protected $tableColumns = [
         'code' => [
-            'label' => 'Código',
-            'filtering' => ['select' => 'clinics'],
+            'label' => 'Código'
         ],
         'description' => [
-            'label' => 'Descripción',
-            'filtering' => ['search'],
+            'label' => 'Descripción'
         ],
         'sanitizable_type' => [
-            'label' => 'Objeto',
-            'filtering' => ['search'],
+            'label' => 'Objeto'
         ],
         'sanitizable.label' => [
-            'label' => 'Modelo',
-            'filtering' => ['search'],
+            'label' => 'Modelo'
         ],
         'campaign.name' => [
-            'label' => 'Campaña',
-            'filtering' => ['search'],
+            'label' => 'Campaña'
         ],
         'clinic.nickname' => [
-            'label' => 'Clínica',
-            'filtering' => ['search'],
+            'label' => 'Clínica'
         ],
         'county.name' => [
-            'label' => 'Provincia',
-            'filtering' => ['search'],
+            'label' => 'Provincia'
         ],
         'state.name' => [
-            'label' => 'CCAA',
-            'filtering' => ['search'],
+            'label' => 'CCAA'
         ],
         'country.name' => [
-            'label' => 'País',
-            'filtering' => ['search'],
+            'label' => 'País'
         ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
     public function sanitizable()

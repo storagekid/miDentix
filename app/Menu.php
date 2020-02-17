@@ -53,14 +53,11 @@ class Menu extends Qmodel
     protected $tableColumns = [
         'name' => [
             'label' => 'Nombre',
-            'filtering' => ['search'],
         ],
         'menu_items_count' => [
             'label' => 'Items',
-            'filtering' => ['select' => 'clinics'],
         ]
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
     protected $appends = ['shorted_items', 'label', 'value'];
     protected static $full = ['menu_items'];

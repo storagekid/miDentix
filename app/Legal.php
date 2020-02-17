@@ -148,19 +148,15 @@ class Legal extends Qmodel
         ],
         'country.name' => [
             'label' => 'País',
-            'filtering' => ['search'],
         ],
         'state.name' => [
             'label' => 'CCAA',
-            'filtering' => ['search'],
         ],
         'county.name' => [
             'label' => 'Provincia',
-            'filtering' => ['search'],
         ],
         'clinic.nickname' => [
             'label' => 'Clínica',
-            'filtering' => ['search'],
         ],
         'legalizable.label' => [
             'label' =>'Objeto',

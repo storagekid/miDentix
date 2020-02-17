@@ -128,12 +128,10 @@ class Promotion extends Qmodel
             'label' => 'Descripción',
         ],
         'language.native_name' => [
-            'label' => 'Language',
-            'filtering' => ['search'],
+            'label' => 'Language'
         ],
         'country.name' => [
-            'label' => 'País',
-            'filtering' => ['search'],
+            'label' => 'País'
         ],
         'starts_at' => [
             'label' => 'Fecha Inicio',

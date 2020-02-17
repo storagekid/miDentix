@@ -109,7 +109,6 @@ class User extends Authenticatable
             'label' => 'Groups',
         ],
     ];
-    protected $tableOptions = [['show','edit','delete'], true, false];
     // END Tableable Data
 
     public function findForPassport($identifier) {

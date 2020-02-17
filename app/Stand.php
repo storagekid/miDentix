@@ -175,7 +175,6 @@ class Stand extends Qmodel
   protected $tableColumns = [
     'nickname' => [
       'label' => 'Stand',
-      'filtering' => ['search'],
       'linebreak' => [
         'needles' => ['(', 'esq.'],
         'options' => [
@@ -184,53 +183,41 @@ class Stand extends Qmodel
       ],
     ],
     'open' => [
-      'label' => 'Abierto',
-      'filtering' => ['select' => 'clinics'],
+      'label' => 'Abierto'
     ],
     'active' => [
-      'label' => 'Activo',
-      'filtering' => ['select' => 'clinics'],
+      'label' => 'Activo'
     ],
     'city' => [
       'label' => 'Ciudad',
-      'filtering' => ['search'],
     ],
     'district' => [
       'label' => 'Distrito/Zona',
-      'filtering' => ['search'],
     ],
     'addresses' => [
       'label' => 'Direcciones',
-      'filtering' => ['search'],
     ],
     'phones' => [
       'label' => 'Teléfonos',
-      'filtering' => ['search'],
     ],
     'postal_code' => [
       'label' => 'CP',
-      'filtering' => ['search'],
     ],
     'language.label' => [
       'label' => 'Language',
-      'filtering' => ['search'],
     ],
     'email_ext' => [
       'label' => 'Email Ext.',
-      'filtering' => ['search'],
     ],
     'sanitary_code' => [
       'label' => 'Código Sanitario',
-      'filtering' => ['search'],
     ],
     'area_manager.full_name' => [
       'label' => 'Área Manager',
-      'filtering' => ['search'],
       'show' => false
     ],
     'clinic_manager.full_name' => [
       'label' => 'Clinic Manager',
-      'filtering' => ['search'],
       'show' => false
     ],
     'clinic_cloud_id' => [
@@ -243,20 +230,16 @@ class Stand extends Qmodel
     ],
     'cost_center.name' => [
       'label' => 'Centro de Coste',
-      'filtering' => ['search'],
       'show' => false
     ],
     'county.name' => [
       'label' => 'Provincia',
-      'filtering' => ['search'],
     ],
     'county.state.name' => [
       'label' => 'CCAA',
-      'filtering' => ['search'],
     ],
     'county.state.country.name' => [
       'label' => 'País',
-      'filtering' => ['search'],
       'show' => false
     ],
     'starts_at' => [

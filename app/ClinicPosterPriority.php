@@ -100,9 +100,6 @@ class ClinicPosterPriority extends Qmodel
     // END Quasar DATA
     // Tableable DATA
     protected $tableColumns = [
-        // 'clinic_poster_id' => [
-        //     'label' => 'Poster ID',
-        // ],
         'clinic_poster.clinic.nickname' => [
             'label' => 'Clínica',
         ],
@@ -147,7 +144,6 @@ class ClinicPosterPriority extends Qmodel
             'show' => 'relation'
         ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
 

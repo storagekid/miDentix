@@ -207,75 +207,66 @@ class Clinic extends Qmodel
   protected $tableColumns = [
     'nickname' => [
       'label' => 'Clínica',
-      'filtering' => ['search'],
-      'linebreak' => [
-        'needles' => ['(', 'esq.'],
+      'type' => [
+        'name' => 'string',
         'options' => [
-          'small' => true
+          'linebreak' => [
+            'needles' => ['(', 'esq.'],
+            'options' => [
+              'small' => true
+            ]
+          ],
         ]
-      ],
+      ]
     ],
     'open' => [
       'label' => 'Abierta',
       'type' => [
         'name' => 'boolean'
       ],
-      'filtering' => ['select' => 'clinics'],
     ],
     'active' => [
       'label' => 'Activa',
       'type' => [
         'name' => 'boolean'
       ],
-      'filtering' => ['select' => 'clinics'],
     ],
     'city' => [
       'label' => 'Ciudad',
-      'filtering' => ['search'],
     ],
     'district' => [
       'label' => 'Distrito/Zona',
-      'filtering' => ['search'],
     ],
     'addresses' => [
       'label' => 'Direcciones',
-      'filtering' => ['search'],
     ],
     'phones' => [
       'label' => 'Teléfonos',
-      'filtering' => ['search'],
     ],
     'postal_code' => [
       'label' => 'CP',
-      'filtering' => ['search'],
     ],
     'parent.nickname' => [
       'label' => 'Pertenece a',
     ],
     'clinic_siblings' => [
       'label' => 'Hermanas',
-      'filtering' => ['search'],
     ],
     'language.label' => [
       'label' => 'Language',
-      'filtering' => ['search'],
     ],
     'email_ext' => [
       'label' => 'Email Ext.',
-      'filtering' => ['search'],
     ],
     'sanitary_code' => [
       'label' => 'Código Sanitario',
-      'filtering' => ['search'],
     ],
     'area_manager.full_name' => [
       'label' => 'Área Manager',
-      'filtering' => ['search'],
       'show' => false
     ],
     'clinic_manager.full_name' => [
       'label' => 'Clinic Manager',
-      'filtering' => ['search'],
       'show' => false
     ],
     'clinic_cloud_id' => [
@@ -288,20 +279,16 @@ class Clinic extends Qmodel
     ],
     'cost_center.name' => [
       'label' => 'Centro de Coste',
-      'filtering' => ['search'],
       'show' => false
     ],
     'county.name' => [
       'label' => 'Provincia',
-      'filtering' => ['search'],
     ],
     'county.state.name' => [
       'label' => 'CCAA',
-      'filtering' => ['search'],
     ],
     'county.state.country.name' => [
       'label' => 'País',
-      'filtering' => ['search'],
       'show' => false
     ],
     'starts_at' => [
@@ -319,9 +306,6 @@ class Clinic extends Qmodel
     'deleted_at' => [
         'label' => 'Eliminado',
     ],
-    // 'actions' => [
-    //   'label' => 'Actions'
-    // ]
   ];
   protected $tableViews = [
     'PosterDistributionDashBoard' => [

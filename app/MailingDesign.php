@@ -188,30 +188,24 @@ class MailingDesign extends Qmodel
         ],
         'language.native_name' => [
             'label' => 'Language',
-            'filtering' => ['search'],
         ],
         'type' => [
             'label' => 'Type',
-            'filtering' => ['search'],
         ],
         'clinics' => [
             'label' => 'Clinicas'
         ],
         'country.name' => [
             'label' => 'País',
-            'filtering' => ['search'],
         ],
         'state.name' => [
             'label' => 'CCAA',
-            'filtering' => ['search'],
         ],
         'county.name' => [
             'label' => 'Provincia',
-            'filtering' => ['search'],
         ],
         'clinic.nickname' => [
             'label' => 'Clínica',
-            'filtering' => ['search'],
         ],
         'base_af.thumbnail' => [
             'label' => 'Mailing AF',

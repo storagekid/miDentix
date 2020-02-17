@@ -149,7 +149,18 @@ class ClinicMailing extends Qmodel
     // Tableable DATA
     protected $tableColumns = [
         'clinic.nickname' => [
-            'label' => 'Clínica'
+            'label' => 'Clínica',
+            'type' => [
+                'name' => 'string',
+                'options' => [
+                  'linebreak' => [
+                    'needles' => ['(', 'esq.'],
+                    'options' => [
+                      'small' => true
+                    ]
+                  ],
+                ]
+            ]
         ],
         'clinic.clinic_cloud_id' => [
             'label' => 'CC ID'

@@ -139,138 +139,38 @@ class Profile extends Qmodel
     protected $tableColumns = [
         'user_id' => [
             'label' => 'Usuario',
-            'filtering' => ['search'],
         ],
         'name' => [
             'label' => 'Nombre',
-            'filtering' => ['search'],
         ],
         'lastname1' => [
             'label' => 'Apellido',
-            'filtering' => ['search'],
         ],
         'lastname2' => [
             'label' => 'Apellido2',
-            'filtering' => ['search'],
             'show' => false
         ],
         'emails' => [
             'label' => 'Correo Electrónico',
-            'filtering' => ['search'],
         ],
         'phones' => [
             'label' => 'Teléfonos',
-            'filtering' => ['search'],
         ],
         'personal_id_number' => [
             'label' => 'DNI',
-            'filtering' => ['search'],
         ],
         'gender' => [
             'label' => 'Género',
-            'filtering' => ['search'],
             'show' => false
         ],
         'clinic_profiles' => [
             'label' => 'Clinicas',
-            'filtering' => ['search'],
         ],
         'license_number' => [
             'label' => 'Nº de Colegiado',
-            'filtering' => ['search'],
         ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
-
-    protected $formModels = ['jobs','job_types'];
-
-    protected $formRelations = [
-        'clinics' => [
-            'label' => 'Clínicas',
-            'header' => 'Nueva Clínica',
-            'name' => 'clinics',
-            'fields' => [
-            'country_id' => [
-                'label' => 'País',
-                'name' => 'country_id',
-                'value' => null,
-                'dontRecord' => true,
-                'affects' => 'state_id',
-                'type' => [
-                'name' => 'select',
-                'model' => 'countries',
-                'text' => 'name',
-                'value' => 'id',
-                'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona un País',
-                    'disabled' => true,
-                ],
-                ],
-            ],
-            'state_id' => [
-                'label' => 'CCAA',
-                'name' => 'state_id',
-                'value' => null,
-                'dontRecord' => true,
-                'dependsOn' => 'country_id',
-                'affects' => 'county_id',
-                'type' => [
-                'name' => 'select',
-                'model' => 'states',
-                'text' => 'name',
-                'value' => 'id',
-                'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona una CCAA',
-                    'disabled' => true,
-                ],
-                ],
-            ],
-            'county_id' => [
-                'label' => 'Provincia',
-                'name' => 'county_id',
-                'value' => null,
-                'dependsOn' => 'state_id',
-                'affects' => 'clinic_id',
-                'dontRecord' => true,
-                'type' => [
-                'name' => 'select',
-                'model' => 'counties',
-                'text' => 'name',
-                'value' => 'id',
-                'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona una Provincia',
-                    'disabled' => true,
-                ],
-                ],
-            ],
-            'clinic_id' => [
-                'label' => 'Clínica',
-                'rules' => ['required'],
-                'name' => 'clinic_id',
-                'value' => null,
-                'dontRecord' => false,
-                'dependsOn' => 'county_id',
-                'type' => [
-                'name' => 'select',
-                'model' => 'clinics',
-                'text' => 'fullName',
-                'value' => 'id',
-                'default' => [
-                    'value' => null,
-                    'text' => 'Selecciona una Clínica',
-                    'disabled' => true,
-                ],
-                ],
-            ],
-            ]
-        ]
-    ];
-
-    // END Formable DATA
 
     public function user() {
         return $this->belongsTo(User::class);

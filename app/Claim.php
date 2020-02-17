@@ -106,11 +106,9 @@ class Claim extends Qmodel
         ],
         'language.native_name' => [
             'label' => 'Language',
-            'filtering' => ['search'],
         ],
         'country.name' => [
             'label' => 'País',
-            'filtering' => ['search'],
         ],
         'starts_at' => [
             'label' => 'Fecha Inicio',

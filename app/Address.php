@@ -85,7 +85,6 @@ class Address extends Qmodel
         $address = str_replace(['C/', 'c/', 'Rúa', 'Pl.', 'Pl ', 'Av.', 'P.º', 'Pg.', 'Rbla.', 'C.º', 'Ctra.', 'Ptge.', 'L\'', '\'', '’', '´'], '', $address);
         $address = str_replace(['s/n', '/'], ['s.n.', '-'], $address);
         return trim($address);
-        // return trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], $this->address_line_1));
     }
     public function getCleanAddresstAttribute() {
         return trim(str_replace(['C/', 'c/', 's/n', '/'], ['', '', 's.n.', '-'], ($this->address_line_1 . ' ' . $this->address_line_2)));

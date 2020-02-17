@@ -75,7 +75,6 @@ class MenuItemGroup extends Qmodel
             'label' => 'Item de Menú',
         ],
     ];
-    protected $tableOptions = [['show', 'edit', 'clone', 'delete'], true, true];
     // END Table Data
 
     public function group() {

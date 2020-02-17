@@ -15,6 +15,8 @@ class Campaign extends Qmodel
             'Marketing' => ['*'],
         ]
     ];
+    protected static $full = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes', 'parent', 'children'];
+    protected $appends = ['label', 'value', 'open', 'active'];
 
     // Quasar DATA
     protected $relatedTo = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes'];
@@ -167,8 +169,6 @@ class Campaign extends Qmodel
         ]
     ];
     // END Table Data
-    protected static $full = ['campaign_posters', 'campaign_poster_priorities', 'sanitary_codes', 'parent', 'children'];
-    protected $appends = ['label', 'value', 'open', 'active'];
 
     // STATICS
     public static function findOrActive($id=null) {

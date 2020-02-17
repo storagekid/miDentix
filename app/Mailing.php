@@ -9,7 +9,6 @@ class Mailing extends Qmodel
     use SoftDeletes;
 
     protected $fillable = ['name', 'description', 'starts_at', 'ends_at', 'campaign_id'];
-    // protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
     protected static $full = ['campaign', 'mailing_designs', 'sanitary_codes', 'clinic_mailings'];
 
     protected static $permissions = [

@@ -38,9 +38,6 @@ class ClinicProfile extends Qmodel
             'filtering' => ['search']
         ],
     ];
-
-    protected $tableOptions = [['show','edit','delete'], true, true];  
-
     // Quasar DATA
 
     protected $quasarFormNewLayout = [
