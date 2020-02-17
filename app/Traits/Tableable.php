@@ -51,7 +51,6 @@ trait Tableable {
             $temp['name'] = $name;
             $temp['show'] = array_key_exists('show', $options) ? $options['show'] : true;
             $temp['linebreak'] = array_key_exists('linebreak', $options) ? $options['linebreak'] : false;
-            $temp['boolean'] = array_key_exists('boolean', $options) ? $options['boolean'] : false;
             $temp['parse'] = array_key_exists('parse', $options) ? true : false;
             $temp['multiEdit'] = array_key_exists('multiEdit', $options) ? true : false;
             $temp['model'] = array_key_exists('model', $options) ? $options['model'] : false;
@@ -60,12 +59,38 @@ trait Tableable {
             $temp['onGrid'] = array_key_exists('onGrid', $options) ? $options['onGrid'] : 'line';
             $temp['align'] = array_key_exists('align', $options) ? $options['align'] : 'left';
             $temp['sortable'] = array_key_exists('sortable', $options) ? $options['sortable'] : true;
+            $temp['type'] = $this->typeBuilder($options);
             $temp['sorting'] = $this->sortingBuilder($sorting);
             $temp['filtering'] = $this->filteringBuilder($name, $filtering);
             $defColumns[] = $temp;
         };
 
         return $defColumns;
+    }
+
+    public function typeBuilder($options=[]) {
+        $types = ['boolean', 'string', 'array', 'number', 'file', 'currency'];
+        $hasType = array_key_exists('type', $options);
+        $hasTypeName = false;
+        $hasTypeOptions = false;
+        if ($hasType) {
+            $hasTypeName = array_key_exists('name', $options['type']);
+            $hasTypeOptions = array_key_exists('options', $options['type']);
+        }
+        $type = [
+            'name' => 'string',
+            'options' => $hasTypeOptions ? $options['type']['options'] : []
+        ];
+        foreach ($types as $name) {
+            if ($hasTypeName && $options['type']['name'] === $name) {
+                $type['name'] = $name;
+                break;
+            } else if (array_key_exists($name, $options)) {
+                $type['name'] = $name;
+                break;
+            }
+        }
+        return $type;
     }
 
     public function sortingBuilder($options=[]) {
