@@ -52,7 +52,6 @@ class Group extends Qmodel
             'label' => 'Nº Usuarios'
         ]
     ];
-    protected $tableOptions = [['show','edit','delete'], true, false];
     // END Tableable Data
 
     public function user() {
