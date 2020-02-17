@@ -139,6 +139,9 @@ class Profile extends Qmodel
     protected $tableColumns = [
         'user_id' => [
             'label' => 'Usuario',
+            'type' => [
+                'name' => 'boolean'
+            ]
         ],
         'name' => [
             'label' => 'Nombre',
