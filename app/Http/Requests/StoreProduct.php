@@ -24,6 +24,7 @@ class StoreProduct extends FormRequest
             'description' => ['nullable','min:3','max:255'],
             'storeable' => [$required->condition ? 'required' : ''],
             'profileable' => [$required->condition ? 'required' : ''],
+            'customizable' => [$required->condition ? 'required' : ''],
             'product_category_id' => [$required->condition ? 'required' : ''],
             'parent_id' => ['nullable'],
         ];

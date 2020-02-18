@@ -8,7 +8,7 @@ class Product extends Qmodel
 {
     use SoftDeletes;
     
-    protected $fillable = ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id'];
+    protected $fillable = ['name', 'description', 'storeable', 'profileable', 'customizable', 'product_category_id', 'parent_id'];
     protected static $full = ['product_providers', 'product_category', 'parent', 'children'];
     protected static $permissions = [
         'view' => [
@@ -30,7 +30,7 @@ class Product extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id']
+                ['name', 'description', 'storeable', 'profileable', 'customizable', 'product_category_id', 'parent_id']
             ],
         ],
     ];
@@ -39,7 +39,7 @@ class Product extends Qmodel
             'title' => 'Información',
             'subtitle' => 'General',
             'fields' => [
-                ['name', 'description', 'storeable', 'profileable', 'product_category_id', 'parent_id']
+                ['name', 'description', 'storeable', 'profileable', 'customizable', 'product_category_id', 'parent_id']
             ],
         ],
         [
@@ -65,6 +65,13 @@ class Product extends Qmodel
         ],
         'profileable' => [
             'label' =>'Personalizable (Empleado)',
+            'batch' => true,
+            'type' => [
+                'name' =>'boolean',
+            ],
+        ],
+        'customizable' => [
+            'label' =>'Personalizable (Otros)',
             'batch' => true,
             'type' => [
                 'name' =>'boolean',
@@ -123,6 +130,12 @@ class Product extends Qmodel
         ],
         'profileable' => [
             'label' => 'Personalizable (Empleado)',
+            'type' => [
+                'name' => 'boolean'
+            ]
+        ],
+        'customizable' => [
+            'label' => 'Personalizable (Otros)',
             'type' => [
                 'name' => 'boolean'
             ]
