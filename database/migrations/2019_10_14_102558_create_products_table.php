@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->boolean('storeable')->default(0);
             $table->boolean('profileable')->default(0);
+            $table->boolean('customizable')->default(0);
             $table->unsignedBigInteger('product_category_id');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->softDeletes();
