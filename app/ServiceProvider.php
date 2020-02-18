@@ -56,9 +56,11 @@ class ServiceProvider extends Qmodel
         ],
         'description' => [
             'label' =>'Descripción',
+            'batch' => true,
         ],
         'price' => [
             'label' =>'Precio',
+            'batch' => true,
             'type' => [
                 'name' =>'number',
                 'step' => 0.0000000000000001
@@ -66,21 +68,25 @@ class ServiceProvider extends Qmodel
         ],
         'starts_at' => [
             'label' =>'Fecha Inicio',
+            'batch' => true,
             'type' => [
                 'name' => 'date',
             ]
         ],
         'ends_at' => [
             'label' =>'Fecha Fin',
+            'batch' => true,
             'type' => [
                 'name' => 'date',
             ]
         ],
         'details' => [
             'label' =>'Detalles',
+            'batch' => true,
         ],
         'country_id' => [
             'label' =>'País',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'countries',
@@ -91,6 +97,7 @@ class ServiceProvider extends Qmodel
         ],
         'state_id' => [
             'label' =>'CCAA',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'states',
@@ -101,6 +108,7 @@ class ServiceProvider extends Qmodel
         ],
         'county_id' => [
             'label' =>'Provincia',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'counties',
@@ -111,6 +119,7 @@ class ServiceProvider extends Qmodel
         ],
         'clinic_id' => [
             'label' =>'Clínica',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'clinics',
@@ -121,6 +130,7 @@ class ServiceProvider extends Qmodel
         ],
         'store_id' => [
             'label' =>'Oficina',
+            'batch' => true,
             'type' => [
                 'name' =>'select',
                 'model' => 'stores',
