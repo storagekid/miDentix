@@ -16,11 +16,13 @@ class CreateClinicStationaryTable extends Migration
         Schema::create('clinic_stationaries', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('clinic_id');
-            $table->unsignedInteger('stationary_id');
-            $table->string('file');
-            $table->string('link');
-            $table->string('thumbnail');
+            $table->unsignedInteger('product_id');
+            $table->unsignedInteger('af_file_id')->nullable();
             $table->timestamps();
+
+            $table->index('clinic_id');
+            $table->index('product_id');
+            $table->index('af_file_id');
         });
     }
 

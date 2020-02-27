@@ -17,7 +17,8 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('shopping_bag_id');
             $table->unsignedInteger('user_id'); // User that makes the Order
-            $table->unsignedInteger('clinic_id');
+            $table->unsignedInteger('clinic_id')->nullable();
+            $table->unsignedInteger('store_id')->nullable();
             $table->unsignedInteger('provider_id');
             $table->unsignedInteger('profile_id')->nullable();
             $table->string('details')->nullable();
@@ -26,7 +27,16 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('priority')->default(3); // (1) Urgent, (2) Preferred, (3) Normal
             $table->unsignedInteger('state')->default(1); // (1) Placed, (2) Recieve, (3) Production, (4) Sent, (5) Delivered, (6) Canceled
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->index('shopping_bag_id');
+            $table->index('user_id');
+            $table->index('clinic_id');
+            $table->index('store_id');
+            $table->index('provider_id');
+            $table->index('profile_id');
+            $table->index('orderable_id');
         });
     }
 

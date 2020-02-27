@@ -1,1 +1,1 @@
-id,clinic_id,stationary_id,"file","link","thumbnail","created_at","updated_at"
+id,clinic_id,product_id,af_file_id,"created_at","updated_at"
