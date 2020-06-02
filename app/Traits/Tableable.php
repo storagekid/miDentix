@@ -47,6 +47,7 @@ trait Tableable {
             
             $temp = [];
             $temp['label'] = array_key_exists('label', $options) ? $options['label'] : ucfirst($name);
+            $temp['keyNames'] = array_key_exists('keyNames', $options) ? $options['keyNames'] : false;
             $temp['field'] = array_key_exists('field', $options) ? $options['field'] : $name;
             $temp['name'] = $name;
             $temp['show'] = array_key_exists('show', $options) ? $options['show'] : true;
@@ -135,9 +136,9 @@ trait Tableable {
                 ],
                 'exports' => [
                     'excel' => $this->getExcelBlueprints()
-                ],
-                'counterColumn' => $options[1],
-                'showNew' => $options[2],
+                ]
+                // 'counterColumn' => $options[1],
+                // 'showNew' => $options[2],
         ];
     }
     public function getExcelBlueprints() {
@@ -146,9 +147,13 @@ trait Tableable {
         $className = '\App\Exports\\' . $shortClass . 'Exports';
         // dump($className);
         $blueprints = [];
+        $labeldBlueprints = [];
         $authorized = (self::class === 'App\Qmodel' ? static::authorize('view') : auth()->guard('api')->user()->isRoot()) ? true : false;
         if ($authorized) $blueprints[] = 'Wildcard';
         if (class_exists($className)) $blueprints = array_merge($blueprints, (new $className)::$blueprints);
-        return $blueprints;
+        foreach ($blueprints as $blueprint) {
+            $labeldBlueprints[] = ['label' => $blueprint, 'value' => $blueprint];
+        }
+        return $labeldBlueprints;
     }
 }
