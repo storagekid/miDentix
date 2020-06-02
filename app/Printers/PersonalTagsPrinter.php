@@ -2,9 +2,6 @@
 
 namespace App\Printers;
 
-use App\ClinicSchedule;
-use Illuminate\Support\Facades\View;
-
 class PersonalTagsPrinter extends DentixPdfPrinter
 {
     public $fileName, $pathToFile, $path;
@@ -16,8 +13,6 @@ class PersonalTagsPrinter extends DentixPdfPrinter
         $this->clinic_schedules = $clinic_schedules;
 
         $this->fileName = $this->clinic_schedules[0]->clinic_profile->clinic->nickname . '-identificadores-' . \Carbon\Carbon::now() . '.pdf';
-        // dd($this->fileName);
-        // $this->pathToFile = storage_path('app/' . $this->directory . '/' . $this->fileName);
 
     }
 
@@ -45,12 +40,9 @@ class PersonalTagsPrinter extends DentixPdfPrinter
 
       $this->pdf->SetAutoPageBreak(1,1);
 
-
       $this->pdf->SetDrawColor(0,0,0,60);
       $this->pdf->SetFillColor(50,90,13,15);
       $this->pdf->SetTextColor(0,0,0,85);
-
-      $y;$height;$margin;
 
       $this->pdf->AddPage();
       $this->pdf->setEqualColumns(3,68);
@@ -61,18 +53,13 @@ class PersonalTagsPrinter extends DentixPdfPrinter
       $i = 0;
 
       foreach ($this->clinic_schedules as $schedule) {
-          $name;
+          $name = null;
           if (strlen($schedule->clinic_profile->profile->name . ' ' . $schedule->clinic_profile->profile->lastname1 . ' ' . $schedule->clinic_profile->profile->lastname2) <= 26) {
               $name = $schedule->clinic_profile->profile->name . ' ' . $schedule->clinic_profile->profile->lastname1 . ' ' . $schedule->clinic_profile->profile->lastname2;
-              // dd($name);
-              // dd(strlen($name));
           } else if (strlen($schedule->clinic_profile->profile->name . ' ' . $schedule->clinic_profile->profile->lastname1) <= 26) {
-              // dd(strlen($name));
               $name = $schedule->clinic_profile->profile->name . ' ' . $schedule->clinic_profile->profile->lastname1;
-          } else {
-              // dd(strlen($name));
-              return false;
-          }
+          } else return false;
+
           $puesto = $schedule->job_type->name;
 
           if ($i > 2) {
@@ -106,7 +93,6 @@ class PersonalTagsPrinter extends DentixPdfPrinter
               $this->pdf->setEqualColumns(3,68);
               $this->pdf->selectColumn(0);
               $y = $this->pdf->GetY();
-              // newPage($this->pdf);
           }
       }
 

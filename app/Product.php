@@ -171,4 +171,8 @@ class Product extends Qmodel
     public function children() {
         return $this->hasMany(Product::class, 'parent_id');
     }
+    public function orders()
+  {
+      return $this->morphMany(Order::class, 'orderable');
+  }
 }
