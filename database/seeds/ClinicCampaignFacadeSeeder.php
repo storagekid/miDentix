@@ -24,5 +24,18 @@ class ClinicCampaignFacadeSeeder extends CsvSeeder
 		DB::table($this->table)->truncate();
 
 		parent::run();
+
+		foreach (\App\ClinicCampaignFacade::get() as $clinicCampaignFacade) {
+			$f = $clinicCampaignFacade->facades()->first();
+			$path = 'clinics/' . $clinicCampaignFacade->clinic->id . '/facadesByCampaign/' . $clinicCampaignFacade->campaign->id;
+			$f->renameFile($f->name, $path);
+		}
+
+		// $f = App\Clinic::first()->campaign_facades()->first()->facades()->first();
+		// // A Coruna (Juana de Vega, 23)-Follow Up-posters.pdf
+		// // $name = $f->fileable()->clinic->nickname . '-' . $f->fileable()->campaign->name . '-'
+		// // dump($f->fileable);
+		// $path = 'clinics/' . $f->fileable->clinic->id . '/facadesByCampaign';
+		// $f->renameFile($f->name, $path);
 	}
 }

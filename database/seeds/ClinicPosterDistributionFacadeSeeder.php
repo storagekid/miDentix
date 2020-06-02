@@ -24,5 +24,13 @@ class ClinicPosterDistributionFacadeSeeder extends CsvSeeder
 		DB::table($this->table)->truncate();
 
 		parent::run();
+
+		foreach (\App\ClinicPosterDistributionFacade::get() as $clinicDistributionFacade) {
+			$f = $clinicDistributionFacade->complete_facade()->first();
+			$path = 'clinics/' . $clinicDistributionFacade->clinic_poster_distribution->clinic->id . '/facadesByCampaign/' . $clinicDistributionFacade->campaign->id;
+			if ($f) $f->renameFile($f->name, $path);
+			else dump($clinicDistributionFacade->id);
+			// break;
+		}
 	}
 }

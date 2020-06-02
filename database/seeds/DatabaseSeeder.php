@@ -67,6 +67,8 @@ class DatabaseSeeder extends Seeder
             ProviderSeeder::class,
             ProductProviderSeeder::class,
             ServiceProviderSeeder::class,
+            ShoppingBagSeeder::class,
+            OrderSeeder::class,
         ]);
         if (!$this->profileCSV) {
             $this->call([
