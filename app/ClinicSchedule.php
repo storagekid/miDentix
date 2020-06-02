@@ -12,7 +12,7 @@ class ClinicSchedule extends Qmodel
     protected $casts = [
         'schedule' => 'array',
     ];
-    protected $appends = ['key_name'];
+    // protected $appends = ['key_name'];
     protected static $permissions = [
         'view' => [
           'Marketing' => ['*'],
@@ -84,6 +84,9 @@ class ClinicSchedule extends Qmodel
 
     public function clinic_profile() {
         return $this->belongsTo(ClinicProfile::class);
+    }
+    public function profile() {
+        return $this->hasOneThrough(Profile::class, ClinicProfile::class);
     }
     public function job() {
         return $this->belongsTo(Job::class);
