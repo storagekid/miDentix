@@ -106,7 +106,6 @@ class ClinicPoster extends Qmodel
         // ],
         'clinic.nickname' => [
             'label' => 'Clínica',
-            'filtering' => ['select' => 'clinics'],
         ],
         'clinic.active' => [
             'label' => 'Activa',
@@ -117,31 +116,24 @@ class ClinicPoster extends Qmodel
         ],
         'poster.description' => [
             'label' => 'Descripción',
-            'filtering' => ['search'],
         ],
         'type' => [
             'label' => 'Type',
-            'filtering' => ['search'],
         ],
         'clinic_poster_priorities_count' => [
             'label' => 'Prioridades',
-            'filtering' => ['search'],
         ],
         'clinic.county.name' => [
             'label' => 'Provincia',
-            'filtering' => ['search'],
         ],
         'clinic.county.state.name' => [
             'label' => 'CCAA',
-            'filtering' => ['search'],
         ],
         'starts_at' => [
             'label' => 'Fecha de Alta',
-            'filtering' => ['search'],
         ],
         'ends_at' => [
             'label' => 'Fecha de Baja',
-            'filtering' => ['search'],
         ],
     ];
     protected $tableViews = [
