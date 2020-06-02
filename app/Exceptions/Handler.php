@@ -65,16 +65,25 @@ class Handler extends ExceptionHandler
 
             // Backup your default mailer
             $backup = Mail::getSwiftMailer();
-            // Setup your office365 mailer
-            $transport = new \Swift_SmtpTransport('smtp.office365.com', 587, 'TLS');
-            $transport->setUsername('jgvillalba@dentix.es');
-            $transport->setPassword('Dentix%30');
-            // Any other mailer configuration stuff needed...
-            $office365 = new \Swift_Mailer($transport);
-            // Set the mailer as office365
-            Mail::setSwiftMailer($office365);
 
-            Mail::to('jgvillalba@dentix.es')->send(new ExceptionOccured($html));
+            // Setup your Mozodealmacen mailer
+            $transport = new \Swift_SmtpTransport('smtp.googlemail.com', 465, 'SSL');
+            $transport->setUsername('jgvillalba@mozodealmacen.com');
+            $transport->setPassword('gyvpzwxhudigkddh');
+            $gmail = new \Swift_Mailer($transport);
+
+            Mail::setSwiftMailer($gmail);
+
+            // Setup your office365 mailer
+            // $transport = new \Swift_SmtpTransport('smtp.office365.com', 587, 'TLS');
+            // $transport->setUsername('jgvillalba@dentix.es');
+            // $transport->setPassword('Dentix%30');
+            // // Any other mailer configuration stuff needed...
+            // $office365 = new \Swift_Mailer($transport);
+            // // Set the mailer as office365
+            // Mail::setSwiftMailer($office365);
+
+            Mail::to('jgvillalba@mozodealmacen.com')->send(new ExceptionOccured($html));
 
             // Restore your original mailer
             Mail::setSwiftMailer($backup);
