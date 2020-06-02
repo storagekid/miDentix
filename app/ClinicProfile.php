@@ -9,8 +9,8 @@ class ClinicProfile extends Qmodel
     protected $fillable = [
         'profile_id', 'clinic_id'
     ];
-    protected $with = ['clinic'];
-    protected $appends = ['fullName', 'label', 'value'];
+    // protected $with = ['clinic'];
+    // protected $appends = ['fullName', 'label', 'value'];
     protected $table = 'clinic_profiles';
     protected static $permissions = [
         'view' => [
@@ -19,6 +19,15 @@ class ClinicProfile extends Qmodel
         ]
     ];
     public static $cascade = ['schedules'];
+    protected static $relationOptions = [
+        'clinic_stationaries' => [
+          'with' => ['af', 'product']
+        ],
+        'clinic_profiles' => [
+          'with' => ['profile', 'job', 'job_type']
+          // 'append' => ['schedules']
+        ]
+    ];
     // TABLE
     protected $tableColumns = [
         'fullName' => [
@@ -80,11 +89,11 @@ class ClinicProfile extends Qmodel
     protected $listFields = [
         'left' => [],
         'main' => [
-          'fullName' => ['text']
+          'id' => ['text']
         ],
         'right' => [],
     ];
-    protected $keyField = 'fullName';
+    // protected $keyField = 'fullName';
     // END Quasar DATA
 
     public function profile() {
