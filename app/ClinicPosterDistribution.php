@@ -238,8 +238,10 @@ class ClinicPosterDistribution extends Qmodel
         // if ($file->is_public) $filePath = 'public/' . $filePath;
         // $cleanFacade->writeImage(storage_path('app/' . $filePath . '/' . $fileName));
         // $file = $this::storeFile($file->path . '/' . $fileName, $file->path,$fileName,null,1,6,true); // TEST WITH USER AND GROUP HARDCODED
-        $path = $file->path . '/campaigns';
-        $file = $this::storeFile($pdfFile->directory . $pdfFile->fileName, $path, $pdfFile->fileName,null,null,null,true,true);
+        // $path = $file->path . '/campaigns';
+        // $file = $this::storeFile($pdfFile->directory . $pdfFile->fileName, $path, $pdfFile->fileName,null,null,null,true,true);
+        $path = 'clinics/' . $this->clinic->id . '/facadesByCampaign/' . $campaign->id;
+        $file = $this::storeFile($pdfFile->directory . $pdfFile->fileName, $path, $pdfFile->fileName,null,null,null,false,true);
         $completeFacade = $this->complete_facades()->save(new ClinicPosterDistributionFacade([
             'campaign_id' => $campaign->id,
             'complete_facade_file_id' => $file->id
