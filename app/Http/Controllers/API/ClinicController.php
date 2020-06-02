@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Clinic;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\QStore;
 use App\Jobs\SendCampaignDistribution;
-use Carbon\Carbon;
+use App\Printers\StationaryCustomizablePrinter as StationaryPrinter;
 
 class ClinicController extends Controller
 {
@@ -125,6 +123,37 @@ class ClinicController extends Controller
         return response([
             'model' => $model->fresh()->load('poster_distributions'),
             'message' => 'Distributions Clone Successfully',
+        ], 200);
+    }
+    public function generateStationaries($clinic, $params = ['force' => false]) {
+        if (request()->has('force')) {
+            $params['force'] = request('force') === 'true' ?: false;
+        }
+        $model = \App\Clinic::fetch(['ids'=>[$clinic], 'with' => ['clinic_stationaries']])[0]->append(['real_address', 'real_phone']);
+        $storeableStationaries = \App\Product::with(['product_category' => function($q) { return $q->where('name', 'stationary'); }])->where('storeable', 1)->get();
+        $clinicStationariesIds = $model->clinic_stationaries->pluck('product_id');
+        foreach ($storeableStationaries as $stationary) {
+            // $clinicStationary = null;
+            if ($clinicStationariesIds->contains($stationary->id)) {
+                if (!$params['force']) continue;
+                $clinicStationary = $model->clinic_stationaries()->where('product_id', $stationary->id)->first();
+                $clinicStationary->af()->first()->delete();
+            }
+            else {
+                $clinicStationary = new \App\ClinicStationary([
+                    'clinic_id' => $model->id,
+                    'product_id' => $stationary->id
+                ]);
+            }
+            $file = $clinicStationary->makeStationary();
+            if (!$file) continue;
+
+            $clinicStationary['af_file_id'] = $file->id;
+            $model->clinic_stationaries()->save($clinicStationary);
+            $clinicStationary->files()->save($file);
+        }
+        return response([
+            'model' => $model->getView(request('view')),
         ], 200);
     }
 }
