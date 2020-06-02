@@ -34,7 +34,14 @@ class Clinic extends Qmodel
   public static $cascade = ['addresses', 'phones'];
   // Quasar DATA
   protected $relatedTo = ['addresses', 'phones', 'clinic_siblings'];
-
+  protected static $relationOptions = [
+    'clinic_stationaries' => [
+      'with' => ['af', 'product']
+    ],
+    'clinic_profiles' => [
+      'with' => ['profile', 'schedules']
+    ]
+  ];
   protected $quasarFormNewLayout = [
       [
           'title' => 'Información',
@@ -392,8 +399,13 @@ class Clinic extends Qmodel
         'poster_distributions.complete_facades',
         'poster_distributions.original_facade'
       ]
-      // 'append' => ['posters']
     ],
+    'stationary' => [
+      'with' => [
+        'clinic_profiles'
+      ],
+      'append' => ['real_address', 'real_phone', 'stationary_products']
+    ]
   ];
   // END Model Views
   public function parent() {
@@ -402,6 +414,9 @@ class Clinic extends Qmodel
   public function children() {
       return $this->hasMany(Clinic::class, 'parent_id');
   }
+  public function clinic_stationaries () {
+    return $this->hasMany(ClinicStationary::class)->with(static::parseRelationOptions('clinic_stationaries'));
+}
   public function clinic_posters () {
       return $this->hasMany(ClinicPoster::class);
   }
@@ -445,10 +460,16 @@ class Clinic extends Qmodel
       return $this->belongsTo(Profile::class, 'clinic_manager_id');
   }
 
+  public function clinic_profiles()
+  {
+      return $this->hasMany(ClinicProfile::class)->with(static::parseRelationOptions('clinic_profiles'));
+  }
+
   public function profiles()
   {
-      return $this->belongsToMany(Profile::class, 'clinic_profiles');
+      return $this->belongsToMany(Profile::class, 'clinic_profiles')->with(static::parseRelationOptions('profiles'));
   }
+
   public function addresses()
   {
       return $this->morphMany(Address::class, 'addressable');
@@ -456,9 +477,6 @@ class Clinic extends Qmodel
   public function phones()
   {
       return $this->morphMany(Phone::class, 'phoneable');
-  }
-  public function schedules() {
-    return $this->hasManyThrough(ClinicSchedule::class, ClinicProfile::class);
   }
 
   public function getSharesClinicCloudId() {
@@ -560,6 +578,16 @@ class Clinic extends Qmodel
       return $this->county ? $this->county->state->country->name : '-';
   }
 
+  public function getRealPhoneAttribute()
+  {
+    return $this->phones()->where('type', 'Oficina')->first();
+  }
+
+  public function getRealAddressAttribute()
+  {
+    return $this->addresses()->where('type', 'Fiscal')->first();
+  }
+
   public function getPostalCodeAttribute($value)
   {
       while (strlen($value) < 5) {
@@ -579,7 +607,21 @@ class Clinic extends Qmodel
   {
       return $this->clinic_posters()->where('ends_at', null)->count();
   }
-  
+  public function getStationaryProductsAttribute()
+  {
+    $products = \App\Product::with([
+      'product_providers',  
+      'product_category' => function ($query) { return $query->where('name', 'stationary'); }
+      ])->get();
+    foreach ($products as $productKey => $product) {
+        $product->provider = $this->filterScopeEnhanced($product->product_providers);
+        $product->unsetRelation('product_providers');
+        if ($product->storeable) {
+          $product->clinic_stationary = $this->clinic_stationaries()->where('product_id', $product->id)->first();
+        }
+    }
+    return $products;
+  }
   public function getOpenAttribute()
   {
       if (!$this->ends_at && Carbon::parse($this->starts_at)->lessThan(Carbon::now())) return true;
@@ -836,6 +878,25 @@ class Clinic extends Qmodel
     foreach ($modelsToScope as $source) {
       if (!$source->country_id || $source->state_id || $source->county_id || $source->clinic_id) continue;
       if ($source->stcountry_idte_id === $this->county->state->country_id) return $source;
+    }
+  }
+  public function filterScopeEnhanced($modelsToScope) {
+    // dd($modelsToScope->toArray());
+    foreach ($modelsToScope as $source) {
+      if (!$source->clinic_id) continue;
+      if ($source->clinic_id === $this->id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->county_id) continue;
+      if ($source->county_id === $this->county_id && !$source->clinic_id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->state_id) continue;
+      if (($source->state_id === $this->county->state_id) && !$source->county_id && !$source->clinic_id) return $source;
+    }
+    foreach ($modelsToScope as $source) {
+      if (!$source->country_id) continue;
+      if ($source->country_id === $this->county->state->country_id && !$source->state_id && !$source->county_id && !$source->clinic_id) return $source;
     }
   }
 }

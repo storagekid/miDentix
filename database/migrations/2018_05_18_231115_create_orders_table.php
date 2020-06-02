@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('user_id'); // User that makes the Order
             $table->unsignedInteger('clinic_id')->nullable();
             $table->unsignedInteger('store_id')->nullable();
-            $table->unsignedInteger('provider_id');
+            $table->unsignedInteger('product_provider_id');
             $table->unsignedInteger('profile_id')->nullable();
             $table->string('details')->nullable();
             $table->unsignedInteger('orderable_id');
@@ -34,7 +34,7 @@ class CreateOrdersTable extends Migration
             $table->index('user_id');
             $table->index('clinic_id');
             $table->index('store_id');
-            $table->index('provider_id');
+            $table->index('product_provider_id');
             $table->index('profile_id');
             $table->index('orderable_id');
         });
