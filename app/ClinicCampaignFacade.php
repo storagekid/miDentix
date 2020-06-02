@@ -14,4 +14,11 @@ class ClinicCampaignFacade extends Qmodel
           'Marketing' => ['*'],
         ]
     ];
+
+    public function clinic() {
+      return $this->belongsTo(Clinic::class);
+    }
+    public function campaign() {
+      return $this->belongsTo(Campaign::class);
+    }
 }
