@@ -41,6 +41,7 @@ class WildCardViewExports implements FromView
         else $models = $this->model::get();
         $models = $models->toArray();
         foreach ($models as $key => $model) {
+            // dd($model);
             if (count($badColumns) > 0) {
                 foreach ($badColumns as $column) {
                     // dump($column);
@@ -48,6 +49,10 @@ class WildCardViewExports implements FromView
                     $item = $model[$words[0]];
                     $counter = 1;
                     while ($counter < count($words)) {
+                        if (!$item) {
+                            $item = '-';
+                            break;
+                        }
                         $item = $item[$words[$counter]];
                         $counter++;
                     }
