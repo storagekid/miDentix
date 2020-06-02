@@ -15,4 +15,11 @@ class ClinicPosterDistributionFacade extends Qmodel
           'Marketing' => ['*'],
         ]
     ];
+
+    public function clinic_poster_distribution() {
+      return $this->belongsTo(ClinicPosterDistribution::class);
+    }
+    public function campaign() {
+      return $this->belongsTo(Campaign::class);
+    }
 }
