@@ -175,4 +175,54 @@ class User extends Authenticatable
       // ... check if 'this' model uses the soft deletes trait
       return in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses(static::make()));
     }
+
+    public function loginApi() {
+        $this->load('profiles', 'groups', 'group_users');
+        $this->append('groupsInfo');
+        if (count($this->profiles) === 1) {
+            $this['profile'] = \App\Profile::fetch(['full' => true, 'ids' => [$this->profiles[0]->id], 'appends' => ['clinicScope', 'storeScope']])[0];
+        }
+    }
+
+    public function buildMainMenu() {
+        $menus = \App\Menu::get()->toArray();
+        if (!$this->isRoot()) {
+            $userGroups = collect($this->groupsInfo)->keys()->toArray();
+            $routes = [];
+            $menuItems = collect();
+            foreach ($this->groups as $group) {
+                $groupMenuItems = $group->menu_items;
+                $groupRoutes = $group->menu_items->pluck('to')->all();
+                $routes = array_merge($routes, $groupRoutes);
+                $menuItems = $menuItems->merge($groupMenuItems);
+            }
+            foreach ($menus AS $key => $parent) {
+                $filteredItems = [];
+                foreach ($parent['shorted_items'] as $i) {
+                    if (!count($i['groups'])) continue;
+                    foreach ($i['groups'] as $menusGroup) {
+                        if (in_array($menusGroup['name'], $userGroups)) $filteredItems[] = $i;
+                    }
+                }
+                $menus[$key]['filtered_items'] = $filteredItems;
+                unset($menus[$key]['shorted_items']);
+            }
+        } else {
+            foreach ($menus as $key => $parent) {
+                $menus[$key]['filtered_items'] = $parent['shorted_items'];
+                unset($menus[$key]['shorted_items']);
+            }
+            $routes = \App\MenuItem::get()->pluck('to')->all();
+        }
+        $routes = array_values(array_filter($routes, function($i) {
+            return $i !== null;
+        }));
+        $routes = array_merge($routes, $this->getHomeRoutes());
+
+        if (!count($routes)) {
+            return response()->json(['message' => 'User has no Accesses Granted'], 403);
+        }
+
+        return [$menus, $routes];
+    }
 }
