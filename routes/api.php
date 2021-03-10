@@ -41,6 +41,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::post('clinics/{clinic}/newDistributionCriterion', 'ClinicController@newDistributionCriterion');
         Route::post('clinics/{clinic}/posterPrioritiesFixer', 'ClinicController@posterPrioritiesFixer');
         Route::post('clinics/{clinic}/setDefaultDistributions', 'ClinicController@setDefaultDistributions');
+        Route::post('clinics/{clinic}/generateStationaries', 'ClinicController@generateStationaries');
         Route::resource('clinic_siblings', 'ClinicSiblingController');
 
 
@@ -104,6 +105,8 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('promotions', 'PromotionController');
         Route::resource('claims', 'ClaimController');
 
+        Route::resource('emailings', 'EmailingController');
+        Route::post('emailings/sendtest', 'EmailingController@sendtest');
         Route::resource('providers', 'ProviderController');
         Route::resource('product_categories', 'ProductCategoryController');
         Route::resource('products', 'ProductController');
@@ -112,6 +115,7 @@ Route::prefix('rest')->namespace('api')->group(function() {
         Route::resource('service_providers', 'ServiceProviderController');
         Route::post('services/{service}/service_providers', 'ServiceProviderController@store');
         Route::post('products/{product}/product_providers', 'ProductProviderController@store');
+        Route::post('shopping_bags/placeOrder', 'ShoppingBagController@placeOrder');
 
         Route::post('users/{user}/group_users', 'GroupUserController@store');
         Route::post('profiles/{profile}/clinic_profiles', 'ClinicProfileController@store');

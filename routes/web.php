@@ -16,4 +16,15 @@ Route::get('/', function () {
   return view('landings.rgpd-landing');
 })->middleware('guest');
 
+Route::middleware('auth:web')->group(function () {
+  Route::get('emailings', function () {
+    return view('landings.emailings');
+  });
+  Route::get('landings', function () {
+    return view('landings.landings');
+  });
+  Route::get('sendemail', 'EmailingController@send')->name('sendemailing');
+  Route::get('showemail', 'EmailingController@showview')->name('showemail');
+});
+
 

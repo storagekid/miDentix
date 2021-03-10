@@ -63,6 +63,13 @@ class File extends Model
         return $this->morphTo();
     }
 
+    public static function checkFile($file) {
+        if (!Storage::exists($file)) {
+            return false;
+        }
+        return true;
+    }
+
     public function getBaseName() {
         return str_replace_last('.' . $this->extension, '', $this->name);
     }
@@ -115,7 +122,8 @@ class File extends Model
         return $paths;
     }
     public function renameFile($newName, $moveTo=null, $copy=false) {
-        $completeName = $newName . '.' . $this->extension;
+        if ($moveTo === $this->path && $newName === $this->name) return 'Nothing Change';
+        $completeName = strpos($newName, $this->extension) ? $newName : $newName . '.' . $this->extension;
         $path = $this->url;
         if (!$moveTo) $newPath = $this->path . '/' . $completeName;
         else $newPath = $moveTo . '/' . $completeName;
@@ -140,14 +148,19 @@ class File extends Model
             if ($this->is_public) $newPath = 'public/' . $newPath;
             $copy ? Storage::copy($thumbnail, $newPath) : Storage::move($thumbnail, $newPath);
             // Storage::move($thumbnail, $newPath);
-            $this->update([
-                'thumbnail' => $newThumbnail
-            ]);
+            $this->thumbnail = $newThumbnail;
+            // $this->update([
+            //     'thumbnail' => $newThumbnail
+            // ]);
         }
         if (!$copy) $url = $this->path . '/' . $completeName;
         else $url = $moveTo . '/' . $completeName;
         if (!$copy) $path = $this->path;
-        else $path = $moveTo;
+        if ($moveTo) {
+            $path = $moveTo;
+            $url = $path . '/' . $completeName;
+        }
+        // else $path = $moveTo;
 
         $this->name = $completeName;
         $this->url = $url;
@@ -172,8 +185,9 @@ class File extends Model
         if (!Storage::exists($path)) {
             Storage::makeDirectory($path);
         }
-
-        $imagick->readImage(storage_path('app/' . $file));
+        $fileName = storage_path('app/' . $file);
+        if ($thumbnail !== 'multi') $fileName .= '[0]';
+        $imagick->readImage($fileName);
         if ($thumbnail === 'multi') {
             $imagick->resetIterator();
             $imagick = $imagick->appendImages(false);
